@@ -1,0 +1,21 @@
+div.flash {
+	margin-bottom: 5px;
+}
+
+div.flash a.flash_close {
+	float: right;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div.flash a.flash_close:hover {
+	opacity: .75;
+}
+
+div.flash img {
+	height: 20px;
+	width: 20px;
+}

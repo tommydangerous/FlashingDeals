@@ -1,0 +1,37 @@
+<div id="login_notice">
+	<% flash.each do |key, value| %>
+		<div class="flash <%= key %>"><%= value %></div>
+	<% end %>
+</div>
+<div id="login_main">
+	<div id="close_login">
+		<%= link_to image_tag("/assets/close.png"), "javascript: void(0)", :class => "closedim" %>
+	</div>
+	<div id="login_header">
+		<h1>Login</h1>
+	</div>
+	<div id="login_form">
+		<%= form_for(:session, :url => sessions_path) do |f| %>
+		  <div class="field">
+		  	<p>Email</p>
+		    <%= f.text_field :email, :tabindex => 1 %>
+		  </div>
+		  <div class="field">
+		  	<p>Password</p>
+		    <%= f.password_field :password, :tabindex => 2 %>
+		  </div>
+		  <div id="forgot_password">
+		  	<%= link_to "Forgot your password?", new_password_reset_path %>
+		  </div>
+		  <div id="remember_me_login">
+		  	<%= check_box_tag :remember_me, 1, params[:remember_me] %> Keep me signed in
+		  </div>
+		  <div class="actions">
+		    <%= f.submit "Login", :id => "login_submit", :tabindex => 3 %>
+		  </div>
+		<% end %>
+	</div>
+	<div id="new_user">
+		<p>Don't know what's up? <%= link_to "Sign up now!", signup_path %></p>
+	</div>
+</div>

@@ -1,0 +1,96 @@
+#footer {
+	width:100%;
+	height:140px;
+	position:absolute;
+	bottom:0;
+	left:0;
+  background: #4b4b4b; /* Old browsers */
+  background: -moz-linear-gradient(top,  #4b4b4b 0%, #191919 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4b4b4b), color-stop(100%,#191919)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* IE10+ */
+  background: linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b4b4b', endColorstr='#191919',GradientType=0 ); /* IE6-9 */
+  border-top: 5px solid rgba(110, 220, 90, 1);
+  border-bottom: 32px solid rgba(50, 50, 50, 1);
+  overflow: visible;
+}
+
+.fd {
+  width: 951px;
+  margin: auto;
+
+}
+
+.fd table {
+  position: relative;
+  padding: 10px 0;
+  margin: 0;
+  float: right;
+}
+
+.fd table tr {
+  font-size: 11px;
+  font-weight: bold;
+  font-family: Verdana;
+  color: rgba(255, 255, 255, 1);
+}
+
+.fd table tr td {
+  padding: 0 10px;
+  width: 91px;
+}
+
+.fd table tr td p {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: Verdana;
+  color: rgba(255, 255, 255, 1);
+}
+
+.fd div.nav ul {
+  list-style-type: none;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.fd div.nav ul li {
+  padding: 5px 0;
+}
+
+div#footer .fd div.nav ul li a {
+  text-decoration: none;
+  color: rgba(150, 150, 150, 1);
+  font-size: 11px;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#footer .fd div.nav ul li a:hover {
+  text-decoration: underline;
+  color: rgba(255, 255, 255, 1);
+}
+
+div#copyright {
+	width: 951px;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	text-align: center;
+	clear: both;
+}
+
+p.copyright {
+  font-family: Verdana;
+  color: rgba(255, 255, 255, 1);
+  font-size: 10px;
+  padding-top: 15px;
+  margin: 0;
+  font-weight: normal;
+}

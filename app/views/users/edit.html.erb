@@ -1,0 +1,77 @@
+<div id="edit">
+	<div id="edit_header">
+		<h1>My Account Info</h1>
+	</div>
+	<div id="edit_gravatar">
+		<%= image_tag(@user.photo.url, :id => "user_photo_medium") %>
+	</div>
+	<div class="clear"></div>
+	<div id="edit_form">
+		<%= form_for @user, :html => { :multipart => true } do |f| %>
+  	<%= render 'error_messages', :object => f.object %>
+		<div class="field">
+			<p>Photo: <%= f.file_field :photo %></p>
+			<p>Name: <%= f.text_field :name, :autocomplete => "off" %></p>
+	    <p>Email: <%= f.text_field :email, :autocomplete => "off" %></p>
+		</div>
+	</div>
+</div>
+<div id="edit_more">
+	<div id="edit_more_header">
+		<h1>My Account Settings</h1>
+	</div>
+	<div id="edit_more_form">
+		<div class="radio">
+			<div id="deal_duration_title">
+				<p>Set how many months your deals are watched:</p>
+			</div>
+			<ul>
+				<li><%= f.radio_button(:deal_duration, 1) %>
+					<% if @user.deal_duration == 1 %>
+						<p><span class="green">1</span></p>
+					<% else %>
+						<p>1</p>
+					<% end %>
+				</li>
+				<li><%= f.radio_button(:deal_duration, 2) %>
+					<% if @user.deal_duration == 2 %>
+						<p><span class="green">2</span></p>
+					<% else %>
+						<p>2</p>
+					<% end %>
+				</li>
+				<li><%= f.radio_button(:deal_duration, 3) %>
+					<% if @user.deal_duration == 3 %>
+						<p><span class="green">3</span></p>
+					<% else %>
+						<p>3</p>
+					<% end %>
+				</li>
+				<li><%= f.radio_button(:deal_duration, 4) %>
+					<% if @user.deal_duration == 4 %>
+						<p><span class="green">4</span></p>
+					<% else %>
+						<p>4</p>
+					<% end %>
+				</li>
+			</ul>
+		</div>
+		<div class="field private">
+			<p><%= f.check_box :private %> Check this box to make your profile private</p>
+			<span>Watched deals will only be seen by your friends</span>
+		</div>
+		<div class="field">
+		  <p>Password: <%= f.password_field :password, :placeholder => "To change your password, type here" %></p>
+		</div>
+		<div class="field">
+		  <p>Confirm: <%= f.password_field :password_confirmation, :placeholder => "Confirm your new password" %></p>
+		</div>
+		<div class="actions">
+			<%= f.submit "Update" %>
+		</div>
+		<% end %>
+		<div id="remove_watched_deals">
+		  <%= link_to "Remove All Watched Deals", remove_watched_deals_path, :confirm => "Are you sure you want to remove all the deals you are watching?" %>
+		</div>
+	</div>
+</div>

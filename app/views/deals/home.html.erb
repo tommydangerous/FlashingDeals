@@ -1,0 +1,37 @@
+<div id="home_view_select">
+	<%= link_to "View 4 Deals", "javascript: void(0)", :onclick => "showFour();", :id => "view_four", :style => "display: none;" %>
+	<%= link_to "View 9 Deals", "javascript: void(0)", :onclick => "showNine();", :id => "view_nine" %>
+</div>
+<div id="home">
+	<div id="view_nine_deals" style="display: none;">
+		<%= render :partial => 'home_deal', :collection => @home_deals, :as => :item %>
+	</div>
+	<div id="view_four_deals">
+		<%= render :partial => 'home_deal_four', :collection => @home_deals_four, :as => :item %>
+	</div>
+</div>
+<script>
+function showFour() {
+	$("div#view_nine_deals").hide(0, function() {
+		$("div#view_four_deals").show(0, function() {
+			$("a#view_four").hide(0, function() {
+				$("a#view_nine").show(0, function() {
+					$('div.show_lightning').hide();
+				});
+			});
+		});
+	});
+};
+
+function showNine() {
+	$("div#view_four_deals").hide(0, function() {
+		$("div#view_nine_deals").show(0, function() {
+			$("a#view_nine").hide(0, function() {
+				$("a#view_four").show(0, function() {
+					$('div.show_lightning').hide();
+				});
+			});
+		});
+	});
+};
+</script>

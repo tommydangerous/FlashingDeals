@@ -1,0 +1,11 @@
+<div class="message_read">
+<%= form_for message, :method => :put, :remote => true do |f| %>
+	<%= f.hidden_field :read, :value => true %>
+	<div class="actions">
+		<div id="mark_as_read_<%= message.id %>" class="mark_as_read">
+			Mark as Read
+		</div>
+		<%= f.submit "", :onmouseover => "showMarkAsRead(#{message.id})", :onmouseout => "hideMarkAsRead(#{message.id})" %>
+	</div>
+<% end %>
+</div>

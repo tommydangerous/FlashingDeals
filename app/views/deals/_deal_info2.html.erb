@@ -1,0 +1,90 @@
+<div id="deal_info2">
+	<h2>Flash Points</h2>
+	<% if signed_in? %>
+	<div id="user_voted">
+		<%= render "user_voted" %>
+	</div>
+	<% end %>
+	<div id="deal_summary_container">
+	<div id="deal_summary">
+		<div id="show_watchers">
+			<%= render 'show_watchers' %>
+		</div>
+		<div id="flash_points">
+			<div id="total_score">
+				<h1><%= @deal.plusminus %></h1>
+			</div>
+			<div id="scoring_partial">
+				<%= render "scoring_partial" %>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div id="deal_summary_side_panel">
+		<div class="add_deal">
+			<% if signed_in? %>
+				<%= render 'watch_form' %>
+			<% else %>
+				<div id="watch_form">
+					<div class="actions">
+						<a href="/users/new"><input name="commit" type="submit" value="Watch"></a>
+					</div>
+				</div>
+			<% end %>
+		</div>
+		<div class="summary">
+			<div id="deal_watchers">
+				<%= render "deal_watchers" %>
+			</div>
+			<p>Found <span class="grey_75"><%= @deal.posted.strftime("%A %b %d, %Y") %></span> at <span class="grey_75"><%= @deal.posted.strftime("%I:%M %p") %></span></p>
+		</div>
+	</div>
+	<div id="deal_summary_side_panel_more">
+	<% if signed_in? %>
+		<div id="share_list">
+			<%= render 'shares/share_single_form' %>
+		</div>
+		<div id="share_form">
+			<%= render 'shares/share_all_form' %>
+		</div>
+		<div id="share_single">
+			<%= link_to "Share With One Friend", 'javascript:void(0)', :id => "share_single" %>
+		</div>
+	<% else %>
+		<div id="share_form_signup">
+			<%= link_to "Share Deal", signup_path %>
+		</div>
+	<% end %>
+	</div>
+	</div>
+	<div class="clear"></div>
+	<div id="the_flash">
+		<h1>The Flash</h1>
+		<div id="info">
+			<p><%= @deal.info %></p>
+		</div>
+		<% flash.each do |key, value| %>
+  		<div class="flash <%= key %>">
+  			<%= value %><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %>
+			</div>
+  	<% end %>
+  	<div id="flash"></div>
+  	<% if signed_in? %>
+			<%= render 'comments/comment_form' %>
+		<% end %>
+		<div id="deal_show_comments_list">
+			<%= render @comments %>
+		</div>
+	</div>
+	<% if signed_in? %>
+		<% if current_user.admin? %>
+		<div id="delete_deal">
+			<p><%= link_to "Add to Queue", add_to_queue_deal_path(@deal), :remote => true %></p>
+			<p><%= link_to "Edit Deal", edit_deal_path(@deal) %></p>
+			<% if current_user.gm? %>
+				<p><%= link_to "Delete Deal", @deal, :method => :delete, :confirm => "Are you sure you want to delete this deal?", :title => "Delete #{@deal.name}" %></p>
+			<% end %>
+		</div>
+		<% end %>
+	<% end %>
+</div>

@@ -1,0 +1,18 @@
+<div id="password_reset_edit">
+	<h1>Reset Password</h1>
+	<div id="password_reset_form_edit">
+		<%= form_for @user, :url =>  password_reset_path(params[:id]) do |f| %>
+			<%= render 'users/error_messages', :object => f.object %>
+			<div class="field">
+				Password: <%= f.password_field :password, :tabindex => 1 %>
+			</div>
+			<div class="field">
+				Password Confirmation: <%= f.password_field :password_confirmation, :tabindex => 2 %>
+			</div>
+			<div class="actions">
+				<%= f.submit "Update Password", :tabindex => 3 %>
+			</div>
+		<% end %>
+	</div>
+	<div class="page_end">
+</div>

@@ -1,0 +1,40 @@
+<div id="new_message_main">
+	<div id="message_new_close">
+		<%= link_to image_tag("close.png"), "javascript: void(0)", :onclick => "closeNewMessage()" %>
+		<h1>New Message</h1>
+	</div>
+	<div id="message_new_form">
+		<%= form_for current_user.send_messages.build do |f| %>
+		<table>
+			<tr>
+				<td id="message_label">
+					<p>To:</p>
+				</td>
+				<td id="message_field">
+					<div class="field">
+						<% if @user == current_user %>
+							<%= f.collection_select :recipient_id, (current_user.friends + current_user.inverse_friends).sort_by { |user| user.name }, :id, :name, include_blank: true %>
+						<% else %>
+							<input value="<%= @user.name %>" autocomplete="off">
+							<%= f.hidden_field :recipient_id, :value => @user.id %>
+						<% end %>
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td id="message_label">
+					<p>Message:</p>
+				</td>
+				<td id="message_field">
+					<div class="field">
+						<%= f.text_area :content %>
+					</div>
+				</td>
+			</tr>
+		</table>
+		<div class="actions">
+			<%= f.submit "Send Message" %>
+		</div>
+		<% end %>
+	</div>
+</div>

@@ -1,0 +1,7 @@
+<div id="friend_requests">
+	<h1>Friend Requests</h1>
+	<ul id="friend_requests_list">
+		<%= render :partial => "friend_request", :collection => @friend_requests, :as => :user %>
+	</ul>
+	<div class="page_end"></div>
+</div>

@@ -1,0 +1,69 @@
+<div id="home_deal_four">
+	<div class="box_image_four">
+		<div class="box_image_container">
+			<a href="<%= deal_path(item) %>">
+				<%= image_tag("#{item.image}") %>
+			</a>
+		</div>
+		<div class="box_price_four">
+			<% unless item.price.blank? %>
+				$<%= item.price %>
+			<% end %>
+		</div>
+		<% if signed_in? %>
+			<% if current_user.admin? %>
+				<div class="box_edit_four">
+					<%= link_to "Edit Deal", edit_deal_path(item) %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="box_name_four">
+			<%= div_for(item, :class => "show_lightning show_lightning_four") do %>
+			<% if item.metric >= 2 && item.metric < 3 %>
+				<p>This Deal is Shocking!</p>
+			<% elsif item.metric >= 3 && item.metric < 4%>
+				<p>This Deal is Electric!</p>
+			<% elsif item.metric >= 4 %>
+				<p>This Deal is Flashing!</p>
+			<% end %>
+			<div id="show_lightning_four_arrow"></div>
+		<% end %>
+		<p><%= link_to item.name, item %></p>
+	</div>
+	<div class="box_stats_four">
+		<ul id="box_stats_four">
+			<li>
+				<p>Value</p>
+				$<%= item.value %>
+			</li>
+			<li>
+				<p>Discount</p>
+				<% if item.value.blank? || item.price.blank? %>
+					<%= item.discount %>%
+				<% elsif item.value == 0 %>
+					<%= item.discount %>%
+				<% elsif item.discount.blank? %>
+					<%= (((item.value - item.price) * 100)/item.value).round %>%
+				<% end %>
+			</li>
+			<li>
+				<p>Savings</p>
+				<% if item.value.blank? || item.price.blank? %>
+					$<%= item.savings %>
+				<% elsif item.savings.blank? %>
+					$<%= ((item.value - item.price) * 200).round/200.0 %>
+				<% end %>
+			</li>
+		</ul>
+	</div>
+	<div class="box_lightning_deal_four">
+		<% if item.metric >= 2 && item.metric < 3 %>
+			<%= image_tag("/assets/lightning_bolt_shocking.png", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>
+		<% elsif item.metric >= 3 && item.metric < 4%>
+			<%= image_tag("/assets/lightning_bolt_electric.png", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>
+		<% elsif item.metric >= 4 %>
+			<%= image_tag("/assets/lightning_bolt_flashing.png", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>
+		<% end %>
+	</div>	
+</div>

@@ -1,0 +1,15 @@
+<%= render "page_sidebar" %>
+<div class="page">
+	<div class="page_header">
+		<h1>Instant Believers</h1>
+	</div>
+	<div class="page_content">
+		<p>FlashingDeals is currently in negotiations. If you are interested, please inquire at <%= mail_to "hello@flashingdeals.com", "hello@flashingdeals.com", :subject => "Investment Opportunities" %>. Thank you.</p>
+	</div>
+	<div class="page_end"></div>
+</div>
+<script>
+$(document).ready(function () {
+	$("a#investors").addClass("page_selected");
+});
+</script>

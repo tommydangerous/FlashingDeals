@@ -1,0 +1,97 @@
+<div id="gravatar">
+	<%= image_tag(current_user.photo.url, :id => "user_photo_medium") %>
+</div>
+<div id="user_name">
+	<div id="name">
+		<h1><%= @user.name %></h1>
+	</div>
+	<% flash.each do |key, value| %>
+  	<div class="flash <%= key %>"><%= value %><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlash()", :class => "flash_close" %></div>
+  <% end %>
+  <div id="flash"></div>
+  <p><span id="count"></span></p>
+</div>
+<div class="clear"></div>
+<div id="user_table">
+	<div id="user_side">
+		<h1>Shared deals: <span class="grey_75"><%= @deals.count %></span></h1>
+		<% if @user == current_user %>
+			<% unless @user.inverse_shares.empty? %>
+			<div id="user_side_search">
+				<input type="text" name="q" value="" placeholder="Search shared deals" autocomplete="off">
+			</div>
+			<% end %>
+		<% end %>
+		<div id="messages_profile">
+			<% if current_user.received_messages.where("read = ?", false).count > 0 %>
+				<h2><%= link_to "Messages (#{current_user.received_messages.where("read = ?", false).count})", messages_path %></h2>
+			<% else %>
+				<h2><%= link_to "Messages", messages_path %></h2>
+			<% end %>
+		</div>
+		<% unless current_user.request_friends.empty? %>
+		<div id="friend_requests_profile">
+			<h2><%= link_to "Friend Requests (#{current_user.request_friends.count})", friend_requests_path %></h2>
+		</div>
+		<% end %>
+		<div id="my_friends_profile">
+			<h2><%= link_to "My Friends (#{(@user.friends.count + @user.inverse_friends.count)})", friends_user_path(@user) %></h2>
+		</div>
+		<div id="shared_deals_profile">
+			<h2><%= link_to "Shared Deals", shared_deals_path %></h2>
+		</div>
+		<% unless @user.inverse_shares.empty? %>
+		<div id="remove_all_shared_deals_profile">
+			<h2><%= link_to "Remove All", remove_shared_deals_path, :remote => true %></h2>
+		</div>
+		<% end %>
+		<div id="feedback_header">
+			<%= link_to "Feedback", "javascript: void(0)", :id => "feedback" %>
+		</div>
+		<div id="feedback_form">
+			<%= render 'feedbacks/feedback_form' %>
+		</div>
+	</div>
+	<div id="deals_watching">
+		<p id="none" style="display:none">There were no deals to match your search!</p>
+		<% if @user.inverse_shares.empty? %>
+			<p id="none">No one has shared their deals yet...</p>
+		<% else %>
+			<%= render :partial => "shared_deal", :collection => @deals, :as => :deal %>
+		<% end %>
+		<br />
+	</div>
+</div>
+
+<script>
+(function($) {
+        $(document).ready(function() {
+          $('input[name="q"]').search('.deal_single', function(on) {
+            on.all(function(results) {
+              var size = results ? results.size() : 0
+              $('#count').text(size + ' results');
+            });
+
+            on.reset(function() {
+              $('#none').hide();
+              $('.deal_single').show();
+            });
+
+            on.empty(function() {
+              $('#none').show();
+              $('.deal_single').hide();
+            });
+
+            on.results(function(results) {
+              $('#none').hide();
+              $('.deal_single').hide();
+              results.show();
+            });
+          });
+        });
+      })(jQuery);
+      
+$('a#feedback').click(function() {
+	$('div#feedback_form').slideToggle();
+});
+</script>

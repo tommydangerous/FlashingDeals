@@ -1,0 +1,9 @@
+<div id="location_deal_list">
+	<h1><%= @location.name %></h1>
+	<ul>
+		<% @deals.each do |deal| %>
+			<li><p><%= link_to deal.name, deal %></p></li>
+		<% end %>
+	</ul>
+	<%= will_paginate @deals %>
+</div>

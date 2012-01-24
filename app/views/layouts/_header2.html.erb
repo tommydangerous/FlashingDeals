@@ -1,0 +1,16 @@
+<header class="fd2">
+	<div id="header_logo_iframe">
+  	<%= link_to logo_iframe, @deal %>
+  </div>
+  <div id="share_iframe">
+  	<%= link_to "Facebook", "http://facebook.com", :target => "_blank", :id => "facebook" %>
+  	<%= link_to "Twitter ", "http://twitter.com", :target => "_blank", :id => "twitter" %>
+  	<%= mail_to "your@friend.com", "Email", :subject => "#{@deal.name}", :body => "Find this awesome deal at #{request.url}", :id => "email" %>
+  	<% if signed_in? %>
+  		<%= render 'watch_form' %>
+  	<% end %>
+  </div>
+  <div id="close_iframe">
+  	<%= link_to closeButton, "#{@deal.link}" %>
+  </div>    
+</header>

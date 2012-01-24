@@ -1,0 +1,16 @@
+<div id="comment_form">
+<%= form_for current_user.comments.build(:deal_id => @deal.id), :remote => true do |f| %>
+	<div class="field">
+		<%= f.text_area(:content, :placeholder => "Comment on this deal...", :onclick => "makeCommentBigger();") %>
+		<%= f.hidden_field :deal_id %>
+	</div>
+	<div id="comment_submit" class="actions">
+		<%= f.submit "Submit" %>
+	</div>
+<% end %>
+</div>
+<script>
+$(document).ready(function() {
+	$('#comment_content').autoResize();
+});
+</script>

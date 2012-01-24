@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!--[if !IE]><!-->
+    	<%= stylesheet_link_tag 'chrome/application' %>  
+    <!--<![endif]-->
+    <!--[if lt IE 8]>
+    	<%= stylesheet_link_tag 'ie/ie7-main' %>
+    	<%= stylesheet_link_tag 'ie/ie7-a-h' %>
+    	<%= stylesheet_link_tag 'ie/ie7-l-r' %>
+    	<%= stylesheet_link_tag 'ie/ie7-s-w' %>
+    	<%= stylesheet_link_tag 'ie/screen' %>
+    <![endif]-->
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %> 
+    <html lang="en">
+    <meta charset="UTF-8">
+    <script>
+			$(document).ready(function() {
+				$("body").ezBgResize({
+					img: "/assets/background.png"
+				});
+			});
+		</script>
+  </head>
+  <body>
+  	<div id="wrapper">
+  		<div id="header">
+  			<%= render 'layouts/header' %>
+  		</div>
+  		<div id="content">
+  			<%= yield %>
+  		<div class="clear"></div>
+  		</div>
+  		<div class="clear"></div>
+  		<div id="footer">
+  			<%= render 'layouts/footer' %>
+  			<div id="copyright">
+  				<p class="copyright">FlashingDeals &copy; 2012 All Rights Reserved.</p>
+  			</div>
+  		</div>
+  		<div id="dim" style="display: none">
+				<%= render 'sessions/login_form' %>
+			</div>
+  	</div>
+  </body>
+</html>

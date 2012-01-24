@@ -1,0 +1,45 @@
+<div id="gravatar">
+	<%= image_tag(@user.photo.url, :id => "user_photo_medium") %>
+</div>
+<div id="message_list">
+	<div id="flash"></div>
+	<div id="list_of_messages">
+		<%= render @messages %>
+	</div>
+	<div id="reply_form">
+		<%= render "message_reply_form" %>
+	</div>
+</div>
+<div id="user_message_table">
+	<div id="user_side">
+		<div id="messages_profile">
+			<% if current_user.received_messages.where("read = ?", false).count > 0 %>
+				<h2><%= link_to "Messages (#{current_user.received_messages.where("read = ?", false).count})", messages_path %></h2>
+			<% else %>
+				<h2><%= link_to "Messages", messages_path %></h2>
+			<% end %>
+		</div>
+		<% unless current_user.request_friends.empty? %>
+		<div id="friend_requests_profile">
+			<h2><%= link_to "Friend Requests (#{current_user.request_friends.count})", friend_requests_path %></h2>
+		</div>
+		<% end %>
+		<div id="my_friends_profile">
+			<h2><%= link_to "My Friends (#{(@user.friends.count + @user.inverse_friends.count)})", friends_user_path(@user) %></h2>
+		</div>
+		<div id="shared_deals_profile">
+			<h2><%= link_to "Shared Deals", shared_deals_path %></h2>
+		</div>
+		<div id="feedback_header">
+			<%= link_to "Feedback", "javascript: void(0)", :id => "feedback" %>
+		</div>
+		<div id="feedback_form">
+			<%= render 'feedbacks/feedback_form' %>
+		</div>
+	</div>
+</div>
+<script>
+$('a#feedback').click(function() {
+	$('div#feedback_form').slideToggle();
+});
+</script>

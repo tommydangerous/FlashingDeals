@@ -1,0 +1,12 @@
+<div id="watchers">
+	<% if @users.empty? %>
+		<div class="empty_category">
+			<p>No one is currently watching this deal...</p>
+			<p><%= link_to "Be the first!", @deal %></p>
+		</div>
+	<% end %>
+	<ul id="watchers">
+	<%= render :partial => "shared/user", :collection => @users %>
+	</ul>
+</div>
+<%= render "shared/side_deal" %>

@@ -1,0 +1,25 @@
+<% flash.each do |key, value| %>
+	<div class="flash <%= key %>">
+		<%= value %><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %>
+	</div>
+<% end %>
+
+<div id="password_reset">
+	<h1>Reset Your Password</h1>
+	<div id="password_reset_form">
+		<h2>Please enter your email address and you will receive a link to reset your password.</h2>
+		<%= form_tag password_resets_path, :method => :post do %>
+			<div class="field">
+				User Name: <%= text_field_tag :name, params[:name], :autocomplete => "off", :placeholder => "User name must be exact (case-sensitive)", :tabindex => 1 %> 
+			</div>
+			<div class="field">
+				Email Address: <%= text_field_tag :email, params[:email], :autocomplete => "off", :tabindex => 2 %>
+			</div>
+			<div class="actions">
+				<%= link_to "Forgot User Name?", new_forgot_name_path %>
+				<%= submit_tag "Reset Password", :tabindex => 3 %>
+			</div>
+		<% end %>
+	</div>
+	<div class="page_end">
+</div>

@@ -1,0 +1,38 @@
+<%= div_for(comment) do %>
+	<div id="gravatar_comment">
+		<%= link_to User.find(comment.user_id) do %>
+			<%= image_tag(User.find(comment.user_id).photo.url, :id => "user_photo_small") %>
+		<% end %>
+	</div>
+	<div id="comment">
+		<div id="comment_user">
+			<%= link_to User.find(comment.user_id).name, User.find(comment.user.id) %>
+		</div>
+		<div id="comment_content">
+			<%= comment.content %>
+		</div>
+		<div id="comment_timestamp">
+			Posted on <%= comment.created_at.strftime("%A") %> at <%= comment.created_at.strftime("%I:%M %p") %> (<%= comment.created_at.strftime("%b %d, %Y") %>)
+			<% if signed_in? %>
+				<% if @subcomments.where("comment_id = ?", comment.id).empty? %>
+					<%= link_to "Reply", '#', :onclick => "showSubcommentForm(#{comment.id})", :class => "reply_link" %>
+				<% else %>
+					<%= link_to "Reply", '#', :onclick => "focusSubcomment(#{comment.id})", :class => "reply_link" %>
+				<% end %>
+				<% if comment.user_id == current_user.id || current_user.gm %>
+					| <%= link_to "Delete", comment, :class => "delete_link", :method => :delete, :confirm => "Are you sure you want to take back what you said?", :remote => true %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div id="subcomments_list">
+		<div id="subcomments_list_partial_<%= comment.id %>">
+			<%= render :partial => 'subcomments/subcomment', :collection => @subcomments.where("comment_id = ?", comment.id) %>
+		</div>
+		<div id="subcomments_list_subcomment_form_<%= comment.id %>">
+			<%= render :partial => "subcomments/subcomment_form", :locals => { :comment => comment } %>
+		</div>
+	</div>
+<% end %>
+<div class="clear"></div>

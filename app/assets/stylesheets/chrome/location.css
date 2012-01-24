@@ -1,0 +1,49 @@
+div#location_deal_list {
+	width: 700px;
+	padding: 10px;
+}
+
+div#location_deal_list h1 {
+	font-family: Helvetica, Arial;
+	font-weight: bold;
+	font-size: 32px;
+	background: rgba(173, 217, 228, 1);
+	color: rgba(44, 175, 227, 1);
+	padding: 10px 20px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-ms-border-top-left-radius: 5px;
+	-o-border-top-left-radius: 5px;
+	border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-right-radius: 5px;
+	-o-border-top-right-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-bottom: 3px;
+}
+
+div#location_deal_list ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+div#location_deal_list ul li {
+	padding: 5px;
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid rgba(200, 200, 200, 1);
+	margin-bottom: 3px;
+}
+
+div#location_deal_list a {
+	text-decoration: none;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgba(44, 175, 227, 1);
+}
+
+div#location_deal_list a:hover {
+	text-decoration: underline;
+	color: rgba(4, 135, 187, 1);
+}

@@ -1,0 +1,15 @@
+<% if current_user.friendships.find_by_friend_id(friend.id).nil? %>
+	<%= form_for current_user.inverse_friendships.find_by_user_id(friend.id), :html => { :method => :delete }, :remote => true do |f| %>
+		<%= f.hidden_field :user_id, :value => @user.id %>
+		<div class="actions">
+			<%= f.submit "DeFriend" %>
+		</div>
+	<% end %>
+<% else %>
+	<%= form_for current_user.friendships.find_by_friend_id(friend.id), :html => { :method => :delete }, :remote => true do |f| %>
+		<%= f.hidden_field :user_id, :value => @user.id %>
+		<div class="actions">
+			<%= f.submit "DeFriend" %>
+		</div>
+	<% end %>
+<% end %>

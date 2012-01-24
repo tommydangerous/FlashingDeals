@@ -1,0 +1,66 @@
+<div id="deal_info">
+	<h1><%= @deal.name %></h1>
+	<div id="deal_data">
+		<div id="deal_functions">
+			<div id="deal_button">
+				<%= link_to "Deal Now!", frame_path, :target => "_blank" %>
+			</div>
+			<div id="deal_stats">
+				<ul>
+					<li>
+						<p>Value</p>
+						<span class="deal_stats">
+							$<%= @deal.value %>
+						</span>
+					</li>
+					<li>
+						<p>Discount</p>
+						<span class="deal_stats">
+							<% if @deal.value.blank? || @deal.price.blank? %>
+								<%= @deal.discount %>%
+							<% elsif @deal.value == 0 %>
+								<%= @deal.discount %>%
+							<% elsif @deal.discount.blank? %>
+								<%= (((@deal.value - @deal.price) * 100)/@deal.value).round %>%
+							<% end %>
+						</span>
+					</li>
+					<li>
+						<p>Savings</p>
+						<span class="deal_stats">
+							<% if @deal.value.blank? || @deal.price.blank? %>
+								$<%= @deal.savings %>
+							<% elsif @deal.savings.blank? %>
+								$<%= ((@deal.value - @deal.price) * 200).round/200.0 %>
+							<% end %>
+						</span>
+					</li>
+				</ul>
+			</div>
+			<div id="share">
+				<ul>
+					<li><%= link_to facebookButton, "http://facebook.com", :target => "_blank" %></li>
+					<li><%= link_to twitterButton, "http://twitter.com", :target => "_blank" %></li>
+					<li><%= mail_to "your@friend.com", emailButton, :subject => "#{@deal.name}", :body => "Find this awesome deal at #{request.url}" %></li>
+				</ul>
+			</div>
+		</div>
+		<div class="deal_show_image">
+			<div id="deal_show_lightning">
+			<% if @deal.metric >= 2 && @deal.metric < 3 %>
+				<%= lightning_deal_1 %>
+			<% elsif @deal.metric >= 3 && @deal.metric < 4%>
+				<%= lightning_deal_2 %>
+			<% elsif @deal.metric >= 4 %>
+				<%= lightning_deal_3 %>
+			<% end %>
+			</div>
+			<div id="deal_image_container">
+				<%= image_tag("#{@deal.image}", :id => "deal_image") %>
+			</div>
+			<span id="price">$<%= @deal.price %></span>
+		</div>
+	</div>
+</div>
+<%= render "shared/side_deal" %>
+<%= render 'deal_info2' %>

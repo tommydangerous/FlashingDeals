@@ -1,0 +1,22 @@
+<div class="comment">
+	<div id="gravatar_comment">
+		<%= link_to User.find(feedback.user_id) do %>
+			<%= image_tag(User.find(feedback.user_id).photo.url, :id => "user_photo_small") %>
+		<% end %>
+	</div>
+	<div id="comment">
+		<div id="comment_user">
+			<%= link_to User.find(feedback.user_id).name, User.find(feedback.user.id) %>
+		</div>
+		<div id="comment_content">
+			<%= feedback.content %>
+		</div>
+		<div id="comment_timestamp">
+			Created on <%= feedback.created_at.strftime("%A") %> at <%= feedback.created_at.strftime("%I:%M %p") %> (<%= feedback.created_at.strftime("%b %d, %Y") %>)
+			<% if current_user.admin? %>
+				<%= link_to "Delete", feedback, :class => "delete_link", :method => :delete, :confirm => "Are you sure you want to take back what you say?" %>
+			<% end %>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>

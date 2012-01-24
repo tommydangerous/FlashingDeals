@@ -1,0 +1,16 @@
+<div id="queue_list_section">
+	<div id="queue_deal_header">
+		<h1>The Queue (<span id="queue_deal_count"><%= @deals.count %></span>)</h1>
+	</div>
+	<div id="queue_list">
+		<%= render :partial => "queue_deals", :collection => @deals, :as => :deal %>
+	</div>
+</div>
+<div id="top_deals_section">
+	<div id="top_deals_header">
+		<h1>Top Deals (<span id="top_deals_count"><%= @top_deals.count %></span>)</h1>
+	</div>
+	<div id="top_deals_list">
+		<%= render :partial => "queue_top_deals", :collection => @top_deals, :as => :deal %>
+	</div>
+</div>

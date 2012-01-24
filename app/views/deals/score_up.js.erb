@@ -1,0 +1,2 @@
+$("#total_score").html('<h1><%= "#{@deal.plusminus}" %></h1>')
+$("div#user_voted").html("<%= escape_javascript(render("deals/user_voted")) %>")

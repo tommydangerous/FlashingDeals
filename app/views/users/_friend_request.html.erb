@@ -1,0 +1,34 @@
+<li id="friend_request_<%= user.id %>">
+	<div id="user_partial">
+		<div id="user_partial_gravatar">
+			<%= link_to user do %>
+	  		<%= image_tag(user.photo.url, :id => "user_photo_small") %>
+	  	<% end %>
+	  </div>
+	  <div id="delete_user" class="accept_ignore">
+	  	<div id="accept">
+				<%= form_for user.friendships.find_by_friend_id(current_user), :html => { :method => :put }, :remote => true do |f| %>
+					<%= f.hidden_field :approved, :value => true %>
+					<%= f.hidden_field :user_id, :value => @user.id %>
+					<li><div class="actions"><%= f.submit "Accept" %></div></li>
+				<% end %>
+			</div>
+			<div id="ignore">
+				<%= form_for user.friendships.find_by_friend_id(current_user), :html => { :method => :delete }, :remote => true do |f| %>
+					<%= f.hidden_field :user_id, :value => @user.id %>
+					<li><div class="actions"><%= f.submit "Ignore" %></div></li>
+				<% end %>
+			</div>
+		</div>
+	  <div id="user_partial_name">
+	  	<%= link_to user.name, user %>
+	  </div>
+	  <div id="user_partial_stats">
+	  	<ul>
+	  		<li><p>Comments: <span class="grey_75"><%= (user.comments.count + user.subcomments.count) %></span></p></li>
+	  		<li><p>Total Deals Watched: <span class="grey_75"><%= user.watching.count %></span></p></li>
+	  		<li><p>Friends: <span class="grey_75"><%= (user.friends.count + user.inverse_friends.count) %></span></p></li>
+	  	</ul>
+	  </div>
+	</div>
+</li>

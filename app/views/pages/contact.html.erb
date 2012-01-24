@@ -1,0 +1,26 @@
+<%= render "page_sidebar" %>
+<div class="page">
+	<div class="page_header">
+		<h1>Contact Us</h1>
+	</div>
+	<div class="page_content">
+		<h2>Customer Service</h2>
+		<p>For assistance, visit our <%= link_to "Support", support_path %> or check out the <%= link_to "FAQ", faq_path %>.</p>
+		<h2>Work With Us</h2>
+		<p>If you're a business owner, <%= link_to "Partner With Us", partner_path %>!</p>
+		<h2>Press</h2>
+		<p>Find us in the <%= link_to "Press", press_path %>.</p>
+		<h2>Company Blog</h2>
+		<p>For ongoing information, check out our <%= link_to "Blog", blog_path %>.</p>
+		<h2>Email</h2>
+		<p>Drop us an email at <%= mail_to "support@flashingdeals.com", "support@flashingdeals.com", :subject => "Contacting FlashingDeals" %>.</p>
+		<h2>Our Promise</h2>
+		<p>If you are unhappy with anything, we will make it right. No matter what!</p>
+	</div>
+	<div class="page_end"></div>
+</div>
+<script>
+$(document).ready(function () {
+	$("a#contact").addClass("page_selected");
+});
+</script>

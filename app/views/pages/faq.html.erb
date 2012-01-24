@@ -1,0 +1,27 @@
+<%= render "page_sidebar" %>
+<div class="page">
+	<div class="page_header">
+		<h1>Frequently Asked Questions</h1>
+	</div>
+	<div class="page_content">
+		<div class="faq_questions">
+			<h2>Deals & Purchases</h2>
+			<ul>
+				<li><%= link_to "Are there only four deals a day on FlashingDeals.com?", "#only" %></li>
+			</ul>
+			<h2>General Information</h2>
+			<ul>
+				<li><%= link_to "This site is too good to be true, does it cost anything?", "#cost" %></li>
+			</ul>
+		</div>
+		<div class="faq_answers">
+			<%= link_to "", "", :name => "only" %>
+			<h2>Are there only four deals a day on FlashingDeals.com?</h2>
+			<p>We have multiple deals a day, each rotating every 15 to 30 minutes. Our engine and team are constantly scouring the world wide web for the latest and greatest deals.</p>
+			<%= link_to "", "", :name => "cost" %>
+			<h2>This site is too good to be true, does it cost anything?</h2>
+			<p>When something is too good to be true, it usually is. But in this case, we are 100% fact, 0% fiction! It costs nothing to put us to use, it costs nothing to join us, and it will cost you nothing to save money here at FlashingDeals.</p>
+		</div>
+	</div>
+	<div class="page_end"></div>
+</div>

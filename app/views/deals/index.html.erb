@@ -1,0 +1,30 @@
+<div id="side_panel">
+	<%= render 'shared/control_panel' %>
+</div>
+<div id="deals_list">
+	<div id="search">
+		<%= form_tag deals_path, :method => :get, :id => "deals_search" do %>
+			<p>
+				<%= text_field_tag :search, params[:search] %>
+				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+			</p>
+			<div id="deals"><%= render 'all_deals' %></div>
+		<% end %>
+	</div>
+</div>
+<script>
+$(function() {
+	$("#sort a, #deals .pagination a").live("click", function() {
+		$.getScript(this.href);
+		return false;
+	});
+	$("#deals_search input").keyup(function() {
+		$.get($("#deals_search").attr("action"), $("#deals_search").serialize(), null, "script");
+		return false;
+	});
+	$("#deals_search").submit(function() {
+		$.get(this.action, $(this).serialize(), null, "script");
+		return false;
+	});
+});
+</script>

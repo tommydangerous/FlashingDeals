@@ -1,0 +1,18 @@
+div#create_deals {
+	border: 1px solid rgba(200, 200, 200, 1);
+	padding: 20px;
+	background: rgba(255, 255, 255, 1);
+	width: 700px;
+}
+
+div#create_deals a {
+	text-decoration: none;
+	font-family: Verdana;
+	font-size: 14px;
+	color: rgba(44, 175, 227, 1);
+}
+
+div#create_deals a:hover {
+	text-decoration: underline;
+	color: rgba(4, 135, 187, 1);
+}

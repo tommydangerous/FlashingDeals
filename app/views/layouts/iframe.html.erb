@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= @deal.name %></title>
+    <%= stylesheet_link_tag 'application' %>  
+    <%= javascript_include_tag 'application' %>
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <%= yield :head %>
+    <html lang="en">
+    <meta charset="UTF-8">
+  </head>
+  <body>
+  	<div id="header2">
+  		<%= render 'layouts/header2' %>
+  	</div>
+  	<div id="iframe">
+  		<%= yield %>
+  	</div>
+  </body>
+</html>

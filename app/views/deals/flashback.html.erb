@@ -1,0 +1,16 @@
+<div id="side_panel">
+	<%= render 'shared/location_box' %>
+	<%= render 'shared/category_box' %>
+</div>
+<div id="deals_list">
+	<div id="deals">
+		<%= render 'flashback_deals' %>
+	</div>
+</div>
+<script>
+$(document).ready(function() {
+	$("div#flashback_arrow").show();
+	$("a#flashback").removeClass("not_selected");
+	$("a#flashback").addClass("selected");
+});
+</script>

@@ -1,0 +1,15 @@
+<div id="deal_nav">
+	<div id="sort">
+		<span id="sortable_name" class="sort"><%= sortable "name" %></span>
+		<span id="sortable_price" class="sort"><%= sortable "price" %></span>
+		<span id="sortable_posted" class="sort"><%= sortable "posted", "Found" %></span>
+		<span id="sortable_view" class="sort"><%= sortable "view_count", "Views" %></span>
+		<span class="sort"><%= link_to "Points", flash_points_path %></span>
+	</div>
+	<div id="paginate_range">
+		<h1><%= paginate_range(@deals, @deals_total_count) %></h1>
+	</div>
+</div>
+<%= will_paginate @deals, :separator => "" %>
+	<%= render @deals %>
+<%= will_paginate @deals, :separator => "" %>

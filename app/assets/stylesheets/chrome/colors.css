@@ -1,0 +1,91 @@
+div#colors {
+	background: rgba(0, 0, 0, 1);
+	font-family: Verdana;
+	font-weight: bold;
+	font-size: 24px;
+	text-align: center;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	width: 50%;
+	margin: auto;
+	padding: 20px 0px;
+}
+
+.iframe_blue {
+	color: rgba(173, 217, 228, 1);
+}
+
+.background_blue_start {
+	color: rgba(214, 249, 255, 1);
+}
+
+.background_blue_end {
+	color: rgba(158, 232, 250, 1);
+}
+
+.header_blue {
+	color: rgba(71, 224, 255, 1);
+}
+
+.dark_blue {
+	color: rgba(44, 175, 227, 1);
+}
+
+.dark_blue_hover {
+	color: rgba(4, 135, 187, 1);
+}
+
+.border_blue {
+	color: rgba(148, 222, 240, 1);
+}
+
+.title_background_blue {
+	color: rgba(173, 217, 228, 1);
+}
+
+.blue_background {
+	color: rgba(200, 239, 249, 1);
+}
+
+.blue {
+	color: rgba(48, 157, 207, 1);
+}
+
+.red {
+	color: rgba(255, 26, 0, 1);
+}
+
+.green {
+	color: rgba(97, 196, 25, 1);
+}
+
+.green_light {
+	color: rgba(101, 209, 84, 1);
+}
+
+.green_border {
+	color: rgba(41, 154, 11, 1);
+}
+
+.green_border_header {
+	color: rgba(110, 220, 90, 1);
+}
+
+.grey_25 {
+	color: rgba(25, 25, 25, 1);
+}
+
+.grey_75 {
+	color: rgba(75, 75, 75, 1);
+}
+
+.grey_150 {
+	color: rgba(150, 150, 150, 1);
+}
+
+.grey_200 {
+	color: rgba(200, 200, 200, 1);
+}

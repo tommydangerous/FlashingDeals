@@ -1,0 +1,18 @@
+<%= render "page_sidebar" %>
+<div class="page">
+	<div class="page_header">
+		<h1>The Community</h1>
+	</div>
+	<div class="page_content">
+		<p>All for one and one for all!</p>
+		<p>We want to be a part of your everyday life, so become part of ours.</p>
+		<p>Join the FlashingDeals Community!</p>
+		<p>Interested in receiving daily alerts on the most current deals? <%= link_to "Sign up", signup_path %> and be the first to know about the best deals. We promise no spam, no pointless messages, and only deals that matter... no matter what!</p>
+	</div>
+	<div class="page_end"></div>
+</div>
+<script>
+$(document).ready(function () {
+	$("a#flashmob").addClass("page_selected");
+});
+</script>

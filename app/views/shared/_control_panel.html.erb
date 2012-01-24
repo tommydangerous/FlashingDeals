@@ -1,0 +1,102 @@
+<div id="user_index_panel">
+	<div id="user_index_panel_title">
+		<p>Control Panel</p>
+	</div>
+	<div id="user_index_control_panel">
+		<table>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of Rising Deals:", rising_deals_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= Deal.where("posted > ? AND metric >= ? AND queue = ? AND top_deal = ? AND flash_back = ?", (Time.now - (86400 * 1)), 0, false, false, false).count %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of Queue Deals:", queue_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= Deal.where("queue = ?", true).count %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of Top Deals:", root_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= Deal.where("top_deal = ?", true).count %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of FlashBack:", flashback_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= Deal.where("posted > ? AND flash_back = ?", (Time.zone.now - (86400 * 3)), true).count %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of FlashMob:", flashmob_deals_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= Deal.where("posted > ? AND metric < ?", (Time.zone.now - (86400 * 1)), 0).count %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of Feedbacks:", feedbacks_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= Feedback.all.count %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of Deals:", deals_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= Deal.all.count %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of Users:", users_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= User.all.count %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of Comments:", '#' %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= (Comment.all.count + Subcomment.all.count) %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of Categories:", '#' %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= Category.all.count %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "# of Locations:", '#' %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= Location.all.count %></span></p>
+				</td>
+			</tr>
+		</table>
+		<ul>
+  		<li><%= link_to "Create Deals", create_deals_path %></li>
+		  <li><%= link_to "Search Deals", search_path %></li>
+			<li><%= link_to "Live Search", live_search_path %></li>
+		</ul>
+	</div>
+</div>

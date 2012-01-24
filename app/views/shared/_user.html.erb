@@ -1,0 +1,48 @@
+<li>
+	<div id="user_partial">
+		<div id="user_partial_gravatar">
+			<%= link_to user do %>
+				<%= image_tag(user.photo.url, :id => "user_photo_small") %>
+			<% end %>
+	  </div>
+	  <div id="delete_user">
+		  <% if current_user.admin? %>
+		  	<%= link_to "Delete User", user, :method => :delete, :confirm => "You sure?", :title => "Delete #{user.name}" %>
+		  <% end %>
+		</div>
+	  <div id="user_partial_name">
+	  	<p><%= link_to user.name, user %></p>
+	  </div>
+	  <div id="user_partial_stats">
+	  	<p>
+	  	<% if user.comments.where("deal_id = ?", @deal.id).count == 0 %>
+	  		<%= link_to "Comments:", "javascript: void(0)" %>
+	  	<% else %>
+	  		<%= link_to "Comments:", "javascript: void(0)", :onclick => "showComment(#{user.id})" %>
+	  	<% end %>
+	  	<span class="grey_75"><%= user.comments.where("deal_id = ?", @deal.id).count %></span>
+	  	</p>
+	  </div>
+	</div>
+	<%= div_for(user, :class => "user_partial_comments", :style => "display: none;") do %>
+		<% @deal.comments.where("user_id = ?", user.id).each do |c| %>
+			<div id="comment_content">
+				<%= c.content %>
+			</div>
+			<div id="comment_timestamp">
+				Posted on <%= c.created_at.strftime("%A") %> at <%= c.created_at.strftime("%I:%M %p") %> (<%= c.created_at.strftime("%b %d, %Y") %>)
+			</div>
+		<% end %>
+	<% end %>
+</li>
+<script>
+function showComment(id) {
+	var i = id
+	if ($("div#user_"+i).css('display') == "none") {
+		$("div#user_"+i).show();
+	}
+	else {
+		$("div#user_"+i).hide();
+	}
+};
+</script>

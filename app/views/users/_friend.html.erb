@@ -1,0 +1,36 @@
+<li id="friend_single_<%= friend.id %>"class="friend_single">
+	<div id="user_partial">
+		<div id="user_partial_gravatar">
+			<%= link_to friend do %>
+	  		<%= image_tag(friend.photo.url, :id => "user_photo_small") %>
+	  	<% end %>
+	  </div>
+	  <% if current_user.friends.include?(friend) || current_user.inverse_friends.include?(friend) %>
+	  <div id="delete_user" class="delete_user_<%= friend.id %>">
+	  	<%= render :partial => "defriend", :locals => { :friend => friend } %>
+		</div>
+		<% elsif current_user == friend %>
+		
+		<% else %>
+		<div id="delete_user" class="delete_user_<%= friend.id %>">
+			<% if current_user.request_friends.include?(friend) %>
+				<%= render :partial => "accept_request", :locals => { :friend => friend } %>
+			<% elsif current_user.pending_friends.include?(friend) %>
+				<%= render 'friend_request_pending' %>
+			<% else %>
+				<%= render :partial => "add_friend_from_friend_partial", :locals => { :friend => friend } %>
+			<% end %>
+		</div>
+		<% end %>
+	  <div id="user_partial_name">
+	  	<%= link_to friend.name, friend %>
+	  </div>
+	  <div id="user_partial_stats">
+	  	<ul>
+	  		<li><p>Comments: <span class="grey_75"><%= (friend.comments.count + friend.subcomments.count) %></span></p></li>
+	  		<li><p>Total Deals Watched: <span class="grey_75"><%= friend.watching.count %></span></p></li>
+	  		<li><p>Friends: <span class="grey_75"><%= (friend.friends.count + friend.inverse_friends.count) %></span></p></li>
+	  	</ul>
+	  </div>
+	</div>
+</li>

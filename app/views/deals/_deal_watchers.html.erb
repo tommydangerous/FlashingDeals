@@ -1,0 +1,13 @@
+<% if @deal.watchers.count == 0 %>
+	<%= link_to 'javascript:void(0);', :onmouseover => "show_watchers()", :onmouseout => "hide_watchers()" do %>
+	  <span id="watchers" class="stat">
+	    <%= pluralize(@deal.watchers.count, "watcher") %>
+	  </span>
+  <% end %>
+<% else %>
+	<%= link_to watchers_deal_path(@deal), :onmouseover => "show_watchers()", :onmouseout => "hide_watchers()" do %>
+    <span id="watchers" class="stat">
+	    <%= pluralize(@deal.watchers.count, "watcher") %>
+	  </span>
+	<% end %>
+<% end %>

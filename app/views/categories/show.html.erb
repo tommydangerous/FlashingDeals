@@ -1,0 +1,33 @@
+<div id="side_panel">
+	<%= render 'shared/location_box' %>
+	<%= render 'shared/category_box' %>
+</div>
+<div id="deals_list">
+	<div id="deal_nav">
+		<div id="sort_non_ajax">
+			<span class="sort"><%= sortable "name" %></span>
+			<span class="sort"><%= sortable "price" %></span>
+			<span class="sort"><%= sortable "posted", "Found" %></span>
+			<span class="sort"><%= sortable "view_count", "Views" %></span>
+		</div>
+		<div id="paginate_range">
+			<% if @deals.empty? %>
+			<div class="empty_category">
+				<p>Woopsie! No deals in this category...for now :)</p>
+				<p><%= link_to "View other deals", flashback_path %></p>
+			</div>
+			<% else %>
+				<h1><%= paginate_range(@deals, @deals_total_count) %></h1>
+			<% end %>
+		</div>
+	</div>
+	<a name="top"></a>
+	<%= will_paginate @deals, :separator => "" %>
+		<%= render @deals %>
+	<%= will_paginate @deals, :separator => "" %>
+	<% unless @deals.count < 3 %>
+		<div id="back_to_top">
+			<strong>^</strong><%= link_to "Back to the Top", "#top" %>
+		</div>
+	<% end %>
+</div>

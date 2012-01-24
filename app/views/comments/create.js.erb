@@ -1,0 +1,2 @@
+$("div#deal_show_comments_list").prepend("<%= escape_javascript(render(:partial => "comments/comment_no_subcomments", :locals => { :comment => @comment })) %>")
+$("div#comment_form").html("<%= escape_javascript(render('comments/comment_form')) %>")

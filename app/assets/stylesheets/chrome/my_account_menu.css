@@ -1,0 +1,76 @@
+div#my_account_drop_down {
+	position: absolute;
+	width: 150px;
+	z-index: 100;
+	top: 33px;
+	margin-left: 100px;
+}
+
+div#my_account_drop_down ul {
+	padding: 0;
+	margin: 0;
+	background: rgba(150, 150, 150, .9);
+}
+
+div#my_account_drop_down ul li {
+	text-align: left;
+	display: block;
+	background: rgba(75, 75, 75, .9);
+	margin-bottom: 1px;
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#my_account_drop_down ul li:hover {
+	background: rgba(100, 100, 100, .9);
+}
+
+div#my_account_drop_down a {
+	display: block;
+	width: 130px;
+	padding: 10px 10px;
+	text-decoration: none;
+	font-family: Verdana;
+	font-size: 11px;
+	color: rgba(255, 255, 255, 1);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#my_account_drop_down a:hover {
+	color: rgba(71, 224, 255, 1);
+}
+
+a#my_account {
+	text-decoration: none;
+  color: #FFFFFF;
+  font-family: Verdana;
+  font-size: 13px;
+  padding: 15px 20px;
+  -webkit-transition: all .2s linear;
+  -khtml-transition: all .2s linear;
+  -moz-transition: all .2s linear;
+  -o-transition: all .2s linear;
+  transition: all .2s linear;
+}
+
+a#my_account:hover {
+	color: rgba(71, 224, 255, 1);
+}
+
+div#my_account_arrow {
+	margin-left: 70%;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-bottom: 10px solid rgba(100, 100, 100, .75);
+}

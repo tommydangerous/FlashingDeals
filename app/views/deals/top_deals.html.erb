@@ -1,0 +1,10 @@
+<div id="home">
+	<% flash.each do |key, value| %>
+  	<div class="flash <%= key %>">
+  		<%= value %><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %>
+		</div>
+  <% end %>
+	<div id="view_four_deals">
+		<%= render :partial => 'home_deal_four', :collection => @deals, :as => :item %>
+	</div>
+</div>

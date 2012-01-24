@@ -1,0 +1,27 @@
+<script>
+$(document).ready(function() {
+	setInterval("messageCount();", 5000);
+	setInterval("friendRequest();", 5000);
+});
+
+function messageCount() {
+	$.ajax({
+		url: "/ajax/message_count",
+		cache: false,
+		success: function(html){
+			$("span.message_unread_count").html(html);
+		}
+	})
+};
+
+function friendRequest() {
+	$.ajax({
+		url: "/ajax/friend_request",
+		cache: false,
+		success: function(html){
+			$("span.friend_request_count").html(html);
+		}
+	})
+};
+</script>
+<div id="testing"></div>

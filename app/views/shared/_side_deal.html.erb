@@ -1,0 +1,15 @@
+<div id="side_deal">
+	<div id="side_deal_title">
+		<h1><strong><span class="green">+</span></strong> Deals</h1>
+	</div>
+	<div id="side_deal_content">
+		<h1>Categories</h1>
+		<div class="side_deals">
+			<ul>
+				<% Category.all.each do |c| %>
+					<li><%= link_to c.name, c %></li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,6 @@
+small: font-size: 40, outline-size: 4, opacity: 25, tilt X: 0, fade height: 50, scale y: 100%, x offset: 0, y offset: 0
+iframe: font-size: 30, outline-zie: 3, opacity: 25, tilt X: 0, fade height: 50, scale y: 100%, x offset: 0, y offset: 0; or with nothing
+
+FDSplash Logo: font-size: 60, outline-size: 5, DROP, x offset: 4, y offset: 4, blur: 10, shadow color: black, opacity: 50
+
+color: rgba( 71, 224, 255, 1 )

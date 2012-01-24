@@ -1,0 +1,9 @@
+<%= form_for current_user.shares.build, :remote => true do |f| %>
+	<div class="field">
+		<%= f.hidden_field :deal_id, :value => @deal.id %>
+		<%= f.hidden_field :friend_id, :value => 0 %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Share Deal", :title => "Share this deal with all your friends." %>
+	</div>
+<% end %>		

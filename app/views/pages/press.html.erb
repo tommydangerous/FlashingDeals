@@ -1,0 +1,22 @@
+<%= render "page_sidebar" %>
+<div class="page">
+	<div class="page_header">
+		<h1>Press</h1>
+	</div>
+	<div class="page_content">
+		<div class="featured_press">
+			<h2>Featured Press</h2>
+		</div>
+		<div class="featured_articles">
+			<h2>Featured Articles</h2>
+		</div>
+		<h2>Public Relations</h2>
+		<p>For any media inquiries, please contact <%= mail_to "hello@flashingdeals.com", "hello@flashingdeals.com", :subject => "Public Relations" %></p>
+	</div>
+	<div class="page_end"></div>
+</div>
+<script>
+$(document).ready(function () {
+	$("a#press").addClass("page_selected");
+});
+</script>

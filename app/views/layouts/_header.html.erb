@@ -1,0 +1,68 @@
+<div class="hd">
+	<div id="header_logo">
+  	<%= link_to logo, root_path %>
+  </div>
+  <div class="nav round">
+    <ul class="header_nav">
+      <li>
+      	<%= link_to "FlashBack", flashback_path, :id => "flashback", :class => "not_selected" %>
+      	<div id="flashback_arrow"></div>
+    	</li>
+      <% if signed_in? %>
+      <li>
+      	<%= link_to "FlashMob", flashmob_deals_path, :id => "flashmob_deals", :class => "not_selected" %>
+      	<div id="flashmob_arrow"></div>
+    	</li>
+    	<li>
+    		<%= link_to "My Deals", my_account_path, :id => "my_deals", :class => "not_selected", :title => "#{current_user.name}" %>
+    		<div id="my_deals_arrow"></div>
+  		</li>
+  		<li>
+  			<div id="my_account_drop_down" style="display: none;">
+      		<div id="my_account_arrow"></div>
+					<ul>
+						<% if current_user.admin? %>
+							<li><%= link_to "Queue", queue_path %></li>
+							<li><%= link_to "Rising Deals", rising_deals_path %></li>
+							<li><%= link_to "All Users", users_path %></li>
+						<% end %>
+						<li>
+							<% if current_user.received_messages.where("read = ?", false).count == 0 %>
+								<%= link_to messages_path do %>
+									Messages <span class="message_unread_count"></span>
+								<% end %>
+							<% else %>
+								<%= link_to messages_path do %>
+									Messages <span class="message_unread_count">(<%=current_user.received_messages.where("read = ?", false).count %>)</span>
+								<% end %>
+							<% end %>
+						</li>
+						<% unless current_user.request_friends.empty? %>
+							<li id="my_account_drop_down_friend_requests">
+								<%= link_to friend_requests_path do %>
+									Friend Requests <span class="friend_request_count">(<%= current_user.request_friends.count %>)</span>
+								<% end %>
+							</li>
+						<% end %>
+						<li><%= link_to "My Friends", friends_user_path(current_user) %></li>
+						<li><%= link_to "Shared Deals", shared_deals_path %></li>
+						<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+						<li><%= link_to "Logout", logout_path %></li>
+					</ul>
+				</div>
+			</li>
+      <% else %>
+      <li><%= link_to "Sign Up", new_user_path, :class => "not_selected" %></li>
+      <% end %>
+    </ul>      	
+    <ul class="account_nav">
+      <% if signed_in? %>
+      <li>
+      	<%= link_to "Account", "javascript: void(0);", :id => "my_account" %>
+      </li>
+      <% else %>
+      <li><%= link_to "Login", "javascript: void(0)", :id => "login", :class => "not_selected alertdim" %></li>
+      <% end %>
+    </ul>    
+  </div>
+</div>

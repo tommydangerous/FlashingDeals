@@ -1,0 +1,122 @@
+<div id="page_not_found">
+	<div id="slot_numbers">
+		<%= render 'shared/slot_numbers' %>
+	</div>
+	<div id="page_not_found_content">
+		<h1>You're not getting a <span class="grey_75"><strong>404</strong></span>...</h1> 
+		<h1>But you're not getting anywhere either!</h1>
+		<h2>Follow the<%= link_to image_tag("/assets/breadcrumbs.png", :id => "breadcrumbs"), root_path, :onmouseover => "breadCrumbs();" %>to get back in the fun
+			<%= link_to(root_path, :id => "crumbs") do %>
+				<%= image_tag("/assets/crumbs.png", :id => "crumb1") %>
+				<%= image_tag("/assets/crumbs.png", :id => "crumb2") %>
+				<%= image_tag("/assets/crumbs.png", :id => "crumb3") %>
+				<%= image_tag("/assets/crumbs.png", :id => "crumb4") %>
+			<% end %>
+		</h2>
+	</div>
+</div>
+<script>
+function breadCrumbs() {
+	$("#crumb4").fadeIn(500, function() {
+		$("#crumb3").fadeIn(500, function() {
+			$("#crumb2").fadeIn(500, function() {
+				$("#crumb1").fadeIn(500);
+			});
+		});
+	});
+};
+
+function hideBreadCrumbs() {
+	$("#crumb4").fadeOut(200, function() {
+		$("#crumb3").fadeOut(200, function() {
+			$("#crumb2").fadeOut(200, function() {
+				$("#crumb1").fadeOut(200);
+			});
+		});
+	});
+};
+
+function slotNumbers() {
+	$("div#zero").slideDown(100).hide("slide", { direction: "down" }, 100);
+	$("div#one").delay(100).slideDown(100).hide("slide", { direction: "down" }, 100);
+	$("div#two").delay(200).slideDown(100).hide("slide", { direction: "down" }, 100);
+	$("div#three").delay(300).slideDown(100).hide("slide", { direction: "down" }, 100);
+	$("div#four").delay(400).slideDown(100).hide("slide", { direction: "down" }, 100);
+	$("div#five").delay(500).slideDown(100).hide("slide", { direction: "down" }, 100);
+	$("div#six").delay(600).slideDown(100).hide("slide", { direction: "down" }, 100);
+	$("div#seven").delay(700).slideDown(100).hide("slide", { direction: "down" }, 100);
+	$("div#eight").delay(800).slideDown(100).hide("slide", { direction: "down" }, 100);
+	$("div#nine").delay(900).slideDown(100).hide("slide", { direction: "down" }, 100);
+	setTimeout(slotNumbers, 1000)
+};
+
+function slotNumbers2() {
+	$("div#zero").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+		$("div#one").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+			$("div#two").slideDown(100).hide("slide", { direction: "down" }, 50, function() {
+				$("div#three").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+					$("div#four").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+						$("div#five").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+							$("div#six").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+								$("div#seven").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+									$("div#eight").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+										$("div#nine").slideDown(100).hide("slide", { direction: "down" }, 100, slotNumbers2);
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
+};
+
+function slotNumbers3() {
+	$("div#three2").slideDown(100).hide("slide", { direction: "down" }, 50, function() {
+		$("div#four2").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+			$("div#five2").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+				$("div#six2").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+					$("div#seven2").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+						$("div#eight2").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+							$("div#nine2").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+								$("div#zero2").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+									$("div#one2").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+										$("div#two2").slideDown(100).hide("slide", { direction: "down" }, 100, slotNumbers3);
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
+};
+
+function slotNumbers4() {
+	$("div#six3").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+		$("div#seven3").slideDown(100).hide("slide", { direction: "down" }, 50, function() {
+			$("div#eight3").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+				$("div#nine3").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+					$("div#zero3").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+						$("div#one3").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+							$("div#two3").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+								$("div#three3").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+									$("div#four3").slideDown(100).hide("slide", { direction: "down" }, 100, function() {
+										$("div#five3").slideDown(100).hide("slide", { direction: "down" }, 100, slotNumbers4);
+									});
+								});
+							});
+						});
+					});
+				});
+			});
+		});
+	});
+};
+
+slotNumbers2();
+slotNumbers3();
+slotNumbers4();
+</script>

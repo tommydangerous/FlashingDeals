@@ -1,0 +1,22 @@
+<%= div_for(subcomment) do %>
+	<div id="gravatar_subcomment">
+		<%= link_to User.find(subcomment.user_id) do %>
+			<%= image_tag(User.find(subcomment.user_id).photo.url, :id => "user_photo_subcomment") %>
+		<% end %>
+	</div>
+	<div id="subcomment">
+		<div id="subcomment_user">
+			<%= link_to User.find(subcomment.user_id).name, User.find(subcomment.user.id) %>
+			<span><%= subcomment.content %></span>
+		</div>
+		<div id="subcomment_timestamp">
+			<%= subcomment.created_at.strftime("%A %d, %Y") %> at <%= subcomment.created_at.strftime("%I:%M %p")%>
+			<% if signed_in? %>
+				<% if subcomment.user_id == current_user.id || current_user.gm? %>
+					<%= link_to "Delete", subcomment, :class => "delete_link", :method => :delete, :confirm => "Are you sure you want to take back what you said?", :remote => true %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<div class="clear"></div>
+<% end %>

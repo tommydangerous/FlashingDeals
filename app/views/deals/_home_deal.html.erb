@@ -1,0 +1,65 @@
+<div id="home_deal">
+	<div class="box_image">
+		<a href="<%= deal_path(item) %>">
+			<%= div_for(item, :class => "image_nine", :style => "background-image:url(#{item.image.split(' ').join("%20")})") do %>
+			<% end %>
+		</a>
+		<div class="box_price">
+			<% unless item.price.blank? %>
+				$<%= item.price %>
+			<% end %>
+		</div>
+		<% if signed_in? %>
+			<% if current_user.admin? %>
+				<div class="box_edit">
+					<%= link_to "Edit Deal", edit_deal_path(item) %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="box_name">
+		<p><%= link_to item.name, item %></p>
+	</div>
+	<%= div_for(item, :class => "show_lightning show_lightning_nine") do %>
+		<% if item.metric >= 2 && item.metric < 3 %>
+			<p>This Deal is Shocking!</p>
+		<% elsif item.metric >= 3 && item.metric < 4%>
+			<p>This Deal is Electric!</p>
+		<% elsif item.metric >= 4 %>
+			<p>This Deal is Flashing!</p>
+		<% end %>
+	<% end %>
+	<div class="box_stats">
+		<ul>
+			<li>
+				<p>Value</p>
+				$<%= item.value %>
+			</li>
+			<li>
+				<p>Discount</p>
+				<% if item.value.blank? || item.price.blank? %>
+					<%= item.discount %>%
+				<% elsif item.discount.blank? %>
+					<%= (((item.value - item.price) * 100)/item.value).round %>%
+				<% end %>
+			</li>
+			<li>
+				<p>Savings</p>
+				<% if item.value.blank? || item.price.blank? %>
+					$<%= item.savings %>
+				<% elsif item.savings.blank? %>
+					$<%= ((item.value - item.price) * 200).round/200.0 %>
+				<% end %>
+			</li>
+		</ul>
+	</div>
+	<div class="box_lightning_deal">
+		<% if item.metric >= 2 && item.metric < 3 %>
+			<%= image_tag("/assets/lightning_bolt_shocking.png", :title => "This Deal is Electric!", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>
+		<% elsif item.metric >= 3 && item.metric < 4%>
+			<%= image_tag("/assets/lightning_bolt_electric.png", :title => "This Deal is Electric!", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>
+		<% elsif item.metric >= 4 %>
+			<%= image_tag("/assets/lightning_bolt_flashing.png", :title => "This Deal is Electric!", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>
+		<% end %>
+	</div>
+</div>

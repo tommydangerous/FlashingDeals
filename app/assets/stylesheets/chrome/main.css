@@ -1,0 +1,87 @@
+html {
+	overflow: hidden;
+}
+
+html, body {
+	margin:0;
+	padding:0;
+	height:100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#wrapper {
+	min-height:100%;
+	position:relative;
+	overflow: hidden;
+}
+
+#content {
+	padding:10px;
+	padding-bottom: 187px;   /* Height of the footer element */
+	width: 951px;
+	margin: auto;
+}
+
+#debug {
+	position: absolute;
+	z-index: 100;
+}
+
+div.clear {
+   height: 0;
+   font-size: 1px;
+   margin: 0;
+   padding: 0;
+   line-height: 0;
+   clear: both;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: Helvetica, Arial;
+}
+
+a {
+	text-decoration: none;
+}
+
+p {
+	font-family: Helvetica, Arial;
+	color: rgba(75, 75, 75, 1);
+}
+
+pre.debug_dump {
+	font-family: Verdana;
+	font-size: 10px;
+	color: rgba(255, 255, 255, 1);
+	text-align: left;
+	float: left;
+	width: 500px;
+}
+
+div.flash {
+	font-family: Verdana;
+	font-size: 14px;
+	padding: 10px;
+}
+
+.success {
+	background: rgba(230, 239, 194, 1);
+	border: 1px solid rgba(110, 220, 90, 1);
+	color: rgba(38, 68, 9, 1);
+}
+
+.error {
+	background: rgba(251, 227, 228, 1);
+	border: 1px solid rgba(255, 26, 0, 1);
+	color: rgba(138, 31, 17, 1);
+}
+
+.notice {
+	background: rgba(255, 246, 191, 1);
+	border: 1px solid rgba(255, 211, 36, 1);
+	color: rgba(81, 71, 33, 1);
+}

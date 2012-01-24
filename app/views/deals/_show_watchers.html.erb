@@ -1,0 +1,9 @@
+<ul>
+	<% if @deal.watchers.order("name ASC").empty? %>
+		<li>Nobody is watching this</li>
+	<% else %>
+		<% @deal.watchers.order("name ASC").each do |user| %>
+			<li><%= user.name %></li>
+		<% end %>
+	<% end %>
+</ul>

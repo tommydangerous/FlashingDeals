@@ -1,0 +1,19 @@
+<% if signed_in? %>
+	<div id="scoring">
+		<div id="up">
+			<%= link_to image_tag("/assets/plus.png", :onmouseover => "showUserVote()", :onmouseout => "hideUserVote()"), score_up_deal_path(@deal), :method => :post, :remote => true, :id => "blue" %>
+		</div>
+		<div id="down">
+			<%= link_to image_tag("/assets/minus.png", :onmouseover => "showUserVote()", :onmouseout => "hideUserVote()"), score_down_deal_path(@deal), :method => :post, :remote => true, :id => "red" %>
+		</div>
+	</div>
+<% else %>
+	<div id="scoring">
+		<div id="up">
+			<%= link_to image_tag("/assets/plus.png"), signup_path, :id => "blue" %>
+		</div>
+		<div id="down">
+			<%= link_to image_tag("/assets/minus.png"), signup_path, :id => "red" %>
+		</div>
+	</div>
+<% end %>

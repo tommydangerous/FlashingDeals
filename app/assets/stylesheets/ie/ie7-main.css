@@ -1,0 +1,77 @@
+html {
+	overflow: hidden;
+}
+
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+#wrapper {
+	min-height: 100%;
+	overflow-x: hidden;
+}
+
+#content {
+	width: 951px;
+	margin: auto;
+	padding: 10px;
+	padding-bottom: 187px;
+}
+
+div.clear {
+   height: 0;
+   font-size: 1px;
+   margin: 0;
+   padding: 0;
+   line-height: 0;
+   clear: both;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family: Helvetica;
+}
+
+p {
+	font-family: Helvetica;
+	color: rgba(75, 75, 75, 1);
+	margin: 0;
+}
+
+pre.debug_dump {
+	font-family: Verdana;
+	font-size: 10px;
+	color: #FFFFFF;
+	text-align: left;
+	float: left;
+	width: 500px;
+}
+
+img {
+	border: none;
+}
+
+div.flash {
+	font-family: Verdana;
+	font-size: 14px;
+	padding: 10px;
+}
+
+.success {
+	background: #E6EFC2;
+	border: 1px solid #6EDC5A;
+	color: #264401;
+}
+
+.error {
+	background: #FBE3E4;
+	border: 1px solid #FF1A00;
+	color: #8A1F11;
+}
+
+.notice {
+	background: #FFF6BF;
+	border: 1px solid #FFD324;
+	color: #514721;
+}

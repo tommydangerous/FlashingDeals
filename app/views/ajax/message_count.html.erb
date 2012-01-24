@@ -1,0 +1,1 @@
+(<%=current_user.received_messages.where("read = ?", false).count %>)

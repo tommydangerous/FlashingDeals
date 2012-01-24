@@ -1,0 +1,8 @@
+$("div#message_"+<%= @message.id %>).toggleClass("unread");
+$("div#message_"+<%= @message.id %>).toggleClass("read");
+<% if @message.read == false %>
+	$("div#message_read_status_"+<%= @message.id %>).html("<%= escape_javascript(render(:partial => 'read', :locals => { :message => @message })) %>")
+<% elsif @message.read == true %>
+	$("div#message_read_status_"+<%= @message.id %>).html("<%= escape_javascript(render(:partial => 'unread', :locals => { :message => @message })) %>")
+<% end %>
+$("span.message_unread_count").html('(<%= current_user.received_messages.where("read = ?", false).count %>)')

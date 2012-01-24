@@ -1,0 +1,19 @@
+div#side_panel {
+	float: left;
+	width: 220px;
+}
+	
+div#deals_list {
+	float: right;
+	background: rgba(255, 255, 255, 0);
+	width: 700px;
+	margin-bottom: 25px;
+}
+
+div#deals {
+	background: rgba(255, 255, 255, 0);
+}
+
+div.deals_list {
+  background: rgba(255, 255, 255, 1);
+}

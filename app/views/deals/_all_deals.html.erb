@@ -1,0 +1,16 @@
+<%= hidden_field_tag :direction, params[:direction] %>
+<%= hidden_field_tag :sort, params[:sort] %>
+<div id="deal_nav">
+	<div id="sort">
+		<span class="sort"><%= sortable "name" %></span>
+		<span class="sort"><%= sortable "price" %></span>
+		<span class="sort"><%= sortable "posted", "Post Date" %></span>
+		<span class="sort"><%= sortable "metric" %></span>
+	</div>
+	<div id="paginate_range">
+		<h1>Total Deals: <%= @deals_total_count %> |
+		Results on this page: <%= @deals.search(params[:search]).count %></h1>
+	</div>
+</div>
+<%= render @deals %>
+<%= will_paginate @deals, :separator => "" %>

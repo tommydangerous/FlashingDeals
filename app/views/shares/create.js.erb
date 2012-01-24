@@ -1,0 +1,13 @@
+<% if params[:share][:friend_id] == "0" %>
+	$("div#share_form").html("<%= escape_javascript(render('shares/shared')) %>")
+<% elsif params[:share][:friend_id].empty? %>
+	$("div#flash").html("<%= escape_javascript(render('shares/notice_empty')) %>")
+<% else %>
+	$("div#share_list").html("<%= escape_javascript(render('shares/share_single_form')) %>")
+	$("div#flash").html("<%= escape_javascript(render('shares/success_shared')) %>")
+	<% if @friend.inverse_shares.find_by_deal_id(@deal).nil? %>
+		<% unless @friend.relationships.find_by_watched_id(@deal).nil? %>
+			$("div#flash").html("<%= escape_javascript(render('shares/notice_already_watched')) %>")
+		<% end %>
+	<% end %>
+<% end %>

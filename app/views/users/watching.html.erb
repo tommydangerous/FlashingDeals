@@ -1,0 +1,9 @@
+<div id="watching_deals">
+	<div id="paginate_range">
+		<h1><%= paginate_range(@deals, @deals_total_count) %></h1>
+	</div>
+	<div class="clear"></div>
+	<%= will_paginate @deals %>
+	<%= render :partial => "deal", :collection => @deals %>
+	<%= will_paginate @deals %>
+</div>

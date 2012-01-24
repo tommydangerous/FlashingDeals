@@ -1,0 +1,20 @@
+<%= div_for(message, :class => "message_thread") do %>
+	<div id="message_thread_gravatar">
+		<%= link_to User.find(message.user_id) do %>
+			<%= image_tag(User.find(message.user_id).photo.url, :id => "user_photo_small") %>
+		<% end %>
+	</div>
+	<div id="message_thread_timestamp" title="<%= message.created_at.strftime("%A, %B %d, %Y")%> at <%= message.created_at.strftime("%I:%M %p")%>">
+		<% if (Time.now - message.created_at)/86400 > 1 %>
+			<p><%= message.created_at.strftime("%B %d, %Y")%></p>
+		<% else %>
+			<p><%= time_ago_in_words(message.created_at + 8.hours) %> ago</p>
+		<% end %>
+	</div>
+	<div id="message_thread_name">
+		<%= link_to User.find(message.user_id).name, User.find(message.user_id) %>
+	</div>
+	<div id="message_thread_content">
+		<p><%= message.content %></p>
+	</div>
+<% end %>

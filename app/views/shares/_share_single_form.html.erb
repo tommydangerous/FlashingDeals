@@ -1,0 +1,20 @@
+<div id="close_share_list">
+	<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeShareList();" %>
+</div>
+<%= form_for current_user.shares.build(:deal_id => @deal.id), :remote => true do |f| %>
+	<p>Select a friend from the menu</p>
+	<div class="field">
+		<%= f.collection_select :friend_id, (current_user.friends + current_user.inverse_friends).sort_by { |user| user.name }, :id, :name, include_blank: true %>
+		<%= f.hidden_field :deal_id %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Share" %>
+	</div>
+<% end %>
+<script>
+$(document).ready(function() {
+	$('div#share_list div.actions input').click(function() {
+		$('div#share_list').fadeOut(300);
+	});
+});
+</script>

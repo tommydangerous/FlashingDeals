@@ -1,0 +1,16 @@
+<%= render "page_sidebar" %>
+<div class="page">
+	<div class="page_header">
+		<h1>Our Flashy Team</h1>
+	</div>
+	<div class="page_content">
+		<h2>Opportunities</h2>
+		<p>Interested in joining the team? Please contact <%= mail_to "hello@flashingdeals.com", "hello@flashingdeals.com", :subject => "Opportunities" %></p>
+	</div>
+	<div class="page_end"></div>
+</div>
+<script>
+$(document).ready(function () {
+	$("a#team").addClass("page_selected");
+});
+</script>

@@ -1,0 +1,5 @@
+<%= form_for friend.friendships.find_by_friend_id(current_user), :html => { :method => :put }, :remote => true do |f| %>
+	<%= f.hidden_field :approved, :value => true %>
+	<%= f.hidden_field :user_id, :value => @user.id %>
+	<div id="accept_request" class="actions"><%= f.submit "Accept Request" %></div>
+<% end %>

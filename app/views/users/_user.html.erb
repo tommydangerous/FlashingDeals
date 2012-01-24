@@ -1,0 +1,43 @@
+<li>
+	<div id="user_partial">
+		<div id="user_partial_gravatar">
+			<%= link_to user do %>
+	  		<%= image_tag(user.photo.url, :id => "user_photo_small") %>
+	  	<% end %>
+	  </div>
+	  <div id="delete_user">
+		  <% if current_user.gm? %>
+		  	<%= link_to "Delete User", user, :method => :delete, :confirm => "Are you sure you want to delete this user?", :title => "Delete #{user.name}" %>
+		  <% end %>
+		</div>
+	  <div id="user_partial_name">
+	  	<%= link_to user.name, user, :onmouseover => "showJoined(#{user.id})", :onmouseout => "hideJoined(#{user.id})" %>
+	  </div>
+	  <div id="user_partial_stats">
+	  	<ul>
+	  		<li><p>Comments: <span class="grey_75"><%= (user.comments.count + user.subcomments.count) %></span></p></li>
+	  		<li><p>Total Deals Watched: <span class="grey_75"><%= user.watching.count %></span></p></li>
+	  		<li><p>Friends: <span class="grey_75"><%= (user.friends.count + user.inverse_friends.count) %></span></p></li>
+	  		<% if signed_in? %>
+	  			<% if current_user.admin? %>
+	  				<li><p>ID: <span class="grey_75"><%= user.id %></span></p></li>
+	  			<% end %>
+	  		<% end %>
+	  	</ul>
+	  	<%= div_for(user, :class => "joined") do %>
+	  		Joined: <%= user.created_at.strftime("%A") %> at <%= user.created_at.strftime("%I:%M %p") %> (<%= user.created_at.strftime("%b %d, %Y") %>)
+	  	<% end %>
+	  </div>
+	</div>
+</li>
+<script>
+function showJoined(id) {
+	var i = id
+	$("div#user_"+i).show();
+}
+
+function hideJoined(id) {
+	var i = id
+	$("div#user_"+i).hide();
+}
+</script>

@@ -1,0 +1,142 @@
+<div class="deal_single" id="shared_deal_<%= deal.id %>">
+	<div class="col1">
+		<% if deal.image.nil? %>
+			<a href="<%= deal_path(deal) %>">
+			<%= div_for(deal, :class => "deal_image", :style => "background-image:url(#{deal.image})") do %>
+				<% if deal.metric >= 2 && deal.metric < 3 %>
+					<%= lightning_deal_1 %>
+				<% elsif deal.metric >= 3 && deal.metric < 4%>
+					<%= lightning_deal_2 %>
+				<% elsif deal.metric >= 4 %>
+					<%= lightning_deal_3 %>
+				<% end %>
+			<% end %>
+			</a>
+		<% else %>
+			<a href="<%= deal_path(deal) %>">
+			<%= div_for(deal, :class => "deal_image", :style => "background-image:url(#{deal.image.split(' ').join("%20")})") do %>
+				<% if deal.metric >= 2 && deal.metric < 3 %>
+					<%= lightning_deal_1 %>
+				<% elsif deal.metric >= 3 && deal.metric < 4%>
+					<%= lightning_deal_2 %>
+				<% elsif deal.metric >= 4 %>
+					<%= lightning_deal_3 %>
+				<% end %>
+			<% end %>
+			</a>
+		<% end %>
+		<div class="watch_status">
+			<div id="user_deals_unwatch">
+				<%= form_for current_user.inverse_shares.find_by_deal_id(deal), :html => { :method => :delete }, :remote => true do |f| %>
+					<div class="actions"><%= f.submit "Remove" %></div>
+				<% end %>
+			</div>
+		</div>
+	</div>
+	<div class="col2">
+		<h1><%= link_to deal.name, deal %></h1>
+		<div id="location">
+			<% unless deal.location == nil %>
+				<p><%= link_to deal.location.name, "/#{deal.location.permalink}" %></p>
+			<% end %>
+		</div>
+		<div id="categories">
+			<p>
+			<% deal.categories.each do |c| %>
+				<span class="category"><%= link_to c.name, c %></span>
+			<% end %>
+			</p>
+		</div>
+		<ul>
+		<% unless deal.posted.nil? %>
+			<li><p><span class="light_grey">Found:</span> <%= deal.posted.strftime("%A, %b %d") %></p></li>
+		<% end %>
+		<% unless deal.site.nil? || deal.site.empty? %>
+			<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
+		<% end %>
+		</ul>
+		<div id="shared_deal_shared_by">
+			<p><span class="light_grey">Shared by:</span> <%= link_to "#{User.find(current_user.inverse_shares.find_by_deal_id(deal.id).user_id).name}" , User.find(current_user.inverse_shares.find_by_deal_id(deal.id).user_id) %></p>
+		</div>
+	</div>
+	<div class="col3">
+		<div class="price">
+			<h2><%= link_to "DEAL!", frame_path(deal), :target => "_blank" %></h2>
+			<% if deal.price.nil? %>
+			<h1>$</h1>
+			<% else %>
+			<h1>$<%= (deal.price * 1.0).round %></h1>
+			<% end %>
+		</div>
+		<div id="deal_data">
+		<table>
+			<tr>
+				<td class="deal_data_numbers">
+					<p>
+					<% if deal.plusminus > 0 %>
+						<span class="dark"><%= deal.plusminus %></span>
+					<% elsif deal.plusminus < 0 %>
+						<span class="dark"><%= deal.plusminus %></span>
+					<% else %>
+						<span class="dark"><%= deal.plusminus %></span>
+					<% end %>
+					</p>
+				</td>
+				<td class="deal_data_labels">
+					<%= image_tag("/assets/flash_point.png", :title => "Flash Points", :class => "flash_points") %>
+				</td>
+			</tr>
+			<tr>
+				<td class="deal_data_numbers">
+					<p><%= deal.comments.count %></p>
+				</td>
+				<td class="deal_data_labels">
+					<%= image_tag("/assets/comment_bubble.png", :title => "Comments", :class => "comment_bubble") %>
+				</td>
+			</tr>
+			<tr>
+				<td class="deal_data_numbers">
+					<% if deal.view_count.nil? %>
+						<p>0</p>
+					<% else %>
+						<p><%= deal.view_count %></p>
+					<% end %>
+				</td>
+				<td class="deal_data_labels">
+					<%= image_tag("/assets/glass.png", :title => "Views", :class => "views") %>
+				</td>
+			</tr>
+			<% if signed_in? %>
+				<% if current_user.admin? %>
+					<tr>
+						<td class="deal_data_numbers">
+							<p>
+							<% if deal.metric < 1 && deal.metric >= 0 %>
+								<span class="red"><%= (deal.metric * 200).round/200.0 %></span>
+							<% elsif deal.metric < 2 && deal.metric >= 1 %>
+								<span class="blue"><%= (deal.metric * 200).round/200.0 %></span>
+							<% elsif deal.metric < 0 %>
+								<span class="blue">FM</span>
+							<% else %>
+								<span class="green"><%= (deal.metric * 200).round/200.0 %></span>
+							<% end %>
+							</p>
+						</td>
+						<td class="deal_data_labels">
+							<%= image_tag("/assets/metric.png", :title => "Rating", :class => "metric") %>
+						</td>
+					</tr>
+				<% end %>
+			<% end %>
+		</table>
+		</div>
+		<% if signed_in? %>
+			<% if current_user.admin? %>
+				<div class="edit_deal">
+					<%= link_to "Edit Deal", edit_deal_path(deal) %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="clear"></div>
+</div>

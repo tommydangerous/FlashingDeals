@@ -1,0 +1,11 @@
+<% flash.each do |key, value| %>
+	<div class="flash <%= key %>"><%= value %><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %></div>
+<% end %>
+<div id="create_deals">
+	<div id="Create Rising Deals">
+		<%= link_to "Create Rising Deals", create_rising_deals_path %>
+	</div>
+	<div id="Create FlashMob Deals">
+		<%= link_to "Create FlashMob Deals", create_flashmob_deals_path %>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+<div class="category_box">
+	<div class="category_box_title">
+		<p><%= link_to "Categories", "javascript:void(0)", :onclick => "toggleCategories()" %></p>
+	</div>
+	<div class="categories">
+		<ul>
+		<% Category.all.each do |c| %>
+			<li>
+				<div id="category">
+					<div class="category_name">
+						<%= link_to c.name, c %>
+					</div>
+					<div class="category_count">
+						<p><%= c.deals.where("posted > ? AND metric < 0", @today).count %></p>
+					</div>
+				</div>
+			</li>
+			<div class="clear"></div>
+		<% end %>
+		</ul>
+	</div>
+</div>

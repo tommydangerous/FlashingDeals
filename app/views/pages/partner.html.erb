@@ -1,0 +1,21 @@
+<%= render "page_sidebar" %>
+<div class="page">
+	<div class="page_header">
+		<h1>Let's Partner Up</h1>
+	</div>
+	<div class="page_content">
+		<p>FlashingDeals is always looking to partner with local and national vendors to promote deals that will better serve the community.</p>
+		<div id="partner_form">
+		</div>
+		<h2>Partner/Sales Phone:</h2>
+		<p>1 (408) 599-1494</p>
+		<h2>Email:</h2>
+		<%= mail_to "hello@flashingdeals.com", "hello@flashingdeals.com", :subject => "Partner With Us" %>
+	</div>
+	<div class="page_end"></div>
+</div>
+<script>
+$(document).ready(function () {
+	$("a#partner").addClass("page_selected");
+});
+</script>
