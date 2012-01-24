@@ -18,7 +18,3 @@ worker: bundle exec rake make_bradsdeals_deals
 worker: bundle exec rake make_onedaybuys_deals
 worker: bundle exec rake make_dealery_deals
 worker: bundle exec rake make_meritline_deals
-
-worker: bundle exec rake assign_categories
-worker: bundle exec rake assign_categories_2
-worker: bundle exec rake assign_location
