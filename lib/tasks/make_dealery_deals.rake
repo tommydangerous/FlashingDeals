@@ -38,7 +38,7 @@ def make_dealery_deals
 		site = row.css('div[class*="info_detail"] h5 a').inner_text
 		
 		# posted
-		posted = Time.now
+		posted = (Time.now - 8.hours)
 		
 		# metric
 		metric = -1
