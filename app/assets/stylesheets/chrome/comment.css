@@ -1,3 +1,15 @@
+div#comments_index {
+	width: 700px;
+	padding: 5px;
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid rgba(200, 200, 200, 1);
+	float: right;
+}
+
+a#comment_index_at_deal:hover {
+	text-decoration: underline;
+}
+
 div.comment {
 	width: 645px;
 	text-align: left;
@@ -32,7 +44,6 @@ div#comment_user {
 
 div#comment_user a {
 	font-family: Helvetica, Arial;
-	font-weight: bold;
 	font-size: 14px;
 	color: rgba(44, 175, 227, 1);
 	text-decoration: none;

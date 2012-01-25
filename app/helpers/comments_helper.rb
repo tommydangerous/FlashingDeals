@@ -6,7 +6,7 @@ module CommentsHelper
   
   private
   
-    def wrap_long_string(text, max_width = 30)
+    def wrap_long_string(text, max_width = 110)
       zero_width_space = "&#8203;"
       regex = /.{1,#{max_width}}/
       (text.length < max_width) ? text :

@@ -6,7 +6,7 @@
 	</div>
 	<div id="comment">
 		<div id="comment_user">
-			<%= link_to User.find(feedback.user_id).name, User.find(feedback.user.id) %>
+			<strong><%= link_to User.find(feedback.user_id).name, User.find(feedback.user.id) %></strong>
 		</div>
 		<div id="comment_content">
 			<%= feedback.content %>

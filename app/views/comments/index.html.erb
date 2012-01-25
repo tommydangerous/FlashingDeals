@@ -1,0 +1,8 @@
+<div id="side_panel">
+	<%= render 'shared/control_panel' %>
+</div>
+<div id="comments_index">
+	<div class="clear"></div>
+	<%= render :partial => "comment_index", :collection => @comments, :as => :comment %>
+	<%= will_paginate @comments %>
+</div>

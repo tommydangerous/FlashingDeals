@@ -6,10 +6,10 @@
 	</div>
 	<div id="comment">
 		<div id="comment_user">
-			<%= link_to User.find(comment.user_id).name, User.find(comment.user.id) %>
+			<strong><%= link_to User.find(comment.user_id).name, User.find(comment.user.id) %></strong>
 		</div>
 		<div id="comment_content">
-			<%= comment.content %>
+			<%= wrap(comment.content) %>
 		</div>
 		<div id="comment_timestamp">
 			Posted on <%= comment.created_at.strftime("%A") %> at <%= comment.created_at.strftime("%I:%M %p") %> (<%= comment.created_at.strftime("%b %d, %Y") %>)
