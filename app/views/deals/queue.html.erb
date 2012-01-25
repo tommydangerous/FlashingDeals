@@ -1,6 +1,9 @@
 <div id="queue_list_section">
 	<div id="queue_deal_header">
-		<h1>The Queue (<span id="queue_deal_count"><%= @deals.count %></span>)</h1>
+		<h1><strong>The Queue (<span id="queue_deal_count"><%= @deals.count %></span>)</strong> 
+			<% if current_user.gm? %>
+				<%= link_to "Empty Queue", empty_queue_path, :id => "empty_queue", :remote => true, :confirm => "Empty queue?" %></h1>
+			<% end %>
 	</div>
 	<div id="queue_list">
 		<%= render :partial => "queue_deals", :collection => @deals, :as => :deal %>

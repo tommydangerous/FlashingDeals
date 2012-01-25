@@ -9,6 +9,9 @@ FlashingDeal::Application.routes.draw do
   		post :score_up
   		post :score_down
   		get :add_to_queue
+  		get :make_queue
+  		get :make_top_deal
+  		get :make_flashback
   	end
   end
   resources :feedbacks, :only => [:index, :create, :destroy]
@@ -43,6 +46,7 @@ FlashingDeal::Application.routes.draw do
   match '/create_deals' => 'deals#create_deals', :as => :create_deals
   match '/create_rising_deals' => 'deals#create_rising_deals', :as => :create_rising_deals
 	match '/create_flashmob_deals' => 'deals#create_flashmob_deals', :as => :create_flashmob_deals
+	match '/empty_queue' => 'deals#empty_queue', :as => :empty_queue
 # Messages	
 	match '/read_all' => 'messages#read_all', :as => :read_all
   match '/unread_all' => 'messages#unread_all', :as => :unread_all

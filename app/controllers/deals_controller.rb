@@ -1,7 +1,7 @@
 class DealsController < ApplicationController
 	before_filter :authenticate, :except => [:top_deals, :flashback, :flash_points, :show, :frame]
 	before_filter :admin_user, :except => [:top_deals, :flashback, :flash_points, :show, :frame, :flashmob_deals,  :watchers, :score_up, :score_down, :remove_watched_deals]
-	before_filter :gm_user, :only => :destroy
+	before_filter :gm_user, :only => [:destroy, :empty_queue]
 	helper_method :sort_column, :sort_direction
 	
 	require 'nokogiri'
@@ -13,7 +13,7 @@ class DealsController < ApplicationController
 # All Users
 	def top_deals
 		@title = "First to Know"
-		@deals = Deal.where("top_deal = ?", true)
+		@deals = Deal.where("top_deal = ?", true).order("updated_at DESC")[0..3]
 	end
 
   def flashback
@@ -97,8 +97,8 @@ class DealsController < ApplicationController
 # Admin Users Only  
 	def queue
 		@title = "The Queue"
-		@deals = Deal.where("queue = ?", true).order("name ASC")
-		@top_deals = Deal.where("top_deal = ?", true).order("name ASC")
+		@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+		@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
 	end
 	
 	def add_to_queue
@@ -192,8 +192,8 @@ class DealsController < ApplicationController
   				redirect_to deal
 				}
 				format.js {
-					@deals = Deal.where("queue = ?", true).order("name ASC")
-					@top_deals = Deal.where("top_deal = ?", true).order("name ASC")
+					@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+					@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
 				}
 			end
   	else
@@ -201,12 +201,6 @@ class DealsController < ApplicationController
   		render 'edit'
   	end
   end
-  
-  def destroy
-		Deal.find(params[:id]).destroy
-		flash[:notice] = "Deal destroyed."
-		redirect_to root_path
-	end
   
   def create_deals
   	@title = "Create Deals"
@@ -236,6 +230,74 @@ class DealsController < ApplicationController
 		make_dealery_deals
 		make_meritline_deals
   end
+  
+  def make_queue
+		deal = Deal.find(params[:id])
+		deal.update_attributes(:queue => true, :top_deal => false, :flash_back => false)
+		respond_to do |format|
+			format.html {
+				flash[:success] = "Successfully sent to Queue."
+				redirect_to queue_path
+			}
+			format.js {
+				@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+			}
+		end
+	end
+  
+	def make_top_deal
+		deal = Deal.find(params[:id])
+		deal.update_attributes(:queue => false, :top_deal => true, :flash_back => false)
+		respond_to do |format|
+			format.html {
+				flash[:success] = "Successfully made a Top Deal."
+				redirect_to queue_path
+			}
+			format.js {
+				@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+			}
+		end
+	end
+	
+	def make_flashback
+		deal = Deal.find(params[:id])
+		deal.update_attributes(:queue => false, :top_deal => false, :flash_back => true)
+		respond_to do |format|
+			format.html {
+				flash[:success] = "Successfully sent to FlashBack."
+				redirect_to queue_path
+			}
+			format.js {
+				@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+			}
+		end
+	end
+  
+# GM Users Only  
+  def destroy
+		Deal.find(params[:id]).destroy
+		flash[:notice] = "Deal destroyed."
+		redirect_to root_path
+	end
+	
+	def empty_queue
+		deals = Deal.where("queue = ?", true)
+		deals.each do |deal|
+			deal.update_attribute(:queue, false)
+		end
+		respond_to do |format|
+			format.html {
+				flash[:success] = "Queue successfully emptied."
+				redirect_to queue_path
+			}
+			format.js {
+				@deals = Deal.where("queue = ?", true)
+			}
+		end
+	end
   
   private
   

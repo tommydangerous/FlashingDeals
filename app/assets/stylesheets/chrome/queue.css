@@ -9,7 +9,6 @@ div#queue_deal_header {
 
 div#queue_deal_header h1 {
 	font-family: Verdana;
-	font-weight: bold;
 	font-size: 16px;
 	color: rgba(44, 175, 227, 1);
 	margin: 0;
@@ -108,18 +107,25 @@ div.col5 h1 a:hover {
 	text-decoration: underline;
 }
 
-div.col5 ul {
+div.col5 ul, div.queue_edit_deal_more ul {
+	text-align: center;
 	margin: 0;
 	padding: 0;
 	list-style-type: none;
 }
 
-div.col5 li {
+div.col5 li, div.queue_edit_deal_more li {
 	margin-right: 10px;
 	display: inline-block;
 }
 
+div.queue_edit_deal_more input#deal_queue, div.queue_edit_deal_more input#deal_top_deal, div.queue_edit_deal_more input#deal_flash_back {
+	width: 13px;
+	height: 13px;
+}
+
 div.col5 div.actions input {
+	width: 58px;
 	font-family: Verdana;
 	font-size: 12px;
 	padding: 5px;
@@ -257,4 +263,69 @@ div#queue_top_deal_updated_at {
 div#queue_top_deal_updated_at p {
 	font-size: 11px;
 	color: rgba(150, 150, 150, 1);
+}
+
+a#empty_queue {
+	float: right;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+a#empty_queue:hover {
+	text-decoration: underline;
+	opacity: .75;
+}
+
+a#make_top_deal {
+	font-size: 11px;
+	color: rgba(150, 150, 150, 1);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+a#make_top_deal:hover {
+	text-decoration: underline;
+	opacity: .75;
+}
+
+a#make_flashback {
+	font-size: 11px;
+	color: rgba(150, 150, 150, 1);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+a#make_flashback:hover {
+	text-decoration: underline;
+	opacity: .75;
+}
+
+a#make_queue {
+	font-size: 11px;
+	color: rgba(150, 150, 150, 1);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+a#make_queue:hover {
+	text-decoration: underline;
+	opacity: .75;
 }

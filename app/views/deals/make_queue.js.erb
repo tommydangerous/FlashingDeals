@@ -1,0 +1,4 @@
+$("div#queue_list").html("<%= escape_javascript(render(:partial => "queue_deals", :collection => @deals, :as => :deal)) %>")
+$("div#top_deals_list").html("<%= escape_javascript(render(:partial => "queue_top_deals", :collection => @top_deals, :as => :deal)) %>")
+$("span#queue_deal_count").html("<%= "#{@deals.count}" %>")
+$("span#top_deals_count").html("<%= "#{@top_deals.count}" %>")

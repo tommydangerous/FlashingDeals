@@ -40,7 +40,7 @@
 		</div>
 		<ul>
 		<% unless deal.posted.nil? %>
-			<li><p><span class="light_grey">Found:</span> <%= deal.posted.strftime("%A, %b %d") %></p></li>
+			<li><p><span class="light_grey">Found:</span> <%= deal.posted.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.posted.strftime("%I:%M %p") %></span></p></li>
 		<% end %>
 		<% unless deal.site.nil? || deal.site.empty? %>
 			<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
