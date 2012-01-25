@@ -6,8 +6,8 @@
 	</div>
 	<div id="subcomment">
 		<div id="subcomment_user">
-			<%= link_to User.find(subcomment.user_id).name, User.find(subcomment.user.id) %>
-			<span><%= subcomment.content %></span>
+			<strong><%= link_to User.find(subcomment.user_id).name, User.find(subcomment.user.id) %></strong>
+			<span><%= auto_link(wrap_sub(subcomment.content), :all, :target => "_blank") %></span>
 		</div>
 		<div id="subcomment_timestamp">
 			<%= subcomment.created_at.strftime("%A %d, %Y") %> at <%= subcomment.created_at.strftime("%I:%M %p")%>
