@@ -61,7 +61,7 @@
 	<div id="the_flash">
 		<h1>The Flash 
 			<% if current_user.admin? %>
-				<span id="edit_the_flash"><%= link_to "Edit", '#', :onclick => "toggleInfoEditForm();" %></span>
+				<span id="edit_the_flash"><%= link_to "Edit", "javascript:void(0);", :onclick => "toggleInfoEditForm();" %></span>
 			<% end %>
 		</h1>
 		<% if current_user.admin? %>

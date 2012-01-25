@@ -1,0 +1,33 @@
+<% if current_user.request_friends.count == 0 && current_user.received_messages.where("read = ?", false).count == 0 %>
+	<%= link_to("javascript: void(0);", :id => "my_account") do %>
+		Account&nbsp;
+	<% end %>
+<% else %>
+	<%= link_to("javascript: void(0);", :id => "my_account") do %>
+		Account<span class="red">!</span>
+	<% end %>
+<% end %>
+<script>
+$(document).ready(function() {
+	var x = $('a#my_account');
+	var z = $('div#my_account_drop_down');
+	$(document).click(function() {
+		z.slideUp(300, function() {
+			x.removeClass("my_account_hover");
+		});
+	});
+	x.click(function() {
+		return false;
+	});
+	x.click(function() {
+		if (z.is(':visible')) {
+			z.slideUp(300, function() {
+				x.removeClass("my_account_hover");
+			});
+		} else {
+		x.addClass("my_account_hover");
+		z.slideDown();
+		};
+	});
+});
+</script>

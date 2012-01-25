@@ -6,3 +6,4 @@ $("span.friend_request_count").html('(<%= current_user.request_friends.count %>)
 	$("li#my_account_drop_down_friend_requests").remove();
 <% end %>
 $("div.delete_user_"+<%= @friend.id %>).html("<%= escape_javascript(render(:partial => "users/add_friend_from_friend_partial", :locals => { :friend => @friend })) %>")
+$("div#account_notice").html("<%= escape_javascript(render("users/account_notice")) %>")
