@@ -11,6 +11,7 @@
 			<span class="sort"><%= sortable "posted", "Found" %></span>
 			<span class="sort"><%= sortable "view_count", "Views" %></span>
 			<span class="sort"><%= sortable "metric" %></span>
+			<span class="sort" id="sort_created_at"><%= sortable "created_at", "Create" %></span>
 		</div>
 		<div id="paginate_range">
 			<% if @deals.empty? %>
