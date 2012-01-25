@@ -11,7 +11,6 @@ gem 'thumbs_up'
 gem 'paperclip', "~> 2.4.5"
 gem 'aws-s3'
 gem 'friendly_id'
-gem 'newrelic_rpm'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -19,6 +18,7 @@ gem 'newrelic_rpm'
 group :production do
   gem 'pg'
   gem 'thin'
+  gem 'newrelic_rpm'
 end
 
 group :development, :test do

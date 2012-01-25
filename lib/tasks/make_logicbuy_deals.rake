@@ -50,7 +50,7 @@ def make_logicbuy_deals
 			link = "http://www.logicbuy.com#{link_raw}"
 			
 			# posted
-			posted = (Time.now - 8.hours)
+			posted = Time.now
 			
 			# metric
 			metric = -1

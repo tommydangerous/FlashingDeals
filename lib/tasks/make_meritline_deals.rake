@@ -48,7 +48,7 @@ def make_meritline_deals
 		tag = "meritline"
 		
 		# posted
-		posted = (Time.now - 8.hours)
+		posted = Time.now
 		
 		# city
 		city = "national"

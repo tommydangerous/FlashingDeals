@@ -14,7 +14,7 @@
 			<% if (Time.now - message.created_at)/86400 > 1 %>
 				<p><%= message.created_at.strftime("%B %d, %Y")%></p>
 			<% else %>
-				<p><%= time_ago_in_words(message.created_at + 8.hours) %> ago</p>
+				<p><%= time_ago_in_words(message.created_at) %> ago</p>
 			<% end %>
 		</div>
 		<div id="message_single_name">
@@ -40,7 +40,7 @@
 			<% if (Time.now - message.created_at)/86400 > 1 %>
 				<p><%= message.created_at.strftime("%B %d, %Y")%></p>
 			<% else %>
-				<p><%= time_ago_in_words(message.created_at + 8.hours) %> ago</p>
+				<p><%= time_ago_in_words(message.created_at) %> ago</p>
 			<% end %>
 		</div>
 		<div id="message_single_name">

@@ -47,7 +47,7 @@ def make_bradsdeals_deals
 			site = site_raw.split("Deals").join
 			
 			# posted
-			posted = (Time.now - 8.hours)
+			posted = Time.now
 			
 			# metric
 			metric = -1

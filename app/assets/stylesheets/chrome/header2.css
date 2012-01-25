@@ -64,21 +64,21 @@ a#email {
 	background: url("/assets/email_button_iframe.png");
 	background-size: 30px 30px;
 	background-repeat: no-repeat;
-	background-position-y: 50%;
+	background-position: left 15px;
 }
 
 a#facebook {
 	background: url("/assets/facebook_button_iframe.png");
 	background-size: 30px 30px;
 	background-repeat: no-repeat;
-	background-position-y: 50%;
+	background-position: left 15px;
 }
 
 a#twitter {
 	background: url("/assets/twitter_button_iframe.png");
 	background-size: 30px 30px;
 	background-repeat: no-repeat;
-	background-position-y: 50%;
+	background-position: left 15px;
 }
 
 div#close_iframe {
@@ -119,10 +119,11 @@ div#share_iframe div#watch_form {
 	background: url("/assets/watch.png");
 	background-size: 30px 30px;
 	background-repeat: no-repeat;
-	background-position-y: 50%;
+	background-position: left 15px;
 }
 
 div#share_iframe div#watch_form input {
+	height: 60px;
 	text-align: left;
 	width: 150px;
 	border: none;

@@ -61,6 +61,9 @@
 			<span>Watched deals will only be seen by your friends</span>
 		</div>
 		<div class="field">
+			<p>Time Zone: <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %></p>
+		</div>
+		<div class="field">
 		  <p>Password: <%= f.password_field :password, :placeholder => "To change your password, type here" %></p>
 		</div>
 		<div class="field">

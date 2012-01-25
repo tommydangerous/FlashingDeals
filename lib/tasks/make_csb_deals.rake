@@ -50,7 +50,7 @@ def make_csb_deals
 			link = title.attr("href").to_s
 			
 			# posted
-			posted = (Time.now - 8.hours)
+			posted = Time.now
 			
 			# metric
 			metric = -1
