@@ -1,0 +1,5 @@
+<% if current_user.admin? %>
+	<p onclick="toggleInfoEditForm();"><%= @deal.info %></p>
+<% else %>
+	<p><%= @deal.info %></p>
+<% end %>

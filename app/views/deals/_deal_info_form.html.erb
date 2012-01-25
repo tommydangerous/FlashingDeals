@@ -1,0 +1,13 @@
+<%= form_for @deal, :remote => true do |f| %>
+	<div class="field">
+		<%= f.text_area :info %>
+	</div>
+	<div class="actions">
+		<%= f.submit "Update Info" %>
+	</div>
+<% end %>
+<script>
+$(document).ready(function() {
+	$('textarea#deal_info').autoResize();
+});
+</script>

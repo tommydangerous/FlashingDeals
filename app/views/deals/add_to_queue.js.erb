@@ -1,1 +1,2 @@
 $("div#rising_deal_"+<%= @deal.id %>).remove();
+$("div#flash").html("<%= escape_javascript(render('deals/add_to_queue_success')) %>")
