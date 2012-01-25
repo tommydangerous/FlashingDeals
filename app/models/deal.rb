@@ -41,7 +41,11 @@ class Deal < ActiveRecord::Base
 	
 	def self.search(search)
 		if search
-			where('name LIKE ?', "%#{search}%")
+			if Rails.env.production?
+				where('name ILIKE ?', "%#{search}%")
+			else
+				where('name LIKE ?', "%#{search}%")
+			end
 		else
 			scoped
 		end
