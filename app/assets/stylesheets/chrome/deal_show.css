@@ -67,6 +67,7 @@ div.deal_show_image div#deal_image_container {
 div.deal_show_image img#deal_image {
 	max-width: 425px;
 	max-height: 250px;
+	position: relative;
 }
 
 div.deal_show_image div#deal_show_lightning {

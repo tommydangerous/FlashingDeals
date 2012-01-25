@@ -20,15 +20,11 @@ module PagesHelper
 		image_tag("dangerous.jpg")
 	end
 	
-	def lightning_deal_1 # This Deal is Shocking!
-		image_tag("/assets/lightning_bolt_shocking.png", :title => "This Deal is Shocking!", :class => "lightning_deal_1")
+	def lightning_deal_1 # This Deal is Electric!
+		image_tag("/assets/lightning_bolt_electric.png", :title => "This Deal is Electric!", :class => "lightning_deal_1")
 	end
 	
-	def lightning_deal_2 # This Deal is Electric!
-		image_tag("/assets/lightning_bolt_electric.png", :title => "This Deal is Electric!", :class => "lightning_deal_2")
-	end
-	
-	def lightning_deal_3 # This Deal is Flashing!
-		image_tag("/assets/lightning_bolt_flashing.png", :title => "This Deal is Flashing!", :class => "lightning_deal_3")
+	def lightning_deal_2 # Flashing Deal of the Day!
+		image_tag("/assets/lightning_bolt_flashing.png", :title => "Flashing Deal of the Day!", :class => "lightning_deal_2")
 	end
 end
