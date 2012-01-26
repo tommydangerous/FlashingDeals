@@ -9,7 +9,7 @@ def categories
 	@deals = Deal.where("metric <= ?", 0)
 	
 	def set_electronics
-		deals = @deals.where('name ILIKE ?', "%laptop%")
+		deals = @deals.find_by_sql("SELECT * FROM deals WHERE name LIKE '%laptop%'")
 		deals.each do |deal|
 			if deal.connections.find_by_category_id(1).nil?
 				deal.connections.create!(:category_id => 1)
