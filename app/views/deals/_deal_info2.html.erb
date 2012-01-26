@@ -60,17 +60,25 @@
 	<div class="clear"></div>
 	<div id="the_flash">
 		<h1>The Flash 
-			<% if current_user.admin? %>
-				<span id="edit_the_flash"><%= link_to "Edit", "javascript:void(0);", :onclick => "toggleInfoEditForm();" %></span>
+			<% if signed_in? %>
+				<% if current_user.admin? %>
+					<span id="edit_the_flash"><%= link_to "Edit", "javascript:void(0);", :onclick => "toggleInfoEditForm();" %></span>
+				<% end %>
 			<% end %>
 		</h1>
-		<% if current_user.admin? %>
-		<div id="info_edit_the_flash">
-			<%= render 'deal_info_form' %>
-		</div>
+		<% if signed_in? %>
+			<% if current_user.admin? %>
+			<div id="info_edit_the_flash">
+				<%= render 'deal_info_form' %>
+			</div>
+			<% end %>
 		<% end %>
 		<div id="info">
-			<%= render 'the_flash_deal_info' %>
+			<% if signed_in? %>
+				<%= render 'the_flash_deal_info' %>
+			<% else %>
+				<p><%= @deal.info %></p>
+			<% end %>
 		</div>
 		<% flash.each do |key, value| %>
   		<div class="flash <%= key %>">
