@@ -108,11 +108,6 @@ def slickdeals_fetch_first_page
 		date.search('a').remove
 		date = date.inner_text.strip
 		posted = Chronic::parse(date)
-		if posted.nil?
-			date = date[/[1-9]:[0-9]+ [A-Za-z]+/]
-			date = "Yesterday #{date}"
-			posted = Chronic::parse(date)
-		end
 		
 		# rating
 		score = row.css('td[id*="td_threadtitle_"] div.smallfont').inner_html
@@ -203,11 +198,6 @@ def slickdeals_fetch_all_page
 			date.search('a').remove
 			date = date.inner_text.strip
 			posted = Chronic::parse(date)
-			if posted.nil?
-				date = date[/[1-9]:[0-9]+ [A-Za-z]+/]
-				date = "Yesterday #{date}"
-				posted = Chronic::parse(date)
-			end
 			
 			# rating
 			score = row.css('td[id*="td_threadtitle_"] div.smallfont').inner_html
