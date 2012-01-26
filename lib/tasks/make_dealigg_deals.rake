@@ -98,7 +98,7 @@ def dealigg_fetch
 				hour = hour[/[0-9]+/].to_i
 				hours = day * 24
 				total_hours = hour + hours
-				posted = Chronic::parse("#{total_hours} hours ago") + 8.hours
+				posted = Chronic::parse("#{total_hours} hours ago")
 			elsif date.include?("day") && date.include?("minute")
 				date = date[/[0-9]+[A-Za-z]+[0-9]+[A-Za-z]+/]
 				day = date[/[0-9]+[day]+/]
@@ -107,29 +107,29 @@ def dealigg_fetch
 				minute = minute[/[0-9]+/].to_i
 				minutes = day * 1440
 				total_minutes = minute + minutes
-				posted = Chronic::parse("#{total_minutes} minutes ago") + 8.hours
+				posted = Chronic::parse("#{total_minutes} minutes ago")
 			elsif date.include?("day")
 				date = date[/[0-9]+[a-z]+/]
 				day = date[/[0-9]+[day]+/]
 				day = day[/[0-9]+/].to_i
-				posted = Chronic::parse("#{day} days ago") + 8.hours
+				posted = Chronic::parse("#{day} days ago")
 			elsif date.include?("hour") && date.include?("minute")
 				date = date[/[0-9]+[a-z]+[0-9]+[a-z]+/]
 				hour = date[/[0-9]+[hour]+/].to_i
 				minute = date[/[0-9]+[minute]+/].to_i
 				minutes = hour * 60
 				total_minutes = minute + minutes
-				posted = Chronic::parse("#{total_minutes} minutes ago") + 8.hours
+				posted = Chronic::parse("#{total_minutes} minutes ago")
 			elsif date.include?("few")
 				posted = Time.now + 8.hours
 			else
 				date = date[/[0-9]+[a-z]+/]
 				if date.include?("hour")
 					hour = date[/[0-9]+/].to_i
-					posted = Chronic::parse("#{hour} hours ago") + 8.hours
+					posted = Chronic::parse("#{hour} hours ago")
 				elsif date.include?("minute")
 					minute = date[/[0-9]+/].to_i
-					posted = Chronic::parse("#{minute} minutes ago") + 8.hours
+					posted = Chronic::parse("#{minute} minutes ago")
 				end			
 			end
 			

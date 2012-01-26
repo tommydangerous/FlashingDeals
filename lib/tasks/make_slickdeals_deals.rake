@@ -107,7 +107,7 @@ def slickdeals_fetch_first_page
 		date = row.css('td[id*="td_postdate_"] div')
 		date.search('a').remove
 		date = date.inner_text.strip
-		posted = Chronic::parse(date) + 8.hours
+		posted = Chronic::parse(date)
 		
 		# rating
 		score = row.css('td[id*="td_threadtitle_"] div.smallfont').inner_html
@@ -197,7 +197,7 @@ def slickdeals_fetch_all_page
 			date = row.css('td[id*="td_postdate_"] div')
 			date.search('a').remove
 			date = date.inner_text.strip
-			posted = Chronic::parse(date) + 8.hours
+			posted = Chronic::parse(date)
 			
 			# rating
 			score = row.css('td[id*="td_threadtitle_"] div.smallfont').inner_html

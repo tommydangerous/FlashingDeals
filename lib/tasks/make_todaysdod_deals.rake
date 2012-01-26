@@ -84,10 +84,10 @@ def todaysdod_fetch
 		else
 			if date.include?('m')
 				minute = date[/[0-9]+/].to_i
-				posted = Chronic::parse("#{minute} minutes ago") + 8.hours
+				posted = Chronic::parse("#{minute} minutes ago")
 			elsif date.include?('h')
 				hour = date[/[0-9]+/].to_i
-				posted = Chronic::parse("#{hour} hours ago") + 8.hours
+				posted = Chronic::parse("#{hour} hours ago")
 			else
 				posted = Time.now + 8.hours
 			end
