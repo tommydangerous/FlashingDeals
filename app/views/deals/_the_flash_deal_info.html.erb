@@ -1,5 +1,5 @@
 <% if current_user.admin? %>
-	<p onclick="toggleInfoEditForm();"><%= @deal.info %></p>
+	<p onclick="toggleInfoEditForm();"><%= auto_link(@deal.info, :all, :target => "_blank") %></p>
 <% else %>
-	<p><%= @deal.info %></p>
+	<p><%= auto_link(@deal.info, :all, :target => "_blank") %></p>
 <% end %>
