@@ -108,7 +108,7 @@ def dealplus_fetch
 			
 			# posted
 			date = row.css('div.product-price-grid div[class*="padt3"]').inner_text
-			posted = Chronic::parse(date)
+			posted = Chronic::parse(date) + 8.hours
 	
 			# rating
 			score = row.css('div.plusButtonInline a span[id*="plus_num"]').inner_text

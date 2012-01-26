@@ -108,7 +108,7 @@ def woot_fetch
 			else
 				postTime = Chronic::parse(postTime1)
 			end
-			posted = postTime
+			posted = postTime + 8.hours
 			
 			# rating
 			score = row.css('span.vote-button span.count')

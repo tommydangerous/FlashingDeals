@@ -80,16 +80,16 @@ def todaysdod_fetch
 		date = row.css('table.table_item_box').inner_text
 		date = date[/[Age]+[:][ 0-9]+[a-z]+/]
 		if date.nil?
-			posted = Time.now
+			posted = Time.now + 8.hours
 		else
 			if date.include?('m')
 				minute = date[/[0-9]+/].to_i
-				posted = Chronic::parse("#{minute} minutes ago")
+				posted = Chronic::parse("#{minute} minutes ago") + 8.hours
 			elsif date.include?('h')
 				hour = date[/[0-9]+/].to_i
-				posted = Chronic::parse("#{hour} hours ago")
+				posted = Chronic::parse("#{hour} hours ago") + 8.hours
 			else
-				posted = Time.now
+				posted = Time.now + 8.hours
 			end
 		end
 		

@@ -87,7 +87,7 @@ def fatwallet_fetch
 			# posted
 			postTime = row.css('a[title*="go to last post"]').inner_text
 			postTime = postTime[/[0-9]+\/[0-9]+\/[0-9]+ [0-9]+:[0-9]+[a, p, m]+/]
-			posted = Chronic::parse("#{postTime}")
+			posted = Chronic::parse("#{postTime}") + 8.hours
 			
 			# rating
 			rating_raw = row.css('span#value').inner_text

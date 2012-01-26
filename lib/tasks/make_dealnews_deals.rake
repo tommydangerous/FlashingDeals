@@ -186,11 +186,11 @@ def dealnews_computers
 			if date.include?("hr")
 				hour = date[/[0-9]+ [hr]+/]
 				hour = hour[/[0-9]+/]
-				posted = Chronic::parse("#{hour} hours ago")
+				posted = Chronic::parse("#{hour} hours ago") + 8.hours
 			elsif date.include?("min")
 				minute = date[/[0-9]+ [min]+/]
 				minute = minute[/[0-9]+/]
-				posted = Chronic::parse("#{minute} minutes ago")
+				posted = Chronic::parse("#{minute} minutes ago") + 8.hours
 			end
 			
 			# metric
@@ -288,11 +288,11 @@ def dealnews_clothing
 			if date.include?("hr")
 				hour = date[/[0-9]+ [hr]+/]
 				hour = hour[/[0-9]+/]
-				posted = Chronic::parse("#{hour} hours ago")
+				posted = Chronic::parse("#{hour} hours ago") + 8.hours
 			elsif date.include?("min")
 				minute = date[/[0-9]+ [min]+/]
 				minute = minute[/[0-9]+/]
-				posted = Chronic::parse("#{minute} minutes ago")
+				posted = Chronic::parse("#{minute} minutes ago") + 8.hours
 			end
 			
 			# metric
