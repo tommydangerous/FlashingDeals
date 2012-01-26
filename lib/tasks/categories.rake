@@ -9,7 +9,7 @@ def categories
 	@deals = Deal.where("metric <= ?", 0)
 	
 	def set_electronics
-		deals = @deals.find_by_sql('SELECT * FROM deals WHERE name LIKE "%laptop%" OR name LIKE "%hdtv%"')
+		deals = @deals.find_by_sql('SELECT * FROM deals WHERE name LIKE "%laptop%"')
 		deals.each do |deal|
 			if deal.connections.find_by_category_id(1).nil?
 				deal.connections.create!(:category_id => 1)
@@ -17,24 +17,5 @@ def categories
 		end
 	end
 	set_electronics
-	
-	def set_shopping
-		deals = @deals.find_by_sql('SELECT * FROM deals WHERE name LIKE "%cvs%" OR name LIKE "%shopping%" OR name LIKE "%shop%" OR name LIKE "%gift card%" OR name LIKE "%coldwatercreek%" OR name LIKE "%target%"')
-		deals.each do |deal|
-			if deal.connections.find_by_category_id(2).nil?
-				deal.connections.create!(:category_id => 2)
-			end
-		end
-	end
-	set_shopping
-	
-	def set_apparel
-		deals = @deals.find_by_sql("SELECT * FROM deals WHERE name LIKE '%glove%' OR name LIKE '%shirt%'")
-		deals.each do |deal|
-			if deal.connections.find_by_category_id(3).nil?
-				deal.connections.create!(:category_id => 3)
-			end
-		end
-	end
-	set_apparel
+
 end
