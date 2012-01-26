@@ -67,16 +67,8 @@ task :make_meritline_deals => :environment do
   make_meritline_deals
 end
 
-task :categories => :environment do
-	categories
-end
-
 task :assign_categories => :environment do
 	assign_categories
-end
-
-task :assign_categories_2 => :environment do
-	assign_categories_2
 end
 
 task :assign_location => :environment do
