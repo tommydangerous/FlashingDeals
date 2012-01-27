@@ -1,9 +1,15 @@
 <div id="side_panel">
-	<%= render 'shared/control_panel' %>
-	<%= render 'shared/location_box' %>
-	<%= render 'shared/category_box' %>
+	<%= render 'shared/side_panel' %>
 </div>
 <div id="deals_list">
+	<div id="search">
+		<%= form_tag rising_deals_path, :method => :get do %>
+			<p>
+				<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
+				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+			</p>
+		<% end %>
+	</div>
 	<div id="deal_nav">
 		<div id="sort_non_ajax">
 			<span class="sort"><%= sortable "name" %></span>
@@ -25,7 +31,6 @@
 		</div>
 	</div>
 	<a name="top"></a>
-	<%= will_paginate @deals, :separator => "" %>
 		<%= render :partial => "rising_deal", :collection => @deals, :as => :deal %>
 	<%= will_paginate @deals, :separator => "" %>
 	<% unless @deals.count < 3 %>

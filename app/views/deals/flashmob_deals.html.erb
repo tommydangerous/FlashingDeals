@@ -1,14 +1,24 @@
 <div id="side_panel">
-	<%= render 'shared/location_box' %>
-	<%= render 'shared/category_box' %>
+	<%= render 'shared/side_panel' %>
 </div>
 <div id="deals_list">
+	<div id="search">
+		<%= form_tag flashmob_deals_path, :method => :get do %>
+			<p>
+				<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
+				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+			</p>
+		<% end %>
+	</div>
 	<div id="deal_nav">
 		<div id="sort_non_ajax">
 			<span class="sort"><%= sortable "name" %></span>
 			<span class="sort"><%= sortable "price" %></span>
 			<span class="sort"><%= sortable "posted", "Found" %></span>
 			<span class="sort"><%= sortable "view_count", "Views" %></span>
+			<% if current_user.admin? %>
+				<span class="sort"><%= sortable "click_count", "Clicks" %></span>
+			<% end %>
 		</div>
 		<div id="paginate_range">
 			<% if @deals.empty? %>
@@ -22,7 +32,6 @@
 		</div>
 	</div>
 	<a name="top"></a>
-	<%= will_paginate @deals, :separator => "" %>
 		<%= render @deals %>
 	<%= will_paginate @deals, :separator => "" %>
 	<% unless @deals.count < 3 %>

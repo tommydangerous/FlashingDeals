@@ -32,6 +32,9 @@
 			<div class="field">
 				<p>Site: <%= f.text_field :site, :autocomplete => "off" %></p>
 			</div>
+			<div class="field">
+				<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
+			</div>
 	</div>
 </div>
 <div id="new_deal_2">
@@ -46,7 +49,10 @@
 				<p>Posted: <%= f.text_field :posted, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
-				<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
+				<p>Views: <%= f.text_field :view_count, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Clicks: <%= f.text_field :click_count, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
 				<p>City: <%= f.text_field :city, :autocomplete => "off" %></p>

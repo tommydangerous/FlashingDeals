@@ -1,5 +1,5 @@
 <div id="side_panel">
-	<%= render 'shared/control_panel' %>
+	<%= render 'shared/side_panel' %>
 </div>
 <div id="deals_list">
 	<div id="search">
@@ -13,8 +13,8 @@
 	<div id="deals">
 		<div id="deal_nav">
 			<div id="paginate_range">
-				<h1>Total Deals: <%= @deals_total_count %> |
-				Number of Results: <%= @deals_found.count %></h1>
+				<h1>Total Deals: <%= Deal.all.length %> |
+				Number of Results: <%= @deals_total_count %></h1>
 			</div>
 		</div>			
 		<%= render @deals %>

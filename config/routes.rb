@@ -12,6 +12,7 @@ FlashingDeal::Application.routes.draw do
   		get :make_queue
   		get :make_top_deal
   		get :make_flashback
+  		get :frame
   	end
   end
   resources :feedbacks, :only => [:index, :create, :destroy]

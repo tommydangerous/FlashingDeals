@@ -5,11 +5,15 @@
 		<span id="sortable_posted" class="sort"><%= sortable "posted", "Found" %></span>
 		<span id="sortable_view" class="sort"><%= sortable "view_count", "Views" %></span>
 		<span class="sort"><%= link_to "Points", flash_points_path %></span>
+		<% if signed_in? %>
+			<% if current_user.admin? %>
+				<span id="sortable_click" class="sort"><%= sortable "click_count", "Clicks" %></span>
+			<% end %>
+		<% end %>
 	</div>
 	<div id="paginate_range">
 		<h1><%= paginate_range(@deals, @deals_total_count) %></h1>
 	</div>
 </div>
-<%= will_paginate @deals, :separator => "" %>
 	<%= render @deals %>
 <%= will_paginate @deals, :separator => "" %>

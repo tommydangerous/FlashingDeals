@@ -13,6 +13,18 @@ input#search {
 	color: rgba(75, 75, 75, 1);
 	margin-top: 10px;
 	margin-bottom: 10px;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 }
 
 input#search:hover {
@@ -21,12 +33,12 @@ input#search:hover {
 
 input#search:focus {
 	border: 1px solid rgba(48, 157, 207, 1);
-	-webkit-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1) inset;
-	-khtml-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1) inset;
-	-moz-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1) inset;
-	-ms-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1) inset;
-	-o-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1) inset;
-	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1) inset;
+	-webkit-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
 }
 
 input#search_button {
@@ -94,4 +106,11 @@ input#search_button:active {
 	-ms-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
 	-o-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
 	box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+}
+
+span#number_of_results {
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
+	margin-left: 5px;
 }

@@ -4,13 +4,27 @@
 	<div id="sort">
 		<span class="sort"><%= sortable "name" %></span>
 		<span class="sort"><%= sortable "price" %></span>
-		<span class="sort"><%= sortable "posted", "Post Date" %></span>
+		<span class="sort"><%= sortable "posted", "Found" %></span>
+		<span class="sort"><%= sortable "view_count", "Views" %></span>
 		<span class="sort"><%= sortable "metric" %></span>
+		<span class="sort"><%= sortable "click_count", "Clicks" %></span>
 	</div>
 	<div id="paginate_range">
-		<h1>Total Deals: <%= @deals_total_count %> |
-		Results on this page: <%= @deals.search(params[:search]).count %></h1>
+		<% if @deals.empty? %>
+		<div class="empty_category">
+			<p>Woopsie! No matching deals...for now :)</p>
+			<p><%= link_to "View other deals", flashback_path %></p>
+		</div>
+		<% else %>
+			<h1><%= paginate_range(@deals, @deals_total_count) %></h1>
+		<% end %>
 	</div>
 </div>
+<a name="top"></a>
 <%= render @deals %>
 <%= will_paginate @deals, :separator => "" %>
+<% unless @deals.count < 3 %>
+	<div id="back_to_top">
+		<strong>^</strong><%= link_to "Back to the Top", "#top" %>
+	</div>
+<% end %>

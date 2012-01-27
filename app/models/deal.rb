@@ -42,9 +42,21 @@ class Deal < ActiveRecord::Base
 	def self.search(search)
 		if search
 			if Rails.env.production?
-				where('name ILIKE ?', "%#{search}%")
+				where("name ILIKE ?", "%#{search}%")
 			else
-				where('name LIKE ?', "%#{search}%")
+				where("name LIKE ?", "%#{search}%")
+			end
+		else
+			scoped
+		end
+	end
+	
+	def self.search_flashmob(search)
+		if search
+			if Rails.env.production?
+				where("metric = ? AND name ILIKE ?", -1, "%#{search}%")
+			else
+				where("metric = ? AND name LIKE ?", -1, "%#{search}%")
 			end
 		else
 			scoped
