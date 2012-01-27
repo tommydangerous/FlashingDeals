@@ -12,10 +12,10 @@
 	</div>
 	<div id="deal_nav">
 		<div id="sort_non_ajax">
-			<span class="sort"><%= sortable "name" %></span>
 			<span class="sort"><%= sortable "price" %></span>
 			<span class="sort"><%= sortable "posted", "Found" %></span>
 			<span class="sort"><%= sortable "view_count", "Views" %></span>
+			<span class="sort"><%= link_to "Comments", flashmob_comments_path %></span>
 			<% if current_user.admin? %>
 				<span class="sort"><%= sortable "click_count", "Clicks" %></span>
 			<% end %>

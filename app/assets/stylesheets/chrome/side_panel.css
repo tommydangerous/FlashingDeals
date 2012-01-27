@@ -51,6 +51,12 @@ div.locations a:hover {
 	text-decoration: underline;
 }
 
+div.locations p {
+	font-family: Verdana;
+	font-size: 11px;
+	color: rgba(150, 150, 150, 1);
+}
+
 div.category_box {
 	border: 1px solid rgba(148, 222, 240, 1);
 	margin-bottom: 10px;

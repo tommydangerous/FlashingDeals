@@ -1,6 +1,11 @@
 FlashingDeal::Application.routes.draw do
 
 	resources :categories, :only => :show
+	resources :categories do
+		member do
+			get :by_comments
+		end
+	end
 	resources :comments, :only => [:index, :create, :destroy]
   resources :deals do
   	resources :shares
@@ -34,9 +39,10 @@ FlashingDeal::Application.routes.draw do
 # Deals
   root :to => 'deals#top_deals'
 	match '/flashback' => 'deals#flashback', :as => :flashback
-	match '/flash_points' => 'deals#flash_points', :as => :flash_points
+	match '/flashback_by_points' => 'deals#flash_points', :as => :flash_points
 	match '/flashingdeal/:id' => 'deals#frame', :as => :frame
 	match '/flashmob_deals' => 'deals#flashmob_deals', :as => :flashmob_deals
+	match '/flashmob_deals_by_comments' => 'deals#flashmob_comments', :as => :flashmob_comments
 	match '/remove_watched_deals' => 'deals#remove_watched_deals', :as => :remove_watched_deals
 	match '/queue' => 'deals#queue', :as => :queue
 	match '/rising_deals' => 'deals#rising_deals', :as => :rising_deals

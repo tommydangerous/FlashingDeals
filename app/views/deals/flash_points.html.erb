@@ -1,6 +1,5 @@
 <div id="side_panel">
-	<%= render 'shared/location_box' %>
-	<%= render 'shared/category_box' %>
+	<%= render "shared/side_panel" %>
 </div>
 <div id="deals_list">
 	<div id="deal_nav">
@@ -16,7 +15,6 @@
 		</div>
 	</div>
 	<a name="top"></a>
-	<%= will_paginate @deals, :separator => "" %>
 		<%= render @deals %>
 	<%= will_paginate @deals, :separator => "" %>
 	<% unless @deals.count < 3 %>

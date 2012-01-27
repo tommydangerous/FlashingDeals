@@ -18,8 +18,8 @@ class DealsController < ApplicationController
 
   def flashback
   	@title = "FlashBack"
-  	@today_3 = Time.zone.now - (86400 * 3)
-  	@today = Time.zone.now - (86400 * 1)
+  	@today_3 = Time.now - (86400 * 3)
+  	@today = Time.now - (86400 * 1)
 		deals = Deal.where("posted > ? AND flash_back = ?", @today_3, true)
   	@deals = deals.order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
   	@deals_total_count = deals.length
@@ -28,8 +28,8 @@ class DealsController < ApplicationController
   
   def flash_points
   	@title = "Flash Points"
-  	@today_3 = Time.zone.now - (86400 * 3)
-  	@today = Time.zone.now - (86400 * 1)
+  	@today_3 = Time.now - (86400 * 3)
+  	@today = Time.now - (86400 * 1)
 		deals = Deal.where("posted > ? AND flash_back = ?", @today_3, true)
   	deals = deals.all.sort_by { |deal| deal.plusminus }.reverse
   	@deals = deals.paginate(:page => params[:page], :per_page => 10)
@@ -58,10 +58,18 @@ class DealsController < ApplicationController
 # Only Logged In Users  
   def flashmob_deals
   	@title = "FlashMob Deals"
-  	@today = Time.zone.now - (86400 * 1)
+  	@today = Time.now - (86400 * 1)
   	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
   	@deals_total_count = deals.search(params[:search]).length
+  end
+  
+  def flashmob_comments
+  	@title = "FlashMob Deals"
+  	@today = Time.now - (86400 * 1)
+  	deals = Deal.where("posted > ? AND metric < ?", @today, 0).search(params[:search]).sort_by { |deal| (deal.comments.count + deal.subcomments.count) }.reverse
+  	@deals = deals.paginate(:page => params[:page], :per_page => 10)
+  	@deals_total_count = deals.length
   end
   
   def watchers
@@ -132,7 +140,7 @@ class DealsController < ApplicationController
 
 	def home
   	@title = "First to Know"
-		@today = Time.zone.now - (86400 * 1)
+		@today = Time.now - (86400 * 1)
   	deals = Deal.where("posted > ? AND top_deal = ?", @today, true)
   	@deals = deals.order("deal_order ASC")
 		if @deals.count < 20

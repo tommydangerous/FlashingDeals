@@ -4,7 +4,7 @@
 </div>
 <div id="deals_list">
 	<div id="search">
-		<%= form_tag @category, :method => :get do %>
+		<%= form_tag by_comments_category_path(@category), :method => :get do %>
 			<p>
 				<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
 				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
@@ -12,15 +12,6 @@
 		<% end %>
 	</div>
 	<div id="deal_nav">
-		<div id="sort_non_ajax">
-			<span class="sort"><%= sortable "price" %></span>
-			<span class="sort"><%= sortable "posted", "Found" %></span>
-			<span class="sort"><%= sortable "view_count", "Views" %></span>
-			<span class="sort"><%= link_to "Comments", by_comments_category_path(@category) %></span>
-			<% if current_user.admin? %>
-				<span class="sort"><%= sortable "click_count", "Clicks" %></span>
-			<% end %>
-		</div>
 		<div id="paginate_range">
 			<% if @deals.empty? %>
 			<div class="empty_category">
