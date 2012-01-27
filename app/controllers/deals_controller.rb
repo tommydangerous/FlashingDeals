@@ -60,7 +60,7 @@ class DealsController < ApplicationController
   	@title = "FlashMob Deals"
   	@today = Time.zone.now - (86400 * 1)
   	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 20)
+  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
   	@deals_total_count = deals.search(params[:search]).length
   end
   
@@ -153,7 +153,7 @@ class DealsController < ApplicationController
 	
 	def search
 		@title = "Search Deals"
-		@deals = Deal.search(params[:search]).order("posted DESC").paginate(:page => params[:page], :per_page => 10)
+		@deals = Deal.search(params[:search]).order("posted DESC").paginate(:page => params[:page], :per_page => 20)
 		@deals_total_count = Deal.search(params[:search]).length
 	end
 	
