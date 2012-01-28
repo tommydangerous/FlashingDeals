@@ -22,6 +22,8 @@ class Deal < ActiveRecord::Base
 									:queue,
 									:time_in,
 									:time_out,
+									:view_count,
+									:click_count,
 									:comment_count,
 									:point_count
 	
