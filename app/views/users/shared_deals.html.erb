@@ -1,5 +1,7 @@
 <div id="gravatar">
-	<%= image_tag(current_user.photo.url, :id => "user_photo_medium") %>
+	<%= link_to current_user do %>
+		<%= image_tag(current_user.photo.url, :id => "user_photo_medium") %>
+	<% end %>
 </div>
 <div id="user_name">
 	<div id="name">
