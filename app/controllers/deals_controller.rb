@@ -82,21 +82,21 @@ class DealsController < ApplicationController
   def score_up
   	deal = Deal.find(params[:id])
   	current_user.vote_exclusively_for(deal)
-  	deal.update_attribute(:point_count, deal.plusminus)
   	respond_to do |format|
   		format.html { redirect_to deal }
   		format.js { @deal = deal }
   	end
+  	deal.update_attribute(:point_count, deal.plusminus)
   end
   
   def score_down
   	deal = Deal.find(params[:id])
   	current_user.vote_exclusively_against(deal)
-  	deal.update_attribute(:point_count, deal.plusminus)
   	respond_to do |format|
   		format.html { redirect_to deal }
   		format.js { @deal = deal }
   	end
+  	deal.update_attribute(:point_count, deal.plusminus)
   end
 
 	def remove_watched_deals

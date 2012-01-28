@@ -21,7 +21,9 @@ class Deal < ActiveRecord::Base
 									:deal_order,
 									:queue,
 									:time_in,
-									:time_out
+									:time_out,
+									:comment_count,
+									:point_count
 	
 	has_many :relationships, :foreign_key => "watched_id", :dependent => :destroy
 	has_many :watchers, :through => :relationships, :source => :watcher

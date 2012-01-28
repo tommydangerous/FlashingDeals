@@ -10,7 +10,6 @@ class CommentsController < ApplicationController
 	def create
 		comment = current_user.comments.create(params[:comment])
 		deal = Deal.find(params[:comment][:deal_id])
-		deal.increment!(:comment_count, by = 1)
 		subcomments = deal.subcomments
 		if comment.save
 			respond_to do |format|
@@ -24,6 +23,7 @@ class CommentsController < ApplicationController
 					@subcomments = subcomments
 				}
 			end
+			deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))
 		else
 			flash[:error] = "Unable to create comment."
 			redirect_to :back
@@ -33,7 +33,6 @@ class CommentsController < ApplicationController
 	def destroy
 		comment = Comment.find(params[:id])
 		deal = Deal.find(comment.deal_id)
-		deal.increment!(:comment_count, by = (-1 - comment.subcomments.size))
 		respond_to do |format|
 			format.html {
 				flash[:success] = "Comment deleted!"
@@ -45,5 +44,6 @@ class CommentsController < ApplicationController
 			}
 		end
 		comment.destroy
+		deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))
 	end
 end

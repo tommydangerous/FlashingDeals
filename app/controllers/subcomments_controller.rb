@@ -6,7 +6,6 @@ class SubcommentsController < ApplicationController
 		comment = Comment.find(params[:subcomment][:comment_id])
 		comment.increment!(:weight, by = 1)
 		deal = Deal.find(comment.deal_id)
-		deal.increment!(:comment_count, by = 1)
 		if subcomment.save
 			respond_to do |format|
 				format.html {
@@ -20,6 +19,7 @@ class SubcommentsController < ApplicationController
 					@subcomments = Subcomment.where("comment_id = ?", @comment.id)
 				}
 			end
+			deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))
 		else
 			flash[:error] = "Your words should not be too few nor too many..."
 			redirect_to :back
@@ -30,7 +30,6 @@ class SubcommentsController < ApplicationController
 		subcomment = Subcomment.find(params[:id])
 		comment = Comment.find(subcomment.comment_id)
 		deal = Deal.find(comment.deal_id)
-		deal.increment!(:comment_count, by = -1)
 		respond_to do |format|
 			format.html {
 				flash[:success] = "Comment deleted!"
@@ -42,5 +41,6 @@ class SubcommentsController < ApplicationController
 			}
 		end
 		subcomment.destroy
+		deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))
 	end
 end
