@@ -92,11 +92,7 @@
 			</tr>
 			<tr>
 				<td class="deal_data_numbers">
-					<% if deal.view_count.nil? %>
-						<p>0</p>
-					<% else %>
-						<p><%= deal.view_count %></p>
-					<% end %>
+					<p><%= deal.view_count %></p>
 				</td>
 				<td class="deal_data_labels">
 					<%= image_tag("/assets/glass.png", :title => "Views", :class => "views") %>

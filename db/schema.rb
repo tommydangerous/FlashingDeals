@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128143318) do
+ActiveRecord::Schema.define(:version => 20120128161332) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -74,8 +74,8 @@ ActiveRecord::Schema.define(:version => 20120128143318) do
     t.datetime "posted"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "click_count"
-    t.integer  "view_count"
+    t.integer  "click_count",                  :default => 0
+    t.integer  "view_count",                   :default => 0
     t.string   "city"
     t.text     "info",          :limit => 255
     t.boolean  "top_deal",                     :default => false
@@ -90,6 +90,7 @@ ActiveRecord::Schema.define(:version => 20120128143318) do
   end
 
   add_index "deals", ["city"], :name => "index_deals_on_city"
+  add_index "deals", ["click_count"], :name => "index_deals_on_click_count"
   add_index "deals", ["comment_count"], :name => "index_deals_on_comment_count"
   add_index "deals", ["deal_order"], :name => "index_deals_on_deal_order"
   add_index "deals", ["flash_back"], :name => "index_deals_on_flash_back"
@@ -99,6 +100,7 @@ ActiveRecord::Schema.define(:version => 20120128143318) do
   add_index "deals", ["queue"], :name => "index_deals_on_queue"
   add_index "deals", ["slug"], :name => "index_deals_on_slug"
   add_index "deals", ["top_deal"], :name => "index_deals_on_top_deal"
+  add_index "deals", ["view_count"], :name => "index_deals_on_view_count"
 
   create_table "feedbacks", :force => true do |t|
     t.integer   "user_id"
