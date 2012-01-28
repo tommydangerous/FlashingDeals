@@ -64,20 +64,19 @@ div#deal_nav {
 	width: 100%;
 	height: 25px;
 	margin-bottom: 10px;
+	text-align: center;
 }
  
 div#sort, div#sort_non_ajax {
-	width: 48%;
-	float: right;
-	text-align: right;
-	font-weight: bold;
+	width: 100%;
 }
 
 div#sort a, div#sort_non_ajax a {
 	text-decoration: none;
 	font-size: 12px;
 	font-family: Verdana;
-	padding: 2px 4px 2px 9px;
+	font-weight: bold;
+	padding: 0px 10px;
 	color: rgba(48, 157, 207, 1);
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
@@ -96,14 +95,14 @@ div#sort a:hover, div#sort_non_ajax a:hover {
 	background: url("/assets/descending.png");
 	background-size: 7px 7px;
 	background-repeat: no-repeat;
-	background-position: left 5px;
+	background-position: left 3px;
 }
 
 .asc {
 	background: url("/assets/ascending.png");
 	background-size: 7px 7px;
 	background-repeat: no-repeat;
-	background-position: left 6px;
+	background-position: left 3px;
 }
 
 div#paginate_range {

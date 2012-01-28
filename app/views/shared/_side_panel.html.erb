@@ -1,7 +1,9 @@
-<% if signed_in? %>
-	<% if current_user.admin? %>
-		<%= render 'shared/control_panel' %>
+<div id="side_panel">
+	<% if signed_in? %>
+		<% if current_user.admin? %>
+			<%= render 'shared/control_panel' %>
+		<% end %>
 	<% end %>
-<% end %>
-<%= render 'shared/location_box' %>
-<%= render 'shared/category_box' %>
+	<%= render 'shared/location_box' %>
+	<%= render 'shared/category_box' %>
+</div>

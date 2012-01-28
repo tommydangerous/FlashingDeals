@@ -1,37 +1,19 @@
-<div id="side_panel">
-	<%= render 'shared/location_box' %>
-	<%= render 'shared/category_box' %>
-</div>
+<%= render 'shared/side_panel' %>
 <div id="deals_list">
 	<div id="search">
-		<%= form_tag @category, :method => :get do %>
-			<p>
-				<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
-				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
-			</p>
+		<% unless @deals.empty? %>
+		<div class="paginate_range">
+			<%= paginate_range(@deals, @deals_total_count) %>
+		</div>
 		<% end %>
-	</div>
-	<div id="deal_nav">
-		<div id="sort_non_ajax">
-			<span class="sort"><%= sortable "price" %></span>
-			<span class="sort"><%= sortable "posted", "Found" %></span>
-			<span class="sort"><%= sortable "view_count", "Views" %></span>
-			<span class="sort"><%= link_to "Comments", by_comments_category_path(@category) %></span>
-			<% if current_user.admin? %>
-				<span class="sort"><%= sortable "click_count", "Clicks" %></span>
-			<% end %>
-		</div>
-		<div id="paginate_range">
-			<% if @deals.empty? %>
-			<div class="empty_category">
-				<p>Woopsie! No deals in this category...for now :)</p>
-				<p><%= link_to "View other deals", flashback_path %></p>
-			</div>
-			<% else %>
-				<h1><%= paginate_range(@deals, @deals_total_count) %></h1>
-			<% end %>
+		<div id="search_form">
+		<%= form_tag @category, :method => :get do %>
+			<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
+			<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+		<% end %>
 		</div>
 	</div>
+	<%= render "deals/deal_nav" %>
 	<a name="top"></a>
 		<%= render @deals %>
 	<%= will_paginate @deals, :separator => "" %>

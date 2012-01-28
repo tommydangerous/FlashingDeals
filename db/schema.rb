@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120126164320) do
+ActiveRecord::Schema.define(:version => 20120128143318) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -77,21 +77,25 @@ ActiveRecord::Schema.define(:version => 20120126164320) do
     t.integer  "click_count"
     t.integer  "view_count"
     t.string   "city"
-    t.text     "info",        :limit => 255
-    t.boolean  "top_deal",                   :default => false
-    t.boolean  "flash_back",                 :default => false
+    t.text     "info",          :limit => 255
+    t.boolean  "top_deal",                     :default => false
+    t.boolean  "flash_back",                   :default => false
     t.integer  "deal_order"
-    t.boolean  "queue",                      :default => false
+    t.boolean  "queue",                        :default => false
     t.datetime "time_in"
     t.datetime "time_out"
     t.string   "slug"
+    t.integer  "point_count",                  :default => 0
+    t.integer  "comment_count",                :default => 0
   end
 
   add_index "deals", ["city"], :name => "index_deals_on_city"
+  add_index "deals", ["comment_count"], :name => "index_deals_on_comment_count"
   add_index "deals", ["deal_order"], :name => "index_deals_on_deal_order"
   add_index "deals", ["flash_back"], :name => "index_deals_on_flash_back"
   add_index "deals", ["metric"], :name => "index_deals_on_metric"
   add_index "deals", ["name"], :name => "index_deals_on_name", :unique => true
+  add_index "deals", ["point_count"], :name => "index_deals_on_point_count"
   add_index "deals", ["queue"], :name => "index_deals_on_queue"
   add_index "deals", ["slug"], :name => "index_deals_on_slug"
   add_index "deals", ["top_deal"], :name => "index_deals_on_top_deal"

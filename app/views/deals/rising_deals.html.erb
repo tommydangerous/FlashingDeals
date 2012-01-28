@@ -1,35 +1,19 @@
-<div id="side_panel">
-	<%= render 'shared/side_panel' %>
-</div>
+<%= render 'shared/side_panel' %>
 <div id="deals_list">
 	<div id="search">
-		<%= form_tag rising_deals_path, :method => :get do %>
-			<p>
-				<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
-				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
-			</p>
+		<% unless @deals.empty? %>
+		<div class="paginate_range">
+			<%= paginate_range(@deals, @deals_total_count) %>
+		</div>
 		<% end %>
-	</div>
-	<div id="deal_nav">
-		<div id="sort_non_ajax">
-			<span class="sort"><%= sortable "name" %></span>
-			<span class="sort"><%= sortable "price" %></span>
-			<span class="sort"><%= sortable "posted", "Found" %></span>
-			<span class="sort"><%= sortable "view_count", "Views" %></span>
-			<span class="sort"><%= sortable "metric" %></span>
-			<span class="sort" id="sort_created_at"><%= sortable "created_at", "Create" %></span>
-		</div>
-		<div id="paginate_range">
-			<% if @deals.empty? %>
-			<div class="empty_category">
-				<p>Woopsie! No matching deals...for now :)</p>
-				<p><%= link_to "View other deals", flashback_path %></p>
-			</div>
-			<% else %>
-				<h1><%= paginate_range(@deals, @deals_total_count) %></h1>
-			<% end %>
+		<div id="search_form">
+		<%= form_tag rising_deals_path, :method => :get do %>
+			<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
+			<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+		<% end %>
 		</div>
 	</div>
+	<%= render "deal_nav" %>
 	<a name="top"></a>
 		<%= render :partial => "rising_deal", :collection => @deals, :as => :deal %>
 	<%= will_paginate @deals, :separator => "" %>

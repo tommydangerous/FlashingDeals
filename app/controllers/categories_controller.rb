@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 	  @today = today
 		deals = @category.deals.where("posted > ? AND metric < ?", today, 0)
 		@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
-	  @deals_total_count = deals.search(params[:search]).length
+	  @deals_total_count = deals.search(params[:search]).size
 	rescue ActiveRecord::RecordNotFound
 		@title = "Page Not Found"
 		render 'pages/page_not_found'
@@ -20,7 +20,7 @@ class CategoriesController < ApplicationController
 	  @today = Time.now - 86400
 	  deals = @category.deals.where("posted > ? AND metric < ?", @today, 0).search(params[:search]).sort_by { |deal| (deal.comments.count + deal.subcomments.count) }.reverse
   	@deals = deals.paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.length
+  	@deals_total_count = deals.size
   end
   
   private

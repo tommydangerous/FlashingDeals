@@ -5,6 +5,8 @@ class SubcommentsController < ApplicationController
 		subcomment = current_user.subcomments.create(params[:subcomment])
 		comment = Comment.find(params[:subcomment][:comment_id])
 		comment.increment!(:weight, by = 1)
+		deal = Deal.find(comment.deal_id)
+		deal.increment!(:comment_count, by = 1)
 		if subcomment.save
 			respond_to do |format|
 				format.html {
@@ -12,7 +14,7 @@ class SubcommentsController < ApplicationController
 					redirect_to :back
 				}
 				format.js {
-					@deal = Deal.find(params[:subcomment][:deal_id])
+					@deal = deal
 					@comment = comment
 					@subcomment = subcomment
 					@subcomments = Subcomment.where("comment_id = ?", @comment.id)
@@ -26,12 +28,16 @@ class SubcommentsController < ApplicationController
 	
 	def destroy
 		subcomment = Subcomment.find(params[:id])
+		comment = Comment.find(subcomment.comment_id)
+		deal = Deal.find(comment.deal_id)
+		deal.increment!(:comment_count, by = -1)
 		respond_to do |format|
 			format.html {
 				flash[:success] = "Comment deleted!"
 				redirect_to :back
 			}
 			format.js {
+				@deal = deal
 				@subcomment = subcomment
 			}
 		end

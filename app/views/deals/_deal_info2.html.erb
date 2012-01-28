@@ -2,13 +2,17 @@
 	<h2>Flash Points 
 		<% if signed_in? %>
 			<% if current_user.admin? %>
-				<span id="view_and_click_count">Views: <%= @deal.view_count %> <span class="grey_75">|</span> Clicks: 
+				<div id="comment_and_point_count">
+					Comment Count: <span id="comment_count"><%= @deal.comment_count %></span> <span class="grey_75">|</span>
+					Point Count: <span id="point_count"><%= @deal.point_count %></span>
+				</div>
+				<div id="view_and_click_count">Views: <%= @deal.view_count %> <span class="grey_75">|</span> Clicks: 
 				<% if @deal.click_count.nil? %>
 					0
 				<% else %>
 					<%= @deal.click_count %>
 				<% end %>
-				</span>
+				</div>
 			<% end %>
 		<% end %>
 	</h2>

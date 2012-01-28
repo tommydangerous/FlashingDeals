@@ -124,7 +124,7 @@ class UsersController < ApplicationController
   	@title = "Deals You Are Watching"
   	@user = User.find(params[:id])
   	@deals = @user.watching.paginate(:page => params[:page], :per_page => 20)
-  	@deals_total_count = @user.watching.count
+  	@deals_total_count = @user.watching.size
   end
   
   def edit
@@ -145,7 +145,7 @@ class UsersController < ApplicationController
 # Admin User
 	def index
 		@title = "All Users"
-		@users = User.all
+		@users = User.order("name ASC")
 	end
 
   def destroy

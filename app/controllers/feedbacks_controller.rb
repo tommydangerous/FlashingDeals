@@ -6,7 +6,7 @@ class FeedbacksController < ApplicationController
 	def index
 		@title = "All Users' Feedback"
 		@feedbacks = Feedback.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
-		@feedbacks_total_count = Feedback.all.length
+		@feedbacks_total_count = Feedback.all.size
 	end
 	
 	def create

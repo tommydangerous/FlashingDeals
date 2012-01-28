@@ -92,7 +92,7 @@
 			</tr>
 			<tr>
 				<td class="deal_data_numbers">
-					<p><%= (deal.comments.count + deal.subcomments.count) %></p>
+					<p><%= (deal.comments.size + deal.subcomments.size) %></p>
 				</td>
 				<td class="deal_data_labels">
 					<%= image_tag("/assets/comment_bubble.png", :title => "Comments", :class => "comment_bubble") %>

@@ -1,1 +1,2 @@
 $("div#subcomment_"+<%= @subcomment.id %>).remove();
+$("span#comment_count").html("<%= "#{@deal.comment_count}" %>")

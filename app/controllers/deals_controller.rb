@@ -22,7 +22,7 @@ class DealsController < ApplicationController
   	@today = Time.now - (86400 * 1)
 		deals = Deal.where("posted > ? AND flash_back = ?", @today_3, true)
   	@deals = deals.order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.length
+  	@deals_total_count = deals.size
   	clear_return_to
   end
   
@@ -33,7 +33,7 @@ class DealsController < ApplicationController
 		deals = Deal.where("posted > ? AND flash_back = ?", @today_3, true)
   	deals = deals.all.sort_by { |deal| deal.plusminus }.reverse
   	@deals = deals.paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.length
+  	@deals_total_count = deals.size
   	clear_return_to
   end
   
@@ -61,7 +61,7 @@ class DealsController < ApplicationController
   	@today = Time.now - (86400 * 1)
   	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.search(params[:search]).length
+  	@deals_total_count = deals.search(params[:search]).size
   end
   
   def flashmob_comments
@@ -69,7 +69,7 @@ class DealsController < ApplicationController
   	@today = Time.now - (86400 * 1)
   	deals = Deal.where("posted > ? AND metric < ?", @today, 0).search(params[:search]).sort_by { |deal| (deal.comments.count + deal.subcomments.count) }.reverse
   	@deals = deals.paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.length
+  	@deals_total_count = deals.size
   end
   
   def watchers
@@ -82,6 +82,7 @@ class DealsController < ApplicationController
   def score_up
   	deal = Deal.find(params[:id])
   	current_user.vote_exclusively_for(deal)
+  	deal.update_attribute(:point_count, deal.plusminus)
   	respond_to do |format|
   		format.html { redirect_to deal }
   		format.js { @deal = deal }
@@ -91,6 +92,7 @@ class DealsController < ApplicationController
   def score_down
   	deal = Deal.find(params[:id])
   	current_user.vote_exclusively_against(deal)
+  	deal.update_attribute(:point_count, deal.plusminus)
   	respond_to do |format|
   		format.html { redirect_to deal }
   		format.js { @deal = deal }
@@ -135,7 +137,7 @@ class DealsController < ApplicationController
   											flash_back = ?",
   											today, 0, false, false, false)
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.search(params[:search]).length
+  	@deals_total_count = deals.search(params[:search]).size
   end
 
 	def home
@@ -156,13 +158,13 @@ class DealsController < ApplicationController
 	def index
 		@title = "Past Deals"
 		@deals = Deal.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 20)
-		@deals_total_count = Deal.search(params[:search]).length
+		@deals_total_count = Deal.search(params[:search]).size
 	end
 	
 	def search
 		@title = "Search Deals"
 		@deals = Deal.search(params[:search]).order("posted DESC").paginate(:page => params[:page], :per_page => 20)
-		@deals_total_count = Deal.search(params[:search]).length
+		@deals_total_count = Deal.search(params[:search]).size
 	end
 	
 	def live_search

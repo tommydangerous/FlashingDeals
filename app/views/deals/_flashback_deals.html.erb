@@ -1,19 +1,26 @@
+<div id="search">
+	<% unless @deals.empty? %>
+	<div class="paginate_range">
+		<%= paginate_range(@deals, @deals_total_count) %>
+	</div>
+	<% end %>
+</div>
 <div id="deal_nav">
 	<div id="sort">
-		<span id="sortable_name" class="sort"><%= sortable "name" %></span>
-		<span id="sortable_price" class="sort"><%= sortable "price" %></span>
-		<span id="sortable_posted" class="sort"><%= sortable "posted", "Found" %></span>
-		<span id="sortable_view" class="sort"><%= sortable "view_count", "Views" %></span>
-		<span class="sort"><%= link_to "Points", flash_points_path %></span>
+		<span class="sort"><%= sortable "name" %></span>
+		<span class="sort"><%= sortable "price" %></span>
+		<span class="sort"><%= sortable "posted", "Found" %></span>
+		<span class="sort"><%= sortable "view_count", "Views" %></span>
+		<span class="sort"><%= sortable "comment_count", "Comments" %></span>
+		<span class="sort"><%= sortable "point_count", "Points" %></span>
 		<% if signed_in? %>
 			<% if current_user.admin? %>
-				<span id="sortable_click" class="sort"><%= sortable "click_count", "Clicks" %></span>
+				<span class="sort"><%= sortable "click_count", "Clicks" %></span>
+				<span class="sort"><%= sortable "created_at", "Created" %></span>
+				<span class="sort"><%= sortable "metric" %></span>
 			<% end %>
 		<% end %>
 	</div>
-	<div id="paginate_range">
-		<h1><%= paginate_range(@deals, @deals_total_count) %></h1>
-	</div>
 </div>
-	<%= render @deals %>
+<%= render @deals %>
 <%= will_paginate @deals, :separator => "" %>
