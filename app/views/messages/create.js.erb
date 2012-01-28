@@ -1,2 +1,3 @@
-$("div#list_of_messages").html("<%= escape_javascript(render(:partial => "messages/message", :collection => @messages)) %>")
+$("div#list_of_messages_partial").html("<%= escape_javascript(render(:partial => "messages/message", :collection => @messages)) %>")
+$("div#messages_paginate").html("<%= escape_javascript(render("messages/messages_paginate")) %>")
 $("div#reply_form").html("<%= escape_javascript(render('messages/message_reply_form')) %>")

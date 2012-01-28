@@ -19,12 +19,15 @@ class MessagesController < ApplicationController
 			@send_messages = Message.where("user_id = #{@user.id} AND recipient_id = #{@sender.id}")
 			@received_messages = Message.where("user_id = #{@sender.id} AND recipient_id = #{@user.id}")
 		end
-		@messages = (@send_messages + @received_messages).sort_by { |message| message.created_at }
+		messages = (@send_messages + @received_messages).sort_by { |message| message.created_at }.reverse
+		@messages = messages.paginate(:page => params[:page], :per_page => 20)
 		@title = "#{@sender.name} - Messages"
 		@total_messages = current_user.received_messages
 		unless @message.user_id == current_user.id
 			unless @message.read == true
-				@message.update_attribute(:read, true)
+				@received_messages.where("read = ?", false).each do |message|
+					message.update_attribute(:read, true)
+				end
 			end
 		end
 	rescue ActiveRecord::RecordNotFound
@@ -54,7 +57,8 @@ class MessagesController < ApplicationController
 				send_messages = Message.where("user_id = #{user.id} AND recipient_id = #{sender.id}")
 				received_messages = Message.where("user_id = #{sender.id} AND recipient_id = #{user.id}")
 			end
-			messages = (send_messages + received_messages).sort_by { |message| message.created_at }
+			messages = (send_messages + received_messages).sort_by { |message| message.created_at }.reverse
+			messages = messages.paginate(:page => params[:page], :per_page => 20)
 			if message.save
 				respond_to do |format|
 					format.html {
