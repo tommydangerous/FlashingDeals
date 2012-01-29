@@ -1,21 +1,25 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
 	<div id="search">
-		<%= form_tag search_path, :method => :get do %>
-			<p>
-				<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
-				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
-			</p>
+		<% unless @deals.empty? %>
+		<div class="paginate_range">
+			<%= paginate_range(@deals, @deals_total_count) %>
+		</div>
 		<% end %>
+		<div id="search_form">
+		<%= form_tag search_path, :method => :get do %>
+			<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
+			<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+		<% end %>
+		</div>
 	</div>
-	<div id="deals">
-		<div id="deal_nav">
-			<div id="paginate_range">
-				<h1>Total Deals: <%= Deal.all.length %> |
-				Number of Results: <%= @deals_total_count %></h1>
-			</div>
-		</div>			
+	<%= render "deal_nav" %>
+	<a name="top"></a>
 		<%= render @deals %>
-	</div>
 	<%= will_paginate @deals, :separator => "" %>
+	<% unless @deals.count < 3 %>
+		<div id="back_to_top">
+			<strong>^</strong><%= link_to "Back to the Top", "#top" %>
+		</div>
+	<% end %>
 </div>

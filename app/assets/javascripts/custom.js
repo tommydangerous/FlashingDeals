@@ -37,6 +37,12 @@ function toggleMyAccountMenu() {
 	};
 };
 
+// Side Panel
+
+function toggleControlPanel() {
+	$('div#user_index_control_panel').slideToggle();
+};
+
 function toggleLocations() {
 	$('div.locations').slideToggle();
 };

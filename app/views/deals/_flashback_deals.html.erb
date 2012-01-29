@@ -22,5 +22,17 @@
 		<% end %>
 	</div>
 </div>
-<%= render @deals %>
+<% if @deals.empty? %>
+<div class="empty_category">
+	<p>Woopsie! No matching deals...for now :)</p>
+	<p><%= link_to "View other deals", flashback_path %></p>
+</div>
+<% end %>
+<a name="top"></a>
+	<%= render @deals %>
 <%= will_paginate @deals, :separator => "" %>
+<% unless @deals.count < 3 %>
+	<div id="back_to_top">
+		<strong>^</strong><%= link_to "Back to the Top", "#top" %>
+	</div>
+<% end %>

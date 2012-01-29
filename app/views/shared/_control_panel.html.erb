@@ -1,6 +1,6 @@
 <div id="user_index_panel">
 	<div id="user_index_panel_title">
-		<p>Control Panel</p>
+		<p><%= link_to "Control Panel", "javascript:void(0)", :onclick => "toggleControlPanel()" %></p>
 	</div>
 	<div id="user_index_control_panel">
 		<table>
@@ -96,7 +96,6 @@
 		<ul>
   		<li><%= link_to "Create a Deal", new_deal_path %></li>
 		  <li><%= link_to "Search Deals", search_path %></li>
-			<li><%= link_to "Live Search", live_search_path %></li>
 		</ul>
 	</div>
 </div>

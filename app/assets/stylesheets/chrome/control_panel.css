@@ -11,12 +11,26 @@ div#user_index_panel {
 
 div#user_index_panel_title {
 	background: rgba(173, 217, 228, 1);
-	padding: 10px;
 	font-weight: bold;
 }
 
-div#user_index_panel_title p {
+div#user_index_panel_title p a {
+	display: block;
+	padding: 10px;
+	width: 198px;
+	height: 20px;
+	text-decoration: none;
 	color: rgba(44, 175, 227, 1);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#user_index_panel_title p a:hover{
+	color: rgba(4, 135, 187, 1);
 }
 
 div#user_index_control_panel {

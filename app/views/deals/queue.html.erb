@@ -6,7 +6,7 @@
 			<% end %>
 	</div>
 	<div id="queue_list">
-		<%= render :partial => "queue_deals", :collection => @deals, :as => :deal %>
+		<%= render :partial => "queue_deal", :collection => @deals, :as => :deal %>
 	</div>
 </div>
 <div id="top_deals_section">
@@ -14,6 +14,6 @@
 		<h1>Top Deals (<span id="top_deals_count"><%= @top_deals.count %></span>)</h1>
 	</div>
 	<div id="top_deals_list">
-		<%= render :partial => "queue_top_deals", :collection => @top_deals, :as => :deal %>
+		<%= render :partial => "queue_top_deal", :collection => @top_deals, :as => :deal %>
 	</div>
 </div>

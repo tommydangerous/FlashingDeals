@@ -1,2 +1,2 @@
-$("div#queue_list").html("<%= escape_javascript(render(:partial => "deals/queue_deals", :collection => @deals, :as => :deal)) %>")
+$("div#queue_list").html("<%= escape_javascript(render(:partial => "deals/queue_deal", :collection => @deals, :as => :deal)) %>")
 $("span#queue_deal_count").html('<%= "#{@deals.count}" %>')

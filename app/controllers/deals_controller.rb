@@ -1,7 +1,7 @@
 class DealsController < ApplicationController
 	before_filter :authenticate, :except => [:top_deals, :flashback, :flash_points, :show, :frame]
 	before_filter :admin_user, :except => [:top_deals, :flashback, :flash_points, :show, :frame, :flashmob_deals,  :watchers, :score_up, :score_down, :remove_watched_deals]
-	before_filter :gm_user, :only => [:destroy, :empty_queue]
+	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
 	helper_method :sort_column, :sort_direction
 	
 	require 'nokogiri'
@@ -156,21 +156,16 @@ class DealsController < ApplicationController
   end
 
 	def index
-		@title = "Past Deals"
+		@title = "All Deals"
 		@deals = Deal.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 20)
 		@deals_total_count = Deal.search(params[:search]).size
 	end
 	
 	def search
 		@title = "Search Deals"
-		@deals = Deal.search(params[:search]).order("posted DESC").paginate(:page => params[:page], :per_page => 20)
+		@deals = Deal.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 20)
 		@deals_total_count = Deal.search(params[:search]).size
 	end
-	
-	def live_search
-  	@title = "Live Search"
-  	@deals = Deal.order("posted DESC")
-  end
   
 	def new
 		@title = "Create Deal"
@@ -286,8 +281,28 @@ class DealsController < ApplicationController
 			}
 		end
 	end
+	
+	def make_remove
+		deal = Deal.find(params[:id])
+		deal.update_attributes(:queue => false, :top_deal => false, :flash_back => false)
+		respond_to do |format|
+			format.html {
+				flash[:success] = "Successfully removed from the queue."
+				redirect_to queue_path
+			}
+			format.js {
+				@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+			}
+		end
+	end
   
 # GM Users Only  
+	def live_search
+  	@title = "Live Search"
+  	@deals = Deal.order("posted DESC")
+  end
+  
   def destroy
 		Deal.find(params[:id]).destroy
 		flash[:notice] = "Deal destroyed."

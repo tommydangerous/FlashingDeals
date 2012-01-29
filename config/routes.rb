@@ -10,6 +10,7 @@ FlashingDeal::Application.routes.draw do
   resources :deals do
   	resources :shares
   	member do
+  		get :frame
   		get :watchers
   		post :score_up
   		post :score_down
@@ -17,7 +18,7 @@ FlashingDeal::Application.routes.draw do
   		get :make_queue
   		get :make_top_deal
   		get :make_flashback
-  		get :frame
+  		get :make_remove
   	end
   end
   resources :feedbacks, :only => [:index, :create, :destroy]
@@ -49,7 +50,6 @@ FlashingDeal::Application.routes.draw do
 	match '/home' => 'deals#home', :as => :home
 	match '/past_deals' => 'deals#index'
 	match '/search' => 'deals#search', :as => :search
-	match '/live_search' => 'deals#live_search', :as => :live_search
   match '/create_deals' => 'deals#create_deals', :as => :create_deals
   match '/create_rising_deals' => 'deals#create_rising_deals', :as => :create_rising_deals
 	match '/create_flashmob_deals' => 'deals#create_flashmob_deals', :as => :create_flashmob_deals
