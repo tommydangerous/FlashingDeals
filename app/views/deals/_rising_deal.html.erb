@@ -11,18 +11,6 @@
 			<% end %>
 			</a>
 		<% end %>
-		<div id="add_to_queue">
-			<%= link_to "Add to Queue", add_to_queue_deal_path(deal), :remote => true %>
-		</div>
-		<div class="watch_status">
-			<% if signed_in? %>
-				<% if current_user.watching?(deal) %>
-					<div id="watching_status">
-						<p>Watching!</p>
-					</div>
-				<% end %>			
-			<% end %>
-		</div>
 	</div>
 	<div class="col2">
 		<h1><%= link_to deal.name, deal %></h1>
@@ -47,6 +35,13 @@
 			<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
 		<% end %>
 		</ul>
+		<% if signed_in? %>
+			<% if current_user.admin? %>
+				<div class="edit_rising_deal">
+					<%= link_to "Edit + Add to Queue", "javascript:void(0);", :onclick => "toggleRisingDealEdit(#{deal.id})" %>
+				</div>
+			<% end %>
+		<% end %>
 	</div>
 	<div class="col3">
 		<div class="price">
@@ -108,20 +103,33 @@
 							</p>
 						</td>
 						<td class="deal_data_labels">
-							<%= image_tag("/assets/metric.png", :title => "Rating", :class => "metric") %>
+							<%= image_tag("/assets/metric.png", :title => "Metric", :class => "metric") %>
 						</td>
 					</tr>
 				<% end %>
 			<% end %>
 		</table>
 		</div>
-		<% if signed_in? %>
-			<% if current_user.admin? %>
-				<div class="edit_deal">
-					<%= link_to "Edit Deal", edit_deal_path(deal), :target => "_blank" %>
-				</div>
-			<% end %>
-		<% end %>
+	</div>
+	<div class="clear"></div>
+	<div id="rising_deal_edit_<%= deal.id %>" class="rising_deal_edit_more">
+	<%= form_for deal, :remote => true do |f| %>
+		<%= f.hidden_field :queue, :value => true %>
+		<p>Name: <%= f.text_area :name, :autocomplete => "off", :class => "rising_deal_edit_name" %></p>
+		<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "rising_deal_edit_info" %></p>
+		<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
+		<p>Value: <%= f.text_field :value, :autocomplete => "off" %></p>
+		<p>Link: <%= f.text_field :link, :autocomplete => "off" %></p>
+		<p>Image: <%= f.text_field :image, :autocomplete => "off" %></p>
+		<p>Site: <%= f.text_field :site, :autocomplete => "off" %></p>
+		<p>Posted: <%= f.text_field :posted, :autocomplete => "off" %></p>
+		<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
+		<p>City: <%= f.text_field :city, :autocomplete => "off" %></p>
+		<p>Metric: <%= f.text_field :metric, :autocomplete => "off" %></p>
+		<div class="actions">
+			<%= f.submit "Add to Queue" %>
+		</div>
+	<% end %>
 	</div>
 	<div class="clear"></div>
 </div>

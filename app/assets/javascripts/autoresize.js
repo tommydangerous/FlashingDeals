@@ -3,4 +3,6 @@ $(document).ready(function() {
 	$('.subcomment_textarea').autoResize();
 	$('.subcomment_textarea_2').autoResize();
 	$('textarea#message_content').autoResize();
+	$('textarea#deal_name').autoResize();
+	$('textarea#deal_info').autoResize();
 });
