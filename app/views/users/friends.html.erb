@@ -39,9 +39,7 @@
 				<% end %>
 			</h2>
 			</div>
-			<div id="shared_deals_profile">
-				<h2><%= link_to "Shared Deals", shared_deals_path %></h2>
-			</div>
+			<%= render "shared_deals_profile" %>
 			<div id="feedback_header">
 				<%= link_to "Feedback", "javascript: void(0)", :id => "feedback" %>
 			</div>

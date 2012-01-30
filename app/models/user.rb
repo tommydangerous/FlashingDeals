@@ -105,6 +105,16 @@ class User < ActiveRecord::Base
 		comments.create!(:deal_id => deal.id, :content => content)
 	end
 	
+	def duration
+		one_month    = Time.now - (30 * 86400) # within 1 week
+  	two_months   = Time.now - (60 * 86400)
+  	three_months = Time.now - (90 * 86400)
+  	four_months  = Time.now - (120 * 86400)
+  	duration = [one_month, two_months, three_months, four_months]
+  	n = self.deal_duration - 1
+  	duration[n]
+  end
+	
 	def send_forgot_name
 		UserMailer.forgot_name(self).deliver
 	end

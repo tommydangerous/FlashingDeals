@@ -1,0 +1,7 @@
+<div id="shared_deals_profile">
+	<% if current_user.inverse_deals.where("posted > ?", current_user.duration).size == 0 %>
+		<h2><%= link_to "Shared Deals", shared_deals_path %></h2>
+	<% else %>
+		<h2><%= link_to "Shared Deals (#{current_user.inverse_deals.where("posted > ?", current_user.duration).size})", shared_deals_path %></h2>
+	<% end %>
+</div>

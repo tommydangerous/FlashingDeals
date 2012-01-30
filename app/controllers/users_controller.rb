@@ -90,14 +90,6 @@ class UsersController < ApplicationController
   def friend_requests
   	@user = current_user
   	@title = "Friend Requests"
-  	deals = @user.watching.order("posted DESC")
-  	one_month    = Time.now - (30 * 86400) # within 1 week
-  	two_months   = Time.now - (60 * 86400)
-  	three_months = Time.now - (90 * 86400)
-  	four_months  = Time.now - (120 * 86400)
-  	duration = [one_month, two_months, three_months, four_months]
-  	n = @user.deal_duration - 1
-  	@deals = deals.where("posted > ?", duration[n])
   	@friend_requests = current_user.request_friends
   	@friend_requests = @friend_requests.sort_by { |friend| friend.name }
   	if @friend_requests.empty?
@@ -109,14 +101,7 @@ class UsersController < ApplicationController
   def shared_deals
   	@user = current_user
   	@title = "Shared Deals"
-  	deals = @user.inverse_deals.order("posted DESC")
-		one_month    = Time.now - (30 * 86400) # within 1 week
-  	two_months   = Time.now - (60 * 86400)
-  	three_months = Time.now - (90 * 86400)
-  	four_months  = Time.now - (120 * 86400)
-  	duration = [one_month, two_months, three_months, four_months]
-  	n = @user.deal_duration - 1
-  	@deals = deals.where("posted > ?", duration[n])
+  	@deals = @user.inverse_deals.where("posted > ?", @user.duration).order("posted DESC")
   end
   
 # Correct User

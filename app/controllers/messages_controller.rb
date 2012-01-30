@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
 	def index
 		@title = "Messages"
 		@user = current_user
-		@messages = current_user.received_messages.order("created_at DESC").paginate(:page => params[:page], :per_page => 30)
+		@messages = current_user.received_messages.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
 	end
 	
 	def show

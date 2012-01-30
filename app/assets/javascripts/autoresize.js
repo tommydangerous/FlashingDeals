@@ -5,4 +5,6 @@ $(document).ready(function() {
 	$('textarea#message_content').autoResize();
 	$('textarea#deal_name').autoResize();
 	$('textarea#deal_info').autoResize();
+	$('textarea#deal_name').autoResize();
+	$('textarea#deal_info').autoResize();
 });
