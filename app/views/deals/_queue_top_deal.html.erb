@@ -49,8 +49,10 @@
 		</div>
 	</div>
 	<div class="clear"></div>
+	<% unless deal.time_in.nil? %>
 	<div id="queue_top_deal_updated_at">
 		<p>Time In: <span class="grey_75"><%= deal.time_in.strftime("%A %b %d, %Y") %></span> at <span class="grey_75"><%= deal.time_in.strftime("%I:%M %p") %></span></p>
 	</div>
+	<% end %>
 	<div class="clear"></div>
 </div>
