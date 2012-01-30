@@ -35,7 +35,7 @@ def assign_shopping
 end
 
 def assign_apparel
-	deals = @deals.where("name ILIKE '%apparel%' OR name ILIKE '%cloth%' OR name ILIKE '%shoe%' OR name ILIKE '%glove%' OR name ILIKE '%pant%' OR name ILIKE '%shirt%' OR name ILIKE '%hat%' OR name ILIKE '%sock%' OR name ILIKE '%jean%' OR name ILIKE '%old navy%' OR name ILIKE '%robe%' OR name ILIKE '%payless%' OR name ILIKE '%burberry%' OR name ILIKE '%under armour%' OR name ILIKE '%mask%' OR name ILIKE '%puma%' OR name ILIKE '%victoria%' OR name ILIKE '%timberland%' OR name ILIKE '%jacket%' OR name ILIKE '%fleece%' OR name ILIKE '%scarf%' OR name ILIKE '%lands end%' OR name ILIKE '%jewelry%' OR name ILIKE '%forever 21%' OR name ILIKE '%huggies%' OR name ILIKE '%zales%' OR name ILIKE '%necklace%' OR name ILIKE '%pajama%' OR name ILIKE '%bracelet%' OR name ILIKE '%kohls%' OR name ILIKE '%urban outfitter%' OR name ILIKE '%movado%' OR name ILIKE '%asics%' OR name ILIKE '%jersey%' OR name ILIKE '%the children place%' OR name ILIKE '%hollister%' OR name ILIKE '%diamond%' OR name ILIKE '%reebok%' OR name ILIKE '%footwear%' OR name ILIKE '%sunglass%' OR name ILIKE '%earring%'")
+	deals = @deals.where("name ILIKE '%apparel%' OR name ILIKE '%cloth%' OR name ILIKE '%shoe%' OR name ILIKE '%glove%' OR name ILIKE '%pant%' OR name ILIKE '%shirt%' OR name ILIKE '%hat%' OR name ILIKE '%sock%' OR name ILIKE '%jean%' OR name ILIKE '%old navy%' OR name ILIKE '%robe%' OR name ILIKE '%payless%' OR name ILIKE '%burberry%' OR name ILIKE '%under armour%' OR name ILIKE '%mask%' OR name ILIKE '%puma%' OR name ILIKE '%victoria%' OR name ILIKE '%timberland%' OR name ILIKE '%jacket%' OR name ILIKE '%fleece%' OR name ILIKE '%scarf%' OR name ILIKE '%lands end%' OR name ILIKE '%forever 21%' OR name ILIKE '%huggies%' OR name ILIKE '%zales%' OR name ILIKE '%pajama%' OR name ILIKE '%kohls%' OR name ILIKE '%urban outfitter%' OR name ILIKE '%movado%' OR name ILIKE '%asics%' OR name ILIKE '%jersey%' OR name ILIKE '%the children place%' OR name ILIKE '%hollister%' OR name ILIKE '%reebok%' OR name ILIKE '%footwear%' OR name ILIKE '%sunglass%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(3)
 		if exist == nil		
@@ -84,6 +84,7 @@ end
 
 def assign_dvd_bluray
 	deals = @deals.where("name ILIKE '%dvd%' OR name ILIKE '%blu-ray%' OR name ILIKE '%bluray%' OR name ILIKE '%film%'")
+	deals = deals.where("name NOT ILIKE '%netbook%' OR name NOT ILIKE '%notebook%' OR name NOT ILIKE '%macbook%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(7)
 		if exist == nil		
@@ -119,7 +120,7 @@ def assign_toys
 end
 
 def assign_software
-	deals = @deals.where("name ILIKE '%software%' OR name ILIKE '%malware%' OR name ILIKE '%application%' OR name ILIKE '%app store%' OR name ILIKE '%android market%' OR name ILIKE '%windows 7%' OR name ILIKE '%iphone app%' OR name ILIKE '%iphone application%' OR name ILIKE '%android app%' OR name ILIKE '%android application%' OR name ILIKE '%google voice%' OR name ILIKE '%hulu plus%' OR name ILIKE '%angry bird%' OR name ILIKE '%office professional%'  OR name ILIKE '%microsoft%'")
+	deals = @deals.where("name ILIKE '%software%' OR name ILIKE '%malware%' OR name ILIKE '%application%' OR name ILIKE '%app store%' OR name ILIKE '%android market%' OR name ILIKE '%windows 7%' OR name ILIKE '%iphone app%' OR name ILIKE '%iphone application%' OR name ILIKE '%android app%' OR name ILIKE '%android application%' OR name ILIKE '%google voice%' OR name ILIKE '%hulu plus%' OR name ILIKE '%angry bird%' OR name ILIKE '%office professional%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(10)
 		if exist == nil		
@@ -192,7 +193,7 @@ def assign_books
 end
 
 def assign_tools
-	deals = @deals.where("name ILIKE '%tool%' OR name ILIKE '%battery%' OR name ILIKE '%batteries%' OR name ILIKE '%9mm%' OR name ILIKE '%vacuum%' OR name ILIKE '%heaters%' OR name ILIKE '%guitar%' OR name ILIKE '%lantern%' OR name ILIKE '%knife%' OR name ILIKE '%knive%' OR name ILIKE '%backwood%' OR name ILIKE '%kettleball%' OR name ILIKE '%buckshot%' OR name ILIKE '%tripod%' OR name ILIKE '%home depot%' OR name ILIKE '%craftsman%' OR name ILIKE '%bowflex%' OR name ILIKE '%saw blade%' OR name ILIKE '%clock%' OR name ILIKE '%dumbbell%' OR name ILIKE '%dumbell%' OR name ILIKE '%kettlebell%' OR name ILIKE '%guns%' OR name ILIKE '%smith and wesson%' OR name ILIKE '%smith & wesson%' OR name ILIKE '%car opening lock%' OR name ILIKE '%ammo%' OR name ILIKE '%gunvault%' OR name ILIKE '%gun vault%' OR name ILIKE '%taurus%' OR name ILIKE '%golf%' OR name ILIKE '%binocular%' OR name ILIKE '%hammer%'")
+	deals = @deals.where("name ILIKE '%tool%' OR name ILIKE '%battery%' OR name ILIKE '%batteries%' OR name ILIKE '%9mm%' OR name ILIKE '%vacuum%' OR name ILIKE '%heaters%' OR name ILIKE '%guitar%' OR name ILIKE '%lantern%' OR name ILIKE '%knife%' OR name ILIKE '%knive%' OR name ILIKE '%backwood%' OR name ILIKE '%kettleball%' OR name ILIKE '%buckshot%' OR name ILIKE '%tripod%' OR name ILIKE '%home depot%' OR name ILIKE '%craftsman%' OR name ILIKE '%bowflex%' OR name ILIKE '%saw blade%' OR name ILIKE '%clock%' OR name ILIKE '%dumbbell%' OR name ILIKE '%dumbell%' OR name ILIKE '%kettlebell%' OR name ILIKE '%guns%' OR name ILIKE '%smith and wesson%' OR name ILIKE '%smith & wesson%' OR name ILIKE '%car opening lock%' OR name ILIKE '%ammo%' OR name ILIKE '%gunvault%' OR name ILIKE '%gun vault%' OR name ILIKE '%taurus%' OR name ILIKE '%golf club%' OR name ILIKE '%binocular%' OR name ILIKE '%hammer%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(16)
 		if exist == nil		
@@ -227,6 +228,18 @@ def assign_deals
 	end
 end
 
+def assign_jewelry
+	deals = @deals.where(“name ILIKE '%jewelry%' OR name ILIKE '%necklace%' OR name ILIKE '%earring%' OR name ILIKE '%diamond%' OR name ILIKE '%bracelet%' OR name ILIKE '%sapphire%' OR name ILIKE '%pendant%' OR name ILIKE '%ruby%' OR name ILIKE '%emerald%'“)
+	deals.each do |deal|
+		exist = deal.connections.find_by_category_id(19)
+		if exist == nil		
+			deal.connections.create!(:category_id => 19)
+		else
+			nil
+		end
+	end
+end
+
 	assign_electronics
 	assign_shopping
 	assign_apparel
@@ -245,4 +258,5 @@ end
 	assign_tools
 	assign_furniture
 	assign_deals
+	assign_jewelry
 end
