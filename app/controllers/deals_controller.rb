@@ -207,7 +207,7 @@ class DealsController < ApplicationController
 					@deal = deal
 					@deals = Deal.where("queue = ?", true).order("updated_at DESC")
 					@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
-					@rising_deals = rising_deals
+					@rising_deals = rising_deals.paginate(:page => params[:page], :per_page => 10)
 				}
 			end
   	else
