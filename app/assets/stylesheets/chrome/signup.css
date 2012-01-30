@@ -43,9 +43,10 @@ div#signup_info_main p {
 	background: url("/assets/check_mark.png");
 	background-size: 34px 34px;
 	background-repeat: no-repeat;
-	background-position-y: 3px;
+	background-position: left 0px;
 	text-indent: 45px;
-	line-height: 30px;
+	line-height: 35px;
+	font-size: 14px;
 }
 
 div#signup_form div.field input {
