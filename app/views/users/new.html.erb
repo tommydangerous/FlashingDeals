@@ -35,7 +35,7 @@
 				<%= f.check_box :accept_terms, :tabindex => 5 %> I agree to the <%= link_to "Terms of Service", terms_path, :target => "_blank" %> and <%= link_to "Privacy Policy", privacy_path, :target => "_blank" %>
 			</div>
 			<div class="actions">
-				<%= f.submit "Sign Up", :tabindex => 6 %>
+				Already a member? <%= link_to "Login", "javascript:void(0);", :class => "alertdim" %> <%= f.submit "Sign Up", :tabindex => 6 %>
 			</div>
 		<% end %>
 	</div>

@@ -93,12 +93,28 @@ div#signup_form div.field input:focus {
 }
 
 div#signup_form div.actions {
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
+}
+
+div#signup_form div.actions {
 	margin-top: 25px;
+}
+
+div#signup_form div.actions a {
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
 }
 
 div#signup_form div.actions input {
 	text-shadow: 0px -1px 1px rgba(0, 0, 0, .25);
 	margin: 0;
+	margin-left: 80px;
 	background: none;
 	font-size: 14px;
 	font-family: Helvetica, Arial;
@@ -206,12 +222,12 @@ div#accept_terms {
 div#accept_terms a {
 	text-decoration: none;
 	color: rgba(44, 175, 227, 1);
-	-webkit-transition: all .2s linear;
-	-khtml-transition: all .2s linear;
-	-moz-transition: all .2s linear;
-	-ms-transition: all .2s linear;
-	-o-transition: all .2s linear;
-	transition: all .2s linear;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
 }
 
 div#accept_terms a:hover {
