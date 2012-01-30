@@ -199,6 +199,7 @@ class DealsController < ApplicationController
   	deal = Deal.find(params[:id])
   	today = Time.now - (86400 * 1) # within 24 hours
   	deals = Deal.where("queue = ?", true).order("deal_order ASC")
+  	deal_order = (1+ deals.last.deal_order)
   	rising_deals = Deal.where("posted     > ? AND
   											metric    >= ? AND 
   											queue 	   = ? AND 
@@ -206,9 +207,9 @@ class DealsController < ApplicationController
   											flash_back = ?",
   											today, 0, false, false, false)
   	if deal.update_attributes(params[:deal])
-  		if params[:deal][:deal_order] == "100"
-  			deal.update_attribute(:deal_order, (deals.last.deal_order + 1))
-  		end
+			if params[:order] == "last"
+				deal.update_attribute(:deal_order, deal_order)
+			end
   		respond_to do |format|
   			format.html {
   				flash[:success] = "Deal successfully updated!"
@@ -259,7 +260,7 @@ class DealsController < ApplicationController
   def make_queue
 		deal = Deal.find(params[:id])
 		deals = Deal.where("queue = ?", true).order("deal_order ASC")
-		deal.update_attributes(:queue => true, :top_deal => false, :flash_back => false, :deal_order => (deals.last.deal_order + 1))
+		deal.update_attributes(:queue => true, :top_deal => false, :flash_back => false, :deal_order => (1 + deals.last.deal_order))
 		respond_to do |format|
 			format.html {
 				flash[:success] = "Successfully sent to Queue."
