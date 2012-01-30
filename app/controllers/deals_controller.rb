@@ -189,6 +189,13 @@ class DealsController < ApplicationController
   end
   
   def update
+  	url = request.url
+  	page = url[/page=[0-9]+/]
+  	if page.nil?
+  		page = 1
+  	else
+  		page = page[/[0-9]+/].to_f
+  	end
   	deal = Deal.find(params[:id])
   	today = Time.now - (86400 * 1) # within 24 hours
   	rising_deals = Deal.where("posted     > ? AND
@@ -207,7 +214,7 @@ class DealsController < ApplicationController
 					@deal = deal
 					@deals = Deal.where("queue = ?", true).order("updated_at DESC")
 					@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
-					@rising_deals = rising_deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
+					@rising_deals = rising_deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => page, :per_page => 10)
 				}
 			end
   	else
