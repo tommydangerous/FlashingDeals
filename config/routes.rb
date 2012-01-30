@@ -8,6 +8,7 @@ FlashingDeal::Application.routes.draw do
 	end
 	resources :comments, :only => [:index, :create, :destroy]
   resources :deals do
+  	collection { post :sort }
   	resources :shares
   	member do
   		get :frame

@@ -108,7 +108,7 @@ class DealsController < ApplicationController
 # Admin Users Only  
 	def queue
 		@title = "The Queue"
-		@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+		@deals = Deal.where("queue = ?", true).order("deal_order ASC")
 		@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
 	end
 	
@@ -212,7 +212,7 @@ class DealsController < ApplicationController
 				}
 				format.js {
 					@deal = deal
-					@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+					@deals = Deal.where("queue = ?", true).order("deal_order ASC")
 					@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
 					@rising_deals = rising_deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => page, :per_page => 10)
 				}
@@ -254,14 +254,14 @@ class DealsController < ApplicationController
   
   def make_queue
 		deal = Deal.find(params[:id])
-		deal.update_attributes(:queue => true, :top_deal => false, :flash_back => false)
+		deal.update_attributes(:queue => true, :top_deal => false, :flash_back => false, :deal_order => 100)
 		respond_to do |format|
 			format.html {
 				flash[:success] = "Successfully sent to Queue."
 				redirect_to queue_path
 			}
 			format.js {
-				@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+				@deals = Deal.where("queue = ?", true).order("deal_order ASC")
 				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
 			}
 		end
@@ -276,7 +276,7 @@ class DealsController < ApplicationController
 				redirect_to queue_path
 			}
 			format.js {
-				@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+				@deals = Deal.where("queue = ?", true).order("deal_order ASC")
 				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
 			}
 		end
@@ -291,7 +291,7 @@ class DealsController < ApplicationController
 				redirect_to queue_path
 			}
 			format.js {
-				@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+				@deals = Deal.where("queue = ?", true).order("deal_order ASC")
 				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
 			}
 		end
@@ -307,10 +307,18 @@ class DealsController < ApplicationController
 			}
 			format.js {
 				@deal = deal
-				@deals = Deal.where("queue = ?", true).order("updated_at DESC")
+				@deals = Deal.where("queue = ?", true).order("deal_order ASC")
 				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
 			}
 		end
+	end
+	
+	def sort
+		@deals = Deal.where("queue = ?", true)
+		params[:queue_deal].each_with_index do |id, index|
+			@deals.update_all({deal_order: index+1}, {id: id})
+		end
+		render nothing: true
 	end
   
 # GM Users Only  

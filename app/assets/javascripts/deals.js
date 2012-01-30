@@ -31,3 +31,12 @@ function toggleInfoEditForm() {
 		$('span#edit_the_flash a').html("Hide");
 	};
 };
+
+$(document).ready(function() {
+	$('div#queue_list').sortable({
+		axis: 'y',
+		update: function(event, ui) {
+			$.post($(this).data('update-url'), $(this).sortable('serialize'))
+		}
+	});
+});

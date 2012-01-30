@@ -352,3 +352,10 @@ a#make_remove:hover {
 	text-decoration: underline;
 	opacity: .75;	
 }
+
+.handle {
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
+	cursor: move;
+}

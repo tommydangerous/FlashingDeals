@@ -5,7 +5,7 @@
 				<%= link_to "Empty Queue", empty_queue_path, :id => "empty_queue", :remote => true, :confirm => "Empty queue?" %></h1>
 			<% end %>
 	</div>
-	<div id="queue_list">
+	<div id="queue_list" data-update-url="<%= sort_deals_url %>">
 		<%= render :partial => "queue_deal", :collection => @deals, :as => :deal %>
 	</div>
 </div>

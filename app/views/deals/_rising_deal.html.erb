@@ -115,6 +115,7 @@
 	<div id="rising_deal_edit_<%= deal.id %>" class="rising_deal_edit_more">
 	<%= form_for deal, :remote => true do |f| %>
 		<%= f.hidden_field :queue, :value => true %>
+		<%= f.hidden_field :deal_order, :value => 100 %>
 		<p>Name: <%= f.text_area :name, :autocomplete => "off", :class => "rising_deal_edit_name" %></p>
 		<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "rising_deal_edit_info" %></p>
 		<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
