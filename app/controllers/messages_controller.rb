@@ -20,7 +20,7 @@ class MessagesController < ApplicationController
 			@received_messages = Message.where("user_id = #{@sender.id} AND recipient_id = #{@user.id}")
 		end
 		messages = (@send_messages + @received_messages).sort_by { |message| message.created_at }.reverse
-		@messages = messages.paginate(:page => params[:page], :per_page => 20)
+		@messages = messages
 		@title = "#{@sender.name} - Messages"
 		@total_messages = current_user.received_messages
 		unless @message.user_id == current_user.id
@@ -58,7 +58,6 @@ class MessagesController < ApplicationController
 				received_messages = Message.where("user_id = #{sender.id} AND recipient_id = #{user.id}")
 			end
 			messages = (send_messages + received_messages).sort_by { |message| message.created_at }.reverse
-			messages = messages.paginate(:page => params[:page], :per_page => 20)
 			if message.save
 				respond_to do |format|
 					format.html {
