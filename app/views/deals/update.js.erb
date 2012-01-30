@@ -7,4 +7,4 @@ $('div#info_edit_the_flash').hide();
 $('span#edit_the_flash a').html("Edit");
 $('div#info').html("<%= escape_javascript(render("deals/the_flash_deal_info")) %>")
 $('div#info').show();
-$("div#rising_deal_"+<%= @deal.id %>).remove();
+$('div#rising_deals_list').html("<%= escape_javascript(render(:partial => "rising_deal", :collection => @rising_deals, :as => :deal)) %>")

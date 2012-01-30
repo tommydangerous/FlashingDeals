@@ -190,6 +190,13 @@ class DealsController < ApplicationController
   
   def update
   	deal = Deal.find(params[:id])
+  	today = Time.now - (86400 * 1) # within 24 hours
+  	rising_deals = Deal.where("posted     > ? AND
+  											metric    >= ? AND 
+  											queue 	   = ? AND 
+  											top_deal   = ? AND 
+  											flash_back = ?",
+  											today, 0, false, false, false)
   	if deal.update_attributes(params[:deal])
   		respond_to do |format|
   			format.html {
@@ -200,6 +207,7 @@ class DealsController < ApplicationController
 					@deal = deal
 					@deals = Deal.where("queue = ?", true).order("updated_at DESC")
 					@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+					@rising_deals = rising_deals
 				}
 			end
   	else

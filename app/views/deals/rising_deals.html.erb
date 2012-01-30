@@ -15,7 +15,9 @@
 	</div>
 	<%= render "deal_nav" %>
 	<a name="top"></a>
+	<div id="rising_deals_list">
 		<%= render :partial => "rising_deal", :collection => @deals, :as => :deal %>
+	</div>
 	<%= will_paginate @deals, :separator => "" %>
 	<% unless @deals.count < 3 %>
 		<div id="back_to_top">
