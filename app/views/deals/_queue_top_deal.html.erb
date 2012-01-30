@@ -33,6 +33,7 @@
 			<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "queue_edit_info" %></p>
 			<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
 			<p>Value: <%= f.text_field :value, :autocomplete => "off" %></p>
+			<p>Link: <%= f.text_field :link, :autocomplete => "off" %></p>
 			<p>Image: <%= f.text_field :image, :autocomplete => "off" %></p>
 			<p>Site: <%= f.text_field :site, :autocomplete => "off" %></p>
 			<p>Posted: <%= f.text_field :posted, :autocomplete => "off" %></p>
@@ -40,6 +41,7 @@
 			<p>City: <%= f.text_field :city, :autocomplete => "off" %></p>
 			<p>Metric: <%= f.text_field :metric, :autocomplete => "off" %></p>
 			<p>Order: <%= f.text_field :deal_order, :autocomplete => "off" %></p>
+			<p>Time In:<%= f.text_field :time_in, :autocomplete => "off" %></p>
 			<div class="actions">
 				<%= f.submit "Update" %>
 			</div>
@@ -48,7 +50,7 @@
 	</div>
 	<div class="clear"></div>
 	<div id="queue_top_deal_updated_at">
-		<p>Updated on: <span class="grey_75"><%= deal.updated_at.strftime("%A %b %d, %Y") %></span> at <span class="grey_75"><%= deal.updated_at.strftime("%I:%M %p") %></span></p>
+		<p>Time In: <span class="grey_75"><%= deal.time_in.strftime("%A %b %d, %Y") %></span> at <span class="grey_75"><%= deal.time_in.strftime("%I:%M %p") %></span></p>
 	</div>
 	<div class="clear"></div>
 </div>

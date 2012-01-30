@@ -13,7 +13,7 @@ class DealsController < ApplicationController
 # All Users
 	def top_deals
 		@title = "First to Know"
-		@deals = Deal.where("top_deal = ?", true).order("updated_at DESC")[0..3]
+		@deals = Deal.where("top_deal = ?", true).order("time_in DESC")[0..3]
 	end
 
   def flashback
@@ -109,7 +109,7 @@ class DealsController < ApplicationController
 	def queue
 		@title = "The Queue"
 		@deals = Deal.where("queue = ?", true).order("deal_order ASC")
-		@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+		@top_deals = Deal.where("top_deal = ?", true).order("time_in DESC")
 	end
 	
 	def add_to_queue
@@ -213,7 +213,7 @@ class DealsController < ApplicationController
 				format.js {
 					@deal = deal
 					@deals = Deal.where("queue = ?", true).order("deal_order ASC")
-					@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+					@top_deals = Deal.where("top_deal = ?", true).order("time_in DESC")
 					@rising_deals = rising_deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => page, :per_page => 10)
 				}
 			end
@@ -262,14 +262,14 @@ class DealsController < ApplicationController
 			}
 			format.js {
 				@deals = Deal.where("queue = ?", true).order("deal_order ASC")
-				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+				@top_deals = Deal.where("top_deal = ?", true).order("time_in DESC")
 			}
 		end
 	end
   
 	def make_top_deal
 		deal = Deal.find(params[:id])
-		deal.update_attributes(:queue => false, :top_deal => true, :flash_back => false)
+		deal.update_attributes(:queue => false, :top_deal => true, :flash_back => false, :time_in => Time.now)
 		respond_to do |format|
 			format.html {
 				flash[:success] = "Successfully made a Top Deal."
@@ -277,7 +277,7 @@ class DealsController < ApplicationController
 			}
 			format.js {
 				@deals = Deal.where("queue = ?", true).order("deal_order ASC")
-				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+				@top_deals = Deal.where("top_deal = ?", true).order("time_in DESC")
 			}
 		end
 	end
@@ -292,7 +292,7 @@ class DealsController < ApplicationController
 			}
 			format.js {
 				@deals = Deal.where("queue = ?", true).order("deal_order ASC")
-				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+				@top_deals = Deal.where("top_deal = ?", true).order("time_in DESC")
 			}
 		end
 	end
@@ -308,7 +308,7 @@ class DealsController < ApplicationController
 			format.js {
 				@deal = deal
 				@deals = Deal.where("queue = ?", true).order("deal_order ASC")
-				@top_deals = Deal.where("top_deal = ?", true).order("updated_at DESC")
+				@top_deals = Deal.where("top_deal = ?", true).order("time_in DESC")
 			}
 		end
 	end
