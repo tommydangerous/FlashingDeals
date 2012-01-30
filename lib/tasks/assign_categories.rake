@@ -229,7 +229,7 @@ def assign_deals
 end
 
 def assign_jewelry
-	deals = @deals.where(“name ILIKE '%jewelry%' OR name ILIKE '%necklace%' OR name ILIKE '%earring%' OR name ILIKE '%diamond%' OR name ILIKE '%bracelet%' OR name ILIKE '%sapphire%' OR name ILIKE '%pendant%' OR name ILIKE '%ruby%' OR name ILIKE '%emerald%'“)
+	deals = @deals.where("name ILIKE '%jewelry%' OR name ILIKE '%necklace%' OR name ILIKE '%earring%' OR name ILIKE '%diamond%' OR name ILIKE '%bracelet%' OR name ILIKE '%sapphire%' OR name ILIKE '%pendant%' OR name ILIKE '%ruby%' OR name ILIKE '%emerald%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(19)
 		if exist == nil		
