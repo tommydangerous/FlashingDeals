@@ -1,4 +1,4 @@
-$("div#queue_list").html("<%= escape_javascript(render(:partial => "queue_deal", :collection => @deals, :as => :deal)) %>")
-$("div#top_deals_list").html("<%= escape_javascript(render(:partial => "queue_top_deal", :collection => @top_deals, :as => :deal)) %>")
+$("div#queue_deal_"+<%= @deal.id %>).remove();
+$("div#top_deal_"+<%= @deal.id %>).remove();
 $("span#queue_deal_count").html("<%= "#{@deals.count}" %>")
 $("span#top_deals_count").html("<%= "#{@top_deals.count}" %>")
