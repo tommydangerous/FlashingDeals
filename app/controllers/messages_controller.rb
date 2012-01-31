@@ -20,7 +20,13 @@ class MessagesController < ApplicationController
 			@received_messages = Message.where("user_id = #{@sender.id} AND recipient_id = #{@user.id}")
 		end
 		messages = (@send_messages + @received_messages).sort_by { |message| message.created_at }.reverse
-		@messages = messages
+		@messages_size = messages.size
+		if @messages_size > 20
+			@messages = messages[0..19]
+			@messages_more = messages[20..@messages_size]
+		else
+			@messages = messages
+		end
 		@title = "#{@sender.name} - Messages"
 		@total_messages = current_user.received_messages
 		unless @message.user_id == current_user.id

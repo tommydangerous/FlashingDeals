@@ -14,6 +14,20 @@ function toggleMostRecentActivity(id) {
 	$("div.most_recent_activity_"+id).toggle();
 };
 
+// Feedback
+$(document).ready(function() {
+	$('a#feedback').click(function() {
+		$('div#feedback_form').slideToggle();
+	});
+});
+
+// Messages
+function showMessagesMore() {
+	$('a#show_messages_more').hide();
+	$('div#list_of_messages_more').show();
+};
+
+// Flash messages
 function closeFlash() {
 	$("div.flash").hide("slide", { direction: "down" }, 500);
 };

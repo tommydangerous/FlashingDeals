@@ -12,6 +12,16 @@
 		<div id="list_of_messages_partial">
 			<%= render @messages %>
 		</div>
+		<% if @messages_size > 20 %>
+			<%= link_to("javascript:void(0)", :id => "show_messages_more", :onclick => "showMessagesMore()") do %>
+				<div id="show_list_of_messages_more">
+					Show All Messages
+				</div>
+			<% end %>
+			<div id="list_of_messages_more">
+				<%= render :partial => "message", :collection => @messages_more %>
+			</div>
+		<% end %>
 	</div>
 </div>
 <div id="user_message_table">
@@ -40,8 +50,3 @@
 		</div>
 	</div>
 </div>
-<script>
-$('a#feedback').click(function() {
-	$('div#feedback_form').slideToggle();
-});
-</script>
