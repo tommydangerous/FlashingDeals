@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128161332) do
+ActiveRecord::Schema.define(:version => 20120131215006) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -63,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20120128161332) do
     t.float    "value"
     t.float    "discount"
     t.float    "savings"
-    t.string   "image"
-    t.string   "link"
+    t.text     "image",         :limit => 255
+    t.text     "link",          :limit => 255
     t.string   "site"
     t.float    "rating"
     t.float    "up_rating"
