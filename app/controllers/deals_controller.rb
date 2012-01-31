@@ -203,12 +203,6 @@ class DealsController < ApplicationController
   	else
   		deal_order = (1 + deals.last.deal_order)
   	end
-  	rising_deals = Deal.where("posted     > ? AND
-  											metric    >= ? AND 
-  											queue 	   = ? AND 
-  											top_deal   = ? AND 
-  											flash_back = ?",
-  											today, 0, false, false, false)
   	if params[:deal][:queue] == "1" && params[:deal][:deal_order] == ""
   		params[:deal][:deal_order] = deal_order
   	end
@@ -225,7 +219,6 @@ class DealsController < ApplicationController
 					@deal = deal
 					@deals = deals
 					@top_deals = Deal.where("top_deal = ?", true).order("time_in DESC")
-					@rising_deals = rising_deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => page, :per_page => 10)
 				}
 			end
   	else
