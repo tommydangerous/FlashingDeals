@@ -114,7 +114,9 @@ class DealsController < ApplicationController
 	
 	def add_to_queue
 		deal = Deal.find(params[:id])
-		deal.update_attribute(:queue, true)
+		deals = Deal.where("queue = ?", true).order("deal_order ASC")
+  	deal_order = (1 + deals.last.deal_order)
+		deal.update_attributes(:deal_order => deal_order, :queue => true)
 		respond_to do |format|
 			format.html {
 				flash[:success] = "Deal sent to the queue."
@@ -189,23 +191,19 @@ class DealsController < ApplicationController
   end
   
   def update
-  	url = request.url
-  	page = url[/page=[0-9]+/]
-  	if page.nil?
-  		page = 1
-  	else
-  		page = page[/[0-9]+/].to_f
-  	end
   	deal = Deal.find(params[:id])
   	today = Time.now - (86400 * 1) # within 24 hours
   	deals = Deal.where("queue = ?", true).order("deal_order ASC")
-  	deal_order = (1+ deals.last.deal_order)
+  	deal_order = (1 + deals.last.deal_order)
   	rising_deals = Deal.where("posted     > ? AND
   											metric    >= ? AND 
   											queue 	   = ? AND 
   											top_deal   = ? AND 
   											flash_back = ?",
   											today, 0, false, false, false)
+  	if params[:deal][:queue] == "1" && params[:deal][:deal_order] == ""
+  		params[:deal][:deal_order] = deal_order
+  	end
   	if deal.update_attributes(params[:deal])
 			if params[:order] == "last"
 				deal.update_attribute(:deal_order, deal_order)
