@@ -5,6 +5,7 @@
 	<div class="categories">
 		<ul>
 		<% Category.all.each do |c| %>
+			<% if c.deals.where("posted > ? AND metric < ?", @today, 0).size > 0 %>
 			<li>
 				<div id="category">
 					<div class="category_name">
@@ -16,6 +17,7 @@
 				</div>
 			</li>
 			<div class="clear"></div>
+			<% end %>
 		<% end %>
 		</ul>
 	</div>

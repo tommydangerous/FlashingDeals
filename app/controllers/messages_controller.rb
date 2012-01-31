@@ -21,9 +21,9 @@ class MessagesController < ApplicationController
 		end
 		messages = (@send_messages + @received_messages).sort_by { |message| message.created_at }.reverse
 		@messages_size = messages.size
-		if @messages_size > 20
-			@messages = messages[0..19]
-			@messages_more = messages[20..@messages_size]
+		if @messages_size > 10
+			@messages = messages[0..9]
+			@messages_more = messages[10..@messages_size]
 		else
 			@messages = messages
 		end

@@ -12,7 +12,7 @@
 		<div id="list_of_messages_partial">
 			<%= render @messages %>
 		</div>
-		<% if @messages_size > 20 %>
+		<% if @messages_size > 10 %>
 			<%= link_to("javascript:void(0)", :id => "show_messages_more", :onclick => "showMessagesMore()") do %>
 				<div id="show_list_of_messages_more">
 					Show All Messages
