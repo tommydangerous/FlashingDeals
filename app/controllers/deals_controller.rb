@@ -1,7 +1,8 @@
 class DealsController < ApplicationController
-	before_filter :authenticate, :except => [:top_deals, :flashback, :flash_points, :show, :frame]
+	before_filter :authenticate, :except => [:top_deals, :flashback, :show, :frame]
 	before_filter :admin_user, :except => [:top_deals, :flashback, :flash_points, :show, :frame, :flashmob_deals,  :watchers, :score_up, :score_down, :remove_watched_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
+	before_filter :today
 	helper_method :sort_column, :sort_direction
 	
 	require 'nokogiri'
@@ -19,20 +20,8 @@ class DealsController < ApplicationController
   def flashback
   	@title = "FlashBack"
   	@today_3 = Time.now - (86400 * 3)
-  	@today = Time.now - (86400 * 1)
 		deals = Deal.where("posted > ? AND flash_back = ?", @today_3, true)
   	@deals = deals.order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.size
-  	clear_return_to
-  end
-  
-  def flash_points
-  	@title = "Flash Points"
-  	@today_3 = Time.now - (86400 * 3)
-  	@today = Time.now - (86400 * 1)
-		deals = Deal.where("posted > ? AND flash_back = ?", @today_3, true)
-  	deals = deals.all.sort_by { |deal| deal.plusminus }.reverse
-  	@deals = deals.paginate(:page => params[:page], :per_page => 10)
   	@deals_total_count = deals.size
   	clear_return_to
   end
@@ -58,7 +47,6 @@ class DealsController < ApplicationController
 # Only Logged In Users  
   def flashmob_deals
   	@title = "FlashMob Deals"
-  	@today = Time.now - (86400 * 1)
   	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
   	@deals_total_count = deals.search(params[:search]).size
@@ -66,7 +54,6 @@ class DealsController < ApplicationController
   
   def flashmob_comments
   	@title = "FlashMob Deals"
-  	@today = Time.now - (86400 * 1)
   	deals = Deal.where("posted > ? AND metric < ?", @today, 0).search(params[:search]).sort_by { |deal| (deal.comments.count + deal.subcomments.count) }.reverse
   	@deals = deals.paginate(:page => params[:page], :per_page => 10)
   	@deals_total_count = deals.size
@@ -134,8 +121,6 @@ class DealsController < ApplicationController
 	
 	def rising_deals
   	@title = "Rising Deals"
-  	today = Time.now - (86400 * 1) # within 24 hours
-  	@today = today
   	deals = Deal.where("posted     > ? AND
   											metric    >= ? AND 
   											queue 	   = ? AND 
@@ -148,7 +133,6 @@ class DealsController < ApplicationController
 
 	def home
   	@title = "First to Know"
-		@today = Time.now - (86400 * 1)
   	deals = Deal.where("posted > ? AND top_deal = ?", @today, true)
   	@deals = deals.order("deal_order ASC")
 		if @deals.count < 20
@@ -360,6 +344,10 @@ class DealsController < ApplicationController
 	end
   
   private
+  	
+  	def today
+  		@today = Time.now - (86400 * 1)
+  	end
   
   	def sort_column
   		Deal.column_names.include?(params[:sort]) ? params[:sort] : "posted"

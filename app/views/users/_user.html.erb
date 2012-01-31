@@ -11,8 +11,68 @@
 		  <% end %>
 		</div>
 	  <div id="user_partial_name">
-	  	<%= link_to user.name, user, :onmouseover => "showJoined(#{user.id})", :onmouseout => "hideJoined(#{user.id})" %>
+	  	<p>
+		  	<%= link_to user do %>
+		  		<strong><%= user.name %></strong>
+		  	<% end %>
+	  		<span class="grey_150">joined</span> <%= user.created_at.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= user.created_at.strftime("%I:%M %p") %>
+  		</p>
 	  	<p><%= user.email %></p>
+	  	<%= link_to "Most Recent Activity", "javascript:void(0)", :id => "most_recent_activity", :onclick => "toggleMostRecentActivity(#{user.id})" %>
+	  	<div id="most_recent_activity" class="most_recent_activity_<%= user.id %>">
+	  		<ul>
+	  			<li><p>Comment: 
+	  				<% unless user.comments.empty? && user.subcomments.empty? %>
+	  					<% if user.subcomments.empty? %>
+	  						<%= link_to Deal.find(user.comments.order("created_at DESC").first.deal_id) do %>
+			  					<%= user.comments.order("created_at DESC").first.created_at.strftime("%A, %b %d") %> at <%= user.comments.order("created_at DESC").first.created_at.strftime("%I:%M %p") %>
+			  				<% end %>
+			  				<span class="grey_150"><%= user.comments.order("created_at DESC").first.content %></span>
+	  					<% elsif user.comments.empty? %>
+	  						<%= link_to Deal.find(Comment.find(user.subcomments.last.comment_id).deal_id) do %>
+			  					<%= user.subcomments.last.created_at.strftime("%A, %b %d") %> at <%= user.subcomments.last.created_at.strftime("%I:%M %p") %>
+			  				<% end %>
+			  				<span class="grey_150"><%= user.subcomments.last.content %></span>
+	  					<% elsif user.comments.order("created_at DESC").first.created_at > user.subcomments.last.created_at %>
+			  				<%= link_to Deal.find(user.comments.order("created_at DESC").first.deal_id) do %>
+			  					<%= user.comments.order("created_at DESC").first.created_at.strftime("%A, %b %d") %> at <%= user.comments.order("created_at DESC").first.created_at.strftime("%I:%M %p") %>
+			  				<% end %>
+			  				<span class="grey_150"><%= user.comments.order("created_at DESC").first.content %></span>
+			  			<% elsif user.subcomments.last.created_at > user.comments.order("created_at DESC").first.created_at %>
+			  				<%= link_to Deal.find(Comment.find(user.subcomments.last.comment_id).deal_id) do %>
+			  					<%= user.subcomments.last.created_at.strftime("%A, %b %d") %> at <%= user.subcomments.last.created_at.strftime("%I:%M %p") %>
+			  				<% end %>
+			  				<span class="grey_150"><%= user.subcomments.last.content %></span>
+			  			<% end %>
+	  				<% end %></p>
+  				</li>
+  				<li><p>Deal Watched: 
+  					<% unless user.relationships.empty? %>
+  						<%= link_to "#{user.relationships.order("created_at DESC").first.created_at.strftime("%A, %b %d")} at #{user.relationships.order("created_at DESC").first.created_at.strftime("%I:%M %p")}", Deal.find(user.relationships.order("created_at DESC").first.watched_id) %>
+  						<span class="grey_150"><%= Deal.find(user.relationships.order("created_at DESC").first.watched_id).name %></span>
+  					<% end %></p>
+  				</li>
+  				<li><p>Deal Shared: 
+  					<% unless user.shares.empty? %>
+  						<%= link_to "#{user.shares.order("created_at DESC").first.created_at.strftime("%A, %b %d")} at #{user.shares.order("created_at DESC").first.created_at.strftime("%I:%M %p")}", Deal.find(user.shares.order("created_at DESC").first.deal_id) %>
+  						<span class="grey_150"><%= Deal.find(user.shares.order("created_at DESC").first.deal_id).name %></span>
+  					<% end %></p>
+  				</li>
+  				<li>Friend Made: 
+  					<% unless user.friendships.where("approved = ?", true).empty? && user.inverse_friendships.where("approved = ?", true).empty? %>
+  						<% if user.inverse_friendships.where("approved = ?", true).empty? %>
+  							<%= link_to "#{User.find(user.friendships.where("approved = ?", true).order("created_at DESC").first.friend_id).name}", User.find(user.friendships.where("approved = ?", true).order("created_at DESC").first.friend_id) %> (<%= user.friendships.where("approved = ?", true).order("created_at DESC").first.created_at.strftime("%A, %b %d") %>)
+  						<% elsif user.friendships.where("approved = ?", true).empty? %>
+  							<%= link_to "#{User.find(user.inverse_friendships.where("approved = ?", true).order("created_at DESC").first.user_id).name}", User.find(user.inverse_friendships.where("approved = ?", true).order("created_at DESC").first.user_id) %> (<%= user.inverse_friendships.where("approved = ?", true).order("created_at DESC").first.created_at.strftime("%A, %b %d") %>)
+  						<% elsif user.friendships.where("approved = ?", true).order("created_at DESC").first.created_at > user.inverse_friendships.where("approved = ?", true).order("created_at DESC").first.created_at %>
+  							<%= link_to "#{User.find(user.friendships.where("approved = ?", true).order("created_at DESC").first.friend_id).name}", User.find(user.friendships.where("approved = ?", true).order("created_at DESC").first.friend_id) %> (<%= user.friendships.where("approved = ?", true).order("created_at DESC").first.created_at.strftime("%A, %b %d") %>)
+  						<% elsif user.inverse_friendships.where("approved = ?", true).order("created_at DESC").first.created_at > user.friendships.where("approved = ?", true).order("created_at DESC").first.created_at %>
+  							<%= link_to "#{User.find(user.inverse_friendships.where("approved = ?", true).order("created_at DESC").first.user_id).name}", User.find(user.inverse_friendships.where("approved = ?", true).order("created_at DESC").first.user_id) %> (<%= user.inverse_friendships.where("approved = ?", true).order("created_at DESC").first.created_at.strftime("%A, %b %d") %>)
+  						<% end %>
+  					<% end %>
+  				</li>
+	  		</ul>
+	  	</div>
 	  </div>
 	  <div id="user_partial_stats">
 	  	<ul>

@@ -27,7 +27,6 @@ div#user_partial_name a {
 	font-size: 14px;
 	font-family: Helvetica, Arial;
 	text-decoration: none;
-	font-weight: bold;
 	color: rgba(44, 175, 227, 1);
 }
 
@@ -42,7 +41,6 @@ div#user_partial_name p {
 div#user_partial_stats {
 	width: 550px;
 	margin-left: 65px;
-	margin-top: 5px;
 }
 
 div#user_partial_stats p {
@@ -152,4 +150,52 @@ div.user_partial_comments {
 	margin-top: -3px;
 	margin-bottom: 3px;
 	border: 1px solid rgba(200, 200, 200, 1);
+}
+
+div#user_partial_name a#most_recent_activity {
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgba(44, 175, 227, 1);
+	margin: 5px 0px;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#user_partial_name a#most_recent_activity:hover {
+	color: rgba(4, 135, 187, 1);
+}
+
+div#most_recent_activity {
+	display: none;
+}
+
+div#most_recent_activity li {
+	font-family: Helvetica, Arial;
+	font-size: 12px;
+	color: rgba(75, 75, 75, 1);
+}
+
+div#most_recent_activity p {
+	white-space: nowrap;
+	width: 500px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+div#most_recent_activity a {
+	font-size: 12px;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#most_recent_activity a:hover {
+	text-decoration: underline;
 }

@@ -9,6 +9,11 @@ function hideJoined(id) {
 	$("div#user_"+i).hide();
 }
 
+function toggleMostRecentActivity(id) {
+	var i = id
+	$("div.most_recent_activity_"+id).toggle();
+};
+
 function closeFlash() {
 	$("div.flash").hide("slide", { direction: "down" }, 500);
 };

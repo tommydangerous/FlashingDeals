@@ -41,7 +41,6 @@ FlashingDeal::Application.routes.draw do
 # Deals
   root :to => 'deals#top_deals'
 	match '/flashback' => 'deals#flashback', :as => :flashback
-	match '/flashback_by_points' => 'deals#flash_points', :as => :flash_points
 	match '/flashingdeal/:id' => 'deals#frame', :as => :frame
 	match '/flashmob_deals' => 'deals#flashmob_deals', :as => :flashmob_deals
 	match '/flashmob_deals_by_comments' => 'deals#flashmob_comments', :as => :flashmob_comments

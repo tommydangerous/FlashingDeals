@@ -11,7 +11,7 @@
 						<%= link_to c.name, c %>
 					</div>
 					<div class="category_count">
-						<p><%= c.deals.where("posted > ? AND metric < ?", @today, 0).count %></p>
+						<p><%= c.deals.where("posted > ? AND metric < ?", @today, 0).size %></p>
 					</div>
 				</div>
 			</li>
