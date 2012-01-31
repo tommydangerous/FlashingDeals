@@ -2,7 +2,30 @@
 	<%= render 'shared/control_panel' %>
 </div>
 <div id="user_index">
+	<div id="search">
+		<div class="paginate_range">
+			<%= paginate_range(@users, @users_total_count) %>
+		</div>
+		<div id="search_form">
+		<%= form_tag users_path, :method => :get do %>
+			<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
+			<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+		<% end %>
+		</div>	
+	</div>
+	<div id="deal_nav">
+		<div id="sort_non_ajax">
+			<span class="sort"><%= sortable "id" %></span>
+			<span class="sort"><%= sortable "name" %></span>
+			<span class="sort"><%= sortable "email" %></span>
+			<span class="sort"><%= sortable "created_at", "Joined" %></span>
+			<span class="sort"><%= sortable "comments" %></span>
+			<span class="sort"><%= sortable "deals watching" %></span>
+			<span class="sort"><%= sortable "friends" %></span>
+		</div>
+	</div>
 	<ul>
 		<%= render @users %>
 	</ul>
+	<%= will_paginate @users, :separator => "" %>
 </div>

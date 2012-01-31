@@ -1,3 +1,14 @@
+// Users
+function showJoined(id) {
+	var i = id
+	$("div#user_"+i).show();
+}
+
+function hideJoined(id) {
+	var i = id
+	$("div#user_"+i).hide();
+}
+
 function closeFlash() {
 	$("div.flash").hide("slide", { direction: "down" }, 500);
 };

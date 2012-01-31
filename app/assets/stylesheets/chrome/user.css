@@ -2,7 +2,7 @@ div#user_partial {
 	background: rgba(255, 255, 255, 1);
 	border: 1px solid rgba(148, 222, 240, 1);
 	margin-bottom: 3px;
-	height: 50px;
+	min-height: 50px;
 	padding: 5px;
 }
 
@@ -33,6 +33,10 @@ div#user_partial_name a {
 
 div#user_partial_name a:hover {
 	color: rgba(4, 135, 187, 1);
+}
+
+div#user_partial_name p {
+	font-size: 12px;
 }
 
 div#user_partial_stats {

@@ -6,8 +6,10 @@
 			</a>
 		</div>
 		<div class="box_price_four">
-			<% unless item.price.blank? %>
-				$<%= item.price %>
+			<% if item.price.blank? %>
+				<%= number_to_currency(0) %>
+			<% else %>
+				<%= number_to_currency(item.price) %>
 			<% end %>
 		</div>
 		<% if signed_in? %>
@@ -33,11 +35,17 @@
 		<ul id="box_stats_four">
 			<li>
 				<p>Value</p>
-				$<%= item.value %>
+				<% if item.value.blank? %>
+					<%= number_to_currency(0) %>
+				<% else %>
+					<%= number_to_currency(item.value) %>
+				<% end %>
 			</li>
 			<li>
 				<p>Discount</p>
-				<% if item.value.blank? || item.price.blank? %>
+				<% if item.discount.blank? && item.value.blank? || item.discount.blank? && item.price.blank? %>
+					0%
+				<% elsif item.value.blank? || item.price.blank? %>
 					<%= item.discount %>%
 				<% elsif item.value == 0 %>
 					<%= item.discount %>%
@@ -47,10 +55,12 @@
 			</li>
 			<li>
 				<p>Savings</p>
-				<% if item.value.blank? || item.price.blank? %>
-					$<%= item.savings %>
+				<% if item.savings.blank? && item.value.blank? || item.savings.blank? && item.price.blank? %>
+					<%= number_to_currency(0) %>
+				<% elsif item.value.blank? || item.price.blank? %>
+					<%= number_to_currency(item.savings) %>
 				<% elsif item.savings.blank? %>
-					$<%= ((item.value - item.price) * 200).round/200.0 %>
+					<%= number_to_currency(item.value - item.price) %>
 				<% end %>
 			</li>
 		</ul>

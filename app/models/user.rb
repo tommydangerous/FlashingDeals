@@ -134,6 +134,18 @@ class User < ActiveRecord::Base
 			self[column] = SecureRandom.urlsafe_base64
 		end while User.exists?(column => self[column])
 	end
+	
+	def self.search(search)
+		if search
+			if Rails.env.production?
+				where("name ILIKE ? OR email ILIKE ?", "%#{search}%", "%#{search}%")
+			else
+				where("name LIKE ? OR email LIKE ?", "%#{search}%", "%#{search}%")
+			end
+		else
+			scoped
+		end
+	end
 
 	private
 	

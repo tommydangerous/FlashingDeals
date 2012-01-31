@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 	before_filter :correct_user, :only => [:watching, :edit, :update]
 	before_filter :admin_user,	 :only => :index
 	before_filter :gm_user, :only => :destroy
+	helper_method :sort_column, :sort_direction
 	
 # All Users	
   def new
@@ -130,9 +131,11 @@ class UsersController < ApplicationController
 # Admin User
 	def index
 		@title = "All Users"
-		@users = User.order("name ASC")
+		@users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 50)
+		@users_total_count = User.search(params[:search]).size
 	end
 
+# GM User
   def destroy
   	@user = User.find(params[:id])
   	if @user == User.find(1) || @user == User.find(8)
@@ -144,4 +147,14 @@ class UsersController < ApplicationController
 	  	redirect_to users_path
 		end
   end
+  
+  private
+  
+  	def sort_column
+  		User.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  	end
+  	
+  	def sort_direction
+  		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  	end
 end
