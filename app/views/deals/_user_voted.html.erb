@@ -1,8 +1,0 @@
-<% if current_user.voted_for?(@deal) %>
-	You like this deal
-<% elsif current_user.voted_against?(@deal) %>
-	You don't like this deal
-<% else %>
-	You have not yet voted
-<% end %>
-<div id="user_voted_triangle"></div>
