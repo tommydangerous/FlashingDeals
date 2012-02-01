@@ -37,10 +37,11 @@ div#come_back_for_more {
 div#come_back_for_more p {
 	font-family: Verdana;
 	font-size: 14px;
-	color: rgba(150, 150, 150, 1);
+	color: rgba(100, 100, 100, 1);
 }
 
 div#come_back_for_more a {
+	font-weight: bold;
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;

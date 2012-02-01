@@ -42,7 +42,7 @@ function showLightning(id) {
 };
 
 function hideLightning() {
-	$('div.show_lightning').fadeOut();
+	$('div.show_lightning').hide();
 };
 
 function showMyAccountMenu() {
