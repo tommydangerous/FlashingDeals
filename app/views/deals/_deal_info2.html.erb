@@ -51,7 +51,7 @@
 				<div id="watch_form">
 					<div class="actions">
 						<%= link_to signup_path do %>
-							<input name="commit" type="submit" value="Watch" onmouseover="toggleWatchDealInfo()" onmouseout="toggleWatchDealInfo()">
+							<input name="commit" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()">
 						<% end %>
 					</div>
 				</div>
@@ -65,6 +65,10 @@
 		</div>
 	</div>
 	<div id="deal_summary_side_panel_more">
+		<div id="share_all_info">
+			Share this deal with all your FlashingDeal friends
+			<div id="share_all_info_triangle"></div>
+		</div>
 	<% if signed_in? %>
 		<div id="share_list">
 			<%= render 'shares/share_single_form' %>
@@ -77,7 +81,7 @@
 		</div>
 	<% else %>
 		<div id="share_form_signup">
-			<%= link_to "Share Deal", signup_path %>
+			<%= link_to "Share Deal", signup_path, :onmouseover => "showShareAllInfo()", :onmouseout => "hideShareAllInfo()" %>
 		</div>
 	<% end %>
 	</div>

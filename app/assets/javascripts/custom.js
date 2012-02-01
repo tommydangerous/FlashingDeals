@@ -132,7 +132,15 @@ function showShareList() {
 };
 
 function closeShareList() {
-	$('div#share_list').fadeOut(100);
+	$('div#share_list').hide();
+};
+
+function showShareAllInfo() {
+	$('div#share_all_info').fadeIn(100);
+};
+
+function hideShareAllInfo() {
+	$('div#share_all_info').hide();
 };
 
 function show_watchers() {
@@ -143,8 +151,12 @@ function hide_watchers() {
 	$("div#show_watchers").hide();
 };
 
-function toggleWatchDealInfo() {
-	$("div#watch_deal_info").fadeToggle(100);
+function showWatchDealInfo() {
+	$("div#watch_deal_info").fadeIn(100);
+};
+
+function hideWatchDealInfo() {
+	$("div#watch_deal_info").hide();
 };
 
 // Vote
