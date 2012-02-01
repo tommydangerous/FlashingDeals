@@ -1,5 +1,18 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
+	<div id="search">
+		<% unless @deals.empty? %>
+		<div class="paginate_range">
+			<%= render 'paginate_range' %>
+		</div>
+		<% end %>
+		<div id="search_form">
+			<%= form_tag flashback_path, :method => :get, :id => "deals_search" do %>
+				<%= text_field_tag :search, params[:search] %>
+				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+			<% end %>
+		</div>
+	</div>
 	<div id="deals">
 		<%= render 'flashback_deals' %>
 	</div>

@@ -3,6 +3,10 @@ $(function() {
 		$.getScript(this.href);
 		return false;
 	});
+	$("#deals_search input").keyup(function() {
+		$.get($("#deals_search").attr("action"), $("#deals_search").serialize(), null, "script");
+		return false;
+	});
 	$("#deals_search").submit(function() {
 		$.get(this.action, $(this).serialize(), null, "script");
 		return false;

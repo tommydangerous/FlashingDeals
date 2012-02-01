@@ -43,7 +43,6 @@ FlashingDeal::Application.routes.draw do
 	match '/flashback' => 'deals#flashback', :as => :flashback
 	match '/flashingdeal/:id' => 'deals#frame', :as => :frame
 	match '/flashmob_deals' => 'deals#flashmob_deals', :as => :flashmob_deals
-	match '/flashmob_deals_by_comments' => 'deals#flashmob_comments', :as => :flashmob_comments
 	match '/remove_watched_deals' => 'deals#remove_watched_deals', :as => :remove_watched_deals
 	match '/queue' => 'deals#queue', :as => :queue
 	match '/rising_deals' => 'deals#rising_deals', :as => :rising_deals

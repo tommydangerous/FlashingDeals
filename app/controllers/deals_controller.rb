@@ -21,8 +21,8 @@ class DealsController < ApplicationController
   	@title = "FlashBack"
   	@today_3 = Time.now - (86400 * 3)
 		deals = Deal.where("posted > ? AND flash_back = ?", @today_3, true)
-  	@deals = deals.order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.size
+  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
+  	@deals_total_count = deals.search(params[:search]).size
   	clear_return_to
   end
   
@@ -50,13 +50,6 @@ class DealsController < ApplicationController
   	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
   	@deals_total_count = deals.search(params[:search]).size
-  end
-  
-  def flashmob_comments
-  	@title = "FlashMob Deals"
-  	deals = Deal.where("posted > ? AND metric < ?", @today, 0).search(params[:search]).sort_by { |deal| (deal.comments.count + deal.subcomments.count) }.reverse
-  	@deals = deals.paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.size
   end
   
   def watchers
