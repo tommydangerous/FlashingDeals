@@ -910,7 +910,7 @@ div#share_all_info {
 	font-family: Verdana;
 	font-size: 12px;
 	margin-top: -45px;
-	margin-left: -110px;
+	margin-left: -45px;
 }
 
 div#share_all_info_triangle {
@@ -921,5 +921,5 @@ div#share_all_info_triangle {
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgba(75, 75, 75, .9);
 	margin-top: 10px;
-	margin-left: 185px;
+	margin-left: 120px;
 }
