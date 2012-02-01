@@ -21,13 +21,15 @@
 		<% end %>
 	</div>
 	<div class="box_name_four">
+		<% unless item.metric.nil? %>
 			<%= div_for(item, :class => "show_lightning show_lightning_four") do %>
-			<% if item.metric >= 2 && item.metric < 4 %>
-				<p>This Deal is Electric!</p>
-			<% elsif item.metric >= 4 %>
-				<p>Flashing Deal of the Day!</p>
+				<% if item.metric >= 2 && item.metric < 4 %>
+					<p>This Deal is Electric!</p>
+				<% elsif item.metric >= 4 %>
+					<p>Flashing Deal of the Day!</p>
+				<% end %>
+				<div id="show_lightning_four_arrow"></div>
 			<% end %>
-			<div id="show_lightning_four_arrow"></div>
 		<% end %>
 		<p><%= link_to item.name, item %></p>
 	</div>
@@ -65,6 +67,7 @@
 			</li>
 		</ul>
 	</div>
+	<% unless item.metric.nil? %>
 	<div class="box_lightning_deal_four">
 		<% if item.metric >= 2 && item.metric < 4 %>
 			<%= image_tag("/assets/lightning_bolt_electric.png", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>
@@ -72,4 +75,5 @@
 			<%= image_tag("/assets/lightning_bolt_flashing.png", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>	
 		<% end %>
 	</div>	
+	<% end %>
 </div>

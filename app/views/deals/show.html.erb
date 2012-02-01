@@ -54,13 +54,15 @@
 			</div>
 		</div>
 		<div class="deal_show_image">
+			<% unless @deal.metric.nil? %>
 			<div id="deal_show_lightning">
-			<% if @deal.metric >= 2 && @deal.metric < 4 %>
-				<%= lightning_deal_1 %>
-			<% elsif @deal.metric >= 4 %>
-				<%= lightning_deal_2 %>
-			<% end %>
+				<% if @deal.metric >= 2 && @deal.metric < 4 %>
+					<%= lightning_deal_1 %>
+				<% elsif @deal.metric >= 4 %>
+					<%= lightning_deal_2 %>
+				<% end %>
 			</div>
+			<% end %>
 			<div id="deal_image_container">
 				<%= image_tag("#{@deal.image}", :id => "deal_image") %>
 			</div>
