@@ -148,6 +148,10 @@ function hide_watchers() {
 	$("div#show_watchers").fadeOut(200);
 };
 
+function toggleWatchDealInfo() {
+	$("div#watch_deal_info").fadeToggle();
+};
+
 // show user vote for or against
 
 function showUserVote() {

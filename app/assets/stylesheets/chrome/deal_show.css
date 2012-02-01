@@ -865,3 +865,32 @@ div#comment_and_point_count {
 	font-size: 12px;
 	color: rgba(150, 150, 150, 1);
 }
+
+div#watch_deal_info {
+	display: none;
+	padding: 10px;
+	background: rgba(75, 75, 75, .9);
+	color: rgba(255, 255, 255, 1);
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	position: absolute;
+	font-family: Verdana;
+	font-size: 12px;
+	margin-top: -45px;
+	margin-left: -45px;
+}
+
+div#watch_deal_info_triangle {
+	position: absolute;
+	width: 0;
+	height: 0;
+	border-left: 10px solid transparent;
+	border-right: 10px solid transparent;
+	border-top: 10px solid rgba(75, 75, 75, .9);
+	margin-top: 10px;
+	margin-left: 160px;
+}

@@ -37,13 +37,19 @@
 		<div class="clear"></div>
 	</div>
 	<div id="deal_summary_side_panel">
+		<div id="watch_deal_info">
+			Save this to your "My Deals" and never lose sight of it!
+			<div id="watch_deal_info_triangle"></div>
+		</div>
 		<div class="add_deal">
 			<% if signed_in? %>
 				<%= render 'watch_form' %>
 			<% else %>
 				<div id="watch_form">
 					<div class="actions">
-						<a href="/users/new"><input name="commit" type="submit" value="Watch"></a>
+						<%= link_to signup_path do %>
+							<input name="commit" type="submit" value="Watch" onmouseover="toggleWatchDealInfo()" onmouseout="toggleWatchDealInfo()">
+						<% end %>
 					</div>
 				</div>
 			<% end %>
