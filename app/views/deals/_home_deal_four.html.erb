@@ -1,9 +1,19 @@
 <div id="home_deal_four">
+	<% if item.metric >= 2 && item.metric < 4 %>
+		<%= link_to(item, :id => "home_deal_link", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") do %>
+		<% end %>
+	<% elsif item.metric >= 4 %>
+		<%= link_to(item, :id => "home_deal_link", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") do %>
+		<% end %>
+	<% else %>
+		<%= link_to(item, :id => "home_deal_link") do %>
+		<% end %>
+	<% end %>
 	<div class="box_image_four">
 		<div class="box_image_container">
-			<a href="<%= deal_path(item) %>">
+			<%= link_to item do %>
 				<%= image_tag("#{item.image}") %>
-			</a>
+			<% end %>
 		</div>
 		<div class="box_price_four">
 			<% if item.price.blank? %>
@@ -12,13 +22,6 @@
 				<%= number_to_currency(item.price) %>
 			<% end %>
 		</div>
-		<% if signed_in? %>
-			<% if current_user.admin? %>
-				<div class="box_edit_four">
-					<%= link_to "Edit Deal", edit_deal_path(item) %>
-				</div>
-			<% end %>
-		<% end %>
 	</div>
 	<div class="box_name_four">
 		<% unless item.metric.nil? %>
