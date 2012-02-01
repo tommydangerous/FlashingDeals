@@ -10,10 +10,10 @@
 <% else %>
 	<div id="scoring">
 		<div id="up">
-			<%= link_to image_tag("/assets/plus.png"), signup_path, :id => "blue" %>
+			<%= link_to image_tag("/assets/plus.png"), signup_path, :id => "blue", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()" %>
 		</div>
 		<div id="down">
-			<%= link_to image_tag("/assets/minus.png"), signup_path, :id => "red" %>
+			<%= link_to image_tag("/assets/minus.png"), signup_path, :id => "red", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()" %>
 		</div>
 	</div>
 <% end %>
