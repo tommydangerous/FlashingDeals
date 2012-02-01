@@ -1,3 +1,4 @@
 $("#total_score").html('<h1><%= "#{@deal.plusminus}" %></h1>')
-$("div#user_voted").html("<%= escape_javascript(render("deals/user_voted")) %>")
+$("div#user_like").html("<%= escape_javascript(render("deals/user_like")) %>")
+$("div#user_dislike").html("<%= escape_javascript(render("deals/user_dislike")) %>")
 $("span#point_count").html("<%= "#{@deal.point_count}" %>")

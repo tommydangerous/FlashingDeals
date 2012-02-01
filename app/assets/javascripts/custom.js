@@ -109,14 +109,6 @@ function showSubcommentForm(id) {
 	$('textarea#reply_'+i).focus();
 };
 
-// Share list
-
-$(document).ready(function() {
-	$('a#share_single').click(function() {
-		$('div#share_list').fadeToggle(300);
-	});
-});
-
 // Hide Reply button 
 
 $(document).ready(function() {
@@ -135,31 +127,33 @@ $(document).ready(function() {
 });
 
 // Share list and Watchers list
+function showShareList() {
+	$('div#share_list').fadeIn(100);
+};
 
 function closeShareList() {
-	$('div#share_list').fadeOut(300);
+	$('div#share_list').fadeOut(100);
 };
 
 function show_watchers() {
-	$("div#show_watchers").fadeIn(400);
+	$("div#show_watchers").fadeIn(100);
 };
 
 function hide_watchers() {
-	$("div#show_watchers").fadeOut(200);
+	$("div#show_watchers").hide();
 };
 
 function toggleWatchDealInfo() {
-	$("div#watch_deal_info").fadeToggle();
+	$("div#watch_deal_info").fadeToggle(100);
 };
 
-// show user vote for or against
-
-function showUserVote() {
-	$("div#user_voted").fadeIn(200);
+// Vote
+function toggleUserLike() {
+	$('div#user_like').toggle();
 };
 
-function hideUserVote() {
-	$("div#user_voted").fadeOut(200);
+function toggleUserDislike() {
+	$('div#user_dislike').toggle();
 };
 
 // show labels for Mark as Read and Mark as UnRead

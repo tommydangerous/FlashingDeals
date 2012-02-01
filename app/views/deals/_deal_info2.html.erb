@@ -17,8 +17,11 @@
 		<% end %>
 	</h2>
 	<% if signed_in? %>
-	<div id="user_voted">
-		<%= render "user_voted" %>
+	<div id="user_like">
+		<%= render "user_like" %>
+	</div>
+	<div id="user_dislike">
+		<%= render "user_dislike" %>
 	</div>
 	<% end %>
 	<div id="deal_summary_container">
@@ -70,7 +73,7 @@
 			<%= render 'shares/share_all_form' %>
 		</div>
 		<div id="share_single">
-			<%= link_to "Share With One Friend", 'javascript:void(0)', :id => "share_single" %>
+			<%= link_to "Share With One Friend", 'javascript:void(0)', :id => "share_single", :onclick => "showShareList();" %>
 		</div>
 	<% else %>
 		<div id="share_form_signup">

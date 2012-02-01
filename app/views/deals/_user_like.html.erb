@@ -1,0 +1,6 @@
+<% if current_user.voted_for?(@deal) %>
+	You like this deal
+<% else %>
+	Like this deal
+<% end %>
+<div id="user_voted_triangle"></div>

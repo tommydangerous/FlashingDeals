@@ -1,0 +1,6 @@
+<% if current_user.voted_against?(@deal) %>
+	You dislike this deal
+<% else %>
+	Dislike this deal
+<% end %>
+<div id="user_voted_triangle"></div>
