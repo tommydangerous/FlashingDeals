@@ -41,7 +41,8 @@ class DealsController < ApplicationController
   def frame
   	@deal = Deal.find(params[:id])
   	@deal.increment!(:click_count, by = 1)
-  	render :layout => "iframe"
+  	redirect_to "#{@deal.link}"
+#  	render :layout => "iframe"
   end
 
 # Only Logged In Users  

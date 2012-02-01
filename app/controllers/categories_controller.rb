@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+	before_filter :authenticate, :only => :show
 	helper_method :sort_column, :sort_direction
 	
 	def show
@@ -12,15 +13,6 @@ class CategoriesController < ApplicationController
 	rescue ActiveRecord::RecordNotFound
 		@title = "Page Not Found"
 		render 'pages/page_not_found'
-  end
-  
-  def by_comments
-  	@category = Category.find(params[:id])
-	  @title = @category.name
-	  @today = Time.now - 86400
-	  deals = @category.deals.where("posted > ? AND metric < ?", @today, 0).search(params[:search]).sort_by { |deal| (deal.comments.count + deal.subcomments.count) }.reverse
-  	@deals = deals.paginate(:page => params[:page], :per_page => 10)
-  	@deals_total_count = deals.size
   end
   
   private

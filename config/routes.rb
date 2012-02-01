@@ -1,11 +1,6 @@
 FlashingDeal::Application.routes.draw do
 
 	resources :categories, :only => :show
-	resources :categories do
-		member do
-			get :by_comments
-		end
-	end
 	resources :comments, :only => [:index, :create, :destroy]
   resources :deals do
   	collection { post :sort }
