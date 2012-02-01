@@ -39,3 +39,12 @@ div#come_back_for_more p {
 	font-size: 14px;
 	color: rgba(150, 150, 150, 1);
 }
+
+div#come_back_for_more a {
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
