@@ -1,7 +1,8 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
 	<div id="deal_page_info">
-		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();", :title => "What's the FlashBack?" %>
+		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();" %>
+		<h1>What is FlashBack?</h1>
 		<div class="deal_page_info">
 			<div class="close_deal_page_info">
 				<%= link_to image_tag("/assets/close.png"), "javascript:void(0);", :onclick => "toggleDealPageInfo();" %>
