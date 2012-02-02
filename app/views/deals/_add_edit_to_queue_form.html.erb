@@ -1,0 +1,21 @@
+<div id="rising_deal_edit_<%= deal.id %>" class="rising_deal_edit_more">
+<%= form_for deal, :remote => true do |f| %>
+	<%= f.hidden_field :queue, :value => true %>
+	<%= hidden_field_tag :order, "last" %>
+	<p>Name: <%= f.text_area :name, :autocomplete => "off", :class => "rising_deal_edit_name" %></p>
+	<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "rising_deal_edit_info" %></p>
+	<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
+	<p>Value: <%= f.text_field :value, :autocomplete => "off" %></p>
+	<p>Discount: <%= f.text_field :discount, :autocomplete => "off" %></p>
+	<p>Link: <%= f.text_field :link, :autocomplete => "off" %></p>
+	<p>Image: <%= f.text_field :image, :autocomplete => "off" %></p>
+	<p>Site: <%= f.text_field :site, :autocomplete => "off" %></p>
+	<p>Posted: <%= f.text_field :posted, :autocomplete => "off" %></p>
+	<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
+	<p>City: <%= f.text_field :city, :autocomplete => "off" %></p>
+	<p>Metric: <%= f.text_field :metric, :autocomplete => "off" %></p>
+	<div class="actions">
+		<%= f.submit "Add to Queue" %>
+	</div>
+<% end %>
+</div>

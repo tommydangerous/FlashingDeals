@@ -1,4 +1,4 @@
-<div class="deal_single">
+<div id="deal_single_<%= deal.id %>" class="deal_single">
 	<div class="col1">
 		<% if deal.image.nil? %>
 			<a href="<%= deal_path(deal) %>">
@@ -56,6 +56,9 @@
 		<% if signed_in? %>
 			<% if current_user.admin? %>
 				<p><span class="light_grey">Click Count:</span> <%= deal.click_count %></p>
+				<div class="edit_rising_deal">
+					<%= link_to "Edit + Add to Queue", "javascript:void(0);", :onclick => "toggleRisingDealEdit(#{deal.id})" %>
+				</div>
 			<% end %>
 		<% end %>
 	</div>
@@ -126,13 +129,8 @@
 			<% end %>
 		</table>
 		</div>
-		<% if signed_in? %>
-			<% if current_user.admin? %>
-				<div class="edit_deal">
-					<%= link_to "Edit Deal", edit_deal_path(deal) %>
-				</div>
-			<% end %>
-		<% end %>
 	</div>
+	<div class="clear"></div>
+		<%= render :partial => "add_edit_to_queue_form", :locals => { :deal => deal } %>
 	<div class="clear"></div>
 </div>
