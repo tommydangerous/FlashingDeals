@@ -4,7 +4,7 @@
 <%= form_for current_user.shares.build(:deal_id => @deal.id), :remote => true do |f| %>
 	<p>Select a friend from the menu</p>
 	<div class="field">
-		<%= f.collection_select :friend_id, (current_user.friends + current_user.inverse_friends).sort_by { |user| user.name }, :id, :name, include_blank: true %>
+		<%= text_field_tag :friend_name, "", data: {autocomplete_source: friends_path} %>
 		<%= f.hidden_field :deal_id %>
 	</div>
 	<div class="actions">

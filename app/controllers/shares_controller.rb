@@ -3,9 +3,11 @@ class SharesController < ApplicationController
 	
 	def create
 		@deal = Deal.find(params[:share][:deal_id])
-		if params[:share][:friend_id] == "0"
+#		if params[:share][:friend_id] == "0"
+		if params[:friend_name] == "0"
 			create_all
-		elsif params[:share][:friend_id].empty?
+#		elsif params[:share][:friend_id].empty?
+		elsif params[:friend_name].empty?
 			respond_to do |format|
 				format.html {
 					flash[:notice] = "If you want to share, please choose a friend to share with."
@@ -20,7 +22,8 @@ class SharesController < ApplicationController
 	
 	def create_single
 		deal = params[:share][:deal_id]
-		friend = params[:share][:friend_id]
+#		friend = params[:share][:friend_id]
+		friend = User.find_by_name("#{params[:friend_name]}").id
 		@friend = User.find(friend)
 		if current_user.friends.where("friend_id = ?", friend).empty? && current_user.inverse_friends.where("user_id = ?", friend).empty?
 			flash[:error] = "You cannot share deals with users who are not your friend."

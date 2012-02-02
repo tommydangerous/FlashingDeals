@@ -1,6 +1,6 @@
-<% if params[:share][:friend_id] == "0" %>
+<% if params[:friend_name] == "0" %>
 	$("div#share_form").html("<%= escape_javascript(render('shares/shared')) %>")
-<% elsif params[:share][:friend_id].empty? %>
+<% elsif params[:friend_name].empty? %>
 	$("div#flash").html("<%= escape_javascript(render('shares/notice_empty')) %>")
 <% else %>
 	$("div#share_list").html("<%= escape_javascript(render('shares/share_single_form')) %>")

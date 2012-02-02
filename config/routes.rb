@@ -19,6 +19,7 @@ FlashingDeal::Application.routes.draw do
   end
   resources :feedbacks, :only => [:index, :create, :destroy]
   resources :forgot_names
+  resources :friends
   resources :friendships, :only => [:create, :update, :destroy]
   resources :locations, :only => :show
   resources :messages, :only => [:index, :show, :create, :update]
