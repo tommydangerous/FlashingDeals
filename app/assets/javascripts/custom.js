@@ -270,3 +270,8 @@ $(document).ready(function() {
 		};
 	});
 });
+
+// Info for FlashBack and FlashMob
+function toggleDealPageInfo() {
+	$("div.deal_page_info").fadeToggle(200);
+};

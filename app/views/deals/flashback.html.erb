@@ -1,5 +1,14 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
+	<div id="deal_page_info">
+		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();", :title => "What's going on?" %>
+		<div class="deal_page_info">
+			<div class="close_deal_page_info">
+				<%= link_to image_tag("/assets/close.png"), "javascript:void(0);", :onclick => "toggleDealPageInfo();" %>
+			</div>
+			<p>FlashingDeals is always finding the best deals, but the home page can only fit so many at a time. This is where the FlashBack comes into play. If you missed any of the deals from the home page, you can always come here and see all the featured deals! Want more? Check out the FlashMob for all the community deals.</p>
+		</div>
+	</div>
 	<div id="search">
 		<% unless @deals.empty? %>
 		<div class="paginate_range">

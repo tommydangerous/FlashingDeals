@@ -1,5 +1,14 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
+	<div id="deal_page_info">
+		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();", :title => "What's going on?" %>
+		<div class="deal_page_info">
+			<div class="close_deal_page_info">
+				<%= link_to image_tag("/assets/close.png"), "javascript:void(0);", :onclick => "toggleDealPageInfo();" %>
+			</div>
+			<p>The FlashMob fetches deals from all over the web, allowing you to sort through them, see what is out there, comment on them, like or dislike them, and share them with your FD friends! These deals are separate from the deals on the home page and on the FlashBack page. We encourage you to check out all of them so you won't miss a thing!</p>
+		</div>
+	</div>
 	<div id="search">
 		<% unless @deals.empty? %>
 		<div class="paginate_range">
