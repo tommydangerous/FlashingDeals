@@ -33,6 +33,8 @@
 	</div>
 	<div class="col2">
 		<h1><%= link_to deal.name, deal %></h1>
+		<% if signed_in? %>
+		<% if current_user.admin? %>
 		<div id="location">
 			<% unless deal.location == nil %>
 				<p><%= link_to deal.location.name, "/#{deal.location.permalink}" %></p>
@@ -71,6 +73,8 @@
 				</div>
 			<% end %>
 		<% end %>
+		<% end %>
+		<% end %>
 	</div>
 	<div class="col3">
 		<div class="price">
@@ -81,6 +85,8 @@
 			<h1>$<%= (deal.price * 1.0).round %></h1>
 			<% end %>
 		</div>
+		<% if signed_in? %>
+			<% if current_user.admin? %>
 		<div id="deal_data">
 		<table>
 			<tr>
@@ -139,6 +145,8 @@
 			<% end %>
 		</table>
 		</div>
+			<% end %>
+		<% end %>
 	</div>
 	<div class="clear"></div>
 		<%= render :partial => "deals/add_edit_to_queue_form", :locals => { :deal => deal } %>

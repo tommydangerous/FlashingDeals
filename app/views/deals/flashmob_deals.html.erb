@@ -15,9 +15,9 @@
 	</div>
 	<%= render "deal_nav" %>
 	<a name="top"></a>
-		<%= render @deals %>
+	<%= render @deals %>
 	<%= will_paginate @deals, :separator => "" %>
-	<% unless @deals.count < 3 %>
+	<% unless @deals.size < 3 %>
 		<div id="back_to_top">
 			<strong>^</strong><%= link_to "Back to the Top", "#top" %>
 		</div>
