@@ -39,7 +39,9 @@
 		<div id="my_friends_profile">
 			<h2><%= link_to "My Friends (#{(@user.friends.count + @user.inverse_friends.count)})", friends_user_path(@user) %></h2>
 		</div>
-		<%= render "shared_deals_profile" %>
+		<span id="shared_deals_profile_partial">
+			<%= render "shared_deals_profile" %>
+		</span>
 		<% unless @user.inverse_shares.empty? %>
 		<div id="remove_all_shared_deals_profile">
 			<h2><%= link_to "Remove All", remove_shared_deals_path, :remote => true %></h2>
