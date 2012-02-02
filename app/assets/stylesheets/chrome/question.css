@@ -10,8 +10,9 @@ div#deal_page_info h1 {
 	color: rgba(150, 150, 150, 1);
 	width: 150px;
 	float: right;
-	margin-top: 3px;
+	margin: 0;
 	margin-right: 5px;
+	margin-top: 3px;
 }
 
 a#question {
