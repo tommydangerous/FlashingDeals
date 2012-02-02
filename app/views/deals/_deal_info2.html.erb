@@ -59,7 +59,9 @@
 			<div id="deal_watchers">
 				<%= render "deal_watchers" %>
 			</div>
+			<% unless @deal.posted.nil? %>
 			<p>Found <span class="grey_75"><%= @deal.posted.strftime("%A %b %d, %Y") %></span> at <span class="grey_75"><%= @deal.posted.strftime("%I:%M %p") %></span></p>
+			<% end %>
 		</div>
 	</div>
 	<div id="deal_summary_side_panel_more">
