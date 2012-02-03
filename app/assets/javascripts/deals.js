@@ -44,3 +44,44 @@ $(document).ready(function() {
 		}
 	});
 });
+
+// Toggle Electric Deals and/or Flashing Deals
+function toggleDealsElectric() {
+	var n = $("div.deal_nothing");
+	var e = $("div.deal_electric");
+	var f = $("div.deal_flashing");
+	if (e.length == 0) {
+		$("div.deal_single").show();
+	} else if (n.css("display") != "none" && e.css("display") != "none" && f.css("display") != "none") {
+		n.hide();
+		f.hide();
+	} else if (n.css("display") == "none" && e.css("display") != "none" && f.css("display") == "none") {
+		n.show();
+		f.show();
+	} else if (n.css("display") == "none" && e.css("display") == "none" & f.css("display") != "none") {
+		e.show();
+		f.hide();
+	} else if (n.css("display") == "none" && e.css("display") != "none") {
+		n.show();
+	}
+};
+
+function toggleDealsFlashing() {
+	var n = $("div.deal_nothing");
+	var e = $("div.deal_electric");
+	var f = $("div.deal_flashing");
+	if (f.length == 0) {
+		$("div.deal_single").show();
+	} else if (n.css("display") != "none" && e.css("display") != "none" && f.css("display") != "none") {
+		n.hide();
+		e.hide();
+	} else if (n.css("display") == "none" && e.css("display") == "none" && f.css("display") != "none") {
+		n.show();
+		e.show();
+	} else if (n.css("display") == "none" && e.css("display") != "none" & f.css("display") == "none") {
+		e.hide();
+		f.show();
+	} else if (n.css("display") == "none" && f.css("display") != "none") {
+		n.show();
+	}
+};
