@@ -1,0 +1,1 @@
+$("div#deal_editmarks_"+<%= @deal.id %>).html("<%= escape_javascript(render(:partial => "deals/deal_editmarks", :locals => { :deal => @deal })) %>")

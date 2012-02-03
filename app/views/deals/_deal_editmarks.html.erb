@@ -1,0 +1,13 @@
+<ul>
+<% deal.editmarks.each do |editmark| %>
+	<li><%= link_to "#{User.find(editmark.user_id).name}", User.find(editmark.user_id) %></li>
+<% end %>
+</ul>
+<% if Editmark.find_by_user_id_and_deal_id(current_user.id, deal.id).nil? %>
+	<%= form_for current_user.editmarks.build, :remote => true do |f| %>
+		<%= f.hidden_field :deal_id, :value => deal.id %>
+		<div class="actions">
+			<%= f.submit "Reviewed" %>
+		</div>
+	<% end %>
+<% end %>

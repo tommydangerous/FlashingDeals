@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120131215006) do
+ActiveRecord::Schema.define(:version => 20120203164835) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -35,12 +35,12 @@ ActiveRecord::Schema.define(:version => 20120131215006) do
   add_index "categories", ["slug"], :name => "index_categories_on_slug"
 
   create_table "comments", :force => true do |t|
-    t.text     "content",    :limit => 255
-    t.integer  "user_id"
-    t.integer  "deal_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "weight"
+    t.text      "content"
+    t.integer   "user_id"
+    t.integer   "deal_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "weight"
   end
 
   add_index "comments", ["deal_id", "created_at"], :name => "index_comments_on_deal_id_and_created_at"
@@ -58,35 +58,35 @@ ActiveRecord::Schema.define(:version => 20120131215006) do
   add_index "connections", ["deal_id"], :name => "index_connections_on_deal_id"
 
   create_table "deals", :force => true do |t|
-    t.string   "name"
-    t.float    "price"
-    t.float    "value"
-    t.float    "discount"
-    t.float    "savings"
-    t.text     "image",         :limit => 255
-    t.text     "link",          :limit => 255
-    t.string   "site"
-    t.float    "rating"
-    t.float    "up_rating"
-    t.float    "down_rating"
-    t.float    "metric"
-    t.string   "tag"
-    t.datetime "posted"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "click_count",                  :default => 0
-    t.integer  "view_count",                   :default => 0
-    t.string   "city"
-    t.text     "info",          :limit => 255
-    t.boolean  "top_deal",                     :default => false
-    t.boolean  "flash_back",                   :default => false
-    t.integer  "deal_order"
-    t.boolean  "queue",                        :default => false
-    t.datetime "time_in"
-    t.datetime "time_out"
-    t.string   "slug"
-    t.integer  "point_count",                  :default => 0
-    t.integer  "comment_count",                :default => 0
+    t.string    "name"
+    t.float     "price"
+    t.float     "value"
+    t.float     "discount"
+    t.float     "savings"
+    t.text      "image"
+    t.text      "link"
+    t.string    "site"
+    t.float     "rating"
+    t.float     "up_rating"
+    t.float     "down_rating"
+    t.float     "metric"
+    t.string    "tag"
+    t.timestamp "posted"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "click_count",   :default => 0
+    t.integer   "view_count",    :default => 0
+    t.string    "city"
+    t.text      "info"
+    t.boolean   "top_deal",      :default => false
+    t.boolean   "flash_back",    :default => false
+    t.integer   "deal_order"
+    t.boolean   "queue",         :default => false
+    t.timestamp "time_in"
+    t.timestamp "time_out"
+    t.string    "slug"
+    t.integer   "point_count",   :default => 0
+    t.integer   "comment_count", :default => 0
   end
 
   add_index "deals", ["city"], :name => "index_deals_on_city"
@@ -101,6 +101,15 @@ ActiveRecord::Schema.define(:version => 20120131215006) do
   add_index "deals", ["slug"], :name => "index_deals_on_slug"
   add_index "deals", ["top_deal"], :name => "index_deals_on_top_deal"
   add_index "deals", ["view_count"], :name => "index_deals_on_view_count"
+
+  create_table "editmarks", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "deal_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "editmarks", ["user_id", "deal_id"], :name => "index_editmarks_on_user_id_and_deal_id", :unique => true
 
   create_table "feedbacks", :force => true do |t|
     t.integer   "user_id"
@@ -133,12 +142,12 @@ ActiveRecord::Schema.define(:version => 20120131215006) do
   add_index "locations", ["slug"], :name => "index_locations_on_slug"
 
   create_table "messages", :force => true do |t|
-    t.text     "content",      :limit => 255
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "recipient_id"
-    t.boolean  "read",                        :default => false
+    t.text      "content"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "user_id"
+    t.integer   "recipient_id"
+    t.boolean   "read",         :default => false
   end
 
   add_index "messages", ["created_at"], :name => "index_messages_on_created_at"
@@ -166,12 +175,12 @@ ActiveRecord::Schema.define(:version => 20120131215006) do
   add_index "shares", ["user_id", "friend_id", "deal_id"], :name => "index_shares_on_user_id_and_friend_id_and_deal_id", :unique => true
 
   create_table "subcomments", :force => true do |t|
-    t.text     "content",    :limit => 255
-    t.integer  "user_id"
-    t.integer  "comment_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "deal_id"
+    t.text      "content"
+    t.integer   "user_id"
+    t.integer   "comment_id"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "deal_id"
   end
 
   add_index "subcomments", ["comment_id"], :name => "index_subcomments_on_comment_id"

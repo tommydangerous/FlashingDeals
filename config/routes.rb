@@ -17,6 +17,7 @@ FlashingDeal::Application.routes.draw do
   		get :make_remove
   	end
   end
+  resources :editmarks
   resources :feedbacks, :only => [:index, :create, :destroy]
   resources :forgot_names
   resources :friends

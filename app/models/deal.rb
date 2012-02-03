@@ -43,6 +43,8 @@ class Deal < ActiveRecord::Base
 	has_many :users, :through => :shares
 	has_many :friends, :through => :shares, :source => :user
 	
+	has_many :editmarks, :dependent => :destroy
+	
 	def self.search(search)
 		if search
 			if Rails.env.production?
