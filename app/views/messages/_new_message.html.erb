@@ -15,8 +15,7 @@
 						<% if @user == current_user %>
 							<%= text_field_tag :friend_name, "", data: {autocomplete_source: friends_path} %>
 						<% else %>
-							<input value="<%= @user.name %>" autocomplete="off">
-							<%= f.hidden_field :recipient_id, :value => @user.id %>
+							<%= text_field_tag :friend_name, "#{@user.name}", data: {autocomplete_source: friends_path} %>
 						<% end %>
 					</div>
 				</td>

@@ -24,7 +24,7 @@
 			<% end %>
 		<% end %>
 		<div id="new_message_profile">
-			<h2><%= link_to "New Message", "javascript: void(0)", :onclick => "showNewMessage();" %></h2>
+			<h2><%= link_to "New Message", "javascript: void(0)", :onclick => "showIndexMessage();" %></h2>
 		</div>
 		<% unless current_user.received_messages.empty? %>
 		<div id="mark_all_read_profile">
@@ -79,8 +79,4 @@
           });
         });
       })(jQuery);
-      
-$('a#feedback').click(function() {
-	$('div#feedback_form').slideToggle();
-});
 </script>

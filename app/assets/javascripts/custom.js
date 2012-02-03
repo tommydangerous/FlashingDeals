@@ -21,10 +21,35 @@ $(document).ready(function() {
 	});
 });
 
+// Feedback REGEX
+$(document).ready(function() {
+	var regex = /^\s*\S.*$/
+	$('div#feedback_form div.actions input').click(function() {
+		var x = $('textarea#feedback_content').val();
+		if (!x.match(regex)) {
+			return false;
+		};
+	});
+});
+
 // Messages
 function showMessagesMore() {
 	$('a#show_messages_more').hide();
 	$('div#list_of_messages_more').show();
+};
+
+function showNewMessage() {
+	$('div#new_message_main').show();
+	$('textarea#message_content').focus();
+};
+
+function showIndexMessage() {
+	$('div#new_message_main').show();
+	$('input#friend_name').focus();
+};
+
+function closeNewMessage() {
+	$('div#new_message_main').hide();
 };
 
 // Flash messages
@@ -129,6 +154,7 @@ $(document).ready(function() {
 // Share list and Watchers list
 function showShareList() {
 	$('div#share_list').fadeIn(100);
+	$('input#friend_name').focus();
 };
 
 function closeShareList() {
@@ -254,17 +280,6 @@ $(document).ready(function() {
 	var regex = /^\s*\S.*$/
 	$('div#password_reset_form div.actions input').click(function() {
 		var x = $('div#password_reset_form input#email').val();
-		if (!x.match(regex)) {
-			return false;
-		};
-	});
-});
-
-// Feedback REGEX
-$(document).ready(function() {
-	var regex = /^\s*\S.*$/
-	$('div#feedback_form div.actions input').click(function() {
-		var x = $('textarea#feedback_content').val();
 		if (!x.match(regex)) {
 			return false;
 		};

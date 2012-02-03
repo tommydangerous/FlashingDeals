@@ -27,11 +27,3 @@ $(window).bind("resize", function(){
 	$("#dim2").css("height", $(window).height());
 		$("#fuzz").css("height", $(window).height());
 });
-
-function showNewMessage() {
-	$('div#new_message_main').show();
-};
-
-function closeNewMessage() {
-	$('div#new_message_main').hide();
-};
