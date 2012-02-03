@@ -185,6 +185,9 @@ class DealsController < ApplicationController
   		params[:deal][:deal_order] = deal_order
   	end
   	if deal.update_attributes(params[:deal])
+  		if Editmark.find_by_user_id_and_deal_id(current_user.id, deal.id).nil?
+  			current_user.editmarks.create!(:deal_id => deal.id)
+  		end
 			if params[:order] == "last"
 				deal.update_attribute(:deal_order, deal_order)
 			end
