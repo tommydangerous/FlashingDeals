@@ -23,39 +23,41 @@ class SharesController < ApplicationController
 	def create_single
 		deal = params[:share][:deal_id]
 #		friend = params[:share][:friend_id]
-		friend = User.find_by_name("#{params[:friend_name]}").id
-		@friend = User.find(friend)
-		if current_user.friends.where("friend_id = ?", friend).empty? && current_user.inverse_friends.where("user_id = ?", friend).empty?
-			flash[:error] = "You cannot share deals with users who are not your friend."
-			redirect_to :back
-		else
-			if @friend.inverse_shares.find_by_deal_id(deal).nil?
-				if @friend.relationships.find_by_watched_id(deal).nil?
-					@share = current_user.shares.build(params[:share])
-					current_user.shares.create!(:friend_id => friend, :deal_id => deal)
-					respond_to do |format|
-						format.html {
-							flash[:success] = "You have successfully shared this deal!"
-							redirect_to :back
-						}
-						format.js
+		friend = User.find_by_name("#{params[:friend_name]}")
+		unless friend.nil?
+			@friend = User.find(friend.id)
+			if current_user.friends.where("friend_id = ?", friend).empty? && current_user.inverse_friends.where("user_id = ?", friend).empty?
+				flash[:error] = "You cannot share deals with users who are not your friend."
+				redirect_to :back
+			else
+				if @friend.inverse_shares.find_by_deal_id(deal).nil?
+					if @friend.relationships.find_by_watched_id(deal).nil?
+						@share = current_user.shares.build(params[:share])
+						current_user.shares.create!(:friend_id => friend, :deal_id => deal)
+						respond_to do |format|
+							format.html {
+								flash[:success] = "You have successfully shared this deal!"
+								redirect_to :back
+							}
+							format.js
+						end
+					else
+						respond_to do |format|
+							format.html {
+								flash[:notice] = "Your friend is already watching this deal."
+								redirect_to :back
+							}
+							format.js
+						end
 					end
 				else
 					respond_to do |format|
 						format.html {
-							flash[:notice] = "Your friend is already watching this deal."
+							flash[:notice] = "Unable to share, perhaps this deal has already been shared..."
 							redirect_to :back
 						}
 						format.js
 					end
-				end
-			else
-				respond_to do |format|
-					format.html {
-						flash[:notice] = "Unable to share, perhaps this deal has already been shared..."
-						redirect_to :back
-					}
-					format.js
 				end
 			end
 		end

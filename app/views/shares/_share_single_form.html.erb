@@ -15,6 +15,10 @@
 $(document).ready(function() {
 	$('div#share_list div.actions input').click(function() {
 		$('div#share_list').fadeOut(300);
+		$('ul.ui-autocomplete').hide();
 	});
+	$("#friend_name").autocomplete({
+		source: $("#friend_name").data('autocomplete-source')
+	})
 });
 </script>

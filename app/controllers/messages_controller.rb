@@ -42,16 +42,17 @@ class MessagesController < ApplicationController
 	end
 	
 	def create
-		if User.find_by_id(params[:message][:recipient_id]).nil?
-			flash[:error] = "Message cannot be sent to a nonexistent user."
+		if User.find_by_name("#{params[:friend_name]}").nil?
+			flash[:error] = "Your message was unable to send."
 			redirect_to my_account_path
-		elsif current_user.id == User.find_by_id(params[:message][:recipient_id]).id
-			@message = current_user.send_messages.create!(:recipient_id => params[:message][:recipient_id], :content => params[:message][:content], :read => true)
+		elsif current_user.id == User.find_by_name("#{params[:friend_name]}").id
+			@message = current_user.send_messages.create!(:recipient_id => User.find_by_name("#{params[:friend_name]}").id, :content => params[:message][:content], :read => true)
 			if @message.save
 				flash[:success] = "You sent yourself a message!"
 				redirect_to @message
 			end
 		else
+			params[:message][:recipient_id] = User.find_by_name("#{params[:friend_name]}").id
 			message = current_user.send_messages.create(params[:message])
 			user = current_user
 			sender = User.find(message.user_id)

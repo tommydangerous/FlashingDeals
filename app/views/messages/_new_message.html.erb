@@ -13,7 +13,7 @@
 				<td id="message_field">
 					<div class="field">
 						<% if @user == current_user %>
-							<%= f.collection_select :recipient_id, (current_user.friends + current_user.inverse_friends).sort_by { |user| user.name }, :id, :name, include_blank: true %>
+							<%= text_field_tag :friend_name, "", data: {autocomplete_source: friends_path} %>
 						<% else %>
 							<input value="<%= @user.name %>" autocomplete="off">
 							<%= f.hidden_field :recipient_id, :value => @user.id %>
