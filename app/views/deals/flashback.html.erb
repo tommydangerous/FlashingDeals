@@ -1,10 +1,6 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
 	<div id="deal_page_info">
-		<div id="show_electric_flashing">
-			<%= link_to "Show Electric Deals", "javascript:void(0);", :onclick => "toggleDealsElectric();" %>
-			<%= link_to "Show Flashing Deals", "javascript:void(0);", :onclick => "toggleDealsFlashing();" %>
-		</div>
 		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();" %>
 		<h1>What is FlashBack?</h1>
 		<div class="deal_page_info">
