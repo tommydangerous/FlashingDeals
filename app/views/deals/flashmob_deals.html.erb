@@ -18,6 +18,8 @@
 		<% end %>
 		<div id="search_form">
 		<%= form_tag flashmob_deals_path, :method => :get do %>
+			<%= hidden_field_tag :sort, params[:sort] %>
+			<%= hidden_field_tag :direction, params[:direction] %>
 			<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
 			<%= submit_tag "Search", :name => nil, :id => "search_button" %>
 		<% end %>

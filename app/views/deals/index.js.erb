@@ -1,2 +1,3 @@
 $("div#deals").html("<%= escape_javascript(render("all_deals")) %>")
+$("div#sort_direction").html("<%= escape_javascript(render("deals/sort_direction")) %>")
 $("div.paginate_range").html("<%= escape_javascript(render("deals/paginate_range")) %>")

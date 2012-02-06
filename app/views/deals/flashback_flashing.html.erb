@@ -2,8 +2,8 @@
 <div id="deals_list">
 	<div id="deal_page_info">
 		<div id="show_electric_flashing">
+			<%= link_to "All FlashBack Deals", flashback_path %>
 			<%= link_to "Electric Deals Only", flashback_electric_path %>
-			<%= link_to "Flashing Deals Only", flashback_flashing_path %>
 		</div>
 		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();" %>
 		<h1>What is FlashBack?</h1>
@@ -21,7 +21,7 @@
 		</div>
 		<% end %>
 		<div id="search_form">
-			<%= form_tag flashback_path, :method => :get, :id => "deals_search" do %>
+			<%= form_tag flashback_flashing_path, :method => :get, :id => "deals_search" do %>
 				<%= text_field_tag :search, params[:search] %>
 				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
 				<div id="sort_direction"><%= render 'sort_direction' %></div>
