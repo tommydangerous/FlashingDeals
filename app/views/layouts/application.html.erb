@@ -17,6 +17,7 @@
     <%= favicon_link_tag 'favicon.ico' %> 
     <html lang="en">
     <meta charset="UTF-8">
+    <%= yield :head %>
     <script type="text/javascript">
 			$(document).ready(function() {
 				$("body").ezBgResize({
