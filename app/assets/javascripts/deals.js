@@ -27,6 +27,34 @@ function adjustBoxImage4() {
 	$("img#"+i).css("top", x+"px")
 };
 
+function adjustBoxName1() {
+	var i = $("div#home_deal_four:nth-child(1) div.box_name_four p.top_deal_name").attr("id")
+	var h = $("p#"+i).height();
+	var x = (150 - h)/2
+	$("p#"+i).css("top", x+"px")
+}
+
+function adjustBoxName2() {
+	var i = $("div#home_deal_four:nth-child(2) div.box_name_four p.top_deal_name").attr("id")
+	var h = $("p#"+i).height();
+	var x = (150 - h)/2
+	$("p#"+i).css("top", x+"px")
+}
+
+function adjustBoxName3() {
+	var i = $("div#home_deal_four:nth-child(3) div.box_name_four p.top_deal_name").attr("id")
+	var h = $("p#"+i).height();
+	var x = (150 - h)/2
+	$("p#"+i).css("top", x+"px")
+}
+
+function adjustBoxName4() {
+	var i = $("div#home_deal_four:nth-child(4) div.box_name_four p.top_deal_name").attr("id")
+	var h = $("p#"+i).height();
+	var x = (150 - h)/2
+	$("p#"+i).css("top", x+"px")
+}
+
 // Deal Show Page
 function adjustImage() {
 	var h = $('img#deal_image').height();
