@@ -1,0 +1,5 @@
+<ul>
+	<% deal.editmarks.each do |editmark| %>
+		<li><%= link_to "#{User.find(editmark.user_id).name}", User.find(editmark.user_id) %></li>
+	<% end %>
+</ul>
