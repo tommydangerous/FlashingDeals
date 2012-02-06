@@ -17,7 +17,7 @@ div#deal_page_info h1 {
 
 div#show_electric_flashing {
 	text-align: left;
-	width: 300px;
+	width: 350px;
 	height: 19px;
 	float: left;
 }
@@ -26,6 +26,7 @@ div#show_electric_flashing a {
 	font-family: Verdana;
 	font-size: 12px;
 	margin: 0px 5px;
+	padding: 2px 0px 2px 21px; 
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -36,6 +37,24 @@ div#show_electric_flashing a {
 
 div#show_electric_flashing a:hover {
 	text-decoration: none;
+}
+
+a#show_all_flashback {
+	background: url("/assets/lightning_bolt_day.png");
+	background-size: 18px 18px;
+	background-repeat: no-repeat;	
+}
+
+a#show_electric {
+	background: url("/assets/lightning_bolt_electric_outline.png");
+	background-size: 18px 18px;
+	background-repeat: no-repeat;
+}
+
+a#show_flashing {
+	background: url("/assets/lightning_bolt_flashing.png");
+	background-size: 18px 18px;
+	background-repeat: no-repeat;
 }
 
 a#question {

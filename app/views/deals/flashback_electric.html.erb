@@ -2,8 +2,8 @@
 <div id="deals_list">
 	<div id="deal_page_info">
 		<div id="show_electric_flashing">
-			<%= link_to "All FlashBack Deals", flashback_path %>
-			<%= link_to "Flashing Deals Only", flashback_flashing_path %>
+			<%= link_to "All FlashBack Deals", flashback_path, :id => "show_all_flashback" %>
+			<%= link_to "Flashing Deals Only", flashback_flashing_path, :id => "show_flashing" %>
 		</div>
 		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();" %>
 		<h1>What is FlashBack?</h1>
