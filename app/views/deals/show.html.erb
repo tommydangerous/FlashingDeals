@@ -79,10 +79,5 @@
 <%= render "shared/side_deal" %>
 <%= render 'deal_info2' %>
 <script>
-function adjustImage() {
-	var h = $('img#deal_image').height();
-	var x = (250 - h)/2
-	$('img#deal_image').css("top", x+"px")
-};
 setInterval(adjustImage);
 </script>

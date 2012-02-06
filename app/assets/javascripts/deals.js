@@ -1,3 +1,40 @@
+// Top Deals
+function adjustBoxImage1() {
+	var i = $("div#home_deal_four:nth-child(1) img.top_deal_image").attr("id")
+	var h = $("img#"+i).height();
+	var x = (150 - h)/2
+	$("img#"+i).css("top", x+"px")
+};
+
+function adjustBoxImage2() {
+	var i = $("div#home_deal_four:nth-child(2) img.top_deal_image").attr("id")
+	var h = $("img#"+i).height();
+	var x = (150 - h)/2
+	$("img#"+i).css("top", x+"px")
+};
+
+function adjustBoxImage3() {
+	var i = $("div#home_deal_four:nth-child(3) img.top_deal_image").attr("id")
+	var h = $("img#"+i).height();
+	var x = (150 - h)/2
+	$("img#"+i).css("top", x+"px")
+};
+
+function adjustBoxImage4() {
+	var i = $("div#home_deal_four:nth-child(4) img.top_deal_image").attr("id")
+	var h = $("img#"+i).height();
+	var x = (150 - h)/2
+	$("img#"+i).css("top", x+"px")
+};
+
+// Deal Show Page
+function adjustImage() {
+	var h = $('img#deal_image').height();
+	var x = (250 - h)/2
+	$('img#deal_image').css("top", x+"px")
+};
+
+// Ajax Sortables, pagination, and search
 $(function() {
 	$("#sort a, #deals .pagination a").live("click", function() {
 		$.getScript(this.href);
@@ -7,12 +44,10 @@ $(function() {
 		$.get($("#deals_search").attr("action"), $("#deals_search").serialize(), null, "script");
 		return false;
 	});
-	
-/*	$("#deals_search").submit(function() {
+	$("#deals_search").submit(function() {
 		$.get(this.action, $(this).serialize(), null, "script");
 		return false;
-	}); */
-	
+	});
 });
 
 // The Queue

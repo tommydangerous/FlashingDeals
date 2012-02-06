@@ -12,7 +12,7 @@
 	<div class="box_image_four">
 		<div class="box_image_container">
 			<%= link_to item do %>
-				<%= image_tag("#{item.image}") %>
+				<%= image_tag("#{item.image}", :id => "#{item.id}", :class => "top_deal_image") %>
 			<% end %>
 		</div>
 		<div class="box_price_four">

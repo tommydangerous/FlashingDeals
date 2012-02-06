@@ -55,11 +55,12 @@ div.box_image_four {
 }
 
 div.box_image_container {
-	height: 155px;
+	margin-top: 5px;
+	height: 150px;
 }
 
 div.box_image_four img {
-	margin-top: 5px;
+	position: relative;
 	max-width: 150px;
 	max-height: 150px;
 }
