@@ -49,3 +49,7 @@ div#come_back_for_more a {
 	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 }
+
+img#flashingdeals_preview {
+	display: none;
+}
