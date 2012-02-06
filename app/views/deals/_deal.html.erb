@@ -39,7 +39,7 @@
 		<% if signed_in? %>
 			<% if current_user.admin? %>
 				<div id="deal_editmarks_<%= deal.id %>" class="deal_editmarks">
-					<%= render :partial => "deal_editmarks", :locals => { :deal => deal } %>
+					<%= render :partial => "deals/deal_editmarks", :locals => { :deal => deal } %>
 				</div>
 			<% end %>
 		<% end %>

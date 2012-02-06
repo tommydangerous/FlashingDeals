@@ -1,13 +1,13 @@
 <div id="deal_nav">
 	<div id="sort">
+		<span class="sort"><%= sortable "posted", "Most Recent" %></span>
 		<span class="sort"><%= sortable "name" %></span>
 		<span class="sort"><%= sortable "price" %></span>
-		<span class="sort"><%= sortable "posted", "Found" %></span>
-		<span class="sort"><%= sortable "view_count", "Views" %></span>
-		<span class="sort"><%= sortable "comment_count", "Comments" %></span>
-		<span class="sort"><%= sortable "point_count", "Points" %></span>
+		<span class="sort"><%= sortable "view_count", "Best Seller" %></span>
+		<span class="sort"><%= sortable "comment_count", "Most Talked About" %></span>
 		<% if signed_in? %>
 			<% if current_user.admin? %>
+				<span class="sort"><%= sortable "point_count", "Points" %></span>
 				<span class="sort"><%= sortable "click_count", "Clicks" %></span>
 				<span class="sort"><%= sortable "created_at", "Created" %></span>
 				<span class="sort"><%= sortable "metric" %></span>
