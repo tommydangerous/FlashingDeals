@@ -1,4 +1,13 @@
 // Top Deals
+function showLightning(id) {
+	var i = id
+	$('div#deal_'+i).fadeIn(200);
+};
+
+function hideLightning() {
+	$('div.show_lightning').hide();
+};
+
 function adjustBoxImage1() {
 	var i = $("div#home_deal_four:nth-child(1) img.top_deal_image").attr("id")
 	var h = $("img#"+i).height();

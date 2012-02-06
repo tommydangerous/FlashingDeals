@@ -61,15 +61,6 @@ function closeFlashUp() {
 	$("div.flash").hide("slide", { direction: "up" }, 500);
 };
 
-function showLightning(id) {
-	var i = id
-	$('div#deal_'+i).fadeIn();
-};
-
-function hideLightning() {
-	$('div.show_lightning').hide();
-};
-
 function showMyAccountMenu() {
 	$('a#my_account').addClass("my_account_hover");
 	$('div#my_account_drop_down').slideDown();
