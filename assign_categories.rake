@@ -1,4 +1,4 @@
-desc 'Assign Categories'
+ï»¿desc 'Assign Categories'
 task :assign_categories => :environment do
 	require 'rubygems'
 	assign_categories
@@ -11,7 +11,7 @@ deals = Deal.where('posted >= ?', today)
 @deals = deals.where('metric <= ?', 0)
 	
 def assign_electronics
-	deals = @deals.where(“name ILIKE '%laptop%' OR name ILIKE '%electronic%' OR name ILIKE '%camera%' OR name ILIKE '%monitor%' OR name ILIKE '%printer%' OR name ILIKE '%router%' OR name ILIKE '%canon%' OR name ILIKE '%sandisk%' OR name ILIKE '%logitech%' OR name ILIKE '%media player%' OR name ILIKE '%toshiba%' OR name ILIKE '%iphone%' OR name ILIKE '%ipad%' OR name ILIKE '%hitachi%' OR name ILIKE '%patriot%' OR name ILIKE '%lcd%' OR name ILIKE '%hdtv%' OR name ILIKE '%netgear%' OR name ILIKE '%lexar%' OR name ILIKE '%nvidia%' OR name ILIKE '%radeon%' OR name ILIKE '%intel%' OR name ILIKE '%amd%' OR name ILIKE '%touchpad%' OR name ILIKE '%kindle%' OR name ILIKE '%speaker%' OR name ILIKE '%pioneer%' OR name ILIKE '%cooler master%' OR name ILIKE '%philips%' OR name ILIKE '%seagate%' OR name ILIKE '%desktop%' OR name ILIKE '%sony%' OR name ILIKE '%kingston%' OR name ILIKE '%hdmi%' OR name ILIKE '%skullcandy%' OR name ILIKE '%keyboard%' OR name ILIKE '%case fan%' OR name ILIKE '%headphone%' OR name ILIKE '%earphone%' OR name ILIKE '%panasonic%' OR name ILIKE '%asus%' OR name ILIKE '%tablet%' OR name ILIKE '%acer%' OR name ILIKE '%newegg%' OR name ILIKE '%tomtom%' OR name ILIKE '%corsair%' OR name ILIKE '%solid state drive%' OR name ILIKE '%epson stylus%' OR name ILIKE '%ipod touch%' OR name ILIKE '%ipod shuffle%' OR name ILIKE '%ipod nano%' OR name ILIKE '%flash drive%' OR name ILIKE '%maxell%' OR name ILIKE '%cisco%'“)
+	deals = @deals.where("name ILIKE '%laptop%' OR name ILIKE '%electronic%' OR name ILIKE '%camera%' OR name ILIKE '%monitor%' OR name ILIKE '%printer%' OR name ILIKE '%router%' OR name ILIKE '%canon%' OR name ILIKE '%sandisk%' OR name ILIKE '%logitech%' OR name ILIKE '%media player%' OR name ILIKE '%toshiba%' OR name ILIKE '%iphone%' OR name ILIKE '%ipad%' OR name ILIKE '%hitachi%' OR name ILIKE '%patriot%' OR name ILIKE '%lcd%' OR name ILIKE '%hdtv%' OR name ILIKE '%netgear%' OR name ILIKE '%lexar%' OR name ILIKE '%nvidia%' OR name ILIKE '%radeon%' OR name ILIKE '%intel%' OR name ILIKE '%amd%' OR name ILIKE '%touchpad%' OR name ILIKE '%kindle%' OR name ILIKE '%speaker%' OR name ILIKE '%pioneer%' OR name ILIKE '%cooler master%' OR name ILIKE '%philips%' OR name ILIKE '%seagate%' OR name ILIKE '%desktop%' OR name ILIKE '%sony%' OR name ILIKE '%kingston%' OR name ILIKE '%hdmi%' OR name ILIKE '%skullcandy%' OR name ILIKE '%keyboard%' OR name ILIKE '%case fan%' OR name ILIKE '%headphone%' OR name ILIKE '%earphone%' OR name ILIKE '%panasonic%' OR name ILIKE '%asus%' OR name ILIKE '%tablet%' OR name ILIKE '%acer%' OR name ILIKE '%newegg%' OR name ILIKE '%tomtom%' OR name ILIKE '%corsair%' OR name ILIKE '%solid state drive%' OR name ILIKE '%epson stylus%' OR name ILIKE '%ipod touch%' OR name ILIKE '%ipod shuffle%' OR name ILIKE '%ipod nano%' OR name ILIKE '%flash drive%' OR name ILIKE '%maxell%' OR name ILIKE '%cisco%' OR name ILIKE '%linksys%' OR name ILIKE '%ethernet%' OR name ILIKE '%flash memory%' OR name ILIKE '%microsdhc%' OR name ILIKE '%micro sdhc%' OR name ILIKE '%micro sd%' OR name ILIKE '%memory card%' OR name ILIKE '%rosewill%' OR name ILIKE '%ethernet%' OR name ILIKE '%samsung%' OR name ILIKE '%notebook%' OR name ILIKE '%netbook%' OR name ILIKE '%frys%' OR name ILIKE '%projector%' OR name ILIKE '%nikon%' OR name ILIKE '%belkin%' OR name ILIKE '%network switch%' OR name ILIKE '%hard drive%' OR name ILIKE '%geforce%' OR name ILIKE '%brother toner%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(1)
 		if exist == nil		
@@ -23,7 +23,7 @@ def assign_electronics
 end
 
 def assign_shopping
-	deals = @deals.where(“name ILIKE '%cvs%' OR name ILIKE '%shopping%' OR name ILIKE '%shop%' OR name ILIKE '%gift card%' OR name ILIKE '%coldwatercreek%' OR name ILIKE '%target%'“)
+	deals = @deals.where("name ILIKE '%cvs%' OR name ILIKE '%shopping%' OR name ILIKE '%shop%' OR name ILIKE '%gift card%' OR name ILIKE '%coldwatercreek%' OR name ILIKE '%target%' OR name ILIKE '%coldwater creek%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(2)
 		if exist == nil		
@@ -35,7 +35,7 @@ def assign_shopping
 end
 
 def assign_apparel
-	deals = @deals.where(“name ILIKE '%apparel%' OR name ILIKE '%cloth%' OR name ILIKE '%shoe%' OR name ILIKE '%glove%' OR name ILIKE '%pant%' OR name ILIKE '%shirt%' OR name ILIKE '%hat%' OR name ILIKE '%sock%' OR name ILIKE '%jean%' OR name ILIKE '%old navy%' OR name ILIKE '%robe%' OR name ILIKE '%payless%' OR name ILIKE '%burberry%' OR name ILIKE '%under armour%' OR name ILIKE '%mask%' OR name ILIKE '%puma%' OR name ILIKE '%victoria%' OR name ILIKE '%timberland%' OR name ILIKE '%jacket%' OR name ILIKE '%fleece%' OR name ILIKE '%scarf%' OR name ILIKE '%lands end%' OR name ILIKE '%jewelry%' OR name ILIKE '%forever 21%' OR name ILIKE '%huggies%' OR name ILIKE '%zales%' OR name ILIKE '%necklace%' OR name ILIKE '%pajama%' OR name ILIKE '%bracelet%'“)
+	deals = @deals.where("name ILIKE '%apparel%' OR name ILIKE '%cloth%' OR name ILIKE '%shoe%' OR name ILIKE '%glove%' OR name ILIKE '%pant%' OR name ILIKE '%shirt%' OR name ILIKE '%hat%' OR name ILIKE '%sock%' OR name ILIKE '%jean%' OR name ILIKE '%old navy%' OR name ILIKE '%robe%' OR name ILIKE '%payless%' OR name ILIKE '%burberry%' OR name ILIKE '%under armour%' OR name ILIKE '%mask%' OR name ILIKE '%puma%' OR name ILIKE '%victoria%' OR name ILIKE '%timberland%' OR name ILIKE '%jacket%' OR name ILIKE '%fleece%' OR name ILIKE '%scarf%' OR name ILIKE '%lands end%' OR name ILIKE '%forever 21%' OR name ILIKE '%huggies%' OR name ILIKE '%zales%' OR name ILIKE '%pajama%' OR name ILIKE '%kohls%' OR name ILIKE '%urban outfitter%' OR name ILIKE '%movado%' OR name ILIKE '%asics%' OR name ILIKE '%jersey%' OR name ILIKE '%the children place%' OR name ILIKE '%hollister%' OR name ILIKE '%reebok%' OR name ILIKE '%footwear%' OR name ILIKE '%sunglass%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(3)
 		if exist == nil		
@@ -47,7 +47,7 @@ def assign_apparel
 end
 
 def assign_movies
-	deals = @deals.where(“name ILIKE '%fandango%' OR name ILIKE '%movie ticket%' OR name ILIKE '%blockbuster%' OR name ILIKE '%regal%' OR name ILIKE '%amc gold%' OR name ILIKE '%amc silver%'“)
+	deals = @deals.where("name ILIKE '%fandango%' OR name ILIKE '%movie ticket%' OR name ILIKE '%blockbuster%' OR name ILIKE '%regal%' OR name ILIKE '%amc gold%' OR name ILIKE '%amc silver%' OR name ILIKE '%amc theatre%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(4)
 		if exist == nil		
@@ -59,7 +59,7 @@ def assign_movies
 end
 
 def assign_kitchen
-	deals = @deals.where(“name ILIKE '%trash can%' OR name ILIKE '%kitchen%' OR name ILIKE '%cup%' OR name ILIKE '%dish%' OR name ILIKE '%silverware%' OR name ILIKE '%spoon%' OR name ILIKE '%fork%' OR name ILIKE '%sink%' OR name ILIKE '%fry pan%' OR name ILIKE '%utensil%' OR name ILIKE '%tray%' OR name ILIKE '%magic bullet%' OR name ILIKE '%hamilton%' OR name ILIKE '%knive%' OR name ILIKE '%rubberwood%' OR name ILIKE '%mug%' OR name ILIKE '%knife%' OR name ILIKE '%salt%' OR name ILIKE '%fryer%' OR name ILIKE '%microwave%' OR name ILIKE '%mitten%' OR name ILIKE '%mitts%' OR name ILIKE '%candle%' OR name ILIKE '%breadmaker%' OR name ILIKE '%steel wok%'“)
+	deals = @deals.where("name ILIKE '%trash can%' OR name ILIKE '%kitchen%' OR name ILIKE '%cup%' OR name ILIKE '%dish%' OR name ILIKE '%silverware%' OR name ILIKE '%spoon%' OR name ILIKE '%fork%' OR name ILIKE '%sink%' OR name ILIKE '%fry pan%' OR name ILIKE '%utensil%' OR name ILIKE '%tray%' OR name ILIKE '%magic bullet%' OR name ILIKE '%hamilton%' OR name ILIKE '%knive%' OR name ILIKE '%rubberwood%' OR name ILIKE '%mug%' OR name ILIKE '%knife%' OR name ILIKE '%salt%' OR name ILIKE '%fryer%' OR name ILIKE '%microwave%' OR name ILIKE '%mitten%' OR name ILIKE '%mitts%' OR name ILIKE '%candle%' OR name ILIKE '%breadmaker%' OR name ILIKE '%steel wok%' OR name ILIKE '%cuisinart%' OR name ILIKE '%wolfgang puck%' OR name ILIKE '%pressure cooker%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(5)
 		if exist == nil		
@@ -71,7 +71,7 @@ def assign_kitchen
 end
 
 def assign_food
-	deals = @deals.where(“name ILIKE '%burger%' OR name ILIKE '%ihop%' OR name ILIKE '%breakfast%' OR name ILIKE '%lunch%' OR name ILIKE '%dinner%' OR name ILIKE '%food%' OR name ILIKE '%mcdonald%' OR name ILIKE '%starbuck%' OR name ILIKE '%beer%' OR name ILIKE '%cheerio%' OR name ILIKE '%chocolate%' OR name ILIKE '%macadamia%' OR name ILIKE '%benihana%' OR name ILIKE '%meal%' OR name ILIKE '%chili%' OR name ILIKE '%yogurtland%' OR name ILIKE '%salt%' OR name ILIKE '%water bottle%' OR name ILIKE '%coffee%' OR name ILIKE '%donut%' OR name ILIKE '%drink%' OR name ILIKE '%bagel%' OR name ILIKE '%waffle%' OR name ILIKE '%papa john%' OR name ILIKE '%coke%' OR name ILIKE '%pepsi%' OR name ILIKE '%sonic%' OR name ILIKE '%vitamix%' OR name ILIKE '%vanilla%'“)
+	deals = @deals.where("name ILIKE '%burger%' OR name ILIKE '%ihop%' OR name ILIKE '%breakfast%' OR name ILIKE '%lunch%' OR name ILIKE '%dinner%' OR name ILIKE '%food%' OR name ILIKE '%mcdonald%' OR name ILIKE '%starbuck%' OR name ILIKE '%beer%' OR name ILIKE '%cheerio%' OR name ILIKE '%chocolate%' OR name ILIKE '%macadamia%' OR name ILIKE '%benihana%' OR name ILIKE '%meal%' OR name ILIKE '%chili%' OR name ILIKE '%yogurtland%' OR name ILIKE '%salt%' OR name ILIKE '%water bottle%' OR name ILIKE '%coffee%' OR name ILIKE '%donut%' OR name ILIKE '%drink%' OR name ILIKE '%bagel%' OR name ILIKE '%waffle%' OR name ILIKE '%papa john%' OR name ILIKE '%coke%' OR name ILIKE '%pepsi%' OR name ILIKE '%sonic%' OR name ILIKE '%vitamix%' OR name ILIKE '%vanilla%' OR name ILIKE '%domino pizza%' OR name ILIKE '%coca-cola%' OR name ILIKE '%arby%' OR name ILIKE '%beef%' OR name ILIKE '%sandwich%' OR name ILIKE '%peanut%' OR name ILIKE '%butter%' OR name ILIKE '%harry and david%' OR name ILIKE '%wine%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(6)
 		if exist == nil		
@@ -83,7 +83,8 @@ def assign_food
 end
 
 def assign_dvd_bluray
-	deals = @deals.where(“name ILIKE '%dvd%' OR name ILIKE '%blu-ray%' OR name ILIKE '%bluray%'“)
+	deals = @deals.where("name ILIKE '%dvd%' OR name ILIKE '%blu-ray%' OR name ILIKE '%bluray%' OR name ILIKE '%film%'")
+	deals = deals.where("name NOT ILIKE '%netbook%' OR name NOT ILIKE '%notebook%' OR name NOT ILIKE '%macbook%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(7)
 		if exist == nil		
@@ -95,7 +96,7 @@ def assign_dvd_bluray
 end
 
 def assign_hygiene
-	deals = @deals.where(“name ILIKE '%lotion%' OR name ILIKE '%hygiene%' OR name ILIKE '%deodorant%' OR name ILIKE '%shampoo%' OR name ILIKE '%bath%' OR name ILIKE '%kleenex%' OR name ILIKE '%hair product%' OR name ILIKE '%oral-b%' OR name ILIKE '%breatheright%' OR name ILIKE '%toilet%' OR name ILIKE '%charmin%' OR name ILIKE '%trojan%' OR name ILIKE '%condom%'“)
+	deals = @deals.where("name ILIKE '%lotion%' OR name ILIKE '%hygiene%' OR name ILIKE '%deodorant%' OR name ILIKE '%shampoo%' OR name ILIKE '%bath%' OR name ILIKE '%kleenex%' OR name ILIKE '%hair product%' OR name ILIKE '%oral-b%' OR name ILIKE '%breatheright%' OR name ILIKE '%toilet%' OR name ILIKE '%charmin%' OR name ILIKE '%trojan%' OR name ILIKE '%condom%' OR name ILIKE '%bounty%' OR name ILIKE '%paper towel%' OR name ILIKE '%tresemme%' OR name ILIKE '%crabtree and evelyn%' OR name ILIKE '%cleaning%' OR name ILIKE '%body shop%' OR name ILIKE '%facial%' OR name ILIKE '%massage%' OR name ILIKE '%cleanse program%' OR name ILIKE '%haircut%' OR name ILIKE '%blow dry%' OR name ILIKE '%conditioning%' OR name ILIKE '%eyelash%' OR name ILIKE '%manicure%' OR name ILIKE '%fitness%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(8)
 		if exist == nil		
@@ -107,7 +108,7 @@ def assign_hygiene
 end
 
 def assign_toys
-	deals = @deals.where(“name ILIKE '%toy%' OR name ILIKE '%figure%' OR name ILIKE '%lego%' OR name ILIKE '%doll%' OR name ILIKE '%fisher-price%' OR name ILIKE '%leapfrog%' OR name ILIKE '%kite%' OR name ILIKE '%hello kitty%' OR name ILIKE '%sticker%' OR name ILIKE '%hot wheel%' OR name ILIKE '%toyset%' OR name ILIKE '%playset%' OR name ILIKE '%train set%' OR name ILIKE '%hasbro%' OR name ILIKE '%mattel%' OR name ILIKE '%playing card%' OR name ILIKE '%k\'nex%' OR name ILIKE '%giant inflatable%'“)
+	deals = @deals.where("name ILIKE '%toy%' OR name ILIKE '%figure%' OR name ILIKE '%lego%' OR name ILIKE '%doll%' OR name ILIKE '%fisher-price%' OR name ILIKE '%leapfrog%' OR name ILIKE '%kite%' OR name ILIKE '%hello kitty%' OR name ILIKE '%sticker%' OR name ILIKE '%hot wheel%' OR name ILIKE '%toyset%' OR name ILIKE '%playset%' OR name ILIKE '%train set%' OR name ILIKE '%hasbro%' OR name ILIKE '%mattel%' OR name ILIKE '%playing card%' OR name ILIKE '%knex%' OR name ILIKE '%giant inflatable%' OR name ILIKE '%remote controlled%' OR name ILIKE '%remote-controlled%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(9)
 		if exist == nil		
@@ -119,7 +120,7 @@ def assign_toys
 end
 
 def assign_software
-	deals = @deals.where(“name ILIKE '%software%' OR name ILIKE '%malware%' OR name ILIKE '%application%' OR name ILIKE '%app store%' OR name ILIKE '%android market%' OR name ILIKE '%windows 7%' OR name ILIKE '%iphone app%' OR name ILIKE '%iphone application%' OR name ILIKE '%android app%' OR name ILIKE '%android application%' OR name ILIKE '%google voice%' OR name ILIKE '%hulu plus%'“)
+	deals = @deals.where("name ILIKE '%software%' OR name ILIKE '%malware%' OR name ILIKE '%application%' OR name ILIKE '%app store%' OR name ILIKE '%android market%' OR name ILIKE '%windows 7%' OR name ILIKE '%iphone app%' OR name ILIKE '%iphone application%' OR name ILIKE '%android app%' OR name ILIKE '%android application%' OR name ILIKE '%google voice%' OR name ILIKE '%hulu plus%' OR name ILIKE '%angry bird%' OR name ILIKE '%office professional%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(10)
 		if exist == nil		
@@ -131,7 +132,7 @@ def assign_software
 end
 
 def assign_music
-	deals = @deals.where(“name ILIKE '%music%' OR name ILIKE '%song%' OR name ILIKE '%mp3%'“)
+	deals = @deals.where("name ILIKE '%music%' OR name ILIKE '%song%' OR name ILIKE '%mp3%' OR name ILIKE '%cd download%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(11)
 		if exist == nil		
@@ -143,7 +144,7 @@ def assign_music
 end
 
 def assign_games
-	deals = @deals.where(“name ILIKE '%xbox%' OR name ILIKE '%ps3%' OR name ILIKE '%playstation%' OR name ILIKE '%wii%' OR name ILIKE '%nintendo%' OR name ILIKE '%game%' OR name ILIKE '%starcraft%' OR name ILIKE '%warcraft%' OR name ILIKE '%pc download%' OR name ILIKE '%atari%' OR name ILIKE '%steam%' OR name ILIKE '%move bundle%' OR name ILIKE '%battlefield 3%' OR name ILIKE '%carcassonne%' OR name ILIKE '%elder scroll%'“)
+	deals = @deals.where("name ILIKE '%xbox%' OR name ILIKE '%ps3%' OR name ILIKE '%playstation%' OR name ILIKE '%wii%' OR name ILIKE '%nintendo%' OR name ILIKE '%game%' OR name ILIKE '%starcraft%' OR name ILIKE '%warcraft%' OR name ILIKE '%pc download%' OR name ILIKE '%atari%' OR name ILIKE '%steam%' OR name ILIKE '%move bundle%' OR name ILIKE '%battlefield 3%' OR name ILIKE '%carcassonne%' OR name ILIKE '%elder scroll%' OR name ILIKE '%gamefly%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(12)
 		if exist == nil		
@@ -155,7 +156,7 @@ def assign_games
 end
 
 def assign_travel
-	deals = @deals.where(“name ILIKE '%travel%' OR name ILIKE '%las vegas%' OR name ILIKE '%backwood%'“)
+	deals = @deals.where("name ILIKE '%travel%' OR name ILIKE '%las vegas%' OR name ILIKE '%backwood%' OR name ILIKE '%cirque du soleil%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(13)
 		if exist == nil		
@@ -167,7 +168,7 @@ def assign_travel
 end
 
 def assign_entertainment
-	deals = @deals.where(“name ILIKE '%ticketmaster%' OR name ILIKE '%cigar%' OR name ILIKE '%las vegas%'“)
+	deals = @deals.where("name ILIKE '%ticketmaster%' OR name ILIKE '%cigar%' OR name ILIKE '%las vegas%' OR name ILIKE '%espn%' OR name ILIKE '%poker%' OR name ILIKE '%casino%' OR name ILIKE '%mixology class%' OR name ILIKE '%tae kwon do%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(14)
 		if exist == nil		
@@ -179,7 +180,8 @@ def assign_entertainment
 end
 
 def assign_books
-	deals = @deals.where(“name ILIKE '%book%' OR name ILIKE '%barnes%' OR name ILIKE '%kindle%' OR name ILIKE '%reader\'s digest%'“)
+	deals = @deals.where("name ILIKE '%book%' OR name ILIKE '%barnes%' OR name ILIKE '%kindle%' OR name ILIKE '%reader digest%' OR name ILIKE '%magazine%'")
+	deals = deals.where("name NOT ILIKE '%netbook%' OR name NOT ILIKE '%notebook%' OR name NOT ILIKE '%macbook%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(15)
 		if exist == nil		
@@ -191,7 +193,7 @@ def assign_books
 end
 
 def assign_tools
-	deals = @deals.where(“name ILIKE '%tool%' OR name ILIKE '%battery%' OR name ILIKE '%batteries%' OR name ILIKE '%9mm%' OR name ILIKE '%vacuum%' OR name ILIKE '%heaters%' OR name ILIKE '%guitar%' OR name ILIKE '%lantern%' OR name ILIKE '%knife%' OR name ILIKE '%knive%' OR name ILIKE '%backwood%' OR name ILIKE '%kettleball%' OR name ILIKE '%buckshot%' OR name ILIKE '%tripod%' OR name ILIKE '%home depot%' OR name ILIKE '%craftsman%' OR name ILIKE '%bowflex%' OR name ILIKE '%saw blade%' OR name ILIKE '%clock%' OR name ILIKE '%dumbbell%' OR name ILIKE '%dumbell%' OR name ILIKE '%kettlebell%' OR name ILIKE '%guns%' OR name ILIKE '%smith and wesson%' OR name ILIKE '%smith & wesson%' OR name ILIKE '%car opening lock%'“)
+	deals = @deals.where("name ILIKE '%tool%' OR name ILIKE '%battery%' OR name ILIKE '%batteries%' OR name ILIKE '%9mm%' OR name ILIKE '%vacuum%' OR name ILIKE '%heaters%' OR name ILIKE '%guitar%' OR name ILIKE '%lantern%' OR name ILIKE '%knife%' OR name ILIKE '%knive%' OR name ILIKE '%backwood%' OR name ILIKE '%kettleball%' OR name ILIKE '%buckshot%' OR name ILIKE '%tripod%' OR name ILIKE '%home depot%' OR name ILIKE '%craftsman%' OR name ILIKE '%bowflex%' OR name ILIKE '%saw blade%' OR name ILIKE '%clock%' OR name ILIKE '%dumbbell%' OR name ILIKE '%dumbell%' OR name ILIKE '%kettlebell%' OR name ILIKE '%guns%' OR name ILIKE '%smith and wesson%' OR name ILIKE '%smith & wesson%' OR name ILIKE '%car opening lock%' OR name ILIKE '%ammo%' OR name ILIKE '%gunvault%' OR name ILIKE '%gun vault%' OR name ILIKE '%taurus%' OR name ILIKE '%golf club%' OR name ILIKE '%binocular%' OR name ILIKE '%hammer%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(16)
 		if exist == nil		
@@ -203,7 +205,7 @@ def assign_tools
 end
 
 def assign_furniture
-	deals = @deals.where(“name ILIKE '%furniture%' OR name ILIKE '%chair%' OR name ILIKE '%tv stand%' OR name ILIKE '%bed%' OR name ILIKE '%ornament%' OR name ILIKE '%sears%' OR name ILIKE '%memory foam%' OR name ILIKE '%crib%' OR name ILIKE '%decoration%' OR name ILIKE '%woodcraft%' OR name ILIKE '%landscape lamp%'“)
+	deals = @deals.where("name ILIKE '%furniture%' OR name ILIKE '%chair%' OR name ILIKE '%tv stand%' OR name ILIKE '%bed%' OR name ILIKE '%ornament%' OR name ILIKE '%sears%' OR name ILIKE '%memory foam%' OR name ILIKE '%crib%' OR name ILIKE '%decoration%' OR name ILIKE '%woodcraft%' OR name ILIKE '%landscape lamp%' OR name ILIKE '%renuzit%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(17)
 		if exist == nil		
@@ -215,11 +217,23 @@ def assign_furniture
 end
 
 def assign_deals
-	deals = @deals.where(“name ILIKE '%deals%' OR name ILIKE '%woot off%' OR name ILIKE '%coupon%' OR name ILIKE '%free ticket%' OR name ILIKE '%daily deal%' OR name ILIKE '%bing reward%' OR name ILIKE '%discount%'“)
+	deals = @deals.where("name ILIKE '%deals%' OR name ILIKE '%woot off%' OR name ILIKE '%coupon%' OR name ILIKE '%free ticket%' OR name ILIKE '%daily deal%' OR name ILIKE '%bing reward%' OR name ILIKE '%discount%' OR name ILIKE '%woot%'")
 	deals.each do |deal|
 		exist = deal.connections.find_by_category_id(18)
 		if exist == nil		
 			deal.connections.create!(:category_id => 18)
+		else
+			nil
+		end
+	end
+end
+
+def assign_jewelry
+	deals = @deals.where("name ILIKE '%jewelry%' OR name ILIKE '%necklace%' OR name ILIKE '%earring%' OR name ILIKE '%diamond%' OR name ILIKE '%bracelet%' OR name ILIKE '%sapphire%' OR name ILIKE '%pendant%' OR name ILIKE '%ruby%' OR name ILIKE '%emerald%'")
+	deals.each do |deal|
+		exist = deal.connections.find_by_category_id(19)
+		if exist == nil		
+			deal.connections.create!(:category_id => 19)
 		else
 			nil
 		end
@@ -244,4 +258,5 @@ end
 	assign_tools
 	assign_furniture
 	assign_deals
+	assign_jewelry
 end
