@@ -1,5 +1,7 @@
 <% content_for :head do %>
-	<link rel="image_src" href="<%= @deal.image %>" />
+	<meta property="og:title" content="FlashingDeals | <%= @deal.name %>" />
+	<meta property="og:description" content="<%= @deal.info %>" />
+	<meta property="og:image" content="<%= @deal.image %>" />
 <% end %>
 <div id="deal_info">
 	<h1><%= @deal.name %></h1>
