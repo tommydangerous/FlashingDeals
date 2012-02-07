@@ -37,7 +37,7 @@ def assign_apparel
 											name ILIKE '%shirt%' OR
 											name ILIKE '%shoe%' OR 
 											name ILIKE '%sock%' OR
-											name ILIKE '%sunglass%'
+											name ILIKE '%sunglass%' OR
 											name ILIKE '%the children place%' OR
 											name ILIKE '%timberland%' OR
 											name ILIKE '%under armour%' OR

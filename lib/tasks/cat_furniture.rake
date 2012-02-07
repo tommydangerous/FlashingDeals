@@ -10,6 +10,7 @@ def assign_furniture
 											name ILIKE '%bed%' OR 
 											name ILIKE '%crib%' OR 
 											name ILIKE '%chair%' OR
+											name ILIKE '%curtain%' OR
 											name ILIKE '%decoration%' OR 
 											name ILIKE '%furniture%' OR 
 											name ILIKE '%landscape lamp%' OR 
