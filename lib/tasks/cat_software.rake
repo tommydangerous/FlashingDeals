@@ -18,7 +18,7 @@ def assign_software
 											name ILIKE '%iphone app%' OR
 											name ILIKE '%iphone application%' OR 
 											name ILIKE '%malware%' OR 
-											name ILIKE '%office professional%'
+											name ILIKE '%office professional%' OR
 											name ILIKE '%software%' OR 
 											name ILIKE '%windows 7%'
 											")
