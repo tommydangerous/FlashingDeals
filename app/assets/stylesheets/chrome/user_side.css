@@ -53,9 +53,9 @@ div#shared_deals_profile {
 	text-indent: 25px;
 	line-height: 25px;
 	background: url("/assets/shared_deals.png");
-	background-size: 20px 14px;
+	background-size: 20px 11px;
 	background-repeat: no-repeat;
-	background-position: left 7px;
+	background-position: left 8px;
 }
 
 div#remove_all_shared_deals_profile {
@@ -63,9 +63,9 @@ div#remove_all_shared_deals_profile {
 	text-indent: 25px;
 	line-height: 25px;
 	background: url("/assets/remove_all_shared_deals.png");
-	background-size: 20px 14px;
+	background-size: 20px 11px;
 	background-repeat: no-repeat;
-	background-position: left 7px;
+	background-position: left 8px;
 }
 
 div#mark_all_read_profile {
