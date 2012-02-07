@@ -45,7 +45,7 @@ def assign_food
 											name ILIKE '%waffle%' OR
 											name ILIKE '%water bottle%' OR
 											name ILIKE '%wine%' OR
-											name ILIKE '%yogurtland%' OR 
+											name ILIKE '%yogurtland%'
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(6).nil?
