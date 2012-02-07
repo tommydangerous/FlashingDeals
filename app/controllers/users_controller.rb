@@ -40,14 +40,7 @@ class UsersController < ApplicationController
 			@deals = []
   	else
 	  	@title = @user.name
-	  	deals = @user.watching.order("posted DESC")
-	  	one_month    = Time.now - (30 * 86400) # within 1 week
-	  	two_months   = Time.now - (60 * 86400)
-	  	three_months = Time.now - (90 * 86400)
-	  	four_months  = Time.now - (120 * 86400)
-	  	duration = [one_month, two_months, three_months, four_months]
-	  	n = @user.deal_duration - 1
-	  	@deals = deals.where("posted > ?", duration[n])
+	  	@deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
 		end
 	rescue ActiveRecord::RecordNotFound
 		@title = "Page Not Found"
@@ -57,14 +50,7 @@ class UsersController < ApplicationController
   def my_account
   	@user = current_user
   	@title = @user.name
-  	deals = @user.watching.order("posted DESC")
-  	one_month    = Time.now - (30 * 86400) # within 1 week
-  	two_months   = Time.now - (60 * 86400)
-  	three_months = Time.now - (90 * 86400)
-  	four_months  = Time.now - (120 * 86400)
-  	duration = [one_month, two_months, three_months, four_months]
-  	n = @user.deal_duration - 1
-  	@deals = deals.where("posted > ?", duration[n])
+  	@deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
   end
   
   def friends
@@ -74,25 +60,15 @@ class UsersController < ApplicationController
   	else
   		@title = "#{@user.name}'s Friends"
   	end
-  	deals = @user.watching.order("posted DESC")
-  	one_month    = Time.now - (30 * 86400) # within 1 week
-  	two_months   = Time.now - (60 * 86400)
-  	three_months = Time.now - (90 * 86400)
-  	four_months  = Time.now - (120 * 86400)
-  	duration = [one_month, two_months, three_months, four_months]
-  	n = @user.deal_duration - 1
-  	@deals = deals.where("posted > ?", duration[n])
-  	@direct_friends = @user.friends
-  	@inverse_friends = @user.inverse_friends
-  	@friends = @direct_friends + @inverse_friends
-  	@friends = @friends.sort_by { |friend| friend.name }
+  	@deals = @user.watching.where("posted > ?", @user.duration)
+  	friends = @user.friends + @user.inverse_friends
+  	@friends = friends.sort_by { |friend| friend.name }
   end
   
   def friend_requests
   	@user = current_user
   	@title = "Friend Requests"
-  	@friend_requests = current_user.request_friends
-  	@friend_requests = @friend_requests.sort_by { |friend| friend.name }
+  	@friend_requests = current_user.request_friends.sort_by { |friend| friend.name }
   	if @friend_requests.empty?
   		flash[:notice] = "You currently have no friend requests"
   		redirect_to my_account_path
@@ -102,7 +78,7 @@ class UsersController < ApplicationController
   def shared_deals
   	@user = current_user
   	@title = "Shared Deals"
-  	@deals = @user.inverse_deals.where("posted > ?", @user.duration).order("posted DESC")
+  	@deals = @user.inverse_deals.where("posted > ?", @user.duration).sort_by { |deal| Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at }.reverse
   end
   
 # Correct User

@@ -189,22 +189,22 @@ function toggleUserDislike() {
 
 function showMarkAsRead(id) {
 	var i = id
-	$('div#mark_as_read_'+i).fadeIn(200);
+	$('div#mark_as_read_'+i).fadeIn(100);
 };
 
 function hideMarkAsRead(id) {
 	var i = id
-	$('div#mark_as_read_'+i).fadeOut(200);
+	$('div#mark_as_read_'+i).hide();
 }
 
 function showMarkAsUnRead(id) {
 	var i = id
-	$('div#mark_as_unread_'+i).fadeIn(200);
+	$('div#mark_as_unread_'+i).fadeIn(100);
 };
 
 function hideMarkAsUnRead(id) {
 	var i = id
-	$('div#mark_as_unread_'+i).fadeOut(200);
+	$('div#mark_as_unread_'+i).hide();
 }
 
 // cannot send message if recipient_id or content does not match regex (only white space)

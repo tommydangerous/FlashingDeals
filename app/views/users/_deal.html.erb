@@ -46,9 +46,7 @@
 			</p>
 		</div>
 		<ul>
-		<% unless deal.posted.nil? %>
-			<li><p><span class="light_grey">Found:</span> <%= deal.posted.strftime("%A, %b %d") %></p></li>
-		<% end %>
+			<li><p><span class="light_grey">Watched:</span> <%= Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at.strftime("%A, %b %d") %></p></li>
 		<% unless deal.site.nil? || deal.site.empty? %>
 			<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
 		<% end %>

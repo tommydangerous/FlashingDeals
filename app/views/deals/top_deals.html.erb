@@ -1,5 +1,7 @@
 <% content_for :head do %>
-	<link rel="image_src" href="http://www.flashingdeals.com/assets/flashingdeals_preview.png" />
+	<meta property="og:title" content="FlashingDeals | First to Know" />
+	<meta property="og:description" content="FlashingDeals is always scouring the internet for the best deals. With new ones every 15 minutes, let us do the work for you!" />
+	<meta property="og:image" content="http://www.flashingdeals.com/assets/flashingdeals_preview.png" />
 <% end %>
 <div id="home">
 	<% flash.each do |key, value| %>
@@ -15,7 +17,6 @@
 	<p>See nothing you like? Check out the <%= link_to "FlashBack", flashback_path %> to catch great deals from earlier today.</p>
 	<p>FlashingDeals is always scouring the internet for the best deals. With new ones every 15 minutes, let us do the work for you!</p>
 </div>
-<%= image_tag("/assets/flashingdeals_preview.png", :id => "flashingdeals_preview") %>
 <script>
 setInterval(adjustBoxName1);
 setInterval(adjustBoxName2);

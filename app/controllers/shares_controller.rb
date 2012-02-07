@@ -29,8 +29,7 @@ class SharesController < ApplicationController
 			else
 				if @friend.inverse_shares.find_by_deal_id(deal).nil?
 					if @friend.relationships.find_by_watched_id(deal).nil?
-						@share = current_user.shares.build(params[:share])
-						current_user.shares.create!(:friend_id => friend, :deal_id => deal)
+						current_user.shares.create!(:friend_id => friend.id, :deal_id => deal)
 						respond_to do |format|
 							format.html {
 								flash[:success] = "You have successfully shared this deal!"

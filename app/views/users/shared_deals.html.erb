@@ -59,7 +59,7 @@
 		<% if @user.inverse_shares.empty? %>
 			<p id="none">No one has shared their deals yet...</p>
 		<% else %>
-			<%= render :partial => "shared_deal", :collection => @deals, :as => :deal %>
+			<%= render :partial => "users/shared_deal", :collection => @deals, :as => :deal %>
 		<% end %>
 		<br />
 	</div>

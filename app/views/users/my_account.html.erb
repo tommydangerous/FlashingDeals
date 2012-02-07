@@ -52,7 +52,7 @@
 		<% if @deals.empty? %>
 			<p id="none">You are not watching any deals...</p>
 		<% else %>
-			<%= render :partial => "deal", :collection => @deals %>
+			<%= render :partial => "users/deal", :collection => @deals %>
 		<% end %>
 		<br />
 	</div>

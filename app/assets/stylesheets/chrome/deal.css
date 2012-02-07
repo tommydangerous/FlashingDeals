@@ -311,7 +311,9 @@ span#our_metric {
 }
 
 div.deal_single div.edit_deal {
-	text-align: right;
+	float: right;
+	text-align: center;
+	width: 90px;
 }
 
 div.deal_single div.edit_deal a {
