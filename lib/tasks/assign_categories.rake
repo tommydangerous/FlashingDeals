@@ -18,7 +18,7 @@ task :assign_categories => :environment do
 	assign_books
 	assign_tools
 	assign_furniture
-	assign_deals
+	assign_coupons_and_discounts
 	assign_jewelry
 	assign_shoes
 	assign_accessories

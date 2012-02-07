@@ -96,12 +96,12 @@ div#category {
 }
 
 div.category_name {
-	width: 40%;
+	width: 70%;
 	float: left;
 }
 
 div.category_count {
-	width: 40%;
+	width: 20%;
 	float: right;
 	text-align: right;
 }
