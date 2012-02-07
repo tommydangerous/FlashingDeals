@@ -6,7 +6,7 @@ end
 
 def assign_electronics
 	deals = Deal.where("posted >= ? AND metric < ?", (Time.now - 86400), 0)
-	deals = @deals.where("name ILIKE '%laptop%' OR 
+	deals = deals.where("name ILIKE '%laptop%' OR 
 												name ILIKE '%electronic%' OR 
 												name ILIKE '%camera%' OR 
 												name ILIKE '%monitor%' OR 
