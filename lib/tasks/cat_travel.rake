@@ -12,6 +12,9 @@ def assign_travel
 											name ILIKE '%las vegas%' OR 
 											name ILIKE '%travel%'
 											")
+	deals = deals.where("
+											name NOT ILIKE '%flash drive%'
+											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(13).nil?
 			deal.connections.create!(:category_id => 13)

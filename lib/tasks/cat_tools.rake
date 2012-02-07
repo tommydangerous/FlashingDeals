@@ -19,7 +19,8 @@ def assign_tools
 											name ILIKE '%clock%' OR  
 											name ILIKE '%craftsman%' OR 
 											name ILIKE '%dumbell%' OR 
-											name ILIKE '%dumbbell%' OR 
+											name ILIKE '%dumbbell%' OR
+											name ILIKE '%flashlight%' OR
 											name ILIKE '%golf club%' OR 
 											name ILIKE '%guitar%' OR 
 											name ILIKE '%gun vault%' OR 
@@ -33,6 +34,7 @@ def assign_tools
 											name ILIKE '%knife%' OR 
 											name ILIKE '%knive%' OR 
 											name ILIKE '%lantern%' OR 
+											name ILIKE '%rifle%' OR
 											name ILIKE '%saw blade%' OR 
 											name ILIKE '%smith & wesson%' OR 
 											name ILIKE '%smith and wesson%' OR 
@@ -40,6 +42,12 @@ def assign_tools
 											name ILIKE '%tool%' OR 
 											name ILIKE '%tripod%' OR 
 											name ILIKE '%vacuum%'
+											")
+	deals = deals.where("
+											name NOT ILIKE '%cellphone%' OR
+											name NOT ILIKE '%jacket%' OR
+											name NOT ILIKE '%nine west%' OR
+											name NOT ILIKE '%usb%'
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(16).nil?

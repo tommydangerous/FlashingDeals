@@ -15,6 +15,11 @@ def assign_shopping
 											name ILIKE '%shopping%' OR 
 											name ILIKE '%target%' 
 											")
+	deals = deals.where("
+											name NOT ILIKE '%pizza%' OR
+											name NOT ILIKE '%printer%' OR
+											name NOT ILIKE '%samsung%' OR
+											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(2).nil?
 			deal.connections.create!(:category_id => 2)

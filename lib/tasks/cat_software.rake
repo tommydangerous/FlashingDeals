@@ -11,6 +11,7 @@ def assign_software
 											name ILIKE '%android application%' OR 
 											name ILIKE '%android market%' OR
 											name ILIKE '%angry bird%' OR 
+											name ILIKE '%antivirus%' OR 
 											name ILIKE '%app store%' OR 
 											name ILIKE '%application%' OR 
 											name ILIKE '%google voice%' OR 
@@ -18,8 +19,11 @@ def assign_software
 											name ILIKE '%iphone app%' OR
 											name ILIKE '%iphone application%' OR 
 											name ILIKE '%malware%' OR 
+											name ILIKE '%mcafee%' OR 
+											name ILIKE '%norton%' OR 
 											name ILIKE '%office professional%' OR
 											name ILIKE '%software%' OR 
+											name ILIKE '%symantec%' OR 
 											name ILIKE '%windows 7%'
 											")
 	deals.each do |deal|

@@ -28,6 +28,9 @@ def assign_toys
 											name ILIKE '%toyset%' OR 
 											name ILIKE '%train set%'
 											")
+	deals = deals.where("
+											name NOT ILIKE '%music%' 
+											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(9).nil?
 			deal.connections.create!(:category_id => 9)

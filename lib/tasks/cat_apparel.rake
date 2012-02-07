@@ -8,12 +8,10 @@ def assign_apparel
 	deals = Deal.where("posted >= ? AND metric < ?", (Time.now - 86400), 0)
 	deals = deals.where("
 											name ILIKE '%apparel%' OR
-											name ILIKE '%asics%' OR 
-											name ILIKE '%boot%' OR
+											name ILIKE '%asics%' OR
 											name ILIKE '%burberry%' OR
 											name ILIKE '%cloth%' OR 
 											name ILIKE '%fleece%' OR
-											name ILIKE '%footwear%' OR
 											name ILIKE '%forever 21%' OR
 											name ILIKE '%glove%' OR
 											name ILIKE '%hat%' OR
@@ -22,6 +20,7 @@ def assign_apparel
 											name ILIKE '%jacket%' OR
 											name ILIKE '%jean%' OR
 											name ILIKE '%jersey%' OR
+											name ILIKE '%kate spade%' OR
 											name ILIKE '%kohls%' OR
 											name ILIKE '%lands end%' OR
 											name ILIKE '%mask%' OR
@@ -35,15 +34,12 @@ def assign_apparel
 											name ILIKE '%robe%' OR
 											name ILIKE '%scarf%' OR
 											name ILIKE '%shirt%' OR
-											name ILIKE '%shoe%' OR 
-											name ILIKE '%sock%' OR
 											name ILIKE '%sunglass%' OR
 											name ILIKE '%the children place%' OR
 											name ILIKE '%timberland%' OR
 											name ILIKE '%under armour%' OR
 											name ILIKE '%urban outfitter%' OR
-											name ILIKE '%victoria%' OR
-											name ILIKE '%zales%' 
+											name ILIKE '%victoria%'
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(3).nil?

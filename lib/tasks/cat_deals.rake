@@ -12,7 +12,7 @@ def assign_deals
 											name ILIKE '%daily deal%' OR 
 											name ILIKE '%deals%' OR 
 											name ILIKE '%discount%' OR 
-											name ILIKE '%free%' OR
+											name ILIKE '%free ticket%' OR
 											name ILIKE '%woot%'
 											")
 	deals.each do |deal|

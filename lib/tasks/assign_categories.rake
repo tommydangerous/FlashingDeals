@@ -8,7 +8,7 @@ task :assign_categories => :environment do
 	assign_kitchen
 	assign_food
 	assign_dvd_bluray
-	assign_hygiene
+	assign_bed_and_bath
 	assign_toys
 	assign_software
 	assign_music
@@ -20,4 +20,5 @@ task :assign_categories => :environment do
 	assign_furniture
 	assign_deals
 	assign_jewelry
+	assign_shoes
 end

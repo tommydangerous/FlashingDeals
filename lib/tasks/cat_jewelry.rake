@@ -15,7 +15,8 @@ def assign_jewelry
 											name ILIKE '%necklace%' OR 
 											name ILIKE '%pendant%' OR 
 											name ILIKE '%ruby%' OR 
-											name ILIKE '%sapphire%'
+											name ILIKE '%sapphire%' OR
+											name ILIKE '%zales%'
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(19).nil?

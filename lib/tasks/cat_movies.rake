@@ -11,8 +11,10 @@ def assign_movies
 										 	name ILIKE '%amc silver%' OR
 										 	name ILIKE '%amc theatre%' OR
 											name ILIKE '%blockbuster%' OR
+											name ILIKE '%dvd rental%' OR
 											name ILIKE '%fandango%' OR 
 										 	name ILIKE '%movie ticket%' OR 
+										 	name ILIKE '%redbox%' OR
 										 	name ILIKE '%regal%' 
 										 	")
 	deals.each do |deal|
