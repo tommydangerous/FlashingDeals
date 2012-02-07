@@ -6,10 +6,12 @@ end
 
 def assign_travel
 	deals = Deal.where("posted >= ? AND metric < ?", (Time.now - 86400), 0)
-	deals = deals.where("name ILIKE '%travel%' OR 
-											 name ILIKE '%las vegas%' OR 
-											 name ILIKE '%backwood%' OR 
-											 name ILIKE '%cirque du soleil%'")
+	deals = deals.where("
+											name ILIKE '%backwood%' OR 
+											name ILIKE '%cirque du soleil%' OR
+											name ILIKE '%las vegas%' OR 
+											name ILIKE '%travel%'
+											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(13).nil?
 			deal.connections.create!(:category_id => 13)
