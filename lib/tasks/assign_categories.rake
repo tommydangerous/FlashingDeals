@@ -21,4 +21,6 @@ task :assign_categories => :environment do
 	assign_deals
 	assign_jewelry
 	assign_shoes
+	assign_accessories
+	assign_eyewear
 end
