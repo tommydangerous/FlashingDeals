@@ -9,10 +9,11 @@ def assign_apparel
 	deals = deals.where("
 											name ILIKE '%apparel%' OR
 											name ILIKE '%asics%' OR 
+											name ILIKE '%boot%' OR
 											name ILIKE '%burberry%' OR
 											name ILIKE '%cloth%' OR 
 											name ILIKE '%fleece%' OR
-											name ILIKE '%footwear%' ORs
+											name ILIKE '%footwear%' OR
 											name ILIKE '%forever 21%' OR
 											name ILIKE '%glove%' OR
 											name ILIKE '%hat%' OR
