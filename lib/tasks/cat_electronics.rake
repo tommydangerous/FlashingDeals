@@ -9,6 +9,7 @@ def assign_electronics
 											name ILIKE '%acer%' OR
 											name ILIKE '%amd%' OR
 											name ILIKE '%asus%' OR
+											name ILIKE '%battery%' OR
 											name ILIKE '%belkin%' OR
 											name ILIKE '%brother toner%' OR
 											name ILIKE '%canon%' OR

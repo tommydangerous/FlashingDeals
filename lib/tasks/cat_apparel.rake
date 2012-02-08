@@ -13,6 +13,7 @@ name ILIKE '%beanie%' OR
 name ILIKE '%burberry%' OR
 name ILIKE '%cloth%' OR 
 name ILIKE '%coat%' OR
+name ILIKE '%current elliot%' OR
 name ILIKE '%fleece%' OR
 name ILIKE '%forever 21%' OR
 name ILIKE '%hat%' OR

@@ -8,6 +8,7 @@ def assign_music
 	deals = @deals.where("
 	
 name ILIKE '%cd download%' OR
+name ILIKE '%green day%' OR
 name ILIKE '%itunes%' OR
 name ILIKE '%mp3%' OR
 name ILIKE '%music%' OR 
