@@ -26,6 +26,7 @@ name ILIKE '%kate spade%' OR
 name ILIKE '%kohls%' OR
 name ILIKE '%lands end%' OR
 name ILIKE '%mask%' OR
+name ILIKE '%monogram%' OR
 name ILIKE '%north face%' OR
 name ILIKE '%old navy%' OR
 name ILIKE '%pajama%' OR

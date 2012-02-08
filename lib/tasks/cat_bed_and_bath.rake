@@ -7,6 +7,9 @@ end
 def assign_bed_and_bath
 	deals = @deals.where("
 	
+name ILIKE '%axe body%' OR
+name ILIKE '%axe gift set%' OR
+name ILIKE '%axe shower%' OR
 name ILIKE '%bath%' OR
 name ILIKE '%bed and bath%' OR
 name ILIKE '%blow dry%' OR 
@@ -32,10 +35,23 @@ name ILIKE '%massage%' OR
 name ILIKE '%oral-b%' OR
 name ILIKE '%paper towel%' OR 
 name ILIKE '%shampoo%' OR
+name ILIKE '%spa%' OR
 name ILIKE '%toilet%' OR
 name ILIKE '%tresemme%' OR  
 name ILIKE '%trojan%'
 
+											")
+	deals = deals.where("
+	
+name NOT ILIKE '%space%' AND
+name NOT ILIKE '%spam%' AND
+name NOT ILIKE '%spaghetti%' AND
+name NOT ILIKE '%sparkle%' AND
+name NOT ILIKE '%spar%' AND
+name NOT ILIKE '%spangle%' AND
+name NOT ILIKE '%tool%' AND
+name NOT ILIKE '%wingspan%'	
+	
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(8).nil?

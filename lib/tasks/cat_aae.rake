@@ -24,9 +24,11 @@ name ILIKE '%parks%' OR
 name ILIKE '%poker%' OR
 name ILIKE '%rock climbing%' OR
 name ILIKE '%shooting range%' OR
+name ILIKE '%skiing%' OR
 name ILIKE '%sky dive%' OR
 name ILIKE '%skydive%' OR
 name ILIKE '%sky diving%' OR
+name ILIKE '%snowboarding%' OR
 name ILIKE '%tae kwon do%' OR
 name ILIKE '%ticketmaster%' OR
 name ILIKE '%tour%' OR

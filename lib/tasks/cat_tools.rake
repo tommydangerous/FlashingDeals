@@ -34,6 +34,7 @@ name ILIKE '%knive%' OR
 name ILIKE '%lantern%' OR 
 name ILIKE '%rifle%' OR
 name ILIKE '%saw blade%' OR 
+name ILIKE '%scope%' OR
 name ILIKE '%screw%' OR
 name ILIKE '%smith & wesson%' OR 
 name ILIKE '%smith and wesson%' OR 
