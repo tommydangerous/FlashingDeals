@@ -22,7 +22,8 @@ name NOT ILIKE '%facebook%' AND
 name NOT ILIKE '%macbook%' AND
 name NOT ILIKE '%netbook%' AND
 name NOT ILIKE '%notebook%' AND
-name NOT ILIKE '%probook%'
+name NOT ILIKE '%probook%' AND
+name NOT ILIKE '%zenbook%'
 
 											")
 	deals.each do |deal|

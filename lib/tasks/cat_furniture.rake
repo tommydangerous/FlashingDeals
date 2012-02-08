@@ -25,8 +25,12 @@ name ILIKE '%woodcraft%'
 											
 											")
 	deals = deals.where("
-	
+
+name NOT ILIKE '%desktop%' AND	
+name NOT ILIKE '%hard drive%' AND
+name NOT ILIKE '%harddrive%' AND
 name NOT ILIKE '%mask%' AND
+name NOT ILIKE '%seagate%' AND
 name NOT ILIKE '%slipper%'
 	
 											")
