@@ -15,6 +15,11 @@ def assign_entertainment
 											name ILIKE '%tae kwon do%' OR
 											name ILIKE '%ticketmaster%'
 											")
+	deals = deals.where("
+	
+name NOT ILIKE '%adapter%'
+	
+	")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(14).nil?
 			deal.connections.create!(:category_id => 14)

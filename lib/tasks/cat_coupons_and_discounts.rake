@@ -7,14 +7,7 @@ end
 def assign_coupons_and_discounts
 	deals = @deals.where("
 	
-name ILIKE '%bing reward%' OR 
-name ILIKE '%coupon%' OR 
-name ILIKE '%daily deal%' OR 
-name ILIKE '%deals%' OR 
-name ILIKE '%discount%' OR 
-name ILIKE '%free ticket%' OR
-name ILIKE '%percent off%' OR
-name ILIKE '%woot%'
+name ILIKE '%coupon%'
 
 											")
 	deals.each do |deal|

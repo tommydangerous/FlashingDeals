@@ -28,6 +28,7 @@ def assign_food
 											name ILIKE '%ghirardelli%' OR
 											name ILIKE '%harry and david%' OR 
 											name ILIKE '%ihop%' OR 
+											name ILIKE '%juice%' OR
 											name ILIKE '%lunch%' OR
 											name ILIKE '%macadamia%' OR
 											name ILIKE '%mcdonald%' OR

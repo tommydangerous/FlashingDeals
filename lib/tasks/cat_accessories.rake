@@ -8,7 +8,8 @@ def assign_accessories
 	deals = @deals.where("
 	
 name ILIKE '%glove%' OR
-name ILIKE '%movado%'
+name ILIKE '%movado%' OR
+name ILIKE '%watch%'
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(21).nil?
