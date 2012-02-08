@@ -28,6 +28,7 @@ name NOT ILIKE '%netflix%' AND
 name NOT ILIKE '%notebook%' AND
 name NOT ILIKE '%probook%' AND
 name NOT ILIKE '%redbox%' AND
+name NOT ILIKE '%rental%' AND
 name NOT ILIKE '%webcam%'
 
 											")
