@@ -6,10 +6,18 @@ end
 
 def assign_music
 	deals = @deals.where("
-											name ILIKE '%cd download%' OR
-											name ILIKE '%mp3%' OR
-											name ILIKE '%music%' OR 
-											name ILIKE '%song%'
+	
+name ILIKE '%cd download%' OR
+name ILIKE '%itunes%' OR
+name ILIKE '%mp3%' OR
+name ILIKE '%music%' OR 
+name ILIKE '%song%'
+
+											")
+	deals = deals.where("
+	
+name NOT ILIKE '%player%'
+	
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(11).nil?
