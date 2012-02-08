@@ -25,7 +25,7 @@ def categories
 	assign_books
 	assign_tools
 	assign_furniture
-	make_coupons
+	assign_cad
 	assign_jewelry
 	assign_shoes
 	assign_accessories
