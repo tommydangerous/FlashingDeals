@@ -19,6 +19,7 @@ def assign_electronics
 											name ILIKE '%cooler master%' OR
 											name ILIKE '%corsair%' OR 
 											name ILIKE '%desktop%' OR 
+											name ILIKE '%digital frame%' OR
 											name ILIKE '%earphone%' OR
 											name ILIKE '%electronic%' OR
 											name ILIKE '%epson stylus%' OR

@@ -15,6 +15,7 @@ name ILIKE '%crib%' OR
 name ILIKE '%curtain%' OR
 name ILIKE '%decoration%' OR 
 name ILIKE '%desk%' OR
+name ILIKE '%digital frame%' OR
 name ILIKE '%furniture%' OR 
 name ILIKE '%landscape lamp%' OR 
 name ILIKE '%lantern%' OR
