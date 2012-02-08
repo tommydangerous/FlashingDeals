@@ -33,6 +33,7 @@ name NOT ILIKE '%card%' AND
 name NOT ILIKE '%chronograph%' AND
 name NOT ILIKE '%crossbow%' AND
 name NOT ILIKE '%graphic%' AND
+name NOT ILIKE '%herringbone%' AND
 name NOT ILIKE '%radeon%' AND
 name NOT ILIKE '%video%' AND
 name NOT ILIKE '%watch%'

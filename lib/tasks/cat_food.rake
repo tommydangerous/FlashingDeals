@@ -21,6 +21,7 @@ name ILIKE '%chocolate%' OR
 name ILIKE '%coca-cola%' OR
 name ILIKE '%coffee%' OR
 name ILIKE '%coke%' OR
+name ILIKE '%cake%' OR
 name ILIKE '%dinner%' OR
 name ILIKE '%domino pizza%' OR
 name ILIKE '%donut%' OR
@@ -35,6 +36,7 @@ name ILIKE '%macadamia%' OR
 name ILIKE '%mcdonald%' OR
 name ILIKE '%meal%' OR
 name ILIKE '%papa john%' OR
+name ILIKE '%pasta%' OR
 name ILIKE '%peanut%' OR
 name ILIKE '%pepsi%' OR
 name ILIKE '%salt%' OR
@@ -52,6 +54,7 @@ name ILIKE '%yogurtland%'
 											")
 	deals = deals.where("
 
+name NOT ILIKE '%as seen on tv%' AND
 name NOT ILIKE '%asalto%' AND
 name NOT ILIKE '%butter yellow%' AND
 name NOT ILIKE '%cuisinart%' AND
