@@ -9,7 +9,14 @@ def assign_cad
 	@deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >= ? AND metric < ?", today3, true, today3, true, today, 0)
 	deals = @deals.where("
 
-name ILIKE '%coupon%'
+name ILIKE '%bing reward%' OR 
+name ILIKE '%coupon%' OR 
+name ILIKE '%daily deal%' OR 
+name ILIKE '%deals%' OR 
+name ILIKE '%discount%' OR 
+name ILIKE '%free ticket%' OR
+name ILIKE '%percent off%' OR
+name ILIKE '%woot%'
 
 											")
 	deals.each do |deal|
