@@ -21,7 +21,7 @@ def categories
 	assign_music
 	assign_games
 	assign_travel
-	assign_entertainment
+	assign_aae
 	assign_books
 	assign_tools
 	assign_furniture

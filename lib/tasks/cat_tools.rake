@@ -43,10 +43,13 @@ def assign_tools
 											name ILIKE '%vacuum%'
 											")
 	deals = deals.where("
-											name NOT ILIKE '%cellphone%' AND
-											name NOT ILIKE '%jacket%' AND
-											name NOT ILIKE '%nine west%' AND
-											name NOT ILIKE '%usb%'
+	
+name NOT ILIKE '%cellphone%' AND
+name NOT ILIKE '%jacket%' AND
+name NOT ILIKE '%laptop%' AND
+name NOT ILIKE '%nine west%' AND
+name NOT ILIKE '%usb%'
+											
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(16).nil?

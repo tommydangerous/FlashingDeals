@@ -6,20 +6,27 @@ end
 
 def assign_dvd_bluray
 	deals = @deals.where("
-											name ILIKE '%blu ray%' OR
-											name ILIKE '%blu-ray%' OR
-											name ILIKE '%bluray%' OR
-											name ILIKE '%dvd%' OR 
-											name ILIKE '%film%' 
+	
+name ILIKE '%blu ray%' OR
+name ILIKE '%blu-ray%' OR
+name ILIKE '%bluray%' OR
+name ILIKE '%dvd%' OR 
+name ILIKE '%film%' 
+
 											")
 	deals = deals.where("
 	
+name NOT ILIKE '%bluetooth%' AND
 name NOT ILIKE '%elitebook%' AND
 name NOT ILIKE '%facebook%' AND
+name NOT ILIKE '%fujifilm%' AND
+name NOT ILIKE '%laptop%' AND
 name NOT ILIKE '%macbook%' AND
+name NOT ILIKE '%motherboard%' AND
 name NOT ILIKE '%netbook%' AND
 name NOT ILIKE '%notebook%' AND
-name NOT ILIKE '%probook%'
+name NOT ILIKE '%probook%' AND
+name NOT ILIKE '%webcam%'
 
 											")
 	deals.each do |deal|
