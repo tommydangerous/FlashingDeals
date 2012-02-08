@@ -5,9 +5,7 @@ task :dvd_bluray => :environment do
 end
 
 def assign_dvd_bluray
-	today = Time.now - 86400
-	deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >=? AND metric < ?", today, true, today, true, today, 0)
-	deals = deals.where("
+	deals = @deals.where("
 											name ILIKE '%blu ray%' OR
 											name ILIKE '%blu-ray%' OR
 											name ILIKE '%bluray%' OR
@@ -15,9 +13,14 @@ def assign_dvd_bluray
 											name ILIKE '%film%' 
 											")
 	deals = deals.where("
-											name NOT ILIKE '%macbook%' OR
-											name NOT ILIKE '%netbook%' OR 
-											name NOT ILIKE '%notebook%' 
+	
+name NOT ILIKE '%elitebook%' AND
+name NOT ILIKE '%facebook%' AND
+name NOT ILIKE '%macbook%' AND
+name NOT ILIKE '%netbook%' AND
+name NOT ILIKE '%notebook%' AND
+name NOT ILIKE '%probook%'
+
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(7).nil?

@@ -5,9 +5,7 @@ task :coupons_and_discounts => :environment do
 end
 
 def assign_coupons_and_discounts
-	today = Time.now - 86400
-	deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >=? AND metric < ?", today, true, today, true, today, 0)
-	deals = deals.where("
+	deals = @deals.where("
 	
 name ILIKE '%bing reward%' OR 
 name ILIKE '%coupon%' OR 

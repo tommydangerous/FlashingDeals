@@ -5,9 +5,7 @@ task :shopping => :environment do
 end
 
 def assign_shopping
-	today = Time.now - 86400
-	deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >=? AND metric < ?", today, true, today, true, today, 0)
-	deals = deals.where("
+	deals = @deals.where("
 											name ILIKE '%coldwater creek%' OR
 											name ILIKE '%coldwatercreek%' OR
 											name ILIKE '%cvs%' OR
@@ -17,8 +15,8 @@ def assign_shopping
 											name ILIKE '%target%' 
 											")
 	deals = deals.where("
-											name NOT ILIKE '%pizza%' OR
-											name NOT ILIKE '%printer%' OR
+											name NOT ILIKE '%pizza%' AND
+											name NOT ILIKE '%printer%' AND
 											name NOT ILIKE '%samsung%'
 											")
 	deals.each do |deal|

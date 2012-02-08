@@ -5,14 +5,13 @@ task :apparel => :environment do
 end
 
 def assign_apparel
-	today = Time.now - 86400
-	deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >=? AND metric < ?", today, true, today, true, today, 0)
-	deals = deals.where("
+	deals = @deals.where("
 	
 name ILIKE '%apparel%' OR
 name ILIKE '%asics%' OR
 name ILIKE '%burberry%' OR
 name ILIKE '%cloth%' OR 
+name ILIKE '%coat%' OR
 name ILIKE '%fleece%' OR
 name ILIKE '%forever 21%' OR
 name ILIKE '%hat%' OR

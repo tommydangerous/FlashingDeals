@@ -5,9 +5,7 @@ task :books => :environment do
 end
 
 def assign_books
-	today = Time.now - 86400
-	deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >=? AND metric < ?", today, true, today, true, today, 0)
-	deals = deals.where("
+	deals = @deals.where("
 	
 name ILIKE '%barnes%' OR 
 name ILIKE '%book%' OR 
@@ -18,11 +16,11 @@ name ILIKE '%reader digest%'
 											")
 	deals = deals.where("
 	
-name NOT ILIKE '%elitebook%' OR
-name NOT ILIKE '%facebook%' OR
-name NOT ILIKE '%macbook%' OR
-name NOT ILIKE '%netbook%' OR 
-name NOT ILIKE '%notebook%' OR
+name NOT ILIKE '%elitebook%' AND
+name NOT ILIKE '%facebook%' AND
+name NOT ILIKE '%macbook%' AND
+name NOT ILIKE '%netbook%' AND
+name NOT ILIKE '%notebook%' AND
 name NOT ILIKE '%probook%'
 
 											")

@@ -5,9 +5,7 @@ task :software => :environment do
 end
 
 def assign_software
-	today = Time.now - 86400
-	deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >=? AND metric < ?", today, true, today, true, today, 0)
-	deals = deals.where("
+	deals = @deals.where("
 											name ILIKE '%android app%' OR 
 											name ILIKE '%android application%' OR 
 											name ILIKE '%android market%' OR

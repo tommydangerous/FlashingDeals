@@ -1,6 +1,13 @@
 desc 'Assign Categories'
 task :assign_categories => :environment do
 	require 'rubygems'
+	categories
+end
+
+def categories
+	today  = Time.now - 86400
+	today3 = Time.now - (86400 * 3)
+	@deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >= ? AND metric < ?", today3, true, today3, true, today, 0)
 	assign_electronics
 	assign_shopping
 	assign_apparel

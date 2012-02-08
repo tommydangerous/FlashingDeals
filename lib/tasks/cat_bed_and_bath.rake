@@ -5,9 +5,7 @@ task :bed_and_bath => :environment do
 end
 
 def assign_bed_and_bath
-	today = Time.now - 86400
-	deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >=? AND metric < ?", today, true, today, true, today, 0)
-	deals = deals.where("
+	deals = @deals.where("
 											name ILIKE '%bath%' OR
 											name ILIKE '%bed and bath%' OR
 											name ILIKE '%blow dry%' OR 

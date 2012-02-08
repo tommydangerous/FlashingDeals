@@ -5,9 +5,7 @@ task :electronics => :environment do
 end
 
 def assign_electronics
-	today = Time.now - 86400
-	deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >=? AND metric < ?", today, true, today, true, today, 0)
-	deals = deals.where("
+	deals = @deals.where("
 											name ILIKE '%acer%' OR
 											name ILIKE '%amd%' OR
 											name ILIKE '%asus%' OR

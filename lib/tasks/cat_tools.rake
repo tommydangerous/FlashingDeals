@@ -5,9 +5,7 @@ task :tools => :environment do
 end
 
 def assign_tools
-	today = Time.now - 86400
-	deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >=? AND metric < ?", today, true, today, true, today, 0)
-	deals = deals.where("
+	deals = @deals.where("
 											name ILIKE '%9mm%' OR 
 											name ILIKE '%ammo%' OR 
 											name ILIKE '%backwood%' OR 
@@ -45,9 +43,9 @@ def assign_tools
 											name ILIKE '%vacuum%'
 											")
 	deals = deals.where("
-											name NOT ILIKE '%cellphone%' OR
-											name NOT ILIKE '%jacket%' OR
-											name NOT ILIKE '%nine west%' OR
+											name NOT ILIKE '%cellphone%' AND
+											name NOT ILIKE '%jacket%' AND
+											name NOT ILIKE '%nine west%' AND
 											name NOT ILIKE '%usb%'
 											")
 	deals.each do |deal|
