@@ -86,15 +86,15 @@ function toggleMyAccountMenu() {
 // Side Panel
 
 function toggleControlPanel() {
-	$('div#user_index_control_panel').slideToggle();
+	$('div#user_index_control_panel').slideToggle(200);
 };
 
 function toggleLocations() {
-	$('div.locations').slideToggle();
+	$('div.locations').slideToggle(200);
 };
 
 function toggleCategories() {
-	$('div.categories').slideToggle();
+	$('div.categories').slideToggle(200);
 };
 
 

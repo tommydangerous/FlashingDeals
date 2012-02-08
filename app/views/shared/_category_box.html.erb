@@ -5,14 +5,14 @@
 	<div class="categories">
 		<ul>
 		<% Category.all.each do |c| %>
-			<% if c.deals.where("posted > ? AND metric < ?", @today, 0).size > 0 %>
+			<% if c.deals.where("posted > ?", @today).size > 0 %>
 			<li>
 				<div id="category">
 					<div class="category_name">
 						<%= link_to c.name, c %>
 					</div>
 					<div class="category_count">
-						<p><%= c.deals.where("posted > ? AND metric < ?", @today, 0).size %></p>
+						<p><%= c.deals.where("posted > ?", @today).size %></p>
 					</div>
 				</div>
 			</li>
