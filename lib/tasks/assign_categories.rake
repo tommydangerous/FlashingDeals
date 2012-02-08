@@ -24,7 +24,7 @@ def categories
 	assign_aae
 	assign_books
 	assign_tools
-	assign_furniture
+	assign_haf
 	assign_cad
 	assign_jewelry
 	assign_shoes
