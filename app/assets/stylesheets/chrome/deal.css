@@ -106,13 +106,34 @@ span.light_grey {
 	color: rgba(150, 150, 150, 1);
 }
 
-span.category a {
-	color: rgba(150, 150, 150, 1);
-	margin-left: 5px;
-	text-decoration: none;
+div#categories {
+	margin-bottom: 7px;
 }
 
-span.category a:hover {
+div#categories ul {
+	list-style-type: none;
+}
+
+div#categories ul li {
+	display: inline-block;
+	margin-left: 10px;
+	margin-bottom: 3px;
+}
+
+div#categories a {
+	font-family: Helvetica, Arial;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
+	text-decoration: none;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#categories a:hover {
 	opacity: .75;
 	text-decoration: underline;
 }

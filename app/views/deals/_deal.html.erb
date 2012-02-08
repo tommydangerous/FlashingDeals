@@ -54,11 +54,11 @@
 					<% end %>
 				</div>
 				<div id="categories">
-					<p>
+					<ul>
 					<% deal.categories.each do |c| %>
-						<span class="category"><%= link_to c.name, c %></span>
+						<li><%= link_to c.name, c %></li>
 					<% end %>
-					</p>
+					</ul>
 				</div>
 				<ul>
 				<% unless deal.posted.nil? %>
