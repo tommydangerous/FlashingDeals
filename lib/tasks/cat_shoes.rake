@@ -13,7 +13,7 @@ name ILIKE '%rainbow%' OR
 name ILIKE '%shoe%' OR 
 name ILIKE '%sandal%' OR
 name ILIKE '%slipon%' OR
-name ILIKE ‘%slipper%’ OR
+name ILIKE '%slipper%' OR
 name ILIKE '%sock%' OR
 name ILIKE '%vans%'
 
