@@ -24,6 +24,7 @@ name ILIKE '%kate spade%' OR
 name ILIKE '%kohls%' OR
 name ILIKE '%lands end%' OR
 name ILIKE '%mask%' OR
+name ILIKE '%north face%' OR
 name ILIKE '%old navy%' OR
 name ILIKE '%pajama%' OR
 name ILIKE '%pant%' OR
@@ -39,6 +40,14 @@ name ILIKE '%under armour%' OR
 name ILIKE '%urban outfitter%' OR
 name ILIKE '%victoria%'
 
+											")
+	deals = deals.where("
+
+name NOT ILIKE '%chat%' AND
+name NOT ILIKE '%damask%' AND
+name NOT ILIKE '%manhattan%' AND
+name NOT ILIKE '%shoe%'
+	
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(3).nil?

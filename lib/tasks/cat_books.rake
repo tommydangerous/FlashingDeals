@@ -16,6 +16,7 @@ name ILIKE '%reader digest%'
 											")
 	deals = deals.where("
 	
+name NOT ILIKE '%bookcase%' AND	
 name NOT ILIKE '%elitebook%' AND
 name NOT ILIKE '%facebook%' AND
 name NOT ILIKE '%macbook%' AND

@@ -9,6 +9,7 @@ def assign_travel
 	
 name ILIKE '%backwood%' OR 
 name ILIKE '%cirque du soleil%' OR
+name ILIKE '%fairfield inn%' OR
 name ILIKE '%las vegas%' OR 
 name ILIKE '%travel%'
 											

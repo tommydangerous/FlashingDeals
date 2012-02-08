@@ -6,6 +6,7 @@ end
 def assign_cad
 	deals = @deals.where("
 
+name ILIKE '%\% off%' OR
 name ILIKE '%bing reward%' OR 
 name ILIKE '%coupon%' OR 
 name ILIKE '%daily deal%' OR 
