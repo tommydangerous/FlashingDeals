@@ -4,9 +4,6 @@ task :cad => :environment do
 end
 
 def assign_cad
-	today  = Time.now - 86400
-	today3 = Time.now - (86400 * 3)
-	@deals = Deal.where("posted >= ? AND top_deal = ? OR posted >= ? AND flash_back = ? OR posted >= ? AND metric < ?", today3, true, today3, true, today, 0)
 	deals = @deals.where("
 
 name ILIKE '%bing reward%' OR 
