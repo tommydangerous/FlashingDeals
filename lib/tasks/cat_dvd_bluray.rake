@@ -24,8 +24,10 @@ name NOT ILIKE '%laptop%' AND
 name NOT ILIKE '%macbook%' AND
 name NOT ILIKE '%motherboard%' AND
 name NOT ILIKE '%netbook%' AND
+name NOT ILIKE '%netflix%' AND
 name NOT ILIKE '%notebook%' AND
 name NOT ILIKE '%probook%' AND
+name NOT ILIKE '%redbox%' AND
 name NOT ILIKE '%webcam%'
 
 											")
