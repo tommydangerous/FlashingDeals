@@ -7,6 +7,7 @@ end
 def assign_accessories
 	deals = @deals.where("
 	
+name ILIKE '%chronograph%' OR	
 name ILIKE '%glove%' OR
 name ILIKE '%movado%' OR
 name ILIKE '%watch%'
