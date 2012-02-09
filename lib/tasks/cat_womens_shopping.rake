@@ -13,6 +13,7 @@ name ILIKE '%clinique%' OR
 name ILIKE '%crossbody%' OR 
 name ILIKE '%current elliot%' OR
 name ILIKE '%dress%' OR
+name ILIKE '%espadrille%' OR
 name ILIKE '%flat iron%' OR 
 name ILIKE '%forever 21%' OR
 name ILIKE '%handbag%' OR 

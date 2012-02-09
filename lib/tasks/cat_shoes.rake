@@ -9,6 +9,7 @@ def assign_shoes
 	
 name ILIKE '%altitude snow%' OR 	
 name ILIKE '%boot%' OR
+name ILIKE '%espadrille%' OR
 name ILIKE '%foot%' OR
 name ILIKE '%heels%' OR 
 name ILIKE '%merrell%' OR

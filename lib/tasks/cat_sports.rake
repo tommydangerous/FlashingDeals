@@ -40,6 +40,12 @@ name ILIKE '%tennis%' OR
 name ILIKE '%toning set%'
 	
 											")
+	deals = deals.where("
+	
+name NOT ILIKE '%pbteen%' AND
+name NOT ILIKE '%zoo york%'
+	
+											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(29).nil?
 			deal.connections.create!(:category_id => 29)
