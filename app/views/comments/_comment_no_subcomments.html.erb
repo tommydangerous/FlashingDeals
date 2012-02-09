@@ -6,7 +6,7 @@
 	</div>
 	<div id="comment">
 		<div id="comment_user">
-			<%= link_to User.find(comment.user_id).name, User.find(comment.user.id) %>
+			<strong><%= link_to User.find(comment.user_id).name, User.find(comment.user.id) %></strong>
 		</div>
 		<div id="comment_content">
 			<%= auto_link(wrap(comment.content), :all, :target => "_blank") %>
