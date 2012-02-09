@@ -30,6 +30,16 @@ name ILIKE '%t2i%' OR
 name ILIKE '%t3i%'
 
 											")
+	deals = deals.where("
+	
+name NOT ILIKE '%bag%' AND
+name NOT ILIKE '%earphone%' AND
+name NOT ILIKE '%flash drive%' AND
+name NOT ILIKE '%flashdrive%' AND
+name NOT ILIKE '%gun%' AND
+name NOT ILIKE '%monitor%'
+	
+											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(2).nil?
 			deal.connections.create!(:category_id => 2)
