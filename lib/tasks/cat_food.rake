@@ -32,7 +32,6 @@ name ILIKE '%ghirardelli%' OR
 name ILIKE '%harry and david%' OR 
 name ILIKE '%ihop%' OR 
 name ILIKE '%juice%' OR
-name ILIKE '%logan\\'s roadhouse%' OR 
 name ILIKE '%logans roadhouse%' OR 
 name ILIKE '%lunch%' OR
 name ILIKE '%macadamia%' OR
@@ -46,6 +45,7 @@ name ILIKE '%peanut%' OR
 name ILIKE '%pepsi%' OR
 name ILIKE '%pretzel%' OR
 name ILIKE '%probiotic%' OR
+name ILIKE '%roadhouse%' OR 
 name ILIKE '%salt%' OR
 name ILIKE '%sandwich%' OR
 name ILIKE '%safslim%' OR 
