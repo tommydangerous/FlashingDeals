@@ -39,6 +39,7 @@ name ILIKE '%papa john%' OR
 name ILIKE '%pasta%' OR
 name ILIKE '%peanut%' OR
 name ILIKE '%pepsi%' OR
+name ILIKE '%pretzel%' OR
 name ILIKE '%salt%' OR
 name ILIKE '%sandwich%' OR
 name ILIKE '%starbuck%' OR 

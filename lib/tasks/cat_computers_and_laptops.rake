@@ -22,6 +22,27 @@ name ILIKE '%vaio%' OR
 name ILIKE '%zenbook%'
 	
 											")
+	deals = deals.where("
+
+name NOT ILIKE '%claritin%' AND
+name NOT ILIKE '%corsair%' AND	
+name NOT ILIKE '%crucial%' AND
+name NOT ILIKE '%desk%' AND
+name NOT ILIKE '%external sata%' AND
+name NOT ILIKE '%g skill%' AND
+name NOT ILIKE '%g. skill%' AND
+name NOT ILIKE '%internal sata%' AND
+name NOT ILIKE '%kingston%' AND
+name NOT ILIKE '%mucinex%' AND
+name NOT ILIKE '%mushkin%' AND
+name NOT ILIKE '%nyquil%' AND
+name NOT ILIKE '%patriot%' AND
+name NOT ILIKE '%program%' AND
+name NOT ILIKE '%samsung spinpoint%' AND
+name NOT ILIKE '%tylenol%' AND
+name NOT ILIKE '%western digital%'
+	
+											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(23).nil?
 			deal.connections.create!(:category_id => 23)
