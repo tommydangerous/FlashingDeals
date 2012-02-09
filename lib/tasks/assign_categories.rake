@@ -32,4 +32,5 @@ def categories
 	assign_eyewear
 	assign_computers_and_laptops
 	assign_watches
+	assign_mobile_phones
 end

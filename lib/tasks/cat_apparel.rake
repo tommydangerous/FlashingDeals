@@ -42,6 +42,7 @@ name ILIKE '%reebok%' OR
 name ILIKE '%robe%' OR
 name ILIKE '%scarf%' OR
 name ILIKE '%shirt%' OR
+name ILIKE '%sweater%' OR
 name ILIKE '%the children place%' OR
 name ILIKE '%timberland%' OR
 name ILIKE '%under armour%' OR

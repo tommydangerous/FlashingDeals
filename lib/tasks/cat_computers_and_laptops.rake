@@ -39,6 +39,7 @@ name NOT ILIKE '%nyquil%' AND
 name NOT ILIKE '%patriot%' AND
 name NOT ILIKE '%program%' AND
 name NOT ILIKE '%samsung spinpoint%' AND
+name NOT ILIKE '%table%' AND
 name NOT ILIKE '%tylenol%' AND
 name NOT ILIKE '%western digital%'
 	
