@@ -8,6 +8,7 @@ def assign_mobile_phones
 
 name ILIKE '%at&t%' OR
 name ILIKE '%blackberry%' OR
+name ILIKE '%bluetooth headset%' OR
 name ILIKE '%cell phone%' OR
 name ILIKE '%cellphone%' OR
 name ILIKE '%htc%' OR
@@ -32,7 +33,8 @@ name ILIKE '%wireless plan%'
 	
 name NOT ILIKE '%nightcap%' AND
 name NOT ILIKE '%nightclothe%' AND
-name NOT ILIKE '%nightclub%'
+name NOT ILIKE '%nightclub%' AND
+name NOT ILIKE '%zmodo%'
 	
 											")
 	deals.each do |deal|

@@ -33,4 +33,5 @@ def categories
 	assign_computers_and_laptops
 	assign_watches
 	assign_mobile_phones
+	assign_tam
 end
