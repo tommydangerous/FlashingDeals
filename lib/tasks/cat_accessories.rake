@@ -12,6 +12,7 @@ name ILIKE '%bulova%' OR
 name ILIKE '%chronograph%' OR	
 name ILIKE '%glove%' OR
 name ILIKE '%invicta%' OR
+name ILIKE '%lip gloss%' OR
 name ILIKE '%movado%' OR
 name ILIKE '%watch%'
 											")

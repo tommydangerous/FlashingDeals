@@ -21,8 +21,10 @@ name NOT ILIKE '%elitebook%' AND
 name NOT ILIKE '%facebook%' AND
 name NOT ILIKE '%macbook%' AND
 name NOT ILIKE '%netbook%' AND
+name NOT ILIKE '%nook%' AND
 name NOT ILIKE '%notebook%' AND
 name NOT ILIKE '%probook%' AND
+name NOT ILIKE '%tablet%' AND
 name NOT ILIKE '%zenbook%'
 
 											")
