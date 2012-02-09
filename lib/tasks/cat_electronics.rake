@@ -12,6 +12,8 @@ name ILIKE '%amd%' OR
 name ILIKE '%asus%' OR
 name ILIKE '%battery%' OR
 name ILIKE '%belkin%' OR
+name ILIKE '%bluetooth%' OR 
+name ILIKE '%boombox%' OR 
 name ILIKE '%brother toner%' OR
 name ILIKE '%canon%' OR
 name ILIKE '%case fan%' OR
@@ -21,6 +23,7 @@ name ILIKE '%cooler master%' OR
 name ILIKE '%corsair%' OR 
 name ILIKE '%desktop%' OR 
 name ILIKE '%digital frame%' OR
+name ILIKE '%digital picture frame%' OR 
 name ILIKE '%earphone%' OR
 name ILIKE '%edimax%' OR
 name ILIKE '%electronic%' OR
@@ -37,6 +40,7 @@ name ILIKE '%hdmi%' OR
 name ILIKE '%hdtv%' OR
 name ILIKE '%headphone%' OR
 name ILIKE '%hitachi%' OR
+name ILIKE '%hp fast dc5700%' OR 
 name ILIKE '%ink cartridge%' OR
 name ILIKE '%ink jet%' OR 
 name ILIKE '%intel%' OR
@@ -63,9 +67,12 @@ name ILIKE '%microphone%' OR
 name ILIKE '%microsd%' OR
 name ILIKE '%microsdhc%' OR
 name ILIKE '%monitor%' OR 
+name ILIKE '%motherboard%' OR 
 name ILIKE '%netgear%' OR
 name ILIKE '%newegg%' OR 
 name ILIKE '%netbook%' OR
+name ILIKE '%network adapter%' OR 
+name ILIKE '%network attached storage%' OR 
 name ILIKE '%network switch%' OR
 name ILIKE '%nikon%' OR
 name ILIKE '%notebook%' OR
@@ -81,6 +88,7 @@ name ILIKE '%rosewill%' OR
 name ILIKE '%router%' OR 
 name ILIKE '%samsung%' OR
 name ILIKE '%sandisk%' OR
+name ILIKE '%satellite radio%' OR 
 name ILIKE '%seagate%' OR
 name ILIKE '%skullcandy%' OR
 name ILIKE '%speaker%' OR
@@ -93,12 +101,15 @@ name ILIKE '%toner cartridge%' OR
 name ILIKE '%toner compatible%' OR
 name ILIKE '%toshiba%' OR
 name ILIKE '%touchpad%' OR
-name ILIKE '%wireless mouse%'
+name ILIKE '%video picture frame%' OR 
+name ILIKE '%wireless mouse%' OR
+name ILIKE '%xfinity%'
 
 											")
 	deals = deals.where("
 	
-name NOT ILIKE '%melatonin%'
+name NOT ILIKE '%melatonin%' AND
+name NOT ILIKE '%table%'
 	
 											")
 	deals.each do |deal|

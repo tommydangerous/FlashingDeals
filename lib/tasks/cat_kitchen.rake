@@ -13,6 +13,7 @@ name ILIKE '%cuisinart%' OR
 name ILIKE '%cup%' OR
 name ILIKE '%damask%' OR
 name ILIKE '%decanter%' OR
+name ILIKE '%dinnerware%' OR 
 name ILIKE '%dish%' OR
 name ILIKE '%fork%' OR
 name ILIKE '%fry pan%' OR
@@ -26,6 +27,7 @@ name ILIKE '%microwave%' OR
 name ILIKE '%mitten%' OR
 name ILIKE '%mitts%' OR 
 name ILIKE '%mug%' OR
+name ILIKE '%orrefors helena%' OR 
 name ILIKE '%rubberwood%' OR
 name ILIKE '%pressure cooker%' OR
 name ILIKE '%salt%' OR 
@@ -33,9 +35,11 @@ name ILIKE '%silverware%' OR
 name ILIKE '%sink%' OR
 name ILIKE '%spoon%' OR
 name ILIKE '%steel wok%' OR 
+name ILIKE '%stemware%' OR 
 name ILIKE '%trash can%' OR
 name ILIKE '%tray%' OR 
 name ILIKE '%utensil%' OR
+name ILIKE '%waterford brookside%' OR 
 name ILIKE '%wolfgang puck%' 
 											
 											")

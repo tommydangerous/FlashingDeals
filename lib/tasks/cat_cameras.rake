@@ -8,6 +8,7 @@ def assign_cameras
 	deals = @deals.where("
 	
 name ILIKE '%body only%' OR
+name ILIKE '%camcorder%' OR 
 name ILIKE '%camera%' OR
 name ILIKE '%canon%' OR
 name ILIKE '%casio%' OR
@@ -27,7 +28,8 @@ name ILIKE '%sandisk%' OR
 name ILIKE '%sd memory card%' OR
 name ILIKE '%slr%' OR
 name ILIKE '%t2i%' OR
-name ILIKE '%t3i%'
+name ILIKE '%t3i%' OR
+name ILIKE '%tripod%'
 
 											")
 	deals = deals.where("
@@ -37,7 +39,8 @@ name NOT ILIKE '%earphone%' AND
 name NOT ILIKE '%flash drive%' AND
 name NOT ILIKE '%flashdrive%' AND
 name NOT ILIKE '%gun%' AND
-name NOT ILIKE '%monitor%'
+name NOT ILIKE '%monitor%' AND
+name NOT ILIKE '%telescope%'
 	
 											")
 	deals.each do |deal|

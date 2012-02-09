@@ -7,6 +7,7 @@ end
 def assign_apparel
 	deals = @deals.where("
 	
+name ILIKE '%ann taylor%' OR 	
 name ILIKE '%apparel%' OR
 name ILIKE '%asics%' OR
 name ILIKE '%beanie%' OR
@@ -27,20 +28,29 @@ name ILIKE '%huggies%' OR
 name ILIKE '%jacket%' OR
 name ILIKE '%jean%' OR
 name ILIKE '%jersey%' OR
+name ILIKE '%jos a bank%' OR 
+name ILIKE '%jos. a bank%' OR 
+name ILIKE '%juicy couture%' OR 
 name ILIKE '%kate spade%' OR
 name ILIKE '%kohls%' OR
 name ILIKE '%lands end%' OR
 name ILIKE '%mask%' OR
 name ILIKE '%matix morton%' OR
+name ILIKE '%michael stars%' OR 
 name ILIKE '%monogram%' OR
+name ILIKE '%monterey bay%' OR 
+name ILIKE '%neiman marcus%' OR 
 name ILIKE '%north face%' OR
 name ILIKE '%old navy%' OR
+name ILIKE '%outerwear%' OR 
 name ILIKE '%pajama%' OR
 name ILIKE '%pant%' OR
+name ILIKE '%parka%' OR 
 name ILIKE '%pullover%' OR 
 name ILIKE '%puma%' OR
 name ILIKE '%reebok%' OR
 name ILIKE '%robe%' OR
+name ILIKE '%saks fifth avenue%' OR 
 name ILIKE '%santini%' OR 
 name ILIKE '%scarf%' OR
 name ILIKE '%shirt%' OR
@@ -48,6 +58,7 @@ name ILIKE '%sport sleeve%' OR
 name ILIKE '%sweater%' OR
 name ILIKE '%the children place%' OR
 name ILIKE '%timberland%' OR
+name ILIKE '%tommy hilfiger%' OR 
 name ILIKE '%tri suit%' OR
 name ILIKE '%under armour%' OR
 name ILIKE '%urban outfitter%' OR
@@ -58,8 +69,11 @@ name ILIKE '%zoo york%'
 											")
 	deals = deals.where("
 
+name NOT ILIKE '%aerobed%' AND
 name NOT ILIKE '%alpha test%' AND
 name NOT ILIKE '%alphatest%' AND
+name NOT ILIKE '%bulova%' AND
+name NOT ILIKE '%card case%' AND
 name NOT ILIKE '%chat%' AND
 name NOT ILIKE '%damask%' AND
 name NOT ILIKE '%manhattan%' AND

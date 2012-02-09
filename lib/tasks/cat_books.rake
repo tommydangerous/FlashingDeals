@@ -10,6 +10,9 @@ def assign_books
 name ILIKE '%aquaman%' OR 	
 name ILIKE '%barnes%' OR 
 name ILIKE '%book%' OR 
+name ILIKE '%canvas print%' OR 
+name ILIKE '%greeting card%' OR 
+name ILIKE '%home journal%' OR 
 name ILIKE '%kindle%' OR 
 name ILIKE '%magazine%' OR
 name ILIKE '%reader digest%'
@@ -18,6 +21,7 @@ name ILIKE '%reader digest%'
 	deals = deals.where("
 	
 name NOT ILIKE '%bookcase%' AND	
+name NOT ILIKE '%bookshelf%' AND
 name NOT ILIKE '%elitebook%' AND
 name NOT ILIKE '%facebook%' AND
 name NOT ILIKE '%macbook%' AND

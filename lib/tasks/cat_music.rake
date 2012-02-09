@@ -9,6 +9,7 @@ def assign_music
 	
 name ILIKE '%cd download%' OR
 name ILIKE '%crooked fingers%' OR
+name ILIKE '%dierks bentley%' OR 
 name ILIKE '%green day%' OR
 name ILIKE '%itunes%' OR
 name ILIKE '%mp3%' OR

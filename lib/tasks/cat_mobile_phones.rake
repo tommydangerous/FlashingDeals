@@ -34,6 +34,7 @@ name ILIKE '%wireless plan%'
 name NOT ILIKE '%nightcap%' AND
 name NOT ILIKE '%nightclothe%' AND
 name NOT ILIKE '%nightclub%' AND
+name NOT ILIKE '%tablet%' AND
 name NOT ILIKE '%zmodo%'
 	
 											")

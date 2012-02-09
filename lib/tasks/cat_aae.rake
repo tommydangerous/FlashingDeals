@@ -6,9 +6,11 @@ end
 def assign_aae
 	deals = @deals.where("
 	
+name ILIKE '%beauty bash%' OR 	
 name ILIKE '%casino%' OR 
 name ILIKE '%cigar%' OR 
 name ILIKE '%concert%' OR
+name ILIKE '%entertainment%' OR 
 name ILIKE '%espn%' OR
 name ILIKE '%facial%' OR
 name ILIKE '%las vegas%' OR 
@@ -39,7 +41,8 @@ name ILIKE '%yosemite%'
 											")
 	deals = deals.where("
 	
-name NOT ILIKE '%adapter%'
+name NOT ILIKE '%adapter%' AND
+name NOT ILIKE '%fathead%'
 	
 											")
 	deals.each do |deal|
