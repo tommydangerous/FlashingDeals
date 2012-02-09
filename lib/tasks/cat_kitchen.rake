@@ -12,6 +12,7 @@ name ILIKE '%candle%' OR
 name ILIKE '%cuisinart%' OR
 name ILIKE '%cup%' OR
 name ILIKE '%damask%' OR
+name ILIKE '%decanter%' OR
 name ILIKE '%dish%' OR
 name ILIKE '%fork%' OR
 name ILIKE '%fry pan%' OR

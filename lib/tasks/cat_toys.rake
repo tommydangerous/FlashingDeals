@@ -23,7 +23,8 @@ name ILIKE '%playing card%' OR
 name ILIKE '%playset%' OR
 name ILIKE '%remote controlled%' OR 
 name ILIKE '%remote-controlled%' OR
-name ILIKE '%sticker%' OR 
+name ILIKE '%sticker%' OR
+name ILIKE '%thomas and friend%' OR
 name ILIKE '%toy%' OR 
 name ILIKE '%toyset%' OR 
 name ILIKE '%train set%'

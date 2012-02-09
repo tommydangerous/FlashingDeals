@@ -14,10 +14,14 @@ name ILIKE '%burberry%' OR
 name ILIKE '%cloth%' OR 
 name ILIKE '%coat%' OR
 name ILIKE '%current elliot%' OR
+name ILIKE '%boston proper%' OR
+name ILIKE '%dress%' OR
 name ILIKE '%fleece%' OR
 name ILIKE '%forever 21%' OR
 name ILIKE '%hat%' OR
+name ILIKE '%helmet%' OR
 name ILIKE '%hollister%' OR
+name ILIKE '%hoodie%' OR
 name ILIKE '%huggies%' OR
 name ILIKE '%jacket%' OR
 name ILIKE '%jean%' OR
@@ -26,6 +30,7 @@ name ILIKE '%kate spade%' OR
 name ILIKE '%kohls%' OR
 name ILIKE '%lands end%' OR
 name ILIKE '%mask%' OR
+name ILIKE '%matix morton%' OR
 name ILIKE '%monogram%' OR
 name ILIKE '%north face%' OR
 name ILIKE '%old navy%' OR

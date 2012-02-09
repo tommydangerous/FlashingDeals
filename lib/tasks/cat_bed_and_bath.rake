@@ -35,6 +35,7 @@ name ILIKE '%massage%' OR
 name ILIKE '%oral-b%' OR
 name ILIKE '%paper towel%' OR 
 name ILIKE '%shampoo%' OR
+name ILIKE '%shower%' OR
 name ILIKE '%spa%' OR
 name ILIKE '%toilet%' OR
 name ILIKE '%tresemme%' OR  
