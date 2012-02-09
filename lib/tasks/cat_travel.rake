@@ -16,6 +16,7 @@ name ILIKE '%get a way%' OR
 name ILIKE '%getaway%' OR
 name ILIKE '%hi country haus%' OR 
 name ILIKE '%hotel%' OR
+name ILIKE '%night stay%' OR
 name ILIKE '%vegas%' OR 
 name ILIKE '%resort%' OR
 name ILIKE '%travel%' OR

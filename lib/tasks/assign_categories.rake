@@ -35,4 +35,5 @@ def categories
 	assign_mobile_phones
 	assign_tam
 	assign_womens_shopping
+	assign_pets
 end

@@ -7,6 +7,7 @@ end
 def assign_apparel
 	deals = @deals.where("
 	
+name ILIKE '%american eagle%' OR	
 name ILIKE '%ann taylor%' OR 	
 name ILIKE '%apparel%' OR
 name ILIKE '%asics%' OR
@@ -20,6 +21,7 @@ name ILIKE '%descente%' OR
 name ILIKE '%dress%' OR
 name ILIKE '%fleece%' OR
 name ILIKE '%forever 21%' OR
+name ILIKE '%hanes%' OR
 name ILIKE '%hat%' OR
 name ILIKE '%helmet%' OR
 name ILIKE '%hollister%' OR
@@ -61,6 +63,7 @@ name ILIKE '%timberland%' OR
 name ILIKE '%tommy hilfiger%' OR 
 name ILIKE '%tri suit%' OR
 name ILIKE '%under armour%' OR
+name ILIKE '%underwear%' OR
 name ILIKE '%urban outfitter%' OR
 name ILIKE '%fox ventilator%' OR 
 name ILIKE '%victoria%' OR
