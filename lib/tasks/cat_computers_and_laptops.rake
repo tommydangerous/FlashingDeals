@@ -37,6 +37,7 @@ name NOT ILIKE '%melatonin%' AND
 name NOT ILIKE '%mucinex%' AND
 name NOT ILIKE '%mushkin%' AND
 name NOT ILIKE '%nyquil%' AND
+name NOT ILIKE '%optical notebook mouse%' AND
 name NOT ILIKE '%patriot%' AND
 name NOT ILIKE '%program%' AND
 name NOT ILIKE '%samsung spinpoint%' AND
