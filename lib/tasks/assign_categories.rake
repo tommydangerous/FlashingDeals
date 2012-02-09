@@ -36,4 +36,5 @@ def categories
 	assign_tam
 	assign_womens_shopping
 	assign_pets
+	assign_sports
 end
