@@ -19,12 +19,17 @@ name ILIKE '%digital frame%' OR
 name ILIKE '%furniture%' OR 
 name ILIKE '%landscape lamp%' OR 
 name ILIKE '%lantern%' OR
+name ILIKE '%lysol%' OR
 name ILIKE '%memory foam%' OR 
 name ILIKE '%ornament%' OR 
 name ILIKE '%picture frame%' OR
+name ILIKE '%pillow%' OR
 name ILIKE '%renuzit%' OR
+name ILIKE '%satin sheet%' OR
 name ILIKE '%sears%' OR 
+name ILIKE '%table%' OR
 name ILIKE '%tv stand%' OR 
+name ILIKE '%we r memory keeper%' OR
 name ILIKE '%woodcraft%'
 											
 											")

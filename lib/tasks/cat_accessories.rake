@@ -8,8 +8,11 @@ def assign_accessories
 	deals = @deals.where("
 	
 name ILIKE '%backpack%' OR
+name ILIKE '%belt%' OR 
+name ILIKE '%dry sack%' OR
 name ILIKE '%glove%' OR
-name ILIKE '%lip gloss%'
+name ILIKE '%the tie thing%' OR
+name ILIKE '%tonal bamboo%'
 
 											")
 	deals = deals.where("

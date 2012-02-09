@@ -7,7 +7,9 @@ end
 def assign_jewelry
 	deals = @deals.where("
 	
+name ILIKE '%amethyst%' OR
 name ILIKE '%bracelet%' OR 
+name ILIKE '%charm%' OR 
 name ILIKE '%cross%' OR
 name ILIKE '%diamond%' OR 
 name ILIKE '%earring%' OR 
@@ -34,8 +36,12 @@ name NOT ILIKE '%chronograph%' AND
 name NOT ILIKE '%crossbow%' AND
 name NOT ILIKE '%expiring%' AND
 name NOT ILIKE '%graphic%' AND
+name NOT ILIKE '%hard drive%' AND
+name NOT ILIKE '%harddrive%' AND
+name NOT ILIKE '%hdd%' AND
 name NOT ILIKE '%herringbone%' AND
 name NOT ILIKE '%lantern%' AND
+name NOT ILIKE '%mastering%' AND
 name NOT ILIKE '%radeon%' AND
 name NOT ILIKE '%video%' AND
 name NOT ILIKE '%watch%'

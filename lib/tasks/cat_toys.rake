@@ -21,20 +21,26 @@ name ILIKE '%lego%' OR
 name ILIKE '%mattel%' OR 
 name ILIKE '%playing card%' OR 
 name ILIKE '%playset%' OR
+name ILIKE '%plush%' OR
+name ILIKE '%rc remote control%' OR
 name ILIKE '%remote controlled%' OR 
 name ILIKE '%remote-controlled%' OR
 name ILIKE '%sticker%' OR
 name ILIKE '%thomas and friend%' OR
 name ILIKE '%toy%' OR 
 name ILIKE '%toyset%' OR 
-name ILIKE '%train set%'
+name ILIKE '%train set%' OR
+name ILIKE '%whale ride%' OR
+name ILIKE '%wireless remote control%'
 
 											")
 	deals = deals.where("
 
 name NOT ILIKE '%backpack%' AND
 name NOT ILIKE '%dollar%' AND
-name NOT ILIKE '%music%' 
+name NOT ILIKE '%lamp%' AND
+name NOT ILIKE '%music%' AND
+name NOT ILIKE '%pant%'
 											
 											")
 	deals.each do |deal|

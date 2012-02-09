@@ -29,6 +29,7 @@ name ILIKE '%sky dive%' OR
 name ILIKE '%skydive%' OR
 name ILIKE '%sky diving%' OR
 name ILIKE '%snowboarding%' OR
+name ILIKE '%stogie%' OR
 name ILIKE '%tae kwon do%' OR
 name ILIKE '%ticketmaster%' OR
 name ILIKE '%tour%' OR
@@ -40,7 +41,7 @@ name ILIKE '%yosemite%'
 	
 name NOT ILIKE '%adapter%'
 	
-	")
+											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(14).nil?
 			deal.connections.create!(:category_id => 14)

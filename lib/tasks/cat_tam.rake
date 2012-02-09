@@ -17,10 +17,13 @@ name ILIKE '%tv%'
 	
 											")
 	deals = deals.where("
-	
+
+name NOT ILIKE '%clock%' AND
+name NOT ILIKE '%heartvest%' AND
 name NOT ILIKE '%outvalue%' AND
 name NOT ILIKE '%outvoice%' AND
-name NOT ILIKE '%outvote%'
+name NOT ILIKE '%outvote%' AND
+name NOT ILIKE '%studiophile%'
 	
 											")
 	deals.each do |deal|

@@ -11,6 +11,7 @@ name ILIKE '%chronograph%' OR
 name ILIKE '%fossil%' OR
 name ILIKE '%invicta%' OR
 name ILIKE '%movado%' OR
+name ILIKE '%rotary%' OR
 name ILIKE '%swiss legend%' OR	
 name ILIKE '%watch%'	
 	

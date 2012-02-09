@@ -10,11 +10,12 @@ def assign_apparel
 name ILIKE '%apparel%' OR
 name ILIKE '%asics%' OR
 name ILIKE '%beanie%' OR
+name ILIKE '%boston proper%' OR
 name ILIKE '%burberry%' OR
 name ILIKE '%cloth%' OR 
 name ILIKE '%coat%' OR
 name ILIKE '%current elliot%' OR
-name ILIKE '%boston proper%' OR
+name ILIKE '%descente%' OR
 name ILIKE '%dress%' OR
 name ILIKE '%fleece%' OR
 name ILIKE '%forever 21%' OR
@@ -36,22 +37,29 @@ name ILIKE '%north face%' OR
 name ILIKE '%old navy%' OR
 name ILIKE '%pajama%' OR
 name ILIKE '%pant%' OR
-name ILIKE '%payless%' OR
+name ILIKE '%pullover%' OR 
 name ILIKE '%puma%' OR
 name ILIKE '%reebok%' OR
 name ILIKE '%robe%' OR
+name ILIKE '%santini%' OR 
 name ILIKE '%scarf%' OR
 name ILIKE '%shirt%' OR
+name ILIKE '%sport sleeve%' OR
 name ILIKE '%sweater%' OR
 name ILIKE '%the children place%' OR
 name ILIKE '%timberland%' OR
+name ILIKE '%tri suit%' OR
 name ILIKE '%under armour%' OR
 name ILIKE '%urban outfitter%' OR
-name ILIKE '%victoria%'
+name ILIKE '%fox ventilator%' OR 
+name ILIKE '%victoria%' OR
+name ILIKE '%zoo york%'
 
 											")
 	deals = deals.where("
 
+name NOT ILIKE '%alpha test%' AND
+name NOT ILIKE '%alphatest%' AND
 name NOT ILIKE '%chat%' AND
 name NOT ILIKE '%damask%' AND
 name NOT ILIKE '%manhattan%' AND

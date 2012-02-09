@@ -7,9 +7,11 @@ end
 def assign_shoes
 	deals = @deals.where("
 	
+name ILIKE '%altitude snow%' OR 	
 name ILIKE '%boot%' OR
 name ILIKE '%foot%' OR
 name ILIKE '%merrell%' OR
+name ILIKE '%payless%' OR
 name ILIKE '%rainbow%' OR
 name ILIKE '%sandal%' OR
 name ILIKE '%shoe%' OR 
@@ -17,6 +19,7 @@ name ILIKE '%sheik%' OR
 name ILIKE '%slipon%' OR
 name ILIKE '%slipper%' OR
 name ILIKE '%sock%' OR
+name ILIKE '%timberland%' OR
 name ILIKE '%vans%'
 
 											")

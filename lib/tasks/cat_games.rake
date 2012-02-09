@@ -9,6 +9,7 @@ def assign_games
 	
 name ILIKE '%atari%' OR 
 name ILIKE '%battlefield 3%' OR
+name ILIKE '%bit.trip%' OR
 name ILIKE '%carcassonne%' OR 
 name ILIKE '%elder scroll%' OR 
 name ILIKE '%game%' OR 
@@ -24,6 +25,11 @@ name ILIKE '%warcraft%' OR
 name ILIKE '%wii%' OR 
 name ILIKE '%xbox%'
 
+											")
+	deals = deals.where("
+	
+name NOT ILIKE '%logitech%'
+	
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(12).nil?

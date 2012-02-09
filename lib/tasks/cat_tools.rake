@@ -15,6 +15,7 @@ name ILIKE '%battery%' OR
 name ILIKE '%binocular%' OR 
 name ILIKE '%bowflex%' OR 
 name ILIKE '%buckshot%' OR
+name ILIKE '%car light%' OR
 name ILIKE '%car opening lock%' OR 
 name ILIKE '%craftsman%' OR 
 name ILIKE '%dumbell%' OR 
@@ -26,19 +27,24 @@ name ILIKE '%gun vault%' OR
 name ILIKE '%guns%' OR
 name ILIKE '%gunvault%' OR 
 name ILIKE '%hammer%' OR
-name ILIKE '%heaters%' OR 
+name ILIKE '%heater%' OR 
 name ILIKE '%kettleball%' OR
 name ILIKE '%kettlebell%' OR  
 name ILIKE '%knife%' OR 
 name ILIKE '%knive%' OR 
 name ILIKE '%lantern%' OR 
+name ILIKE '%brake set%' OR 
+name ILIKE '%pepper spray%' OR
 name ILIKE '%rifle%' OR
+name ILIKE '%rope%' OR
+name ILIKE '%sander%' OR 
 name ILIKE '%saw blade%' OR 
 name ILIKE '%scope%' OR
 name ILIKE '%screw%' OR
 name ILIKE '%shotgun%' OR
 name ILIKE '%smith & wesson%' OR 
 name ILIKE '%smith and wesson%' OR 
+name ILIKE '%taillight%' OR
 name ILIKE '%taurus%' OR 
 name ILIKE '%tool%' OR 
 name ILIKE '%tripod%' OR 

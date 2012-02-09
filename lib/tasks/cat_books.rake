@@ -7,6 +7,7 @@ end
 def assign_books
 	deals = @deals.where("
 	
+name ILIKE '%aquaman%' OR 	
 name ILIKE '%barnes%' OR 
 name ILIKE '%book%' OR 
 name ILIKE '%kindle%' OR 

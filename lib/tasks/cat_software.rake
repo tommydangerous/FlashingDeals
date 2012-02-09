@@ -16,6 +16,7 @@ name ILIKE '%anti-malware%' OR
 name ILIKE '%antimalware%' OR
 name ILIKE '%anti virus%' OR 
 name ILIKE '%antivirus%' OR 
+name ILIKE '%audio editing%' OR 
 name ILIKE '%app store%' OR 
 name ILIKE '%application%' OR
 name ILIKE '%avg%' OR
@@ -36,12 +37,22 @@ name ILIKE '%office professional%' OR
 name ILIKE '%powerpoint%' OR
 name ILIKE '%program%' OR
 name ILIKE '%software%' OR 
+name ILIKE '%sound editor%' OR 
 name ILIKE '%symantec%' OR 
+name ILIKE '%turbo tax%' OR
+name ILIKE '%turbotax%' OR
 name ILIKE '%virus protection%' OR
 name ILIKE '%vlc%' OR
+name ILIKE '%wavemax%' OR 
 name ILIKE '%windows 7%'
 
 											")
+	deals = deals.where("
+
+name NOT ILIKE '%cuisinart%' AND	
+name NOT ILIKE '%fork%'
+	
+	")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(10).nil?
 			deal.connections.create!(:category_id => 10)

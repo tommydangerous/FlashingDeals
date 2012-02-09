@@ -22,6 +22,7 @@ name ILIKE '%corsair%' OR
 name ILIKE '%desktop%' OR 
 name ILIKE '%digital frame%' OR
 name ILIKE '%earphone%' OR
+name ILIKE '%edimax%' OR
 name ILIKE '%electronic%' OR
 name ILIKE '%epson stylus%' OR
 name ILIKE '%ethernet%' OR 
@@ -29,12 +30,15 @@ name ILIKE '%flash drive%' OR
 name ILIKE '%flash memory%' OR
 name ILIKE '%frys%' OR 
 name ILIKE '%geforce%' OR
+name ILIKE '%gps%' OR
 name ILIKE '%hard drive%' OR
 name ILIKE '%harddrive%' OR
 name ILIKE '%hdmi%' OR 
 name ILIKE '%hdtv%' OR
 name ILIKE '%headphone%' OR
 name ILIKE '%hitachi%' OR
+name ILIKE '%ink cartridge%' OR
+name ILIKE '%ink jet%' OR 
 name ILIKE '%intel%' OR
 name ILIKE '%ipad%' OR
 name ILIKE '%iphone%' OR 
@@ -46,6 +50,7 @@ name ILIKE '%kindle%' OR
 name ILIKE '%kingston%' OR
 name ILIKE '%laptop%' OR
 name ILIKE '%lcd%' OR
+name ILIKE '%led clip light%' OR
 name ILIKE '%lexar%' OR
 name ILIKE '%linksys%' OR
 name ILIKE '%logitech%' OR
@@ -54,6 +59,7 @@ name ILIKE '%media player%' OR
 name ILIKE '%memory card%' OR 
 name ILIKE '%micro sd%' OR
 name ILIKE '%micro sdhc%' OR
+name ILIKE '%microphone%' OR
 name ILIKE '%microsd%' OR
 name ILIKE '%microsdhc%' OR
 name ILIKE '%monitor%' OR 
@@ -64,6 +70,7 @@ name ILIKE '%network switch%' OR
 name ILIKE '%nikon%' OR
 name ILIKE '%notebook%' OR
 name ILIKE '%nvidia%' OR
+name ILIKE '%optical mouse%' OR
 name ILIKE '%panasonic%' OR
 name ILIKE '%philips%' OR
 name ILIKE '%pioneer%' OR
@@ -79,11 +86,20 @@ name ILIKE '%skullcandy%' OR
 name ILIKE '%speaker%' OR
 name ILIKE '%solid state drive%' OR 
 name ILIKE '%sony%' OR 
+name ILIKE '%ssd%' OR 
 name ILIKE '%tablet%' OR
 name ILIKE '%tomtom%' OR
+name ILIKE '%toner cartridge%' OR
+name ILIKE '%toner compatible%' OR
 name ILIKE '%toshiba%' OR
-name ILIKE '%touchpad%' 
+name ILIKE '%touchpad%' OR
+name ILIKE '%wireless mouse%'
 
+											")
+	deals = deals.where("
+	
+name NOT ILIKE '%melatonin%'
+	
 											")
 	deals.each do |deal|
 		if deal.connections.find_by_category_id(1).nil?

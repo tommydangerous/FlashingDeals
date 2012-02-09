@@ -33,6 +33,7 @@ name NOT ILIKE '%g skill%' AND
 name NOT ILIKE '%g. skill%' AND
 name NOT ILIKE '%internal sata%' AND
 name NOT ILIKE '%kingston%' AND
+name NOT ILIKE '%melatonin%' AND
 name NOT ILIKE '%mucinex%' AND
 name NOT ILIKE '%mushkin%' AND
 name NOT ILIKE '%nyquil%' AND
