@@ -167,8 +167,8 @@
 			<div class="edit_rising_deal">
 				<%= link_to "Edit + Add to Queue", "javascript:void(0);", :onclick => "toggleRisingDealEdit(#{deal.id})" %>
 			</div>
+			<%= render :partial => "deals/add_edit_to_queue_form", :locals => { :deal => deal } %>
 		<% end %>
 	<% end %>
-	<%= render :partial => "deals/add_edit_to_queue_form", :locals => { :deal => deal } %>
 	<div class="clear"></div>
 </div>

@@ -3,16 +3,13 @@
   <head>
     <title><%= title %></title>
     <!--[if !IE]><!-->
-    	<%= stylesheet_link_tag 'chrome/application' %>  
+    	<%= stylesheet_link_tag 'chrome/application' %>
+    	<%= javascript_include_tag 'chrome/application' %>
     <!--<![endif]-->
     <!--[if lt IE 8]>
-    	<%= stylesheet_link_tag 'ie/ie7-main' %>
-    	<%= stylesheet_link_tag 'ie/ie7-a-h' %>
-    	<%= stylesheet_link_tag 'ie/ie7-l-r' %>
-    	<%= stylesheet_link_tag 'ie/ie7-s-w' %>
-    	<%= stylesheet_link_tag 'ie/screen' %>
+    	<%= stylesheet_link_tag 'ie/application' %>
+    	<%= javascript_include_tag 'ie/application' %>
     <![endif]-->
-    <%= javascript_include_tag 'application' %>
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %> 
     <html lang="en">

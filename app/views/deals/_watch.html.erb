@@ -1,6 +1,6 @@
 <%= form_for current_user.relationships.build(:watched_id => @deal.id), :remote => true do |f| %>
 	<div><%= f.hidden_field :watched_id %></div>
 	<div class="actions">
-		<%= f.submit "Watch", :onmouseover => "showWatchDealInfo()", :onmouseout => "hideWatchDealInfo()" %>
+		<%= f.submit "Watch", :onmouseover => "showWatchDealInfo()", :onmouseout => "hideWatchDealInfo()", :onclick => "hideWatchDealInfo()" %>
 	</div>
 <% end %>

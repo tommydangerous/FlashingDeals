@@ -15,9 +15,9 @@
 			Posted on <%= comment.created_at.strftime("%A") %> at <%= comment.created_at.strftime("%I:%M %p") %> (<%= comment.created_at.strftime("%b %d, %Y") %>)
 			<% if signed_in? %>
 				<% if @subcomments.where("comment_id = ?", comment.id).empty? %>
-					<%= link_to "Reply", '#', :onclick => "showSubcommentForm(#{comment.id})", :class => "reply_link" %>
+					<%= link_to "Reply", 'javascript:void(0);', :onclick => "showSubcommentForm(#{comment.id})", :class => "reply_link" %>
 				<% else %>
-					<%= link_to "Reply", '#', :onclick => "focusSubcomment(#{comment.id})", :class => "reply_link" %>
+					<%= link_to "Reply", 'javascript:void(0);', :onclick => "focusSubcomment(#{comment.id})", :class => "reply_link" %>
 				<% end %>
 				<% if comment.user_id == current_user.id || current_user.gm %>
 					| <%= link_to "Delete", comment, :class => "delete_link", :method => :delete, :confirm => "Are you sure you want to take back what you said?", :remote => true %>

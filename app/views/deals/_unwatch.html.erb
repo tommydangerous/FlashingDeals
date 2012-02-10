@@ -1,3 +1,5 @@
 <%= form_for current_user.relationships.find_by_watched_id(@deal), :html => { :method => :delete }, :remote => true do |f| %>
-	<div class="actions"><%= f.submit "Unwatch" %></div>
+	<div class="actions">
+		<%= f.submit "Unwatch" %>
+	</div>
 <% end %>
