@@ -97,6 +97,16 @@ function toggleCategories() {
 	$('div.categories').toggle();
 };
 
+function addCatClass(id) {
+	var i = id
+	$("p#cat_"+i).addClass("grey_75");
+};
+
+function removeCatClass(id) {
+	var i = id
+	$("p#cat_"+i).removeClass("grey_75");
+};
+
 
 // comments 
 

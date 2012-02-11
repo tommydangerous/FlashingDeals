@@ -9,10 +9,10 @@
 			<li>
 				<div id="category">
 					<div class="category_name">
-						<%= link_to c.name, c %>
+						<%= link_to c.name, c, :onmouseover => "addCatClass(#{c.id})", :onmouseout => "removeCatClass(#{c.id})" %>
 					</div>
 					<div class="category_count">
-						<p><%= c.deals.where("posted > ?", @today).size %></p>
+						<p class="dark_blue" id="cat_<%= c.id %>"><%= c.deals.where("posted > ?", @today).size %></p>
 					</div>
 				</div>
 			</li>

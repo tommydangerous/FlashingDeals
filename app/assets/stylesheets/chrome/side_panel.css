@@ -96,14 +96,16 @@ div#category {
 }
 
 div.category_name {
-	width: 70%;
+	width: 75%;
 	float: left;
+	height: 20px;
 }
 
 div.category_count {
 	width: 20%;
 	float: right;
 	text-align: right;
+	height: 20px;
 }
 
 div.categories ul {
@@ -118,6 +120,12 @@ div.categories a {
 	font-size: 12px;
 	font-weight: bold;
 	font-family: Helvetica, Arial;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
 }
 
 div.categories a:hover {
@@ -126,8 +134,8 @@ div.categories a:hover {
 }
 
 div.category_count p {
-	color: rgba(44, 175, 227, 1);
 	font-size: 12px;
 	font-weight: bold;
 	font-family: Helvetica, Arial;
+	line-height: 21px;
 }

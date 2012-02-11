@@ -96,14 +96,16 @@ div#category {
 }
 
 div.category_name {
-	width: 70%;
+	width: 75%;
 	float: left;
+	height: 20px;
 }
 
 div.category_count {
 	width: 20%;
 	float: right;
 	text-align: right;
+	height: 20px;
 }
 
 div.categories ul {
@@ -122,12 +124,12 @@ div.categories a {
 
 div.categories a:hover {
 	color: rgb(200, 200, 200);
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 div.category_count p {
-	color: rgb(44, 175, 227);
 	font-size: 12px;
 	font-weight: bold;
 	font-family: Helvetica, Arial;
+	line-height: 21px;
 }
