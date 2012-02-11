@@ -25,7 +25,7 @@
 		<% end %>
 		<div id="search_form">
 			<%= form_tag flashback_path, :method => :get, :id => "deals_search" do %>
-				<%= text_field_tag :search, params[:search] %>
+				<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
 				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
 				<div id="sort_direction"><%= render 'sort_direction' %></div>
 			<% end %>
