@@ -1,3 +1,4 @@
 $("div#deals").html("<%= escape_javascript(render("flashback_deals")) %>")
+$("span#electric_flashing").html("<%= escape_javascript(render("deals/electric_flashing_sort")) %>")
 $("div#sort_direction").html("<%= escape_javascript(render("deals/sort_direction")) %>")
 $("div.paginate_range").html("<%= escape_javascript(render("deals/paginate_range")) %>")

@@ -3,7 +3,7 @@ class DealsController < ApplicationController
 	before_filter :admin_user, :except => [:top_deals, :flashback, :flashback_electric, :flashback_flashing, :show, :frame, :flashmob_deals,  :watchers, :score_up, :score_down, :remove_watched_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
 	before_filter :today
-	helper_method :sort_column, :sort_direction
+	helper_method :sort_column, :sort_direction, :min, :max
 	
 	require 'nokogiri'
 	require 'hpricot'
@@ -20,9 +20,19 @@ class DealsController < ApplicationController
   def flashback
   	@title = "FlashBack"
   	@today_3 = Time.now - (86400 * 3)
-		deals = Deal.where("posted > ? AND flash_back = ?", @today_3, true)
+		deals = Deal.where("posted > ? AND flash_back = ? AND metric >= ? AND metric < ?", @today_3, true, min, max)
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 50)
   	@deals_total_count = deals.search(params[:search]).size
+  	if min == "0" && max == "999"
+  		@min = 0
+  		@max = 999
+  	elsif params[:min] == "2" && params[:max] == "4"
+  		@min = 2
+  		@max = 4
+  	elsif params[:min] == "4" && params[:max] == "999"
+  		@min = 4
+  		@max = 999
+  	end
   	clear_return_to
   end
   
@@ -370,5 +380,13 @@ class DealsController < ApplicationController
   	
   	def sort_direction
   		%w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
+  	end
+  	
+  	def min
+  		%w[0 2 4].include?(params[:min]) ? params[:min] : "0"
+  	end
+  	
+  	def max
+  		%w[4 999].include?(params[:max]) ? params[:max] : "999"
   	end
 end

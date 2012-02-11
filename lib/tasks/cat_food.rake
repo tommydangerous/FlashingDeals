@@ -9,6 +9,7 @@ def assign_food
 	
 name ILIKE '%arby%' OR
 name ILIKE '%bagel%' OR
+name ILIKE '%bbq%' OR
 name ILIKE '%beef%' OR
 name ILIKE '%beer%' OR
 name ILIKE '%benihana%' OR 
@@ -17,6 +18,7 @@ name ILIKE '%burger%' OR
 name ILIKE '%butter%' OR
 name ILIKE '%cereal%' OR 
 name ILIKE '%cheerio%' OR
+name ILIKE '%chicken%' OR
 name ILIKE '%chili%' OR 
 name ILIKE '%chocolate%' OR
 name ILIKE '%coca-cola%' OR
@@ -32,6 +34,7 @@ name ILIKE '%ghirardelli%' OR
 name ILIKE '%harry and david%' OR 
 name ILIKE '%ice cream%' OR
 name ILIKE '%ihop%' OR 
+name ILIKE '%jack in the box%' OR
 name ILIKE '%juice%' OR
 name ILIKE '%logans roadhouse%' OR 
 name ILIKE '%lunch%' OR
@@ -44,8 +47,10 @@ name ILIKE '%papa john%' OR
 name ILIKE '%pasta%' OR
 name ILIKE '%peanut%' OR
 name ILIKE '%pepsi%' OR
+name ILIKE '%pizza hut%' OR
 name ILIKE '%pretzel%' OR
 name ILIKE '%probiotic%' OR
+name ILIKE '%pulled pork%' OR
 name ILIKE '%roadhouse%' OR 
 name ILIKE '%salt%' OR
 name ILIKE '%sandwich%' OR
@@ -76,6 +81,7 @@ name NOT ILIKE '%dinnerware%' AND
 name NOT ILIKE '%dispenser%' AND
 name NOT ILIKE '%dolce and gabbana%' AND 
 name NOT ILIKE '%food processor%' AND
+name NOT ILIKE '%hooded top%' AND
 name NOT ILIKE '%kitchenaid%' AND
 name NOT ILIKE '%panasonic%' AND
 name NOT ILIKE '%seasonic%'

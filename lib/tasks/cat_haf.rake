@@ -13,6 +13,7 @@ name ILIKE '%beanbag%' OR
 name ILIKE '%bed%' OR 
 name ILIKE '%blanket%' OR 
 name ILIKE '%bookcase%' OR
+name ILIKE '%candle%' OR
 name ILIKE '%cereal dispenser%' OR 
 name ILIKE '%chair%' OR
 name ILIKE '%clock%' OR  

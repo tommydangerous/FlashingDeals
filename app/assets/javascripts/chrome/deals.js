@@ -73,7 +73,7 @@ function adjustImage() {
 
 // Ajax Sortables, pagination, and search
 $(function() {
-	$("#sort a, #deals .pagination a").live("click", function() {
+	$("#sort a, #deals .pagination a, #show_electric_flashing a").live("click", function() {
 		$.getScript(this.href);
 		return false;
 	});

@@ -14,6 +14,7 @@ name ILIKE '%asics%' OR
 name ILIKE '%beanie%' OR
 name ILIKE '%boston proper%' OR
 name ILIKE '%burberry%' OR
+name ILIKE '%cardigan%' OR
 name ILIKE '%cloth%' OR 
 name ILIKE '%coat%' OR
 name ILIKE '%current elliot%' OR
@@ -25,6 +26,7 @@ name ILIKE '%hanes%' OR
 name ILIKE '%hat%' OR
 name ILIKE '%helmet%' OR
 name ILIKE '%hollister%' OR
+name ILIKE '%hooded top%' OR
 name ILIKE '%hoodie%' OR
 name ILIKE '%huggies%' OR
 name ILIKE '%jacket%' OR
@@ -41,6 +43,7 @@ name ILIKE '%matix morton%' OR
 name ILIKE '%michael stars%' OR 
 name ILIKE '%monogram%' OR
 name ILIKE '%monterey bay%' OR 
+name ILIKE '%mountain hardwear%' OR
 name ILIKE '%neiman marcus%' OR 
 name ILIKE '%north face%' OR
 name ILIKE '%old navy%' OR

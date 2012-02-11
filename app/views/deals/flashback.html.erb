@@ -3,16 +3,9 @@
 	<div id="deal_page_info">
 		<div id="show_electric_flashing">
 			<ul>
-				<li>
-					<%= link_to flashback_electric_path do %>
-						<%= image_tag("/assets/lightning_bolt_electric.png") %> Electric Deals Only
-					<% end %>
-				</li>
-				<li>
-					<%= link_to flashback_flashing_path do %>
-						<%= image_tag("/assets/lightning_bolt_flashing.png") %> Flashing Deals Only
-					<% end %>
-				</li>
+				<span id="electric_flashing">
+					<%= render "electric_flashing_sort" %>
+				</span>
 			</ul>
 		</div>
 		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();" %>

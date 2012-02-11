@@ -21,6 +21,7 @@ name ILIKE '%camera%' OR
 name ILIKE '%cisco%' OR
 name ILIKE '%cooler master%' OR
 name ILIKE '%corsair%' OR 
+name ILIKE '%creative labs%' OR
 name ILIKE '%desktop%' OR 
 name ILIKE '%digital frame%' OR
 name ILIKE '%digital picture frame%' OR 
@@ -71,6 +72,7 @@ name ILIKE '%motherboard%' OR
 name ILIKE '%netgear%' OR
 name ILIKE '%newegg%' OR 
 name ILIKE '%netbook%' OR
+name ILIKE '%netgear%' OR
 name ILIKE '%network adapter%' OR 
 name ILIKE '%network attached storage%' OR 
 name ILIKE '%network switch%' OR
@@ -101,6 +103,7 @@ name ILIKE '%toner cartridge%' OR
 name ILIKE '%toner compatible%' OR
 name ILIKE '%toshiba%' OR
 name ILIKE '%touchpad%' OR
+name ILIKE '%video card%' OR
 name ILIKE '%video picture frame%' OR 
 name ILIKE '%wireless mouse%' OR
 name ILIKE '%xfinity%'
