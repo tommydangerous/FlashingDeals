@@ -1,28 +1,28 @@
 <% if @min == 0 && @max == 999 %>
 	<li>
 		<%= image_tag("/assets/lightning_bolt_electric.png") %> 
-		<%= link_to "Electric Deals Only", :min => "2", :max => "4", :sort => params[:sort], :direction => params[:direction] %>
+		<%= link_to "Electric Deals Only", :omega => "charlie", :zulu => "delta", :sort => params[:sort], :direction => params[:direction] %>
 	</li>
 	<li>
 		<%= image_tag("/assets/lightning_bolt_flashing.png") %> 
-		<%= link_to "Flashing Deals Only", :min => "4", :max => "999", :sort => params[:sort], :direction => params[:direction] %>
+		<%= link_to "Flashing Deals Only", :omega => "echo", :zulu => "foxtrot", :sort => params[:sort], :direction => params[:direction] %>
 	</li>
 <% elsif @min == 2 && @max == 4 %>
 	<li>
 		<%= image_tag("/assets/lightning_bolt_shocking.png") %> 
-		<%= link_to "All FlashBack Deals", :min => "0", :max => "999", :sort => params[:sort], :direction => params[:direction] %>
+		<%= link_to "All FlashBack Deals", :omega => "alpha", :zulu => "bravo", :sort => params[:sort], :direction => params[:direction] %>
 	</li>
 	<li>
 		<%= image_tag("/assets/lightning_bolt_flashing.png") %> 
-		<%= link_to "Flashing Deals Only", :min => "4", :max => "999", :sort => params[:sort], :direction => params[:direction] %>
+		<%= link_to "Flashing Deals Only", :omega => "echo", :zulu => "foxtrot", :sort => params[:sort], :direction => params[:direction] %>
 	</li>
 <% elsif @min == 4 && @max == 999 %>
 	<li>
 		<%= image_tag("/assets/lightning_bolt_electric.png") %> 
-		<%= link_to "Electric Deals Only", :min => "2", :max => "4", :sort => params[:sort], :direction => params[:direction] %>
+		<%= link_to "Electric Deals Only", :omega => "charlie", :zulu => "delta", :sort => params[:sort], :direction => params[:direction] %>
 	</li>
 	<li>
 		<%= image_tag("/assets/lightning_bolt_shocking.png") %> 
-		<%= link_to "All FlashBack Deals", :min => "0", :max => "999", :sort => params[:sort], :direction => params[:direction] %>
+		<%= link_to "All FlashBack Deals", :omega => "alpha", :zulu => "bravo", :sort => params[:sort], :direction => params[:direction] %>
 	</li>
 <% end %>

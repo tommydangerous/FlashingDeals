@@ -62,7 +62,7 @@ div#show_electric_flashing a {
 }
 
 div#show_electric_flashing a:hover {
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 a#show_all_flashback {
@@ -153,4 +153,10 @@ div.deal_page_info p {
 	font-size: 12px;
 	color: rgba(255, 255, 255, 1);
 	line-height: 17px;
+}
+
+p#deals_per_page {
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
 }

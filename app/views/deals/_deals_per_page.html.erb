@@ -1,0 +1,22 @@
+<li><p id="deals_per_page">Deals Per Page</p></li>
+<% if @per_page == 10 %>
+	<li><p id="deals_per_page"><span class="red">10</span></p></li>
+	<li><%= link_to "20", :deals_per_page => "20", :sort => params[:sort], :direction => params[:direction] %></li>
+	<li><%= link_to "40", :deals_per_page => "40", :sort => params[:sort], :direction => params[:direction] %></li>
+	<li><%= link_to "80", :deals_per_page => "80", :sort => params[:sort], :direction => params[:direction] %></li>
+<% elsif @per_page == 20 %>
+	<li><%= link_to "10", :deals_per_page => "10", :sort => params[:sort], :direction => params[:direction] %></li>
+	<li><p id="deals_per_page"><span class="red">20</span></p></li>
+	<li><%= link_to "40", :deals_per_page => "40", :sort => params[:sort], :direction => params[:direction] %></li>
+	<li><%= link_to "80", :deals_per_page => "80", :sort => params[:sort], :direction => params[:direction] %></li>
+<% elsif @per_page == 40 %>
+	<li><%= link_to "10", :deals_per_page => "10", :sort => params[:sort], :direction => params[:direction] %></li>
+	<li><%= link_to "20", :deals_per_page => "20", :sort => params[:sort], :direction => params[:direction] %></li>
+	<li><p id="deals_per_page"><span class="red">40</span></p></li>
+	<li><%= link_to "80", :deals_per_page => "80", :sort => params[:sort], :direction => params[:direction] %></li>
+<% elsif @per_page == 80 %>
+	<li><%= link_to "10", :deals_per_page => "10", :sort => params[:sort], :direction => params[:direction] %></li>
+	<li><%= link_to "20", :deals_per_page => "20", :sort => params[:sort], :direction => params[:direction] %></li>
+	<li><%= link_to "40", :deals_per_page => "40", :sort => params[:sort], :direction => params[:direction] %></li>
+	<li><p id="deals_per_page"><span class="red">80</span></p></li>
+<% end %>

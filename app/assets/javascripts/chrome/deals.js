@@ -71,9 +71,9 @@ function adjustImage() {
 	$('img#deal_image').css("top", x+"px")
 };
 
-// Ajax Sortables, pagination, and search
+// Ajax Sortables, pagination, search, and electric flashing sort
 $(function() {
-	$("#sort a, #deals .pagination a, #show_electric_flashing a").live("click", function() {
+	$("#sort a, #deals .pagination a, #electric_flashing a").live("click", function() {
 		$.getScript(this.href);
 		return false;
 	});
