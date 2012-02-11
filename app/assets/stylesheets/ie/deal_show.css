@@ -170,7 +170,7 @@ div#deal_stats {
 div#deal_stats ul {
 	list-style-type: none;
 	margin: 0;
-	padding: 10px 0px;
+	padding: 10px 0px 10px 25px;
 }
 
 div#deal_stats ul li {

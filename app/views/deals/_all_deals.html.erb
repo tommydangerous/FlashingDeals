@@ -1,10 +1,9 @@
 <div id="deal_nav">
 	<div id="sort">
 		<span class="sort"><%= sortable "posted", "Most Recent" %></span>
-		<span class="sort"><%= sortable "name" %></span>
-		<span class="sort"><%= sortable "price" %></span>
 		<span class="sort"><%= sortable "view_count", "Best Seller" %></span>
 		<span class="sort"><%= sortable "comment_count", "Most Talked About" %></span>
+		<span class="sort"><%= sortable "price" %></span>
 		<% if signed_in? %>
 			<% if current_user.admin? %>
 				<span class="sort"><%= sortable "point_count", "Points" %></span>

@@ -1,7 +1,7 @@
 div#my_account_drop_down {
 	position: absolute;
-	width: 150px;
 	z-index: 100;
+	width: 150px;
 	top: 65px;
 	margin-left: 100px;
 }
@@ -13,20 +13,25 @@ div#my_account_drop_down ul {
 }
 
 div#my_account_drop_down ul li {
+	height: 33px;
 	text-align: left;
 	display: block;
 	background: rgb(75, 75, 75);
-	margin-bottom: 1px;
 	-webkit-transition: all .2s linear;
 	-khtml-transition: all .2s linear;
 	-moz-transition: all .2s linear;
 	-ms-transition: all .2s linear;
 	-o-transition: all .2s linear;
 	transition: all .2s linear;
+	margin-bottom: -1px;
 }
 
 div#my_account_drop_down ul li:hover {
 	background: rgb(100, 100, 100);
+}
+
+div#my_account_drop_down ul li#logout {
+	margin-bottom: -2px;
 }
 
 div#my_account_drop_down a {
@@ -50,8 +55,7 @@ div#my_account_drop_down a:hover {
 }
 
 a#my_account {
-	position: relative;
-	bottom: 16px;
+	margin-top: -16px;
 	line-height: 50px;
 	display: block;
 	width: 100px;

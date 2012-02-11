@@ -1,0 +1,128 @@
+div#edit {
+	display: block;
+	width: 450px;
+	float: left;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(148, 222, 240);
+}
+
+div#edit_header {
+	background: rgb(173, 217, 228);
+	padding: 20px;
+}
+
+div#edit_header h1 {
+	font-family: Verdana;
+	font-size: 22px;
+	color: rgb(44, 175, 227);
+	margin: 0;
+}
+
+div#edit_gravatar {
+	text-align: center;
+	width: 211px;
+	height: 211px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+div#edit_gravatar img {
+	-webkit-box-shadow: 0px 0px 15px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 0px 15px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 0px 15px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 0px 15px rgba(150, 150, 150, 1);
+	box-shadow: 0px 0px 15px rgba(150, 150, 150, 1);
+}
+
+div#edit_form {
+	padding: 20px;
+	text-align: right;
+}
+
+div#edit_form p {
+	font-weight: bold;
+	vertical-align: top;
+}
+
+div#edit_form div.field input#user_photo {
+	padding: 0;
+	width: 310px;
+	padding: 5px 0px;
+	text-indent: 5px;
+}
+
+div#edit_form div.field input {
+	width: 300px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid rgb(200, 200, 200);
+	padding: 5px;
+	font-family: Verdana;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	margin-top: 10px;
+	margin-bottom: 10px;
+	-webkit-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	webkit-transition:all .2s ease-in-out;
+	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+}
+
+div#edit_form div.field input:hover {
+	border: 1px solid rgb(150, 150, 150);
+}
+
+div#edit_form div.field input:focus {
+	border: 1px solid rgb(48, 157, 207);
+	-webkit-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+}
+
+div#edit_form div#error_explanation {
+	width: 410px;
+	margin: 0;
+	padding: 0;
+}
+
+div#edit_form div#error_explanation ul {
+	padding: 0;
+	margin: 0;
+	padding-left: 40px;
+	margin-bottom: 10px;
+}
+
+div#edit_form div#error_explanation ul li {
+	text-align: left;
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgb(255, 26, 0);
+	margin-bottom: 5px;
+}
+
+div.change_edit {
+	padding-bottom: 20px;
+	text-align: center;
+}
+
+div.change_edit a {
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgb(44, 175, 227);
+	text-decoration: none;
+}
+
+div.change_edit a:hover {
+	color: rgb(4, 135, 187);
+}

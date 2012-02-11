@@ -8,7 +8,7 @@
 		<h1><%= @user.name %></h1>
 	</div>
 	<% flash.each do |key, value| %>
-  	<div class="flash <%= key %>"><%= value %><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlash()", :class => "flash_close" %></div>
+  	<div class="flash <%= key %>"><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlash()", :class => "flash_close" %><%= value %></div>
   <% end %>
   <div id="flash"></div>
   <p><span id="count"></span></p>

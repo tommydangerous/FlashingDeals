@@ -1,0 +1,153 @@
+div.pagination {
+	text-align: center;
+	padding: 5px 0px;
+	margin: 5px 0px;
+	font-size: 11px;
+}
+
+div.pagination em {
+	text-decoration: none;
+	border: 1px solid rgb(200, 200, 200);
+	padding: 5px 10px;
+	margin-left: 2px;
+	margin-right: 2px;
+	font-family: Verdana;
+	color: rgb(255, 26, 0);
+}
+
+div.pagination a {
+	text-decoration: none;
+	border: 1px solid rgb(200, 200, 200);
+	padding: 5px 10px;
+	margin-left: 2px;
+	margin-right: 2px;
+	font-family: Verdana;
+	color: rgb(48, 157, 207);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div.pagination a:hover {
+	color: rgb(255, 255, 255);
+	background: rgb(48, 157, 207);
+	border: 1px solid rgb(18, 127, 177);
+}
+
+div.pagination a.previous_page, div.pagination a.next_page {
+	border: none;
+}
+
+span.previous_page, span.next_page {
+	text-decoration: none;
+	padding: 5px 10px;
+	margin-left: 2px;
+	margin-right: 2px;
+	font-family: Verdana;
+}
+
+span.disabled {
+	border: none;
+	color: rgb(200, 200, 200);
+}
+
+span.gap {
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgb(48, 157, 207);
+}
+
+div#deal_nav {
+	width: 100%;
+	height: 25px;
+	margin-bottom: 10px;
+	text-align: center;
+}
+ 
+div#sort, div#sort_non_ajax {
+	width: 100%;
+}
+
+div#sort a, div#sort_non_ajax a {
+	text-decoration: none;
+	font-size: 12px;
+	font-family: Verdana;
+	font-weight: bold;
+	padding: 0px 5px 0px 10px;
+	color: rgb(48, 157, 207);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#sort a:hover, div#sort_non_ajax a:hover {
+	text-decoration: underline;
+	color: rgb(18, 127, 177);
+}
+
+.desc {
+	background: url("/assets/descending.png");
+	background-size: 7px 7px;
+	background-repeat: no-repeat;
+	background-position: left 3px;
+}
+
+.asc {
+	background: url("/assets/ascending.png");
+	background-size: 7px 7px;
+	background-repeat: no-repeat;
+	background-position: left 3px;
+}
+
+div#paginate_range {
+	width: 50%;
+	float: left;
+	text-align: left;
+	padding: 5px;
+}
+
+div#paginate_range h1 {
+	font-size: 12px;
+	font-family: Verdana;
+	color: rgb(150, 150, 150);
+}
+
+div#back_to_top {
+	margin: 10px 0px;
+	font-family: Verdana;
+	font-size: 14px;
+	color: rgb(97, 196, 25);
+	width: 125px;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#back_to_top:hover {
+	color: rgb(255, 26, 0);
+}
+
+div#back_to_top a {
+	font-size: 12px;
+	text-decoration: none;
+	color: rgb(44, 175, 227);
+	padding: 3px 5px;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#back_to_top a:hover {
+	color: rgb(18, 127, 177);
+	text-decoration: underline;
+}

@@ -27,7 +27,7 @@ div#message_thread_name a {
 
 div#message_thread_name a:hover {
 	color: rgba(4, 135, 187, 1);
-	text-decoration: underline;
+	text-decoration: none;
 }
 
 div#message_thread_content {

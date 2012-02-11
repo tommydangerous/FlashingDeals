@@ -76,9 +76,9 @@
 	  </div>
 	  <div id="user_partial_stats">
 	  	<ul>
-	  		<li><p>Comments: <span class="grey_75"><%= (user.comments.size + user.subcomments.size) %></span></p></li>
-	  		<li><p>Total Deals Watched: <span class="grey_75"><%= user.watching.count %></span></p></li>
-	  		<li><p>Friends: <span class="grey_75"><%= (user.friends.size + user.inverse_friends.size) %></span></p></li>
+	  		<li>Comments: <span class="grey_75"><%= (user.comments.size + user.subcomments.size) %></span></li>
+	  		<li>Total Deals Watched: <span class="grey_75"><%= user.watching.count %></span></li>
+	  		<li>Friends: <span class="grey_75"><%= (user.friends.size + user.inverse_friends.size) %></span></li>
 	  		<% if signed_in? %>
 	  			<% if current_user.admin? %>
 	  				<li><p>ID: <span class="grey_75"><%= user.id %></span></p></li>

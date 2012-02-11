@@ -101,14 +101,3 @@ div#user_index ul {
 	padding: 0;
 	margin: 0;
 }
-
-div#user_partial_stats ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-}
-
-div#user_partial_stats ul li {
-	display: inline-block;
-	margin-right: 5px;
-}

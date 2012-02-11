@@ -43,7 +43,7 @@ div#message_single_gravatar {
 
 div#message_single_name {
 	width: 480px;
-	padding-left: 65px;
+	margin-left: 65px;
 }
 
 div#message_single_name a {

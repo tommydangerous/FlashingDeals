@@ -17,6 +17,26 @@
 	</div>
 	<div class="col5">
 		<h1><%= link_to deal.name, deal %></h1>
+		<div id="queue_price_value">
+			<p>Price: 
+			<span class="grey_75">
+			<% if deal.price.blank? %>
+				<%= number_to_currency(0) %>
+			<% else %>
+				<%= number_to_currency(deal.price) %>
+			<% end %>
+			</span>
+			</p>
+			<p>Value: 
+			<span class="grey_75">
+			<% if deal.value.blank? %>
+				<%= number_to_currency(0) %>
+			<% else %>
+				<%= number_to_currency(deal.value) %>
+			<% end %>
+			</span>
+			</p>
+		</div>
 		<div id="assign_queue">
 			<p><%= link_to "Make Queue Deal", make_queue_deal_path(deal), :id => "make_queue", :remote => true %></p>
 			<p><%= link_to "Make FlashBack", make_flashback_deal_path(deal), :id => "make_flashback", :remote => true %></p>

@@ -10,24 +10,24 @@
 				<%= form_for user.friendships.find_by_friend_id(current_user), :html => { :method => :put }, :remote => true do |f| %>
 					<%= f.hidden_field :approved, :value => true %>
 					<%= f.hidden_field :user_id, :value => @user.id %>
-					<li><div class="actions"><%= f.submit "Accept" %></div></li>
+					<div class="actions"><%= f.submit "Accept", :class => "accept_and_ignore_button" %></div>
 				<% end %>
 			</div>
 			<div id="ignore">
 				<%= form_for user.friendships.find_by_friend_id(current_user), :html => { :method => :delete }, :remote => true do |f| %>
 					<%= f.hidden_field :user_id, :value => @user.id %>
-					<li><div class="actions"><%= f.submit "Ignore" %></div></li>
+					<div class="actions"><%= f.submit "Ignore", :class => "accept_and_ignore_button" %></div>
 				<% end %>
 			</div>
 		</div>
 	  <div id="user_partial_name">
-	  	<%= link_to user.name, user %>
+	  	<strong><%= link_to user.name, user %></strong>
 	  </div>
 	  <div id="user_partial_stats">
 	  	<ul>
-	  		<li><p>Comments: <span class="grey_75"><%= (user.comments.count + user.subcomments.count) %></span></p></li>
-	  		<li><p>Total Deals Watched: <span class="grey_75"><%= user.watching.count %></span></p></li>
-	  		<li><p>Friends: <span class="grey_75"><%= (user.friends.count + user.inverse_friends.count) %></span></p></li>
+	  		<li>Comments: <span class="grey_75"><%= (user.comments.count + user.subcomments.count) %></span></li>
+	  		<li>Total Deals Watched: <span class="grey_75"><%= user.watching.count %></span></li>
+	  		<li>Friends: <span class="grey_75"><%= (user.friends.count + user.inverse_friends.count) %></span></li>
 	  	</ul>
 	  </div>
 	</div>

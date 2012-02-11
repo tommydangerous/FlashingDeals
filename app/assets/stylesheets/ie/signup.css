@@ -1,0 +1,14 @@
+div#signup {
+	width: 450px;
+	float: right;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(148, 222, 240);
+}
+
+div#signup_info {
+	width: 450px;
+	float: left;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(148, 222, 240);
+	height: 391px;
+}

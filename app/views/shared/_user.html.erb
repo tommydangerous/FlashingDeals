@@ -14,14 +14,12 @@
 	  	<p><%= link_to user.name, user %></p>
 	  </div>
 	  <div id="user_partial_stats">
-	  	<p>
 	  	<% if user.comments.where("deal_id = ?", @deal.id).count == 0 %>
 	  		<%= link_to "Comments:", "javascript: void(0)" %>
 	  	<% else %>
 	  		<%= link_to "Comments:", "javascript: void(0)", :onclick => "showComment(#{user.id})" %>
 	  	<% end %>
 	  	<span class="grey_75"><%= user.comments.where("deal_id = ?", @deal.id).count %></span>
-	  	</p>
 	  </div>
 	</div>
 	<%= div_for(user, :class => "user_partial_comments", :style => "display: none;") do %>

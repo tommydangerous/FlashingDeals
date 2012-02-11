@@ -35,3 +35,8 @@ div#show_watchers ul li {
 	font-size: 12px;
 	padding: 5px 0px;
 }
+
+div#watching_deals {
+	width: 724px;
+	margin: auto;
+}
