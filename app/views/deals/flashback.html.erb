@@ -40,5 +40,13 @@ $(document).ready(function() {
 	$("div#flashback_arrow").show();
 	$("a#flashback").removeClass("not_selected");
 	$("a#flashback").addClass("selected");
+	$("div#progress")
+		.hide()
+		.ajaxStart(function() {
+			$(this).show();
+		})
+		.ajaxStop(function() {
+			$(this).hide();
+		});
 });
 </script>
