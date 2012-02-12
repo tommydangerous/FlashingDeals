@@ -42,7 +42,8 @@ name ILIKE '%yosemite%'
 	deals = deals.where("
 	
 name NOT ILIKE '%adapter%' AND
-name NOT ILIKE '%fathead%'
+name NOT ILIKE '%fathead%' AND
+name NOT ILIKE '%hdtv%'
 	
 											")
 	deals.each do |deal|

@@ -1,0 +1,12 @@
+div#progress {
+	display: none;
+	position: absolute;
+	z-index: 200;
+	top: 160px;
+	left: 0;
+	right: 0;
+	width: 64px;
+	height: 64px;
+	margin: auto;
+	background: url("/assets/spinner.gif");
+}

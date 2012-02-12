@@ -176,14 +176,34 @@ class DealsController < ApplicationController
 	
 	def rising_deals
   	@title = "Rising Deals"
+  	if params[:deals_per_page] == "10"
+  		per_page = 10
+  	elsif params[:deals_per_page] == "20"
+  		per_page = 20
+  	elsif params[:deals_per_page] == "40"
+  		per_page = 40
+  	elsif params[:deals_per_page] == "80"
+  		per_page = 80
+  	else
+  		per_page = 10
+  	end
   	deals = Deal.where("posted     > ? AND
   											metric    >= ? AND 
   											queue 	   = ? AND 
   											top_deal   = ? AND 
   											flash_back = ?",
   											today, 0, false, false, false)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 10)
+  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => per_page)
   	@deals_total_count = deals.search(params[:search]).size
+  	if per_page == 10
+  		@per_page = 10
+  	elsif per_page == 20
+  		@per_page = 20
+  	elsif per_page == 40
+  		@per_page = 40
+  	elsif per_page == 80
+  		@per_page = 80
+  	end
   end
 
 	def home
