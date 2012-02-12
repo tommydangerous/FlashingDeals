@@ -1,10 +1,10 @@
 <% if current_user.request_friends.count == 0 && current_user.received_messages.where("read = ?", false).count == 0 %>
 	<%= link_to("javascript: void(0);", :id => "my_account") do %>
-		Account&nbsp;
+		Account
 	<% end %>
 <% else %>
 	<%= link_to("javascript: void(0);", :id => "my_account") do %>
-		Account<span class="red">!</span>
+		Account<span id="my_account_notification" class="red">!</span>
 	<% end %>
 <% end %>
 <script>

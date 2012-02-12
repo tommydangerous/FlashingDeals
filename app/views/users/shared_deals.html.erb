@@ -16,7 +16,7 @@
 <div class="clear"></div>
 <div id="user_table">
 	<div id="user_side">
-		<h1>Shared deals: <span class="grey_75"><%= @deals.count %></span></h1>
+		<h1>Shared deals: <span id="shared_deals_count" class="grey_75"><%= @deals.size %></span></h1>
 		<% if @user == current_user %>
 			<% unless @user.inverse_shares.empty? %>
 			<div id="user_side_search">
@@ -25,19 +25,19 @@
 			<% end %>
 		<% end %>
 		<div id="messages_profile">
-			<% if current_user.received_messages.where("read = ?", false).count > 0 %>
-				<h2><%= link_to "Messages (#{current_user.received_messages.where("read = ?", false).count})", messages_path %></h2>
+			<% if current_user.received_messages.where("read = ?", false).size > 0 %>
+				<h2><%= link_to "Messages (#{current_user.received_messages.where("read = ?", false).size})", messages_path %></h2>
 			<% else %>
 				<h2><%= link_to "Messages", messages_path %></h2>
 			<% end %>
 		</div>
 		<% unless current_user.request_friends.empty? %>
 		<div id="friend_requests_profile">
-			<h2><%= link_to "Friend Requests (#{current_user.request_friends.count})", friend_requests_path %></h2>
+			<h2><%= link_to "Friend Requests (#{current_user.request_friends.size})", friend_requests_path %></h2>
 		</div>
 		<% end %>
 		<div id="my_friends_profile">
-			<h2><%= link_to "My Friends (#{(@user.friends.count + @user.inverse_friends.count)})", friends_user_path(@user) %></h2>
+			<h2><%= link_to "My Friends (#{(@user.friends.size + @user.inverse_friends.size)})", friends_user_path(@user) %></h2>
 		</div>
 		<span id="shared_deals_profile_partial">
 			<%= render "shared_deals_profile" %>

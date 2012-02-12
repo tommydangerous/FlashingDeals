@@ -80,6 +80,7 @@ class SharesController < ApplicationController
 	def destroy
 		share = current_user.inverse_shares.find(params[:id])
 		deal = Deal.find(share.deal_id)
+		deals = current_user.inverse_shares
 		share.destroy
 		respond_to do |format|
 			format.html {
@@ -88,6 +89,7 @@ class SharesController < ApplicationController
 			}
 			format.js {
 				@deal = deal
+				@deals = deals
 			}
 		end
 	end

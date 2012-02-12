@@ -84,3 +84,9 @@ div#my_account_arrow {
 	border-right: 10px solid transparent;
 	border-bottom: 10px solid rgba(100, 100, 100, .75);
 }
+
+span#my_account_notification {
+	position: absolute;
+	font-weight: bold;
+	font-size: 16px;
+}
