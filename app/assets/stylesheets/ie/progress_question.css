@@ -48,6 +48,7 @@ div#show_electric_flashing ul {
 div#show_electric_flashing ul li {
 	display: inline;
 	margin-right: 5px;
+	float: left;
 }
 
 div#show_electric_flashing img {
@@ -152,8 +153,17 @@ div.deal_page_info p {
 	line-height: 17px;
 }
 
-p#deals_per_page {
-	font-family: Verdana;
+div#show_electric_flashing a#deals_per_page {
+	color: rgb(255, 26, 0);
+}
+
+div#show_electric_flashing a#deals_per_page:hover {
+	text-decoration: none;
+}
+
+p#deals_per_page_label {
+	margin-top: 3px;
 	font-size: 12px;
+	font-family: Verdana;
 	color: rgb(150, 150, 150);
 }

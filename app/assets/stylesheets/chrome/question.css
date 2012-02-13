@@ -155,8 +155,16 @@ div.deal_page_info p {
 	line-height: 17px;
 }
 
-p#deals_per_page {
+p#deals_per_page_label {
 	font-family: Verdana;
 	font-size: 12px;
 	color: rgba(150, 150, 150, 1);
+}
+
+div#show_electric_flashing a#deals_per_page {
+	color: rgba(255, 26, 0, 1);
+}
+
+div#show_electric_flashing a#deals_per_page:hover {
+	text-decoration: none;
 }

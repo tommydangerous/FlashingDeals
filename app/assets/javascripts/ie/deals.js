@@ -68,7 +68,7 @@ function adjustBoxName4() {
 function adjustImage() {
 	var h = $('img#deal_image').height();
 	var x = (250 - h)/2
-	$('img#deal_image').css("top", x+"px")
+	$('img#deal_image').css("margin-top", x+"px")
 };
 
 // Ajax Sortables, pagination, search, and electric flashing sort
