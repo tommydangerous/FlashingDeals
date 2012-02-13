@@ -49,6 +49,8 @@ div.deal_show_image img#deal_image {
 
 div.deal_show_image div#deal_show_lightning {
 	float: left;
+	width: 0;
+	height: 0;
 }
 
 div.deal_show_image div#deal_show_lightning img {

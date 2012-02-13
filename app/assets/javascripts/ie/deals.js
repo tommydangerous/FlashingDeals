@@ -71,6 +71,13 @@ function adjustImage() {
 	$('img#deal_image').css("margin-top", x+"px")
 };
 
+$(document).ready(function() {
+	var h = $('img#deal_image').height();
+	var x = (250 - h)/2
+	var y = (x - 72)
+	$('span#price').css("margin-top", y+"px")
+})
+
 // Ajax Sortables, pagination, search, and electric flashing sort
 $(function() {
 	$("#sort a, #deals .pagination a, #electric_flashing li a").live("click", function() {
