@@ -41,6 +41,9 @@
 		<% unless deal.site.nil? || deal.site.empty? %>
 			<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
 		<% end %>
+		<% unless deal.tag.nil? || deal.tag.empty? %>
+			<li><p><span class="light_grey">Tag:</span> <%= deal.tag %></p></li>
+		<% end %>
 		</ul>
 		<% if signed_in? %>
 			<% if current_user.admin? %>
