@@ -2,7 +2,7 @@ div.deal_single {
 	margin-bottom: 3px;
 	background: rgb(255, 255, 255);
 	border: 1px solid rgb(148, 222, 240);
-	padding: 5px;
+	padding: 5px 5px 0px 5px;
 }
 
 div.col1, div.col2 {
@@ -15,22 +15,22 @@ div.col1 {
 	background: rgb(255, 255, 255);
 }
 
-div.col1 div.deal_image {
+div.col1 div.deal_image_container {
 	width: 100px;
 	height: 100px;
 	margin: auto;
-	background-position: 50% 50%;
-	background-size: contain;
-	background-repeat: no-repeat;
-	padding: 2px;
 }
 
-div.col1 div.deal_image img {
+div.col1 div.deal_image {
+	display: none;
+}
+
+div.col1 div.deal_image_container img.bolt {
 	width: 17px;
 	height: 17px;
 	padding: 3px 2px;
 	float: left;
-	margin-left: -10px;
+	margin-left: -21px;
 	margin-top: -11px;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -38,6 +38,13 @@ div.col1 div.deal_image img {
 	-o-border-radius: 5px;
 	border-radius: 5px;
 	background: rgb(75, 75, 75);
+	margin-bottom: -23px;
+	margin-right: -11px;
+}
+
+div.col1 div.deal_image_container img#deal_partial_image {
+	max-height: 100px;
+	max-width: 100px;
 }
 
 div.watch_status {
