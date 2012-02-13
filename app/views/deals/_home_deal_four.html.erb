@@ -34,7 +34,11 @@
 				<div id="show_lightning_four_arrow"></div>
 			<% end %>
 		<% end %>
-		<p class="top_deal_name" id="name_<%= item.id %>"><%= link_to item.name, item %></p>
+		<% if item.metric >= 2 %>
+			<p class="top_deal_name" id="name_<%= item.id %>"><%= link_to item.name, item, :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();" %></p>
+		<% else %>
+			<p class="top_deal_name" id="name_<%= item.id %>"><%= link_to item.name, item %></p>
+		<% end %>
 	</div>
 	<div class="box_stats_four">
 		<ul id="box_stats_four">

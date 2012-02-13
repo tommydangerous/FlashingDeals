@@ -1,6 +1,6 @@
 <% flash.each do |key, value| %>
 	<div class="flash <%= key %>">
-		<%= value %><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %>
+		<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %>
 	</div>
 <% end %>
 
@@ -21,5 +21,5 @@
 			</div>
 		<% end %>
 	</div>
-	<div class="page_end">
+	<div class="page_end"></div>
 </div>

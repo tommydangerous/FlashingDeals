@@ -10,6 +10,13 @@
     	<%= stylesheet_link_tag 'ie/application' %>
     	<%= javascript_include_tag 'ie/application' %>
     <![endif]-->
+    <!--[if !IE 7]>
+    	<style type="text/css">
+    		#wrapper {
+    			display: table;
+    			height: 100%
+    		}
+    <![endif]-->
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %> 
     <html lang="en">
@@ -50,19 +57,19 @@
   		</div>
   		<div id="content">
   			<%= yield %>
-  		<div class="clear"></div>
-  		</div>
-  		<div class="clear"></div>
-  		<div id="footer">
-  			<%= render 'layouts/footer' %>
-  			<div id="copyright">
-  				<p class="copyright">FlashingDeals &copy; 2012 All Rights Reserved.</p>
-  			</div>
+  			<div class="clear"></div>
   		</div>
   		<div id="dim" style="display: none">
 				<%= render 'sessions/login_form' %>
 			</div>
 			<div id="progress"></div>
   	</div>
+  	<div class="clear"></div>
+		<div id="footer">
+			<%= render 'layouts/footer' %>
+			<div id="copyright">
+				<p class="copyright">FlashingDeals &copy; 2012 All Rights Reserved.</p>
+			</div>
+		</div>
   </body>
 </html>

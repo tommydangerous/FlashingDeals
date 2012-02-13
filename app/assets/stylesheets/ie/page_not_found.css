@@ -1,0 +1,125 @@
+div#page_not_found {
+	margin: auto;
+	width: 900px;
+	height: 400px;
+	background: rgb(255, 255, 255);
+	text-align: center;
+	border: 2px solid rgb(200, 200, 200);
+}
+
+div#slot_numbers {
+	width: 300px;
+	margin: auto;
+}
+
+div#page_not_found p {
+	font-family: Verdana;
+	font-weight: bold;
+	font-size: 100px;
+}
+
+div#page_not_found div#page_not_found_content {
+	margin-top: 75px;
+}
+
+div#page_not_found div#page_not_found_content h1 {
+	font-family: Helvetica, Arial;
+	color: rgb(97, 196, 25);
+	margin: 0;
+	line-height: 60px;
+}
+
+div#page_not_found div#page_not_found_content h2 {
+	text-align: left;
+	font-family: Helvetica, Arial;
+	color: rgb(97, 196, 25);
+	font-size: 36px;
+	margin: 0;
+	width: 815px;
+	margin: auto;
+	margin-top: 10px;
+}
+
+div#page_not_found div#page_not_found_content a {
+	color: rgb(140, 51, 16);
+	text-decoration: none;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#page_not_found div#page_not_found_content a:hover {
+	text-decoration: none;
+	color: rgb(150, 61, 26);
+}
+
+img#breadcrumbs {
+	padding: 0 5px;
+	margin-bottom: -5px;
+}
+
+img#breadcrumbs:hover {
+	opacity: .8;
+}
+
+a#crumbs {
+	float: right;
+	display: block;
+	width: 60px;
+	height: 40px;
+	margin-top: -40px;
+}
+
+img#crumb1, img#crumb2, img#crumb3, img#crumb4 {
+	display: none;
+}
+
+img#crumb1 {
+	width: 9px;
+	height: 9px;
+}
+
+img#crumb2 {
+	width: 7px;
+	height: 7px;
+}
+
+img#crumb3 {
+	width: 5px;
+	height: 5px;
+}
+
+img#crumb4 {
+	width: 3px;
+	height: 3px;
+}
+
+span.brown {
+	color: rgb(140, 51, 16);
+}
+
+div#set_one {
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+
+div#set_one div, div#set_two div, div#set_three div {
+	position: absolute;
+	display: none;
+}
+
+div#set_two {
+	width: 100px;
+	height: 100px;
+	float: left;
+}
+
+div#set_three {
+	width: 100px;
+	height: 100px;
+	float: right;
+}
