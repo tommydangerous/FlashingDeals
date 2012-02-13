@@ -52,7 +52,7 @@ class PasswordResetsController < ApplicationController
 	
 		def check_signed_in
 			if signed_in?
-				redirect_to my_account_path
+				redirect_to root_path
 			end
 		end
 end

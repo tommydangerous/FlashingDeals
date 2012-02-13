@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 # All Users	
   def new
   	if signed_in?
-  		redirect_to my_account_path
+  		redirect_to root_path
   	else
   		@user = User.new
   		@title = "Sign Up"
@@ -31,7 +31,6 @@ class UsersController < ApplicationController
 # Signed In Users  
   def show
   	@user = User.find(params[:id])
-  	@message = Message.new
   	if @user == current_user
   		redirect_to my_account_path
   	elsif @user.private == true && (@user.friends.where("friend_id = ?", current_user).empty? && @user.inverse_friends.where("user_id = ?", current_user).empty?) && current_user.admin? == false

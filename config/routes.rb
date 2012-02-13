@@ -38,23 +38,17 @@ FlashingDeal::Application.routes.draw do
 # Deals
   root :to => 'deals#top_deals'
 	match '/flashback' => 'deals#flashback', :as => :flashback
-	match '/flashback/electric' => 'deals#flashback_electric', :as => :flashback_electric
-	match '/flashback/flashing' => 'deals#flashback_flashing', :as => :flashback_flashing
 	match '/flashingdeal/:id' => 'deals#frame', :as => :frame
-	match '/flashmob_deals' => 'deals#flashmob_deals', :as => :flashmob_deals
-	match '/remove_watched_deals' => 'deals#remove_watched_deals', :as => :remove_watched_deals
+	match '/flashmob-deals' => 'deals#flashmob_deals', :as => :flashmob_deals
+	match '/remove-watched-deals' => 'deals#remove_watched_deals', :as => :remove_watched_deals
 	match '/queue' => 'deals#queue', :as => :queue
-	match '/rising_deals' => 'deals#rising_deals', :as => :rising_deals
-	match '/home' => 'deals#home', :as => :home
-	match '/past_deals' => 'deals#index'
+	match '/rising-deals' => 'deals#rising_deals', :as => :rising_deals
 	match '/search' => 'deals#search', :as => :search
-  match '/create_deals' => 'deals#create_deals', :as => :create_deals
-  match '/create_rising_deals' => 'deals#create_rising_deals', :as => :create_rising_deals
-	match '/create_flashmob_deals' => 'deals#create_flashmob_deals', :as => :create_flashmob_deals
-	match '/empty_queue' => 'deals#empty_queue', :as => :empty_queue
+  match '/create-deals' => 'deals#create_deals', :as => :create_deals
+	match '/empty-queue' => 'deals#empty_queue', :as => :empty_queue
 # Messages	
-	match '/read_all' => 'messages#read_all', :as => :read_all
-  match '/unread_all' => 'messages#unread_all', :as => :unread_all
+	match '/read-all' => 'messages#read_all', :as => :read_all
+  match '/unread-all' => 'messages#unread_all', :as => :unread_all
 # Pages
   match '/about' => 'pages#about', :as => :about
   match '/investors' => 'pages#investors', :as => :investors
@@ -72,12 +66,12 @@ FlashingDeal::Application.routes.draw do
   match '/login'  => 'sessions#new'
   match '/logout' => 'sessions#destroy'
 # Shares  
-  match '/remove_shared_deals' => 'shares#remove_shared_deals', :as => :remove_shared_deals
+  match '/remove-shared-deals' => 'shares#remove_shared_deals', :as => :remove_shared_deals
 # Users
   match '/signup' => 'users#new'
-  match '/my_account' => 'users#my_account', :as => :my_account
-  match '/friend_requests' => 'users#friend_requests', :as => :friend_requests
-  match '/shared_deals' => 'users#shared_deals', :as => :shared_deals
+  match '/my-account' => 'users#my_account', :as => :my_account
+  match '/friend-requests' => 'users#friend_requests', :as => :friend_requests
+  match '/shared-deals' => 'users#shared_deals', :as => :shared_deals
 # 404
   match '*url' => 'pages#page_not_found', :as => :page_not_found
 end
