@@ -42,5 +42,16 @@
 			<h2><%= link_to "My Friends (#{(@user.friends.count + @user.inverse_friends.count)})", friends_user_path(@user) %></h2>
 		</div>
 		<%= render "users/shared_deals_profile" %>
+		<div id="feedback_header">
+			<%= link_to "Feedback", "javascript: void(0)", :id => "feedback" %>
+		</div>
+		<div id="feedback_form">
+			<%= render 'feedbacks/feedback_form' %>
+		</div>
 	</div>
 </div>
+<script>
+$('a#feedback').click(function() {
+	$('div#feedback_form').slideToggle();
+});
+</script>

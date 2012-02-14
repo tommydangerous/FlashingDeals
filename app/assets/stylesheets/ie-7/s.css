@@ -651,7 +651,7 @@ div.side_deals a {
 }
 
 div.side_deals a:hover {
-	opacity: .75;
+	color: rgb(175, 175, 175);
 	text-decoration: underline;
 }
 
@@ -705,7 +705,7 @@ div.locations a {
 }
 
 div.locations a:hover {
-	color: rgb(200, 200, 200);
+	color: rgb(175, 175, 175);
 	text-decoration: underline;
 }
 
@@ -781,7 +781,7 @@ div.categories a {
 }
 
 div.categories a:hover {
-	color: rgb(200, 200, 200);
+	color: rgb(175, 175, 175);
 	text-decoration: underline;
 }
 

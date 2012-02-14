@@ -15,11 +15,6 @@ function toggleMostRecentActivity(id) {
 };
 
 // Feedback
-$(document).ready(function() {
-	$('a#feedback').click(function() {
-		$('div#feedback_form').slideToggle();
-	});
-});
 
 // Feedback REGEX
 $(document).ready(function() {

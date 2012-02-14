@@ -1,7 +1,7 @@
 // Top Deals
 function showLightning(id) {
 	var i = id
-	$('div#deal_'+i).fadeIn(200);
+	$('div#deal_'+i).show();
 };
 
 function hideLightning() {

@@ -19,7 +19,7 @@ div#page_not_found p {
 }
 
 div#page_not_found div#page_not_found_content {
-	margin-top: 75px;
+	margin-top: 175px;
 }
 
 div#page_not_found div#page_not_found_content h1 {
@@ -58,7 +58,8 @@ div#page_not_found div#page_not_found_content a:hover {
 
 img#breadcrumbs {
 	padding: 0 5px;
-	margin-bottom: -5px;
+	position: relative;
+	top: 5px;
 }
 
 img#breadcrumbs:hover {
@@ -70,7 +71,7 @@ a#crumbs {
 	display: block;
 	width: 60px;
 	height: 40px;
-	margin-top: -40px;
+	margin-top: 18px;
 }
 
 img#crumb1, img#crumb2, img#crumb3, img#crumb4 {
@@ -108,7 +109,7 @@ div#set_one {
 }
 
 div#set_one div, div#set_two div, div#set_three div {
-	position: absolute;
+	position: relative;
 	display: none;
 }
 
