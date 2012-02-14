@@ -51,18 +51,28 @@ div.deal_show_image div#deal_show_lightning {
 	float: left;
 	width: 0;
 	height: 0;
+	margin-top: -20px;
+	margin-left: -20px;
 }
 
 div.deal_show_image div#deal_show_lightning img {
 	width: 20px;
 	height: 20px;
 	padding: 4px 3px;
-	background: #4B4B4B;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
 	border-radius: 5px;
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRiNGI0YiIgc3RvcC1vcGFjaXR5PSIwLjc1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0YjRiNGIiIHN0b3Atb3BhY2l0eT0iMC43NSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(75,75,75,0.75) 0%, rgba(75,75,75,0.75) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(75,75,75,0.75)), color-stop(100%,rgba(75,75,75,0.75))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(75,75,75,0.75) 0%,rgba(75,75,75,0.75) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(75,75,75,0.75) 0%,rgba(75,75,75,0.75) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(75,75,75,0.75) 0%,rgba(75,75,75,0.75) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(75,75,75,0.75) 0%,rgba(75,75,75,0.75) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf4b4b4b', endColorstr='#bf4b4b4b',GradientType=0 ); /* IE6-8 */
 }
 
 div.deal_show_image span#price {
@@ -70,7 +80,6 @@ div.deal_show_image span#price {
 	font-family: Helvetica;
 	font-size: 28px;
 	color: #FFFFFF;
-	background: #2CAFE3;
 	border-top: 2px solid #94DEF0;
 	border-left: 2px solid #94DEF0;
 	-webkit-border-top-left-radius: 25px;
@@ -87,6 +96,15 @@ div.deal_show_image span#price {
 	-ms-box-shadow: -1px -1px 10px -1px rgba(75, 75, 75, .85);
 	-o-box-shadow: -1px -1px 10px -1px rgba(75, 75, 75, .85);
 	box-shadow: -1px -1px 10px -1px rgba(75, 75, 75, .85);
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzJjYWZlMyIgc3RvcC1vcGFjaXR5PSIwLjg1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyY2FmZTMiIHN0b3Atb3BhY2l0eT0iMC44NSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(44,175,227,0.85) 0%, rgba(44,175,227,0.85) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(44,175,227,0.85)), color-stop(100%,rgba(44,175,227,0.85))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(44,175,227,0.85) 0%,rgba(44,175,227,0.85) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(44,175,227,0.85) 0%,rgba(44,175,227,0.85) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(44,175,227,0.85) 0%,rgba(44,175,227,0.85) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(44,175,227,0.85) 0%,rgba(44,175,227,0.85) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d92cafe3', endColorstr='#d92cafe3',GradientType=0 ); /* IE6-8 */
 }
 
 div#deal_functions {
@@ -304,7 +322,7 @@ div#deal_summary_side_panel div#deal_watchers a {
 }
 
 div#deal_summary_side_panel div#deal_watchers a:hover {
-	opacity: .75;
+	color: rgb(175, 175, 175);
 	text-decoration: underline;
 }
 
@@ -609,7 +627,6 @@ div#comment_and_point_count {
 div#watch_deal_info {
 	display: none;
 	padding: 10px;
-	background: rgb(75, 75, 75);
 	color: rgb(255, 255, 255);
 	-webkit-border-radius: 5px;
 	-khtml-border-radius: 5px;
@@ -622,6 +639,15 @@ div#watch_deal_info {
 	font-size: 12px;
 	margin-top: -45px;
 	margin-left: -45px;
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRiNGI0YiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRiNGI0YiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top,  rgba(75,75,75,0.9) 0%, rgba(75,75,75,0.9) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(75,75,75,0.9)), color-stop(100%,rgba(75,75,75,0.9))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e64b4b4b', endColorstr='#e64b4b4b',GradientType=0 ); /* IE6-8 */
 }
 
 div#watch_deal_info_triangle {
@@ -638,7 +664,6 @@ div#watch_deal_info_triangle {
 div#share_all_info {
 	display: none;
 	padding: 10px;
-	background: rgb(75, 75, 75);
 	color: rgb(255, 255, 255);
 	-webkit-border-radius: 5px;
 	-khtml-border-radius: 5px;
@@ -651,6 +676,15 @@ div#share_all_info {
 	font-size: 12px;
 	margin-top: -45px;
 	margin-left: -45px;
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRiNGI0YiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRiNGI0YiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top,  rgba(75,75,75,0.9) 0%, rgba(75,75,75,0.9) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(75,75,75,0.9)), color-stop(100%,rgba(75,75,75,0.9))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e64b4b4b', endColorstr='#e64b4b4b',GradientType=0 ); /* IE6-8 */
 }
 
 div#share_all_info_triangle {

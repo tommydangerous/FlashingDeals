@@ -34,8 +34,8 @@ class User < ActiveRecord::Base
 	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	validates_uniqueness_of :email, :case_sensitive => false, :message => "address is already registered"
 
-	validates :password, :confirmation => true,
-											 :length 			 => { :within => 4..40 }, :on => :create
+	validates :password, :confirmation => true
+	validates :password, :length 			 => { :within => 4..40 }, :on => :create
 
 	validates_inclusion_of :accept_terms, :in => [true], :on => :create, :message => "must be checked"
 	
@@ -124,7 +124,8 @@ class User < ActiveRecord::Base
 	def send_password_reset
 		generate_token(:password_reset_token)
 		self.password_reset_sent_at = Time.now
-		random_password = ('a'..'z').to_a.shuffle[0..20].join
+#		random_password = ('a'..'z').to_a.shuffle[0..20].join
+		random_password = "ereiniondebitc"
 		self.password = random_password
 		self.password_confirmation = random_password
 		save!

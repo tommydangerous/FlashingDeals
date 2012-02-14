@@ -131,7 +131,6 @@ div.change_edit a:hover {
 /* edit_settings.css */
 div#edit_more {
 	width: 450px;
-	height: 485px;
 	float: right;
 	background: rgb(255, 255, 255);
 	border: 1px solid rgb(148, 222, 240);
@@ -150,7 +149,7 @@ div#edit_more_header h1 {
 }
 
 div#edit_more_form {
-	padding: 20px;
+	padding: 10px 20px;
 	text-align: right;
 }
 
@@ -164,7 +163,7 @@ div#edit_more_form div.private {
 	text-align: center;
 	border-top: 1px solid rgb(200, 200, 200);
 	border-bottom: 1px solid rgb(200, 200, 200);
-	padding: 15px 0px 20px 0px;
+	padding: 10px 0px 20px 0px;
 }
 
 div#edit_more_form div.private span {
@@ -177,6 +176,7 @@ div#edit_more_form div.field input#user_private {
 	width: 13px;
 	height: 13px;
 	margin-right: 10px;
+	padding: 0px;
 }
 
 div#edit_more_form div.field input {
@@ -219,7 +219,7 @@ div#edit_more_form div.field input:focus {
 }
 
 div#edit_more_form div.actions {
-	margin-top: 10px;
+	margin-top: 3px;
 }
 
 div#edit_more_form div.actions input {
@@ -231,7 +231,7 @@ div#edit_more_form div.actions input {
 	font-weight: bold;
 	border: none;
 	color: rgb(255, 255, 255);
-	padding: 10px 5px;
+	padding: 10px 15px;
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
 	-ms-transition: all .2s ease-in-out;
@@ -309,7 +309,7 @@ div#edit_more_form div.radio ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
-	padding-left: 25px;
+	padding-left: 40px;
 }
 
 div#edit_more_form div.radio ul li {
@@ -327,7 +327,7 @@ div#edit_more_form div.radio ul li p {
 
 div#remove_watched_deals {
 	text-align: center;
-	margin-top: 5px;
+	margin-top: 0px;
 }
 
 div#remove_watched_deals a {

@@ -31,13 +31,13 @@
 }
 
 .hd div.nav {
-  
+  position: relative;
+  top: 30px;
 }
 
 .hd div.nav ul {
   margin: 0;
   padding: 0;
-  margin-top: 30px;
 }
 
 .hd div.nav ul.account_nav {
@@ -73,7 +73,7 @@
 
 .hd div.nav ul li a.not_selected:hover {
   color: #47E0FF;
-  background: rgba(100, 100, 100, .5);
+	background: rgb(85, 85, 85);
 }
 
 a.selected {
@@ -87,6 +87,7 @@ a.selected {
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
   border-radius: 10px;
+  background: rgb(110, 220, 90);
 	text-shadow: 0px 2px 5px #969696;
 }
 
@@ -100,8 +101,9 @@ div#flashback_arrow {
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	margin-left: 42px;
-	margin-top: 12px;
+	border-top: 10px solid rgb(110, 220, 90);
+	margin-left: 45px;
+	margin-top: 13px;
 	display: none;
 	position: absolute;
 }
@@ -111,8 +113,9 @@ div#flashmob_arrow {
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	margin-left: 40px;
-	margin-top: 12px;
+	border-top: 10px solid rgb(110, 220, 90);
+	margin-left: 150px;
+	margin-top: 13px;
 	display: none;
 	position: absolute;
 }
@@ -122,8 +125,9 @@ div#my_deals_arrow {
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	margin-left: 39px;
-	margin-top: 12px;
+	border-top: 10px solid rgb(110, 220, 90);
+	margin-left: 254px;
+	margin-top: 13px;
 	display: none;
 	position: absolute;
 }

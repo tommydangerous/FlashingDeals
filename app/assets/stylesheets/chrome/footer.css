@@ -23,9 +23,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b4b4b', end
 }
 
 .fd table {
+	float: right;
   padding: 0;
-  margin-top: 10px;
-  float: right;
+	position: relative;
+	top: 10px;
 }
 
 .fd table tr {

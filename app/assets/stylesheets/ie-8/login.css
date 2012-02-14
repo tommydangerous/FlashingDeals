@@ -1,9 +1,11 @@
 div#login_notice {
 	text-align: left;
 	width: 400px;
-	margin: auto;
-	position: relative;
+	margin: 0 auto;
 	top: 60px;
+	left: 0;
+	right: 0;
+	position: absolute;
 }
 
 div#close_login {
@@ -142,7 +144,7 @@ div#login_form div.actions input {
 	font-weight: bold;
 	border: none;
 	color: rgb(255, 255, 255);
-	padding: 10px 5px;
+	padding: 10px 15px;
 	-webkit-border-radius: 5px;
 	-khtml-border-radius: 5px;
 	-moz-border-radius: 5px;

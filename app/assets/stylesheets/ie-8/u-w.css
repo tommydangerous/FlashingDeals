@@ -95,7 +95,7 @@ div#delete_user a, input.accept_and_ignore_button, input.defriend_button {
 	text-decoration: none;
 	font-family: Verdana;
 	font-size: 12px;
-	padding: 5px 0px;
+	padding: 5px;
 	text-align: center;
 	border: 1px solid rgb(150, 150, 150);
 	-webkit-border-radius: 2px;
@@ -434,7 +434,7 @@ div#user_deals_unwatch input{
 	margin: auto;
 	font-family: Verdana;
 	font-size: 12px;
-	padding: 5px 0px;
+	padding: 5px;
 	text-align: center;
 	border: 1px solid rgb(150, 150, 150);
 	-webkit-border-radius: 2px;
@@ -579,9 +579,12 @@ div#mark_all_read_profile {
 	background-position: left 6px;
 }
 
-/* Voting.css */
+/* voting.css */
 div#user_like, div#user_dislike {
 	display: none;
+	height: 14px;
+	width: 144px;
+	text-align: center;
 	padding: 10px;
 	background: rgb(75, 75, 75);
 	color: rgb(255, 255, 255);
@@ -591,22 +594,31 @@ div#user_like, div#user_dislike {
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
 	border-radius: 5px;
-	position: absolute;
 	font-family: Verdana;
 	font-size: 12px;
+	position: relative;
 	margin-top: -22px;
-	margin-left: 10px;
+	margin-bottom: -12px;
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRiNGI0YiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRiNGI0YiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top,  rgba(75,75,75,0.9) 0%, rgba(75,75,75,0.9) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(75,75,75,0.9)), color-stop(100%,rgba(75,75,75,0.9))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e64b4b4b', endColorstr='#e64b4b4b',GradientType=0 ); /* IE6-8 */
 }
 
 div#user_voted_triangle {
-	position: absolute;
 	width: 0;
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgb(75, 75, 75);
-	margin-top: 23px;
-	margin-left: -50px;
+	position: relative;
+	top: 9px;
+	left: 50px;
 }
 
 /* watchers.css */
@@ -622,10 +634,7 @@ ul#watchers {
 }
 
 div#show_watchers {
-	display: none;
 	padding: 10px;
-	background: rgb(75, 75, 75);
-	color: rgb(255, 255, 255);
 	width: 172px;
 	-webkit-border-radius: 5px;
 	-khtml-border-radius: 5px;
@@ -634,18 +643,27 @@ div#show_watchers {
 	-o-border-radius: 5px;
 	border-radius: 5px;
 	position: absolute;
+	width: 0px;
+	height: 0px;
+	display: none;
 }
 
 div#show_watchers ul {
 	list-style-type: none;
 	padding: 0;
 	margin: 0;
+	width: 0px;
+	height: 0px;
+	display: none;
 }
 
 div#show_watchers ul li {
 	font-family: Verdana;
 	font-size: 12px;
 	padding: 5px 0px;
+	width: 0px;
+	height: 0px;
+	display: none;
 }
 
 div#watching_deals {

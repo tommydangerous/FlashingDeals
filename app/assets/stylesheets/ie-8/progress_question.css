@@ -1,16 +1,16 @@
 /* progress.css */
-/*
 div#progress {
 	display: none;
 	position: absolute;
 	z-index: 200;
 	top: 160px;
-	left: 580px;
+	left: 0;
+	right: 0;
 	width: 64px;
 	height: 64px;
 	background: url("/assets/spinner.gif");
+	margin: auto;
 }
-*/
 
 /* question.css */
 div#deal_page_info {
@@ -48,7 +48,6 @@ div#show_electric_flashing ul {
 div#show_electric_flashing ul li {
 	display: inline;
 	margin-right: 5px;
-	float: left;
 }
 
 div#show_electric_flashing img {
@@ -61,14 +60,21 @@ div#show_electric_flashing img {
 	-ms-border-radius: 4px;
 	-o-border-radius: 4px;
 	border-radius: 4px;
-	background: rgb(75, 75, 75);
-
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY0NjQ2NCIgc3RvcC1vcGFjaXR5PSIwLjc1Ii8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiM0YjRiNGIiIHN0b3Atb3BhY2l0eT0iMC43NSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(100,100,100,0.75) 0%, rgba(75,75,75,0.75) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(100,100,100,0.75)), color-stop(100%,rgba(75,75,75,0.75))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(100,100,100,0.75) 0%,rgba(75,75,75,0.75) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(100,100,100,0.75) 0%,rgba(75,75,75,0.75) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(100,100,100,0.75) 0%,rgba(75,75,75,0.75) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(100,100,100,0.75) 0%,rgba(75,75,75,0.75) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf646464', endColorstr='#bf4b4b4b',GradientType=0 ); /* IE6-8 */
 }
 
 div#show_electric_flashing a {
+	vertical-align: top;
 	font-family: Verdana;
 	font-size: 12px;
-	padding-left: 5px;
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -107,7 +113,6 @@ div.deal_page_info {
 	text-align: left;
 	width: 470px;
 	padding: 5px 15px 25px 15px;
-	background: rgb(75, 75, 75);
 	-webkit-border-radius: 5px;
 	-khtml-border-radius: 5px;
 	-moz-border-radius: 5px;
@@ -116,8 +121,17 @@ div.deal_page_info {
 	border-radius: 5px;
 	position: absolute;
 	margin-top: 10px;
-	margin-left: -425px;
+	margin-left: 100px;
 	display: none;
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzRiNGI0YiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzRiNGI0YiIgc3RvcC1vcGFjaXR5PSIwLjkiLz4KICA8L2xpbmVhckdyYWRpZW50PgogIDxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIxIiBoZWlnaHQ9IjEiIGZpbGw9InVybCgjZ3JhZC11Y2dnLWdlbmVyYXRlZCkiIC8+Cjwvc3ZnPg==);
+	background: -moz-linear-gradient(top,  rgba(75,75,75,0.9) 0%, rgba(75,75,75,0.9) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(75,75,75,0.9)), color-stop(100%,rgba(75,75,75,0.9))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e64b4b4b', endColorstr='#e64b4b4b',GradientType=0 ); /* IE6-8 */
 }
 
 div.close_deal_page_info {
@@ -162,7 +176,7 @@ div#show_electric_flashing a#deals_per_page:hover {
 }
 
 p#deals_per_page_label {
-	margin-top: 3px;
+	float: left;
 	font-size: 12px;
 	font-family: Verdana;
 	color: rgb(150, 150, 150);

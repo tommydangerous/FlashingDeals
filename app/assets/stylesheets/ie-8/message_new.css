@@ -151,7 +151,7 @@ div#message_new_form div.actions input {
 	text-decoration: none;
 	font-family: Verdana;
 	font-size: 12px;
-	padding: 5px 0px;
+	padding: 5px;
 	text-align: center;
 	border: 1px solid rgb(150, 150, 150);
 	-webkit-border-radius: 2px;

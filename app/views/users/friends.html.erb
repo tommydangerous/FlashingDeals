@@ -79,35 +79,32 @@
 	</div>
 	<% end %>
 </div>
+<%= render 'messages/new_message' %>
 <script>
 (function($) {
-        $(document).ready(function() {
-          $('input[name="q"]').search('.friend_single', function(on) {
-            on.all(function(results) {
-              var size = results ? results.size() : 0
-              $('#count').text(size + ' results');
-            });
+  $(document).ready(function() {
+    $('input[name="q"]').search('.friend_single', function(on) {
+      on.all(function(results) {
+        var size = results ? results.size() : 0
+        $('#count').text(size + ' results');
+      });
 
-            on.reset(function() {
-              $('#none').hide();
-              $('.friend_single').show();
-            });
+      on.reset(function() {
+        $('#none').hide();
+        $('.friend_single').show();
+      });
 
-            on.empty(function() {
-              $('#none').show();
-              $('.friend_single').hide();
-            });
+      on.empty(function() {
+        $('#none').show();
+        $('.friend_single').hide();
+      });
 
-            on.results(function(results) {
-              $('#none').hide();
-              $('.friend_single').hide();
-              results.show();
-            });
-          });
-        });
-      })(jQuery);
-
-$('a#feedback').click(function() {
-	$('div#feedback_form').slideToggle();
-});
+      on.results(function(results) {
+        $('#none').hide();
+        $('.friend_single').hide();
+        results.show();
+      });
+    });
+  });
+})(jQuery);
 </script>

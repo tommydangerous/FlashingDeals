@@ -40,43 +40,37 @@
 			<h2><%= link_to "My Friends (#{(@user.friends.count + @user.inverse_friends.count)})", friends_user_path(@user) %></h2>
 		</div>
 		<%= render "users/shared_deals_profile" %>
-		<div id="feedback_header">
-			<%= link_to "Feedback", "javascript: void(0)", :id => "feedback" %>
-		</div>
-		<div id="feedback_form">
-			<%= render 'feedbacks/feedback_form' %>
-		</div>
 	</div>
 </div>
 <%= render 'messages/new_message' %>
 <script>
 (function($) {
-        $(document).ready(function() {
-          $('input[name="q"]').search('.message', function(on) {
-            on.all(function(results) {
-              var size = results ? results.size() : 0
-              $('#count').text(size + ' results');
-            });
+  $(document).ready(function() {
+    $('input[name="q"]').search('.message', function(on) {
+      on.all(function(results) {
+        var size = results ? results.size() : 0
+        $('#count').text(size + ' results');
+      });
 
-            on.reset(function() {
-              $('#none').hide();
-              $('.message').show();
-              $('.pagination').show();
-            });
+      on.reset(function() {
+        $('#none').hide();
+        $('.message').show();
+        $('.pagination').show();
+      });
 
-            on.empty(function() {
-              $('#none').show();
-              $('.message').hide();
-              $('.pagination').hide();
-            });
+      on.empty(function() {
+        $('#none').show();
+        $('.message').hide();
+        $('.pagination').hide();
+      });
 
-            on.results(function(results) {
-              $('#none').hide();
-              $('.message').hide();
-              $('.pagination').hide();
-              results.show();
-            });
-          });
-        });
-      })(jQuery);
+      on.results(function(results) {
+        $('#none').hide();
+        $('.message').hide();
+        $('.pagination').hide();
+        results.show();
+      });
+    });
+  });
+})(jQuery);
 </script>

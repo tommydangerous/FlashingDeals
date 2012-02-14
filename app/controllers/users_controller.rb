@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :except => [:new, :create]
+	before_filter :authenticate, :except => [:new, :create, :my_account]
+	before_filter :auth_my_account, :only => :my_account
 	before_filter :correct_user, :only => [:watching, :edit, :update]
 	before_filter :admin_user,	 :only => :index
 	before_filter :gm_user, :only => :destroy
@@ -131,5 +132,12 @@ class UsersController < ApplicationController
   	
   	def sort_direction
   		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  	end
+  	
+  	def auth_my_account
+  		unless signed_in?
+  			flash[:notice] = "Please sign in with your new password."
+  			redirect_to login_path
+  		end
   	end
 end

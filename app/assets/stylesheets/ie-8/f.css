@@ -58,7 +58,7 @@ div#feedback_form div.actions input {
 	margin: auto;
 	font-family: Verdana;
 	font-size: 12px;
-	padding: 5px 0px;
+	padding: 5px;
 	text-align: center;
 	border: 1px solid rgb(150, 150, 150);
 	-webkit-border-radius: 2px;
@@ -137,19 +137,20 @@ div#feedback_form div.actions input:active {
   background: -ms-linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* IE10+ */
   background: linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b4b4b', endColorstr='#191919',GradientType=0 ); /* IE6-9 */
-  border-top: 5px solid #6EDC5A;
-  border-bottom: 32px solid #323232;
-  margin-top: -177px;
+  border-top: 5px solid rgb(110, 220, 90);
+ 	padding-bottom: 32px;
+ 	margin-top: -177px;
 }
 
 .fd {
   width: 951px;
   margin: auto;
+  height: 140px;
 }
 
 .fd table {
   padding: 0;
-  margin: 10px 0;
+  margin-top: 10px;
   float: right;
 }
 
@@ -205,18 +206,18 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b4b4b', end
 }
 
 div#copyright {
-	width: 951px;
-	margin: auto;
-	padding-top: 10px;
+	height: 32px;
+	width: 100%;
 	text-align: center;
+	background: rgb(50, 50, 50);
 }
 
 p.copyright {
   font-family: Verdana;
-  color: #FFFFFF;
+  color: rgb(255, 255, 255);
   font-size: 10px;
-  margin: 0;
-  font-weight: normal;
+  height: 32px;
+  line-height: 30px;
 }
 
 /* friend_requests.css */
