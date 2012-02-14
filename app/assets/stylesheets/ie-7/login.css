@@ -1,8 +1,8 @@
 div#login_notice {
 	text-align: left;
 	width: 400px;
-	margin: auto;
-	position: relative;
+	margin: 0 auto;
+	position: absolute;
 	top: 60px;
 }
 
