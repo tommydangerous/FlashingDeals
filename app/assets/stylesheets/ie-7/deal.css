@@ -190,7 +190,11 @@ div.col3 h2 {
 }
 
 div.col3 h2 a {
-	padding: 10px 20px 12px 22px;
+/*	padding: 10px 20px 12px 22px;*/
+	display: block;
+	width: 94px;
+	height: 40px;
+	text-align: center;
 	color: rgb(255, 255, 255);
 	text-decoration: none;
 	background: url("/assets/deal.png");
