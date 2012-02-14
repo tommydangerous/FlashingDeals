@@ -1,0 +1,220 @@
+#new_message_main {
+	position: absolute;
+	width: 500px;
+	z-index: 200;
+	top: 111px;
+	right: 370px;
+}
+
+#new_message_main {
+	border: 10px solid rgb(150, 150, 150);
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	display: none;
+	-webkit-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	-khtml-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	-moz-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	-ms-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	-o-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+}
+
+div#message_new_close {
+	height: 42px;
+	background: rgb(255, 255, 255);
+	background: rgb(173, 217, 228);
+}
+
+div#message_new_close h1 {
+	font-family: Verdana;
+	font-size: 22px;
+	color: rgb(44, 175, 227);
+	width: 250px;
+	margin: 0;
+	padding: 10px;
+}
+
+div#message_new_close a {
+	float: right;
+	display: block;
+	width: 32px;
+	height: 32px;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#message_new_close a:hover {
+	opacity: .75;
+}
+
+div#message_new_form {
+	background: rgb(255, 255, 255);
+}
+
+div#message_new_form p {
+	font-weight: bold;
+}
+
+div#message_new_form table {
+	width: 100%;
+	padding-top: 20px;
+}
+
+td#message_label {
+	width: 100px;
+	text-align: right;
+	padding: 0 5px;
+}
+
+td#message_field {
+	text-align: left;
+	padding: 0 5px;
+}
+
+div#message_new_form div.field input {
+	width: 343px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid rgb(200, 200, 200);
+	padding: 5px;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	margin: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+div#message_new_form div.field textarea {
+	width: 343px;
+	height: 32px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid rgb(200, 200, 200);
+	padding: 5px;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	resize: none;
+	margin: 0;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+div#message_new_form div.field input:hover, div#message_new_form div.field textarea:hover, div#message_new_form div.field select:hover {
+	border: 1px solid rgb(150, 150, 150);
+}
+
+div#message_new_form div.field input:focus, div#message_new_form div.field textarea:focus, div#message_new_form div.field select:focus {
+	border: 1px solid rgb(48, 157, 207);
+	-webkit-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+}
+
+div#message_new_form div.actions {
+	text-align: right;
+} 
+
+div#message_new_form div.actions input {
+	text-decoration: none;
+	font-family: Verdana;
+	font-size: 12px;
+	padding: 5px 0px;
+	text-align: center;
+	border: 1px solid rgb(150, 150, 150);
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	color: rgb(75, 75, 75);
+	-webkit-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	margin: 0;
+	margin-top: 10px;
+	margin-right: 32px;
+	margin-bottom: 20px;
+}
+
+div#message_new_form div.actions input {
+	background: rgb(238,238,238); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjY2NjY2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-8 */tartColorstr='#f8f8f8', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-8 */
+}
+
+div#message_new_form div.actions input:hover, div#message_new_form div.actions input:focus {
+	background: rgb(248,248,248); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y4ZjhmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkNmQ2ZDYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(214,214,214,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(214,214,214,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-8 */
+	border: 1px solid rgb(160, 160, 160, 1);
+}
+
+div#message_new_form div.actions input:active {
+	background: rgb(214,214,214); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q2ZDZkNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmOGY4ZjgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(214,214,214,1) 0%, rgba(248,248,248,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(214,214,214,1)), color-stop(100%,rgba(248,248,248,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#f8f8f8',GradientType=0 ); /* IE6-8 */
+	-webkit-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+}

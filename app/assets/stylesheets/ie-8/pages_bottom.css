@@ -1,0 +1,108 @@
+/* pages_bottom.css */
+div.page {
+	width: 700px;
+	float: right;
+}
+
+div.page_header {
+	background: #ADD9E4;
+	padding: 10px 20px;
+	-webkit-border-top-left-radius: 5px;
+	-khtml-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-ms-border-top-left-radius: 5px;
+	-o-border-top-left-radius: 5px;
+	border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-khtml-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-right-radius: 5px;
+	-o-border-top-right-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-bottom: 3px;
+}
+
+div.page_header h1 {
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: 32px;
+	margin: 0;
+	color: #2CAFE3;
+}
+
+div.page_content {
+	background: #FFFFFF;
+	padding: 20px;
+	border: 1px solid #94DEF0;
+}
+
+div.page_content h2 {
+	margin: 0;
+	font-family: Helvetica;
+	font-weight: bold;
+	font-size: 22px;
+	margin-bottom: 14px;
+	color: #4B4B4B;
+}
+
+div.page_content p {
+	font-size: 14px;
+	margin-bottom: 14px;
+	line-height: 19px;
+}
+
+div.page_content a {
+	font-family: Helvetica;
+	font-size: 14px;
+	text-decoration: none;
+	color: #2CAFE3;
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div.page_content a:hover {
+	color: #0487BB;
+	text-decoration: underline;
+}
+
+div.page_end {
+	height: 25px;
+	background: #ADD9E4;
+	margin-top: 3px;
+	-webkit-border-bottom-left-radius: 5px;
+	-khtml-border-bottom-left-radius: 5px;
+	-moz-border-radius-bottomleft: 5px;
+	-ms-border-bottom-left-radius: 5px;
+	-o-border-bottom-left-radius: 5px;
+	border-bottom-left-radius: 5px;
+	-webkit-border-bottom-right-radius: 5px;
+	-khtml-border-bottom-right-radius: 5px;
+	-moz-border-radius-bottomright: 5px;
+	-ms-border-bottom-right-radius: 5px;
+	-o-border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 5px;
+}
+
+div.faq_questions ul {
+	margin-bottom: 14px;
+}
+
+div.faq_questions ul li a:hover {
+	color: #61C419;
+}
+
+div.faq_answers h2 {
+	color: #61C419;
+	font-size: 18px;
+}
+
+div.page_content ol li {
+	font-family: Helvetica;
+	font-size: 14px;
+	color: #4B4B4B;
+	margin-bottom: 5px;
+}
