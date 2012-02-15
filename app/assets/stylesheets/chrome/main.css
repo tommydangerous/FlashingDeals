@@ -1,5 +1,5 @@
 html {
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 html, body {
@@ -11,12 +11,13 @@ html, body {
 body {
   margin: 0;
   padding: 0;
+  background: rgba(214, 249, 255, 1);
+  overflow-x: hidden;
 }
 
 #wrapper {
 	min-height: 100%;
 	position: relative;
-	overflow: hidden;
 }
 
 #content {

@@ -1,11 +1,15 @@
 html {
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 html, body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
+}
+
+body {
+	background: rgb(214, 249, 255);
 }
 
 #wrapper {
