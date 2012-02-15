@@ -1,0 +1,170 @@
+div#user_message_table {
+	width: 211px;
+	padding-top: 221px;
+}
+
+div#message_list {
+	width: 724px;
+	float: right;
+}
+
+a#message_single_link {
+	display: block;
+	width: 580px;
+	height: 60px;
+	position: absolute;
+	z-index: 0;
+	margin-top: -5px;
+	margin-left: -5px;
+}
+
+.read {
+	background: rgba(255, 255, 255, 1);
+}
+
+.unread {
+	background: rgba(230, 240, 255, 1);
+}
+
+div.message_single {
+	border: 1px solid rgba(200, 200, 200, 1);
+	margin-bottom: 3px;
+	height: 50px;
+	padding: 5px;
+}
+
+
+div#message_single_gravatar {
+	float: left;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+}
+
+div#message_single_name {
+	width: 480px;
+	margin-left: 65px;
+}
+
+div#message_single_name a {
+	font-size: 14px;
+	font-family: Helvetica, Arial;
+	text-decoration: none;
+	font-weight: bold;
+	color: rgba(44, 175, 227, 1);
+}
+
+div#message_single_name a:hover {
+	color: rgba(4, 135, 187, 1);
+	text-decoration: underline;
+}
+
+div#message_single_content {
+	width: 480px;
+	height: 15px;
+	margin-left: 65px;
+	margin-top: 5px;
+}
+
+div#message_single_content p {
+	font-family: Helvetica, Arial;
+	font-size: 12px;
+	color: rgba(75, 75, 75, 1);
+	white-space: nowrap;
+	width: 100%;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+div#message_single_timestamp {
+	margin-top: 17px;
+	float: right;
+}
+
+div#message_single_timestamp p {
+	font-family: Helvetica, Arial;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
+}
+
+div.message_read div.actions, div.message_unread div.actions {
+	height: 50px;
+	width: 10px;
+	float: right;
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+div.message_read input, div.message_unread input {
+	height: 10px;
+	width: 10px;
+	border: none;
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+}
+
+div.message_read input {
+	background: rgba(97, 196, 25, 1);
+}
+
+div.message_read input:hover {
+	background: rgba(255, 255, 255, 1);
+	border: 3px solid rgba(97, 196, 25, 1);
+}
+
+div.message_unread input {
+	background: rgba(48, 157, 207, 1);
+}
+
+div.message_unread input:hover {
+	background: rgba(255, 255, 255, 1);
+	border: 3px solid rgba(48, 157, 207, 1);
+}
+
+div.mark_as_read {
+	padding: 5px;
+	text-align: center;
+	font-family: Verdana;
+	font-size: 11px;
+	color: rgba(255, 255, 255, 1);
+	background: rgba(75, 75, 75, .75);
+	position: absolute;
+	margin-top: -10px;
+	margin-left: -50px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	display: none;
+}
+
+div.mark_as_unread {
+	padding: 5px;
+	text-align: center;
+	font-family: Verdana;
+	font-size: 11px;
+	color: rgba(255, 255, 255, 1);
+	background: rgba(75, 75, 75, .75);
+	position: absolute;
+	margin-top: -10px;
+	margin-left: -65px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	display: none;
+}
+
+a#message_index_content_anchor {
+	color: rgba(75, 75, 75, 1);
+}
+
+a#message_index_content_anchor:hover {
+	color: rgba(75, 75, 75, 1);
+	text-decoration: none;
+}
