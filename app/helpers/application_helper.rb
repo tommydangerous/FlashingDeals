@@ -29,4 +29,8 @@ module ApplicationHelper
 	    in_tot_count : in_collection.offset + in_collection.per_page
 	  "Displaying deals #{in_collection.offset + 1} - #{endnumber} of #{in_tot_count} in total"
 	end
+	
+	def to_html(str)
+		simple_format h(str)
+	end
 end
