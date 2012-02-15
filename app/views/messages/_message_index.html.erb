@@ -47,7 +47,7 @@
 			<%= link_to User.find(message.user_id).name %>
 		</div>
 		<div id="message_single_content">
-			<p><%= message.content %></p>
+			<p><%= auto_link(strip_tags(message.content), :all, :target => "_blank") %></p>
 		</div>
 	<% end %>
 <% end %>

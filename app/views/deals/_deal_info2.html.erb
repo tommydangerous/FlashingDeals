@@ -106,7 +106,7 @@
 			<% if signed_in? %>
 				<%= render 'the_flash_deal_info' %>
 			<% else %>
-				<p><%= to_html(h auto_link(@deal.info, :all, :target => "_blank")) %></p>
+				<p><%= to_html(auto_link(@deal.info, :all, :target => "_blank")) %></p>
 			<% end %>
 		</div>
 		<% flash.each do |key, value| %>
