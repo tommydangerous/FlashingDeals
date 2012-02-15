@@ -20,6 +20,7 @@ name NOT ILIKE '%bluetooth%' AND
 name NOT ILIKE '%elitebook%' AND
 name NOT ILIKE '%facebook%' AND
 name NOT ILIKE '%fujifilm%' AND
+name NOT ILIKE '%inspiron%' AND
 name NOT ILIKE '%laptop%' AND
 name NOT ILIKE '%macbook%' AND
 name NOT ILIKE '%motherboard%' AND
@@ -29,7 +30,8 @@ name NOT ILIKE '%notebook%' AND
 name NOT ILIKE '%probook%' AND
 name NOT ILIKE '%redbox%' AND
 name NOT ILIKE '%rental%' AND
-name NOT ILIKE '%webcam%'
+name NOT ILIKE '%webcam%' AND
+name NOT ILIKE '%zotac%'
 
 											")
 	deals.each do |deal|

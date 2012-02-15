@@ -22,6 +22,7 @@ name ILIKE '%reader digest%'
 	
 name NOT ILIKE '%bookcase%' AND	
 name NOT ILIKE '%bookshelf%' AND
+name NOT ILIKE '%clip light%' AND
 name NOT ILIKE '%elitebook%' AND
 name NOT ILIKE '%facebook%' AND
 name NOT ILIKE '%macbook%' AND

@@ -159,3 +159,12 @@ div.mark_as_unread {
 	border-radius: 2px;
 	display: none;
 }
+
+a#message_index_content_anchor {
+	color: rgba(75, 75, 75, 1);
+}
+
+a#message_index_content_anchor:hover {
+	color: rgba(75, 75, 75, 1);
+	text-decoration: none;
+}

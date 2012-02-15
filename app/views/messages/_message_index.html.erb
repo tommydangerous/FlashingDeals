@@ -3,7 +3,7 @@
 		<%= link_to(message, :id =>"message_single_link") do %>
 		<% end %>
 		<div id="message_single_gravatar">
-			<%= link_to User.find(message.user_id) do %>
+			<%= link_to message do %>
 				<%= image_tag(User.find(message.user_id).photo.url, :id => "user_photo_small") %>
 			<% end %>
 		</div>
@@ -18,10 +18,14 @@
 			<% end %>
 		</div>
 		<div id="message_single_name">
-			<%= link_to User.find(message.user_id).name %>
+			<%= link_to User.find(message.user_id).name, message %>
 		</div>
 		<div id="message_single_content">
-			<p><%= message.content %></p>
+			<p>
+				<%= link_to(message, :id => "message_index_content_anchor") do %>
+					<%= strip_tags(message.content) %>
+				<% end %>
+			</p>
 		</div>
 	<% end %>
 <% else %>
@@ -29,7 +33,7 @@
 		<%= link_to(message, :id =>"message_single_link") do %>
 		<% end %>
 		<div id="message_single_gravatar">
-			<%= link_to User.find(message.user_id) do %>
+			<%= link_to message do %>
 				<%= image_tag(User.find(message.user_id).photo.url, :id => "user_photo_small") %>
 			<% end %>
 		</div>
@@ -44,10 +48,14 @@
 			<% end %>
 		</div>
 		<div id="message_single_name">
-			<%= link_to User.find(message.user_id).name %>
+			<%= link_to User.find(message.user_id).name, message %>
 		</div>
 		<div id="message_single_content">
-			<p><%= auto_link(strip_tags(message.content), :all, :target => "_blank") %></p>
+			<p>
+				<%= link_to(message, :id => "message_index_content_anchor") do %>
+					<%= strip_tags(message.content) %>
+				<% end %>
+			</p>
 		</div>
 	<% end %>
 <% end %>

@@ -24,6 +24,7 @@ name ILIKE '%zenbook%'
 											")
 	deals = deals.where("
 
+name NOT ILIKE '%cell phone%' AND
 name NOT ILIKE '%claritin%' AND
 name NOT ILIKE '%corsair%' AND	
 name NOT ILIKE '%crucial%' AND
@@ -31,7 +32,12 @@ name NOT ILIKE '%desk%' AND
 name NOT ILIKE '%external sata%' AND
 name NOT ILIKE '%g skill%' AND
 name NOT ILIKE '%g. skill%' AND
+name NOT ILIKE '%helicopter%' AND
 name NOT ILIKE '%internal sata%' AND
+name NOT ILIKE '%ipad app%' AND
+name NOT ILIKE '%iphone app%' AND
+name NOT ILIKE '%juniorwatch%' AND
+name NOT ILIKE '%junior watch%' AND
 name NOT ILIKE '%kingston%' AND
 name NOT ILIKE '%melatonin%' AND
 name NOT ILIKE '%mucinex%' AND

@@ -83,7 +83,8 @@ name NOT ILIKE '%card case%' AND
 name NOT ILIKE '%chat%' AND
 name NOT ILIKE '%damask%' AND
 name NOT ILIKE '%manhattan%' AND
-name NOT ILIKE '%shoe%'
+name NOT ILIKE '%shoe%' AND
+name NOT ILIKE '%table%'
 	
 											")
 	deals.each do |deal|

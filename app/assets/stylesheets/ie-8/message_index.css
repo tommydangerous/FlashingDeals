@@ -173,5 +173,13 @@ div.mark_as_unread {
 	background: -ms-linear-gradient(top,  rgba(75,75,75,0.75) 0%,rgba(75,75,75,0.75) 100%); /* IE10+ */
 	background: linear-gradient(top,  rgba(75,75,75,0.75) 0%,rgba(75,75,75,0.75) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bf4b4b4b', endColorstr='#bf4b4b4b',GradientType=0 ); /* IE6-8 */
+}
 
+a#message_index_content_anchor {
+	color: rgb(75, 75, 75);
+}
+
+a#message_index_content_anchor:hover {
+	color: rgb(75, 75, 75);
+	text-decoration: none;
 }
