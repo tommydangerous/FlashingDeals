@@ -469,11 +469,13 @@ div#up img, div#down img {
 	transition: all .1s linear;
 }
 
-/*
 div#up img:hover, div#down img:hover {
 	opacity: .75;
 }
-*/
+
+div#up img:active, div#down img:active {
+	opacity: .5;
+}
 
 #red {
 	color: rgba(255, 26, 0, 1);
