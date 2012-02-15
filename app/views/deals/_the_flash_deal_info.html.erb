@@ -1,7 +1,7 @@
 <% if current_user.admin? %>
 	<div onclick="toggleInfoEditForm();">
-		<p><%= h auto_link(to_html(@deal.info), :all, :target => "_blank") %></p>
+		<p><%= to_html(h auto_link(@deal.info, :all, :target => "_blank")) %></p>
 	</div>
 <% else %>
-	<p><%= h auto_link(to_html(@deal.info), :all, :target => "_blank") %></p>
+	<p><%= to_html(h auto_link(@deal.info, :all, :target => "_blank")) %></p>
 <% end %>
