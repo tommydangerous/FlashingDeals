@@ -776,6 +776,10 @@ div.categories ul {
 }
 
 div.categories a {
+	display: block;
+	width: 148px;
+	padding-top: 3px;
+	padding-bottom: 2px;
 	text-decoration: none;
 	color: rgb(150, 150, 150);
 	font-size: 12px;
