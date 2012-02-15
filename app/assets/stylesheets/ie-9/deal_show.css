@@ -469,9 +469,11 @@ div#up img, div#down img {
 	transition: all .1s linear;
 }
 
+/*
 div#up img:hover, div#down img:hover {
 	opacity: .75;
 }
+*/
 
 #red {
 	color: rgba(255, 26, 0, 1);
@@ -527,7 +529,7 @@ div#info_edit_the_flash {
 div#info_edit_the_flash textarea {
 	width: 695px;
 	padding: 5px;
-	height: 32px;
+	height: 160px;
 	font-family: Helvetica, Arial;
 	font-size: 14px;
 	color: rgba(75, 75, 75, 1);

@@ -1,0 +1,56 @@
+div#side_deal {
+	width: 17%;
+	float: left;
+	background: rgba(255, 255, 255, 1);
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	border: 2px solid rgba(148, 222, 240, 1);
+	padding: 1%;
+}
+
+div#side_deal_title {
+	border-bottom: 1px solid rgba(200, 200, 200, 1);
+}
+
+div#side_deal_title h1 {
+	font-family: Verdana;
+	font-size: 20px;
+	color: rgba(75, 75, 75, 1);
+	margin: 0;
+	padding-bottom: 5px;
+}
+
+div#side_deal_content {
+	padding: 5px;
+}
+
+div#side_deal_content h1 {
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	font-weight: bold;
+	color: rgba(75, 75, 75, 1);
+	margin: 0;
+	padding: 5px 0px;
+}
+
+div.side_deals ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+div.side_deals a {
+	text-decoration: none;
+	color: rgba(150, 150, 150, 1);
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Helvetica, Arial;
+}
+
+div.side_deals a:hover {
+	opacity: .75;
+	text-decoration: underline;
+}

@@ -1,0 +1,79 @@
+div#messages_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/messages.png");
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: left 4px;
+}
+
+div#new_message_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/new_message.png");
+	background-size: 20px 17px;
+	background-repeat: no-repeat;
+	background-position: left 6px;
+}
+
+div#send_message_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/send_message.png");
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: left 4px;
+}
+
+div#friend_requests_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/friend_requests.png");
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: left 4px;
+}
+
+div#my_friends_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/my_friends.png");
+	background-size: 20px 18px;
+	background-repeat: no-repeat;
+	background-position: left 5px;
+}
+
+div#shared_deals_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/shared_deals.png");
+	background-size: 20px 11px;
+	background-repeat: no-repeat;
+	background-position: left 8px;
+}
+
+div#remove_all_shared_deals_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/remove_all_shared_deals.png");
+	background-size: 20px 11px;
+	background-repeat: no-repeat;
+	background-position: left 8px;
+}
+
+div#mark_all_read_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/mark_all_read.png");
+	background-size: 20px 17px;
+	background-repeat: no-repeat;
+	background-position: left 6px;
+}

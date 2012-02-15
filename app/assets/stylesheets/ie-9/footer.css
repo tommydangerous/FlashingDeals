@@ -81,6 +81,7 @@ div#copyright {
 	width: 100%;
 	text-align: center;
 	background: rgba(50, 50, 50, 1);
+	position: relative;
 }
 
 p.copyright {
