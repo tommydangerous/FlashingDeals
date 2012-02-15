@@ -192,6 +192,9 @@ def dealnews_computers
 				minute = minute[/[0-9]+/]
 				posted = Chronic::parse("#{minute} minutes ago")
 			end
+			if posted.nil?
+				posted = Time.now
+			end
 			
 			# metric
 			metric = (rating - @array_avg)/@std_dev
@@ -293,6 +296,9 @@ def dealnews_clothing
 				minute = date[/[0-9]+ [min]+/]
 				minute = minute[/[0-9]+/]
 				posted = Chronic::parse("#{minute} minutes ago")
+			end
+			if posted.nil?
+				posted = Time.now
 			end
 			
 			# metric
@@ -396,6 +402,9 @@ def dealnews_electronics
 				minute = minute[/[0-9]+/]
 				posted = Chronic::parse("#{minute} minutes ago")
 			end
+			if posted.nil?
+				posted = Time.now
+			end
 			
 			# metric
 			metric = (rating - @array_avg)/@std_dev
@@ -497,6 +506,9 @@ def dealnews_travel
 				minute = date[/[0-9]+ [min]+/]
 				minute = minute[/[0-9]+/]
 				posted = Chronic::parse("#{minute} minutes ago")
+			end
+			if posted.nil?
+				posted = Time.now
 			end
 			
 			# metric

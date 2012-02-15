@@ -27,6 +27,13 @@ class Deal < ActiveRecord::Base
 									:comment_count,
 									:point_count
 	
+									
+	validates :name, :presence => true
+	validates :link, :presence => true
+	validates :image, :presence => true
+	validates :posted, :presence => true
+	validates :metric, :presence => true
+							
 	has_many :relationships, :foreign_key => "watched_id", :dependent => :destroy
 	has_many :watchers, :through => :relationships, :source => :watcher
 	

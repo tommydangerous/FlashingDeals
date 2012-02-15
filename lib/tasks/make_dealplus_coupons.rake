@@ -49,6 +49,9 @@ def make_dealplus_coupons
 			# posted
 			date = row.css('div[class*="coupon-poster"]').inner_text
 			posted = Chronic::parse(date)
+			if posted.nil?
+				posted = Time.now
+			end
 
 			# metric
 			metric = -1
