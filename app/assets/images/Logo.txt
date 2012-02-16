@@ -3,4 +3,6 @@ iframe: font-size: 30, outline-zie: 3, opacity: 25, tilt X: 0, fade height: 50, 
 
 FDSplash Logo: font-size: 60, outline-size: 5, DROP, x offset: 4, y offset: 4, blur: 10, shadow color: black, opacity: 50
 
+FD symbol logo: font-size: 180, outline-size: 15, DROP, x offset: 2, y offset: 2, blur: 10, opacity: 50
+
 color: rgba( 71, 224, 255, 1 )
