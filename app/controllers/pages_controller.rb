@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+	before_filter :gm_user, :only => :test
 
 	def about
 		@title = "About Us"
@@ -50,5 +51,10 @@ class PagesController < ApplicationController
 	
 	def page_not_found
 		@title = "Wonderland"
+	end
+	
+	def test
+		@title = "Test"
+		render :layout => false
 	end
 end

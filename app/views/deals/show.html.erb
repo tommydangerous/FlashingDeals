@@ -53,7 +53,9 @@
 			<div id="share">
 				<ul>
 					<li>
-						<%= mail_to "your@friend.com", emailButton, :subject => "#{@deal.name}", :body => "Find this awesome deal at #{request.url}" %>
+						<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=<%= request.url %>" class="example4demo">
+							<%= emailButton %>
+						</a>
 					</li>
 					<li>
 						<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= @deal.name %>%20<%= request.url %>&via=FlashingDeals" target="_blank">
@@ -99,6 +101,12 @@ $('.example3demo').popupWindow({
 	centerScreen:1,
 	resizable: 1,
 	height: 375,
+	width: 675
+}); 
+$('.example4demo').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 500,
 	width: 675
 }); 
 </script>
