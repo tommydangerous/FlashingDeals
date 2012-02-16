@@ -52,6 +52,14 @@
 			</div>
 			<div id="share">
 				<ul>
+					<li>
+						<%= mail_to "your@friend.com", emailButton, :subject => "#{@deal.name}", :body => "Find this awesome deal at #{request.url}" %>
+					</li>
+					<li>
+						<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= @deal.name %>%20<%= request.url %>&via=FlashingDeals" target="_blank">
+							<%= twitterButton %>
+						</a>
+					</li>
 					<li id="facebook_buttons_li">
 						<div id="fb-root"></div>
 						<ul id="facebook_buttons">
@@ -63,12 +71,6 @@
 							</li>
 						</ul>
 					</li>
-					<li>
-						<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= @deal.name %>%20<%= request.url %>&via=FlashingDeals" target="_blank">
-							<%= twitterButton %>
-						</a>
-					</li>
-					<li><%= mail_to "your@friend.com", emailButton, :subject => "#{@deal.name}", :body => "Find this awesome deal at #{request.url}" %></li>
 				</ul>
 			</div>
 		</div>
@@ -99,13 +101,4 @@
 <%= render 'deal_info2' %>
 <script>
 setInterval(adjustImage);
-!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
-
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
 </script>
