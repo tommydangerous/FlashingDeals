@@ -60,16 +60,10 @@
 							<%= twitterButton %>
 						</a>
 					</li>
-					<li id="facebook_buttons_li">
-						<div id="fb-root"></div>
-						<ul id="facebook_buttons">
-							<li>
-								<div class="fb-like" data-href="<%= request.url %>" data-send="false" data-layout="button_count" data-show-faces="false" data-font="verdana"></div>
-							</li>
-							<li>
-								<div class="fb-send" data-href="<%= request.url %>" data-font="verdana"></div>
-							</li>
-						</ul>
+					<li>
+						<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>">
+							<%= facebookButton %>
+						</a>
 					</li>
 				</ul>
 			</div>
