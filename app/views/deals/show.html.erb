@@ -61,7 +61,7 @@
 						</a>
 					</li>
 					<li>
-						<a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>">
+						<a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" class="example3demo">
 							<%= facebookButton %>
 						</a>
 					</li>
@@ -95,4 +95,10 @@
 <%= render 'deal_info2' %>
 <script>
 setInterval(adjustImage);
+$('.example3demo').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 375,
+	width: 675
+}); 
 </script>
