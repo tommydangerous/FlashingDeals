@@ -6,6 +6,7 @@ end
 def assign_sports
 	deals = @deals.where("
 
+name ILIKE '%arm pad%' OR
 name ILIKE '%arrow%' OR
 name ILIKE '%badminton%' OR
 name ILIKE '%baseball%' OR
@@ -20,6 +21,7 @@ name ILIKE '%guns%' OR
 name ILIKE '%hockey%' OR
 name ILIKE '%hunting%' OR
 name ILIKE '%lacrosse%' OR
+name ILIKE '%maxxis advantage%' OR
 name ILIKE '%mlb%' OR
 name ILIKE '%mtg tube%' OR
 name ILIKE '%ncaa%' OR
@@ -27,6 +29,7 @@ name ILIKE '%nba%' OR
 name ILIKE '%nfl%' OR
 name ILIKE '%nhl%' OR
 name ILIKE '%north face%' OR
+name ILIKE '%orca compression%' OR
 name ILIKE '%pga%' OR
 name ILIKE '%resistance band%' OR
 name ILIKE '%rifle%' OR

@@ -25,6 +25,7 @@ name ILIKE '%lady%' OR
 name ILIKE '%lancome%' OR 
 name ILIKE '%lip gloss%' OR
 name ILIKE '%michael stars%' OR 
+name ILIKE '%motherhood maternity%' OR
 name ILIKE '%purse%' OR 
 name ILIKE '%sally beauty%' OR 
 name ILIKE '%sephora%' OR 

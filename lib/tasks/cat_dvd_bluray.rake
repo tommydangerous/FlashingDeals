@@ -17,6 +17,7 @@ name ILIKE '%film%'
 	deals = deals.where("
 	
 name NOT ILIKE '%bluetooth%' AND
+name NOT ILIKE '%desktop%' AND
 name NOT ILIKE '%elitebook%' AND
 name NOT ILIKE '%facebook%' AND
 name NOT ILIKE '%fujifilm%' AND

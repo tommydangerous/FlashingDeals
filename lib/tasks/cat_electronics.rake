@@ -10,6 +10,7 @@ def assign_electronics
 name ILIKE '%acer%' OR
 name ILIKE '%amd%' OR
 name ILIKE '%asus%' OR
+name ILIKE '%audio system%' OR
 name ILIKE '%battery%' OR
 name ILIKE '%belkin%' OR
 name ILIKE '%bluetooth%' OR 
@@ -30,6 +31,7 @@ name ILIKE '%edimax%' OR
 name ILIKE '%electronic%' OR
 name ILIKE '%epson stylus%' OR
 name ILIKE '%ethernet%' OR 
+name ILIKE '%extension cable%' OR
 name ILIKE '%flash drive%' OR
 name ILIKE '%flash memory%' OR
 name ILIKE '%frys%' OR 
@@ -61,6 +63,7 @@ name ILIKE '%linksys%' OR
 name ILIKE '%logitech%' OR
 name ILIKE '%maxell%' OR
 name ILIKE '%media player%' OR
+name ILIKE '%mediasonic%' OR
 name ILIKE '%memory card%' OR 
 name ILIKE '%micro sd%' OR
 name ILIKE '%micro sdhc%' OR
@@ -85,6 +88,7 @@ name ILIKE '%philips%' OR
 name ILIKE '%pioneer%' OR
 name ILIKE '%printer%' OR
 name ILIKE '%projector%' OR
+name ILIKE '%pyle%' OR
 name ILIKE '%radeon%' OR
 name ILIKE '%rosewill%' OR
 name ILIKE '%router%' OR 
@@ -92,12 +96,14 @@ name ILIKE '%samsung%' OR
 name ILIKE '%sandisk%' OR
 name ILIKE '%satellite radio%' OR 
 name ILIKE '%seagate%' OR
+name ILIKE '%sennheiser%' OR
 name ILIKE '%skullcandy%' OR
 name ILIKE '%speaker%' OR
 name ILIKE '%solid state drive%' OR 
 name ILIKE '%sony%' OR 
 name ILIKE '%ssd%' OR 
 name ILIKE '%tablet%' OR
+name ILIKE '%thrustmaster%' OR
 name ILIKE '%tomtom%' OR
 name ILIKE '%toner cartridge%' OR
 name ILIKE '%toner compatible%' OR

@@ -18,6 +18,7 @@ name ILIKE '%gem%' OR
 name ILIKE '%jewelry%' OR 
 name ILIKE '%locket%' OR
 name ILIKE '%necklace%' OR 
+name ILIKE '%pave studs%' OR
 name ILIKE '%pearl%' OR
 name ILIKE '%pendant%' OR 
 name ILIKE '%ring%' OR

@@ -29,6 +29,7 @@ name ILIKE '%mitts%' OR
 name ILIKE '%mug%' OR
 name ILIKE '%orrefors helena%' OR 
 name ILIKE '%rubberwood%' OR
+name ILIKE '%pfaltzgraff%' OR
 name ILIKE '%pressure cooker%' OR
 name ILIKE '%salt%' OR 
 name ILIKE '%silverware%' OR

@@ -33,13 +33,16 @@ name ILIKE '%lysol%' OR
 name ILIKE '%memory foam%' OR 
 name ILIKE '%ornament%' OR 
 name ILIKE '%ottoman%' OR 
+name ILIKE '%patio set%' OR
 name ILIKE '%picture frame%' OR
 name ILIKE '%pillow%' OR
 name ILIKE '%renuzit%' OR
 name ILIKE '%satin sheet%' OR
 name ILIKE '%sears%' OR 
 name ILIKE '%slanket%' OR 
+name ILIKE '%snuggie%' OR
 name ILIKE '%table%' OR
+name ILIKE '%thermostat%' OR
 name ILIKE '%tower valet%' OR 
 name ILIKE '%tv stand%' OR 
 name ILIKE '%we r memory keeper%' OR

@@ -10,16 +10,20 @@ def assign_accessories
 name ILIKE '%backpack%' OR
 name ILIKE '%belt%' OR 
 name ILIKE '%card case%' OR 
+name ILIKE '%credit card holder%' OR
 name ILIKE '%crossbody%' OR 
+name ILIKE '%daypack%' OR
 name ILIKE '%dry sack%' OR
 name ILIKE '%ear piece%' OR
 name ILIKE '%earpiece%' OR  
 name ILIKE '%glove%' OR
-name ILIKE '%handbag%' OR 
+name ILIKE '%handbag%' OR
+name ILIKE '%luggage guy%' OR
 name ILIKE '%money clip%' OR 
 name ILIKE '%purse%' OR 
 name ILIKE '%the tie thing%' OR
-name ILIKE '%tonal bamboo%'
+name ILIKE '%tonal bamboo%' OR
+name ILIKE '%wallet%'
 
 											")
 	deals = deals.where("

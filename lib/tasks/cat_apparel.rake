@@ -28,6 +28,7 @@ name ILIKE '%helmet%' OR
 name ILIKE '%hollister%' OR
 name ILIKE '%hooded top%' OR
 name ILIKE '%hoodie%' OR
+name ILIKE '%hoody%' OR
 name ILIKE '%huggies%' OR
 name ILIKE '%jacket%' OR
 name ILIKE '%jean%' OR
@@ -43,6 +44,7 @@ name ILIKE '%matix morton%' OR
 name ILIKE '%michael stars%' OR 
 name ILIKE '%monogram%' OR
 name ILIKE '%monterey bay%' OR 
+name ILIKE '%motherhood maternity%' OR
 name ILIKE '%mountain hardwear%' OR
 name ILIKE '%neiman marcus%' OR 
 name ILIKE '%north face%' OR

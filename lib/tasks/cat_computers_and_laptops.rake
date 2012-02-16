@@ -13,6 +13,7 @@ name ILIKE '%ipad%' OR
 name ILIKE '%laptop%' OR
 name ILIKE '%lenovo%' OR
 name ILIKE '%macbook%' OR
+name ILIKE '%mouse pad%' OR
 name ILIKE '%netbook%' OR
 name ILIKE '%notebook%' OR
 name ILIKE '%powerbook%' OR

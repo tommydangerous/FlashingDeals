@@ -75,6 +75,7 @@ name ILIKE '%zinfandel%'
 name NOT ILIKE '%as seen on tv%' AND
 name NOT ILIKE '%asalto%' AND
 name NOT ILIKE '%butter yellow%' AND
+name NOT ILIKE '%cell phone%' AND
 name NOT ILIKE '%cuisinart%' AND
 name NOT ILIKE '%defender%' AND
 name NOT ILIKE '%dinnerware%' AND
@@ -84,7 +85,10 @@ name NOT ILIKE '%food processor%' AND
 name NOT ILIKE '%hooded top%' AND
 name NOT ILIKE '%kitchenaid%' AND
 name NOT ILIKE '%panasonic%' AND
-name NOT ILIKE '%seasonic%'
+name NOT ILIKE '%radio%' AND
+name NOT ILIKE '%seasonic%' AND
+name NOT ILIKE '%shirt%' AND
+name NOT ILIKE '%sony ericsson%'
 	
 											")
 	deals.each do |deal|
