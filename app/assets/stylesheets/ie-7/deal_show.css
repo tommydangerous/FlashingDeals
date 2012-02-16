@@ -234,6 +234,7 @@ div#share ul {
 	height: 51px;
 	margin: 0;
 	padding: 10px 0px;
+	padding-left: 10px;
 }
 
 div#share ul li{
@@ -241,6 +242,11 @@ div#share ul li{
 	list-style-type: none;
 	display: inline;
 	padding: 0px 10px;
+	float: left;
+}
+
+div#share ul li#facebook_buttons_li {
+
 }
 
 div#share ul li a {
@@ -250,6 +256,10 @@ div#share ul li a {
 	-o-transition: all .2s ease-in-out;
 	transition: all .2s ease-in-out;
 	opacity: .8;
+}
+
+div#share ul li a:hover {
+	opacity: 1;
 }
 
 div#share img {
@@ -267,8 +277,24 @@ div#share img {
 	box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
 }
 
-div#share ul li a:hover {
-	opacity: 1;
+div#share ul#facebook_buttons {
+	padding: 0;
+	width: 75px;
+}
+
+div#share ul#facebook_buttons li {
+	display: block;
+	height: 22px;
+	padding: 2px 0px;
+	width: 75px;
+}
+
+div.fb-like {
+	float: left;
+}
+
+div.fb-send {
+	float: left;
 }
 
 div#deal_summary_container {

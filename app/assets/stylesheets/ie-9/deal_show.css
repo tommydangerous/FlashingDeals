@@ -278,6 +278,10 @@ div#share ul li{
 	padding: 0px 10px;
 }
 
+div#share ul li#facebook_buttons_li {
+	width: 75px;
+}
+
 div#share ul li a {
 	-webkit-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -304,6 +308,24 @@ div#share img {
 	-ms-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
 	-o-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
 	box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+}
+
+div#share ul#facebook_buttons {
+	padding: 0;
+}
+
+div#share ul#facebook_buttons li {
+	display: block;
+	height: 22px;
+	padding: 2px 0px;
+}
+
+div.fb-like {
+	float: left;
+}
+
+div.fb-send {
+	float: left;
 }
 
 div#deal_summary_container {
