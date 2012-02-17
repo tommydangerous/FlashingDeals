@@ -241,7 +241,7 @@ class DealsController < ApplicationController
 		@deal = Deal.new(params[:deal])
 		if @deal.save
 			flash[:success] = "Deal created."
-			redirect_to root_path
+			redirect_to @deal
 		else
 			@title = "Create Deal"
 			render 'new'
