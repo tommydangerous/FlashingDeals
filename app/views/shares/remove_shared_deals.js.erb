@@ -1,1 +1,5 @@
 $("div.deal_single").remove();
+$("span#shared_deals_profile_partial").html("<%= escape_javascript(render("users/shared_deals_profile")) %>")
+$("span#shared_deals_count").html("0")
+$("span#count").html("")
+$("div.shared_deals_count").html("<%= escape_javascript(render("users/my_account_shared_deals")) %>")

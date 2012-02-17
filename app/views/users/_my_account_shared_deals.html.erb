@@ -1,0 +1,7 @@
+<% if current_user.inverse_deals.where("posted > ?", current_user.duration).size > 99 %>
+	Shared Deals <span class="green">+++</span>
+<% elsif current_user.inverse_deals.where("posted > ?", current_user.duration).size > 0 && current_user.inverse_deals.where("posted > ?", current_user.duration).size <= 99 %>
+	Shared Deals (<%= current_user.inverse_deals.where("posted > ?", current_user.duration).size %>)
+<% else %>
+	Shared Deals
+<% end %>

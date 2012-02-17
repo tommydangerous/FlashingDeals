@@ -28,25 +28,31 @@
 							<li><%= link_to "All Users", users_path %></li>
 						<% end %>
 						<li>
-							<% if current_user.received_messages.where("read = ?", false).count == 0 %>
+							<% if current_user.received_messages.where("read = ?", false).size == 0 %>
 								<%= link_to messages_path do %>
 									Messages <span class="message_unread_count"></span>
 								<% end %>
 							<% else %>
 								<%= link_to messages_path do %>
-									Messages <span class="message_unread_count">(<%=current_user.received_messages.where("read = ?", false).count %>)</span>
+									Messages <span class="message_unread_count">(<%= current_user.received_messages.where("read = ?", false).size %>)</span>
 								<% end %>
 							<% end %>
 						</li>
 						<% unless current_user.request_friends.empty? %>
 							<li id="my_account_drop_down_friend_requests">
 								<%= link_to friend_requests_path do %>
-									Friend Requests <span class="friend_request_count">(<%= current_user.request_friends.count %>)</span>
+									Friend Requests <span class="friend_request_count">(<%= current_user.request_friends.size %>)</span>
 								<% end %>
 							</li>
 						<% end %>
 						<li><%= link_to "My Friends", friends_user_path(current_user) %></li>
-						<li><%= link_to "Shared Deals", shared_deals_path %></li>
+						<li>
+							<%= link_to shared_deals_path do %>
+								<div class="shared_deals_count">
+									<%= render "users/my_account_shared_deals" %>
+								</div>
+							<% end %>
+						</li>
 						<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 						<li id="logout"><%= link_to "Logout", logout_path %></li>
 					</ul>

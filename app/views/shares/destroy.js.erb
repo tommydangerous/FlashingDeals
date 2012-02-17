@@ -2,3 +2,4 @@ $("div#shared_deal_"+<%= @deal.id %>).remove();
 $("span#shared_deals_profile_partial").html("<%= escape_javascript(render("users/shared_deals_profile")) %>")
 $("span#shared_deals_count").html("<%= "#{@deals.size}" %>")
 $("span#count").html("")
+$("div.shared_deals_count").html("<%= escape_javascript(render("users/my_account_shared_deals")) %>")
