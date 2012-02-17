@@ -8,8 +8,8 @@
 			<div class="field">
 				<p>Name: <%= f.text_field :name, :autocomplete => "off", :placeholder => "Required" %></p>
 			</div>
-			<div class="field">
-				<p>Info: <%= f.text_field :info, :autocomplete => "off" %></p>
+			<div id="field_deal_info" class="field">
+				<p>Info: <%= f.text_area :info, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
 				<p>Price: <%= f.text_field :price, :autocomplete => "off", :placeholder => "Required" %></p>
