@@ -73,6 +73,12 @@ FlashingDeal::Application.routes.draw do
   match '/my-account' => 'users#my_account', :as => :my_account
   match '/friend-requests' => 'users#friend_requests', :as => :friend_requests
   match '/shared-deals' => 'users#shared_deals', :as => :shared_deals
+# Ajax
+	match '/ajax' => 'ajax#ajax'
+	match '/ajax/ajax_received_messages' => 'ajax#ajax_received_messages'
+	match '/ajax/ajax_friend_requests' => 'ajax#ajax_friend_requests'
+	match '/ajax/ajax_shared_deals' => 'ajax#ajax_shared_deals'
+	match '/ajax/ajax_notification' => 'ajax#ajax_notification'
 # 404
   match '*url' => 'pages#page_not_found', :as => :page_not_found
 end

@@ -1,10 +1,3 @@
-<script>
-$(document).ready(function() {
-	setInterval("messageCount();", 5000);
-	setInterval("sharedDealCount();", 5000);
-	setInterval("accountNotice();", 5000);
-});
-
 function friendRequest() {
 	$.ajax({
 		url: "/ajax/ajax_friend_requests",
@@ -44,5 +37,3 @@ function accountNotice() {
 		}
 	})
 };
-</script>
-<div id="testing"></div>
