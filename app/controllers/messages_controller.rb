@@ -4,7 +4,13 @@ class MessagesController < ApplicationController
 	def index
 		@title = "Messages"
 		@user = current_user
-		@messages = current_user.received_messages.order("created_at DESC").paginate(:page => params[:page], :per_page => 40)
+		users = current_user.received_messages.map{ |m| m.user_id }.uniq
+		@msgs = []
+		users.each do |x|
+			@msgs.push(User.find(x).send_messages.where("recipient_id = ?", current_user.id).order("created_at DESC").first)
+		end
+		@messages = @msgs.sort_by { |message| message.created_at }.reverse
+#		@messages = current_user.received_messages.order("created_at DESC").paginate(:page => params[:page], :per_page => 40)
 	end
 	
 	def show
