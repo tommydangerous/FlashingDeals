@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120203164835) do
+ActiveRecord::Schema.define(:version => 20120217204537) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -92,14 +92,26 @@ ActiveRecord::Schema.define(:version => 20120203164835) do
   add_index "deals", ["city"], :name => "index_deals_on_city"
   add_index "deals", ["click_count"], :name => "index_deals_on_click_count"
   add_index "deals", ["comment_count"], :name => "index_deals_on_comment_count"
+  add_index "deals", ["created_at"], :name => "index_deals_on_created_at"
   add_index "deals", ["deal_order"], :name => "index_deals_on_deal_order"
+  add_index "deals", ["discount"], :name => "index_deals_on_discount"
   add_index "deals", ["flash_back"], :name => "index_deals_on_flash_back"
+  add_index "deals", ["link"], :name => "index_deals_on_link"
   add_index "deals", ["metric"], :name => "index_deals_on_metric"
   add_index "deals", ["name"], :name => "index_deals_on_name", :unique => true
   add_index "deals", ["point_count"], :name => "index_deals_on_point_count"
+  add_index "deals", ["posted"], :name => "index_deals_on_posted"
+  add_index "deals", ["price"], :name => "index_deals_on_price"
   add_index "deals", ["queue"], :name => "index_deals_on_queue"
+  add_index "deals", ["savings"], :name => "index_deals_on_savings"
+  add_index "deals", ["site"], :name => "index_deals_on_site"
   add_index "deals", ["slug"], :name => "index_deals_on_slug"
+  add_index "deals", ["tag"], :name => "index_deals_on_tag"
+  add_index "deals", ["time_in"], :name => "index_deals_on_time_in"
+  add_index "deals", ["time_out"], :name => "index_deals_on_time_out"
   add_index "deals", ["top_deal"], :name => "index_deals_on_top_deal"
+  add_index "deals", ["updated_at"], :name => "index_deals_on_updated_at"
+  add_index "deals", ["value"], :name => "index_deals_on_value"
   add_index "deals", ["view_count"], :name => "index_deals_on_view_count"
 
   create_table "editmarks", :force => true do |t|
