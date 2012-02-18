@@ -34,7 +34,7 @@ class DealsController < ApplicationController
   		max = 999
   	end
 		deals = Deal.where("posted > ? AND flash_back = ? AND metric >= ? AND metric < ?", @today_3, true, min, max)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 50)
+  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 100)
   	@deals_total_count = deals.search(params[:search]).size
   	if min == 0 && max == 999
   		@min = 0

@@ -36,7 +36,7 @@ class MessagesController < ApplicationController
 		@title = "#{@sender.name} - Messages"
 		@total_messages = current_user.received_messages
 		unless @message.user_id == current_user.id
-			unless @message.read == true
+			unless @received_messages.where("read = ?", false) == 0
 				@received_messages.where("read = ?", false).each do |message|
 					message.update_attribute(:read, true)
 				end
@@ -92,6 +92,12 @@ class MessagesController < ApplicationController
 	
 	def update
 		message = Message.find(params[:id])
+		user = current_user
+		sender = User.find(message.user_id)
+		received_messages = Message.where("user_id = #{sender.id} AND recipient_id = #{user.id} AND read = ? AND created_at < ?", false, message.created_at)
+		received_messages.each do |message|
+			message.update_attribute(:read, true)
+		end
 		if message.update_attribute(:read, params[:message][:read])
 			respond_to do |format|
 				format.html { redirect_to messages_path }
@@ -102,8 +108,7 @@ class MessagesController < ApplicationController
 		else
 			flash[:error] = "Message update failed."
 			redirect_to my_account_path
-		end
-		
+		end		
 	end
 	
 	def read_all

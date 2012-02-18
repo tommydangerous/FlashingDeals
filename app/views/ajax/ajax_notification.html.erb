@@ -1,4 +1,4 @@
 <% if current_user.request_friends.count == 0 && current_user.received_messages.where("read = ?", false).count == 0 %>
 <% else %>
-	<span class="red">!</span>
+<span class="red">!</span>
 <% end %>
