@@ -18,7 +18,7 @@ class DealsController < ApplicationController
 	end
 
   def flashback
-  	@title = "FlashBack"
+  	@title = "Featured Deals"
   	@today_3 = Time.now - (86400 * 3)
   	if params[:omega] == "alpha" && params[:zulu] == "bravo"
   		min = 0
@@ -88,7 +88,7 @@ class DealsController < ApplicationController
 
 # Only Logged In Users  
   def flashmob_deals
-  	@title = "FlashMob Deals"
+  	@title = "Community Deals"
   	if params[:deals_per_page] == "10"
   		per_page = 10
   	elsif params[:deals_per_page] == "20"

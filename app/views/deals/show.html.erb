@@ -1,5 +1,11 @@
 <% content_for :head do %>
-	<meta property="og:title" content="FlashingDeals | <%= @deal.name %>" />
+	<% if @deal.price.blank? %>
+		<meta property="og:title" content="FlashingDeals | <%= @deal.name %>" />
+	<% elsif @deal.name[/[$]/].nil? %>
+		<meta property="og:title" content="FlashingDeals | <%= @deal.name %> for <%= number_to_currency(@deal.price) %>" />
+	<% else %>
+		<meta property="og:title" content="FlashingDeals | <%= @deal.name %>" />
+	<% end %>
 	<meta property="og:description" content="<%= strip_tags(@deal.info) %>" />
 	<meta property="og:image" content="<%= @deal.image %>" />
 <% end %>

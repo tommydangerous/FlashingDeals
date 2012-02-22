@@ -5,12 +5,12 @@
   <div class="nav round">
     <ul class="header_nav">
       <li>
-      	<%= link_to "FlashBack", flashback_path, :id => "flashback", :class => "not_selected" %>
+      	<%= link_to "Featured Deals", flashback_path, :id => "flashback", :class => "not_selected" %>
       	<div id="flashback_arrow"></div>
     	</li>
       <% if signed_in? %>
       <li>
-      	<%= link_to "FlashMob", flashmob_deals_path, :id => "flashmob_deals", :class => "not_selected" %>
+      	<%= link_to "Community Deals", flashmob_deals_path, :id => "flashmob_deals", :class => "not_selected" %>
       	<div id="flashmob_arrow"></div>
     	</li>
     	<li>
@@ -59,8 +59,8 @@
 				</div>
 			</li>
       <% else %>
-      <li><%= link_to "FlashMob", signup_path, :class => "not_selected" %></li>
-      <li><%= link_to "Sign Up", signup_path, :class => "not_selected" %></li>
+      	<li><%= link_to "Community Deals", signup_path, :class => "not_selected" %></li>
+      	<li><%= link_to "Sign Up", signup_path, :class => "not_selected" %></li>
       <% end %>
     </ul>      	
     <ul class="account_nav">

@@ -3,7 +3,7 @@ div#my_account_drop_down {
 	z-index: 100;
 	width: 150px;
 	top: 65px;
-	margin-left: 100px;
+	margin-left: 10px;
 }
 
 div#my_account_drop_down ul {
