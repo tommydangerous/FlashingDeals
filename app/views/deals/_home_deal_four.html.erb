@@ -16,7 +16,9 @@
 			<% end %>
 		</div>
 		<div class="box_price_four">
-			<% if item.price.blank? %>
+			<% if item.price.blank? && item.discount != nil %>
+				<%= item.discount.round %>% Off
+			<% elsif item.price.blank? %>
 				<%= number_to_currency(0) %>
 			<% else %>
 				<%= number_to_currency(item.price) %>

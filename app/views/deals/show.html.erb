@@ -84,7 +84,9 @@
 				<%= image_tag("#{@deal.image}", :id => "deal_image") %>
 			</div>
 			<span id="price">
-				<% if @deal.price.blank? %>
+				<% if @deal.price.blank? && @deal.discount != nil %>
+					<%= @deal.discount.round %>% Off
+				<% elsif @deal.price.blank? %>
 					<%= number_to_currency(0) %>
 				<% else %>
 					<%= number_to_currency(@deal.price) %>

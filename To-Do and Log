@@ -1,0 +1,25 @@
+make sure featured deals and community deals arrows for all stylesheets are centered
+put deal price in the meta property, add conditional statement
+put price in title for deal
+if price value savings nil or blank and discount is not empty
+then make price show 20% Off
+show reply and redirect to sign in
+points are arrows and numbers far right, watch button and share deal is on top of each other
+blue arrow up
+blue arrow down
+remove show watchers
+remove found
+against white background
+make all internal buttons blue, make share deal button blue
+remove share with one friend
+eliminate flash points and the flash, replace with Community or Good People (Pending)
+change flashback to featured deals
+change flashmob to community deals
+change the wording for what is flashback?
+change the wording in the flashback page info
+remove electric deal qualification, leave only flashing deal of the day
+after putting deal info side by side with watch and share button, white space underneath use for coupon codes and misc info, like price comparisons
+deal attribute: deal extra info
+
+log
+show percent off if deal price blank and if deal discount not blank on home deal four, deal show, deal partial, user deal partial, and shared deal partial; made div col3 27% and padding 0px 2% 0px 0px

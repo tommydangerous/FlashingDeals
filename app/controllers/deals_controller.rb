@@ -321,6 +321,11 @@ class DealsController < ApplicationController
   def make_queue
 		deal = Deal.find(params[:id])
 		deals = Deal.where("queue = ?", true).order("deal_order ASC")
+		unless deals.last.nil?
+			if deals.last.deal_order.nil?
+				deals.last.update_attribute(:deal_order, 1)
+			end
+		end
 		if deals.last.nil?
   		deal_order = 1
   	else
