@@ -9,6 +9,20 @@
   		<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %>
 		</div>
   <% end %>
+  <div id="facebook_twitter_home">
+		<ul>
+			<li id="facebook_like_li">
+				<%= link_to("http://www.facebook.com/pages/FlashingDeals/254028428008396", :target => "_blank") do %>
+					<div id="facebook_like"></div>
+				<% end %>
+			</li>
+			<li id="twitter_follow_li">
+				<a href="https://twitter.com/FlashingDeals" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">
+					Follow @FlashingDeals
+				</a>
+			</li>
+		</ul>
+	</div>
 	<div id="view_four_deals">
 		<%= render :partial => 'home_deal_four', :collection => @deals, :as => :item %>
 	</div>

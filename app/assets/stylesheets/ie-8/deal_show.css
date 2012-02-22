@@ -124,6 +124,8 @@ div#deal_functions {
 div#deal_button {
 	text-align: center;
 	background: #C8EFF9;
+	border: 2px solid rgb(148, 222, 240);
+	border-left: none;
 	padding: 20px 0px;
 	margin-top: 10px;
 	-webkit-border-top-right-radius: 10px;
@@ -224,8 +226,8 @@ div#deal_stats span.deal_stats {
 
 div#share {
 	text-align: center;
-	background: rgb(210, 255, 210);
-	border: 2px solid rgb(101, 208, 84);
+	background: rgb(200, 239, 249);
+	border: 2px solid rgb(148, 222, 240);
 	border-left: none;
 	margin-top: 10px;
 	-webkit-border-top-right-radius: 10px;

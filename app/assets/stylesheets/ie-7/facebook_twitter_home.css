@@ -1,0 +1,36 @@
+div#facebook_twitter_home {
+	text-align: left;
+}
+
+div#facebook_twitter_home ul {
+	list-style-type: none;
+	height: 24px;
+	padding: 0;
+	margin: 0;
+	padding-left: 10px;
+}
+
+div#facebook_twitter_home ul li {
+	height: 22px;
+	display: inline;
+	float: left;
+	margin-right: 5px;
+}
+
+li#facebook_like_li {
+	width: 50px;
+}
+
+li#twitter_follow_li {
+	width: 61px;
+}
+
+div#facebook_like {
+	width: 47px;
+	height: 24px;
+	background: url("/assets/facebook_like.png");
+}
+
+div#facebook_like:hover {
+	background: url("/assets/facebook_like_hover.png");
+}

@@ -103,7 +103,7 @@ div#flashback_arrow {
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgba(110, 220, 90, 1);
-	margin-left: 42px;
+	margin-left: 41%;
 	margin-top: 12px;
 	display: none;
 }
@@ -114,7 +114,7 @@ div#flashmob_arrow {
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgba(110, 220, 90, 1);
-	margin-left: 40px;
+	margin-left: 41%;
 	margin-top: 12px;
 	display: none;
 }
@@ -125,7 +125,7 @@ div#my_deals_arrow {
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgba(110, 220, 90, 1);
-	margin-left: 39px;
+	margin-left: 41%;
 	margin-top: 12px;
 	display: none;
 }
