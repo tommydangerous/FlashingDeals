@@ -20,6 +20,8 @@
 				<%= item.discount.round %>% Off
 			<% elsif item.price.blank? %>
 				<%= number_to_currency(0) %>
+			<% elsif item.price == 0 %>
+				Free
 			<% else %>
 				<%= number_to_currency(item.price) %>
 			<% end %>

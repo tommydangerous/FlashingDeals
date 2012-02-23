@@ -63,6 +63,8 @@
 				<h1><%= deal.discount.round %>% Off</h1>
 			<% elsif deal.price.blank? %>
 				<h1>$</h1>
+			<% elsif deal.price == 0 %>
+				<h1>Free</h1>
 			<% else %>
 				<h1>$<%= (deal.price * 1.0).round %></h1>
 			<% end %>
