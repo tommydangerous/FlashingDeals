@@ -1,7 +1,8 @@
 <div id="deal_info2">
-	<h2>Flash Points 
+	<h2>Community Knowledge
 		<% if signed_in? %>
 			<% if current_user.admin? %>
+				<span id="edit_the_flash"><%= link_to "Edit", "javascript:void(0);", :onclick => "toggleInfoEditForm();" %></span>
 				<div id="comment_and_point_count">
 					Comment Count: <span id="comment_count"><%= @deal.comment_count %></span> <span class="grey_75">|</span>
 					Point Count: <span id="point_count"><%= @deal.point_count %></span>
@@ -16,92 +17,7 @@
 			<% end %>
 		<% end %>
 	</h2>
-	<div id="user_like">
-		<%= render "user_like" %>
-	</div>
-	<div id="user_dislike">
-		<%= render "user_dislike" %>
-	</div>
 	<div id="deal_summary_container">
-	<div id="deal_summary">
-		<div id="show_watchers">
-			<%= render 'show_watchers' %>
-		</div>
-		<div id="flash_points">
-			<div id="total_score">
-				<h1><%= @deal.plusminus %></h1>
-			</div>
-			<div id="scoring_partial">
-				<%= render "scoring_partial" %>
-			</div>
-		</div>
-		<div class="clear"></div>
-	</div>
-	<div id="deal_summary_side_panel">
-		<div id="watch_deal_info">
-			Save this to your "My Deals" and never lose sight of it!
-			<div id="watch_deal_info_triangle"></div>
-		</div>
-		<div class="add_deal">
-			<% if signed_in? %>
-				<%= render 'watch_form' %>
-			<% else %>
-				<div id="watch_form">
-					<div class="actions">
-						<%= link_to signup_path do %>
-							<input name="commit" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()">
-						<% end %>
-					</div>
-				</div>
-			<% end %>
-		</div>
-		<div class="summary">
-			<div id="deal_watchers">
-				<%= render "deal_watchers" %>
-			</div>
-			<% unless @deal.posted.nil? %>
-			<p>Found <span class="grey_75"><%= @deal.posted.strftime("%A %b %d, %Y") %></span> at <span class="grey_75"><%= @deal.posted.strftime("%I:%M %p") %></span></p>
-			<% end %>
-		</div>
-	</div>
-	<div id="deal_summary_side_panel_more">
-		<div id="share_all_info">
-			Share this deal with all your FD friends
-			<div id="share_all_info_triangle"></div>
-		</div>
-	<% if signed_in? %>
-		<div id="share_list">
-			<%= render 'shares/share_single_form' %>
-		</div>
-		<div id="share_form">
-			<%= render 'shares/share_all_form' %>
-		</div>
-		<div id="share_single">
-			<%= link_to "Share With One Friend", 'javascript:void(0)', :id => "share_single", :onclick => "showShareList();" %>
-		</div>
-	<% else %>
-		<div id="share_form_signup">
-			<%= link_to "Share Deal", signup_path, :onmouseover => "showShareAllInfo()", :onmouseout => "hideShareAllInfo()" %>
-		</div>
-	<% end %>
-	</div>
-	</div>
-	<div class="clear"></div>
-	<div id="the_flash">
-		<h1>The Flash 
-			<% if signed_in? %>
-				<% if current_user.admin? %>
-					<span id="edit_the_flash"><%= link_to "Edit", "javascript:void(0);", :onclick => "toggleInfoEditForm();" %></span>
-				<% end %>
-			<% end %>
-		</h1>
-		<% if signed_in? %>
-			<% if current_user.admin? %>
-			<div id="info_edit_the_flash">
-				<%= render 'deal_info_form' %>
-			</div>
-			<% end %>
-		<% end %>
 		<div id="info">
 			<% if signed_in? %>
 				<%= render 'the_flash_deal_info' %>
@@ -109,6 +25,84 @@
 				<p><%= to_html(auto_link(@deal.info, :all, :target => "_blank")) %></p>
 			<% end %>
 		</div>
+		<% if signed_in? %>
+			<% if current_user.admin? %>
+				<div id="info_edit_the_flash">
+					<%= render 'deal_info_form' %>
+				</div>
+			<% end %>
+		<% end %>
+		<div id="deal_summary_side_panel">
+			<div id="watch_deal_info">
+				Save this to your "My Deals" and never lose sight of it!
+				<div id="watch_deal_info_triangle"></div>
+			</div>
+			<div class="add_deal">
+				<% if signed_in? %>
+					<%= render 'watch_form' %>
+				<% else %>
+					<div id="watch_form">
+						<div class="actions">
+							<%= link_to signup_path do %>
+								<input name="commit" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()">
+							<% end %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+			<div id="share_all_info">
+				Share this deal with all your FD friends
+				<div id="share_all_info_triangle"></div>
+			</div>
+			<% if signed_in? %>
+				<div id="share_form">
+					<%= render 'shares/share_all_form' %>
+				</div>
+			<% else %>
+				<div id="share_form_signup">
+					<%= link_to "Share", signup_path, :onmouseover => "showShareAllInfo()", :onmouseout => "hideShareAllInfo()" %>
+				</div>
+			<% end %>
+		</div>
+		<div id="deal_summary">
+			<div id="user_like">
+				<%= render "user_like" %>
+			</div>
+			<div id="user_dislike">
+				<%= render "user_dislike" %>
+			</div>
+			<div id="flash_points">
+				<div id="up">
+					<% if signed_in? %>
+						<%= link_to(score_up_deal_path(@deal), :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()", :method => :post, :remote => true, :id => "like") do %>
+							<div id="like_arrow"></div>
+						<% end %>
+					<% else %>
+						<%= link_to(signup_path, :id => "like", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()") do %>
+							<div id="like_arrow"></div>
+						<% end %>
+					<% end %>
+				</div>
+				<div id="total_score">
+					<h1><%= @deal.plusminus %></h1>
+				</div>
+				<div id="down">
+					<% if signed_in? %>
+						<%= link_to(score_down_deal_path(@deal), :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()", :method => :post, :remote => true, :id => "dislike") do %>
+							<div id="dislike_arrow"></div>
+						<% end %>
+					<% else %>
+						<%= link_to(signup_path, :id => "dislike", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()") do %>
+							<div id="dislike_arrow"></div>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<div id="the_flash">
 		<% flash.each do |key, value| %>
   		<div class="flash <%= key %>">
   			<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %>

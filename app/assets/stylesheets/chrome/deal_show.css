@@ -331,28 +331,35 @@ div.fb-send {
 }
 
 div#deal_summary_container {
-	width: 100%;
-	height: 165px;
-	background: rgba(210, 255, 210, 1);
+	min-height: 110px;
+	margin-bottom: 20px;
+}
+
+div#info {
+	width: 471px;
+	padding: 0px 2%;
+	float: left;
+	vertical-align: top;
+	margin-bottom: 20px;
+}
+
+div#info p {
+	line-height: 19px;
+	font-size: 14px;
 }
 
 div#deal_summary {
-	width: 30%;
-	padding: 2%;
-	float: left;
+	width: 110px;
+	height: 90px;
+	padding: 5px 0px;
+	float: right;
 }
 
 div#deal_summary_side_panel {
-	width: 37%;
-	padding: 2% 0%;
-	float: left;
-}
-
-div#deal_summary_side_panel_more {
-	width: 25%;
-	height: 135px;
-	padding: 2%;
+	width: 125px;
+	height: 110px;
 	float: right;
+	padding-right: 2%;
 }
 
 div.summary {
@@ -363,8 +370,8 @@ div.summary {
 
 div.add_deal {
 	width: 100%;
-	text-align: center;
-	padding-bottom: 20px;
+	margin-bottom: 8px;
+	text-align: right;
 }
 
 div#deal_summary_side_panel p {
@@ -419,36 +426,22 @@ div#deal_info2 h2 {
 	font-size: 20px;
 	color: rgba(44, 175, 227, 1);
 	padding-top: 2%;
-	padding-left: 3%;
+	padding-left: 2%;
 	margin-bottom: 10px;
 }
 
 div#total_score {
-	float: left;
-	width: 40%;
-	padding: 25px;
 	text-align: center;
-	background: rgba(150, 150, 150, 1);
-	margin-bottom: 10px;
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-ms-border-radius: 10px;
-	-o-border-radius: 10px;
-	border-radius: 10px;
-	-webkit-box-shadow: 0px 0px 10px rgba(150, 150, 150, 1);
-	-moz-box-shadow: 0px 0px 10px rgba(150, 150, 150, 1);
-	-ms-box-shadow: 0px 0px 10px rgba(150, 150, 150, 1);
-	-o-box-shadow: 0px 0px 10px rgba(150, 150, 150, 1);
-	box-shadow: 0px 0px 10px rgba(150, 150, 150, 1);
 }
 
 div#total_score h1 {
-	font-size: 75px;
+	font-size: 50px;
 	font-family: Helvetica, Arial;
-	color: rgba(255, 255, 255, 1);
+	font-weight: bold;
+	color: rgba(150, 150, 150, 1);
 	padding: 0;
 	margin: 0;
-	text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.25);
+	text-shadow: 0px 1px 1px rgba(75, 75, 75, .75);
 }
 
 div#scoring_partial {
@@ -468,16 +461,83 @@ div#scoring a {
 	text-decoration: none;
 }
 
-div#up, div#down {
-	margin: 0;
-}
-
 div#up {
-	padding-top: 15px;
+	margin: 0;
+	margin-bottom: 5px;
+	text-align: center;
 }
 
 div#down {
-	margin-top: 20px;
+	margin: 0;
+	margin-top: 5px;
+	text-align: center;
+}
+
+a#like, a#dislike {
+	display: block;
+	width: 40px;
+	height: 20px;
+	margin: auto;
+}
+
+div#like_arrow {
+	height: 0px;
+	width: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid rgba(44, 175, 227, 1);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#like_arrow:hover {
+	height: 0px;
+	width: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid rgba(4, 135, 187, 1);
+}
+
+div#like_arrow:active {
+	height: 0px;
+	width: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 20px solid rgba(48, 157, 207, 1);
+}
+
+div#dislike_arrow {
+	height: 0px;
+	width: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid rgba(44, 175, 227, 1);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#dislike_arrow:hover {
+	height: 0px;
+	width: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid rgba(4, 135, 187, 1);
+}
+
+div#dislike_arrow:active {
+	height: 0px;
+	width: 0px;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 20px solid rgba(48, 157, 207, 1);
 }
 
 div#up img, div#down img {
@@ -531,7 +591,7 @@ div#the_flash h1 {
 	margin-bottom: 14px;
 }
 
-div#the_flash span#edit_the_flash a {
+span#edit_the_flash a {
 	font-family: Verdana;
 	font-size: 12px;
 	color: rgba(150, 150, 150, 1);
@@ -543,18 +603,21 @@ div#the_flash span#edit_the_flash a {
 	transition: all .2s linear;
 }
 
-div#the_flash span#edit_the_flash a:hover {
+span#edit_the_flash a:hover {
 	text-decoration: underline;
 	opacity: .75;
 }
 
 div#info_edit_the_flash {
 	display: none;
+	float: left;
+	width: 471px;
+	padding: 0px 2%;
 }
 
 div#info_edit_the_flash textarea {
-	width: 695px;
 	padding: 5px;
+	width: 459px;
 	height: 160px;
 	font-family: Helvetica, Arial;
 	font-size: 14px;
@@ -565,8 +628,6 @@ div#info_edit_the_flash textarea {
 	-o-border-radius: 2px;
 	border-radius: 2px;
 	border: 1px solid rgba(200, 200, 200, 1);
-	margin-top: 10px;
-	margin-bottom: 10px;
 	resize: none;
 	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
@@ -657,19 +718,11 @@ div#info_edit_the_flash div.actions input:active {
 	box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;	
 }
 
-div#info p {
-	line-height: 19px;
-	font-size: 14px;
-	margin-bottom: 14px;
-}
-
 div#watch_form {
-	height: 60px;
 	vertical-align: middle;
 }
 
 div#watch_form div.actions {
-	height: 60px;
 }
 
 div#watch_form input {
@@ -909,7 +962,7 @@ div#watch_deal_info {
 	font-family: Verdana;
 	font-size: 12px;
 	margin-top: -45px;
-	margin-left: -45px;
+	margin-left: -200px;
 }
 
 div#watch_deal_info_triangle {
@@ -920,7 +973,7 @@ div#watch_deal_info_triangle {
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgba(75, 75, 75, .9);
 	margin-top: 10px;
-	margin-left: 160px;
+	margin-left: 260px;
 }
 
 div#share_all_info {
@@ -938,7 +991,7 @@ div#share_all_info {
 	font-family: Verdana;
 	font-size: 12px;
 	margin-top: -45px;
-	margin-left: -45px;
+	margin-left: -100px;
 }
 
 div#share_all_info_triangle {
@@ -949,5 +1002,5 @@ div#share_all_info_triangle {
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgba(75, 75, 75, .9);
 	margin-top: 10px;
-	margin-left: 120px;
+	margin-left: 160px;
 }

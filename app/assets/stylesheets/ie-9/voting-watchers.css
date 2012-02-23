@@ -13,8 +13,7 @@ div#user_like, div#user_dislike {
 	position: absolute;
 	font-family: Verdana;
 	font-size: 12px;
-	margin-top: -22px;
-	margin-left: 10px;
+	margin-top: -50px;
 }
 
 div#user_voted_triangle {
