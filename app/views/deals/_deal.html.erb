@@ -65,25 +65,23 @@
 					</ul>
 				</div>
 				<ul>
-				<% unless deal.posted.nil? %>
-					<li>
-						<p>
-							<span class="light_grey">Found:</span> <%= deal.posted.strftime("%A, %b %d") %>
-							<% if signed_in? %>
-								<% if current_user.admin? %>
-									<span class="grey_150">at</span> <%= deal.posted.strftime("%I:%M %p") %>
-								<% end %>
-							<% end %>
-						</p>
-					</li>
-				<% end %>
-				<% unless deal.site.nil? || deal.site.empty? %>
-					<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
-				<% end %>
+					<% unless deal.posted.nil? %>
+						<li>
+							<p>
+								<span class="light_grey">Posted:</span> <%= deal.posted.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= deal.posted.strftime("%I:%M %p") %>
+							</p>
+						</li>
+					<% end %>
+					<p><span class="light_grey">Created:</span> <%= deal.created_at.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.created_at.strftime("%I:%M %p") %></span></p>
+					<% unless deal.time_in.nil? %>
+						<li><p><span class="light_grey">Time In:</span> <%= deal.time_in.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= deal.time_in.strftime("%I:%M %p") %></p></li>
+					<% end %>
+					<% unless deal.site.nil? || deal.site.empty? %>
+						<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
+					<% end %>
 				</ul>
 				<% if signed_in? %>
 					<% if current_user.admin? %>
-						<p><span class="light_grey">Created:</span> <%= deal.created_at.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.created_at.strftime("%I:%M %p") %></span></p>
 						<p><span class="light_grey">Click Count:</span> <%= deal.click_count %></p>
 					<% end %>
 				<% end %>

@@ -37,23 +37,11 @@
 	</div>
 	<div class="col2">
 		<h1><%= link_to deal.name, deal %></h1>
-		<div id="location">
-			<% unless deal.location == nil %>
-				<p><%= link_to deal.location.name, "/#{deal.location.permalink}" %></p>
-			<% end %>
-		</div>
-		<div id="categories">
-			<p>
-			<% deal.categories.each do |c| %>
-				<span class="category"><%= link_to c.name, c %></span>
-			<% end %>
-			</p>
-		</div>
 		<ul>
+			<% unless deal.site.nil? || deal.site.empty? %>
+				<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
+			<% end %>
 			<li><p><span class="light_grey">Watched:</span> <%= Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at.strftime("%A, %b %d") %></p></li>
-		<% unless deal.site.nil? || deal.site.empty? %>
-			<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
-		<% end %>
 		</ul>
 	</div>
 	<div class="col3">
@@ -69,71 +57,6 @@
 				<h1>$<%= (deal.price * 1.0).round %></h1>
 			<% end %>
 		</div>
-		<div id="deal_data">
-		<table>
-			<tr>
-				<td class="deal_data_numbers">
-					<p>
-					<% if deal.plusminus > 0 %>
-						<span class="dark"><%= deal.plusminus %></span>
-					<% elsif deal.plusminus < 0 %>
-						<span class="dark"><%= deal.plusminus %></span>
-					<% else %>
-						<span class="dark"><%= deal.plusminus %></span>
-					<% end %>
-					</p>
-				</td>
-				<td class="deal_data_labels">
-					<%= image_tag("/assets/flash_point.png", :title => "Flash Points", :class => "flash_points") %>
-				</td>
-			</tr>
-			<tr>
-				<td class="deal_data_numbers">
-					<p><%= deal.comments.count %></p>
-				</td>
-				<td class="deal_data_labels">
-					<%= image_tag("/assets/comment_bubble.png", :title => "Comments", :class => "comment_bubble") %>
-				</td>
-			</tr>
-			<tr>
-				<td class="deal_data_numbers">
-					<p><%= deal.view_count %></p>
-				</td>
-				<td class="deal_data_labels">
-					<%= image_tag("/assets/glass.png", :title => "Views", :class => "views") %>
-				</td>
-			</tr>
-			<% if signed_in? %>
-				<% if current_user.admin? %>
-					<tr>
-						<td class="deal_data_numbers">
-							<p>
-							<% if deal.metric < 1 && deal.metric >= 0 %>
-								<span class="red"><%= (deal.metric * 200).round/200.0 %></span>
-							<% elsif deal.metric < 2 && deal.metric >= 1 %>
-								<span class="blue"><%= (deal.metric * 200).round/200.0 %></span>
-							<% elsif deal.metric < 0 %>
-								<span class="blue">FM</span>
-							<% else %>
-								<span class="green"><%= (deal.metric * 200).round/200.0 %></span>
-							<% end %>
-							</p>
-						</td>
-						<td class="deal_data_labels">
-							<%= image_tag("/assets/metric.png", :title => "Metric", :class => "metric") %>
-						</td>
-					</tr>
-				<% end %>
-			<% end %>
-		</table>
-		</div>
-		<% if signed_in? %>
-			<% if current_user.admin? %>
-				<div class="edit_deal">
-					<%= link_to "Edit Deal", edit_deal_path(deal) %>
-				</div>
-			<% end %>
-		<% end %>
 	</div>
 	<div class="clear"></div>
 </div>
