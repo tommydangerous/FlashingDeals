@@ -85,15 +85,8 @@ div#share_form_signup a:active {
 }
 
 div#share_form input#shared {
-	text-align: center;
-	width: 94px;
+	padding: 10px 16px;
 	border: 1px solid rgba(4, 135, 187, 1);
-	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
 }
 
 div#share_form input#shared {
@@ -107,6 +100,12 @@ div#share_form input#shared {
 	background: -ms-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* IE10+ */
 	background: linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#22a5d9', endColorstr='#a3cfda',GradientType=0 ); /* IE6-8 */
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
 }
 
 div#share_form input {

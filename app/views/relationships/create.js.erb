@@ -1,4 +1,4 @@
-$("#watch_form").html("<%= escape_javascript(render('deals/unwatch')) %>")
+$("#watch_form").html("<%= escape_javascript(render('deals/watched')) %>")
 $("#watchers").html('<%= "#{@deal.watchers.count} watchers" %>')
 $("div#show_watchers").html("<%= escape_javascript(render('deals/show_watchers')) %>")
 $("div#deal_watchers").html("<%= escape_javascript(render('deals/deal_watchers')) %>")
