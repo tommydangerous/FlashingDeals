@@ -341,11 +341,13 @@ div#info {
 	float: left;
 	vertical-align: top;
 	margin-bottom: 20px;
+	margin-top: -14px;
 }
 
 div#info p {
 	line-height: 19px;
 	font-size: 14px;
+	margin-bottom: 14px;
 }
 
 div#deal_summary {
