@@ -18,6 +18,7 @@
 					<p><b><%= @deal.coupon %></b></p>
 				</td>
 			</tr>
+			<% unless @deal.rebate.nil? || @deal.rebate.empty? %>
 			<tr>
 				<td id="coupon_rebate_label">
 					Redeem Your Rebate:
@@ -26,6 +27,7 @@
 					<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>
 				</td>
 			</tr>
+			<% end %>
 		</table>
 	</div>
 </div>

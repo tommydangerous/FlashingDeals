@@ -311,34 +311,81 @@ div.fb-send {
 
 div#deal_summary_container {
 	min-height: 110px;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 div#info {
-	width: 471px;
+	width: 481px;
 	padding: 0px 2%;
 	float: left;
 	vertical-align: top;
 	margin-bottom: 20px;
+	margin-top: -14px;
+}
+
+div#deal_side_panel {
+	width: 225px;
+	float: right;
+	padding-right: 2%;
 }
 
 div#info p {
 	line-height: 19px;
 	font-size: 14px;
+	margin-bottom: 14px;
 }
 
 div#deal_summary {
-	width: 110px;
-	height: 90px;
+	width: 100px;
+	height: 100px;
 	padding: 5px 0px;
-	float: right;
+	float: left;
 }
 
 div#deal_summary_side_panel {
 	width: 125px;
 	height: 110px;
 	float: right;
-	padding-right: 2%;
+}
+
+div#coupon_rebate {
+	width: 213px;
+	text-align: center;
+	padding: 5px;
+	margin: 10px 0px;
+	border: 1px solid rgb(200, 200, 200);
+}
+
+div#deal_show_rebate {
+	margin-top: 10px;
+}
+
+div#deal_show_coupon h1 {
+	font-size: 14px;
+	font-weight: bold;
+	color: rgb(75, 75, 75);
+	margin-bottom: 5px;
+}
+
+div#deal_show_coupon p {
+	font-size: 12px;
+	margin: 0;
+}
+
+div#deal_show_rebate h1 {
+	font-size: 14px;
+	font-weight: bold;
+	color: rgb(75, 75, 75);
+	margin-bottom: 5px;
+}
+
+div#deal_show_rebate p {
+	font-size: 12px;
+	width: 213px;
+	height: 15px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	margin: 0;
 }
 
 div.summary {
@@ -819,4 +866,98 @@ div#share_all_info_triangle {
 	position: relative;
 	top: 9px;
 	left: 125px;
+}
+
+div#coupon_popup {
+	border: 10px solid rgb(150, 150, 150);
+	-webkit-border-radius: 10px;
+	-khtml-border-radius: 10px;
+	-moz-border-radius: 10px;
+	-ms-border-radius: 10px;
+	-o-border-radius: 10px;
+	border-radius: 10px;
+	-webkit-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	-khtml-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	-moz-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	-ms-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	-o-box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	box-shadow: 0px 0px 10px rgba(75, 75, 75, .5);
+	position: absolute;
+	width: 500px;
+	z-index: 200;
+	margin: auto;
+	top: 150px;
+	left: 0;
+	right: 0;
+	background: rgb(255, 255, 255);
+	display: none;
+}
+
+div#close_coupon_popup {
+	height: 42px;
+	background: rgb(173, 217, 228);
+}
+
+div#close_coupon_popup h1 {
+	font-family: Verdana;
+	font-size: 22px;
+	color: rgb(44, 175, 227);
+	width: 250px;
+	margin: 0;
+	padding: 10px;
+}
+
+div#close_coupon_popup a {
+	float: right;
+	display: block;
+	width: 32px;
+	height: 32px;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#close_coupon_popup a:hover {
+	opacity: .75;
+}
+
+div#coupon_popup_info {
+	width: 100%;
+	padding: 10px 0px 20px 0px;
+}
+
+div#coupon_popup_info table {
+	width: 100%;
+}
+
+div#coupon_popup_info table tr {
+	width: 100%;
+}
+
+div#coupon_popup_info table tr td#coupon_rebate_label {
+	width: 215px;
+	font-family: Verdana;
+	font-size: 16px;
+	color: rgb(75, 75, 75);
+	padding: 10px 0px;
+	padding-right: 10px;
+	text-align: right;
+}
+
+div#coupon_popup_info table tr td#coupon_rebate_info {
+	width: 275px;
+	font-family: Verdana;
+	font-size: 16px;
+	color: rgb(75, 75, 75);
+	padding: 0;
+}
+
+div#coupon_popup_info table tr td#coupon_rebate_info p {
+	width: 260px;
+	height: 19px;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
