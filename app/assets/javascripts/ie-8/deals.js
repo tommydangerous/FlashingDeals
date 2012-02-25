@@ -71,6 +71,14 @@ function adjustImage() {
 	$('img#deal_image').css("top", x+"px")
 };
 
+function showCouponPopup() {
+	$("div#coupon_popup").fadeIn(100);
+}
+
+function hideCouponPopup() {
+	$("div#coupon_popup").hide();
+}
+
 // Ajax Sortables, pagination, search, and electric flashing sort
 $(function() {
 	$("#sort a, #deals .pagination a, #electric_flashing a").live("click", function() {

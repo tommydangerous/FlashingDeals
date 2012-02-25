@@ -25,7 +25,10 @@ class Deal < ActiveRecord::Base
 									:view_count,
 									:click_count,
 									:comment_count,
-									:point_count
+									:point_count,
+									:exclusive,
+									:coupon,
+									:rebate
 	
 									
 #	validates :name, :presence => true

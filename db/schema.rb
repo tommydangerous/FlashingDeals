@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120217204537) do
+ActiveRecord::Schema.define(:version => 20120224193124) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -87,14 +87,19 @@ ActiveRecord::Schema.define(:version => 20120217204537) do
     t.string    "slug"
     t.integer   "point_count",   :default => 0
     t.integer   "comment_count", :default => 0
+    t.boolean   "exclusive"
+    t.string    "coupon"
+    t.string    "rebate"
   end
 
   add_index "deals", ["city"], :name => "index_deals_on_city"
   add_index "deals", ["click_count"], :name => "index_deals_on_click_count"
   add_index "deals", ["comment_count"], :name => "index_deals_on_comment_count"
+  add_index "deals", ["coupon"], :name => "index_deals_on_coupon"
   add_index "deals", ["created_at"], :name => "index_deals_on_created_at"
   add_index "deals", ["deal_order"], :name => "index_deals_on_deal_order"
   add_index "deals", ["discount"], :name => "index_deals_on_discount"
+  add_index "deals", ["exclusive"], :name => "index_deals_on_exclusive"
   add_index "deals", ["flash_back"], :name => "index_deals_on_flash_back"
   add_index "deals", ["link"], :name => "index_deals_on_link"
   add_index "deals", ["metric"], :name => "index_deals_on_metric"
@@ -103,6 +108,7 @@ ActiveRecord::Schema.define(:version => 20120217204537) do
   add_index "deals", ["posted"], :name => "index_deals_on_posted"
   add_index "deals", ["price"], :name => "index_deals_on_price"
   add_index "deals", ["queue"], :name => "index_deals_on_queue"
+  add_index "deals", ["rebate"], :name => "index_deals_on_rebate"
   add_index "deals", ["savings"], :name => "index_deals_on_savings"
   add_index "deals", ["site"], :name => "index_deals_on_site"
   add_index "deals", ["slug"], :name => "index_deals_on_slug"

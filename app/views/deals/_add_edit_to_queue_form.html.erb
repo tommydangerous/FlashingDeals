@@ -6,6 +6,8 @@
 	<%= hidden_field_tag :order, "last" %>
 	<p>Name: <%= f.text_area :name, :autocomplete => "off", :class => "rising_deal_edit_name" %></p>
 	<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "rising_deal_edit_info" %></p>
+	<p>Coupon: <%= f.text_field :coupon, :autocomplete => "off" %></p>
+	<p>Rebate: <%= f.text_field :rebate, :autocomplete => "off" %></p>
 	<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
 	<p>Value: <%= f.text_field :value, :autocomplete => "off" %></p>
 	<p>Discount: <%= f.text_field :discount, :autocomplete => "off" %></p>
@@ -16,6 +18,7 @@
 	<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
 	<p>City: <%= f.text_field :city, :autocomplete => "off" %></p>
 	<p>Metric: <%= f.text_field :metric, :autocomplete => "off" %></p>
+	<p>Exclusive: <%= f.check_box :exclusive %></p>
 	<div class="actions">
 		<%= f.submit "Add to Queue" %>
 	</div>

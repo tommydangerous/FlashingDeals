@@ -1,0 +1,31 @@
+<div id="coupon_popup">
+	<div id="close_coupon_popup">
+		<%= link_to image_tag("/assets/close.png"), "javascript:void(0)", :onclick => "hideCouponPopup();" %>
+		<h1>
+			Coupon
+			<% unless @deal.rebate.nil? || @deal.rebate.empty? %>
+				<span class="green">+</span> Rebate
+			<% end %>
+		</h1>
+	</div>
+	<div id="coupon_popup_info">
+		<table>
+			<tr>
+				<td id="coupon_rebate_label">
+					Use Coupon Code(s):
+				</td>
+				<td id="coupon_rebate_info">
+					<p><b><%= @deal.coupon %></b></p>
+				</td>
+			</tr>
+			<tr>
+				<td id="coupon_rebate_label">
+					Redeem Your Rebate:
+				</td>
+				<td id="coupon_rebate_info">
+					<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

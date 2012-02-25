@@ -14,7 +14,11 @@
 	<div id="deal_data">
 		<div id="deal_functions">
 			<div id="deal_button">
-				<%= link_to "Deal Now!", frame_deal_path(@deal), :target => "_blank" %>
+				<% if @deal.link.downcase == "coupon" %>
+					<%= link_to "Deal Now!", frame_deal_path(@deal, :coupon => "yes"), :remote => true, :onclick => "showCouponPopup();" %>
+				<% else %>
+					<%= link_to "Deal Now!", frame_deal_path(@deal, :coupon => "no"), :target => "_blank" %>
+				<% end %>
 			</div>
 			<div id="deal_stats">
 				<ul>
@@ -105,6 +109,9 @@
 </div>
 <%= render "shared/side_deal" %>
 <%= render 'deal_info2' %>
+<% if @deal.link.downcase == "coupon" %>
+	<%= render "coupon_popup" %>
+<% end %>
 <script>
 setInterval(adjustImage);
 $('.example3demo').popupWindow({ 

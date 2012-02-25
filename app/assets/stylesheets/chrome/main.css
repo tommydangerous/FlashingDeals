@@ -55,6 +55,14 @@ a:hover {
 	color: rgba(4, 135, 187, 1);
 }
 
+a.rebate_link {
+	color: rgba(75, 75, 75, 1);
+}
+
+a.rebate_link:hover {
+	color: rgba(150, 150, 150, 1);
+}
+
 p {
 	font-family: Helvetica, Arial;
 	color: rgba(75, 75, 75, 1);

@@ -71,6 +71,14 @@ function adjustImage() {
 	$('img#deal_image').css("margin-top", x+"px")
 };
 
+function showCouponPopup() {
+	$("div#coupon_popup").fadeIn(100);
+}
+
+function hideCouponPopup() {
+	$("div#coupon_popup").hide();
+}
+
 $(document).ready(function() {
 	var h = $('img#deal_image').height();
 	var x = (250 - h)/2

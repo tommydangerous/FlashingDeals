@@ -52,6 +52,14 @@ a:hover {
 	color: rgb(4, 135, 187);
 }
 
+a.rebate_link {
+	color: rgb(75, 75, 75);
+}
+
+a.rebate_link:hover {
+	color: rgb(150, 150, 150);
+}
+
 p {
 	font-family: Helvetica;
 	color: rgb(75, 75, 75);

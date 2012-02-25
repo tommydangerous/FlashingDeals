@@ -32,73 +32,91 @@
 				</div>
 			<% end %>
 		<% end %>
-		<div id="deal_summary_side_panel">
-			<div id="watch_deal_info">
-				Save this to your "My Deals" and never lose sight of it!
-				<div id="watch_deal_info_triangle"></div>
-			</div>
-			<div class="add_deal">
-				<% if signed_in? %>
-					<%= render 'watch_form' %>
-				<% else %>
-					<div id="watch_form">
-						<div class="actions">
-							<%= link_to signup_path do %>
-								<input name="commit" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()">
-							<% end %>
+		<div id="deal_side_panel">
+			<div id="deal_summary_side_panel">
+				<div id="watch_deal_info">
+					Save this to your "My Deals" and never lose sight of it!
+					<div id="watch_deal_info_triangle"></div>
+				</div>
+				<div class="add_deal">
+					<% if signed_in? %>
+						<%= render 'watch_form' %>
+					<% else %>
+						<div id="watch_form">
+							<div class="actions">
+								<%= link_to signup_path do %>
+									<input name="commit" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()">
+								<% end %>
+							</div>
 						</div>
+					<% end %>
+				</div>
+				<div id="share_all_info">
+					Share this deal with all your FD friends
+					<div id="share_all_info_triangle"></div>
+				</div>
+				<% if signed_in? %>
+					<div id="share_form">
+						<%= render 'shares/share_all_form' %>
+					</div>
+				<% else %>
+					<div id="share_form_signup">
+						<%= link_to "Share", signup_path, :onmouseover => "showShareAllInfo()", :onmouseout => "hideShareAllInfo()" %>
 					</div>
 				<% end %>
 			</div>
-			<div id="share_all_info">
-				Share this deal with all your FD friends
-				<div id="share_all_info_triangle"></div>
-			</div>
-			<% if signed_in? %>
-				<div id="share_form">
-					<%= render 'shares/share_all_form' %>
+			<div id="deal_summary">
+				<div id="user_like">
+					<%= render "user_like" %>
 				</div>
-			<% else %>
-				<div id="share_form_signup">
-					<%= link_to "Share", signup_path, :onmouseover => "showShareAllInfo()", :onmouseout => "hideShareAllInfo()" %>
+				<div id="user_dislike">
+					<%= render "user_dislike" %>
 				</div>
-			<% end %>
-		</div>
-		<div id="deal_summary">
-			<div id="user_like">
-				<%= render "user_like" %>
-			</div>
-			<div id="user_dislike">
-				<%= render "user_dislike" %>
-			</div>
-			<div id="flash_points">
-				<div id="up">
-					<% if signed_in? %>
-						<%= link_to(score_up_deal_path(@deal), :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()", :method => :post, :remote => true, :id => "like") do %>
-							<div id="like_arrow"></div>
+				<div id="flash_points">
+					<div id="up">
+						<% if signed_in? %>
+							<%= link_to(score_up_deal_path(@deal), :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()", :method => :post, :remote => true, :id => "like") do %>
+								<div id="like_arrow"></div>
+							<% end %>
+						<% else %>
+							<%= link_to(signup_path, :id => "like", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()") do %>
+								<div id="like_arrow"></div>
+							<% end %>
 						<% end %>
-					<% else %>
-						<%= link_to(signup_path, :id => "like", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()") do %>
-							<div id="like_arrow"></div>
+					</div>
+					<div id="total_score">
+						<h1><%= @deal.plusminus %></h1>
+					</div>
+					<div id="down">
+						<% if signed_in? %>
+							<%= link_to(score_down_deal_path(@deal), :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()", :method => :post, :remote => true, :id => "dislike") do %>
+								<div id="dislike_arrow"></div>
+							<% end %>
+						<% else %>
+							<%= link_to(signup_path, :id => "dislike", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()") do %>
+								<div id="dislike_arrow"></div>
+							<% end %>
 						<% end %>
-					<% end %>
-				</div>
-				<div id="total_score">
-					<h1><%= @deal.plusminus %></h1>
-				</div>
-				<div id="down">
-					<% if signed_in? %>
-						<%= link_to(score_down_deal_path(@deal), :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()", :method => :post, :remote => true, :id => "dislike") do %>
-							<div id="dislike_arrow"></div>
-						<% end %>
-					<% else %>
-						<%= link_to(signup_path, :id => "dislike", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()") do %>
-							<div id="dislike_arrow"></div>
-						<% end %>
-					<% end %>
+					</div>
 				</div>
 			</div>
 			<div class="clear"></div>
+			<% unless @deal.coupon.nil? && @deal.rebate.nil? %>
+				<div id="coupon_rebate">
+					<% unless @deal.coupon.nil? || @deal.coupon.empty? %>
+						<div id="deal_show_coupon">
+							<h1>Coupon Code</h1>
+							<p><%= @deal.coupon %></p>
+						</div>
+					<% end %>
+					<% unless @deal.rebate.nil? || @deal.rebate.empty? %>
+						<div id="deal_show_rebate">
+							<h1>Rebate Link</h1>
+							<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
 		</div>
 	</div>
 	<div class="clear"></div>

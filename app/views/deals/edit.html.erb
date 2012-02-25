@@ -12,7 +12,13 @@
 				<p>Info: <%= f.text_area :info, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
-				<p>Price: <%= f.text_field :price, :autocomplete => "off", :placeholder => "Required" %></p>
+				<p>Coupon: <%= f.text_field :coupon, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Rebate: <%= f.text_field :rebate, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
 				<p>Value: <%= f.text_field :value, :autocomplete => "off" %></p>
@@ -29,12 +35,6 @@
 			<div class="field">
 				<p>Image: <%= f.text_field :image, :autocomplete => "off", :placeholder => "Required" %></p>
 			</div>
-			<div class="field">
-				<p>Site: <%= f.text_field :site, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
-			</div>
 	</div>
 </div>
 <div id="new_deal_2">
@@ -43,10 +43,16 @@
 	</div>
 	<div id="new_deal_form">
 			<div class="field">
+				<p>Site: <%= f.text_field :site, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
 				<p>Created At: <%= f.text_field :created_at, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
-				<p>Posted: <%= f.text_field :posted, :autocomplete => "off", :placeholder => "Required" %></p>
+				<p>Posted: <%= f.text_field :posted, :autocomplete => "off", :placeholder => "Required (YYYY-MM-DD)" %></p>
 			</div>
 			<div class="field">
 				<p>Views: <%= f.text_field :view_count, :autocomplete => "off" %></p>
@@ -61,13 +67,16 @@
 				<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required" %></p>
 			</div>
 			<div class="field">
+				<p>Exclusive <%= f.check_box :exclusive %></p>
+			</div>
+			<div class="field">
 				<p>Queue <%= f.check_box :queue %></p>
 			</div>
 			<div class="field">
-				<p>Top Deal? <%= f.check_box :top_deal %></p>
+				<p>Top Deal <%= f.check_box :top_deal %></p>
 			</div>
 			<div class="field">
-				<p>FlashBack? <%= f.check_box :flash_back %></p>
+				<p>FlashBack <%= f.check_box :flash_back %></p>
 			</div>
 			<div class="field">
 				<p>Deal Order: <%= f.number_field :deal_order %></p>

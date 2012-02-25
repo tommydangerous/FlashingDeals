@@ -39,7 +39,7 @@
 		</div>
 		<div id="assign_queue">
 			<p><%= link_to "Make Top Deal", make_top_deal_deal_path(deal), :id => "make_top_deal", :remote => true %></p>
-			<p><%= link_to "Make FlashBack", make_flashback_deal_path(deal), :id => "make_flashback", :remote => true %></p>
+			<p><%= link_to "Make Featured Deal", make_flashback_deal_path(deal), :id => "make_flashback", :remote => true %></p>
 			<p><%= link_to "Remove", make_remove_deal_path(deal), :id => "make_remove", :remote => true %></p>
 		</div>
 		<div id="queue_edit_<%= deal.id %>" class="queue_edit_deal_more">
