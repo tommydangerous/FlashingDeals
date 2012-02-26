@@ -338,13 +338,12 @@ div#info p {
 div#deal_summary {
 	width: 100px;
 	height: 100px;
-	padding: 5px 0px;
 	float: left;
 }
 
 div#deal_summary_side_panel {
 	width: 125px;
-	height: 110px;
+	height: 100px;
 	float: right;
 }
 

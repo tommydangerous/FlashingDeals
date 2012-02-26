@@ -101,7 +101,7 @@
 		<div class="price">
 			<h2>
 				<% if deal.coupon.nil? || deal.coupon.empty? %>
-					<%= link_to "DEAL!", frame_deal_path(deal, :coupon => "no"), :target => "_blank" %>
+					<%= link_to "DEAL!", frame_deal_path(deal), :target => "_blank" %>
 				<% else %>
 					<%= link_to "DEAL!", frame_deal_path(deal, :coupon => "yes"), :target => "_blank" %>
 				<% end %>

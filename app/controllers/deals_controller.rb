@@ -80,15 +80,15 @@ class DealsController < ApplicationController
   end
   
   def frame
-  	deal = Deal.find(params[:id])
-  	deal.increment!(:click_count, by = 1)
-		if params[:coupon] == "no"
-			redirect_to "#{deal.link}"
-		elsif params[:coupon] == "yes"
+  	@deal = Deal.find(params[:id])
+  	@deal.increment!(:click_count, by = 1)
+		if params[:coupon] == "yes"
 			respond_to do |format|
-				format.html { redirect_to deal }
-				format.js { @deal = deal }
+				format.html { redirect_to @deal }
+				format.js
 			end
+		else
+			redirect_to "#{@deal.link}"
 		end
 #  	render :layout => "iframe"
   end
