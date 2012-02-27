@@ -72,7 +72,7 @@ class DealsController < ApplicationController
   	unless signed_in?
   		store_location
   		if @deal.exclusive?
-  			flash[:notice] = "Please login to view exclusive deals for members."
+  			flash[:notice] = "Please login or signup to view exclusive deals."
   			redirect_to login_path
   		end
   	end
