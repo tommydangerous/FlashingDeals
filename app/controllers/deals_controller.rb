@@ -69,11 +69,17 @@ class DealsController < ApplicationController
   
 	def show
   	@deal = Deal.find(params[:id])
+  	unless signed_in?
+  		store_location
+  		if @deal.exclusive?
+  			flash[:notice] = "Please login to view this deal."
+  			redirect_to login_path
+  		end
+  	end
   	@title = @deal.name
   	@comments = @deal.comments
   	@subcomments = @deal.subcomments  	
   	@deal.increment!(:view_count, by = 1)
-  	store_location unless signed_in?
 	rescue ActiveRecord::RecordNotFound
 		@title = "Page Not Found"
 		render 'pages/page_not_found'
