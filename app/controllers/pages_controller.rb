@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	before_filter :gm_user, :only => :test
+	before_filter :gm_user, :only => [:test, :control_panel]
 
 	def about
 		@title = "About Us"
@@ -56,5 +56,9 @@ class PagesController < ApplicationController
 	def test
 		@title = "Test"
 		render :layout => false
+	end
+	
+	def control_panel
+		@title = "Control Panel"
 	end
 end

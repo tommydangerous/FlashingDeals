@@ -63,6 +63,7 @@ FlashingDeal::Application.routes.draw do
   match '/terms' => 'pages#terms', :as => :terms
   match '/privacy' => 'pages#privacy', :as => :privacy
   match '/test' => 'pages#test', :as => :test
+  match '/control-panel' => 'pages#control_panel', :as => :control_panel
 # Sessions  
   match '/login'  => 'sessions#new'
   match '/logout' => 'sessions#destroy'

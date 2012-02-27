@@ -54,6 +54,9 @@
 							<% end %>
 						</li>
 						<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+						<% if current_user.gm? %>
+							<li><%= link_to "Control Panel", control_panel_path %></li>
+						<% end %>
 						<li id="logout"><%= link_to "Logout", logout_path %></li>
 					</ul>
 				</div>
