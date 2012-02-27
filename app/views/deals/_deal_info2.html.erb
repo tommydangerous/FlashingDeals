@@ -102,15 +102,15 @@
 			</div>
 			<div class="clear"></div>
 			<% unless @deal.coupon.nil? && @deal.rebate.nil? %>
-				<% unless @deal.coupon.empty? && @deal.rebate.empty? %>
+				<% unless @deal.coupon.blank? && @deal.rebate.blank? %>
 					<div id="coupon_rebate">
-						<% unless @deal.coupon.nil? || @deal.coupon.empty? %>
+						<% unless @deal.coupon.nil? || @deal.coupon.blank? %>
 							<div id="deal_show_coupon">
 								<h1>Coupon Code</h1>
 								<p><%= @deal.coupon %></p>
 							</div>
 						<% end %>
-						<% unless @deal.rebate.nil? || @deal.rebate.empty? %>
+						<% unless @deal.rebate.nil? || @deal.rebate.blank? %>
 							<div id="deal_show_rebate">
 								<h1>Rebate Link</h1>
 								<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>

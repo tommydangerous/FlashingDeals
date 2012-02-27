@@ -3,7 +3,7 @@
 		<%= link_to image_tag("/assets/close.png"), "javascript:void(0)", :onclick => "hideCouponPopup();" %>
 		<h1>
 			Coupon
-			<% unless @deal.rebate.nil? || @deal.rebate.empty? %>
+			<% unless @deal.rebate.nil? || @deal.rebate.blank? %>
 				& Rebate
 			<% end %>
 		</h1>
@@ -18,7 +18,7 @@
 					<p><b><%= @deal.coupon %></b></p>
 				</td>
 			</tr>
-			<% unless @deal.rebate.nil? || @deal.rebate.empty? %>
+			<% unless @deal.rebate.nil? || @deal.rebate.blank? %>
 			<tr>
 				<td id="coupon_rebate_label">
 					Your Rebate Link:

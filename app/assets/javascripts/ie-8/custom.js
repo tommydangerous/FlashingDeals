@@ -200,9 +200,9 @@ function hideMarkAsUnRead(id) {
 $(document).ready(function() {
 	var regex = /^\s*\S.*$/
 	$('div#message_new_form div.actions input').click(function() {
-		var x = $('select#message_recipient_id').val();
+		var x = $('input#friend_name').val();
 		var y = $('textarea#message_content').val();
-		if (!y.match(regex) || !x.match(regex)) {
+		if (y === "" || x === "") {
 			return false;
 		}
 	});

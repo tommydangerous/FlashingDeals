@@ -38,17 +38,17 @@
 	<div class="col2">
 		<h1><%= link_to deal.name, deal %></h1>
 		<p><span class="light_grey">Watched:</span> <%= Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at.strftime("%A, %b %d") %></p>
-		<% unless deal.coupon.nil? || deal.coupon.empty? %>
+		<% unless deal.coupon.nil? || deal.coupon.blank? %>
 			<p><span class="grey_150">Coupon Code:</span> <%= deal.coupon %></p>
 		<% end %>
-		<% unless deal.rebate.nil? || deal.rebate.empty? %>
+		<% unless deal.rebate.nil? || deal.rebate.blank? %>
 			<p class="rebate"><span class="grey_150">Rebate Link:</span> <%= link_to "Click Here", deal.rebate, :class => "rebate_link", :target => "_blank" %></p>
 		<% end %>
 	</div>
 	<div class="col3">
 		<div class="price">
 			<h2>
-				<% if deal.coupon.nil? || deal.coupon.empty? %>
+				<% if deal.coupon.nil? || deal.coupon.blank? %>
 					<%= link_to "DEAL!", frame_deal_path(deal), :target => "_blank" %>
 				<% else %>
 					<%= link_to "DEAL!", frame_deal_path(deal, :coupon => "yes"), :target => "_blank" %>

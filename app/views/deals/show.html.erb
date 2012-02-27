@@ -14,7 +14,7 @@
 	<div id="deal_data">
 		<div id="deal_functions">
 			<div id="deal_button">
-				<% if @deal.coupon.nil? || @deal.coupon.empty? %>
+				<% if @deal.coupon.nil? || @deal.coupon.blank? %>
 					<%= link_to "Deal Now!", frame_deal_path(@deal), :target => "_blank" %>
 				<% else %>
 					<%= link_to "Deal Now!", "javascript:void(0);", :onclick => "showCouponPopup();" %>
@@ -109,7 +109,7 @@
 </div>
 <%= render "shared/side_deal" %>
 <%= render 'deal_info2' %>
-<% unless @deal.coupon.nil? || @deal.coupon.empty? %>
+<% unless @deal.coupon.nil? || @deal.coupon.blank? %>
 	<%= render "coupon_popup" %>
 <% end %>
 <script>
