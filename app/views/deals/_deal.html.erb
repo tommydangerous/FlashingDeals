@@ -46,6 +46,11 @@
 	</div>
 	<div class="col2">
 		<h1><%= link_to deal.name, deal %></h1>
+		<% unless signed_in? %>
+			<% if deal.exclusive? %>
+				<p><span class="grey_150">Exclusive For Members</span></p>
+			<% end %>
+		<% end %>
 		<% if signed_in? %>
 			<% if current_user.admin? %>
 				<div id="location">
