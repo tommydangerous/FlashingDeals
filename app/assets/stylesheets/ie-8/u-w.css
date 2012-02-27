@@ -580,10 +580,17 @@ div#mark_all_read_profile {
 }
 
 /* voting.css */
+div#user_like {
+	width: 110px;
+}
+
+div#user_dislike {
+	width: 125px;
+}
+
 div#user_like, div#user_dislike {
 	display: none;
 	height: 14px;
-	width: 144px;
 	text-align: center;
 	padding: 10px;
 	background: rgb(75, 75, 75);

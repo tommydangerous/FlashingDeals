@@ -46,12 +46,6 @@
 	</div>
 	<div class="col2">
 		<h1><%= link_to deal.name, deal %></h1>
-		<% unless deal.coupon.nil? || deal.coupon.blank? %>
-			<p><span class="grey_150">Coupon Code:</span> <%= deal.coupon %></p>
-		<% end %>
-		<% unless deal.rebate.nil? || deal.rebate.blank? %>
-			<p class="rebate"><span class="grey_150">Rebate Link:</span> <%= link_to "Click Here", deal.rebate, :class => "rebate_link", :target => "_blank" %></p>
-		<% end %>
 		<% if signed_in? %>
 			<% if current_user.admin? %>
 				<div id="location">
