@@ -3,7 +3,7 @@ class DealsController < ApplicationController
 	before_filter :admin_user, :except => [:top_deals, :flashback, :flashback_electric, :flashback_flashing, :show, :frame, :flashmob_deals,  :watchers, :score_up, :score_down, :remove_watched_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
 	before_filter :today
-	helper_method :sort_column, :sort_direction
+	helper_method :sort_column, :sort_column_create, :sort_direction
 	
 	require 'nokogiri'
 	require 'hpricot'
@@ -189,7 +189,7 @@ class DealsController < ApplicationController
   	elsif params[:deals_per_page] == "80"
   		per_page = 80
   	else
-  		per_page = 10
+  		per_page = 20
   	end
   	deals = Deal.where("posted     > ? AND
   											metric    >= ? AND 
@@ -197,7 +197,7 @@ class DealsController < ApplicationController
   											top_deal   = ? AND 
   											flash_back = ?",
   											today, 0, false, false, false)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => per_page)
+  	@deals = deals.search(params[:search]).order(sort_column_create + " " + sort_direction).paginate(:page => params[:page], :per_page => per_page)
   	@deals_total_count = deals.search(params[:search]).size
   	if per_page == 10
   		@per_page = 10
@@ -438,6 +438,10 @@ class DealsController < ApplicationController
   
   	def sort_column
   		Deal.column_names.include?(params[:sort]) ? params[:sort] : "posted"
+  	end
+  	
+  	def sort_column_create
+  		Deal.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   	end
   	
   	def sort_direction

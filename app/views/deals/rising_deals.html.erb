@@ -23,7 +23,28 @@
 		<% end %>
 		</div>
 	</div>
-	<%= render "deal_nav" %>
+	<div id="deal_nav">
+		<div id="sort_non_ajax">
+			<span class="sort"><%= sortable_create "posted", "Most Recent" %></span>
+			<span class="sort"><%= sortable_create "view_count", "Best Seller" %></span>
+			<span class="sort"><%= sortable_create "comment_count", "Most Talked About" %></span>
+			<span class="sort"><%= sortable_create "price" %></span>
+			<% if signed_in? %>
+				<% if current_user.admin? %>
+					<span class="sort"><%= sortable_create "point_count", "Points" %></span>
+					<span class="sort"><%= sortable_create "click_count", "Clicks" %></span>
+					<span class="sort"><%= sortable_create "created_at", "Created" %></span>
+					<span class="sort"><%= sortable_create "metric" %></span>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<% if @deals.empty? %>
+	<div class="empty_category">
+		<p>Woopsie! No matching deals...for now :)</p>
+		<p><%= link_to "View other deals", flashback_path %></p>
+	</div>
+	<% end %>
 	<a name="top"></a>
 	<div id="rising_deals_list">
 		<%= render :partial => "rising_deal", :collection => @deals, :as => :deal %>

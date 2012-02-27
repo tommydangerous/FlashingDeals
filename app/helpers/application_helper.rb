@@ -24,6 +24,13 @@ module ApplicationHelper
   	link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
   
+  def sortable_create(column, title = nil)
+  	title ||= column.titleize
+  	css_class = column == sort_column_create ? "current #{sort_direction}" : nil
+  	direction = column == sort_column_create && sort_direction == "desc" ? "asc" : "desc"
+  	link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
+  end
+  
 	def paginate_range(in_collection, in_tot_count)
 	  endnumber = in_collection.offset + in_collection.per_page > in_tot_count ? 
 	    in_tot_count : in_collection.offset + in_collection.per_page
