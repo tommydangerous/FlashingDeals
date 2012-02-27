@@ -14,10 +14,10 @@
 	<div id="deal_data">
 		<div id="deal_functions">
 			<div id="deal_button">
-				<% if @deal.link.downcase == "coupon" %>
-					<%= link_to "Deal Now!", frame_deal_path(@deal, :coupon => "yes"), :remote => true, :onclick => "showCouponPopup();" %>
+				<% if @deal.coupon.nil? || @deal.coupon.empty? %>
+					<%= link_to "Deal Now!", frame_deal_path(@deal), :target => "_blank" %>
 				<% else %>
-					<%= link_to "Deal Now!", frame_deal_path(@deal, :coupon => "no"), :target => "_blank" %>
+					<%= link_to "Deal Now!", "javascript:void(0);", :onclick => "showCouponPopup();" %>
 				<% end %>
 			</div>
 			<div id="deal_stats">
@@ -109,7 +109,7 @@
 </div>
 <%= render "shared/side_deal" %>
 <%= render 'deal_info2' %>
-<% if @deal.link.downcase == "coupon" %>
+<% unless @deal.coupon.nil? || @deal.coupon.empty? %>
 	<%= render "coupon_popup" %>
 <% end %>
 <script>

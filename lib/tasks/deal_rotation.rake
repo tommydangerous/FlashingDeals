@@ -4,7 +4,7 @@ task :deal_rotation => :environment do
 end
 
 def rotate_deals
-	today = Time.now - 43200
+	today = Time.now - 43200 # 12 Hours, 36 Deals
 	queue_deals = Deal.where("queue = ?", true).order("deal_order ASC")
 	top_deals = Deal.where("top_deal = ?", true).order("time_in ASC")
 	flashback_deals = Deal.where("flash_back = ? AND time_in > ?", true, today).order("time_in ASC")

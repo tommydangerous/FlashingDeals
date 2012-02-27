@@ -4,7 +4,7 @@
 		<h1>
 			Coupon
 			<% unless @deal.rebate.nil? || @deal.rebate.empty? %>
-				<span class="green">+</span> Rebate
+				& Rebate
 			<% end %>
 		</h1>
 	</div>
@@ -12,7 +12,7 @@
 		<table>
 			<tr>
 				<td id="coupon_rebate_label">
-					Use Coupon Code(s):
+					Use Coupon Code:
 				</td>
 				<td id="coupon_rebate_info">
 					<p><b><%= @deal.coupon %></b></p>
@@ -21,7 +21,7 @@
 			<% unless @deal.rebate.nil? || @deal.rebate.empty? %>
 			<tr>
 				<td id="coupon_rebate_label">
-					Redeem Your Rebate:
+					Your Rebate Link:
 				</td>
 				<td id="coupon_rebate_info">
 					<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>
@@ -29,5 +29,8 @@
 			</tr>
 			<% end %>
 		</table>
+		<div id="coupon_rebate_continue">
+			<%= link_to "Let's Go", frame_deal_path(@deal), :target => "_blank", :onclick => "hideCouponPopup();" %>
+		</div>
 	</div>
 </div>

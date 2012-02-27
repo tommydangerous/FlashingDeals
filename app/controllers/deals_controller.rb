@@ -83,10 +83,7 @@ class DealsController < ApplicationController
   	@deal = Deal.find(params[:id])
   	@deal.increment!(:click_count, by = 1)
 		if params[:coupon] == "yes"
-			respond_to do |format|
-				format.html { redirect_to @deal }
-				format.js
-			end
+			redirect_to @deal
 		else
 			redirect_to "#{@deal.link}"
 		end
