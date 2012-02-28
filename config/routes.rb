@@ -20,7 +20,6 @@ FlashingDeal::Application.routes.draw do
   resources :editmarks
   resources :feedbacks, :only => [:index, :create, :destroy]
   resources :forgot_names
-  resources :friends
   resources :friendships, :only => [:create, :update, :destroy]
   resources :locations, :only => :show
   resources :messages, :only => [:index, :show, :create, :update]
@@ -78,6 +77,8 @@ FlashingDeal::Application.routes.draw do
   match '/my-account' => 'users#my_account', :as => :my_account
   match '/friend-requests' => 'users#friend_requests', :as => :friend_requests
   match '/shared-deals' => 'users#shared_deals', :as => :shared_deals
+# Friends
+	match '/user/list/friends/friends-list' => 'friends#friends_list', :as => :friends
 # Ajax
 	match '/ajax' => 'ajax#ajax'
 	match '/ajax/ajax_received_messages' => 'ajax#ajax_received_messages'

@@ -1,7 +1,7 @@
 class FriendsController < ApplicationController
 	before_filter :authenticate
 	
-	def index
+	def friends_list
 		ids = []
 		current_user.friends.each do |user|
 			ids.push(user.id)
