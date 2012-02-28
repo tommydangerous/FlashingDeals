@@ -212,4 +212,5 @@ div#page_deal_info_close img {
 div#page_deal_info p {
 	font-size: 14px;
 	color: rgba(255, 255, 255, 1);
+	line-height: 18px;
 }
