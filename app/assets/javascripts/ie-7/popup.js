@@ -23,10 +23,6 @@ $(document).ready(function(){
     	return false;
 	});
 	
-	$("#close_signup_message_button").click(function() {
-		$("#dim_signup").fadeOut(200);
-	});
-	
 	$(".signup_popup_anchor").click(function() {
 		$("div#dim_signup").fadeIn(200);
 			return false;
@@ -42,3 +38,8 @@ $(window).bind("resize", function(){
 	$("#dim2").css("height", $(window).height());
 		$("#fuzz").css("height", $(window).height());
 });
+
+function closeSignupButton() {
+	$("#dim_signup").fadeOut(200);
+	$("#dim_signup_deal_show").fadeOut(200);
+};
