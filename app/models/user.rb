@@ -16,12 +16,15 @@ class User < ActiveRecord::Base
 	def name_validation
 		if name.blank?
 			errors.add(:name, "is invalid")
+		elsif name.length < 1
+			errors.add(:name, "is too short")
+		elsif name.length > 20
+			errors.add(:name, "is too long (maximum is 20 characters)")
 		elsif name.match(/^[A-Za-z]{1,}[A-Za-z0-9]+[-_ ]?[A-Za-z0-9]{1,}$/).nil?
 			errors.add(:name, "is invalid (Check the format)")
 		end
 	end
 	validates_uniqueness_of :name, :case_sensitive => false, :message => "is already taken"
-	validates_length_of :name, :in => 1..20, :message => "is too long"
 
 	validate :email_validation	
 	def email_validation

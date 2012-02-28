@@ -21,6 +21,10 @@ $(document).ready(function(){
   	$("#dim").fadeOut();
     	return false;
 	});
+	
+	$("#close_signup_message_button").click(function() {
+		$("#dim_signup").fadeOut(200);
+	});
 });
 		
 $(window).bind("resize", function(){

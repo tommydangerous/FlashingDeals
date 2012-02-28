@@ -110,6 +110,13 @@
 <% unless @deal.coupon.nil? && @deal.rebate.nil? || @deal.coupon.nil? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.nil? %>
 	<%= render "coupon_popup" %>
 <% end %>
+<% unless signed_in? %>
+	<% unless cookies[:hide_message] == "yes" %>
+		<div id="dim_signup">
+			<%= render "users/signup_message" %>
+		</div>
+	<% end %>
+<% end %>
 <script>
 setInterval(adjustImage);
 $('.example3demo').popupWindow({ 
