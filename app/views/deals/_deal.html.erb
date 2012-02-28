@@ -45,7 +45,17 @@
 		<% end %>
 	</div>
 	<div class="col2">
-		<h1><%= link_to deal.name, deal %></h1>
+		<h1>
+		<% if signed_in? %>
+			<%= link_to deal.name, deal %>
+		<% else %>
+			<% if deal.exclusive? %>
+				<%= link_to deal.name, "javascript:void(0);", :class => "signup_popup_anchor scroll_top" %>
+			<% else %>
+				<%= link_to deal.name, deal %>
+			<% end %>
+		<% end %>
+		</h1>
 		<% unless signed_in? %>
 			<% if deal.exclusive? %>
 				<p><span class="grey_150">Exclusive For Members</span></p>
@@ -103,7 +113,7 @@
 					<% end %>
 				<% else %>
 					<% if deal.exclusive? %>
-						<%= link_to "DEAL!", deal %>
+						<%= link_to "DEAL!", "javascript:void(0);", :class => "signup_popup_anchor scroll_top" %>
 					<% elsif deal.coupon.nil? && deal.rebate.nil? || deal.coupon.nil? && deal.rebate.blank? || deal.coupon.blank? && deal.rebate.blank? || deal.coupon.blank? && deal.rebate.nil? %>
 						<%= link_to "DEAL!", frame_deal_path(deal), :target => "_blank" %>
 					<% else %>

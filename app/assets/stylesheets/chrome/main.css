@@ -1,18 +1,9 @@
-html {
-	overflow-x: hidden;
-}
-
 html, body {
-	margin:0;
-	padding:0;
-	height:100%;
+	height: 100%;
 }
 
 body {
-  margin: 0;
-  padding: 0;
   background: rgba(214, 249, 255, 1);
-  overflow-x: hidden;
 }
 
 #wrapper {

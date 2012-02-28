@@ -6,17 +6,31 @@
 		<ul>
 		<% Category.all.each do |c| %>
 			<% if c.deals.where("posted > ?", @today).size > 0 %>
-			<li>
-				<div id="category">
-					<div class="category_name">
-						<%= link_to c.name, c, :onmouseover => "addCatClass(#{c.id})", :onmouseout => "removeCatClass(#{c.id})" %>
-					</div>
-					<div class="category_count">
-						<p class="dark_blue" id="cat_<%= c.id %>"><%= c.deals.where("posted > ?", @today).size %></p>
-					</div>
-				</div>
-			</li>
-			<div class="clear"></div>
+				<% if signed_in? %>
+					<li>
+						<div id="category">
+							<div class="category_name">
+								<%= link_to c.name, c, :onmouseover => "addCatClass(#{c.id})", :onmouseout => "removeCatClass(#{c.id})" %>
+							</div>
+							<div class="category_count">
+								<p class="dark_blue" id="cat_<%= c.id %>"><%= c.deals.where("posted > ?", @today).size %></p>
+							</div>
+						</div>
+					</li>
+					<div class="clear"></div>
+				<% else %>
+					<li>
+						<div id="category">
+							<div class="category_name">
+								<%= link_to c.name, "javascript:void(0)", :onmouseover => "addCatClass(#{c.id})", :onmouseout => "removeCatClass(#{c.id})", :class => "alertdim" %>
+							</div>
+							<div class="category_count">
+								<p class="dark_blue" id="cat_<%= c.id %>"><%= c.deals.where("posted > ?", @today).size %></p>
+							</div>
+						</div>
+					</li>
+					<div class="clear"></div>
+				<% end %>
 			<% end %>
 		<% end %>
 		</ul>

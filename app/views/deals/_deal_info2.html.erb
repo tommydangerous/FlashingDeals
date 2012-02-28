@@ -44,8 +44,8 @@
 					<% else %>
 						<div id="watch_form">
 							<div class="actions">
-								<%= link_to signup_path do %>
-									<input name="commit" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()">
+								<%= link_to("javascript:void(0);", :class => "alertdim") do %>
+									<input name="commit" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()" onmouseclick="hideWatchDealInfo()">
 								<% end %>
 							</div>
 						</div>
@@ -61,7 +61,7 @@
 					</div>
 				<% else %>
 					<div id="share_form_signup">
-						<%= link_to "Share", signup_path, :onmouseover => "showShareAllInfo()", :onmouseout => "hideShareAllInfo()" %>
+						<%= link_to "Share", "javascript:void(0);", :onmouseover => "showShareAllInfo()", :onmouseout => "hideShareAllInfo()", :class => "alertdim" %>
 					</div>
 				<% end %>
 			</div>
@@ -79,7 +79,7 @@
 								<div id="like_arrow"></div>
 							<% end %>
 						<% else %>
-							<%= link_to(signup_path, :id => "like", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()") do %>
+							<%= link_to("javascript:void(0);", :id => "like", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()", :class => "alertdim") do %>
 								<div id="like_arrow"></div>
 							<% end %>
 						<% end %>
@@ -93,7 +93,7 @@
 								<div id="dislike_arrow"></div>
 							<% end %>
 						<% else %>
-							<%= link_to(signup_path, :id => "dislike", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()") do %>
+							<%= link_to("javascript:void(0);", :id => "dislike", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()", :class => "alertdim") do %>
 								<div id="dislike_arrow"></div>
 							<% end %>
 						<% end %>

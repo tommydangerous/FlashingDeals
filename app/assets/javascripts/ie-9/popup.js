@@ -13,18 +13,29 @@ $(document).ready(function(){
 	});
 			
 	$(".alertdim").click(function(){
-  	$("#dim").fadeIn();
+  	$("#dim").fadeIn(200);
+  	$("html, body").animate({ scrollTop: 0  }, 0);
     	return false;
 	});
     		
 	$(".closedim").click(function(){
-  	$("#dim").fadeOut();
+  	$("#dim").fadeOut(200);
     	return false;
 	});
 	
 	$("#close_signup_message_button").click(function() {
 		$("#dim_signup").fadeOut(200);
 	});
+	
+	$(".signup_popup_anchor").click(function() {
+		$("div#dim_signup").fadeIn(200);
+			return false;
+	});
+	
+	$(".scroll_top").click(function() {
+		$("html, body").animate({ scrollTop: 0  }, 0);
+			return false;
+	})
 });
 		
 $(window).bind("resize", function(){

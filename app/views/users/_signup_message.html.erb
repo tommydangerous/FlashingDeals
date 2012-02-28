@@ -1,7 +1,13 @@
 <div id="signup_message">
 	<div id="close_signup_message">
-		<%= link_to(hide_signup_message_path, :id => "close_signup_message_button", :title => "Hide This Message", :remote => true) do %>
-			<%= image_tag("/assets/close.png") %>
+		<% if cookies[:hide_message] == "yes" %>
+			<%= link_to("javascript:void(0);", :id => "close_signup_message_button", :title => "Hide This Message", :remote => true) do %>
+				<%= image_tag("/assets/close.png") %>
+			<% end %>
+		<% else %>
+			<%= link_to(hide_signup_message_path, :id => "close_signup_message_button", :title => "Hide This Message", :remote => true) do %>
+				<%= image_tag("/assets/close.png") %>
+			<% end %>
 		<% end %>
 	</div>
 	<div id="signup_message_header">

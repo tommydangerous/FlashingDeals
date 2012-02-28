@@ -61,6 +61,11 @@
   		<div id="dim" style="display: none">
 				<%= render 'sessions/login_form' %>
 			</div>
+			<% unless signed_in? %>
+				<div id="dim_signup" style="display: none">
+					<%= render "users/signup_message" %>
+				</div>
+			<% end %>
 			<div id="progress"></div>
   	</div>
   	<div class="clear"></div>

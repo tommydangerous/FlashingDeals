@@ -7,7 +7,11 @@
 		<div class="side_deals">
 			<ul>
 				<% Category.all.each do |c| %>
-					<li><%= link_to c.name, c %></li>
+					<% if signed_in? %>
+						<li><%= link_to c.name, c %></li>
+					<% else %>
+						<li><%= link_to c.name, "javascript:void(0);", :class => "alertdim" %></li>
+					<% end %>
 				<% end %>
 			</ul>
 		</div>

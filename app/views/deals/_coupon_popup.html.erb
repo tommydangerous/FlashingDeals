@@ -26,7 +26,7 @@
 			<% unless @deal.rebate.nil? || @deal.rebate.blank? %>
 				<tr>
 					<td id="coupon_rebate_label">
-						Your Rebate Link:
+						Use Rebate Link:
 					</td>
 					<td id="coupon_rebate_info">
 						<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>
