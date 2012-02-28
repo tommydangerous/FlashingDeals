@@ -74,10 +74,11 @@
 		</ul>
 	</div>
 	<% unless item.metric.nil? %>
-	<div class="box_lightning_deal_four">
-		<% if item.metric >= 4 %>
-			<%= image_tag("/assets/lightning_bolt_flashing.png", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>	
-		<% end %>
-	</div>	
+		<div class="clear"></div>
+		<div class="box_lightning_deal_four">
+			<% if item.metric >= 4 %>
+				<%= image_tag("/assets/lightning_bolt_flashing.png", :onmouseover => "showLightning(#{item.id});", :onmouseout => "hideLightning();") %>	
+			<% end %>
+		</div>	
 	<% end %>
 </div>

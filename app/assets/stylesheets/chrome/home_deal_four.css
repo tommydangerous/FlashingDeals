@@ -136,11 +136,11 @@ div.box_stats_four ul li p {
 }
 
 div.box_lightning_deal_four {
+	position: relative;
+	top: 10px;
 	width: 26px;
 	height: 28px;
 	float: right;
-	text-align: right;
-	padding-top: 10px;
 }
 
 div.box_lightning_deal_four img {
