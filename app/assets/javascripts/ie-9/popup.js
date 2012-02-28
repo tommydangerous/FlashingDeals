@@ -43,3 +43,9 @@ function closeSignupButton() {
 	$("#dim_signup").fadeOut(200);
 	$("#dim_signup_deal_show").fadeOut(200);
 };
+
+function signupPopupExclusive() {
+	$("div#dim_signup").fadeIn(200);
+	$("html, body").animate({ scrollTop: 0  }, 0);
+	return false
+};
