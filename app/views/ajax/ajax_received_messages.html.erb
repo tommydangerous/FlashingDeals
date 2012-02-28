@@ -1,3 +1,6 @@
-<% if current_user.received_messages.where("read = ?", false).size > 0 %>
-	(<%=current_user.received_messages.where("read = ?", false).size %>)
+<% if signed_in? %>
+	<% if current_user.received_messages.where("read = ?", false).size > 0 %>
+		(<%=current_user.received_messages.where("read = ?", false).size %>)
+	<% end %>
+<% else %>
 <% end %>

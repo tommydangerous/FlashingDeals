@@ -2,31 +2,36 @@
 	<div id="close_coupon_popup">
 		<%= link_to image_tag("/assets/close.png"), "javascript:void(0)", :onclick => "hideCouponPopup();" %>
 		<h1>
+		<% if @deal.rebate.nil? || @deal.rebate.blank? %>
 			Coupon
-			<% unless @deal.rebate.nil? || @deal.rebate.blank? %>
-				& Rebate
-			<% end %>
+		<% elsif @deal.coupon.nil? || @deal.coupon.blank? %>
+			Rebate
+		<% else %>
+			Coupon & Rebate
+		<% end %>
 		</h1>
 	</div>
 	<div id="coupon_popup_info">
 		<table>
-			<tr>
-				<td id="coupon_rebate_label">
-					Use Coupon Code:
-				</td>
-				<td id="coupon_rebate_info">
-					<p><b><%= @deal.coupon %></b></p>
-				</td>
-			</tr>
+			<% unless @deal.coupon.nil? || @deal.coupon.blank? %>
+				<tr>
+					<td id="coupon_rebate_label">
+						Use Coupon Code:
+					</td>
+					<td id="coupon_rebate_info">
+						<p><b><%= @deal.coupon %></b></p>
+					</td>
+				</tr>
+			<% end %>
 			<% unless @deal.rebate.nil? || @deal.rebate.blank? %>
-			<tr>
-				<td id="coupon_rebate_label">
-					Your Rebate Link:
-				</td>
-				<td id="coupon_rebate_info">
-					<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>
-				</td>
-			</tr>
+				<tr>
+					<td id="coupon_rebate_label">
+						Your Rebate Link:
+					</td>
+					<td id="coupon_rebate_info">
+						<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>
+					</td>
+				</tr>
 			<% end %>
 		</table>
 		<div id="coupon_rebate_continue">

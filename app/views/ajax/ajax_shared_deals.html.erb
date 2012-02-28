@@ -1,6 +1,9 @@
-<% if current_user.inverse_deals.where("posted > ?", current_user.duration).size > 99 %>
-	<span class="green">+++</span>
-<% elsif current_user.inverse_deals.where("posted > ?", current_user.duration).size > 0 && current_user.inverse_deals.where("posted > ?", current_user.duration).size <= 99 %>
-	(<%= current_user.inverse_deals.where("posted > ?", current_user.duration).size %>)
+<% if signed_in? %>
+	<% if current_user.inverse_deals.where("posted > ?", current_user.duration).size > 99 %>
+		<span class="green">+++</span>
+	<% elsif current_user.inverse_deals.where("posted > ?", current_user.duration).size > 0 && current_user.inverse_deals.where("posted > ?", current_user.duration).size <= 99 %>
+		(<%= current_user.inverse_deals.where("posted > ?", current_user.duration).size %>)
+	<% else %>
+	<% end %>
 <% else %>
 <% end %>

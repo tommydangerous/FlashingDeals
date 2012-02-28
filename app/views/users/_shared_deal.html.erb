@@ -39,7 +39,7 @@
 	<div class="col3">
 		<div class="price">
 			<h2>
-				<% if deal.coupon.nil? || deal.coupon.blank? %>
+				<% if deal.coupon.nil? && deal.rebate.nil? || deal.coupon.nil? && deal.rebate.blank? || deal.coupon.blank? && deal.rebate.blank? || deal.coupon.blank? && deal.rebate.nil? %>
 					<%= link_to "DEAL!", frame_deal_path(deal), :target => "_blank" %>
 				<% else %>
 					<%= link_to "DEAL!", frame_deal_path(deal, :coupon => "yes"), :target => "_blank" %>

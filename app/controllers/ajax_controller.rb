@@ -1,5 +1,5 @@
 class AjaxController < ApplicationController
-	before_filter :authenticate
+	before_filter :authenticate, :only => [:ajax, :ajax_friend_requests]
 	before_filter :admin_user, :only => [:ajax, :ajax_friend_requests]
 	
 	def ajax

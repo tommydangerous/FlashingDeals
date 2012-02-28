@@ -96,7 +96,7 @@
 		<div class="price">
 			<h2>
 				<% if signed_in? %>
-					<% if deal.coupon.nil? || deal.coupon.empty? %>
+					<% if deal.coupon.nil? && deal.rebate.nil? || deal.coupon.nil? && deal.rebate.blank? || deal.coupon.blank? && deal.rebate.blank? || deal.coupon.blank? && deal.rebate.nil? %>
 						<%= link_to "DEAL!", frame_deal_path(deal), :target => "_blank" %>
 					<% else %>
 						<%= link_to "DEAL!", frame_deal_path(deal, :coupon => "yes"), :target => "_blank" %>
@@ -104,7 +104,7 @@
 				<% else %>
 					<% if deal.exclusive? %>
 						<%= link_to "DEAL!", deal %>
-					<% elsif deal.coupon.nil? || deal.coupon.empty? %>
+					<% elsif deal.coupon.nil? && deal.rebate.nil? || deal.coupon.nil? && deal.rebate.blank? || deal.coupon.blank? && deal.rebate.blank? || deal.coupon.blank? && deal.rebate.nil? %>
 						<%= link_to "DEAL!", frame_deal_path(deal), :target => "_blank" %>
 					<% else %>
 						<%= link_to "DEAL!", frame_deal_path(deal, :coupon => "yes"), :target => "_blank" %>

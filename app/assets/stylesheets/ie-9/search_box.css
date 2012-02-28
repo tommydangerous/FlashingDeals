@@ -42,6 +42,8 @@ input#search:focus {
 }
 
 input#search_button {
+	position: relative;
+	bottom: 1px;
 	font-family: Verdana;
 	font-size: 12px;
 	padding: 5px;

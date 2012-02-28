@@ -57,7 +57,7 @@ div.watch_status {
 div#watching_status {
 	margin-top: 5px;
 	padding: 5px;
-	background: rgb(200, 200, 200);
+	background: rgb(220, 220, 220);
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	-ms-border-radius: 5px;
