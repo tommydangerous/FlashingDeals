@@ -1,18 +1,18 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
+	<% unless cookies[:hide_flashmob_info] == "yes" %>
+		<div id="page_deal_info">
+			<div id="page_deal_info_close">
+				<%= link_to image_tag("/assets/close.png"), hide_flashmob_info_path, :onclick => "hidePageDealInfo();", :remote => true, :title => "Hide this message" %>
+			</div>
+			<p>The Community Deals fetches deals from all over the web, allowing you to sort through them, see what is out there, comment on them, like or dislike them, and share them with your FD friends! These deals are separate from the deals on the home page and from the Featured Deals page. We encourage you to check all of them out so you won't miss a thing!</p>
+		</div>
+	<% end %>
 	<div id="deal_page_info">
 		<div id="show_electric_flashing">
 			<ul>
 				<%= render "deals/deals_per_page" %>
 			</ul>
-		</div>
-		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();" %>
-		<h1>Community Deals?</h1>
-		<div class="deal_page_info">
-			<div class="close_deal_page_info">
-				<%= link_to image_tag("/assets/close.png"), "javascript:void(0);", :onclick => "toggleDealPageInfo();" %>
-			</div>
-			<p>The Community Deals fetches deals from all over the web, allowing you to sort through them, see what is out there, comment on them, like or dislike them, and share them with your FD friends! These deals are separate from the deals on the home page and from the Featured Deals page. We encourage you to check all of them out so you won't miss a thing!</p>
 		</div>
 	</div>
 	<div id="search">

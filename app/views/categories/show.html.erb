@@ -1,18 +1,18 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
+	<% unless cookies[:hide_categories_info] == "yes" %>
+		<div id="page_deal_info">
+			<div id="page_deal_info_close">
+				<%= link_to image_tag("/assets/close.png"), hide_categories_info_path, :onclick => "hidePageDealInfo();", :remote => true, :title => "Hide this message" %>
+			</div>
+			<p>This page breaks down the Community Deals into categories, making your life easier and everyone happier. Don't forget to check out the home page for new deals every 15 minutes, and in case you missed it, check out the Featured Deals for all the excitement.</p>
+		</div>
+	<% end %>
 	<div id="deal_page_info">
 		<div id="show_electric_flashing">
 			<ul>
 				<%= render "deals/deals_per_page" %>
 			</ul>
-		</div>
-		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();" %>
-		<h1>Categories?</h1>
-		<div class="deal_page_info">
-			<div class="close_deal_page_info">
-				<%= link_to image_tag("/assets/close.png"), "javascript:void(0);", :onclick => "toggleDealPageInfo();" %>
-			</div>
-			<p>This page breaks down the Community Deals into categories, making your life easier and everyone happier. Don't forget to check out the home page for new deals every 15 minutes, and in case you missed it, check out the Featured Deals for all the excitement.</p>
 		</div>
 	</div>
 	<div id="search">

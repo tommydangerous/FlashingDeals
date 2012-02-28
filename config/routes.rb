@@ -67,6 +67,10 @@ FlashingDeal::Application.routes.draw do
 # Sessions  
   match '/login'  => 'sessions#new'
   match '/logout' => 'sessions#destroy'
+  match '/hide-signup-message' => 'sessions#hide_signup_message', :as => :hide_signup_message
+  match '/hide-featured-deals-info' => 'sessions#hide_flashback_info', :as => :hide_flashback_info
+  match '/hide-community-deals-info' => 'sessions#hide_flashmob_info', :as => :hide_flashmob_info
+  match '/hide-categories-info' => 'sessions#hide_categories_info', :as => :hide_categories_info
 # Shares  
   match '/remove-shared-deals' => 'shares#remove_shared_deals', :as => :remove_shared_deals
 # Users

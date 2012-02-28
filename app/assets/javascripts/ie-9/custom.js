@@ -269,3 +269,7 @@ $(document).ready(function() {
 function toggleDealPageInfo() {
 	$("div.deal_page_info").fadeToggle(200);
 };
+
+function hidePageDealInfo() {
+	$("div#page_deal_info").fadeOut(200);
+};

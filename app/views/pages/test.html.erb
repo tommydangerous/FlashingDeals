@@ -1,0 +1,12 @@
+<% unless cookies[:hide_message] == "yes" %>
+	<div id="signup_message_popup">
+		<h1>SIGN UP NOW</h1>
+		<%= link_to "Don't Show This Message Anymore", hide_signup_message_path, :onclick => "hideSignupMessagePopup();", :remote => true %>
+	</div>
+<% end %>
+
+<script>
+function hideSignupMessagePopup() {
+	$("div#signup_message_popup").fadeOut(100);
+}
+</script>

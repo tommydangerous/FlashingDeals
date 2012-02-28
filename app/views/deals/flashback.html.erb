@@ -1,5 +1,13 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
+	<% unless cookies[:hide_flashback_info] == "yes" %>
+		<div id="page_deal_info">
+			<div id="page_deal_info_close">
+				<%= link_to image_tag("/assets/close.png"), hide_flashback_info_path, :onclick => "hidePageDealInfo();", :remote => true, :title => "Hide this message" %>
+			</div>
+			<p>FlashingDeals is always finding the best deals, but the home page can only fit so many at a time. This is where the Featured Deals page comes into play. If you missed any of the deals from the home page, you can come here and see them all! Want more? Check out the Community Deals for never ending excitement.</p>
+		</div>
+	<% end %>
 	<div id="deal_page_info">
 		<div id="show_electric_flashing">
 			<ul>
@@ -7,14 +15,6 @@
 					<%= render "electric_flashing_sort" %>
 				</span>
 			</ul>
-		</div>
-		<%= link_to "", "javascript:void(0)", :id => "question", :onclick => "toggleDealPageInfo();" %>
-		<h1>Featured Deals?</h1>
-		<div class="deal_page_info">
-			<div class="close_deal_page_info">
-				<%= link_to image_tag("/assets/close.png"), "javascript:void(0);", :onclick => "toggleDealPageInfo();" %>
-			</div>
-			<p>FlashingDeals is always finding the best deals, but the home page can only fit so many at a time. This is where the Featured Deals page comes into play. If you missed any of the deals from the home page, you can come here and see them all! Want more? Check out the Community Deals for never ending excitement.</p>
 		</div>
 	</div>
 	<div id="search">

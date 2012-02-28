@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+	before_filter :authenticate, :only => [:test, :control_panel]
 	before_filter :gm_user, :only => [:test, :control_panel]
 
 	def about

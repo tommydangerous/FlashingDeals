@@ -63,6 +63,7 @@ span.gap {
 div#deal_nav {
 	width: 100%;
 	height: 25px;
+	margin-top: 1px;
 	margin-bottom: 10px;
 	text-align: center;
 }
