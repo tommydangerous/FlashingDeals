@@ -20,6 +20,9 @@ name ILIKE '%reader digest%'
 											")
 	deals = deals.where("
 	
+name NOT ILIKE '%blu ray%' AND
+name NOT ILIKE '%blu-ray%' AND
+name NOT ILIKE '%bluray%' AND			
 name NOT ILIKE '%bookcase%' AND	
 name NOT ILIKE '%bookshelf%' AND
 name NOT ILIKE '%clip light%' AND

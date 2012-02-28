@@ -1,6 +1,6 @@
 <%= render 'shared/side_panel' %>
 <div id="deals_list">
-	<% unless cookies[:hide_flashback_info] == "yes" %>
+	<% unless cookies[:hide_featured_deals_info] == "yes" %>
 		<div id="page_deal_info">
 			<div id="page_deal_info_close">
 				<%= link_to image_tag("/assets/close.png"), hide_flashback_info_path, :onclick => "hidePageDealInfo();", :remote => true, :title => "Hide this message" %>

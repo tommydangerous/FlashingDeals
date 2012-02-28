@@ -44,15 +44,15 @@ class SessionsController < ApplicationController
 	end
 	
 	def hide_flashback_info
-		unless cookies[:hide_flashback_info] == "yes"
-			cookies[:hide_flashback_info] = { :value => "yes", :expires => (Time.now + (86400 * 14)) }
+		unless cookies[:hide_featured_deals_info] == "yes"
+			cookies[:hide_featured_deals_info] = { :value => "yes", :expires => (Time.now + (86400 * 14)) }
 		end
 		redirect_to root_path
 	end
 	
 	def hide_flashmob_info
-		unless cookies[:hide_flashmob_info] == "yes"
-			cookies[:hide_flashmob_info] = { :value => "yes", :expires => (Time.now + (86400 * 14)) }
+		unless cookies[:hide_community_deals_info] == "yes"
+			cookies[:hide_community_deals_info] = { :value => "yes", :expires => (Time.now + (86400 * 14)) }
 		end
 		redirect_to root_path
 	end
