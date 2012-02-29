@@ -24,8 +24,14 @@
 						<% if current_user.admin? %>
 							<li><%= link_to "Queue", queue_path %></li>
 							<li><%= link_to "Rising Deals", rising_deals_path %></li>
-							<li><%= link_to "All Deals", deals_path %></li>
+							<li><%= link_to "Search Deals", search_path %></li>
+							<li><%= link_to "Create a Deal", new_deal_path %></li>
 							<li><%= link_to "All Users", users_path %></li>
+							<li><%= link_to "All Comments", comments_path %></li>
+							<li><%= link_to "Watched Deals", relationships_path %></li>
+							<% if current_user.gm? %>
+								<li><%= link_to "Control Panel", control_panel_path %></li>
+							<% end %>
 						<% end %>
 						<li>
 							<% if current_user.received_messages.where("read = ?", false).size == 0 %>
@@ -54,9 +60,6 @@
 							<% end %>
 						</li>
 						<li><%= link_to "Settings", edit_user_path(current_user) %></li>
-						<% if current_user.gm? %>
-							<li><%= link_to "Control Panel", control_panel_path %></li>
-						<% end %>
 						<li id="logout"><%= link_to "Logout", logout_path %></li>
 					</ul>
 				</div>

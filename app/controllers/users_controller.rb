@@ -43,8 +43,9 @@ class UsersController < ApplicationController
 	  	@deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
 		end
 	rescue ActiveRecord::RecordNotFound
-		@title = "Page Not Found"
-		render 'pages/page_not_found'
+		redirect_to my_account_path
+#		@title = "Page Not Found"
+#		render 'pages/page_not_found'
   end	
   
   def my_account

@@ -14,22 +14,6 @@
 			</tr>
 			<tr>
 				<td class="model_name">
-					<p><%= link_to "Watched Deals", relationships_path %></p> 
-				</td>
-				<td class="model_count">
-					<p><span><%= (Relationship.all.size) %></span></p>
-				</td>
-			</tr>
-			<tr>
-				<td class="model_name">
-					<p><%= link_to "Comments", comments_path %></p> 
-				</td>
-				<td class="model_count">
-					<p><span><%= (Comment.all.size + Subcomment.all.size) %></span></p>
-				</td>
-			</tr>
-			<tr>
-				<td class="model_name">
 					<p><%= link_to "Create a Deal", new_deal_path %></p>
 				</td>
 			</tr>

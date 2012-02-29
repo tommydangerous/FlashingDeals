@@ -81,8 +81,9 @@ class DealsController < ApplicationController
   	@subcomments = @deal.subcomments  	
   	@deal.increment!(:view_count, by = 1)
 	rescue ActiveRecord::RecordNotFound
-		@title = "Page Not Found"
-		render 'pages/page_not_found'
+		redirect_to flashback_path
+#		@title = "Page Not Found"
+#		render 'pages/page_not_found'
   end
   
   def frame
