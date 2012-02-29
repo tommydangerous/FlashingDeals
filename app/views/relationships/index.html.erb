@@ -1,0 +1,11 @@
+<div id="side_panel">
+	<%= render "shared/control_panel_s" %>
+</div>
+<div id="feedback_list">
+	<div id="paginate_range">
+		<h1><%= paginate_range_m(@relationships, @relationships_total_count, "relationship") %></h1>
+	</div>
+	<div class="clear"></div>
+	<%= render @relationships %>
+	<%= will_paginate @relationships, :separator => "" %>
+</div>

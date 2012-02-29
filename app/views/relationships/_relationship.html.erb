@@ -1,0 +1,19 @@
+<div class="comment">
+	<div id="gravatar_comment">
+		<%= link_to User.find(relationship.watcher_id) do %>
+			<%= image_tag(User.find(relationship.watcher_id).photo.url, :id => "user_photo_small") %>
+		<% end %>
+	</div>
+	<div id="comment">
+		<div id="comment_user">
+			<strong><%= link_to User.find(relationship.watcher_id).name, User.find(relationship.watcher_id) %></strong>
+		</div>
+		<div id="comment_content">
+			<%= link_to Deal.find(relationship.watched_id).name, Deal.find(relationship.watched_id), :class => "grey_link" %>
+		</div>
+		<div id="comment_timestamp">
+			Watched on <%= relationship.created_at.strftime("%A") %> at <%= relationship.created_at.strftime("%I:%M %p") %> (<%= relationship.created_at.strftime("%b %d, %Y") %>)
+		</div>
+	</div>
+</div>
+<div class="clear"></div>

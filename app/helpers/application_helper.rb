@@ -31,10 +31,16 @@ module ApplicationHelper
   	link_to title, params.merge(:sort => column, :direction => direction, :page => nil), {:class => css_class}
   end
   
-	def paginate_range(in_collection, in_tot_count)
+  def paginate_range(in_collection, in_tot_count)
 	  endnumber = in_collection.offset + in_collection.per_page > in_tot_count ? 
 	    in_tot_count : in_collection.offset + in_collection.per_page
 	  "Displaying deals #{in_collection.offset + 1} - #{endnumber} of #{in_tot_count} in total"
+	end
+  
+	def paginate_range_m(in_collection, in_tot_count, model)
+	  endnumber = in_collection.offset + in_collection.per_page > in_tot_count ? 
+	    in_tot_count : in_collection.offset + in_collection.per_page
+	  "Displaying #{model}s #{in_collection.offset + 1} - #{endnumber} of #{in_tot_count} in total"
 	end
 	
 	def to_html(str)

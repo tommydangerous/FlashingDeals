@@ -1,0 +1,43 @@
+<div id="user_index_panel">
+	<div id="user_index_panel_title">
+		<p><%= link_to "Control Panel", "javascript:void(0)", :onclick => "toggleControlPanel()" %></p>
+	</div>
+	<div id="user_index_control_panel">
+		<table>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "All Users", users_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= User.all.size %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "Watched Deals", relationships_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= (Relationship.all.size) %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "Comments", comments_path %></p> 
+				</td>
+				<td class="model_count">
+					<p><span><%= (Comment.all.size + Subcomment.all.size) %></span></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "Create a Deal", new_deal_path %></p>
+				</td>
+			</tr>
+			<tr>
+				<td class="model_name">
+					<p><%= link_to "Search Deals", search_path %></p>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>

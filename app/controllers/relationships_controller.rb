@@ -1,5 +1,12 @@
 class RelationshipsController < ApplicationController
 	before_filter :authenticate
+	before_filter :admin_user, :only => :index
+	
+	def index
+		@title = "Watched Deals"
+		@relationships = Relationship.paginate(:page => params[:page], :per_page => 50)
+		@relationships_total_count = Relationship.all.size
+	end
 	
 	def create
 		@deal = Deal.find(params[:relationship][:watched_id])

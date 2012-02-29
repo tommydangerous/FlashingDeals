@@ -6,4 +6,6 @@ class Relationship < ActiveRecord::Base
 	
 	validates :watcher_id, :presence => true
 	validates :watched_id, :presence => true
+	
+	default_scope :order => 'relationships.created_at DESC'
 end

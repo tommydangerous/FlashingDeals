@@ -24,7 +24,7 @@ FlashingDeal::Application.routes.draw do
   resources :locations, :only => :show
   resources :messages, :only => [:index, :show, :create, :update]
   resources :password_resets, :only => [:new, :create, :edit, :update]
-  resources :relationships, :only => [:create, :destroy]
+  resources :relationships, :only => [:index, :create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :shares, :only => [:create, :destroy]
   resources :subcomments, :only => [:create, :destroy]

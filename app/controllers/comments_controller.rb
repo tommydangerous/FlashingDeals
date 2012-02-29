@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
-	before_filter :authenticate, :only => [:create, :destroy]
+	before_filter :authenticate
 	before_filter :admin_user, :only => :index
 	
 	def index
-		@title = "All User Comments"
-		@comments = Comment.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
+		@title = "Comments"
+		@comments = Comment.paginate(:page => params[:page], :per_page => 50)
 	end
 	
 	def create

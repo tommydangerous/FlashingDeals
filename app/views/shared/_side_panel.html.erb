@@ -1,3 +1,8 @@
 <div id="side_panel">
+	<% if signed_in? %>
+		<% if current_user.admin? %>
+			<%= render 'shared/control_panel_s' %>
+		<% end %>
+	<% end %>
 	<%= render 'shared/category_box' %>
 </div>

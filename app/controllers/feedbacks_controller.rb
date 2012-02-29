@@ -4,7 +4,7 @@ class FeedbacksController < ApplicationController
 	before_filter :gm_user, :only => :destroy
 	
 	def index
-		@title = "All Users' Feedback"
+		@title = "Feedback"
 		@feedbacks = Feedback.order("created_at DESC").paginate(:page => params[:page], :per_page => 50)
 		@feedbacks_total_count = Feedback.all.size
 	end
