@@ -128,11 +128,11 @@ class UsersController < ApplicationController
   private
   
   	def sort_column
-  		User.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  		User.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
   	end
   	
   	def sort_direction
-  		%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  		%w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   	end
   	
   	def auth_my_account
