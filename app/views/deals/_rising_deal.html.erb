@@ -35,9 +35,6 @@
 		<% end %>
 			<li><p><span class="light_grey">Created:</span> <%= deal.created_at.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.created_at.strftime("%I:%M %p") %></span></p></li>
 		</ul>
-		<div id="reviewed_<%= deal.id %>" class="deal_editmarks">
-			<%= render :partial => "editmarks/reviewed", :locals => { :deal => deal } %>
-		</div>
 	</div>
 	<div class="col3">
 		<div class="price">
@@ -53,48 +50,51 @@
 			<% end %>
 		</div>
 		<div id="deal_data">
-		<table>
-			<tr>
-				<td class="deal_data_numbers">
-					<p><%= deal.tag %></p>
-				</td>
-				<td class="deal_data_labels_words">
-					<p>Tag</p>
-				</td>
-			</tr>
-			<tr>
-				<td class="deal_data_numbers">
-					<p>
-						<% if deal.rating.nil? || deal.rating.blank? %>
-							<%= deal.rating %>
+			<table>
+				<tr>
+					<td class="deal_data_numbers">
+						<p><%= deal.tag %></p>
+					</td>
+					<td class="deal_data_labels_words">
+						<p>Tag</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="deal_data_numbers">
+						<p>
+							<% if deal.rating.nil? || deal.rating.blank? %>
+								<%= deal.rating %>
+							<% else %>
+								<%= deal.rating.round %>
+							<% end %>
+						</p>
+					</td>
+					<td class="deal_data_labels_words">
+						<p>Rating</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="deal_data_numbers">
+						<p>
+						<% if deal.metric < 1 && deal.metric >= 0 %>
+							<span class="red"><%= (deal.metric * 200).round/200.0 %></span>
+						<% elsif deal.metric < 2 && deal.metric >= 1 %>
+							<span class="blue"><%= (deal.metric * 200).round/200.0 %></span>
+						<% elsif deal.metric < 0 %>
+							<span class="blue">FM</span>
 						<% else %>
-							<%= deal.rating.round %>
+							<span class="green"><%= (deal.metric * 200).round/200.0 %></span>
 						<% end %>
-					</p>
-				</td>
-				<td class="deal_data_labels_words">
-					<p>Rating</p>
-				</td>
-			</tr>
-			<tr>
-				<td class="deal_data_numbers">
-					<p>
-					<% if deal.metric < 1 && deal.metric >= 0 %>
-						<span class="red"><%= (deal.metric * 200).round/200.0 %></span>
-					<% elsif deal.metric < 2 && deal.metric >= 1 %>
-						<span class="blue"><%= (deal.metric * 200).round/200.0 %></span>
-					<% elsif deal.metric < 0 %>
-						<span class="blue">FM</span>
-					<% else %>
-						<span class="green"><%= (deal.metric * 200).round/200.0 %></span>
-					<% end %>
-					</p>
-				</td>
-				<td class="deal_data_labels_words">
-					<p>Metric</p>
-				</td>
-			</tr>
-		</table>
+						</p>
+					</td>
+					<td class="deal_data_labels_words">
+						<p>Metric</p>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="reviewed_<%= deal.id %>" class="deal_editmarks">
+			<%= render :partial => "editmarks/reviewed", :locals => { :deal => deal } %>
 		</div>
 	</div>
 	<div class="clear"></div>

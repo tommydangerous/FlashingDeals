@@ -271,7 +271,7 @@ div#deal_data {
 }
 
 div#deal_data p {
-	font-size: 14px;
+	font-size: 12px;
 }
 
 div#deal_data table {
@@ -290,13 +290,13 @@ div#deal_data td.deal_data_numbers {
 }
 
 div#deal_data td.deal_data_labels {
-	width: 10%;
+	width: 50%;
 	padding: 3px 0;
 	text-align: center;
 }
 
 td.deal_data_labels_words {
-	width: 10%;
+	width: 50%;
 	padding: 3px 0;
 	text-align: left;
 }

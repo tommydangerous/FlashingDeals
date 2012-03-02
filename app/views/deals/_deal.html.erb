@@ -87,18 +87,7 @@
 					<% unless deal.time_in.nil? %>
 						<li><p><span class="light_grey">Time In:</span> <%= deal.time_in.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= deal.time_in.strftime("%I:%M %p") %></p></li>
 					<% end %>
-					<% unless deal.site.nil? || deal.site.empty? %>
-						<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
-					<% end %>
 				</ul>
-				<% if signed_in? %>
-					<% if current_user.admin? %>
-						<p><span class="light_grey">Click Count:</span> <%= deal.click_count %></p>
-					<% end %>
-				<% end %>
-				<div id="reviewed_<%= deal.id %>" class="deal_editmarks">
-					<%= render :partial => "editmarks/reviewed", :locals => { :deal => deal } %>
-				</div>
 			<% end %>
 		<% end %>
 	</div>
@@ -137,34 +126,18 @@
 				<table>
 					<tr>
 						<td class="deal_data_numbers">
-							<p>
-							<% if deal.plusminus > 0 %>
-								<span class="dark"><%= deal.plusminus %></span>
-							<% elsif deal.plusminus < 0 %>
-								<span class="dark"><%= deal.plusminus %></span>
-							<% else %>
-								<span class="dark"><%= deal.plusminus %></span>
-							<% end %>
-							</p>
+							<p><%= deal.comment_count %></p>
 						</td>
-						<td class="deal_data_labels">
-							<%= image_tag("/assets/flash_point.png", :title => "Flash Points", :class => "flash_points") %>
-						</td>
-					</tr>
-					<tr>
-						<td class="deal_data_numbers">
-							<p><%= (deal.comments.size + deal.subcomments.size) %></p>
-						</td>
-						<td class="deal_data_labels">
-							<%= image_tag("/assets/comment_bubble.png", :title => "Comments", :class => "comment_bubble") %>
+						<td class="deal_data_labels_words">
+							<p>Comments</p>
 						</td>
 					</tr>
 					<tr>
 						<td class="deal_data_numbers">
 							<p><%= deal.view_count %></p>
 						</td>
-						<td class="deal_data_labels">
-							<%= image_tag("/assets/glass.png", :title => "Views", :class => "views") %>
+						<td class="deal_data_labels_words">
+							<p>Views</p>
 						</td>
 					</tr>
 					<tr>
@@ -181,11 +154,14 @@
 							<% end %>
 							</p>
 						</td>
-						<td class="deal_data_labels">
-							<%= image_tag("/assets/metric.png", :title => "Metric", :class => "metric") %>
+						<td class="deal_data_labels_words">
+							<p>Metric</p>
 						</td>
 					</tr>
 				</table>
+			</div>
+			<div id="reviewed_<%= deal.id %>" class="deal_editmarks">
+				<%= render :partial => "editmarks/reviewed", :locals => { :deal => deal } %>
 			</div>
 			<% end %>
 		<% end %>
