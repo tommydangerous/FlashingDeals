@@ -1,5 +1,5 @@
 class Notification < ActiveRecord::Base
-	attr_accessible :user_id, :notice_id, :deal_id, :comment_id, :subcomment_id
+	attr_accessible :user_id, :notice_id, :deal_id, :comment_id, :subcomment_id, :read
 	
 	belongs_to :user
 	
