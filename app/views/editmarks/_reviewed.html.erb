@@ -2,7 +2,7 @@
 	<%= form_for current_user.editmarks.build, :remote => true do |f| %>
 		<%= f.hidden_field :deal_id, :value => deal.id %>
 		<div class="actions">
-			<%= f.submit "Reviewed" %>
+			<%= f.submit "Review" %>
 		</div>
 	<% end %>
 <% end %>

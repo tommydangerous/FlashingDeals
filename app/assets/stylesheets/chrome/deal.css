@@ -284,19 +284,19 @@ div#deal_data table tr{
 }
 
 div#deal_data td.deal_data_numbers {
-	width: 50%;
+	width: 58%;
 	padding: 3px 0;
 	text-align: center;
 }
 
 div#deal_data td.deal_data_labels {
-	width: 50%;
+	width: 42%;
 	padding: 3px 0;
 	text-align: center;
 }
 
 td.deal_data_labels_words {
-	width: 50%;
+	width: 42%;
 	padding: 3px 0;
 	text-align: left;
 }
