@@ -172,7 +172,7 @@ def dealnews_computers
 			else
 				score = score.attr("title").to_s
 				if score.include?("New")
-					rating = 5.0
+					rating = 0
 				else
 					score = score[/[0-9]\/[0-9]/][/^[0-9]/]
 					rating = score.to_f
@@ -277,7 +277,7 @@ def dealnews_clothing
 			else
 				score = score.attr("title").to_s
 				if score.include?("New")
-					rating = 5.0
+					rating = 0
 				else
 					score = score[/[0-9]\/[0-9]/][/^[0-9]/]
 					rating = score.to_f
@@ -382,7 +382,7 @@ def dealnews_electronics
 			else
 				score = score.attr("title").to_s
 				if score.include?("New")
-					rating = 5.0
+					rating = 0
 				else
 					score = score[/[0-9]\/[0-9]/][/^[0-9]/]
 					rating = score.to_f
@@ -487,7 +487,7 @@ def dealnews_travel
 			else
 				score = score.attr("title").to_s
 				if score.include?("New")
-					rating = 5.0
+					rating = 0
 				else
 					score = score[/[0-9]\/[0-9]/][/^[0-9]/]
 					rating = score.to_f
