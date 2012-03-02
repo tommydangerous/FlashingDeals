@@ -1,7 +1,7 @@
 <% if signed_in? %>
 	<% if current_user.request_friends.empty? && current_user.received_messages.where("read = ?", false).empty? && current_user.notifications.where("read = ?", false).empty? %>
 	<% else %>
-	<span class="red">!</span>
+		<%= image_tag("/assets/notice.png", :id => "notice") %>
 	<% end %>
 <% else %>
 <% end %>

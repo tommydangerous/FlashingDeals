@@ -187,3 +187,7 @@ span#my_account_notification {
 	font-weight: bold;
 	font-size: 16px;
 }
+
+img#notice {
+	margin-top: 19px;
+}

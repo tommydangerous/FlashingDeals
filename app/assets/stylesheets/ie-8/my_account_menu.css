@@ -113,3 +113,9 @@ div#my_account_arrow {
 span#my_account_notification {
 	font-weight: bold;
 }
+
+img#notice {
+	margin-left: -4px;
+	position: relative;
+	top: 4px;
+}

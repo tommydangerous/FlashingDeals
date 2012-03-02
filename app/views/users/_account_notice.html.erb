@@ -4,7 +4,9 @@
 	<% end %>
 <% else %>
 	<%= link_to("javascript: void(0);", :id => "my_account") do %>
-		Account<span id="my_account_notification"><span class="red">!</span></span>
+		Account<span id="my_account_notification">
+			<%= image_tag("/assets/notice.png", :id => "notice") %>
+		</span>
 	<% end %>
 <% end %>
 <script>
