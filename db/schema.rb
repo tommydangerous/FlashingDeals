@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120224193124) do
+ActiveRecord::Schema.define(:version => 20120301024243) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -170,6 +170,20 @@ ActiveRecord::Schema.define(:version => 20120224193124) do
 
   add_index "messages", ["created_at"], :name => "index_messages_on_created_at"
   add_index "messages", ["user_id", "recipient_id"], :name => "index_messages_on_user_id_and_recipient_id"
+
+  create_table "notifications", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "notice_id"
+    t.integer  "deal_id"
+    t.integer  "comment_id"
+    t.integer  "subcomment_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "read"
+  end
+
+  add_index "notifications", ["read"], :name => "index_notifications_on_read"
+  add_index "notifications", ["user_id", "notice_id", "deal_id", "comment_id", "subcomment_id"], :name => "notifications_index", :unique => true
 
   create_table "relationships", :force => true do |t|
     t.integer   "watcher_id"

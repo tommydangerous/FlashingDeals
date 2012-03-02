@@ -13,9 +13,10 @@ a#message_single_link {
 	width: 580px;
 	height: 60px;
 	position: absolute;
-	z-index: 0;
+	z-index: 1;
 	margin-top: -5px;
 	margin-left: -5px;
+	background: rgba(0, 0, 0, 0);
 }
 
 .read {

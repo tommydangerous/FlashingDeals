@@ -1,0 +1,12 @@
+<li>
+	<div id="notification">
+		<%= link_to(Deal.find(notification.deal_id), :id => "notification_link") do %>
+		<% end %>
+		<h2><%= notification.created_at.strftime("%B %e") %></h2>
+		<div id="notification_time">
+			<%= notification.created_at.strftime("%l:%M %p") %>
+		</div>
+		<p><%= User.find(notification.user_id).name %> commented on <%= link_to Deal.find(notification.deal_id).name, Deal.find(notification.deal_id) %></p>
+		<div class="clear"></div>
+	</div>
+</li>

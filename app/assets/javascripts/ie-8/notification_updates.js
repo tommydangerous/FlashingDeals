@@ -37,3 +37,13 @@ function accountNotice() {
 		}
 	})
 };
+
+function notificationsUpdate() {
+	$.ajax({
+		url: "/ajax/ajax_notifications_update",
+		cache: false,
+		success: function(html){
+			$("span.notification_count").html(html);
+		}
+	})	
+};

@@ -1,0 +1,18 @@
+<div id="notifications">
+	<h1>My Notifications</h1>
+	<% @notifications_days.sort.reverse.each do |month_day, notifications| %>
+		<h2><%= month_day %></h2>
+		<% for notification in notifications %>
+			<div id="notification">
+				<%= link_to(Deal.find(notification.deal_id), :id => "notification_link") do %>
+				<% end %>
+				<div id="notification_time">
+					<%= notification.created_at.strftime("%l:%M %p") %>
+				</div>
+				<p><%= link_to User.find(notification.user_id).name, User.find(notification.user_id) %> commented on <%= link_to Deal.find(notification.deal_id).name, Deal.find(notification.deal_id) %></p>
+				<div class="clear"></div>
+			</div>
+		<% end %>
+	<% end %>
+	<div class="page_end"></div>
+</div>

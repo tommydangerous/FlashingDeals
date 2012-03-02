@@ -23,6 +23,7 @@ FlashingDeal::Application.routes.draw do
   resources :friendships, :only => [:create, :update, :destroy]
   resources :locations, :only => :show
   resources :messages, :only => [:index, :show, :create, :update]
+  resources :notifications, :only => :index
   resources :password_resets, :only => [:new, :create, :edit, :update]
   resources :relationships, :only => [:index, :create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
@@ -85,6 +86,7 @@ FlashingDeal::Application.routes.draw do
 	match '/ajax/ajax_friend_requests' => 'ajax#ajax_friend_requests'
 	match '/ajax/ajax_shared_deals' => 'ajax#ajax_shared_deals'
 	match '/ajax/ajax_notification' => 'ajax#ajax_notification'
+	match '/ajax/ajax_notifications_update' => 'ajax#ajax_notifications_update'
 # 404
   match '*url' => 'pages#page_not_found', :as => :page_not_found
 end

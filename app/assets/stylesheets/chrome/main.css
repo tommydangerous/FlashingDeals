@@ -7,12 +7,13 @@ body {
 }
 
 #wrapper {
+	min-width: 951px;
 	min-height: 100%;
 	position: relative;
 }
 
 #content {
-	padding:10px;
+	padding: 10px;
 	padding-bottom: 187px;   /* Height of the footer element */
 	width: 951px;
 	margin: auto;
@@ -24,12 +25,12 @@ body {
 }
 
 div.clear {
-   height: 0;
-   font-size: 1px;
-   margin: 0;
-   padding: 0;
-   line-height: 0;
-   clear: both;
+	height: 0;
+	font-size: 1px;
+	margin: 0;
+	padding: 0;
+	line-height: 0;
+	clear: both;
 }
 
 h1, h2, h3, h4, h5 {

@@ -10,8 +10,27 @@ class CommentsController < ApplicationController
 	def create
 		comment = current_user.comments.create(params[:comment])
 		deal = Deal.find(params[:comment][:deal_id])
+		comments = deal.comments
 		subcomments = deal.subcomments
 		if comment.save
+			@notice_ids = []
+			relationships = Relationship.where("watched_id = ?", deal.id)
+			relationships.each do |x|
+				@notice_ids.push(User.find(x.watcher_id))
+			end
+			comments.each do |x|
+				@notice_ids.push(User.find(x.user_id))
+			end
+			subcomments.each do |x|
+				@notice_ids.push(User.find(x.user_id))
+			end
+			notice_ids = @notice_ids.map {|i| i.id }.uniq
+			if notice_ids.include?(current_user.id)
+				notice_ids.delete(current_user.id)
+			end
+			notice_ids.each do |x|
+				Notification.create!(:user_id => current_user.id, :notice_id => x, :deal_id => deal.id, :comment_id => comment.id, :subcomment_id => nil, :read => false)
+			end
 			respond_to do |format|
 				format.html {
 					flash[:success] = "Comment created!"

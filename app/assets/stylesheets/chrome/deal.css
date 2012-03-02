@@ -295,6 +295,16 @@ div#deal_data td.deal_data_labels {
 	text-align: center;
 }
 
+td.deal_data_labels_words {
+	width: 10%;
+	padding: 3px 0;
+	text-align: left;
+}
+
+td.deal_data_labels_words p {
+	color: rgba(150, 150, 150, 1);
+}
+
 img.flash_points {
 	margin-right: 5px;
 	padding-top: 4px;

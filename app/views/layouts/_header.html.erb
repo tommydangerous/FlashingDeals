@@ -33,6 +33,19 @@
 								<li><%= link_to "Control Panel", control_panel_path %></li>
 							<% end %>
 						<% end %>
+						<% if current_user.notifications.where("read = ?", false).empty? %>
+							<li>
+								<%= link_to notifications_path do %>
+									Notifications <span class="notification_count"></span>
+								<% end %>
+							</li>
+						<% else %>
+							<li>
+								<%= link_to notifications_path do %>
+									Notifications <span class="notification_count">(<%= current_user.notifications.where("read = ?", false).size %>)</span>
+								<% end %>
+							</li>
+						<% end %>
 						<li>
 							<% if current_user.received_messages.where("read = ?", false).size == 0 %>
 								<%= link_to messages_path do %>

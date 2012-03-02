@@ -11,13 +11,9 @@
 			<% end %>
 			</a>
 		<% end %>
-		<% if signed_in? %>
-			<% if current_user.admin? %>
-				<div id="deal_editmarks_<%= deal.id %>" class="deal_editmarks">
-					<%= render :partial => "editmarks/deal_editmarks", :locals => { :deal => deal } %>
-				</div>
-			<% end %>
-		<% end %>
+		<div id="deal_editmarks_<%= deal.id %>" class="deal_editmarks">
+			<%= render :partial => "editmarks/deal_editmarks", :locals => { :deal => deal } %>
+		</div>
 	</div>
 	<div class="col2">
 		<h1><%= link_to deal.name, deal %></h1>
@@ -38,20 +34,17 @@
 			<li><p><span class="light_grey">Posted:</span> <%= deal.posted.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.posted.strftime("%I:%M %p") %></span></p></li>
 		<% end %>
 			<li><p><span class="light_grey">Created:</span> <%= deal.created_at.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.created_at.strftime("%I:%M %p") %></span></p></li>
-		<% unless deal.site.nil? || deal.site.empty? %>
-			<li><p><span class="light_grey">From:</span> <%= deal.site %></p></li>
-		<% end %>
 		<% unless deal.tag.nil? || deal.tag.empty? %>
-			<li><p><span class="light_grey">Tag:</span> <%= deal.tag %></p></li>
+			<li>
+				<p>
+					<span class="light_grey">Tag:</span> <%= deal.tag %>
+				</p>
+			</li>
 		<% end %>
 		</ul>
-		<% if signed_in? %>
-			<% if current_user.admin? %>
-				<div id="reviewed_<%= deal.id %>" class="deal_editmarks">
-					<%= render :partial => "editmarks/reviewed", :locals => { :deal => deal } %>
-				</div>
-			<% end %>
-		<% end %>
+		<div id="reviewed_<%= deal.id %>" class="deal_editmarks">
+			<%= render :partial => "editmarks/reviewed", :locals => { :deal => deal } %>
+		</div>
 	</div>
 	<div class="col3">
 		<div class="price">
@@ -70,69 +63,51 @@
 		<table>
 			<tr>
 				<td class="deal_data_numbers">
+					<p><%= deal.tag %></p>
+				</td>
+				<td class="deal_data_labels_words">
+					<p>Tag</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="deal_data_numbers">
 					<p>
-					<% if deal.plusminus > 0 %>
-						<span class="dark"><%= deal.plusminus %></span>
-					<% elsif deal.plusminus < 0 %>
-						<span class="dark"><%= deal.plusminus %></span>
+						<% if deal.rating.nil? || deal.rating.blank? %>
+							<%= deal.rating %>
+						<% else %>
+							<%= deal.rating.round %>
+						<% end %>
+					</p>
+				</td>
+				<td class="deal_data_labels_words">
+					<p>Rating</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="deal_data_numbers">
+					<p>
+					<% if deal.metric < 1 && deal.metric >= 0 %>
+						<span class="red"><%= (deal.metric * 200).round/200.0 %></span>
+					<% elsif deal.metric < 2 && deal.metric >= 1 %>
+						<span class="blue"><%= (deal.metric * 200).round/200.0 %></span>
+					<% elsif deal.metric < 0 %>
+						<span class="blue">FM</span>
 					<% else %>
-						<span class="dark"><%= deal.plusminus %></span>
+						<span class="green"><%= (deal.metric * 200).round/200.0 %></span>
 					<% end %>
 					</p>
 				</td>
-				<td class="deal_data_labels">
-					<%= image_tag("/assets/flash_point.png", :title => "Flash Points", :class => "flash_points") %>
+				<td class="deal_data_labels_words">
+					<p>Metric</p>
 				</td>
 			</tr>
-			<tr>
-				<td class="deal_data_numbers">
-					<p><%= (deal.comments.size + deal.subcomments.size) %></p>
-				</td>
-				<td class="deal_data_labels">
-					<%= image_tag("/assets/comment_bubble.png", :title => "Comments", :class => "comment_bubble") %>
-				</td>
-			</tr>
-			<tr>
-				<td class="deal_data_numbers">
-					<p><%= deal.view_count %></p>
-				</td>
-				<td class="deal_data_labels">
-					<%= image_tag("/assets/glass.png", :title => "Views", :class => "views") %>
-				</td>
-			</tr>
-			<% if signed_in? %>
-				<% if current_user.admin? %>
-					<tr>
-						<td class="deal_data_numbers">
-							<p>
-							<% if deal.metric < 1 && deal.metric >= 0 %>
-								<span class="red"><%= (deal.metric * 200).round/200.0 %></span>
-							<% elsif deal.metric < 2 && deal.metric >= 1 %>
-								<span class="blue"><%= (deal.metric * 200).round/200.0 %></span>
-							<% elsif deal.metric < 0 %>
-								<span class="blue">FM</span>
-							<% else %>
-								<span class="green"><%= (deal.metric * 200).round/200.0 %></span>
-							<% end %>
-							</p>
-						</td>
-						<td class="deal_data_labels">
-							<%= image_tag("/assets/metric.png", :title => "Metric", :class => "metric") %>
-						</td>
-					</tr>
-				<% end %>
-			<% end %>
 		</table>
 		</div>
 	</div>
 	<div class="clear"></div>
-	<% if signed_in? %>
-		<% if current_user.admin? %>
-			<div class="edit_rising_deal">
-				<%= link_to "Edit + Add to Queue", "javascript:void(0);", :onclick => "toggleRisingDealEdit(#{deal.id})" %>
-			</div>
-		<% end %>
-	<% end %>
+	<div class="edit_rising_deal">
+		<%= link_to "Edit + Add to Queue", "javascript:void(0);", :onclick => "toggleRisingDealEdit(#{deal.id})" %>
+	</div>
 	<%= render :partial => "deals/add_edit_to_queue_form", :locals => { :deal => deal } %>
 	<div class="clear"></div>
 </div>

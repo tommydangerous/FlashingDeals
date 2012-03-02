@@ -21,4 +21,8 @@ class AjaxController < ApplicationController
   def ajax_notification
   	render :layout => false
   end
+  
+  def ajax_notifications_update
+  	render :layout => false
+  end
 end

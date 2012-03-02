@@ -1,0 +1,72 @@
+div#notifications {
+	width: 700px;
+	float: left;
+}
+
+div#notifications h1 {
+	font-family: Helvetica, Arial;
+	font-weight: bold;
+	font-size: 14px;
+	background: rgb(173, 217, 228);
+	color: rgb(44, 175, 227);
+	padding: 10px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-ms-border-top-left-radius: 5px;
+	-o-border-top-left-radius: 5px;
+	border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-right-radius: 5px;
+	-o-border-top-right-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-bottom: 5px;
+}
+
+div#notifications h2 {
+	font-size: 14px;
+	color: rgb(150, 150, 150);
+	margin: 5px 1px 3px 1px;
+}
+
+div#notifications ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+div#notification {
+	padding: 5px 5px 0px 5px;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(200, 200, 200);
+	margin-bottom: 3px;
+}
+
+div#notification p {
+	height: 15px;
+	width: 608px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	float: left;
+}
+
+div#notification_time {
+	width: 70px;
+	float: right;
+	text-align: right;
+	font-family: Helvetica, Arial;
+	font-size: 12px;
+	color: rgb(150, 150, 150);
+}
+
+a#notification_link {
+	display: none;
+	width: 0;
+	height: 0;
+	position: absolute;
+}
+
+a#notification_link:hover {
+	display: none;
+}

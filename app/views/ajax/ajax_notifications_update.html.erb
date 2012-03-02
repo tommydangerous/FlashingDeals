@@ -1,0 +1,6 @@
+<% if signed_in? %>
+	<% if current_user.notifications.where("read = ?", false).size > 0 %>
+		(<%= current_user.notifications.where("read = ?", false).size %>)
+	<% end %>
+<% else %>
+<% end %>

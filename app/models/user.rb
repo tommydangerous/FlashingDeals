@@ -72,6 +72,8 @@ class User < ActiveRecord::Base
 	has_many :received_messages, :class_name => "Message", :foreign_key => "recipient_id", :dependent => :destroy
 	
 	has_many :editmarks, :dependent => :destroy
+	
+	has_many :notifications, :foreign_key => "notice_id", :dependent => :destroy
 											 										 
 	before_save :encrypt_password
 	

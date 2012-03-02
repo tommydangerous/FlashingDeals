@@ -1,5 +1,5 @@
 <% if signed_in? %>
-	<% if current_user.request_friends.count == 0 && current_user.received_messages.where("read = ?", false).count == 0 %>
+	<% if current_user.request_friends.empty? && current_user.received_messages.where("read = ?", false).empty? && current_user.notifications.where("read = ?", false).empty? %>
 	<% else %>
 	<span class="red">!</span>
 	<% end %>
