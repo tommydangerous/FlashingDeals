@@ -5,6 +5,14 @@ div.deal_single {
 	padding: 5px;
 }
 
+.deal_dead {
+	opacity: .5;
+}
+
+#deal_expired {
+	display: none;
+}
+
 div.col1, div.col2 {
 	padding: 2%;
 }

@@ -4,10 +4,10 @@ task :deal_rotation => :environment do
 end
 
 def rotate_deals
-	today = Time.now - 43200 # 12 Hours, 36 Deals
+	today = Time.now - 28800 # 8 Hours, 24 Deals
 	queue_deals = Deal.where("queue = ?", true).order("deal_order ASC")
 	top_deals = Deal.where("top_deal = ?", true).order("time_in ASC")
-	flashback_deals = Deal.where("flash_back = ? AND time_in > ?", true, today).order("time_in ASC")
+	flashback_deals = Deal.where("flash_back = ? AND time_in > ? AND dead = ?", true, today, false).order("time_in ASC")
 	if queue_deals.empty?
 		unless flashback_deals.empty?
 			flashback_deals.first.update_attributes(:queue => true, :top_deal => false, :flash_back => false, :deal_order => 1)

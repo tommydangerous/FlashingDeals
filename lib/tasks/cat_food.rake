@@ -74,6 +74,7 @@ name ILIKE '%zinfandel%'
 
 name NOT ILIKE '%as seen on tv%' AND
 name NOT ILIKE '%asalto%' AND
+name NOT ILIKE '%butterfly%' AND
 name NOT ILIKE '%butter yellow%' AND
 name NOT ILIKE '%cell phone%' AND
 name NOT ILIKE '%cuisinart%' AND

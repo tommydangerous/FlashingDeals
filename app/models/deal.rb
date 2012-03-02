@@ -31,7 +31,9 @@ class Deal < ActiveRecord::Base
 									:point_count,
 									:exclusive,
 									:coupon,
-									:rebate
+									:rebate,
+									:dead,
+									:flashmob
 	
 									
 #	validates :name, :presence => true

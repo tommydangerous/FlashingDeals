@@ -1,9 +1,7 @@
-<% if deal.metric >= 2 && deal.metric < 4 %>
-<div id="deal_single_<%= deal.id %>" class="deal_single deal_electric">
-<% elsif deal.metric >= 4 %>
-<div id="deal_single_<%= deal.id %>" class="deal_single deal_flashing">
+<% if deal.dead? %>
+	<div id="deal_single_<%= deal.id %>" class="deal_single deal_dead" title="This deal has expired">
 <% else %>
-<div id="deal_single_<%= deal.id %>" class="deal_single deal_nothing">
+	<div id="deal_single_<%= deal.id %>" class="deal_single">
 <% end %>
 	<div class="col1">
 		<% if deal.image.nil? %>
@@ -60,6 +58,11 @@
 			<% if deal.exclusive? %>
 				<p><span class="grey_150">Exclusive For Members</span></p>
 			<% end %>
+		<% end %>
+		<% if deal.dead? %>
+			<div id="deal_expired">
+				Expired
+			</div>
 		<% end %>
 		<% if signed_in? %>
 			<% if current_user.admin? %>

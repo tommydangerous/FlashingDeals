@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120301024243) do
+ActiveRecord::Schema.define(:version => 20120302193013) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -90,6 +90,8 @@ ActiveRecord::Schema.define(:version => 20120301024243) do
     t.boolean   "exclusive"
     t.string    "coupon"
     t.string    "rebate"
+    t.boolean   "dead",          :default => false
+    t.boolean   "flashmob",      :default => false
   end
 
   add_index "deals", ["city"], :name => "index_deals_on_city"
@@ -97,10 +99,12 @@ ActiveRecord::Schema.define(:version => 20120301024243) do
   add_index "deals", ["comment_count"], :name => "index_deals_on_comment_count"
   add_index "deals", ["coupon"], :name => "index_deals_on_coupon"
   add_index "deals", ["created_at"], :name => "index_deals_on_created_at"
+  add_index "deals", ["dead"], :name => "index_deals_on_dead"
   add_index "deals", ["deal_order"], :name => "index_deals_on_deal_order"
   add_index "deals", ["discount"], :name => "index_deals_on_discount"
   add_index "deals", ["exclusive"], :name => "index_deals_on_exclusive"
   add_index "deals", ["flash_back"], :name => "index_deals_on_flash_back"
+  add_index "deals", ["flashmob"], :name => "index_deals_on_flashmob"
   add_index "deals", ["link"], :name => "index_deals_on_link"
   add_index "deals", ["metric"], :name => "index_deals_on_metric"
   add_index "deals", ["name"], :name => "index_deals_on_name", :unique => true

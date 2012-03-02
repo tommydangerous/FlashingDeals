@@ -1,4 +1,8 @@
-<div class="deal_single" id="user_deal_<%= deal.id %>">
+<% if deal.dead? %>
+	<div id="user_deal_<%= deal.id %>" class="deal_single deal_dead" title="This deal has expired">
+<% else %>
+	<div id="user_deal_<%= deal.id %>" class="deal_single">
+<% end %>
 	<div class="col1">
 		<% if deal.image.nil? %>
 			<a href="<%= deal_path(deal) %>">
@@ -34,6 +38,11 @@
 	<div class="col2">
 		<h1><%= link_to deal.name, deal %></h1>
 		<p><span class="light_grey">Watched:</span> <%= Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at.strftime("%A, %b %d") %></p>
+		<% if deal.dead? %>
+			<div id="deal_expired">
+				Expired
+			</div>
+		<% end %>
 	</div>
 	<div class="col3">
 		<div class="price">

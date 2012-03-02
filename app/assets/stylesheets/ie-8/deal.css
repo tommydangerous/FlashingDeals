@@ -5,6 +5,17 @@ div.deal_single {
 	padding: 5px;
 }
 
+.deal_dead {
+	opacity: .5;
+}
+
+#deal_expired {
+	text-align: center;
+	font-size: 12px;
+	font-family: Verdana;
+	color: rgb(255, 26, 0);
+}
+
 div.col1, div.col2 {
 	padding: 2%;
 }

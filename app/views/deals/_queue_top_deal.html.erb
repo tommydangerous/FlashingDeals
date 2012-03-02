@@ -49,6 +49,10 @@
 				<li><p>Top Deal: <%= f.check_box :top_deal %></p></li>
 				<li><p>FlashBack: <%= f.check_box :flash_back %></p></li>
 			</ul>
+			<ul>
+				<li><p>Exclusive: <%= f.check_box :exclusive %></p></li>
+				<li><p>Dead: <%= f.check_box :dead %></p></li>
+			</ul>
 			<p>Name: <%= f.text_area :name, :autocomplete => "off", :class => "queue_edit_name" %></p>
 			<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "queue_edit_info" %></p>
 			<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>

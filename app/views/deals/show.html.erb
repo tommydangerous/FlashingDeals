@@ -10,7 +10,13 @@
 	<meta property="og:image" content="<%= @deal.image %>" />
 <% end %>
 <div id="deal_info">
-	<h1><%= @deal.name %></h1>
+	<h1>
+		<% if @deal.dead? %>
+			<span class="red">Expired</span> <%= @deal.name %>
+		<% else %>
+			<%= @deal.name %>
+		<% end %>
+	</h1>
 	<div id="deal_data">
 		<div id="deal_functions">
 			<div id="deal_button">
@@ -88,9 +94,15 @@
 				<% end %>
 			</div>
 			<% end %>
-			<div id="deal_image_container">
-				<%= image_tag("#{@deal.image}", :id => "deal_image") %>
-			</div>
+			<% if @deal.dead? %>
+				<div id="deal_image_container" class="deal_dead" title="This deal has expired">
+					<%= image_tag("#{@deal.image}", :id => "deal_image") %>
+				</div>
+			<% else %>
+				<div id="deal_image_container">
+					<%= image_tag("#{@deal.image}", :id => "deal_image") %>
+				</div>
+			<% end %>
 			<span id="price">
 				<% if @deal.price.blank? && @deal.discount != nil %>
 					<%= @deal.discount.round %>% Off

@@ -1,4 +1,8 @@
-<div class="deal_single" id="shared_deal_<%= deal.id %>">
+<% if deal.dead? %>
+	<div id="shared_deal_<%= deal.id %>" class="deal_single deal_dead" title="This deal has expired">
+<% else %>
+	<div id="shared_deal_<%= deal.id %>" class="deal_single">
+<% end %>
 	<div class="col1">
 		<% if deal.image.nil? %>
 			<a href="<%= deal_path(deal) %>">
@@ -35,6 +39,11 @@
 			<span class="light_grey">Shared:</span> <%= Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at.strftime("%A, %b %d") %> 
 			<span class="light_grey">by</span> <%= link_to "#{User.find(current_user.inverse_shares.find_by_deal_id(deal.id).user_id).name}" , User.find(current_user.inverse_shares.find_by_deal_id(deal.id).user_id) %>
 		</p>
+		<% if deal.dead? %>
+			<div id="deal_expired">
+				Expired
+			</div>
+		<% end %>
 	</div>
 	<div class="col3">
 		<div class="price">

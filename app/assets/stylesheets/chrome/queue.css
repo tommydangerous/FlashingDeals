@@ -128,7 +128,7 @@ div.col5 li, div.queue_edit_deal_more li {
 	display: inline-block;
 }
 
-div.queue_edit_deal_more input#deal_queue, div.queue_edit_deal_more input#deal_top_deal, div.queue_edit_deal_more input#deal_flash_back {
+div.queue_edit_deal_more input#deal_queue, div.queue_edit_deal_more input#deal_top_deal, div.queue_edit_deal_more input#deal_flash_back, div.queue_edit_deal_more input#deal_exclusive, div.queue_edit_deal_more input#deal_dead {
 	width: 13px;
 	height: 13px;
 }
