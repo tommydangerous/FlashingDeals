@@ -25,6 +25,6 @@
 <%= will_paginate @deals, :separator => "" %>
 <% unless @deals.count < 3 %>
 	<div id="back_to_top">
-		<strong>^</strong><%= link_to "Back to the Top", "#top" %>
+		<strong>^</strong><%= link_to "Back to the Top", "javascript:void(0);", :class => "scroll_top" %>
 	</div>
 <% end %>

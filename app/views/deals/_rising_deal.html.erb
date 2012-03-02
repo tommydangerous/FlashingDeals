@@ -34,13 +34,6 @@
 			<li><p><span class="light_grey">Posted:</span> <%= deal.posted.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.posted.strftime("%I:%M %p") %></span></p></li>
 		<% end %>
 			<li><p><span class="light_grey">Created:</span> <%= deal.created_at.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.created_at.strftime("%I:%M %p") %></span></p></li>
-		<% unless deal.tag.nil? || deal.tag.empty? %>
-			<li>
-				<p>
-					<span class="light_grey">Tag:</span> <%= deal.tag %>
-				</p>
-			</li>
-		<% end %>
 		</ul>
 		<div id="reviewed_<%= deal.id %>" class="deal_editmarks">
 			<%= render :partial => "editmarks/reviewed", :locals => { :deal => deal } %>
