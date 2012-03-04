@@ -3,7 +3,9 @@
 	width: 500px;
 	z-index: 200;
 	top: 111px;
-	right: 370px;
+	left: 0;
+	right: 0;
+	margin: 0px auto;
 }
 
 #new_message_main {
