@@ -249,7 +249,16 @@ class DealsController < ApplicationController
 	end
 	
 	def create
-		@deal = Deal.new(params[:deal])
+		deals = Deal.where("queue = ?", true).order("deal_order ASC")
+		if deals.last.nil?
+  		deal_order = 1
+  	else
+  		deal_order = (1 + deals.last.deal_order)
+  	end
+  	if params[:deal][:queue] == "1" && params[:deal][:deal_order] == ""
+  		params[:deal][:deal_order] = deal_order
+  	end
+  	@deal = Deal.new(params[:deal])
 		if @deal.save
 			flash[:success] = "Deal created."
 			redirect_to @deal
