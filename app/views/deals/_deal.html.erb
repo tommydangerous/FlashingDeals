@@ -66,18 +66,15 @@
 		<% end %>
 		<% if signed_in? %>
 			<% if current_user.admin? %>
-				<div id="location">
-					<% unless deal.location == nil %>
-						<p><%= link_to deal.location.name, "/#{deal.location.permalink}" %></p>
-					<% end %>
-				</div>
-				<div id="categories">
-					<ul>
-					<% deal.categories.each do |c| %>
-						<li><%= link_to c.name, c %></li>
-					<% end %>
-					</ul>
-				</div>
+				<% unless deal.categories.empty? %>
+					<div id="categories">
+						<ul>
+						<% deal.categories.each do |c| %>
+							<li><%= link_to c.name, c %></li>
+						<% end %>
+						</ul>
+					</div>
+				<% end %>
 				<ul>
 					<% unless deal.posted.nil? %>
 						<li>
@@ -86,9 +83,17 @@
 							</p>
 						</li>
 					<% end %>
-					<p><span class="light_grey">Created:</span> <%= deal.created_at.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.created_at.strftime("%I:%M %p") %></span></p>
+						<li>
+							<p>
+								<span class="light_grey">Created:</span> <%= deal.created_at.strftime("%A, %b %d") %> <span class="light_grey">at</span> <span class="grey_75"><%= deal.created_at.strftime("%I:%M %p") %></span>
+							</p>
+						</li>
 					<% unless deal.time_in.nil? %>
-						<li><p><span class="light_grey">Time In:</span> <%= deal.time_in.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= deal.time_in.strftime("%I:%M %p") %></p></li>
+						<li>
+							<p>
+								<span class="light_grey">Time In:</span> <%= deal.time_in.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= deal.time_in.strftime("%I:%M %p") %>
+							</p>
+						</li>
 					<% end %>
 				</ul>
 			<% end %>
@@ -173,7 +178,10 @@
 	<% if signed_in? %>
 		<% if current_user.admin? %>
 			<div class="edit_rising_deal">
-				<%= link_to "Edit + Add to Queue", "javascript:void(0);", :onclick => "toggleRisingDealEdit(#{deal.id})" %>
+				<ul>
+					<li><%= link_to "Dead Deal", make_dead_deal_path(deal), :remote => true %></li>
+					<li><%= link_to "Edit Deal", "javascript:void(0);", :onclick => "toggleRisingDealEdit(#{deal.id})" %></li>
+				</ul>
 			</div>
 			<%= render :partial => "deals/add_edit_to_queue_form", :locals => { :deal => deal } %>
 		<% end %>

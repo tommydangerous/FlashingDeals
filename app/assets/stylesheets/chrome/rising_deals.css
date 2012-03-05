@@ -224,6 +224,17 @@ div.edit_rising_deal {
 	text-align: center;
 }
 
+div.edit_rising_deal ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+div.edit_rising_deal ul li {
+	display: inline-block;
+	margin: 0px 50px;
+}
+
 div.edit_rising_deal a {
 	text-decoration: none;
 	font-family: Verdana;

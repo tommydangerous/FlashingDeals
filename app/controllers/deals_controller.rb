@@ -417,6 +417,20 @@ class DealsController < ApplicationController
 		end
 		render nothing: true
 	end
+	
+	def make_dead
+		deal = Deal.find(params[:id])
+		deal.update_attribute(:dead, true)
+		respond_to do |format|
+			format.html {
+				flash[:success] = "Deal has been made dead."
+				redirect_to deal
+			}
+			format.js {
+				@deal = deal
+			}
+		end
+	end
   
 # GM Users Only  
 	def live_search
