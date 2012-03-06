@@ -193,8 +193,8 @@ div.col3 h2 {
 	width: 94px;
 	float: right;
 	font-size: 16px;
+	font-family: Helvetica, Arial;
 	font-weight: bold;
-	font-family: Verdana;
 	margin-bottom: 0;
 	height: 40px;
 	line-height: 40px;
@@ -217,6 +217,10 @@ div.col3 h2 a:hover, div.col3 h2 a:focus {
 
 div.col3 h2 a:active {
 	background: url("/assets/deal_active.png");
+}
+
+div.price {
+	text-align: right;
 }
 
 div#deal_data {
