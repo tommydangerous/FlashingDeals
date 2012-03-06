@@ -138,12 +138,13 @@ div#search div.paginate_range {
 
 /* share.css */
 div#share_form {
-	text-align: right;
+	text-align: left;
 }
 
 div#share_form_signup {
-	float: right;
-	margin-top: 2px;
+	text-align: left;
+	padding: 2px;
+	width: 78px;
 }
 
 div#share_form_signup a {
@@ -226,36 +227,8 @@ div#share_form_signup a:active {
 }
 
 div#share_form input#shared {
-	margin: 0;
-	text-align: center;
-	width: 120px;
-	padding: 10px;
-	background: none;
-	font-size: 20px;
-	font-family: Verdana;
-	font-weight: bold;
-	border: none;
-	color: rgb(255, 255, 255);
-	-webkit-transition: all .2s linear;
-	-khtml-transition: all .2s linear;
-	-moz-transition: all .2s linear;
-	-ms-transition: all .2s linear;
-	-o-transition: all .2s linear;
-	transition: all .2s linear;
-	-webkit-border-radius: 5px;
-	-khtml-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-o-border-radius: 5px;
-	border-radius: 5px;
+	padding: 5px 18px 5px 17px;
 	border: 1px solid rgb(4, 135, 187);
-	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
-	text-shadow: 0px -1px 1px rgba(0, 0, 0, .25);
 }
 
 div#share_form input#shared {
@@ -280,11 +253,10 @@ div#share_form input#shared {
 div#share_form input {
 	background: none;
 	font-size: 20px;
-	font-family: Verdana;
-	font-weight: bold;
+	font-family: Helvetica, Arial;
 	border: none;
 	color: rgb(255, 255, 255);
-	padding: 10px 12px 10px 12px;
+	padding: 5px 12px;
 	-webkit-transition: all .2s linear;
 	-khtml-transition: all .2s linear;
 	-moz-transition: all .2s linear;
@@ -1157,7 +1129,7 @@ div#accept_terms input#user_accept_terms {
 
 /* subcomment.css */
 div#subcomments_list {
-	width: 565px;
+	width: 555px;
 	margin-left: 60px;
 	padding: 5px 10px;
 }
@@ -1342,7 +1314,7 @@ div#gravatar_subcomment {
 	width: 40px;
 	height: 40px;
 	vertical-align: top;
-	border-top: 1px solid rgb(200, 200, 200);
+	border-top: 1px dotted rgb(200, 200, 200);
 	padding: 5px;
 	float: left;
 	text-align: center;
@@ -1350,13 +1322,13 @@ div#gravatar_subcomment {
 
 div#subcomment {
 	width: 446px;
-	border-top: 1px solid rgb(200, 200, 200);
+	border-top: 1px dotted rgb(200, 200, 200);
 	padding: 5px;
 	float: left;
 }
 
 div#subcomment_user {
-	margin-bottom: 3px;
+	margin-bottom: 5px;
 }
 
 div#subcomment_user a {
@@ -1373,14 +1345,11 @@ div#subcomment_user a {
 }
 
 div#subcomment_user a:hover {
-	color: rgba(4, 135, 187, 1);
+	color: rgb(4, 135, 187);
 }
 
-div#subcomment_user span {
-	font-family: Helvetica, Arial;
+div#subcomment_user p {
 	font-size: 14px;
-	color: rgb(75, 75, 75);
-	margin-bottom: 3px;
 }
 
 div#subcomment_content {

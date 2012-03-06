@@ -5,7 +5,7 @@ $("span#top_deals_count").html("<%= "#{@top_deals.count}" %>")
 $('div#info_edit_the_flash').html("<%= escape_javascript(render("deals/deal_info_form")) %>")
 $('div#info_edit_the_flash').hide();
 $('span#edit_the_flash a').html("Edit");
-$('div#info').html("<%= escape_javascript(render("deals/the_flash_deal_info")) %>")
-$('div#info').show();
+$('div#deal_show_info').html("<%= escape_javascript(render("deals/the_flash_deal_info")) %>")
+$('div#deal_show_info').show();
 $('div#rising_deal_'+<%= @deal.id %>).remove();
 $('div#deal_single_'+<%= @deal.id %>).remove();

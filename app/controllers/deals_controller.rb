@@ -92,7 +92,7 @@ class DealsController < ApplicationController
 		if params[:coupon] == "yes"
 			redirect_to @deal
 		else
-			redirect_to "http://go.flashingdeals.com?id=28555X865329&xs=1&url=#{@deal.link}"
+			redirect_to "http://go.flashingdeals.com?id=28555X865329&xs=1&url=#{CGI.escape(@deal.link)}"
 		end
 #  	render :layout => "iframe"
   end

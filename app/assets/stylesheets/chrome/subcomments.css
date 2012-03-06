@@ -1,5 +1,5 @@
 div#subcomments_list {
-	width: 565px;
+	width: 555px;
 	margin-left: 60px;
 	padding: 5px 10px;
 }
@@ -184,7 +184,7 @@ div#gravatar_subcomment {
 	width: 40px;
 	height: 40px;
 	vertical-align: top;
-	border-top: 1px solid rgba(200, 200, 200, 1);
+	border-top: 1px dotted rgba(200, 200, 200, 1);
 	padding: 5px;
 	float: left;
 	text-align: center;
@@ -192,13 +192,13 @@ div#gravatar_subcomment {
 
 div#subcomment {
 	width: 446px;
-	border-top: 1px solid rgba(200, 200, 200, 1);
+	border-top: 1px dotted rgba(200, 200, 200, 1);
 	padding: 5px;
 	float: left;
 }
 
 div#subcomment_user {
-	margin-bottom: 3px;
+	margin-bottom: 5px;
 }
 
 div#subcomment_user a {
@@ -218,11 +218,8 @@ div#subcomment_user a:hover {
 	color: rgba(4, 135, 187, 1);
 }
 
-div#subcomment_user span {
-	font-family: Helvetica, Arial;
+div#subcomment_user p {
 	font-size: 14px;
-	color: rgba(75, 75, 75, 1);
-	margin-bottom: 3px;
 }
 
 div#subcomment_content {

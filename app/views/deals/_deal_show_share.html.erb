@@ -1,0 +1,19 @@
+<div id="deal_show_share">
+	<ul>
+		<li>
+			<a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" class="example3demo">
+				<%= facebookButton %>
+			</a>
+		</li>
+		<li>
+			<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= @deal.name %>%20<%= request.url %>&via=FlashingDeals" target="_blank">
+				<%= twitterButton %>
+			</a>
+		</li>
+		<li>
+			<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=<%= request.url %>" class="example4demo">
+				<%= emailButton %>
+			</a>
+		</li>
+	</ul>
+</div>

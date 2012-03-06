@@ -23,28 +23,27 @@ div#comment_user a#comment_index_at_deal:hover {
 }
 
 div.comment {
-	width: 645px;
+	width: 635px;
 	text-align: left;
 }
 
 div#comment_form {
 	margin-bottom: 10px;
-	padding: 5px;
 }
 
 div#gravatar_comment {
 	width: 50px;
 	height: 50px;
 	vertical-align: top;
-	border-top: 1px solid rgba(200, 200, 200, 1);
+	border-top: 1px dotted rgba(200, 200, 200, 1);
 	padding: 5px;
 	float: left;
 	text-align: center;
 }
 
 div#comment {
-	width: 565px;
-	border-top: 1px solid rgba(200, 200, 200, 1);
+	width: 555px;
+	border-top: 1px dotted rgba(200, 200, 200, 1);
 	padding: 5px 10px;
 	float: left;
 }
@@ -121,7 +120,7 @@ div#comment_form div.field {
 }
 
 div#comment_form div.field textarea {
-	width: 628px;
+	width: 623px;
 	padding: 5px;
 	height: 32px;
 	font-family: Helvetica, Arial;
@@ -133,7 +132,7 @@ div#comment_form div.field textarea {
 	-o-border-radius: 2px;
 	border-radius: 2px;
 	border: 1px solid rgba(200, 200, 200, 1);
-	margin-top: 10px;
+	margin-top: 0px;
 	margin-bottom: 10px;
 	resize: none;
 	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
@@ -141,6 +140,7 @@ div#comment_form div.field textarea {
 	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	overflow: hidden;
 }
 
 div#comment_form div.field textarea:hover {
@@ -157,13 +157,12 @@ div#comment_form div.field textarea:focus {
 }
 
 div#comment_form div.actions {
-	text-align: left;
+	text-align: right;
 	display: none;
 }
 
 div#comment_form div.actions input {
 	margin: 0;
-	margin-left: 585px;
 }
 
 div#comment_form div.actions input, div#comment_form div.actions a#submit {

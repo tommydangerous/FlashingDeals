@@ -9,38 +9,39 @@
 	<meta property="og:description" content="<%= strip_tags(@deal.info) %>" />
 	<meta property="og:image" content="<%= @deal.image %>" />
 <% end %>
-<div id="deal_info">
-	<h1>
+<div id="deal_show_container">
+	<div id="deal_show_column_left">
 		<% if @deal.dead? %>
-			<span class="red">Expired</span> <%= @deal.name %>
-		<% else %>
-			<%= @deal.name %>
-		<% end %>
-	</h1>
-	<div id="deal_data">
-		<div id="deal_functions">
-			<div id="deal_button">
-				<% if @deal.coupon.nil? && @deal.rebate.nil? || @deal.coupon.nil? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.nil? %>
-					<%= link_to "Deal Now!", frame_deal_path(@deal), :target => "_blank" %>
-				<% else %>
-					<%= link_to "Deal Now!", "javascript:void(0);", :onclick => "showCouponPopup();" %>
-				<% end %>
+			<div id="deal_show_image" class="deal_dead" title="This deal has expired">
+				<%= image_tag("#{@deal.image}", :id => "deal_image") %>
 			</div>
-			<div id="deal_stats">
-				<ul>
-					<li>
+		<% else %>
+			<div id="deal_show_image">
+				<%= image_tag("#{@deal.image}", :id => "deal_image") %>
+			</div>
+		<% end %>
+		<div id="deal_show_data">
+			<table>
+				<tr>
+					<td id="deal_show_data_labels">
 						<p>Value</p>
-						<span class="deal_stats">
+					</td>
+					<td id="deal_show_data_numbers">
+						<p>
 							<% if @deal.value.blank? %>
 								<%= number_to_currency(0) %>
 							<% else %>
 								<%= number_to_currency(@deal.value) %>
 							<% end %>
-						</span>
-					</li>
-					<li>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td id="deal_show_data_labels">
 						<p>Discount</p>
-						<span class="deal_stats">
+					</td>
+					<td id="deal_show_data_numbers">
+						<p>
 							<% if @deal.discount.blank? && @deal.value.blank? || @deal.discount.blank? && @deal.price.blank? %>
 								0%
 							<% elsif @deal.value.blank? || @deal.price.blank? %>
@@ -50,11 +51,15 @@
 							<% elsif @deal.discount.blank? %>
 								<%= (((@deal.value - @deal.price) * 100)/@deal.value).round %>%
 							<% end %>
-						</span>
-					</li>
-					<li>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td id="deal_show_data_labels">
 						<p>Savings</p>
-						<span class="deal_stats">
+					</td>
+					<td id="deal_show_data_numbers">
+						<p>
 							<% if @deal.savings.blank? && @deal.value.blank? || @deal.savings.blank? && @deal.price.blank? %>
 								<%= number_to_currency(0) %>
 							<% elsif @deal.value.blank? || @deal.price.blank? %>
@@ -62,63 +67,182 @@
 							<% elsif @deal.savings.blank? %>
 								<%= number_to_currency(@deal.value - @deal.price) %>
 							<% end %>
-						</span>
-					</li>
-				</ul>
-			</div>
-			<div id="share">
-				<ul>
-					<li>
-						<a href="https://www.facebook.com/sharer/sharer.php?u=<%= request.url %>" class="example3demo">
-							<%= facebookButton %>
-						</a>
-					</li>
-					<li>
-						<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= @deal.name %>%20<%= request.url %>&via=FlashingDeals" target="_blank">
-							<%= twitterButton %>
-						</a>
-					</li>
-					<li>
-						<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=<%= request.url %>" class="example4demo">
-							<%= emailButton %>
-						</a>
-					</li>
-				</ul>
-			</div>
+						</p>
+					</td>
+				</tr>
+			</table>
 		</div>
-		<div class="deal_show_image">
-			<% unless @deal.metric.nil? %>
-			<div id="deal_show_lightning">
-				<% if @deal.metric >= 4 %>
-					<%= lightning_deal_2 %>
+		<% unless @deal.coupon.nil? && @deal.rebate.nil? || @deal.coupon.nil? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.nil? %>
+			<div id="coupon_rebate">
+				<% unless @deal.coupon.nil? || @deal.coupon.blank? %>
+					<div id="deal_show_coupon">
+						<h1>Coupon</h1>
+						<p><%= @deal.coupon %></p>
+					</div>
+				<% end %>
+				<% unless @deal.rebate.nil? || @deal.rebate.blank? %>
+					<div id="deal_show_rebate">
+						<h1>Rebate</h1>
+						<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>
+					</div>
 				<% end %>
 			</div>
-			<% end %>
+		<% end %>
+	</div>
+	<div id="deal_show_column_right">
+		<div id="deal_show_name">
+			<h1>
 			<% if @deal.dead? %>
-				<div id="deal_image_container" class="deal_dead" title="This deal has expired">
-					<%= image_tag("#{@deal.image}", :id => "deal_image") %>
-				</div>
+				<span class="red">Expired</span> <%= @deal.name %>
 			<% else %>
-				<div id="deal_image_container">
-					<%= image_tag("#{@deal.image}", :id => "deal_image") %>
-				</div>
+				<%= @deal.name %>
 			<% end %>
-			<span id="price">
-				<% if @deal.price.blank? && @deal.discount != nil %>
-					<%= @deal.discount.round %>% Off
-				<% elsif @deal.price.blank? %>
-					<%= number_to_currency(0) %>
-				<% elsif @deal.price == 0 %>
-					Free
+			</h1>
+		</div>
+		<div id="deal_show_line_2">
+			<div id="deal_show_price">
+				<h1>
+					<% if @deal.price.blank? && @deal.discount != nil %>
+						<%= @deal.discount.round %>% Off
+					<% elsif @deal.price.blank? %>
+						<%= number_to_currency(0) %>
+					<% elsif @deal.price == 0 %>
+						Free
+					<% else %>
+						<%= number_to_currency(@deal.price) %>
+					<% end %>
+				</h1>
+			</div>
+			<div id="deal_show_deal_button">
+				<% if @deal.coupon.nil? && @deal.rebate.nil? || @deal.coupon.nil? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.nil? %>
+					<%= link_to "Deal Now", frame_deal_path(@deal), :target => "_blank" %>
 				<% else %>
-					<%= number_to_currency(@deal.price) %>
+					<%= link_to "Deal Now", "javascript:void(0);", :onclick => "showCouponPopup();" %>
 				<% end %>
-			</span>
+			</div>
+			<div class="clear"></div>
+		</div>
+		<div id="deal_show_line_3">
+			<div id="deal_show_info">
+				<% if signed_in? %>
+					<%= render 'the_flash_deal_info' %>
+				<% else %>
+					<p><%= to_html(auto_link(@deal.info, :all, :target => "_blank")) %></p>
+				<% end %>
+			</div>
+			<% if signed_in? %>
+				<% if current_user.admin? %>
+					<div id="info_edit_the_flash">
+						<%= render 'deal_info_form' %>
+					</div>
+				<% end %>
+			<% end %>
+			<div class="clear"></div>
+		</div>
+		<% flash.each do |key, value| %>
+  		<div class="flash <%= key %>">
+  			<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %>
+			</div>
+  	<% end %>
+  	<div id="flash"></div>
+	</div>
+	<div class="clear"></div>
+	<div id="deal_show_column_left_2">
+		<div id="deal_show_watch_share_vote">
+			<div id="deal_summary">
+				<div id="user_like">
+					<%= render "user_like" %>
+				</div>
+				<div id="user_dislike">
+					<%= render "user_dislike" %>
+				</div>
+				<div id="flash_points">
+					<div id="up">
+						<% if signed_in? %>
+							<%= link_to(score_up_deal_path(@deal), :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()", :method => :post, :remote => true, :id => "like") do %>
+								<div id="like_arrow"></div>
+							<% end %>
+						<% else %>
+							<%= link_to("javascript:void(0);", :id => "like", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()", :class => "alertdim") do %>
+								<div id="like_arrow"></div>
+							<% end %>
+						<% end %>
+					</div>
+					<div id="total_score">
+						<h1><%= @deal.plusminus %></h1>
+					</div>
+					<div id="down">
+						<% if signed_in? %>
+							<%= link_to(score_down_deal_path(@deal), :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()", :method => :post, :remote => true, :id => "dislike") do %>
+								<div id="dislike_arrow"></div>
+							<% end %>
+						<% else %>
+							<%= link_to("javascript:void(0);", :id => "dislike", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()", :class => "alertdim") do %>
+								<div id="dislike_arrow"></div>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+			</div>
+			<div id="deal_summary_side_panel">
+				<div id="watch_deal_info">
+					Save this to your "My Deals" and never lose sight of it!
+					<div id="watch_deal_info_triangle"></div>
+				</div>
+				<div class="add_deal">
+					<% if signed_in? %>
+						<%= render 'watch_form' %>
+					<% else %>
+						<div id="watch_form">
+							<div class="actions">
+								<input name="commit" class="alertdim" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()" onmouseclick="hideWatchDealInfo()">
+							</div>
+						</div>
+					<% end %>
+				</div>
+				<div id="share_all_info">
+					Share this deal with all your FD friends
+					<div id="share_all_info_triangle"></div>
+				</div>
+				<% if signed_in? %>
+					<div id="share_form">
+						<%= render 'shares/share_all_form' %>
+					</div>
+				<% else %>
+					<div id="share_form">
+						<div class="actions">
+							<input name="commit" class="alertdim" type="submit" value="Share" onmouseover="showShareAllInfo();" onmouseout="hideShareAllInfo()" onmouseclick="hideShareAllInfo()">
+						</div>
+					</div>
+				<% end %>
+			</div>
 		</div>
 	</div>
+	<div id="deal_show_column_right_2">
+		<%= render "deal_show_share" %>
+		<% if signed_in? %>
+			<%= render 'comments/comment_form' %>
+		<% end %>
+		<div id="deal_show_comments_list">
+			<%= render @comments %>
+		</div>
+	</div>
+	<div class="clear"></div>
+	<% if signed_in? %>
+		<% if current_user.admin? %>
+			<div id="delete_deal">
+				<h1>Views: <%= @deal.view_count %> <span class="grey_200"> | </span> Clicks: <%= @deal.click_count %></h1>
+				<ul>
+					<li><p><%= link_to "Add to Queue", add_to_queue_deal_path(@deal), :remote => true %></p></li>
+					<li><p><%= link_to "Edit Deal", edit_deal_path(@deal) %></p></li>
+					<% if current_user.gm? %>
+						<li><p><%= link_to "Delete Deal", @deal, :method => :delete, :confirm => "Are you sure you want to delete this deal?", :title => "Delete #{@deal.name}" %></p></li>
+					<% end %>
+				</ul>
+			</div>
+		<% end %>
+	<% end %>
 </div>
-<%= render "shared/side_deal" %>
-<%= render 'deal_info2' %>
 <% unless @deal.coupon.nil? && @deal.rebate.nil? || @deal.coupon.nil? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.nil? %>
 	<%= render "coupon_popup" %>
 <% end %>
@@ -130,7 +254,6 @@
 	<% end %>
 <% end %>
 <script>
-setInterval(adjustImage);
 $('.example3demo').popupWindow({ 
 	centerScreen:1,
 	resizable: 1,
