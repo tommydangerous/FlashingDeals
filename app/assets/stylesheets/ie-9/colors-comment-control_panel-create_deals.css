@@ -117,7 +117,7 @@ div#comment_user a#comment_index_at_deal:hover {
 }
 
 div.comment {
-	width: 635px;
+	width: 589px;
 	text-align: left;
 }
 
@@ -136,7 +136,7 @@ div#gravatar_comment {
 }
 
 div#comment {
-	width: 555px;
+	width: 509px;
 	border-top: 1px dotted rgba(200, 200, 200, 1);
 	padding: 5px 10px;
 	float: left;
@@ -214,7 +214,7 @@ div#comment_form div.field {
 }
 
 div#comment_form div.field textarea {
-	width: 623px;
+	width: 577px;
 	padding: 5px;
 	height: 32px;
 	font-family: Helvetica, Arial;
@@ -234,6 +234,7 @@ div#comment_form div.field textarea {
 	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	overflow: hidden;
 }
 
 div#comment_form div.field textarea:hover {

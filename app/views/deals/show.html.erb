@@ -9,6 +9,7 @@
 	<meta property="og:description" content="<%= strip_tags(@deal.info) %>" />
 	<meta property="og:image" content="<%= @deal.image %>" />
 <% end %>
+<%= render "previous_next_deals" %>
 <div id="deal_show_container">
 	<div id="deal_show_column_left">
 		<% if @deal.dead? %>
@@ -266,4 +267,6 @@ $('.example4demo').popupWindow({
 	height: 500,
 	width: 675
 }); 
+
+setPreviousNextHeight();
 </script>

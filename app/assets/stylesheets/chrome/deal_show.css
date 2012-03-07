@@ -1,8 +1,50 @@
+#previous_deal {
+	display: block;
+	width: 20px;
+	margin-right: 2px;
+	float: left;
+}
+
+#next_deal {
+	display: block;
+	width: 20px;
+	margin-left: 2px;
+	float: right;
+}
+
+#previous_arrow {
+	position: relative;
+	display: none;
+}
+
+#next_arrow {
+	position: relative;
+	display: none;
+}
+
+#left_deal {
+	display: block;
+	width: 20px;
+	height: 1px;
+	margin-right: 2px;
+	float: left;
+}
+
+#right_deal {
+	display: block;
+	width: 20px;
+	height: 1px;
+	margin-left: 2px;
+	float: right;
+}
+
 div#deal_show_container {
-	width: 931px;
+	width: 885px;
 	padding: 10px;
 	border: 1px dotted rgb(200, 200, 200);
 	background: rgb(255, 255, 255);
+	margin: auto;
+	float: left;
 }
 
 div#deal_show_column_left {
@@ -11,7 +53,7 @@ div#deal_show_column_left {
 }
 
 div#deal_show_column_right {
-	width: 635px;
+	width: 589px;
 	float: right;
 }
 
@@ -478,7 +520,7 @@ div#info_edit_the_flash {
 div#info_edit_the_flash textarea {
 	margin: 0;
 	padding: 5px;
-	width: 623px;
+	width: 577px;
 	height: 160px;
 	font-family: Helvetica, Arial;
 	font-size: 14px;
@@ -851,6 +893,6 @@ div#deal_show_column_left_2 {
 }
 
 div#deal_show_column_right_2 {
-	width: 635px;
+	width: 589px;
 	float: right;
 }

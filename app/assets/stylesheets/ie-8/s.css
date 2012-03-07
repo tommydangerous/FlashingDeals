@@ -1129,7 +1129,7 @@ div#accept_terms input#user_accept_terms {
 
 /* subcomment.css */
 div#subcomments_list {
-	width: 555px;
+	width: 509px;
 	margin-left: 60px;
 	padding: 5px 10px;
 }
@@ -1144,7 +1144,7 @@ div#subcomment_form {
 
 div#subcomment_form div.field textarea.subcomment_textarea_2 {
 	float: left;
-	width: 438px;
+	width: 392px;
 	padding: 5px;
 	height: 16px;
 	font-family: Helvetica, Arial;
@@ -1172,7 +1172,7 @@ div#subcomment_form div.field textarea.subcomment_textarea_2 {
 
 div#subcomment_form div.field textarea.subcomment_textarea {
 	float: left;
-	width: 488px;
+	width: 442px;
 	padding: 5px;
 	height: 16px;
 	font-family: Helvetica, Arial;
@@ -1321,7 +1321,7 @@ div#gravatar_subcomment {
 }
 
 div#subcomment {
-	width: 446px;
+	width: 400px;
 	border-top: 1px dotted rgb(200, 200, 200);
 	padding: 5px;
 	float: left;

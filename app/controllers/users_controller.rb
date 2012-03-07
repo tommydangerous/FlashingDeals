@@ -4,6 +4,10 @@ class UsersController < ApplicationController
 	before_filter :correct_user, :only => [:watching, :edit, :update]
 	before_filter :admin_user,	 :only => :index
 	before_filter :gm_user, :only => :destroy
+	before_filter :category_cookies_blank, :only => [:show, :my_account, :shared_deals]
+	before_filter :my_account_cookies_blank, :only => [:show, :shared_deals]
+	before_filter :shared_deals_cookies_blank, :only => [:show, :my_account]
+	before_filter :user_show_deals_cookies_blank, :only => [:my_account, :shared_deals]
 	helper_method :sort_column, :sort_direction
 	
 # All Users	
@@ -40,6 +44,7 @@ class UsersController < ApplicationController
 			@deals = []
   	else
 	  	@title = @user.name
+	  	cookies[:user_show] = "#{@user.name}"
 	  	@deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
 		end
 	rescue ActiveRecord::RecordNotFound
@@ -51,6 +56,7 @@ class UsersController < ApplicationController
   def my_account
   	@user = current_user
   	@title = @user.name
+  	cookies[:my_account] = "yes"
   	@deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
   end
   
@@ -79,6 +85,7 @@ class UsersController < ApplicationController
   def shared_deals
   	@user = current_user
   	@title = "Shared Deals"
+  	cookies[:shared_deals] = "yes"
   	@deals = @user.inverse_deals.where("posted > ?", @user.duration).sort_by { |deal| Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at }.reverse
   end
   

@@ -3,6 +3,10 @@ class DealsController < ApplicationController
 	before_filter :admin_user, :except => [:top_deals, :flashback, :flashback_electric, :flashback_flashing, :show, :frame, :flashmob_deals,  :watchers, :score_up, :score_down, :remove_watched_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
 	before_filter :today
+	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
+	before_filter :my_account_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
+	before_filter :shared_deals_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
+	before_filter :user_show_deals_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
 	helper_method :sort_column, :sort_column_create, :sort_direction
 	
 	require 'nokogiri'
@@ -69,6 +73,37 @@ class DealsController < ApplicationController
   
 	def show
   	@deal = Deal.find(params[:id])
+  	@today = Time.now - 86400
+  	@today_3 = Time.now - (86400 * 3)
+  	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("posted DESC")
+  	@flashmob_deals = Deal.where("posted > ? AND metric < ?", @today, 0).order("posted DESC")
+  	@rising_deals = Deal.where("posted     > ? AND
+				  											metric    >= ? AND 
+				  											queue 	   = ? AND 
+				  											top_deal   = ? AND 
+				  											flash_back = ?",
+				  											@today, 0, false, false, false).order("created_at DESC")
+		if cookies[:category] == nil || cookies[:category] == ""
+			@category_deals = []
+		else
+			@category_deals = Category.find_by_name(cookies[:category]).deals.where("posted > ?", Time.now - 86400).order("posted DESC")
+		end
+		if signed_in? && cookies[:my_account] == "yes"
+			@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }.reverse
+		else
+			@watching_deals = []
+		end
+		if signed_in? && cookies[:shared_deals] == "yes"
+			@shared_deals = current_user.inverse_deals.where("posted > ?", current_user.duration).sort_by { |deal| Share.find_by_friend_id_and_deal_id(current_user.id, deal.id).created_at }.reverse
+		else
+			@shared_deals = []
+		end
+		if cookies[:user_show] == nil || cookies[:user_show] ==  ""
+			@user_show_deals = []
+		else
+			@user = User.find_by_name(cookies[:user_show])
+			@user_show_deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
+		end
   	unless signed_in?
   		store_location
   		if @deal.exclusive?
@@ -187,6 +222,7 @@ class DealsController < ApplicationController
 	
 	def rising_deals
   	@title = "Rising Deals"
+  	@today = Time.now - 86400
   	if params[:deals_per_page] == "10"
   		per_page = 10
   	elsif params[:deals_per_page] == "20"
@@ -203,7 +239,7 @@ class DealsController < ApplicationController
   											queue 	   = ? AND 
   											top_deal   = ? AND 
   											flash_back = ?",
-  											today, 0, false, false, false)
+  											@today, 0, false, false, false)
   	@deals = deals.search(params[:search]).order(sort_column_create + " " + sort_direction).paginate(:page => params[:page], :per_page => per_page)
   	@deals_total_count = deals.search(params[:search]).size
   	if per_page == 10

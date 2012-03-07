@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 	before_filter :set_user_time_zone
 	
   protect_from_forgery
+  include CookiesHelper
   include SessionsHelper
   include UsersHelper
   include DealsHelper

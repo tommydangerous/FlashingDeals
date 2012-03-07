@@ -1,10 +1,14 @@
 class CategoriesController < ApplicationController
 	before_filter :authenticate, :only => :show
+	before_filter :my_account_cookies_blank, :only => :show
+	before_filter :shared_deals_cookies_blank, :only => :show
+	before_filter :user_show_deals_cookies_blank, :only => :show
 	helper_method :sort_column, :sort_direction
 	
 	def show
   	@category = Category.find(params[:id])
-	  @title = @category.name
+  	@title = @category.name
+  	cookies[:category] = { :value => "#{@category.name}", :expires => (Time.now + 86400) }
 	  today = Time.now - 86400
 	  @today = today
 	  if params[:deals_per_page] == "10"
