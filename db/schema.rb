@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120302193013) do
+ActiveRecord::Schema.define(:version => 20120307200358) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -243,8 +243,10 @@ ActiveRecord::Schema.define(:version => 20120302193013) do
     t.timestamp "password_reset_sent_at"
     t.boolean   "gm",                     :default => false
     t.string    "time_zone"
+    t.datetime  "active"
   end
 
+  add_index "users", ["active"], :name => "index_users_on_active"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug"

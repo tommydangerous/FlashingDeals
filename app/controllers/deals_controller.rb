@@ -160,6 +160,10 @@ class DealsController < ApplicationController
   	end
   end
   
+  def community_deals
+  	render :layout => "full_screen"
+  end
+  
   def watchers
   	@title = "People Watching This Deal"
   	@deal = Deal.find(params[:id])

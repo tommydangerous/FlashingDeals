@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <!--[if !IE]><!-->
+    	<%= stylesheet_link_tag 'chrome/application' %>
+    	<%= javascript_include_tag 'chrome/application' %>
+    <!--<![endif]-->
+    <!--[if IE 9]>
+    	<%= stylesheet_link_tag 'ie-9/application' %>
+    	<%= javascript_include_tag 'ie-9/application' %>
+    <![endif]-->
+    <!--[if IE 8]>
+    	<%= stylesheet_link_tag 'ie-8/application' %>
+    	<%= javascript_include_tag 'ie-8/application' %>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    	<%= stylesheet_link_tag 'ie-7/application' %>
+    	<%= javascript_include_tag 'ie-7/application' %>
+    <![endif]-->
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %> 
+    <html lang="en">
+    <meta charset="UTF-8">
+    <%= yield :head %>
+    <script type="text/javascript">
+    // Google Analytics
+			var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-28454790-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		  
+		// Twitter
+		  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}
+		  (document,"script","twitter-wjs");
+		
+		// Facebook  
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+  </head>
+  <body>
+  	<div id="fs_wrapper">
+  		<div id="fs_header">
+  			
+  		</div>
+  		<div id="fs_content">
+  			<%= yield %>
+  			<div class="clear"></div>
+  		</div>
+  		<div id="fs_footer">
+  			
+  		</div>
+  	</div>
+		<script type="text/javascript" src="http://s.skimresources.com/js/28555X865329.skimlinks.js"></script>
+  </body>
+</html>
