@@ -46,9 +46,9 @@
 							<% if @deal.discount.blank? && @deal.value.blank? || @deal.discount.blank? && @deal.price.blank? %>
 								0%
 							<% elsif @deal.value.blank? || @deal.price.blank? %>
-								<%= @deal.discount %>%
+								<%= @deal.discount.round %>%
 							<% elsif @deal.value == 0 %>
-								<%= @deal.discount %>%
+								<%= @deal.discount.round %>%
 							<% elsif @deal.discount.blank? %>
 								<%= (((@deal.value - @deal.price) * 100)/@deal.value).round %>%
 							<% end %>
