@@ -15,11 +15,17 @@
 #previous_arrow {
 	position: relative;
 	display: none;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-right: 20px solid rgb(150, 150, 150);
 }
 
 #next_arrow {
 	position: relative;
 	display: none;
+	border-top: 20px solid transparent;
+	border-bottom: 20px solid transparent;
+	border-left: 20px solid rgb(150, 150, 150);
 }
 
 #left_deal {
