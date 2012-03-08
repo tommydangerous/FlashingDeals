@@ -43,7 +43,7 @@
 			<div class="box_deal_comment">
 				<div id="box_deal_comment_user">
 					<%= link_to(User.find(comment.user_id)) do %>
-						<img class="lazy" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" width="30" height="30" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
+						<img class="lazy" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" width="30" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
 					<% end %>
 				</div>
 				<div id="box_deal_comment_content">

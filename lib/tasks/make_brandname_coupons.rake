@@ -68,10 +68,6 @@ def make_brandname_coupons
 			date = "#{date} #{time}"
 			posted = Chronic::parse(date)
 			
-			# info
-			info = row.css("div.entry p").inner_text
-			info = info.to_s
-			
 			# metric
 			metric = -1
 			
@@ -91,7 +87,6 @@ def make_brandname_coupons
 										 :image => image,
 										 :link => link,
 										 :posted => posted,
-										 :info => info,
 										 :metric => metric,
 										 :tag => tag,
 										 :city => city)

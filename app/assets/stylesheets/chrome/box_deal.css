@@ -388,6 +388,7 @@ div#box_deal_comment_user {
 	width: 30px;
 	height: 30px;
 	float: left;
+	text-align: center;
 }
 
 div#box_deal_comment_content {
