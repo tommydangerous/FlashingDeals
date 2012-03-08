@@ -161,6 +161,9 @@ class DealsController < ApplicationController
   end
   
   def community_deals
+  	@title = "Community Deals"
+  	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
+  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 40)
   	render :layout => "full_screen"
   end
   

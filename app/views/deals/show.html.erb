@@ -45,20 +45,14 @@
 						<p>
 							<% if @deal.discount.blank? && @deal.value.blank? || @deal.discount.blank? && @deal.price.blank? %>
 								0%
-							<% elsif @deal.value.blank? || @deal.price.blank? %>
-								<% if @deal.discount.nil? %>
-									0%
-								<% else %>
-									<%= @deal.discount.round %>%
-								<% end %>
-							<% elsif @deal.value == 0 %>
-								<% if @deal.discount.nil? %>
-									0%
-								<% else %>
-									<%= @deal.discount.round %>%
-								<% end %>
-							<% elsif @deal.discount.blank? %>
+							<% elsif @deal.discount.nil? && @deal.value.nil? || @deal.discount.nil? && @deal.price.nil? %>
+								0%
+							<% elsif @deal.discount.nil? && @deal.value == 0 %>
+								0%
+							<% elsif @deal.discount.nil? || @deal.discount.blank? %>
 								<%= (((@deal.value - @deal.price) * 100)/@deal.value).round %>%
+							<% else %>
+								<%= @deal.discount.round %>%
 							<% end %>
 						</p>
 					</td>
@@ -71,10 +65,12 @@
 						<p>
 							<% if @deal.savings.blank? && @deal.value.blank? || @deal.savings.blank? && @deal.price.blank? %>
 								<%= number_to_currency(0) %>
-							<% elsif @deal.value.blank? || @deal.price.blank? %>
-								<%= number_to_currency(@deal.savings) %>
-							<% elsif @deal.savings.blank? %>
+							<% elsif @deal.savings.nil? && @deal.value.nil? || @deal.savings.nil? && @deal.price.nil? %>
+								<%= number_to_currency(0) %>
+							<% elsif @deal.savings.nil? || @deal.savings.blank? %>
 								<%= number_to_currency(@deal.value - @deal.price) %>
+							<% else %>
+								<%= number_to_currency(@deal.savings) %>
 							<% end %>
 						</p>
 					</td>

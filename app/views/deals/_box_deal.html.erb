@@ -1,0 +1,70 @@
+<div id="box_deal_<%= deal.id %>" class="box_deal" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();">
+	<div id="box_deal_price">
+		<h1>
+			<% if deal.price.nil? && deal.discount != nil %>
+				<%= deal.discount.round %>% Off
+			<% elsif deal.price.blank? %>
+			<% elsif deal.price == 0 %>
+				Free
+			<% else %>
+				$<%= (deal.price * 1.0).round %>
+			<% end %>
+		</h1>
+	</div>
+	<div id="box_deal_image_container">
+		<%= link_to(deal, :target => "_blank") do %>
+			<img class="lazy" src="/assets/lazy.png" data-original="<%= deal.image %>" width="100" height="100" id="box_deal_image">
+		<% end %>
+	</div>
+	<div id="box_deal_share_<%= deal.id %>" class="box_deal_share">
+		<ul>
+			<li>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example3demo_<%= deal.id %>">
+					<%= image_tag("/assets/facebook_button_grey.png") %>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= deal.name %>%20http://www.flashingdeals.com<%= deal_path(deal) %>&via=FlashingDeals" target="_blank">
+					<%= image_tag("/assets/twitter_button_grey.png") %>
+				</a>
+			</li>
+			<li>
+				<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example4demo_<%= deal.id %>">
+					<%= image_tag("/assets/email_button_grey.png") %>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div id="box_deal_name">
+		<h1><%= deal.name %></h1>
+	</div>
+	<div id="box_deal_comments">
+		<% deal.comments.each do |comment| %>
+			<div class="box_deal_comment">
+				<div id="box_deal_comment_user">
+					<%= link_to(User.find(comment.user_id)) do %>
+						<img class="lazy" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" width="30" height="30" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
+					<% end %>
+				</div>
+				<div id="box_deal_comment_content">
+					<p><%= comment.content %></p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		<% end %>
+	</div>
+</div>
+<script>
+$('.example3demo_<%= deal.id %>').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 375,
+	width: 675
+}); 
+$('.example4demo_<%= deal.id %>').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 500,
+	width: 675
+});
+</script>

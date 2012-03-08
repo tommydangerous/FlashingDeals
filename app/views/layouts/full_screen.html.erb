@@ -52,18 +52,22 @@
   <body>
   	<div id="fs_wrapper">
   		<div id="fs_header">
-  			
-  			
+  			<%= render "layouts/fs_header" %>
   		</div>
   		<div id="fs_content">
   			<%= yield %>
   			<div class="clear"></div>
   		</div>
-  		<div id="fs_footer">
-  			
-  			
-  		</div>
   	</div>
+  	<div id="back_to_the_top_container">
+  		<%= link_to "Back To The Top", "javascript:void(0);", :id => "back_to_the_top" %>
+  	</div>
+  	<div id="fs_footer">
+			<%= render "layouts/fs_footer" %>
+			<div id="copyright">
+				<p class="copyright">FlashingDeals &copy; 2012 All Rights Reserved.</p>
+			</div>
+		</div>
 		<script type="text/javascript" src="http://s.skimresources.com/js/28555X865329.skimlinks.js"></script>
   </body>
 </html>

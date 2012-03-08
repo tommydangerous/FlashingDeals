@@ -43,6 +43,13 @@ div.empty_category a:hover {
 	text-decoration: underline;
 }
 
+div#pagination_bottom {
+	float: right;
+	width: 700px;
+	margin-top: -25px;
+	margin-bottom: 25px;
+}
+
 /* edit.css */
 div#edit {
 	display: block;

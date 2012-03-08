@@ -53,22 +53,26 @@
 				<p>Discount</p>
 				<% if item.discount.blank? && item.value.blank? || item.discount.blank? && item.price.blank? %>
 					0%
-				<% elsif item.value.blank? || item.price.blank? %>
-					<%= item.discount %>%
-				<% elsif item.value == 0 %>
-					<%= item.discount %>%
-				<% elsif item.discount.blank? %>
+				<% elsif item.discount.nil? && item.value.nil? || item.discount.nil? && item.price.nil? %>
+					0%
+				<% elsif item.discount.nil? && item.value == 0 %>
+					0%
+				<% elsif item.discount.nil? || item.discount.blank? %>
 					<%= (((item.value - item.price) * 100)/item.value).round %>%
+				<% else %>
+					<%= item.discount.round %>%
 				<% end %>
 			</li>
 			<li>
 				<p>Savings</p>
 				<% if item.savings.blank? && item.value.blank? || item.savings.blank? && item.price.blank? %>
 					<%= number_to_currency(0) %>
-				<% elsif item.value.blank? || item.price.blank? %>
-					<%= number_to_currency(item.savings) %>
-				<% elsif item.savings.blank? %>
+				<% elsif item.savings.nil? && item.value.nil? || item.savings.nil? && item.price.nil? %>
+					<%= number_to_currency(0) %>
+				<% elsif item.savings.nil? || item.savings.blank? %>
 					<%= number_to_currency(item.value - item.price) %>
+				<% else %>
+					<%= number_to_currency(item.savings) %>
 				<% end %>
 			</li>
 		</ul>

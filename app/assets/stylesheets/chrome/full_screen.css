@@ -1,0 +1,10 @@
+#fs_wrapper {
+	min-height: 100%;
+	min-width: 970px;
+	position: relative;
+}
+
+#fs_content {
+	padding: 10px;
+	padding-bottom: 187px;   /* Height of the footer element */
+}

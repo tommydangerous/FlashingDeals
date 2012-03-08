@@ -1,14 +1,12 @@
-desc "Make Brand Name Coupons"
-task :make_brandname_coupons => :environment do
+
 	require 'rubygems'
 	require 'open-uri'
 	require 'nokogiri'
 	require 'chronic'
-	make_brandname_coupons
-end
 
-def make_brandname_coupons
-	p = 3
+
+
+	p = 1
 	
 	(1..p).each do |i|
 		
@@ -27,7 +25,7 @@ def make_brandname_coupons
 			name = name[0].to_s.split('="')
 			name = name[1].to_s.split('">')
 			name = name[0].to_s
-			
+					
 			# price
 			price_raw = row.css('b.pricesmall:first-of-type')
 			price = price_raw.inner_text
@@ -80,23 +78,5 @@ def make_brandname_coupons
 			
 			# city
 			city = "national"
-			
-			check = Deal.find_by_name("#{name}")
-			if check.nil?
-				Deal.create!(:name => name,
-										 :price => price,
-										 :discount => discount,
-										 :value => value,
-										 :savings => savings,
-										 :image => image,
-										 :link => link,
-										 :posted => posted,
-										 :info => info,
-										 :metric => metric,
-										 :tag => tag,
-										 :city => city)
-			end
 		end
 	end
-	puts "brandname coupons"
-end

@@ -1,0 +1,102 @@
+<div class="fs_hd">
+	<div id="header_logo">
+  	<%= link_to logo, root_path %>
+  </div>
+  <div class="nav round">
+    <ul class="header_nav">
+      <li>
+      	<%= link_to "Featured Deals", flashback_path, :id => "flashback", :class => "not_selected" %>
+      	<div id="flashback_arrow"></div>
+    	</li>
+      <% if signed_in? %>
+      <li>
+      	<%= link_to "Community Deals", flashmob_deals_path, :id => "flashmob_deals", :class => "not_selected" %>
+      	<div id="flashmob_arrow"></div>
+    	</li>
+    	<li>
+    		<%= link_to "My Deals", my_account_path, :id => "my_deals", :class => "not_selected", :title => "#{current_user.name}" %>
+    		<div id="my_deals_arrow"></div>
+  		</li>
+  		<li>
+  			<div id="my_account_drop_down" style="display: none;">
+      		<div id="my_account_arrow"></div>
+					<ul>
+						<% if current_user.admin? %>
+							<li><%= link_to "Queue", queue_path %></li>
+							<li><%= link_to "Rising Deals", rising_deals_path %></li>
+							<li><%= link_to "Search Deals", search_path %></li>
+							<li><%= link_to "Create a Deal", new_deal_path %></li>
+							<li><%= link_to "All Users", users_path %></li>
+							<li><%= link_to "All Comments", comments_path %></li>
+							<li><%= link_to "Watched Deals", relationships_path %></li>
+							<% if current_user.gm? %>
+								<li><%= link_to "Control Panel", control_panel_path %></li>
+							<% end %>
+						<% end %>
+						<% if current_user.notifications.where("read = ?", false).empty? %>
+							<li>
+								<%= link_to notifications_path do %>
+									Notifications <span class="notification_count"></span>
+								<% end %>
+							</li>
+						<% else %>
+							<li>
+								<%= link_to notifications_path do %>
+									Notifications <span class="notification_count">(<%= current_user.notifications.where("read = ?", false).size %>)</span>
+								<% end %>
+							</li>
+						<% end %>
+						<li>
+							<% if current_user.received_messages.where("read = ?", false).size == 0 %>
+								<%= link_to messages_path do %>
+									Messages <span class="message_unread_count"></span>
+								<% end %>
+							<% else %>
+								<%= link_to messages_path do %>
+									Messages <span class="message_unread_count">(<%= current_user.received_messages.where("read = ?", false).size %>)</span>
+								<% end %>
+							<% end %>
+						</li>
+						<% unless current_user.request_friends.empty? %>
+							<li id="my_account_drop_down_friend_requests">
+								<%= link_to friend_requests_path do %>
+									Friend Requests <span class="friend_request_count">(<%= current_user.request_friends.size %>)</span>
+								<% end %>
+							</li>
+						<% end %>
+						<li><%= link_to "My Friends", friends_user_path(current_user) %></li>
+						<li>
+							<%= link_to shared_deals_path do %>
+								<div class="shared_deals_count">
+									<%= render "users/my_account_shared_deals" %>
+								</div>
+							<% end %>
+						</li>
+						<li><%= link_to "Settings", edit_user_path(current_user) %></li>
+						<li id="logout"><%= link_to "Logout", logout_path %></li>
+					</ul>
+				</div>
+			</li>
+      <% else %>
+      	<li id="community_deals_header_link"><%= link_to "Community Deals", "javascript:void(0);", :class => "not_selected signup_popup_anchor scroll_top" %></li>
+      	<li id="signup_header_link"><%= link_to "Sign Up", "javascript:void(0);", :class => "not_selected signup_popup_anchor scroll_top" %></li>
+      <% end %>
+    </ul>      	
+    <ul class="account_nav">
+      <% if signed_in? %>
+      <li>
+      	<div id="account_notice">
+					<%= render "users/account_notice" %>
+				</div>
+      </li>
+      <% else %>
+      <li><%= link_to "Login", "javascript: void(0)", :id => "login", :class => "not_selected alertdim" %></li>
+      <% end %>
+    </ul>    
+  </div>
+</div>
+<% if Rails.env.production? %>
+	<% if signed_in? %>
+		<%= render "shared/notification_updates" %>
+	<% end %>
+<% end %>

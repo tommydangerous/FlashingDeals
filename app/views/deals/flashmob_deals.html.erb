@@ -22,18 +22,20 @@
 		</div>
 		<% end %>
 		<div id="search_form">
-		<%= form_tag flashmob_deals_path, :method => :get do %>
-			<%= hidden_field_tag :sort, params[:sort] %>
-			<%= hidden_field_tag :direction, params[:direction] %>
-			<%= hidden_field_tag :deals_per_page, params[:deals_per_page] %>
-			<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
-			<%= submit_tag "Search", :name => nil, :id => "search_button" %>
-		<% end %>
+			<%= form_tag flashmob_deals_path, :method => :get do %>
+				<%= hidden_field_tag :sort, params[:sort] %>
+				<%= hidden_field_tag :direction, params[:direction] %>
+				<%= hidden_field_tag :deals_per_page, params[:deals_per_page] %>
+				<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
+				<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+			<% end %>
 		</div>
 	</div>
 	<%= render "deal_nav" %>
 	<a name="top"></a>
 	<%= render @deals %>
+</div>
+<div id="pagination_bottom">
 	<%= will_paginate @deals, :separator => "" %>
 	<% unless @deals.size < 3 %>
 		<div id="back_to_top">

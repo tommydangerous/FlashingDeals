@@ -1,0 +1,11 @@
+var $boxes = $('<%= j render :partial => "box_deal", :collection => @deals, :as => :deal %>');
+$("#grid_container").append( $boxes ).masonry( 'appended', $boxes, true);
+$("img.lazy").lazyload({
+	effect: "fadeIn"
+});
+
+<% if @deals.total_pages == @deals.current_page %>
+	$(".pagination").remove();
+<% else %>
+	$("#loading_deals").replaceWith("<%= j will_paginate @deals, :separator => "" %>");
+<% end %>

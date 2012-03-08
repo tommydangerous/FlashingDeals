@@ -1,3 +1,8 @@
+img#user_photo_tiny {
+	max-height: 30px;
+	max-width: 30px;
+}
+
 img#user_photo_subcomment {
 	max-height: 40px;
 	max-width: 40px;
