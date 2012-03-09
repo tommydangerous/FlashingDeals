@@ -13,7 +13,7 @@
 	</div>
 	<div id="box_deal_image_container">
 		<%= link_to(deal) do %>
-			<img class="lazy" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
+			<img class="lazy lazy_load" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
 		<% end %>
 	</div>
 	<div id="box_deal_share_<%= deal.id %>" class="box_deal_share">
@@ -43,7 +43,7 @@
 			<div class="box_deal_comment">
 				<div id="box_deal_comment_user">
 					<%= link_to(User.find(comment.user_id)) do %>
-						<img class="lazy" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
+						<img class="lazy lazy_load" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
 					<% end %>
 				</div>
 				<div id="box_deal_comment_content">

@@ -429,13 +429,15 @@ div#box_deal_comment_content p {
 }
 
 #box_deal_large_image_container {
-	width: 250px;
+	width: 200px;
+	height: 200px;
 	text-align: center;
+	margin: 0 auto;
 }
 
 img#box_deal_large_image {
-	max-height: 250px;
-	max-width: 250px;
+	max-height: 200px;
+	max-width: 200px;
 }
 
 div.box_deal_large_share {

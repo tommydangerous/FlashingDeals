@@ -1,5 +1,8 @@
 $(function() {
 	$("img.lazy").lazyload({
+		effect: "fadeIn"
+	});
+	$("img.lazy_load").lazyload({
 		event: "load",
 		effect: "fadeIn"
 	});
