@@ -7,7 +7,6 @@ $(function() {
 	container.imagesLoaded(function() {
 		container.masonry({
 			itemSelector: ".box_deal",
-			gutterWidth: 20,
 			isAnimated: true,
 			isFitWidth: true,
 			animationOptions: {
@@ -19,7 +18,6 @@ $(function() {
 	container_large.imagesLoaded(function() {
 		container_large.masonry({
 			itemSelector: ".box_deal_large",
-			gutterWidth: 20,
 			isAnimated: true,
 			isFitWidth: true,
 			animationOptions: {
