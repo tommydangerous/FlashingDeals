@@ -9,7 +9,7 @@ $(function() {
 			animationOptions: {
 				duration: 200
 			}
-		}).masonry('reloadItems')
+		})
 	});
 	$("img.lazy").lazyload({
 		effect: "fadeIn"
