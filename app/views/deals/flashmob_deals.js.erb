@@ -2,6 +2,7 @@ $("div#deals_list").append("<%= j render(@deals) %>");
 
 <% if @deals.total_pages == @deals.current_page %>
 	$("#endless_pagination").remove();
+	$("#loading_deals").remove();
 <% else %>
 	$("#loading_deals").replaceWith("<%= j render("endless_pagination") %>");
 <% end %>
