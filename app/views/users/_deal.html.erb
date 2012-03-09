@@ -55,6 +55,8 @@
 			</h2>
 			<% if deal.price.blank? && deal.discount != nil %>
 				<h1><%= deal.discount.round %>% Off</h1>
+			<% elsif deal.price.blank? && deal.discount.blank? && deal.value.blank? && deal.savings != nil %>
+				<h1>$<%= deal.savings.round %> Off</h1>
 			<% elsif deal.price.blank? %>
 				<h1>$</h1>
 			<% elsif deal.price == 0 %>

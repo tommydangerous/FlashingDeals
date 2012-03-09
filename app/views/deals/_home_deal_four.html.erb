@@ -15,8 +15,10 @@
 		<div class="box_price_four">
 			<% if item.price.blank? && item.discount != nil %>
 				<%= item.discount.round %>% Off
-			<% elsif item.price.blank? %>
-				<%= number_to_currency(0) %>
+			<% elsif item.price.blank? && item.discount.blank? && item.value.blank? && item.savings != nil %>
+				$<%= item.savings.round %> Off
+			<% elsif item.price.blank? || item.price.nil? %>
+				$
 			<% elsif item.price == 0 %>
 				Free
 			<% else %>
@@ -44,7 +46,7 @@
 			<li>
 				<p>Value</p>
 				<% if item.value.blank? %>
-					<%= number_to_currency(0) %>
+					N/A
 				<% else %>
 					<%= number_to_currency(item.value) %>
 				<% end %>
@@ -52,11 +54,11 @@
 			<li>
 				<p>Discount</p>
 				<% if item.discount.blank? && item.value.blank? || item.discount.blank? && item.price.blank? %>
-					0%
+					N/A
 				<% elsif item.discount.nil? && item.value.nil? || item.discount.nil? && item.price.nil? %>
-					0%
+					N/A
 				<% elsif item.discount.nil? && item.value == 0 %>
-					0%
+					N/A
 				<% elsif item.discount.nil? || item.discount.blank? %>
 					<%= (((item.value - item.price) * 100)/item.value).round %>%
 				<% else %>
@@ -66,9 +68,9 @@
 			<li>
 				<p>Savings</p>
 				<% if item.savings.blank? && item.value.blank? || item.savings.blank? && item.price.blank? %>
-					<%= number_to_currency(0) %>
+					N/A
 				<% elsif item.savings.nil? && item.value.nil? || item.savings.nil? && item.price.nil? %>
-					<%= number_to_currency(0) %>
+					N/A
 				<% elsif item.savings.nil? || item.savings.blank? %>
 					<%= number_to_currency(item.value - item.price) %>
 				<% else %>

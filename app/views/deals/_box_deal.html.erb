@@ -3,6 +3,8 @@
 		<h1>
 			<% if deal.price.nil? && deal.discount != nil %>
 				<%= deal.discount.round %>% Off
+			<% elsif deal.price.blank? && deal.discount.blank? && deal.value.blank? && deal.savings != nil %>
+				$<%= deal.savings.round %> Off
 			<% elsif deal.price.blank? %>
 			<% elsif deal.price == 0 %>
 				Free
