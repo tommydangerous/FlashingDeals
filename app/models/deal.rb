@@ -57,6 +57,8 @@ class Deal < ActiveRecord::Base
 	
 	has_many :editmarks, :dependent => :destroy
 	
+	has_many :notifications, :dependent => :destroy
+	
 	def self.search(search)
 		if search
 			if Rails.env.production?
