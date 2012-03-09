@@ -292,13 +292,15 @@ div#loading_deals_words em {
 }
 
 #box_deal_image_container {
-	width: 200px;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
 	text-align: center;
 }
 
 img#box_deal_image {
-	max-height: 200px;
-	max-width: 200px;
+	max-height: 100px;
+	max-width: 100px;
 }
 
 div.box_deal_share {

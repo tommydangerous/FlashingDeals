@@ -1,4 +1,8 @@
 $(function() {
+	$("img.lazy").lazyload({
+		event: "load",
+		effect: "fadeIn"
+	});
 	var container = $("#grid_container");
 	container.imagesLoaded(function() {
 		container.masonry({
@@ -11,10 +15,19 @@ $(function() {
 			}
 		})
 	});
-	$("img.lazy").lazyload({
-		effect: "fadeIn"
+	var container_large = $("#grid_container_large");
+	container_large.imagesLoaded(function() {
+		container_large.masonry({
+			itemSelector: ".box_deal_large",
+			gutterWidth: 20,
+			isAnimated: true,
+			isFitWidth: true,
+			animationOptions: {
+				duration: 200
+			}
+		})
 	});
-});
+})
 
 $(document).ready(function() {
 	var x = $('#grid_categories_show');
@@ -53,4 +66,5 @@ function showBoxDealShare(id) {
 
 function hideBoxDealShare() {
 	$(".box_deal_share").hide();
+	$(".box_deal_large_share").hide();
 };

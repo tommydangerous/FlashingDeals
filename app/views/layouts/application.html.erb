@@ -58,10 +58,10 @@
   			<%= yield %>
   			<div class="clear"></div>
   		</div>
-  		<div id="dim" style="display: none">
-				<%= render 'sessions/login_form' %>
-			</div>
 			<% unless signed_in? %>
+				<div id="dim" style="display: none">
+					<%= render 'sessions/login_form' %>
+				</div>
 				<div id="dim_signup" style="display: none">
 					<%= render "users/signup_message" %>
 				</div>

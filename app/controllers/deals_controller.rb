@@ -1,6 +1,6 @@
 class DealsController < ApplicationController
-	before_filter :authenticate, :except => [:top_deals, :flashback, :flashback_electric, :flashback_flashing, :show, :frame]
-	before_filter :admin_user, :except => [:top_deals, :flashback, :flashback_electric, :flashback_flashing, :show, :frame, :flashmob_deals, :community_deals, :watchers, :score_up, :score_down, :remove_watched_deals]
+	before_filter :authenticate, :except => [:top_deals, :featured_deals, :show, :frame]
+	before_filter :admin_user, :except => [:top_deals, :featured_deals, :show, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
 	before_filter :today
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
@@ -19,6 +19,14 @@ class DealsController < ApplicationController
 	def top_deals
 		@title = "First to Know"
 		@deals = Deal.where("top_deal = ?", true).order("time_in DESC")[0..3]
+	end
+	
+	def featured_deals
+		@title = "Featured Deals"
+		@today_3 = Time.now - (86400 * 3)
+  	deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3)
+  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction)
+  	render :layout => "full_screen"
 	end
 
   def flashback
@@ -133,6 +141,13 @@ class DealsController < ApplicationController
   end
 
 # Only Logged In Users  
+	def community_deals
+  	@title = "Community Deals"
+  	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
+  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 40)
+  	render :layout => "full_screen"
+  end
+
   def flashmob_deals
   	@title = "Community Deals"
   	if params[:deals_per_page] == "10"
@@ -158,13 +173,6 @@ class DealsController < ApplicationController
   	elsif per_page == 80
   		@per_page = 80
   	end
-  end
-  
-  def community_deals
-  	@title = "Community Deals"
-  	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 40)
-  	render :layout => "full_screen"
   end
   
   def watchers

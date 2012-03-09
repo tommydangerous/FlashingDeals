@@ -38,10 +38,11 @@ FlashingDeal::Application.routes.draw do
   end
 # Deals
   root :to => 'deals#top_deals'
-	match '/featured-deals' => 'deals#flashback', :as => :flashback
+  match '/featured-deals' => 'deals#featured_deals', :as => :featured_deals
+	match '/featured_deals' => 'deals#flashback', :as => :flashback
 	match '/flashingdeal/:id' => 'deals#frame', :as => :frame
-	match '/flashmob-deals' => 'deals#flashmob_deals', :as => :flashmob_deals
 	match '/community-deals' => 'deals#community_deals', :as => :community_deals
+	match '/flashmob-deals' => 'deals#flashmob_deals', :as => :flashmob_deals
 	match '/remove-watched-deals' => 'deals#remove_watched_deals', :as => :remove_watched_deals
 	match '/queue' => 'deals#queue', :as => :queue
 	match '/rising-deals' => 'deals#rising_deals', :as => :rising_deals

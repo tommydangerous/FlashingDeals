@@ -1,5 +1,9 @@
-<div id="box_deal_<%= deal.id %>" class="box_deal" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();">
-	<div id="box_deal_price">
+<% if deal.dead? %>
+<div id="box_deal_<%= deal.id %>" class="box_deal_large deal_dead" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();" title="This deal has expired">
+<% else %>
+<div id="box_deal_<%= deal.id %>" class="box_deal_large" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();">
+<% end %>
+	<div id="box_deal_large_price">
 		<h1>
 			<% if deal.price.nil? && deal.discount != nil %>
 				<%= deal.discount.round %>% Off
@@ -11,12 +15,24 @@
 			<% end %>
 		</h1>
 	</div>
-	<div id="box_deal_image_container">
-		<%= link_to(deal) do %>
-			<img class="lazy" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
+	<div id="box_deal_large_image_container">
+		<% if signed_in? %>
+			<%= link_to(deal) do %>
+				<img class="lazy" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_large_image" width="250">
+			<% end %>
+		<% else %>
+			<% if deal.exclusive? %>
+				<%= link_to("javascript:void(0)", :onclick => "signupPopupExclusive();") do %>
+					<img class="lazy" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_large_image" width="250">
+				<% end %>
+			<% else %>
+				<%= link_to(deal) do %>
+					<img class="lazy" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_large_image" width="250">
+				<% end %>
+			<% end %>
 		<% end %>
 	</div>
-	<div id="box_deal_share_<%= deal.id %>" class="box_deal_share">
+	<div id="box_deal_share_<%= deal.id %>" class="box_deal_large_share">
 		<ul>
 			<li>
 				<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example3demo_<%= deal.id %>">
@@ -35,18 +51,18 @@
 			</li>
 		</ul>
 	</div>
-	<div id="box_deal_name">
+	<div id="box_deal_large_name">
 		<h1><%= deal.name %></h1>
 	</div>
-	<div id="box_deal_comments">
+	<div id="box_deal_large_comments">
 		<% deal.comments.each do |comment| %>
-			<div class="box_deal_comment">
-				<div id="box_deal_comment_user">
+			<div class="box_deal_large_comment">
+				<div id="box_deal_large_comment_user">
 					<%= link_to(User.find(comment.user_id)) do %>
-						<img class="lazy" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
+						<img class="lazy" src="/assets/lazy_medium.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_subcomment">
 					<% end %>
 				</div>
-				<div id="box_deal_comment_content">
+				<div id="box_deal_large_comment_content">
 					<p><%= auto_link(wrap(to_html(strip_tags(comment.content))), :all, :target => "_blank") %></p>
 				</div>
 				<div class="clear"></div>
