@@ -1,9 +1,17 @@
-div#my_account_drop_down {
+.hd div#my_account_drop_down {
 	z-index: 100;
 	width: 150px;
 	position: relative;
 	top: 10px;
 	left: 420px;
+}
+
+.fs_hd div#my_account_drop_down {
+	position: absolute;
+	z-index: 100;
+	width: 150px;
+	margin-top: 10px;
+	right: 0;
 }
 
 div#my_account_drop_down ul {
@@ -102,7 +110,7 @@ a#my_account:hover {
 }
 
 div#my_account_arrow {
-	margin-left: 70%;
+	margin-left: 65%;
 	width: 0;
 	height: 0;
 	border-left: 10px solid transparent;

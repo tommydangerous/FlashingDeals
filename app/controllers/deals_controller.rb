@@ -1,6 +1,6 @@
 class DealsController < ApplicationController
 	before_filter :authenticate, :except => [:top_deals, :flashback, :flashback_electric, :flashback_flashing, :show, :frame]
-	before_filter :admin_user, :except => [:top_deals, :flashback, :flashback_electric, :flashback_flashing, :show, :frame, :flashmob_deals,  :watchers, :score_up, :score_down, :remove_watched_deals]
+	before_filter :admin_user, :except => [:top_deals, :flashback, :flashback_electric, :flashback_flashing, :show, :frame, :flashmob_deals, :community_deals, :watchers, :score_up, :score_down, :remove_watched_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
 	before_filter :today
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]

@@ -1,43 +1,44 @@
-<%= render 'shared/side_panel' %>
-<div id="deals_list">
-	<% unless cookies[:hide_categories_info] == "yes" %>
-		<div id="page_deal_info">
-			<div id="page_deal_info_close">
-				<%= link_to image_tag("/assets/close.png"), hide_categories_info_path, :onclick => "hidePageDealInfo();", :remote => true, :title => "Hide this message" %>
-			</div>
-			<p>This page breaks down the Community Deals into categories, making your life easier and everyone happier. Don't forget to check out the home page for new deals every 15 minutes, and in case you missed it, check out the Featured Deals for all the excitement.</p>
-		</div>
-	<% end %>
-	<div id="deal_page_info">
-		<div id="show_electric_flashing">
-			<ul>
-				<%= render "deals/deals_per_page" %>
-			</ul>
-		</div>
+<div id="grid_top_bar">
+	<div id="grid_categories">
+		<%= link_to "Categories", "javascript:void(0);", :id => "grid_categories_show" %>
+		<ul id="grid_categories_list">
+			<% Category.all.each do |c| %>
+				<% if c.deals.where("posted > ?", @today).size > 0 %>
+					<li>
+						<%= link_to "#{c.name}", c %>
+					</li>
+				<% end %>
+			<% end %>
+		</ul>		
 	</div>
-	<div id="search">
-		<% unless @deals.empty? %>
-		<div class="paginate_range">
-			<%= paginate_range(@deals, @deals_total_count) %>
-		</div>
-		<% end %>
-		<div id="search_form">
-		<%= form_tag @category, :method => :get do %>
+	<div id="grid_search_form">
+		<%= form_tag community_deals_path, :method => :get do %>
 			<%= hidden_field_tag :sort, params[:sort] %>
 			<%= hidden_field_tag :direction, params[:direction] %>
 			<%= hidden_field_tag :deals_per_page, params[:deals_per_page] %>
-			<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
-			<%= submit_tag "Search", :name => nil, :id => "search_button" %>
+			<%= text_field_tag :search, params[:search], :autocomplete => "off", :id => "grid_search" %>
+			<%= submit_tag "Search", :name => nil, :id => "grid_search_button" %>
 		<% end %>
+	</div>
+	<div id="grid_deal_nav">
+		<div id="deal_nav">
+			<div id="sort_non_ajax">
+				<span class="sort"><%= sortable "posted", "Most Recent" %></span>
+				<span class="sort"><%= sortable "view_count", "Best Seller" %></span>
+				<span class="sort"><%= sortable "comment_count", "Most Talked About" %></span>
+				<span class="sort"><%= sortable "price" %></span>
+			</div>
 		</div>
 	</div>
-	<%= render "deals/deal_nav" %>
-	<a name="top"></a>
-		<%= render @deals %>
-	<%= will_paginate @deals, :separator => "" %>
-	<% unless @deals.count < 3 %>
-		<div id="back_to_top">
-			<strong>^</strong><%= link_to "Back to the Top", "javascript:void(0);", :class => "scroll_top" %>
-		</div>
-	<% end %>
 </div>
+<div id="grid_container">
+	<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal %>
+</div>
+<%= render "deals/endless_pagination" %>
+<script>
+$(document).ready(function() {
+	$("div#flashmob_arrow").show();
+	$("a#flashmob_deals").removeClass("not_selected");
+	$("a#flashmob_deals").addClass("selected");
+});
+</script>

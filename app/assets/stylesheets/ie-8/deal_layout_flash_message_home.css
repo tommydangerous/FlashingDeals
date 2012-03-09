@@ -15,7 +15,7 @@ div#deals {
 }
 
 div.deals_list {
-
+	background: rgba(255, 255, 255, 1);
 }
 
 div.empty_category p {

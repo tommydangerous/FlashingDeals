@@ -6,6 +6,16 @@ class CategoriesController < ApplicationController
 	helper_method :sort_column, :sort_direction
 	
 	def show
+		@category = Category.find(params[:id])
+  	@title = @category.name
+  	cookies[:category] = { :value => "#{@category.name}", :expires => (Time.now + 86400) }
+  	@today = Time.now - 86400
+  	deals = @category.deals.where("posted > ?", @today)
+  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 40)
+  	render :layout => "full_screen"
+	end
+	
+	def show_old
   	@category = Category.find(params[:id])
   	@title = @category.name
   	cookies[:category] = { :value => "#{@category.name}", :expires => (Time.now + 86400) }

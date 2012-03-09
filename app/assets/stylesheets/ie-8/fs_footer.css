@@ -1,0 +1,87 @@
+#fs_footer {
+	height: 140px;
+  background: #4b4b4b; /* Old browsers */
+  background: -moz-linear-gradient(top,  #4b4b4b 0%, #191919 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#4b4b4b), color-stop(100%,#191919)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* IE10+ */
+  background: linear-gradient(top,  #4b4b4b 0%,#191919 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#4b4b4b', endColorstr='#191919',GradientType=0 ); /* IE6-9 */
+  border-top: 5px solid rgb(110, 220, 90);
+  padding-bottom: 32px;
+  margin-top: -177px;
+}
+
+.fs_fd {
+	height: 140px;
+}
+
+.fs_fd table {
+	float: right;
+  padding: 0;
+	position: relative;
+	top: 10px;
+}
+
+.fs_fd table tr {
+  font-size: 11px;
+  font-weight: bold;
+  font-family: Verdana;
+  color: rgb(255, 255, 255);
+}
+
+.fs_fd table tr td {
+  padding: 0 10px;
+  width: 91px;
+}
+
+.fs_fd table tr td p {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: Verdana;
+  color: rgb(255, 255, 255);
+}
+
+.fs_fd div.nav ul {
+  list-style-type: none;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+}
+
+.fs_fd div.nav ul li {
+  padding: 5px 0;
+}
+
+.fs_fd div.nav ul li a {
+  text-decoration: none;
+  color: rgb(150, 150, 150);
+  font-size: 11px;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+.fs_fd div.nav ul li a:hover {
+  text-decoration: underline;
+  color: rgb(255, 255, 255);
+}
+
+div#copyright {
+	height: 32px;
+	min-width: 951px;
+	text-align: center;
+	background: rgb(50, 50, 50);
+}
+
+p.copyright {
+  font-family: Verdana;
+  color: rgb(255, 255, 255);
+  font-size: 10px;
+  height: 32px;
+  line-height: 30px;
+}

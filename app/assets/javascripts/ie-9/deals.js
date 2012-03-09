@@ -110,7 +110,7 @@ function toggleRisingDealEdit(id) {
 // Deal Show Edit Info
 function toggleInfoEditForm() {
 	$('div#info_edit_the_flash').toggle();
-	$('div#info').toggle();
+	$('div#deal_show_info').toggle();
 	if ($('div#info_edit_the_flash').css("display") == "none") {
 		$('span#edit_the_flash a').html("Edit");
 	} else {

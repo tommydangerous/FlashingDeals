@@ -221,7 +221,50 @@
 					</div>
 				<% end %>
 			</div>
+			<div class="clear"></div>
 		</div>
+		<% if signed_in? %>
+			<% if current_user.admin? %>
+				<div id="deal_show_data">
+					<table>
+						<tr>
+							<td id="deal_show_data_labels">
+								<p>Views</p>
+							</td>
+							<td id="deal_show_data_numbers">
+								<p><%= @deal.view_count %></p>
+							</td>
+						</tr>
+						<tr>
+							<td id="deal_show_data_labels">
+								<p>Clicks</p>
+							</td>
+							<td id="deal_show_data_numbers">
+								<p><%= @deal.click_count %></p>
+							</td>
+						</tr>
+						<% unless @deal.posted.nil? %>
+						<tr>
+							<td id="deal_show_data_labels">
+								<p>Posted</p>
+							</td>
+							<td id="deal_show_data_numbers">
+								<p><%= @deal.posted.strftime("%m-%d") %> <span class="grey_150">at</span> <%= @deal.posted.strftime("%I:%M %p") %></p>
+							</td>
+						</tr>
+						<% end %>
+						<tr>
+							<td id="deal_show_data_labels">
+								<p>Created</p>
+							</td>
+							<td id="deal_show_data_numbers">
+								<p><%= @deal.created_at.strftime("%m-%d") %> <span class="light_grey">at</span> <span class="grey_75"><%= @deal.created_at.strftime("%I:%M %p") %></span></p>
+							</td>
+						</tr>
+					</table>
+				</div>
+			<% end %>
+		<% end %>
 	</div>
 	<div id="deal_show_column_right_2">
 		<%= render "deal_show_share" %>
@@ -236,7 +279,6 @@
 	<% if signed_in? %>
 		<% if current_user.admin? %>
 			<div id="delete_deal">
-				<h1>Views: <%= @deal.view_count %> <span class="grey_200"> | </span> Clicks: <%= @deal.click_count %></h1>
 				<ul>
 					<li><p><%= link_to "Add to Queue", add_to_queue_deal_path(@deal), :remote => true %></p></li>
 					<li><p><%= link_to "Edit Deal", edit_deal_path(@deal) %></p></li>

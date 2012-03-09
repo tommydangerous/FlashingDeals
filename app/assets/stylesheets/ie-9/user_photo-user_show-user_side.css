@@ -1,0 +1,367 @@
+/* user_photo.css */
+img#user_photo_tiny {
+	max-height: 30px;
+	max-width: 30px;
+}
+
+img#user_photo_subcomment {
+	max-height: 40px;
+	max-width: 40px;
+}
+
+img#user_photo_small {
+	max-height: 50px;
+	max-width: 50px;
+}
+
+img#user_photo_medium {
+	max-height: 211px;
+	max-width: 211px;
+}
+
+img#cropbox {
+	max-height: 500px;
+	max-width: 500px;
+}
+
+/* user_show.css */
+div#gravatar {
+	float: left;
+	width: 211px;
+	height: 211px;
+	text-align: center;
+}
+
+div#gravatar img {
+}
+
+div#user_name {
+	width: 722px;
+	height: 209px;
+	float: right;
+}
+
+div#user_name div#name h1 {
+	font-family: Helvetica, Arial;
+	font-weight: bold;
+	color: rgba(75, 75, 75, 1);
+	text-align: center;
+	font-size: 50px;
+	margin: 0;
+	margin-top: 5px;
+}
+
+div#user_name p {
+	text-align: center;
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
+	position: relative;
+	top: 117px;
+}
+
+div#user_name div.flash {
+	margin-top: 25px;
+	width: 702px;
+	height: 17px;
+	text-align: left;
+	position: absolute;
+}
+
+div#user_table {
+	width: 100%;
+	padding-top: 10px;
+}
+	
+div#deals_watching {
+	width: 724px;
+	float: right;
+	padding: 0;
+}
+
+p#none {
+	text-align: center;
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgba(150, 150, 150, 1);
+	padding: 5px 0px;
+}
+
+div#user_side {
+	vertical-align: top;
+	float: left;
+	width: 189px;
+	padding: 10px;
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid rgba(200, 200, 200, 1);
+}
+
+div#user_side h1 {
+	font-family: Verdana;
+	font-size: 14px;
+	color: rgba(150, 150, 150, 1);
+	margin-bottom: 14px;
+}
+
+div#user_side h2 {
+	font-family: Verdana;
+	font-size: 14px;
+	margin: 0;
+}
+
+div#user_side a {
+	color: rgba(44, 175, 227, 1);
+	text-decoration: none;
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#user_side a:hover {
+	color: rgba(4, 135, 187, 1);
+	text-decoration: underline;
+}
+
+div#user_side_search input {
+	background: url("/assets/search.png");
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: left 3px;
+	width: 160px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgba(75, 75, 75, 1);
+	border: 1px solid rgba(200, 200, 200, 1);
+	padding: 3px;
+	padding-left: 19px;
+	margin-top: 0px;
+	margin-bottom: 14px;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#user_side_search input:hover {
+	border: 1px solid rgba(150, 150, 150, 1);
+}
+
+div#user_side_search input:focus {
+	border: 1px solid rgba(48, 157, 207, 1);
+	-webkit-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	background: url("/assets/search_focus.png");
+	background-size: 16px 16px;
+	background-repeat: no-repeat;
+	background-position: left 3px;
+}
+
+div.user_deals {
+	width: 702px;
+	padding: 10px;
+	margin-bottom: 3px;
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid rgba(200, 200, 200, 1);
+}
+
+div#user_deals_unwatch {
+	margin-top: 5px;
+	width: 100%;
+}
+
+div#user_deals_info {
+	width: 80%;
+}
+
+div#user_deals_info p {
+	font-size: 16px;
+}
+
+div#user_deals_info a {
+	font-weight: bold;
+	text-decoration: none;
+	color: rgba(44, 175, 227, 1);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#user_deals_info a:hover {
+	color: rgba(4, 135, 187, 1);
+	text-decoration: underline;
+}
+
+div#user_deals_info p2 {
+	font-size: 12px;
+	color: rgba(75, 75, 75, 1);
+}
+
+span.light_grey {
+	color: rgba(150, 150, 150, 1);
+}
+
+div#user_deals_unwatch input{
+	margin: auto;
+	font-family: Verdana;
+	font-size: 12px;
+	padding: 5px;
+	text-align: center;
+	border: 1px solid rgba(150, 150, 150, 1);
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	color: rgba(75, 75, 75, 1);
+	-webkit-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+	box-shadow: 0px 1px 3px rgba(150, 150, 150, 1);
+}
+
+div#user_deals_unwatch input {
+	background: rgb(238,238,238); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2VlZWVlZSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNjY2NjY2MiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(238,238,238,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(238,238,238,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-8 */
+}
+
+div#user_deals_unwatch input:hover, div#user_deals_unwatch input:focus {
+	background: rgb(248,248,248); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Y4ZjhmOCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNkNmQ2ZDYiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(214,214,214,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(214,214,214,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-8 */
+	border: 1px solid rgba(160, 160, 160, 1);
+}
+
+div#user_deals_unwatch input:active {
+	background: rgb(214,214,214); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2Q2ZDZkNiIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNmOGY4ZjgiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(214,214,214,1) 0%, rgba(248,248,248,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(214,214,214,1)), color-stop(100%,rgba(248,248,248,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#f8f8f8',GradientType=0 ); /* IE6-8 */
+	-webkit-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
+}
+
+/* user_side.css */
+div#messages_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/messages.png");
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: left 4px;
+}
+
+div#new_message_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/new_message.png");
+	background-size: 20px 17px;
+	background-repeat: no-repeat;
+	background-position: left 6px;
+}
+
+div#send_message_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/send_message.png");
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: left 4px;
+}
+
+div#friend_requests_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/friend_requests.png");
+	background-size: 20px 20px;
+	background-repeat: no-repeat;
+	background-position: left 4px;
+}
+
+div#my_friends_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/my_friends.png");
+	background-size: 20px 18px;
+	background-repeat: no-repeat;
+	background-position: left 5px;
+}
+
+div#shared_deals_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/shared_deals.png");
+	background-size: 20px 11px;
+	background-repeat: no-repeat;
+	background-position: left 8px;
+}
+
+div#remove_all_shared_deals_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/remove_all_shared_deals.png");
+	background-size: 20px 11px;
+	background-repeat: no-repeat;
+	background-position: left 8px;
+}
+
+div#mark_all_read_profile {
+	height: 28px;
+	text-indent: 25px;
+	line-height: 25px;
+	background: url("/assets/mark_all_read.png");
+	background-size: 20px 17px;
+	background-repeat: no-repeat;
+	background-position: left 6px;
+}
