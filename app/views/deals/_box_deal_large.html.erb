@@ -18,16 +18,16 @@
 	<div id="box_deal_large_image_container">
 		<% if signed_in? %>
 			<%= link_to(deal) do %>
-				<img class="lazy" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_large_image" width="250">
+				<%= image_tag("#{deal.image}", :id => "box_deal_large_image") %>
 			<% end %>
 		<% else %>
 			<% if deal.exclusive? %>
 				<%= link_to("javascript:void(0)", :onclick => "signupPopupExclusive();") do %>
-					<img class="lazy" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_large_image" width="250">
+					<%= image_tag("#{deal.image}", :id => "box_deal_large_image") %>
 				<% end %>
 			<% else %>
 				<%= link_to(deal) do %>
-					<img class="lazy" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_large_image" width="250">
+					<%= image_tag("#{deal.image}", :id => "box_deal_large_image") %>
 				<% end %>
 			<% end %>
 		<% end %>

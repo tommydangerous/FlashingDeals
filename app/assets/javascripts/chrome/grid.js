@@ -27,7 +27,7 @@ $(function() {
 			}
 		})
 	});
-})
+});
 
 $(document).ready(function() {
 	var x = $('#grid_categories_show');
