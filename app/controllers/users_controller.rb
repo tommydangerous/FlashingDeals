@@ -135,7 +135,7 @@ class UsersController < ApplicationController
   private
   
   	def sort_column
-  		User.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  		User.column_names.include?(params[:sort]) ? params[:sort] : "active"
   	end
   	
   	def sort_direction
