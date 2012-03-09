@@ -36,7 +36,7 @@
 	<%= render @deals %>
 </div>
 <div id="pagination_bottom">
-	<%= will_paginate @deals, :separator => "" %>
+	<%= render "endless_pagination" %>
 	<% unless @deals.size < 3 %>
 		<div id="back_to_top">
 			<strong>^</strong><%= link_to "Back to the Top", "javascript:void(0);", :class => "scroll_top" %>

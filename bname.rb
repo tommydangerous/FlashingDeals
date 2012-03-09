@@ -6,9 +6,9 @@
 
 
 
-	p = 1
+	p = 2
 	
-	(1..p).each do |i|
+	(2..p).each do |i|
 		
 		url = "http://www.brand-name-coupons.com/page/#{i}"
 		doc = Nokogiri::HTML(open(url))
@@ -25,16 +25,19 @@
 			name = name[0].to_s.split('="')
 			name = name[1].to_s.split('">')
 			name = name[0].to_s
+			puts name
 					
 			# price
 			price_raw = row.css('b.pricesmall:first-of-type')
 			price = price_raw.inner_text
 			price = price[/[0-9.0-9]+/].to_f
+			puts price
 			
 			# discount
 			discount_raw = row.css('span.sticker span.c strong')
 			discount = discount_raw.inner_text
 			discount = discount[/[0-9]+/].to_f
+			puts discount
 			
 			# value
 			value = (price/(1 - (discount/100))).to_f

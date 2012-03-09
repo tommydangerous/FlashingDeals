@@ -5,7 +5,7 @@ $("img.lazy").lazyload({
 });
 
 <% if @deals.total_pages == @deals.current_page %>
-	$(".pagination").remove();
+	$("#endless_pagination").remove();
 <% else %>
-	$("#loading_deals").replaceWith("<%= j will_paginate @deals, :separator => "" %>");
+	$("#loading_deals").replaceWith("<%= j render("endless_pagination") %>");
 <% end %>

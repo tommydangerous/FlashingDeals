@@ -2,11 +2,11 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 jQuery ->
-	if $('.pagination').length
+	if $('#endless_pagination .pagination').length
 		$(window).scroll ->
-			url = $('.pagination .next_page').attr('href')
+			url = $('#endless_pagination .pagination .next_page').attr('href')
 			if url && $(window).scrollTop() > $(document).height() - $(window).height() - 800
-				$('.pagination').replaceWith('
+				$('#endless_pagination').replaceWith('
 					<div id="loading_deals">
 						<img src="/assets/loading.gif">
 						<div id="loading_deals_words">
