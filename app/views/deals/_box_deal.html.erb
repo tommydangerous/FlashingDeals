@@ -12,7 +12,7 @@
 		</h1>
 	</div>
 	<div id="box_deal_image_container">
-		<%= link_to(deal) do %>
+		<%= link_to(deal, :id => "box_deal_link") do %>
 			<img class="lazy lazy_load" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
 		<% end %>
 	</div>

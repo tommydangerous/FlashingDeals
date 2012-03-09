@@ -299,6 +299,13 @@ div#loading_deals_words em {
 	text-align: center;
 }
 
+a#box_deal_link {
+	display: block;
+	width: 100px;
+	height: 100px;
+	margin: 0 auto;
+}
+
 img#box_deal_image {
 	max-height: 100px;
 	max-width: 100px;
@@ -432,6 +439,13 @@ div#box_deal_comment_content p {
 	width: 200px;
 	height: 200px;
 	text-align: center;
+	margin: 0 auto;
+}
+
+a#box_deal_large_link {
+	display: block;
+	width: 200px;
+	height: 200px;
 	margin: 0 auto;
 }
 

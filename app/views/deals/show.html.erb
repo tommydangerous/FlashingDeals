@@ -18,7 +18,7 @@
 			</div>
 		<% else %>
 			<div id="deal_show_image">
-				<%= image_tag("#{@deal.image}", :id => "deal_image") %>
+				<img class="lazy_load" src="/assets/lazy_large.png" data-original="<%= @deal.image %>" id="deal_image">
 			</div>
 		<% end %>
 		<div id="deal_show_data">

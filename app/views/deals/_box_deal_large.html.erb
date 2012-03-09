@@ -17,7 +17,7 @@
 	</div>
 	<div id="box_deal_large_image_container">
 		<% if signed_in? %>
-			<%= link_to(deal) do %>
+			<%= link_to(deal, :id => "box_deal_large_link") do %>
 				<img class="lazy lazy_load" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
 			<% end %>
 		<% else %>
@@ -59,7 +59,7 @@
 			<div class="box_deal_large_comment">
 				<div id="box_deal_large_comment_user">
 					<%= link_to(User.find(comment.user_id)) do %>
-						<img class="lazy lazy_load" src="/assets/lazy_medium.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_subcomment">
+						<img class="lazy lazy_load" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_subcomment">
 					<% end %>
 				</div>
 				<div id="box_deal_large_comment_content">
