@@ -6,9 +6,9 @@
 
 
 
-	p = 2
+	p = 1
 	
-	(2..p).each do |i|
+	(1..p).each do |i|
 		
 		url = "http://www.brand-name-coupons.com/page/#{i}"
 		doc = Nokogiri::HTML(open(url))
@@ -31,13 +31,11 @@
 			price_raw = row.css('b.pricesmall:first-of-type')
 			price = price_raw.inner_text
 			price = price[/[0-9.0-9]+/].to_f
-			puts price
 			
 			# discount
 			discount_raw = row.css('span.sticker span.c strong')
 			discount = discount_raw.inner_text
 			discount = discount[/[0-9]+/].to_f
-			puts discount
 			
 			# value
 			value = (price/(1 - (discount/100))).to_f
@@ -70,8 +68,11 @@
 			posted = Chronic::parse(date)
 			
 			# info
-			info = row.css("div.entry p").inner_text
-			info = info.to_s
+			info = row.css("div.entry:first-child p").to_s
+			info = info.split('</p>')[0]
+			unless info.nil?
+				puts info.split('<p>')[1]
+			end
 			
 			# metric
 			metric = -1

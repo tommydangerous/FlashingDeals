@@ -67,6 +67,14 @@ def make_brandname_coupons
 			time = Time.now.strftime("%I:%M %p")
 			date = "#{date} #{time}"
 			posted = Chronic::parse(date)
+			posted = Time.now
+			
+			# info
+			info = row.css("div.entry:first-child p").to_s
+			info = info.split('</p>')[0]
+			unless info.nil?
+				info = info.split('<p>')[1].to_s
+			end
 			
 			# metric
 			metric = -1
@@ -87,6 +95,7 @@ def make_brandname_coupons
 										 :image => image,
 										 :link => link,
 										 :posted => posted,
+										 :info => info,
 										 :metric => metric,
 										 :tag => tag,
 										 :city => city)
