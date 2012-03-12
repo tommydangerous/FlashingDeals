@@ -38,7 +38,7 @@ FlashingDeal::Application.routes.draw do
   	end
   end
 # Deals
-  root :to => 'deals#top_deals'
+  root :to => 'deals#featured_deals'
   match '/featured-deals' => 'deals#featured_deals', :as => :featured_deals
 	match '/featured_deals' => 'deals#flashback', :as => :flashback
 	match '/flashingdeal/:id' => 'deals#frame', :as => :frame

@@ -277,6 +277,7 @@ function hidePageDealInfo() {
 // Login & Signup
 function signupSwitch() {
 	$("#dim_signup").hide();
+	$("#dim_signup_deal_show").hide();
 	$("#dim").show();
 }
 

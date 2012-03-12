@@ -34,6 +34,13 @@
 <div id="grid_container_large">
 	<%= render :partial => "box_deal_large", :collection => @deals, :as => :deal %>
 </div>
+<% unless signed_in? %>
+	<% unless cookies[:hide_message] == "yes" %>
+		<div id="dim_signup_deal_show">
+			<%= render "users/signup_message" %>
+		</div>
+	<% end %>
+<% end %>
 <script>
 $(document).ready(function() {
 	$("div#flashback_arrow").show();
