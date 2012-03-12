@@ -3,6 +3,11 @@
 <% else %>
 <div id="box_deal_<%= deal.id %>" class="box_deal_large" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();">
 <% end %>
+	<% if deal.metric >= 4 %>
+		<div id="box_deal_large_lightning">
+			<%= lightning_deal_2 %>
+		</div>
+	<% end %>
 	<div id="box_deal_large_price">
 		<h1>
 			<% if deal.price.nil? && deal.discount != nil %>

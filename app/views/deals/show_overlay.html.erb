@@ -11,6 +11,11 @@
 <% end %>
 <div id="deal_show_overlay_container">
 	<div id="deal_show_column_left">
+		<% if @deal.metric >= 4 %>
+			<div id="deal_show_lightning">
+				<%= lightning_deal_2 %>
+			</div>
+		<% end %>
 		<% if @deal.dead? %>
 			<div id="deal_show_image" class="deal_dead" title="This deal has expired">
 				<%= image_tag("#{@deal.image}", :id => "deal_image") %>

@@ -76,6 +76,15 @@ div#deal_show_column_right {
 	float: right;
 }
 
+div#deal_show_lightning {
+	height: 20px;
+}
+
+div#deal_show_lightning img {
+	width: 20px;
+	height: 20px;
+}
+
 div#deal_show_image {
 	width: 266px;
 	text-align: center;
