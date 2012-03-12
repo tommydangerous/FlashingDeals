@@ -1,6 +1,9 @@
 <div id="grid_top_bar">
 	<div id="grid_categories">
-		<%= link_to "Categories", "javascript:void(0);", :id => "grid_categories_show" %>
+		<%= link_to("javascript:void(0);", :id => "grid_categories_show") do %>
+			Categories
+			<div id="grid_categories_arrow"></div>
+		<% end %>
 		<ul id="grid_categories_list">
 			<% Category.all.each do |c| %>
 				<% if c.deals.where("posted > ?", @today).size > 0 %>
