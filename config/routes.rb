@@ -16,6 +16,7 @@ FlashingDeal::Application.routes.draw do
   		get :make_flashback
   		get :make_remove
   		get :make_dead
+  		get :show_overlay
   	end
   end
   resources :editmarks

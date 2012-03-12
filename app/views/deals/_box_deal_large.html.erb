@@ -18,21 +18,40 @@
 		</h1>
 	</div>
 	<div id="box_deal_large_image_container">
-		<% if signed_in? %>
-			<%= link_to(deal, :id => "box_deal_large_link") do %>
-				<img class="lazy lazy_load" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
-			<% end %>
-		<% else %>
-			<% if deal.exclusive? %>
-				<%= link_to("javascript:void(0)", :onclick => "signupPopupExclusive();") do %>
-					<img class="lazy lazy_load" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+		<div class="box_deal_link_overlay">
+			<% if signed_in? %>
+				<%= link_to("javascript:void(0)", :class => "box_deal_large_link", :onclick => "overlayPopup(#{deal.id})") do %>
+					<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
 				<% end %>
 			<% else %>
-				<%= link_to(deal) do %>
-					<img class="lazy lazy_load" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+				<% if deal.exclusive? %>
+					<%= link_to("javascript:void(0)", :class => "box_deal_large_link", :onclick => "signupPopupExclusive();") do %>
+						<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<% end %>
+				<% else %>
+					<%= link_to("javascript:void(0)", :class => "box_deal_large_link", :onclick => "overlayPopup(#{deal.id})") do %>
+						<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<% end %>
 				<% end %>
 			<% end %>
-		<% end %>
+		</div>
+		<div class="box_deal_link_overlay_none">
+			<% if signed_in? %>
+				<%= link_to(deal, :class => "box_deal_large_link") do %>
+					<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+				<% end %>
+			<% else %>
+				<% if deal.exclusive? %>
+					<%= link_to(deal, :class => "box_deal_large_link", :onclick => "signupPopupExclusive();") do %>
+						<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<% end %>
+				<% else %>
+					<%= link_to(deal, :class => "box_deal_large_link") do %>
+						<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
 	</div>
 	<div id="box_deal_share_<%= deal.id %>" class="box_deal_large_share">
 		<ul>
@@ -54,7 +73,7 @@
 		</ul>
 	</div>
 	<div id="box_deal_large_name">
-		<h1><%= deal.name %></h1>
+		<h1><%= wrap_box_deal_large_name(deal.name) %></h1>
 	</div>
 	<div id="box_deal_large_comments">
 		<% deal.comments.each do |comment| %>
@@ -72,6 +91,7 @@
 		<% end %>
 	</div>
 </div>
+<% if Rails.env.development? %>
 <script>
 $('.example3demo_<%= deal.id %>').popupWindow({ 
 	centerScreen:1,
@@ -85,4 +105,40 @@ $('.example4demo_<%= deal.id %>').popupWindow({
 	height: 500,
 	width: 675
 });
+
+function overlayPopup(id) {
+	var i = id
+	var url = "http://localhost:3000/deals/"+i+"/show_overlay"
+	$("body").addClass("stationary");
+	$(".overlay_image_"+i).hide();
+	$(".overlayInner").load(url, function() {
+		$(".overlayOuter").fadeIn(200);
+	})
+};
 </script>
+<% elsif Rails.env.production? %>
+<script>
+$('.example3demo_<%= deal.id %>').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 375,
+	width: 675
+}); 
+$('.example4demo_<%= deal.id %>').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 500,
+	width: 675
+});
+
+function overlayPopup(id) {
+	var i = id
+	var url = "http://www.flashingdeals.com/deals/"+i+"/show_overlay"
+	$("body").addClass("stationary");
+	$(".overlay_image_"+i).hide();
+	$(".overlayInner").load(url, function() {
+		$(".overlayOuter").fadeIn(200);
+	})
+};
+</script>
+<% end %>

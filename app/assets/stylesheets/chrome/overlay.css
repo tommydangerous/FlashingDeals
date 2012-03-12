@@ -1,0 +1,43 @@
+.overlayOuter{
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(255, 255, 255, .85);
+	overflow-x: auto;
+	overflow-y: scroll;
+}
+
+.overlayInner{
+	margin: 0 auto;
+	width: 907px;
+	position: static;
+}
+
+.overlay_top {
+	height: 20px;
+	width: 100%;
+}
+
+.overlay_left {
+	position: absolute;
+	left: 0;
+	top: 20px;
+}
+
+.overlay_right {
+	position: absolute;
+	right: 0;
+	top: 20px;
+}
+
+.overlay_bottom {
+	width: 100%;
+}
+
+.stationary {
+	overflow: hidden;
+}

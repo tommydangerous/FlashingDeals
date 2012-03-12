@@ -1,12 +1,18 @@
-<% unless cookies[:hide_message] == "yes" %>
-	<div id="signup_message_popup">
-		<h1>SIGN UP NOW</h1>
-		<%= link_to "Don't Show This Message Anymore", hide_signup_message_path, :onclick => "hideSignupMessagePopup();", :remote => true %>
-	</div>
-<% end %>
+<a id="selector" href="#">My event trigger</a>
+<div class="overlayOuter">
+	<div class="overlay_top"></div>
+	<div class="overlay_left"></div>
+	<div class="overlay_right"></div>
+  <div class="overlayInner"></div>
+</div>
 
 <script>
-function hideSignupMessagePopup() {
-	$("div#signup_message_popup").fadeOut(100);
-}
+setInterval(setHeight);
+setInterval(setWidth);
+$("a#selector").live("click", function(){
+	var url = "http://localhost:3000/deals/asus-zenbook-ux31e-dh72-13-3-inch-thin-and-light-ultrabook-silver-aluminum/show_overlay"
+	
+	$(".overlayInner").load(url,
+  	function(){$(".overlayOuter").fadeIn(300); })
+});
 </script>

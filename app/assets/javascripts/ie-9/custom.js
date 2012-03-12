@@ -273,3 +273,14 @@ function toggleDealPageInfo() {
 function hidePageDealInfo() {
 	$("div#page_deal_info").fadeOut(200);
 };
+
+// Login & Signup
+function signupSwitch() {
+	$("#dim_signup").hide();
+	$("#dim").show();
+}
+
+function loginSwitch() {
+	$("#dim_signup").show();
+	$("#dim").hide();
+}

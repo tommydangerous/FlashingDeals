@@ -1,6 +1,6 @@
 class DealsController < ApplicationController
-	before_filter :authenticate, :except => [:top_deals, :featured_deals, :show, :frame]
-	before_filter :admin_user, :except => [:top_deals, :featured_deals, :show, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals]
+	before_filter :authenticate, :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame]
+	before_filter :admin_user,	 :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
 	before_filter :today
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
@@ -27,6 +27,7 @@ class DealsController < ApplicationController
   	deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3)
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction)
   	render :layout => "full_screen"
+  	clear_return_to
 	end
 
   def flashback
@@ -127,6 +128,15 @@ class DealsController < ApplicationController
 		redirect_to flashback_path
 #		@title = "Page Not Found"
 #		render 'pages/page_not_found'
+  end
+  
+  def show_overlay
+  	@deal = Deal.find(params[:id])
+  	@title = @deal.name
+  	@comments = @deal.comments
+  	@subcomments = @deal.subcomments  	
+  	@deal.increment!(:view_count, by = 1)
+  	render :layout => "layouts/overlay"
   end
   
   def frame

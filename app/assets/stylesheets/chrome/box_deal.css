@@ -306,6 +306,10 @@ a#box_deal_link {
 	margin: 0 auto;
 }
 
+.box_deal_link_overlay_none {
+	display: none;
+}
+
 img#box_deal_image {
 	max-height: 100px;
 	max-width: 100px;
@@ -380,6 +384,7 @@ div.box_deal_share ul li img:active {
 	font-family: Helvetica, Arial;
 	font-size: 13px;
 	color: rgb(75, 75, 75);
+	line-height: 14px;
 }
 
 #box_deal_price h1 {

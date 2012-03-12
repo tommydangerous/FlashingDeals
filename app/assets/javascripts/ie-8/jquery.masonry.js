@@ -94,7 +94,7 @@
     _getBricks: function( $elems ) {
       var $bricks = this._filterFindBricks( $elems )
         .css({ position: 'absolute' })
-        .addClass('masonry-brick');
+        .addClass('flash-box');
       return $bricks;
     },
     
@@ -363,7 +363,7 @@
     destroy : function() {
 
       this.$bricks
-        .removeClass('masonry-brick')
+        .removeClass('flash-box')
         .each(function(){
           this.style.position = '';
           this.style.top = '';

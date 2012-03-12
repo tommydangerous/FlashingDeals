@@ -306,6 +306,10 @@ a#box_deal_link {
 	margin: 0 auto;
 }
 
+.box_deal_link_overlay_none {
+	display: none;
+}
+
 img#box_deal_image {
 	max-height: 100px;
 	max-width: 100px;
@@ -380,6 +384,7 @@ div.box_deal_share ul li img:active {
 	font-family: Helvetica, Arial;
 	font-size: 13px;
 	color: rgb(75, 75, 75);
+	line-height: 14px;
 }
 
 #box_deal_price h1 {
@@ -442,7 +447,7 @@ div#box_deal_comment_content p {
 	margin: 0 auto;
 }
 
-a#box_deal_large_link {
+a.box_deal_large_link {
 	display: block;
 	width: 200px;
 	height: 200px;
@@ -523,6 +528,7 @@ div.box_deal_large_share ul li img:active {
 	font-family: Helvetica, Arial;
 	font-size: 14px;
 	color: rgb(75, 75, 75);
+	line-height: 16px;
 }
 
 #box_deal_large_price h1 {

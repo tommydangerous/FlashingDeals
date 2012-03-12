@@ -1,12 +1,5 @@
 var $boxes = $('<%= j render :partial => "box_deal", :collection => @deals, :as => :deal %>');
 $("#grid_container").append( $boxes ).masonry( 'appended', $boxes, true);
-$("img.lazy").lazyload({
-	effect: "fadeIn"
-});
-$("img.lazy_load").lazyload({
-	event: "load",
-	effect: "fadeIn"
-});
 
 <% if @deals.total_pages == @deals.current_page %>
 	$("#endless_pagination").remove();
