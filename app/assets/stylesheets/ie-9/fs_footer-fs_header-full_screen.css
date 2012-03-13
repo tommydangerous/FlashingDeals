@@ -167,7 +167,7 @@ p.copyright {
 
 a.selected {
 	text-decoration: none;
-  color: rgba(110, 220, 90, 1);
+  color: rgba(71, 224, 255, 1);
   font-family: Verdana;
   font-weight: bold;
   font-size: 13px;
@@ -175,7 +175,7 @@ a.selected {
 }
 
 a.selected:hover {
-	color: rgba(110, 220, 90, 1);
+	color: rgba(71, 224, 255, 1);
 	text-decoration: none;
 }
 /*
