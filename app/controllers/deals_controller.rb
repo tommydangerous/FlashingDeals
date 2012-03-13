@@ -7,7 +7,7 @@ class DealsController < ApplicationController
 	before_filter :my_account_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
 	before_filter :shared_deals_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
 	before_filter :user_show_deals_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
-	helper_method :sort_column, :sort_column_create, :sort_direction
+	helper_method :sort_column, :sort_column_create, :sort_direction, :sort_column_time_in
 	
 	require 'nokogiri'
 	require 'hpricot'
@@ -25,7 +25,7 @@ class DealsController < ApplicationController
 		@title = "Featured"
 		@today_3 = Time.now - (86400 * 3)
   	deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction)
+  	@deals = deals.search(params[:search]).order(sort_column_time_in + " " + sort_direction)
   	render :layout => "full_screen"
   	clear_return_to
 	end
@@ -533,6 +533,10 @@ class DealsController < ApplicationController
   	
   	def sort_column_create
   		Deal.column_names.include?(params[:sort]) ? params[:sort] : "created_at"
+  	end
+  	
+  	def sort_column_time_in
+  		Deal.column_names.include?(params[:sort]) ? params[:sort] : "time_in"
   	end
   	
   	def sort_direction
