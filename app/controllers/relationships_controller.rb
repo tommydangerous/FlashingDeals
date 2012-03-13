@@ -10,7 +10,9 @@ class RelationshipsController < ApplicationController
 	
 	def create
 		@deal = Deal.find(params[:relationship][:watched_id])
-		current_user.watch!(@deal)
+		if Relationship.find_by_watched_id_and_watcher_id(@deal.id, current_user.id).nil?
+			current_user.watch!(@deal)
+		end
 		unless current_user.inverse_shares.find_by_deal_id(@deal.id).nil?
 			current_user.inverse_shares.find_by_deal_id(@deal.id).destroy
 		end
