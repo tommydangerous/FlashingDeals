@@ -1,4 +1,9 @@
 <div id="box_deal_<%= deal.id %>" class="box_deal" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();">
+	<% if deal.metric >= 4 %>
+		<div id="box_deal_lightning">
+			<%= lightning_deal_2 %>
+		</div>
+	<% end %>
 	<div id="box_deal_price">
 		<h1>
 			<% if deal.price.nil? && deal.discount != nil %>

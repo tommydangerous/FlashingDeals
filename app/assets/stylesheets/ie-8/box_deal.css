@@ -305,6 +305,17 @@ div#loading_deals_words em {
 	margin-right: 20px;
 }
 
+#box_deal_lightning {
+	float: left;
+	width: 14px;
+	height: 14px;
+}
+
+#box_deal_lightning img {
+	width: 14px;
+	height: 14px;
+}
+
 #box_deal_image_container {
 	width: 100px;
 	height: 100px;
@@ -455,13 +466,13 @@ div#box_deal_comment_content p {
 
 #box_deal_large_lightning {
 	float: left;
-	width: 14px;
-	height: 14px;
+	width: 20px;
+	height: 20px;
 }
 
 #box_deal_large_lightning img {
-	width: 14px;
-	height: 14px;
+	width: 20px;
+	height: 20px;
 }
 
 #box_deal_large_image_container {
