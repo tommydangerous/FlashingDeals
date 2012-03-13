@@ -1,0 +1,59 @@
+div#my_deals {
+	width: 100%;
+}
+
+div#my_deals_side {
+	float: left;
+	width: 211px;
+	padding: 10px;
+	background: rgb(255, 255, 255);
+	border: 1px dotted rgb(200, 200, 200);
+}
+
+div#my_deals_photo {
+	width: 211px;
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+div#my_deals_watching {
+	margin: 5px 0px;
+}
+
+div#my_deals_message {
+	margin: 5px 0px;
+}
+
+div#my_deals_friend_requests {
+	margin: 5px 0px;
+}
+
+div#my_deals_friends {
+	margin: 5px 0px;
+}
+
+div#my_deals_shared_deals {
+	margin: 5px 0px;
+}
+
+div#my_deals_info p {
+	font-family: Verdana;
+	font-size: 14px;
+	color: rgb(150, 150, 150);
+}
+
+div#my_deals_deals {
+	margin-left: 243px;
+}
+
+div#my_deals_name {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+div#my_deals_name h1 {
+	font-family: Helvetica, Arial;
+	font-size: 40px;
+	color: rgb(75, 75, 75);
+	margin: 0;
+}

@@ -1,0 +1,60 @@
+<div id="my_deals">
+	<div id="my_deals_side">
+		<div id="my_deals_photo">
+			<%= link_to(@user) do %>
+				<%= image_tag(@user.photo.url, :id => "user_photo_medium") %>
+			<% end %>
+		</div>
+		<div id="my_deals_info">
+			<div id="my_deals_watching">
+				<p>Deals Watching: <span id="my_account_deals_count" class="grey_75"><%= @deals.count %></span></p>
+			</div>
+			<div id="my_deals_message">
+				<p>
+					<% if current_user.received_messages.where("read = ?", false).count > 0 %>
+						<%= link_to "Messages (#{current_user.received_messages.where("read = ?", false).count})", messages_path %>
+					<% else %>
+						<%= link_to "Messages", messages_path %>
+					<% end %>
+				</p>
+			</div>
+			<% unless current_user.request_friends.empty? %>
+				<div id="my_deals_friend_requests">
+					<p><%= link_to "Friend Requests (#{current_user.request_friends.count})", friend_requests_path %></p>
+				</div>
+			<% end %>
+			<div id="my_deals_friends">
+				<p>
+					<%= link_to friends_user_path(@user) do %>
+						Friends <span class="friends_count">(<%= (@user.friends.count + @user.inverse_friends.count) %>)
+					<% end %>
+				</p>
+			</div>
+			<div id="my_deals_shared_deals">
+				<p>
+					<% if current_user.inverse_deals.where("posted > ?", current_user.duration).size == 0 %>
+						<%= link_to "Shared Deals", shared_deals_path %>
+					<% else %>
+						<%= link_to "Shared Deals (#{current_user.inverse_deals.where("posted > ?", current_user.duration).size})", shared_deals_path %>
+					<% end %>
+				</p>
+			</div>
+		</div>
+		</div>
+	</div>
+	<div id="my_deals_deals">
+		<div id="my_deals_name">
+			<h1><%= @user.name %></h1>
+		</div>
+		<div id="grid_container">
+			<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal %>
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function() {
+	$("div#my_deals_arrow").show();
+	$("a#my_deals").removeClass("not_selected");
+	$("a#my_deals").addClass("selected");
+});
+</script>

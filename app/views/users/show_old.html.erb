@@ -1,0 +1,42 @@
+<div id="gravatar">
+	<%= link_to @user do %>
+		<%= image_tag(@user.photo.url, :id => "user_photo_medium") %>
+	<% end %>
+</div>
+<div id="user_name">
+	<div id="name">
+		<h1><%= @user.name %></h1>
+	</div>
+	<% flash.each do |key, value| %>
+  	<div class="flash <%= key %>"><%= value %><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlash()", :class => "flash_close" %></div>
+  <% end %>
+  <p><span id="count"></span></p>
+</div>
+<div class="clear"></div>
+<div id="user_table">
+	<div id="user_side">
+		<h1>Deals watching: <span class="grey_75"><%= @deals.count %></span></h1>
+		<div id="add_friend_partial">
+			<%= render :partial => "add_friend", :object => @user %>
+		</div>
+		<div id="send_message_profile">
+			<h2><%= link_to "Send Message", "javascript: void(0)", :onclick => "showNewMessage();" %></h2>
+		</div>
+		<div id="my_friends_profile">
+			<h2>
+				<%= link_to friends_user_path(@user) do %>
+					Friends <span class="friends_count">(<%= (@user.friends.count + @user.inverse_friends.count) %>)</span>
+				<% end %>
+			</h2>
+		</div>
+	</div>
+	<div id="deals_watching">
+		<% if @deals.empty? %>
+			<p id="none"><%= @user.name %> is currently not watching any deals...</p>
+		<% else %>
+			<%= render :partial => "deal", :collection => @deals %>
+		<% end %>
+		<br />
+	</div>
+</div>
+<%= render 'messages/new_message' %>

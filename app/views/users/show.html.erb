@@ -1,42 +1,37 @@
-<div id="gravatar">
-	<%= link_to @user do %>
-		<%= image_tag(@user.photo.url, :id => "user_photo_medium") %>
-	<% end %>
-</div>
-<div id="user_name">
-	<div id="name">
-		<h1><%= @user.name %></h1>
-	</div>
-	<% flash.each do |key, value| %>
-  	<div class="flash <%= key %>"><%= value %><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlash()", :class => "flash_close" %></div>
-  <% end %>
-  <p><span id="count"></span></p>
-</div>
-<div class="clear"></div>
-<div id="user_table">
-	<div id="user_side">
-		<h1>Deals watching: <span class="grey_75"><%= @deals.count %></span></h1>
-		<div id="add_friend_partial">
-			<%= render :partial => "add_friend", :object => @user %>
+<div id="my_deals">
+	<div id="my_deals_side">
+		<div id="my_deals_photo">
+			<%= link_to(@user) do %>
+				<%= image_tag(@user.photo.url, :id => "user_photo_medium") %>
+			<% end %>
 		</div>
-		<div id="send_message_profile">
-			<h2><%= link_to "Send Message", "javascript: void(0)", :onclick => "showNewMessage();" %></h2>
+		<div id="my_deals_info">
+			<div id="add_friend_partial">
+				<%= render :partial => "add_friend", :object => @user %>
+			</div>
+			<div id="my_deals_watching">
+				<p>Deals Watching: <span id="my_account_deals_count" class="grey_75"><%= @deals.count %></span></p>
+			</div>
+			<div id="my_deals_message">
+				<p><%= link_to "Send Message", "javascript: void(0)", :onclick => "showNewMessage();" %></p>
+			</div>
+			<div id="my_deals_friends">
+				<p>
+					<%= link_to friends_user_path(@user) do %>
+						Friends <span class="friends_count">(<%= (@user.friends.count + @user.inverse_friends.count) %>)
+					<% end %>
+				</p>
+			</div>
 		</div>
-		<div id="my_friends_profile">
-			<h2>
-				<%= link_to friends_user_path(@user) do %>
-					Friends <span class="friends_count">(<%= (@user.friends.count + @user.inverse_friends.count) %>)</span>
-				<% end %>
-			</h2>
 		</div>
 	</div>
-	<div id="deals_watching">
-		<% if @deals.empty? %>
-			<p id="none"><%= @user.name %> is currently not watching any deals...</p>
-		<% else %>
-			<%= render :partial => "deal", :collection => @deals %>
-		<% end %>
-		<br />
+	<div id="my_deals_deals">
+		<div id="my_deals_name">
+			<h1><%= @user.name %></h1>
+		</div>
+		<div id="grid_container">
+			<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal %>
+		</div>
 	</div>
 </div>
 <%= render 'messages/new_message' %>

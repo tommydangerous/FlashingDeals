@@ -22,7 +22,7 @@ class DealsController < ApplicationController
 	end
 	
 	def featured_deals
-		@title = "Featured Deals"
+		@title = "Featured"
 		@today_3 = Time.now - (86400 * 3)
   	deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3)
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction)
@@ -152,7 +152,7 @@ class DealsController < ApplicationController
 
 # Only Logged In Users  
 	def community_deals
-  	@title = "Community Deals"
+  	@title = "Community"
   	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 40)
   	render :layout => "full_screen"

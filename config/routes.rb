@@ -39,10 +39,10 @@ FlashingDeal::Application.routes.draw do
   end
 # Deals
   root :to => 'deals#featured_deals'
-  match '/featured-deals' => 'deals#featured_deals', :as => :featured_deals
+  match '/featured' => 'deals#featured_deals', :as => :featured_deals
 	match '/featured_deals' => 'deals#flashback', :as => :flashback
 	match '/flashingdeal/:id' => 'deals#frame', :as => :frame
-	match '/community-deals' => 'deals#community_deals', :as => :community_deals
+	match '/community' => 'deals#community_deals', :as => :community_deals
 	match '/flashmob-deals' => 'deals#flashmob_deals', :as => :flashmob_deals
 	match '/remove-watched-deals' => 'deals#remove_watched_deals', :as => :remove_watched_deals
 	match '/queue' => 'deals#queue', :as => :queue
@@ -79,7 +79,8 @@ FlashingDeal::Application.routes.draw do
   match '/remove-shared-deals' => 'shares#remove_shared_deals', :as => :remove_shared_deals
 # Users
   match '/signup' => 'users#new'
-  match '/my-account' => 'users#my_account', :as => :my_account
+  match '/me' => 'users#my_deals', :as => :my_account
+#  match '/my-account' => 'users#my_account', :as => :my_account
   match '/friend-requests' => 'users#friend_requests', :as => :friend_requests
   match '/shared-deals' => 'users#shared_deals', :as => :shared_deals
 # Friends

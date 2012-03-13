@@ -5,17 +5,14 @@
   <div class="nav round">
     <ul class="header_nav">
       <li>
-      	<%= link_to "Featured Deals", featured_deals_path, :id => "flashback", :class => "not_selected" %>
-      	<div id="flashback_arrow"></div>
+      	<%= link_to "Featured", featured_deals_path, :id => "flashback", :class => "not_selected" %>
     	</li>
       <% if signed_in? %>
       <li>
-      	<%= link_to "Community Deals", community_deals_path, :id => "flashmob_deals", :class => "not_selected" %>
-      	<div id="flashmob_arrow"></div>
+      	<%= link_to "Community", community_deals_path, :id => "flashmob_deals", :class => "not_selected" %>
     	</li>
     	<li>
-    		<%= link_to "My Deals", my_account_path, :id => "my_deals", :class => "not_selected", :title => "#{current_user.name}" %>
-    		<div id="my_deals_arrow"></div>
+    		<%= link_to "#{current_user.name.split(' ')[0]}", my_account_path, :id => "my_deals", :class => "not_selected" %>
   		</li>
   		<li>
   			<div id="my_account_drop_down" style="display: none;">
@@ -78,7 +75,7 @@
 				</div>
 			</li>
       <% else %>
-      	<li id="community_deals_header_link"><%= link_to "Community Deals", "javascript:void(0);", :class => "not_selected signup_popup_anchor scroll_top" %></li>
+      	<li id="community_deals_header_link"><%= link_to "Community", "javascript:void(0);", :class => "not_selected signup_popup_anchor scroll_top" %></li>
       	<li id="signup_header_link"><%= link_to "Sign Up", "javascript:void(0);", :class => "not_selected signup_popup_anchor scroll_top" %></li>
       <% end %>
     </ul>      	

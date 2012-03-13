@@ -5,3 +5,5 @@ $("div#deal_watchers").html("<%= escape_javascript(render('deals/deal_watchers')
 $("span#my_account_deals_count").html('<%= "#{@deals.count}" %>')
 $("div#user_deal_"+<%= @deal.id %>).remove();
 $("span#count").html("")
+
+$("#grid_container").masonry('remove', $("#box_deal_<%= @deal.id %>"))
