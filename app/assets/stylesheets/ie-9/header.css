@@ -8,31 +8,29 @@
   background: linear-gradient(top,  #7d7e7d 25%,#0e0e0e 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */	
   border-bottom: 5px solid rgba(110, 220, 90, 1);
-  height: 75px;
+  height: 51px;
   width: 100%;
   z-index: 0;
   overflow: visible;
+  padding-top: 8px;
 }
 
 .hd {
 	width: 951px;
 	margin: auto;
-  height: 80px;
-  margin-bottom: 25px;
   text-align: center;
 }
 
-
 .hd div#header_logo {
 	float: left;
-	width: 322px;
-	height: 78px;
+	width: 329px;
+	height: 51px;
 	margin-right: 50px;
 }
 
 .hd div.nav {
   position: relative;
-  top: 30px;
+  top: 11px;
 }
 
 .hd div.nav ul {
@@ -59,24 +57,25 @@
   color: rgba(255, 255, 255, 1);
   font-family: Verdana;
   font-size: 13px;
-  padding: 15px 20px;
+  padding: 12px 15px;
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
   -ms-transition: all .2s linear;
   -o-transition: all .2s linear;
   transition: all .2s linear;
-  -webkit-border-radius: 10px;	
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 5px;	
+  -khtml-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .hd div.nav ul li a.not_selected:hover {
   color: rgba(71, 224, 255, 1);
   background: rgba(100, 100, 100, .5);
 }
-
+/*
 a.selected {
 	text-decoration: none;
   color: rgba(255, 255, 255, 1);
@@ -129,3 +128,4 @@ div#my_deals_arrow {
 	margin-top: 12px;
 	display: none;
 }
+*/

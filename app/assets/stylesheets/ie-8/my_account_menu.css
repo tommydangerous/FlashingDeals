@@ -8,10 +8,10 @@
 
 .fs_hd div#my_account_drop_down {
 	position: absolute;
-	z-index: 100;
-	width: 150px;
-	margin-top: 10px;
 	right: 0;
+	width: 150px;
+	z-index: 100;
+	margin-top: 10px;
 }
 
 div#my_account_drop_down ul {

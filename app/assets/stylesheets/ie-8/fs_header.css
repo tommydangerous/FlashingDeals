@@ -8,26 +8,26 @@
   background: linear-gradient(top,  #7d7e7d 25%,#0e0e0e 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */	
   border-bottom: 5px solid rgb(110, 220, 90);
-  height: 75px;
+  height: 51px;
+  padding-top: 8px;
 }
 
 .fs_hd {
 	margin: auto;
-  height: 80px;
   text-align: center;
   padding: 0px 10px;
 }
 
 .fs_hd div#header_logo {
 	float: left;
-	width: 322px;
-	height: 78px;
+	width: 329px;
+	height: 51px;
 	margin-right: 50px;
 }
 
 .fs_hd div.nav {
   position: relative;
-  top: 30px;
+  top: 11px;
 }
 
 .fs_hd div.nav ul {
@@ -54,17 +54,18 @@
   color: rgb(255, 255, 255);
   font-family: Verdana;
   font-size: 13px;
-  padding: 15px 20px;
+  padding: 12px 15px;
   -webkit-transition: all .2s linear;
   -moz-transition: all .2s linear;
   -ms-transition: all .2s linear;
   -o-transition: all .2s linear;
   transition: all .2s linear;
-  -webkit-border-radius: 10px;	
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
+  -webkit-border-radius: 5px;	
+  -khtml-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 }
 
 .fs_hd div.nav ul li a.not_selected:hover {
@@ -77,12 +78,13 @@ a.selected {
   color: rgb(255, 255, 255);
   font-family: Verdana;
   font-size: 13px;
-  padding: 15px 20px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  -ms-border-radius: 10px;
-  -o-border-radius: 10px;
-  border-radius: 10px;
+  padding: 12px 15px;
+  -webkit-border-radius: 5px;	
+  -khtml-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 	background: rgb(110, 220, 90);
 	text-shadow: 0px 2px 5px rgb(150, 150, 150);
 }
@@ -98,8 +100,8 @@ a.selected:hover {
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgb(110, 220, 90);
-	margin-left: 60px;
-	margin-top: 13px;
+	margin-left: 59px;
+	margin-top: 7px;
 	display: none;
 	position: absolute;
 }
@@ -111,7 +113,7 @@ a.selected:hover {
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgb(110, 220, 90);
 	margin-left: 66px;
-	margin-top: 13px;
+	margin-top: 7px;
 	display: none;
 	position: absolute;
 }
@@ -122,8 +124,8 @@ a.selected:hover {
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
 	border-top: 10px solid rgb(110, 220, 90);
-	margin-left: 40px;
-	margin-top: 13px;
+	margin-left: 35px;
+	margin-top: 7px;
 	display: none;
 	position: absolute;
 }

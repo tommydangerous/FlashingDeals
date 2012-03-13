@@ -47,6 +47,12 @@ $(document).ready(function() {
 		};
 	});
 	
+	$(".categories_signup").click(function() {
+		$("#grid_categories_list").hide(0, function() {
+			$("#dim_signup").fadeIn(200);
+		});
+	});
+	
 	$("#back_to_the_top").click(function() {
 		$("html, body").animate({ scrollTop: 0 }, 100);
 		$("#back_to_the_top_container").hide();

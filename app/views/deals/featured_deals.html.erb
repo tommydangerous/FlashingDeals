@@ -8,7 +8,11 @@
 			<% Category.all.each do |c| %>
 				<% if c.deals.where("posted > ?", @today).size > 0 %>
 					<li>
-						<%= link_to "#{c.name}", c %>
+						<% if signed_in? %>
+							<%= link_to "#{c.name}", c %>
+						<% else %>
+							<%= link_to "#{c.name}", "javascript:void(0);", :class => "categories_signup scroll_top" %>
+						<% end %>
 					</li>
 				<% end %>
 			<% end %>

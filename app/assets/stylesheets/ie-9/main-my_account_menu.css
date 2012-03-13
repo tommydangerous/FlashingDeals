@@ -97,10 +97,10 @@ div.flash {
 /* my_account_menu.css */
 div#my_account_drop_down {
 	position: absolute;
+	right: 0;
 	width: 150px;
 	z-index: 100;
-	top: 33px;
-	margin-left: 15px;
+	margin-top: 10px;
 }
 
 div#my_account_drop_down ul {
