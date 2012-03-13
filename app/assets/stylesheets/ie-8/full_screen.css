@@ -8,3 +8,7 @@
 	padding: 10px;
 	padding-bottom: 187px;   /* Height of the footer element */
 }
+
+div#endless_pagination {
+	width: 100%;
+}

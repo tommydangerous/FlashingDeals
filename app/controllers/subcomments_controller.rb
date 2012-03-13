@@ -40,6 +40,9 @@ class SubcommentsController < ApplicationController
 				}
 			end
 			deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))
+			if Relationship.find_by_watched_id_and_watcher_id(deal.id, current_user.id).nil?
+				current_user.watch!(deal)
+			end
 		else
 			flash[:error] = "Your words should not be too few nor too many..."
 			redirect_to :back

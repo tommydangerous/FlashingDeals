@@ -1,4 +1,17 @@
 <!DOCTYPE html>
 <html>
+	<head>
+		<script>
+			$('textarea.subcomment_textarea').click(function() {
+				return false;
+			});
+			$('textarea.subcomment_textarea_2').click(function() {
+				return false;
+			});
+			$('a.reply_link').click(function() {
+				return false;
+			});
+		</script>
+	</head>
 	<%= yield %>
 </html>

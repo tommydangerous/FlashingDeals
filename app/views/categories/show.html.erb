@@ -38,10 +38,3 @@
 	<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal %>
 </div>
 <%= render "deals/endless_pagination" %>
-<script>
-$(document).ready(function() {
-	$("div#flashmob_arrow").show();
-	$("a#flashmob_deals").removeClass("not_selected");
-	$("a#flashmob_deals").addClass("selected");
-});
-</script>
