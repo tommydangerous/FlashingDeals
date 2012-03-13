@@ -1,4 +1,8 @@
+<% if deal.dead? %>
+<div id="box_deal_<%= deal.id %>" class="box_deal deal_dead" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();" title="This deal has expired">
+<% else %>
 <div id="box_deal_<%= deal.id %>" class="box_deal" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();">
+<% end %>
 	<% if deal.metric >= 4 %>
 		<div id="box_deal_lightning">
 			<%= lightning_deal_2 %>
