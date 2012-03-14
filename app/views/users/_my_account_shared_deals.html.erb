@@ -1,7 +1,7 @@
 <% if current_user.inverse_deals.where("posted > ?", current_user.duration).size > 99 %>
-	Shared Deals <span class="ajax_shared_deals"><span class="green">+++</span></span>
+	Shared <span class="ajax_shared_deals"><span class="green">+++</span></span>
 <% elsif current_user.inverse_deals.where("posted > ?", current_user.duration).size > 0 && current_user.inverse_deals.where("posted > ?", current_user.duration).size <= 99 %>
-	Shared Deals <span class="ajax_shared_deals">(<%= current_user.inverse_deals.where("posted > ?", current_user.duration).size %>)</span>
+	Shared <span class="ajax_shared_deals">(<%= current_user.inverse_deals.where("posted > ?", current_user.duration).size %>)</span>
 <% else %>
-	Shared Deals <span class="ajax_shared_deals"></span>
+	Shared <span class="ajax_shared_deals"></span>
 <% end %>

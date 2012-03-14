@@ -3,3 +3,5 @@ $("#watchers").html('<%= "#{@deal.watchers.count} watchers" %>')
 $("div#show_watchers").html("<%= escape_javascript(render('deals/show_watchers')) %>")
 $("div#deal_watchers").html("<%= escape_javascript(render('deals/deal_watchers')) %>")
 $("div.shared_deals_count").html("<%= escape_javascript(render("users/my_account_shared_deals")) %>")
+$("div.box_deal_shared_"+<%= @deal.id %>).remove();
+$("span#shared_deals_count").html("<%= "#{current_user.inverse_shares.size}" %>")

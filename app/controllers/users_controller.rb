@@ -93,6 +93,15 @@ class UsersController < ApplicationController
   	end
   end
   
+  def shared
+  	@user = current_user
+  	@title = "Shared"
+  	cookies[:shared_deals] = "yes"
+  	deals = @user.inverse_deals.where("posted > ?", @user.duration)
+  	@deals = deals.search(params[:search]).sort_by { |deal| Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at }.reverse
+  	render :layout => "layouts/full_screen"
+  end
+  
   def shared_deals
   	@user = current_user
   	@title = "Shared Deals"

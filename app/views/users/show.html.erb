@@ -10,7 +10,7 @@
 				<%= render :partial => "add_friend", :object => @user %>
 			</div>
 			<div id="my_deals_watching">
-				<p>Deals Watching: <span id="my_account_deals_count"><%= @deals.count %></span></p>
+				<p>Watching: <span id="my_account_deals_count"><%= @deals.count %></span></p>
 			</div>
 			<div  class="my_deals_div">
 				<p><%= link_to "Send Message", "javascript: void(0)", :onclick => "showNewMessage();" %></p>
@@ -22,7 +22,6 @@
 					<% end %>
 				</p>
 			</div>
-		</div>
 		</div>
 	</div>
 	<div id="my_deals_deals">

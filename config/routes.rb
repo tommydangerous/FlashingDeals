@@ -81,9 +81,8 @@ FlashingDeal::Application.routes.draw do
 # Users
   match '/signup' => 'users#new'
   match '/me' => 'users#my_deals', :as => :my_account
-#  match '/my-account' => 'users#my_account', :as => :my_account
   match '/friend-requests' => 'users#friend_requests', :as => :friend_requests
-  match '/shared-deals' => 'users#shared_deals', :as => :shared_deals
+  match '/shared' => 'users#shared', :as => :shared_deals
 # Friends
 	match '/user/list/friends/friends-list' => 'friends#friends_list', :as => :friends
 # Ajax
