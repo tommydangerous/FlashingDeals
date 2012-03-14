@@ -1,0 +1,142 @@
+<% if deal.dead? %>
+<div id="box_deal_<%= deal.id %>" class="box_deal deal_dead" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();" title="This deal has expired">
+<% else %>
+<div id="box_deal_<%= deal.id %>" class="box_deal" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();">
+<% end %>
+	<% if deal.metric >= 4 %>
+		<div id="box_deal_lightning">
+			<%= lightning_deal_2 %>
+		</div>
+	<% end %>
+	<div id="box_deal_price">
+		<h1>
+			<% if deal.price.nil? && deal.discount != nil %>
+				<%= deal.discount.round %>% Off
+			<% elsif deal.price.blank? && deal.discount.blank? && deal.value.blank? && deal.savings != nil %>
+				$<%= deal.savings.round %> Off
+			<% elsif deal.price.blank? %>
+			<% elsif deal.price == 0 %>
+				Free
+			<% else %>
+				$<%= (deal.price * 1.0).round %>
+			<% end %>
+		</h1>
+	</div>
+	<div id="box_deal_image_container">
+		<div class="box_deal_link_overlay">
+			<%= link_to("javascript:void(0);", :id => "box_deal_link", :onclick => "overlayPopup(#{deal.id})") do %>
+				<img class="lazy lazy_load lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
+			<% end %>
+		</div>
+		<div class="box_deal_link_overlay_none">
+			<%= link_to(deal, :id => "box_deal_link") do %>
+				<img class="lazy lazy_load lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
+			<% end %>
+		</div>
+	</div>
+	<div id="box_deal_share_<%= deal.id %>" class="box_deal_share">
+		<ul>
+			<li>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example3demo_<%= deal.id %>">
+					<%= image_tag("/assets/facebook_button_grey.png") %>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= deal.name %>%20http://www.flashingdeals.com<%= deal_path(deal) %>&via=FlashingDeals" target="_blank">
+					<%= image_tag("/assets/twitter_button_grey.png") %>
+				</a>
+			</li>
+			<li>
+				<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example4demo_<%= deal.id %>">
+					<%= image_tag("/assets/email_button_grey.png") %>
+				</a>
+			</li>
+			<% if @user == current_user %>
+				<li>
+					<%= form_for current_user.relationships.find_by_watched_id(deal), :html => {:method => :delete}, :remote => true do |f| %>
+						<%= f.submit "", :title => "UnWatch", :id => "my_deals_unwatch" %>
+					<% end %>
+				</li>
+			<% end %>
+		</ul>
+	</div>
+	<div id="box_deal_name">
+		<h1><%= wrap_box_deal_name(deal.name) %></h1>
+	</div>
+	<div id="box_deal_comments">
+		<% deal.comments.each do |comment| %>
+			<div class="box_deal_comment">
+				<div id="box_deal_comment_user">
+					<%= link_to(User.find(comment.user_id)) do %>
+						<img class="lazy lazy_load lazy_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
+					<% end %>
+				</div>
+				<div id="box_deal_comment_content">
+					<p><%= auto_link(wrap_box_deal(to_html(strip_tags(comment.content))), :all, :target => "_blank") %></p>
+				</div>
+				<div class="clear"></div>
+			</div>
+		<% end %>
+	</div>
+</div>
+<% if Rails.env.development? %>
+<script>
+$('.example3demo_<%= deal.id %>').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 375,
+	width: 675
+}); 
+$('.example4demo_<%= deal.id %>').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 500,
+	width: 675
+});
+
+function overlayPopup(id) {
+	var i = id
+	var url = "http://localhost:3000/deals/"+i+"/show_overlay"
+	$("body").addClass("stationary");
+	$(".overlay_image_"+i).hide();
+	$(".overlayInner").load(url, function() {
+		$(".overlayOuter").fadeIn(200);
+	})
+};
+
+$(".lazy_<%= deal.id %>").lazyload({
+	event: "load",
+	effect: "fadeIn"
+});
+</script>
+<% elsif Rails.env.production? %>
+<script>
+$('.example3demo_<%= deal.id %>').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 375,
+	width: 675
+}); 
+$('.example4demo_<%= deal.id %>').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 500,
+	width: 675
+});
+
+function overlayPopup(id) {
+	var i = id
+	var url = "http://www.flashingdeals.com/deals/"+i+"/show_overlay"
+	$("body").addClass("stationary");
+	$(".overlay_image_"+i).hide();
+	$(".overlayInner").load(url, function() {
+		$(".overlayOuter").fadeIn(200);
+	})
+};
+
+$(".lazy_<%= deal.id %>").lazyload({
+	event: "load",
+	effect: "fadeIn"
+});
+</script>
+<% end %>

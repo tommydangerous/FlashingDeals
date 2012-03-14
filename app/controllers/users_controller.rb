@@ -45,7 +45,8 @@ class UsersController < ApplicationController
   	else
 	  	@title = @user.name
 	  	cookies[:user_show] = "#{@user.name}"
-	  	@deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
+	  	deals = @user.watching.where("posted > ?", @user.duration)
+	  	@deals = deals.search(params[:search]).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
 		end
 		render :layout => "layouts/full_screen"
 	rescue ActiveRecord::RecordNotFound
@@ -58,7 +59,8 @@ class UsersController < ApplicationController
   	@user = current_user
   	@title = @user.name
   	cookies[:my_account] = "yes"
-  	@deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
+  	deals = @user.watching.where("posted > ?", @user.duration)
+  	@deals = deals.search(params[:search]).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
   	render :layout => "layouts/full_screen"
   end	
   

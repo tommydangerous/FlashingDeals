@@ -161,20 +161,8 @@ div#my_deals_watching p {
 	color: rgb(150, 150, 150);
 }
 
-div#my_deals_message {
-	margin: 5px 0px;
-}
-
-div#my_deals_friend_requests {
-	margin: 5px 0px;
-}
-
-div#my_deals_friends {
-	margin: 5px 0px;
-}
-
-div#my_deals_shared_deals {
-	margin: 5px 0px;
+.my_deals_div {
+	padding: 5px 0px;
 }
 
 div#my_deals_info a {
@@ -191,6 +179,20 @@ div#my_deals_info a:hover {
 	color: rgb(150, 150, 150);
 }
 
+div#clear_dead_deals {
+	padding: 5px 0px;
+}
+
+div#clear_dead_deals a {
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(255, 26, 0);
+}
+
+div#clear_dead_deals a:hover {
+	color: rgb(255, 26, 0);
+}
+
 div#my_deals_deals {
 	margin-left: 243px;
 }
@@ -204,5 +206,6 @@ div#my_deals_name h1 {
 	font-family: Helvetica, Arial;
 	font-size: 40px;
 	color: rgb(75, 75, 75);
-	margin: 0;
+	margin: 0 auto;
+	width: 500px;
 }

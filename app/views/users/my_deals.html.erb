@@ -9,7 +9,7 @@
 			<div id="my_deals_watching">
 				<p>Deals Watching: <span id="my_account_deals_count"><%= @deals.count %></span></p>
 			</div>
-			<div id="my_deals_message">
+			<div class="my_deals_div">
 				<p>
 					<% if current_user.received_messages.where("read = ?", false).count > 0 %>
 						<%= link_to "Messages (#{current_user.received_messages.where("read = ?", false).count})", messages_path %>
@@ -19,18 +19,18 @@
 				</p>
 			</div>
 			<% unless current_user.request_friends.empty? %>
-				<div id="my_deals_friend_requests">
+				<div class="my_deals_div">
 					<p><%= link_to "Friend Requests (#{current_user.request_friends.count})", friend_requests_path %></p>
 				</div>
 			<% end %>
-			<div id="my_deals_friends">
+			<div class="my_deals_div">
 				<p>
 					<%= link_to friends_user_path(@user) do %>
 						Friends <span class="friends_count">(<%= (@user.friends.count + @user.inverse_friends.count) %>)
 					<% end %>
 				</p>
 			</div>
-			<div id="my_deals_shared_deals">
+			<div class="my_deals_div">
 				<p>
 					<% if current_user.inverse_deals.where("posted > ?", current_user.duration).size == 0 %>
 						<%= link_to "Shared Deals", shared_deals_path %>
@@ -39,15 +39,24 @@
 					<% end %>
 				</p>
 			</div>
+			<div id="clear_dead_deals">
+				<%= link_to "Clear Expired Deals", clear_dead_deals_path, :remote => true %>
+			</div>
 		</div>
 		</div>
 	</div>
 	<div id="my_deals_deals">
 		<div id="my_deals_name">
+			<div id="grid_search_form">
+				<%= form_tag my_account_path, :method => :get do %>
+					<%= text_field_tag :search, params[:search], :autocomplete => "off", :id => "grid_search" %>
+					<%= submit_tag "Search", :name => nil, :id => "grid_search_button" %>
+				<% end %>
+			</div>
 			<h1><%= @user.name %></h1>
 		</div>
 		<div id="grid_container">
-			<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal %>
+			<%= render :partial => "users/box_deal", :collection => @deals, :as => :deal %>
 		</div>
 	</div>
 	<div class="clear"></div>

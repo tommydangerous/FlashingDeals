@@ -1,6 +1,6 @@
 class DealsController < ApplicationController
 	before_filter :authenticate, :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame]
-	before_filter :admin_user,	 :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals]
+	before_filter :admin_user,	 :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals, :clear_dead_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
 	before_filter :today
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :flashmob_deals, :rising_deals, :queue, :index, :search]
@@ -213,9 +213,27 @@ class DealsController < ApplicationController
   end
 
 	def remove_watched_deals
-		current_user.watching.destroy_all
+		current_user.watching.each do |deal|
+			current_user.unwatch!(deal)
+		end
 		flash[:notice] = "All watched deals removed."
 		redirect_to my_account_path
+	end
+	
+	def clear_dead_deals
+		current_user.watching.where("dead = ?", true).each do |deal|
+			current_user.unwatch!(deal)
+		end
+		deals = current_user.watching.size
+		respond_to do |format|
+			format.html {
+				flash[:notice] = "All expired deals removed."
+				redirect_to my_account_path
+			}
+			format.js {
+				@deals = deals
+			}
+		end
 	end
 
 # Admin Users Only  

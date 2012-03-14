@@ -45,6 +45,7 @@ FlashingDeal::Application.routes.draw do
 	match '/community' => 'deals#community_deals', :as => :community_deals
 	match '/flashmob-deals' => 'deals#flashmob_deals', :as => :flashmob_deals
 	match '/remove-watched-deals' => 'deals#remove_watched_deals', :as => :remove_watched_deals
+	match '/clear-dead-deals' => 'deals#clear_dead_deals', :as => :clear_dead_deals
 	match '/queue' => 'deals#queue', :as => :queue
 	match '/rising-deals' => 'deals#rising_deals', :as => :rising_deals
 	match '/search' => 'deals#search', :as => :search

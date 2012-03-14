@@ -358,6 +358,8 @@ div.box_deal_share ul {
 div.box_deal_share ul li {
 	display: inline-block;
 	padding: 0px 10px;
+	width: 20px;
+	height: 20px;
 }
 
 div.box_deal_share ul li a {
@@ -392,6 +394,43 @@ div.box_deal_share ul li img {
 }
 
 div.box_deal_share ul li img:active {
+	-webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-khtml-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-ms-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-o-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+input#my_deals_unwatch {
+	width: 20px;
+	height: 20px;
+	border: none;
+	margin: 0;
+	padding: 0;
+	float: left;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	-o-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	opacity: .8;
+	background: url("/assets/unwatch.png");
+	background-size: 20px 20px;
+}
+
+input#my_deals_unwatch:hover {
+	opacity: 1;
+}
+
+input#my_deals_unwatch:active {
 	-webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 	-khtml-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 	-moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
