@@ -30,6 +30,16 @@ div#signup_form {
 	text-align: right;
 }
 
+div#signup_info_body {
+	padding: 20px;
+}
+
+div#signup_info_body p {
+	font-size: 14px;
+	line-height: 18px;
+	margin-bottom: 14px;
+}
+
 div#signup_info_main {
 	padding: 20px;
 }

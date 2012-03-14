@@ -11,6 +11,16 @@
 			$('a.reply_link').click(function() {
 				return false;
 			});
+			
+			$(".action_login").click(function() {
+				$(".overlayOuter").hide(0, function() {
+					$("#dim").fadeIn(200, function() {
+						$("html, body").animate({ scrollTop: 0  }, 0);
+		    		return false;
+					});
+				});
+				$(".box_image").show()
+			});
 		</script>
 	</head>
 	<%= yield %>

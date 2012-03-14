@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120307200358) do
+ActiveRecord::Schema.define(:version => 20120314134220) do
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -224,26 +224,26 @@ ActiveRecord::Schema.define(:version => 20120307200358) do
   add_index "subcomments", ["user_id"], :name => "index_subcomments_on_user_id"
 
   create_table "users", :force => true do |t|
-    t.string    "name"
-    t.string    "email"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "encrypted_password"
-    t.string    "salt"
-    t.boolean   "admin",                  :default => false
-    t.integer   "deal_duration",          :default => 1
-    t.boolean   "private",                :default => false
-    t.boolean   "accept_terms",           :default => false
-    t.string    "photo_file_name"
-    t.string    "photo_content_type"
-    t.integer   "photo_file_size"
-    t.timestamp "photo_updated_at"
-    t.string    "slug"
-    t.string    "password_reset_token"
-    t.timestamp "password_reset_sent_at"
-    t.boolean   "gm",                     :default => false
-    t.string    "time_zone"
-    t.datetime  "active"
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "encrypted_password"
+    t.string   "salt"
+    t.boolean  "admin",                  :default => false
+    t.integer  "deal_duration",          :default => 1
+    t.boolean  "private",                :default => false
+    t.boolean  "accept_terms",           :default => false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "slug"
+    t.string   "password_reset_token"
+    t.datetime "password_reset_sent_at"
+    t.boolean  "gm",                     :default => false
+    t.string   "time_zone",              :default => "Pacific Time (US & Canada)"
+    t.datetime "active"
   end
 
   add_index "users", ["active"], :name => "index_users_on_active"
