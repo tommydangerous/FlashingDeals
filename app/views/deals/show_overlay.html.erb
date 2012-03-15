@@ -18,11 +18,11 @@
 		<% end %>
 		<% if @deal.dead? %>
 			<div id="deal_show_image" class="deal_dead" title="This deal has expired">
-				<%= image_tag("#{@deal.image}", :id => "deal_image") %>
+				<%= image_tag(@deal.image, :id => "deal_image") %>
 			</div>
 		<% else %>
 			<div id="deal_show_image">
-				<%= image_tag("#{@deal.image}", :id => "deal_image") %>
+				<%= image_tag(@deal.image, :id => "deal_image") %>
 			</div>
 		<% end %>
 		<div id="deal_show_data">
