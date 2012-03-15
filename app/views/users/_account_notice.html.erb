@@ -1,10 +1,10 @@
 <% if current_user.request_friends.empty? && current_user.received_messages.where("read = ?", false).empty? && current_user.notifications.where("read = ?", false).empty? %>
-	<%= link_to("javascript: void(0);", :id => "my_account") do %>
-		Account<span id="my_account_notification"></span>
+	<%= link_to(my_account_path, :id => "my_account") do %>
+		<%= current_user.name.split(' ')[0] %><span id="my_account_notification"></span>
 	<% end %>
 <% else %>
-	<%= link_to("javascript: void(0);", :id => "my_account") do %>
-		Account<span id="my_account_notification">
+	<%= link_to(my_account_path, :id => "my_account") do %>
+		<%= current_user.name.split(' ')[0] %><span id="my_account_notification">
 			<%= image_tag("/assets/notice.png", :id => "notice") %>
 		</span>
 	<% end %>
@@ -13,23 +13,17 @@
 $(document).ready(function() {
 	var x = $('a#my_account');
 	var z = $('div#my_account_drop_down');
-	$(document).click(function() {
-		z.hide(0, function() {
-			x.removeClass("my_account_hover");
-		});
+	x.mouseover(function() {
+		z.show();
 	});
-	x.click(function() {
+	$(document).mouseover(function() {
+		z.hide();
+	})
+	x.mouseover(function() {
 		return false;
-	});
-	x.click(function() {
-		if (z.is(':visible')) {
-			z.hide(0, function() {
-				x.removeClass("my_account_hover");
-			});
-		} else {
-		x.addClass("my_account_hover");
-		z.show(0);
-		};
-	});
+	})
+	z.mouseover(function() {
+		return false;
+	})
 });
 </script>
