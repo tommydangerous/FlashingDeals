@@ -1,7 +1,7 @@
 <% if deal.dead? %>
-<div id="box_deal_<%= deal.id %>" class="box_deal deal_dead" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();" title="This deal has expired">
+<div id="box_deal_<%= deal.id %>" class="box_deal box_deal_shared_<%= deal.id %> box_deal_shared deal_dead" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();" title="This deal has expired">
 <% else %>
-<div id="box_deal_<%= deal.id %>" class="box_deal box_deal_shared_<%= deal.id %>" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();">
+<div id="box_deal_<%= deal.id %>" class="box_deal box_deal_shared_<%= deal.id %> box_deal_shared" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();" title="Shared by <%= User.find(current_user.inverse_shares.find_by_deal_id(deal.id).user_id).name %>">
 <% end %>
 	<% if deal.metric >= 4 %>
 		<div id="box_deal_lightning">
@@ -9,6 +9,9 @@
 		</div>
 	<% end %>
 	<div id="box_deal_price">
+		<h2>
+			<%= link_to "#{User.find(current_user.inverse_shares.find_by_deal_id(deal.id).user_id).name.split(' ')[0]}" , User.find(current_user.inverse_shares.find_by_deal_id(deal.id).user_id) %>
+		</h2>
 		<h1>
 			<% if deal.price.nil? && deal.discount != nil %>
 				<%= deal.discount.round %>% Off
@@ -21,6 +24,7 @@
 				$<%= (deal.price * 1.0).round %>
 			<% end %>
 		</h1>
+		<div class="clear"></div>
 	</div>
 	<div id="box_deal_image_container">
 		<div class="box_deal_link_overlay">

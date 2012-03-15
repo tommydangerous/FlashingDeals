@@ -42,13 +42,14 @@ class UsersController < ApplicationController
 			@title = @user.name
 			flash.now[:notice] = "The user you are trying to view doesn't want to share their great deals."
 			@deals = []
+			render :layout => "layouts/full_screen"
   	else
 	  	@title = @user.name
 	  	cookies[:user_show] = "#{@user.name}"
 	  	deals = @user.watching.where("posted > ?", @user.duration)
 	  	@deals = deals.search(params[:search]).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
+	  	render :layout => "layouts/full_screen"
 		end
-		render :layout => "layouts/full_screen"
 	rescue ActiveRecord::RecordNotFound
 		redirect_to my_account_path
 #		@title = "Page Not Found"
@@ -71,16 +72,28 @@ class UsersController < ApplicationController
   	@deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
   end
   
+  def my_friends
+  	@user = current_user
+  	@title = "My Friends"
+  	@deals = @user.watching.where("posted > ?", @user.duration)
+	  friends = @user.friends.search(params[:search]) + @user.inverse_friends.search(params[:search])
+	  @friends = friends.sort_by { |friend| friend.name }
+	  render :layout => "layouts/full_screen"
+	end
+  
   def friends
   	@user = User.find(params[:id])
   	if @user == current_user
-  		@title = "My Friends"
+  		redirect_to my_friends_path
   	else
-  		@title = "#{@user.name}'s Friends"
-  	end
-  	@deals = @user.watching.where("posted > ?", @user.duration)
-  	friends = @user.friends + @user.inverse_friends
-  	@friends = friends.sort_by { |friend| friend.name }
+	  	@title = "#{@user.name}'s Friends"
+	  	@deals = @user.watching.where("posted > ?", @user.duration)
+	  	friends = @user.friends.search(params[:search]) + @user.inverse_friends.search(params[:search])
+	  	@friends = friends.sort_by { |friend| friend.name }
+	  	render :layout => "layouts/full_screen"
+	  end
+	rescue ActiveRecord::RecordNotFound
+		redirect_to my_friends_path
   end
   
   def friend_requests

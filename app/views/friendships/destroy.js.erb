@@ -1,9 +1,13 @@
 $("li#friend_request_"+<%= @friend.id %>).remove();
 $("ul#my_friends_list li#friend_single_"+<%= @friend.id %>).remove();
-$("span.my_friends_count").html('(<%= (current_user.friends.count + current_user.inverse_friends.count) %>)')
+$("span.my_friends_count").html('(<%= (current_user.friends.size + current_user.inverse_friends.size) %>)')
 $("span.friend_request_count").html('(<%= current_user.request_friends.count %>)')
 <% if current_user.request_friends.count == 0 %>
 	$("li#my_account_drop_down_friend_requests").remove();
 <% end %>
-$("div.delete_user_"+<%= @friend.id %>).html("<%= escape_javascript(render(:partial => "users/add_friend_from_friend_partial", :locals => { :friend => @friend })) %>")
+
+$(".box_friend_add_"+<%= @friend.id %>).html("<%= escape_javascript(render(:partial => "users/add_friend_from_friend_partial", :locals => { :friend => @friend })) %>")
+
 $("div#account_notice").html("<%= escape_javascript(render("users/account_notice")) %>")
+
+$(".my_friend_container #box_friend_"+<%= @friend.id %>).remove();

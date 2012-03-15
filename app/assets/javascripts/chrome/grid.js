@@ -28,6 +28,17 @@ $(function() {
 			}
 		})
 	});
+	var container_friend = $("#friend_container");
+	container_friend.imagesLoaded(function() {
+		container_friend.masonry({
+			itemSelector: ".box_friend",
+			isAnimated: true,
+			isFitWidth: true,
+			animationOptions: {
+				duration: 200
+			}
+		})
+	})
 });
 
 $(document).ready(function() {
@@ -74,4 +85,13 @@ function showBoxDealShare(id) {
 function hideBoxDealShare() {
 	$(".box_deal_share").hide();
 	$(".box_deal_large_share").hide();
+};
+
+function showBoxFriendAction(id) {
+	var i = id
+	$(".box_friend_add_"+i).show();
+};
+
+function hideBoxFriendAction() {
+	$(".box_friend_add").hide();
 };

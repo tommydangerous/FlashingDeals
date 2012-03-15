@@ -4,7 +4,7 @@ $("span.friends_count").html('(<%= @user.friends.count + @user.inverse_friends.c
 <% if current_user.request_friends.count == 0 %>
 	$("li#my_account_drop_down_friend_requests").remove();
 <% end %>
-$("div.delete_user_"+<%= @friend.id %>).html("<%= escape_javascript(render(:partial => "users/defriend", :locals => { :friend => @friend })) %>")
+$(".box_friend_add_"+<%= @friend.id %>).html("<%= escape_javascript(render(:partial => "users/defriend", :locals => { :friend => @friend })) %>")
 
 <% if @friend == @user_show %>
 	$("div#add_friend_partial").html("<%= escape_javascript(render(:partial => "users/add_friend", :object => @user)) %>")

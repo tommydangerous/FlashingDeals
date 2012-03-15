@@ -25,7 +25,7 @@
 			<% end %>
 			<div class="my_deals_div">
 				<p>
-					<%= link_to friends_user_path(@user) do %>
+					<%= link_to my_friends_path do %>
 						Friends <span class="friends_count">(<%= (@user.friends.count + @user.inverse_friends.count) %>)
 					<% end %>
 				</p>

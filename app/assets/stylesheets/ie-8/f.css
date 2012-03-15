@@ -251,7 +251,10 @@ h3#friend_request_pending {
 	font-family: Verdana;
 	font-size: 14px;
 	color: rgb(150, 150, 150);
-	margin-bottom: 14px;
+	height: 14px;
+	padding: 6px 0px;
+	margin: 0;
+	text-align: center;
 }
 
 div#friends ul, div#friend_requests ul {
@@ -322,9 +325,6 @@ div#ignore {
 }
 
 div#add_friend {
-	width: 80px;
-	margin: auto;
-	margin-bottom: 14px;
 	text-align: center;
 }
 
@@ -403,9 +403,7 @@ div#add_friend a.add_friend:active {
 }
 
 div#accept_request, div#add_friend {
-	width: 110px;
-	margin: auto;
-	margin-bottom: 14px;
+	text-align: center;
 }
 
 div#accept_request input, div#add_friend input {
