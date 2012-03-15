@@ -11,6 +11,19 @@
       <li>
       	<%= link_to "Community", community_deals_path, :id => "flashmob_deals", :class => "not_selected" %>
     	</li>
+    	<li>
+    		<%= link_to "Category", "javascript:void(0);", :id => "category_deals", :class => "not_selected" %>
+    		<div id="category_drop_down">
+    			<div id="category_drop_down_arrow"></div>
+	    		<ul id="category_drop_down_list">
+						<% Category.all.each do |c| %>
+							<li>
+								<%= link_to "#{c.name}", c %>
+							</li>
+						<% end %>
+					</ul>		
+    		</div>
+    	</li>
   		<li>
   			<div id="my_account_drop_down" style="display: none;">
       		<div id="my_account_arrow"></div>

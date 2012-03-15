@@ -20,6 +20,14 @@ div#my_deals_photo {
 	margin-bottom: 5px;
 }
 
+div#my_deals_photo a {
+	opacity: 1;
+}
+
+div#my_deals_photo a:hover {
+	opacity: .8;
+}
+
 div#my_deals_watching {
 	padding: 5px 0px;
 	margin: 5px 0px;

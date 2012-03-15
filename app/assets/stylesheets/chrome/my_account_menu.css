@@ -9,24 +9,30 @@ div#my_account_drop_down {
 div#my_account_drop_down ul {
 	padding: 0;
 	margin: 0;
-	background: rgba(150, 150, 150, .9);
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(200, 200, 200);
+	-webkit-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	-khtml-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	-moz-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	-ms-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	-o-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	margin-top: 9px;
 }
 
 div#my_account_drop_down ul li {
 	text-align: left;
 	display: block;
-	background: rgba(75, 75, 75, .9);
 	-webkit-transition: all .2s linear;
 	-khtml-transition: all .2s linear;
 	-moz-transition: all .2s linear;
 	-ms-transition: all .2s linear;
 	-o-transition: all .2s linear;
 	transition: all .2s linear;
-	border-bottom: 1px solid rgba(150, 150, 150, .9);
 }
 
 div#my_account_drop_down ul li:hover {
-	background: rgba(100, 100, 100, .9);
+	background: rgb(200, 200, 200);
 }
 
 div#my_account_drop_down ul li#logout {
@@ -36,11 +42,11 @@ div#my_account_drop_down ul li#logout {
 div#my_account_drop_down a {
 	display: block;
 	width: 130px;
-	padding: 10px 10px;
+	padding: 10px;
 	text-decoration: none;
 	font-family: Verdana;
 	font-size: 11px;
-	color: rgba(255, 255, 255, 1);
+	color: rgb(75, 75, 75);
 	-webkit-transition: all .2s linear;
 	-khtml-transition: all .2s linear;
 	-moz-transition: all .2s linear;
@@ -50,7 +56,8 @@ div#my_account_drop_down a {
 }
 
 div#my_account_drop_down a:hover {
-	color: rgba(71, 224, 255, 1);
+	text-decoration: none;
+	color: rgb(75, 75, 75);
 }
 
 a#my_account {
@@ -83,7 +90,9 @@ div#my_account_arrow {
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-bottom: 10px solid rgba(100, 100, 100, .75);
+	border-bottom: 10px solid rgb(255, 255, 255);
+	position: absolute;
+	z-index: 501;
 }
 
 span#my_account_notification {

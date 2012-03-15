@@ -1,19 +1,9 @@
+<% content_for :head do %>
+	<meta property="og:title" content="FlashingDeals | First to Know" />
+	<meta property="og:description" content="FlashingDeals is always scouring the internet for the best deals. With new ones every 15 minutes, let us do the work for you!" />
+	<meta property="og:image" content="https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png" />
+<% end %>
 <div id="grid_top_bar">
-	<div id="grid_categories">
-		<%= link_to("javascript:void(0);", :id => "grid_categories_show") do %>
-			Categories
-			<div id="grid_categories_arrow"></div>
-		<% end %>
-		<ul id="grid_categories_list">
-			<% Category.all.each do |c| %>
-				<% if c.deals.where("posted > ?", @today).size > 0 %>
-					<li>
-						<%= link_to "#{c.name}", c %>
-					</li>
-				<% end %>
-			<% end %>
-		</ul>		
-	</div>
 	<div id="grid_search_form">
 		<%= form_tag community_deals_path, :method => :get do %>
 			<%= hidden_field_tag :sort, params[:sort] %>

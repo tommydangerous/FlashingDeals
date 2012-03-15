@@ -79,37 +79,75 @@ a.selected:hover {
 	color: rgba(71, 224, 255, 1);
 	text-decoration: none;
 }
-/*
-div#flashback_arrow {
-	width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 10px solid rgba(110, 220, 90, 1);
-	margin: 0px auto;
-	margin-top: 7px;
+
+div#category_drop_down {
+	position: absolute;
+	z-index: 500;
+	margin-top: 5px;
 	display: none;
 }
 
-div#flashmob_arrow {
+div#category_drop_down_arrow {
 	width: 0;
 	height: 0;
-	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 10px solid rgba(110, 220, 90, 1);
-	margin: 0px auto;
-	margin-top: 7px;
-	display: none;
+	border-left: 10px solid transparent;
+	border-bottom: 10px solid rgb(255, 255, 255);
+	margin-left: 10%;
+	position: absolute;
+	z-index: 501;
 }
 
-div#my_deals_arrow {
-	width: 0;
-	height: 0;
-	border-left: 10px solid transparent;
-	border-right: 10px solid transparent;
-	border-top: 10px solid rgba(110, 220, 90, 1);
-	margin: 0px auto;
-	margin-top: 7px;
-	display: none;
+ul#category_drop_down_list {
+	text-align: left;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	width: 312px;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(200, 200, 200);
+	-webkit-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	-khtml-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	-moz-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	-ms-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	-o-box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	box-shadow: 0px 2px 5px rgba(75, 75, 75, .25);
+	margin-top: 9px;
 }
-*/
+
+ul#category_drop_down_list li {
+	float: left;
+	display: inline-block;
+	width: 156px;
+	padding: 0;
+	-webkit-transition: all .1s linear;
+	-khtml-transition: all .1s linear;
+	-moz-transition: all .1s linear;
+	-ms-transition: all .1s linear;
+	-o-transition: all .1s linear;
+	transition: all .1s linear;
+}
+
+ul#category_drop_down_list li:hover {
+	background: rgb(200, 200, 200);
+}
+
+ul#category_drop_down_list li a {
+	display: block;
+	padding: 10px;
+	width: 136px;
+	font-family: Verdana;
+	font-size: 11px;
+	color: rgb(75, 75, 75);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+ul#category_drop_down_list li a:hover {
+	text-decoration: none;
+	color: rgb(75, 75, 75);
+}
