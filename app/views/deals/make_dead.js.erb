@@ -1,1 +1,3 @@
-$("div#deal_single_"+<%= @deal.id %>).addClass("deal_dead").attr("title", "This deal has expired");
+$("div#box_deal_"+<%= @deal.id %>).addClass("deal_dead").attr("title", "This deal has expired");
+$("div#deal_show_image").addClass("deal_dead").attr("title", "This deal has expired");
+$("div#deal_show_name").html("<h1><span class='red'>Expired</span> <%= @deal.name %></h1>");

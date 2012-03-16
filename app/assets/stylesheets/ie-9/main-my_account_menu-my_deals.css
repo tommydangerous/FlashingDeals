@@ -161,9 +161,7 @@ a#my_account {
 	position: relative;
 	bottom: 16px;
 	line-height: 50px;
-	display: block;
-	width: 150px;
-	height: 46px;
+	padding: 15px 0px;
 	margin-right: 10px;
 	text-decoration: none;
   color: rgb(255, 255, 255);

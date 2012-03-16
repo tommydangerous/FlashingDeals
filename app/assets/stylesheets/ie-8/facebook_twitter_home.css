@@ -1,14 +1,15 @@
 div#facebook_twitter_home {
 	text-align: left;
 	font-size: 0px;
+	width: 150px;
+	float: left;
 }
 
 div#facebook_twitter_home ul {
 	list-style-type: none;
 	height: 24px;
-	padding: 0;
+	padding: 1px 0px;
 	margin: 0;
-	padding-left: 10px;
 }
 
 div#facebook_twitter_home ul li {
@@ -34,4 +35,8 @@ div#facebook_like {
 
 div#facebook_like:hover {
 	background: url("/assets/facebook_like_hover.png");
+}
+
+div#facebook_like:active {
+	background: url("/assets/facebook_like_active.png");
 }

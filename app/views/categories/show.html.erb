@@ -4,6 +4,20 @@
 	<meta property="og:image" content="https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png" />
 <% end %>
 <div id="grid_top_bar">
+	<div id="facebook_twitter_home">
+		<ul>
+			<li id="facebook_like_li">
+				<%= link_to("http://www.facebook.com/pages/FlashingDeals/254028428008396", :target => "_blank") do %>
+					<div id="facebook_like"></div>
+				<% end %>
+			</li>
+			<li id="twitter_follow_li">
+				<a href="https://twitter.com/FlashingDeals" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">
+					Follow @FlashingDeals
+				</a>
+			</li>
+		</ul>
+	</div>
 	<div id="grid_search_form">
 		<%= form_tag @category, :method => :get do %>
 			<%= hidden_field_tag :sort, params[:sort] %>
