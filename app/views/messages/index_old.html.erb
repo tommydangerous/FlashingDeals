@@ -1,0 +1,85 @@
+<div id="gravatar">
+	<%= link_to @user do %>
+		<%= image_tag(@user.photo.url, :id => "user_photo_medium") %>
+	<% end %>
+</div>
+<div id="message_list">
+	<div id="flash"></div>
+	<p id="none" style="display:none">No messages matching your search.</p>
+	<%= render :partial => "message_index", :collection => @messages, :as => :message %>
+</div>
+<div id="user_message_table">
+	<div id="user_side">
+		<% if current_user.received_messages.where("read = ?", false).count > 0 %>
+			<h1>Messages: <span class="grey_75"><%= current_user.received_messages.count %></span> <span class="message_unread_count">(<%= current_user.received_messages.where("read = ?", false).count %>)</span></h1>
+		<% else %>
+			<h1>Messages: <span class="grey_75"><%= current_user.received_messages.count %></span> <span class="message_unread_count"></span></h1>
+		<% end %>
+		<% if @user == current_user %>
+			<% unless @messages.empty? %>
+			<div id="user_side_search">
+				<input type="text" name="q" value="" placeholder="Search your messages" autocomplete="off">
+			</div>
+			<% end %>
+		<% end %>
+		<div id="new_message_profile">
+			<h2><%= link_to "New Message", "javascript: void(0)", :onclick => "showIndexMessage();" %></h2>
+		</div>
+		<% unless current_user.received_messages.empty? %>
+		<div id="mark_all_read_profile">
+			<h2><%= link_to "Mark All Read", read_all_path %></h2>
+		</div>
+		<% end %>
+		<% unless current_user.request_friends.empty? %>
+		<div id="friend_requests_profile">
+			<h2><%= link_to "Friend Requests (#{current_user.request_friends.count})", friend_requests_path %></h2>
+		</div>
+		<% end %>
+		<div id="my_friends_profile">
+			<h2><%= link_to "My Friends (#{(@user.friends.count + @user.inverse_friends.count)})", friends_user_path(@user) %></h2>
+		</div>
+		<%= render "users/shared_deals_profile" %>
+		<div id="feedback_header">
+			<%= link_to "Feedback", "javascript: void(0)", :id => "feedback" %>
+		</div>
+		<div id="feedback_form">
+			<%= render 'feedbacks/feedback_form' %>
+		</div>
+	</div>
+</div>
+<%= render 'messages/new_message' %>
+<script>
+(function($) {
+  $(document).ready(function() {
+    $('input[name="q"]').search('.message', function(on) {
+      on.all(function(results) {
+        var size = results ? results.size() : 0
+        $('#count').text(size + ' results');
+      });
+
+      on.reset(function() {
+        $('#none').hide();
+        $('.message').show();
+        $('.pagination').show();
+      });
+
+      on.empty(function() {
+        $('#none').show();
+        $('.message').hide();
+        $('.pagination').hide();
+      });
+
+      on.results(function(results) {
+        $('#none').hide();
+        $('.message').hide();
+        $('.pagination').hide();
+        results.show();
+      });
+    });
+  });
+})(jQuery);
+
+$('a#feedback').click(function() {
+	$('div#feedback_form').slideToggle();
+});
+</script>

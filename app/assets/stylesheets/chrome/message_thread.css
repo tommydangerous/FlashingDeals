@@ -1,6 +1,6 @@
 div.message_thread {
 	background: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(200, 200, 200, 1);
+	border: 1px dotted rgb(200, 200, 200);
 	margin-bottom: 3px;
 	padding: 5px;
 }
@@ -61,17 +61,17 @@ div#reply_form {
 
 div#message_reply_form {
 	background: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(200, 200, 200, 1);
+	border: 1px dotted rgb(200, 200, 200);
 	padding: 5px;
 }
 
 div#message_reply_form div.field {
 	margin-left: 65px;
-	width: 525px;
+	width: 512px;
 }
 
 div#message_reply_form textarea {
-	width: 513px;
+	width: 500px;
 	padding: 5px;
 	height: 32px;
 	font-family: Helvetica, Arial;

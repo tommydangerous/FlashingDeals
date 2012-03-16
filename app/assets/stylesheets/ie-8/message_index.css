@@ -4,7 +4,7 @@ div#user_message_table {
 }
 
 div#message_list {
-	width: 724px;
+	width: 708px;
 	float: right;
 }
 
@@ -36,7 +36,7 @@ a#message_single_link {
 }
 
 div.message_single {
-	border: 1px solid rgb(200, 200, 200);
+	border: 1px dotted rgb(200, 200, 200);
 	margin-bottom: 3px;
 	height: 50px;
 	padding: 5px;

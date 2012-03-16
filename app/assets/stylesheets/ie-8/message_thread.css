@@ -1,6 +1,6 @@
 div.message_thread {
 	background: rgb(255, 255, 255);
-	border: 1px solid rgb(200, 200, 200);
+	border: 1px dotted rgb(200, 200, 200);
 	margin-bottom: 3px;
 	padding: 5px;
 	min-height: 50px;
@@ -62,16 +62,17 @@ div#reply_form {
 
 div#message_reply_form {
 	background: rgb(255, 255, 255);
-	border: 1px solid rgb(200, 200, 200);
+	border: 1px dotted rgb(200, 200, 200);
 	padding: 5px;
 }
 
 div#message_reply_form div.field {
 	margin-left: 65px;
+	width: 512px;
 }
 
 div#message_reply_form textarea {
-	width: 513px;
+	width: 500px;
 	padding: 5px;
 	height: 32px;
 	font-family: Helvetica, Arial;
@@ -87,6 +88,7 @@ div#message_reply_form textarea {
 	resize: none;
 	margin: 0;
 	margin-top: 5px;
+	overflow: hidden;
 }
 
 div#message_reply_form textarea:hover {
