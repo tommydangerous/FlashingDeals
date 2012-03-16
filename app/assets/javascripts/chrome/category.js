@@ -1,13 +1,16 @@
 $(document).ready(function() {
-	var x = $("#category_deals");
-	var y = $("#category_drop_down");
-	x.click(function() {
+	var x = $("a#category_deals");
+	var y = $("div#category_drop_down");
+	x.mouseover(function() {
 		y.show();
 	});
-	$(document).click(function() {
+	$(document).mouseover(function() {
 		y.hide();
 	})
-	x.click(function() {
+	x.mouseover(function() {
+		return false;
+	})
+	y.mouseover(function() {
 		return false;
 	})
 })
