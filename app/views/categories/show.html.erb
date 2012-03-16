@@ -35,9 +35,3 @@
 <% end %>
 <div class="clear"></div>
 <%= render "deals/endless_pagination" %>
-<script>
-$(document).ready(function() {
-	var x = $("#category_deals");
-	x.text("<%= @category.name %>");
-});
-</script>
