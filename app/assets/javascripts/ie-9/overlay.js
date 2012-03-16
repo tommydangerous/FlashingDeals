@@ -1,5 +1,5 @@
 function setHeight() {
-	var h =	$("div#deal_show_container").height();
+	var h =	$("div#deal_show_overlay_container").height();
 	var o = $(".overlayOuter").height();
 	var l = $(".overlay_left");
 	var r = $(".overlay_right");
