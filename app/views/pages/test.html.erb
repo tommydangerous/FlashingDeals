@@ -1,18 +1,28 @@
-<a id="selector" href="#">My event trigger</a>
-<div class="overlayOuter">
-	<div class="overlay_top"></div>
-	<div class="overlay_left"></div>
-	<div class="overlay_right"></div>
-  <div class="overlayInner"></div>
-</div>
+<div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId      : '333364093378550', // App ID
+        status     : true, // check login status
+        cookie     : true, // enable cookies to allow the server to access the session
+        xfbml      : true  // parse XFBML
+      });
+    };
 
-<script>
-setInterval(setHeight);
-setInterval(setWidth);
-$("a#selector").live("click", function(){
-	var url = "http://localhost:3000/deals/asus-zenbook-ux31e-dh72-13-3-inch-thin-and-light-ultrabook-silver-aluminum/show_overlay"
-	
-	$(".overlayInner").load(url,
-  	function(){$(".overlayOuter").fadeIn(300); })
-});
-</script>
+    (function(d, s, id) {
+		  var js, fjs = d.getElementsByTagName(s)[0];
+		  if (d.getElementById(id)) return;
+		  js = d.createElement(s); js.id = id;
+		  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=333364093378550";
+		  fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+  </script>
+
+	<div class="fb-login-button" data-show-faces="false" data-width="200" data-max-rows="1"></div>
+
+  <h3>Stuffed Cookies</h3>
+  <p>
+    <img title="Stuffed Cookies" 
+         src="http://fbwerks.com:8000/zhen/cookie.jpg" 
+         width="550"/>
+  </p>

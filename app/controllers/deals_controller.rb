@@ -164,7 +164,6 @@ class DealsController < ApplicationController
 			@user_show_deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }
 		end
   	unless signed_in?
-  		store_location
   		if @deal.exclusive?
   			flash[:notice] = "Please login or signup to view exclusive deals."
   			redirect_to login_path
