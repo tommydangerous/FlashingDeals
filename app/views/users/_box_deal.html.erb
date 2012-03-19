@@ -25,12 +25,12 @@
 	<div id="box_deal_image_container">
 		<div class="box_deal_link_overlay">
 			<%= link_to("javascript:void(0);", :id => "box_deal_link", :onclick => "overlayPopup(#{deal.id})") do %>
-				<img class="lazy lazy_load lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
+				<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
 			<% end %>
 		</div>
 		<div class="box_deal_link_overlay_none">
 			<%= link_to(deal, :id => "box_deal_link") do %>
-				<img class="lazy lazy_load lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
+				<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
 			<% end %>
 		</div>
 	</div>
@@ -68,7 +68,7 @@
 			<div class="box_deal_comment">
 				<div id="box_deal_comment_user">
 					<%= link_to(User.find(comment.user_id)) do %>
-						<img class="lazy lazy_load lazy_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
+						<img class="lazy lazy_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
 					<% end %>
 				</div>
 				<div id="box_deal_comment_content">

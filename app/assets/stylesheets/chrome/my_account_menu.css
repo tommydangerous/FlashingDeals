@@ -64,13 +64,13 @@ a#my_account {
 	position: relative;
 	bottom: 16px;
 	line-height: 50px;
-	padding: 15px 0px;
 	margin-right: 10px;
 	text-decoration: none;
   color: rgb(255, 255, 255);
   font-family: Verdana;
   font-size: 13px;
   text-align: right;
+  float: right;
   -webkit-transition: all .2s linear;
   -khtml-transition: all .2s linear;
   -moz-transition: all .2s linear;
