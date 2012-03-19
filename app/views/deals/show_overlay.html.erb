@@ -9,6 +9,7 @@
 	<meta property="og:description" content="<%= strip_tags(@deal.info) %>" />
 	<meta property="og:image" content="<%= @deal.image %>" />
 <% end %>
+<%= render "previous_next_deals_overlay" %>
 <div id="deal_show_overlay_container">
 	<div id="deal_show_column_left">
 		<% if @deal.metric >= 4 %>
@@ -304,6 +305,7 @@
 <% unless @deal.coupon.nil? && @deal.rebate.nil? || @deal.coupon.nil? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.nil? %>
 	<%= render "coupon_popup" %>
 <% end %>
+<% if Rails.env.development? %>
 <script>
 $('.example3demo').popupWindow({ 
 	centerScreen:1,
@@ -318,6 +320,39 @@ $('.example4demo').popupWindow({
 	width: 675
 });
 
+function pnDeal(id) {
+	var i = id
+	var url = "http://localhost:3000/deals/"+i+"/show_overlay"
+	$(".overlayInner").load(url);
+}
+
+setInterval(setPNOHeight, 0);
 setInterval(setHeight, 0);
 setInterval(setWidth, 0);
 </script>
+<% elsif Rails.env.production? %>
+<script>
+$('.example3demo').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 375,
+	width: 675
+}); 
+$('.example4demo').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 500,
+	width: 675
+});
+
+function pnDeal(id) {
+	var i = id
+	var url = "http://www.flashingdeals.com/deals/"+i+"/show_overlay"
+	$(".overlayInner").load(url);
+}
+
+setInterval(setPNOHeight, 0);
+setInterval(setHeight, 0);
+setInterval(setWidth, 0);
+</script>
+<% end %>

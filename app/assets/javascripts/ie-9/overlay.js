@@ -19,7 +19,7 @@ function setHeight() {
 
 function setWidth() {
 	var w = $(".overlay_top").width()
-	var nw = (w - 907)/2
+	var nw = (w - 989)/2
 	var l = $(".overlay_left");
 	var r = $(".overlay_right");
 	if(l.width != nw) {
@@ -52,3 +52,14 @@ $(function() {
 		$(".box_image").show()
 	})
 })
+
+function setPNOHeight() {
+	var h = $("div#deal_show_overlay_container").height();
+	var p = $("a#previous_deal_overlay");
+	var n = $("a#next_deal_overlay");
+	var x = (h/2) - 35
+	p.height(h + 22);
+	n.height(h + 22);
+	$("#previous_arrow_overlay").css("top", x).fadeIn(300);
+	$("#next_arrow_overlay").css("top", x).fadeIn(300);
+}
