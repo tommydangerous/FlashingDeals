@@ -50,7 +50,7 @@ a#previous_deal_overlay {
 	width: 35px;
 	height: 70px;
 	padding-right: 6px;
-	float: left;
+	position: relative;
 	-webkit-transition: all .2s linear;
 	-khtml-transition: all .2s linear;
 	-moz-transition: all .2s linear;
@@ -69,7 +69,7 @@ a#next_deal_overlay {
 	width: 35px;
 	height: 70px;
 	padding-left: 6px;
-	float: right;
+	position: relative;
 	-webkit-transition: all .2s linear;
 	-khtml-transition: all .2s linear;
 	-moz-transition: all .2s linear;
@@ -112,4 +112,34 @@ a#next_deal_overlay:hover {
 	height: 1px;
 	margin-left: 2px;
 	float: right;
+}
+
+div#previous_top {
+	float: left;
+	width: 41px;
+	height: 50px;
+	margin-left: -41px;
+}
+
+div#next_top {
+	float: right;
+	width: 41px;
+	height: 50px;
+	margin-right: -41px;
+}
+
+div#previous_bottom {
+	float: left;
+	width: 41px;
+	height: 50px;
+	margin-left: -41px;
+	position: relative;
+}
+
+div#next_bottom {
+	float: right;
+	width: 41px;
+	height: 50px;
+	margin-right: -41px;
+	position: relative;
 }
