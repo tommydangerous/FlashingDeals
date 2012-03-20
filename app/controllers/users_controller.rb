@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   	if @user.save
   		sign_in @user
   		flash[:success] = "Welcome to FlashingDeals"
-  		redirect_back_or my_account_path
+  		redirect_to my_account_path
   	else
   		@title = "Sign Up"
   		render 'new'
