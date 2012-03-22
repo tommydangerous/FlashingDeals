@@ -3,6 +3,6 @@
 <%= session[:omniauth] %>
 <ul>
 <% @user.friends.each do |friend| %>
-	<li><%= friend.identifier %></li>
+	<li><%= friend.fetch %></li>
 <% end %>
 </ul>

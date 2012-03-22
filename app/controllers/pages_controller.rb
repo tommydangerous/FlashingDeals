@@ -6,7 +6,7 @@ class PagesController < ApplicationController
 	require 'nokogiri'
 	
 	before_filter :authenticate, :only => [:test, :control_panel]
-	before_filter :gm_user, :only => [:control_panel]
+	before_filter :gm_user, :only => [:test, :control_panel]
 
 	def about
 		@title = "About Us"
