@@ -25,11 +25,7 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	if @user.save
   		sign_in @user
-<<<<<<< HEAD
   		flash[:success] = "Welcome to FlashingDeals."
-=======
-  		flash[:success] = "Welcome to FlashingDeals"
->>>>>>> e641fec3cf40d5b10754fa2f0b5ef928efc7b3b9
   		redirect_back_or my_account_path
   	else
   		@title = "Sign Up"
