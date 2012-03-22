@@ -1,6 +1,20 @@
 <%= image_tag @photo %>
 <h1><%= @user.name %></h1>
 
+<%= @user.feed %>
+
+<ul>
+<% @user.posts.each do |post| %>
+	<li><%= post.message %></li>
+<% end %>
+</ul>
+
+<ul>
+	<% @user.likes.each do |like| %>
+		<li><%= like.name %>, <%= like.category %></li>
+	<% end %>
+</ul>
+
 <ul>
 <% @user.friends.each do |friend| %>
 	<li><%= friend.name %> <%= friend.email %></li>
