@@ -12,7 +12,8 @@ if Rails.env.production?
   					 						user_likes,
   					 						user_location,
   					 						user_website,
-  					 						user_work_history",
+  					 						user_work_history,
+  					 						email",
   					 :client_options => {:ssl => {:ca_file => "#{Rails.root.join('lib/assets/cacert.pem').to_s}"}}
   end
 elsif Rails.env.development?
@@ -29,7 +30,8 @@ elsif Rails.env.development?
   					 						user_likes,
   					 						user_location,
   					 						user_website,
-  					 						user_work_history",
+  					 						user_work_history,
+  					 						email",
   					 :client_options => {:ssl => {:ca_file => "#{Rails.root.join('lib/assets/cacert.pem').to_s}"}}
   end
 end
