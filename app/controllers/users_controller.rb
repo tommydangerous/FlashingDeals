@@ -25,8 +25,8 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	if @user.save
   		sign_in @user
-  		flash[:success] = "Welcome to FlashingDeals"
-  		redirect_to my_account_path
+  		flash[:success] = "Welcome to FlashingDeals."
+  		redirect_back_or my_account_path
   	else
   		@title = "Sign Up"
   		render 'new'
@@ -101,7 +101,7 @@ class UsersController < ApplicationController
   	@title = "Friend Requests"
   	@friend_requests = current_user.request_friends.sort_by { |friend| friend.name }
   	if @friend_requests.empty?
-  		flash[:notice] = "You currently have no friend requests"
+  		flash[:notice] = "You currently have no friend requests."
   		redirect_to my_account_path
   	end
   end

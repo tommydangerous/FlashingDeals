@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
 		if signed_in?
 			redirect_to root_path
 		elsif user.nil?
-			flash.now[:error] = "There was a problem with your login."
+			flash.now[:error] = "The email or password you have entered is invalid."
 			@title = "Login"
 			render 'new'
 			if session[:return_to].nil?

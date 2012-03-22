@@ -11,6 +11,7 @@
   	<%= render 'error_messages', :object => f.object %>
 		<div class="field">
 			<p>Photo: <%= f.file_field :photo %></p>
+			<p>URL: <%= f.text_field :image_url, :autocomplete => "off", :placeholder => "Upload photo from URL" %></p>
 			<p>Name: <%= f.text_field :name, :autocomplete => "off" %></p>
 	    <p>Email: <%= f.text_field :email, :autocomplete => "off" %></p>
 		</div>

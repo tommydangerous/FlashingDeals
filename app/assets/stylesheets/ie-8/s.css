@@ -1103,6 +1103,11 @@ div#error_explanation ul li {
 	margin-bottom: 5px;
 }
 
+div#error_explanation ol {
+	padding-left: 20px;
+	margin-top: 10px;
+}
+
 div#accept_terms {
 	font-family: Verdana;
 	font-weight: none;

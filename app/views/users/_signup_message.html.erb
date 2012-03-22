@@ -1,23 +1,28 @@
+<div id="login_notice">
+	<% flash.each do |key, value| %>
+		<div class="flash <%= key %>"><%= value %></div>
+	<% end %>
+</div>
 <div id="signup_message">
 	<div id="close_signup_message">
-		<% if cookies[:hide_message] == "yes" %>
-			<%= link_to("javascript:void(0);", :title => "Hide This Message", :onclick => "closeSignupButton();") do %>
-				<%= image_tag("/assets/close.png") %>
-			<% end %>
-		<% else %>
-			<%= link_to(hide_signup_message_path, :title => "Hide This Message", :remote => true, :onclick => "closeSignupButton();") do %>
-				<%= image_tag("/assets/close.png") %>
-			<% end %>
+		<%= link_to("javascript:void(0);", :title => "Close", :onclick => "closeSignupButton();") do %>
+			<%= image_tag("/assets/close.png") %>
 		<% end %>
 	</div>
 	<div id="signup_message_header">
-		<h1>Sign Up <span class="green">&</span> Be A Part Of The Community</h1>
+		<h1>Be A Part Of The Community</h1>
 	</div>
 	<div id="signup_message_body">
 		<div id="signup_message_info">
 			<p>FlashingDeals is a site dedicated to bringing our members the best deals on the internet.</p> 
 			<p>We aim to do all the homework and research on every deal so you know that what you order through us is the lowest price.</p>
 			<p>Members can also submit their own deals, interact on our social forums, and have access to community deals and exclusive deals.</p>
+			<div id="signup_facebook">
+				<%= link_to("/auth/facebook", :id => "facebook_signup") do %>
+					<%= image_tag "/assets/facebook_auth.png" %> <h3>Signup with Facebook</h3>
+				<% end %>
+			</div>
+			<h2>...or Signup <%= link_to "Here", "javascript:void(0);", :onclick => "toggleSignupLogin();" %></h2>
 		</div>
 		<div id="signup_message_form">
 			<%= form_for(User.new) do |f| %>
@@ -37,8 +42,37 @@
 					<%= f.check_box :accept_terms, :tabindex => 5 %> I agree to the <%= link_to "Terms of Service", terms_path, :target => "_blank" %> and <%= link_to "Privacy Policy", privacy_path, :target => "_blank" %>
 				</div>
 				<div class="actions">
-					Already a member? <%= link_to "Login", "javascript:void(0);", :onclick => "signupSwitch();" %> <%= f.submit "Sign Up", :tabindex => 6 %>
+					<%= f.submit "Sign Up", :tabindex => 6 %>
 				</div>
+			<% end %>
+		</div>
+		<div id="login_form">
+			<div id="facebook_login">
+				<%= link_to("/auth/facebook", :id => "facebook_signup") do %>
+					<%= image_tag "/assets/facebook_auth.png" %> <h3>Login with Facebook</h3>
+				<% end %>
+			</div>
+			<div id="login_or">
+				<div id="login_or_left"></div>
+				<div id="login_or_right"></div>
+				<p>or</p>	
+			</div>
+			<%= form_for(:session, :url => sessions_path) do |f| %>
+			  <div class="field">
+			    <p>Email: <%= f.text_field :email, :tabindex => 1 %></p>
+			  </div>
+			  <div class="field">
+			    <p>Password: <%= f.password_field :password, :tabindex => 2 %></p>
+			  </div>
+			  <div id="remember_me_login">
+			  	<%= check_box_tag :remember_me, 1, params[:remember_me] %> Keep me signed in
+			  </div>
+			  <div class="actions">
+			  	<div id="forgot_password">
+				  	<%= link_to "Forgot your password?", new_password_reset_path %>
+				  </div>
+			    <%= f.submit "Login", :id => "login_submit", :tabindex => 3 %>
+			  </div>
 			<% end %>
 		</div>
 		<div class="clear"></div>

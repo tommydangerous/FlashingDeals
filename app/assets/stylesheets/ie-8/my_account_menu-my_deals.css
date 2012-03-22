@@ -1,9 +1,9 @@
 .hd div#my_account_drop_down {
-	z-index: 100;
+	position: absolute;
+	right: 0;
 	width: 150px;
-	position: relative;
-	top: 15px;
-	left: 420px;
+	z-index: 100;
+	margin-top: 15px;
 }
 
 .fs_hd div#my_account_drop_down {
@@ -11,7 +11,7 @@
 	right: 0;
 	width: 150px;
 	z-index: 100;
-	margin-top: 10px;
+	margin-top: 15px;
 }
 
 div#my_account_drop_down ul {
@@ -71,7 +71,9 @@ a#my_account {
 	position: relative;
 	bottom: 16px;
 	line-height: 50px;
-	padding: 15px 0px;
+	padding: 0px;
+	padding-top: 15px;
+	padding-bottom: 20px;
 	margin-right: 10px;
 	text-decoration: none;
   color: rgb(255, 255, 255);

@@ -59,9 +59,6 @@
   			<div class="clear"></div>
   		</div>
 			<% unless signed_in? %>
-				<div id="dim" style="display: none">
-					<%= render 'sessions/login_form' %>
-				</div>
 				<div id="dim_signup" style="display: none">
 					<%= render "users/signup_message" %>
 				</div>
@@ -74,6 +71,8 @@
 				<p class="copyright">FlashingDeals &copy; 2012 All Rights Reserved.</p>
 			</div>
 		</div>
-		<script type="text/javascript" src="http://s.skimresources.com/js/28555X865329.skimlinks.js"></script>
+		<% if Rails.env.production? %>
+			<script type="text/javascript" src="http://s.skimresources.com/js/28555X865329.skimlinks.js"></script>
+		<% end %>
   </body>
 </html>

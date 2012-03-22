@@ -12,6 +12,8 @@ gem 'paperclip', "~> 2.4.5"
 gem 'aws-s3'
 gem 'friendly_id'
 gem 'rails_autolink'
+gem 'omniauth-facebook'
+gem 'fb_graph'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

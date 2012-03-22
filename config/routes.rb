@@ -1,5 +1,6 @@
 FlashingDeal::Application.routes.draw do
 
+	resources :authentications
 	resources :categories, :only => :show
 	resources :comments, :only => [:index, :create, :destroy]
   resources :deals do
@@ -37,6 +38,9 @@ FlashingDeal::Application.routes.draw do
   		get :friends
   	end
   end
+# Authentications
+	match '/auth/:provider/callback' => 'authentications#create'
+	match '/auth/failure' => 'authentications#failure'
 # Deals
   root :to => 'deals#featured_deals'
   match '/featured' => 'deals#featured_deals', :as => :featured_deals

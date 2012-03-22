@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+	require 'open-uri'
+	
 	extend FriendlyId
 	friendly_id :name, use: :slugged
 
@@ -9,8 +11,8 @@ class User < ActiveRecord::Base
 										:s3_credentials => "#{Rails.root}/config/s3.yml",
 										:path => "/:style/:id/:filename"
 	acts_as_voter
-	attr_accessor :password
-	attr_accessible :name, :email, :password, :password_confirmation, :deal_duration, :private, :accept_terms, :photo, :time_zone, :active
+	attr_accessor :password, :image_url
+	attr_accessible :name, :email, :password, :password_confirmation, :deal_duration, :private, :accept_terms, :photo, :time_zone, :active, :image_remote_url, :image_url
 	
 	validate :name_validation	
 	def name_validation
@@ -44,6 +46,8 @@ class User < ActiveRecord::Base
 	
 	validates_attachment_content_type :photo, :message => "is not in the correct format.", :content_type => %w( image/jpeg image/png image/gif image/pjpeg image/x-png image/bmp )
 	validates_attachment_size :photo, :message => "is too large. (Max size: 5mb)", :in => 0..1.megabyte
+	
+	validates_presence_of :image_remote_url, :if => :image_url_provided?, :message => "is invalid or inaccessible"
 
 	has_many :relationships, :foreign_key => "watcher_id", :dependent => :destroy
 	has_many :watching, :through => :relationships, :source => :watched
@@ -74,8 +78,12 @@ class User < ActiveRecord::Base
 	has_many :editmarks, :dependent => :destroy
 	
 	has_many :notifications, :foreign_key => "notice_id", :dependent => :destroy
+	
+	has_many :authentications, :dependent => :destroy
 											 										 
 	before_save :encrypt_password
+	
+	before_validation :download_remote_image, :if => :image_url_provided?
 	
 	def has_password?(submitted_password)
 		encrypted_password == encrypt(submitted_password)
@@ -178,5 +186,21 @@ class User < ActiveRecord::Base
 		
 		def reprocess_photo
 			photo.reprocess!
+		end
+		
+		def image_url_provided?
+			!self.image_url.blank?
+		end
+		
+		def download_remote_image
+			self.photo = do_download_remote_image
+			self.image_remote_url = image_url
+		end
+		
+		def do_download_remote_image
+			io = open(URI.parse(image_url))
+			def io.original_filename; base_uri.path.split('/').last; end
+			self.photo = io.original_filename.blank? ? nil : io
+		rescue # catch url errors with validates instead of exceptions (Errno::ENOENT, OpenURI::HTTPError, etc...)
 		end
 end

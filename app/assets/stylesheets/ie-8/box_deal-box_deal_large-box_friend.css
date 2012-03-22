@@ -1,3 +1,81 @@
+/* authentication.css */
+div#signup_facebook {
+	margin: 20px 0px;
+}
+
+#facebook_signup {
+	display: block;
+	padding: 5px;
+	height: 26px;
+	width: 210px;
+	background: rgb(59, 89, 152);
+	margin: 0 auto;
+}
+
+#facebook_signup:hover {
+	text-decoration: none;
+	background: rgb(35, 72, 126);
+}
+
+#facebook_signup:active {
+	background: rgb(30, 67, 121);
+}
+
+#facebook_signup h3 {
+	font-family: Helvetica, Arial;
+	font-size: 16px;
+	color: rgb(255, 255, 255);
+	margin: 0;
+	margin-top: 5px;
+	margin-left: 36px;
+	text-align: left;
+}
+
+#facebook_signup img {
+	float: left;
+	width: 26px;
+	height: 26px;
+}
+
+#authenticate_facebook {
+	margin-top: 10px;
+}
+
+#facebook_auth {
+	display: block;
+	padding: 5px;
+	height: 20px;
+	width: 201px;
+	background: rgb(59, 89, 152);
+	margin: 0 auto;
+}
+
+#facebook_auth:hover {
+	text-decoration: none;
+	background: rgb(35, 72, 126);
+}
+
+#facebook_auth:active {
+	background: rgb(30, 67, 121);
+}
+
+#facebook_auth h3 {
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(255, 255, 255);
+	margin: 0;
+	margin-top: 3px;
+	margin-left: 30px;
+	text-align: left;
+}
+
+#facebook_auth img {
+	float: left;
+	width: 20px;
+	height: 20px;
+}
+
+/* box_deal.css */
 #grid_container {
 	margin: 0 auto;
 }

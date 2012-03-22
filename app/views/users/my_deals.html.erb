@@ -42,9 +42,15 @@
 			<div class="my_deals_div">
 				<p><%= link_to "Clear Expired Deals", clear_dead_deals_path, :remote => true %></p>
 			</div>
+			<%= render "authentications/auth_facebook" %>
 		</div>
 	</div>
 	<div id="my_deals_deals">
+		<% flash.each do |key, value| %>
+			<div class="flash <%= key %>">
+				<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %>
+			</div>
+		<% end %>
 		<div id="my_deals_name">
 			<div id="grid_search_form">
 				<%= form_tag my_account_path, :method => :get do %>

@@ -51,7 +51,7 @@ div#location_deal_list a:hover {
 
 /* login.css */
 div#login_notice {
-	width: 400px;
+	width: 800px;
 	margin: auto;
 	position: absolute;
 	left: 0;
@@ -99,19 +99,21 @@ div#login_header h1 {
 }
 
 div#login_form {
+	float: right;
 	padding: 20px;
-	border: 1px solid rgba(148, 222, 240, 1);
-	border-bottom: none;
-	border-top: none;
-	background: rgba(255, 255, 255, 1);
+	width: 400px;
 }
 
 div#login_form p {
 	font-weight: bold;
 }
 
+div#login_form div.field {
+	text-align: right;
+}
+
 div#login_form div.field input {
-	width: 350px;
+	width: 300px;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	-ms-border-radius: 2px;
@@ -153,9 +155,11 @@ div#login_form div.field input:focus {
 }
 
 div#new_user {
+	width: 359px;
+	float: right;
 	padding: 20px;
-	border: 1px solid rgba(148, 222, 240, 1);
-	border-top: none;
+	border-right: 1px solid rgba(148, 222, 240, 1);
+	border-bottom: 1px solid rgba(148, 222, 240, 1);
 	background: rgba(255, 255, 255, 1);
 }
 
@@ -181,9 +185,17 @@ div#new_user a:hover {
 	color: rgba(4, 135, 187, 1);
 }
 
-div#login_form div.actions {
+div#login_form h1 {
+	font-family: Helvetica, Arial;
+	font-size: 22px;
 	text-align: right;
-	margin-top: 10px;
+	color: rgb(75, 75, 75);
+	margin-bottom: 20px;
+}
+
+div#login_form div.actions {
+	margin-top: 20px;
+	text-align: right;
 }
 
 div#login_form div.actions input {
@@ -264,7 +276,12 @@ div#login_form div.actions input:active {
 }
 
 div#forgot_password {
-	text-align: right;
+	float: left;
+	width: 200px;
+	position: relative;
+	text-align: left;
+	top: 7px;
+	left: 90px;
 }
 
 div#forgot_password a {
@@ -286,11 +303,11 @@ div#forgot_password a:hover {
 }
 
 div#remember_me_login {
-	padding-left: 1px;
+	text-align: right;
 	height: 20px;
 	font-family: Verdana;
 	font-size: 12px;
-	color: rgba(150, 150, 150, 1);
+	color: rgb(150, 150, 150);
 }
 
 div#remember_me_login input {
@@ -298,4 +315,63 @@ div#remember_me_login input {
 	margin-right: 5px;
 	position: relative;
 	top: 2px;
+}
+
+div#login_facebook {
+	height: 280px;
+	width: 359px;
+	float: left;
+	padding: 20px;
+	background: rgb(255, 255, 255);
+	border-left: 1px solid rgb(148, 222, 240);
+	border-bottom: 1px solid rgb(148, 222, 240);
+}
+
+div#login_facebook ol {
+	margin: 10px 0px;
+	padding-left: 20px;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+}
+
+div#login_facebook ol li {
+	padding: 2px 0px;
+}
+
+div#login_facebook p {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+div#facebook_login {
+	margin-bottom: 20px;
+}
+
+div#login_or {
+	height: 16px;
+	margin-bottom: 20px;
+}
+
+div#login_or p {
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(150, 150, 150);
+	text-align: center;
+	width: 10px;
+	margin: 0 auto;
+}
+
+div#login_or_left {
+	width: 185px;
+	height: 9px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
+	float: left;
+}
+
+div#login_or_right {
+	width: 185px;
+	height: 9px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
+	float: right;
 }

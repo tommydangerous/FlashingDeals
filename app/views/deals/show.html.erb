@@ -175,7 +175,7 @@
 								<div id="like_arrow"></div>
 							<% end %>
 						<% else %>
-							<%= link_to("javascript:void(0);", :id => "like", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()", :class => "alertdim") do %>
+							<%= link_to("javascript:void(0);", :id => "like", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()", :class => "signup_popup_anchor") do %>
 								<div id="like_arrow"></div>
 							<% end %>
 						<% end %>
@@ -189,7 +189,7 @@
 								<div id="dislike_arrow"></div>
 							<% end %>
 						<% else %>
-							<%= link_to("javascript:void(0);", :id => "dislike", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()", :class => "alertdim") do %>
+							<%= link_to("javascript:void(0);", :id => "dislike", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()", :class => "signup_popup_anchor") do %>
 								<div id="dislike_arrow"></div>
 							<% end %>
 						<% end %>
@@ -207,7 +207,7 @@
 					<% else %>
 						<div id="watch_form">
 							<div class="actions">
-								<input name="commit" class="alertdim" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()" onmouseclick="hideWatchDealInfo()">
+								<input name="commit" class="signup_popup_anchor" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()" onmouseclick="hideWatchDealInfo()">
 							</div>
 						</div>
 					<% end %>
@@ -223,7 +223,7 @@
 				<% else %>
 					<div id="share_form">
 						<div class="actions">
-							<input name="commit" class="alertdim" type="submit" value="Share" onmouseover="showShareAllInfo();" onmouseout="hideShareAllInfo()" onmouseclick="hideShareAllInfo()">
+							<input name="commit" class="signup_popup_anchor" type="submit" value="Share" onmouseover="showShareAllInfo();" onmouseout="hideShareAllInfo()" onmouseclick="hideShareAllInfo()">
 						</div>
 					</div>
 				<% end %>
@@ -301,11 +301,7 @@
 <% unless @deal.coupon.nil? && @deal.rebate.nil? || @deal.coupon.nil? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.nil? %>
 	<%= render "coupon_popup" %>
 <% end %>
-<% unless signed_in? %>
-	<div id="dim_signup_deal_show">
-		<%= render "users/signup_message" %>
-	</div>
-<% end %>
+<% if signed_in? %>
 <script>
 $('.example3demo').popupWindow({ 
 	centerScreen:1,
@@ -319,6 +315,25 @@ $('.example4demo').popupWindow({
 	height: 500,
 	width: 675
 }); 
-
 setPreviousNextHeight();
 </script>
+<% else %>
+<script>
+$(document).ready(function() {
+	$("#dim_signup").show();
+})
+$('.example3demo').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 375,
+	width: 675
+}); 
+$('.example4demo').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 500,
+	width: 675
+}); 
+setPreviousNextHeight();
+</script>
+<% end %>

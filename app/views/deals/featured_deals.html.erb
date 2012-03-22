@@ -40,11 +40,7 @@
 <div id="grid_container_large">
 	<%= render :partial => "box_deal_large", :collection => @deals, :as => :deal %>
 </div>
-<% unless signed_in? %>
-	<div id="dim_signup_deal_show">
-		<%= render "users/signup_message" %>
-	</div>
-<% end %>
+<% if signed_in? %>
 <script>
 $(document).ready(function() {
 	$("div#flashback_arrow").show();
@@ -52,3 +48,13 @@ $(document).ready(function() {
 	$("a#flashback").addClass("selected");
 });
 </script>
+<% else %>
+<script>
+$(document).ready(function() {
+	$("#dim_signup").show();
+	$("div#flashback_arrow").show();
+	$("a#flashback").removeClass("not_selected");
+	$("a#flashback").addClass("selected");
+});
+</script>
+<% end %>

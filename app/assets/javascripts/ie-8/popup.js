@@ -13,7 +13,7 @@ $(document).ready(function(){
 	});
 			
 	$(".alertdim").click(function(){
-  	$("#dim").fadeIn(200);
+  	$("#dim_signup").fadeIn(200);
   	$("html, body").animate({ scrollTop: 0  }, 0);
     	return false;
 	});
@@ -25,6 +25,7 @@ $(document).ready(function(){
 	
 	$(".signup_popup_anchor").click(function() {
 		$("div#dim_signup").fadeIn(200);
+		$("html, body").animate({ scrollTop: 0  }, 100);
 			return false;
 	});
 	
@@ -48,4 +49,16 @@ function signupPopupExclusive() {
 	$("div#dim_signup").fadeIn(200);
 	$("html, body").animate({ scrollTop: 0  }, 0);
 	return false
+};
+
+function toggleSignupLogin() {
+	var s = $("#signup_message_form");
+	var l = $("#login_form");
+	if(s.css("display") == "none" && l.css("display") == "block") {
+		s.css("display", "block");
+		l.css("display", "none");
+	} else if (s.css("display") == "block" && l.css("display") == "none") {
+		s.css("display", "none");
+		l.css("display", "block");
+	}
 };

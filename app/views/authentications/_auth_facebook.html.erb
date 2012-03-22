@@ -1,0 +1,7 @@
+<% if Authentication.find_by_user_id_and_provider(current_user.id, "facebook").nil? %>
+	<div id="authenticate_facebook">
+		<%= link_to("/auth/facebook", :id => "facebook_auth") do %>
+			<%= image_tag "/assets/facebook_auth.png" %> <h3>Connect with Facebook</h3>
+		<% end %>
+	</div>
+<% end %>

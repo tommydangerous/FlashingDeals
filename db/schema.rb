@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120314134220) do
+ActiveRecord::Schema.define(:version => 20120322150515) do
+
+  create_table "authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "provider"
+    t.string   "uid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "authentications", ["user_id", "provider", "uid"], :name => "index_authentications_on_user_id_and_provider_and_uid", :unique => true
 
   create_table "bonds", :force => true do |t|
     t.integer   "deal_id"
@@ -244,6 +254,7 @@ ActiveRecord::Schema.define(:version => 20120314134220) do
     t.boolean  "gm",                     :default => false
     t.string   "time_zone",              :default => "Pacific Time (US & Canada)"
     t.datetime "active"
+    t.string   "image_remote_url"
   end
 
   add_index "users", ["active"], :name => "index_users_on_active"

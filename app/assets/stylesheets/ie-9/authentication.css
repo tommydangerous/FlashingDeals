@@ -1,0 +1,121 @@
+div#signup_facebook {
+	margin: 20px 0px;
+}
+
+#facebook_signup {
+	display: block;
+	padding: 5px;
+	height: 26px;
+	width: 210px;
+	background: rgb(59, 89, 152);
+	margin: 0 auto;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;	
+}
+
+#facebook_signup:hover {
+	text-decoration: none;
+	background: rgb(35, 72, 126);
+}
+
+#facebook_signup:active {
+	-webkit-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-khtml-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-moz-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-ms-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-o-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+}
+
+#facebook_signup h3 {
+	font-family: Helvetica, Arial;
+	font-size: 16px;
+	color: rgb(255, 255, 255);
+	margin: 0;
+	margin-top: 5px;
+	margin-left: 36px;
+	text-align: left;
+}
+
+#facebook_signup img {
+	float: left;
+	width: 26px;
+	height: 26px;
+}
+
+#authenticate_facebook {
+	margin-top: 10px;
+}
+
+#facebook_auth {
+	display: block;
+	padding: 5px;
+	height: 20px;
+	width: 201px;
+	background: rgb(59, 89, 152);
+	margin: 0 auto;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;	
+}
+
+#facebook_auth:hover {
+	text-decoration: none;
+	background: rgb(35, 72, 126);
+}
+
+#facebook_auth:active {
+	-webkit-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-khtml-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-moz-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-ms-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-o-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+}
+
+#facebook_auth h3 {
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(255, 255, 255);
+	margin: 0;
+	margin-top: 3px;
+	margin-left: 30px;
+	text-align: left;
+}
+
+#facebook_auth img {
+	float: left;
+	width: 20px;
+	height: 20px;
+}

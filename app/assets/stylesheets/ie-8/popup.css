@@ -19,18 +19,12 @@
 
 #login_main {
 	text-align: left;
-	width: 400px;
+	width: 800px;
 	z-index: 200;
 	margin-left: auto;
 	margin-right: auto;
 	position: relative;
 	top: 111px;
-	-webkit-box-shadow: 0px 0px 20px rgba(255, 255, 255, .75);
-	-khtml-box-shadow: 0px 0px 20px rgba(255, 255, 255, .75);
-	-moz-box-shadow: 0px 0px 20px rgba(255, 255, 255, .75);
-	-ms-box-shadow: 0px 0px 20px rgba(255, 255, 255, .75);
-	-o-box-shadow: 0px 0px 20px rgba(255, 255, 255, .75);
-	box-shadow: 0px 0px 20px rgba(255, 255, 255, .75);
 }
 
 div#dim_signup, div#dim_signup_deal_show {
@@ -108,7 +102,7 @@ div#signup_message_body {
 }
 
 div#signup_message_info {
-	width: 39%;
+	width: 300px;
 	padding: 20px;
 	float: left;
 }
@@ -119,8 +113,16 @@ div#signup_message_info p {
 	margin-bottom: 14px;
 }
 
+div#signup_message_info h2 {
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	text-align: center;
+}
+
 div#signup_message_form {
-	width: 50%;
+	display: none;
+	width: 400px;
 	padding: 20px;
 	float: right;
 	text-align: right;
