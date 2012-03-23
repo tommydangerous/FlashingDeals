@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120322150515) do
+ActiveRecord::Schema.define(:version => 20120323200954) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -198,6 +198,15 @@ ActiveRecord::Schema.define(:version => 20120322150515) do
 
   add_index "notifications", ["read"], :name => "index_notifications_on_read"
   add_index "notifications", ["user_id", "notice_id", "deal_id", "comment_id", "subcomment_id"], :name => "notifications_index", :unique => true
+
+  create_table "referrals", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "referred_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "referrals", ["user_id", "referred_id"], :name => "index_referrals_on_user_id_and_referred_id", :unique => true
 
   create_table "relationships", :force => true do |t|
     t.integer   "watcher_id"

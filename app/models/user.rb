@@ -80,6 +80,8 @@ class User < ActiveRecord::Base
 	has_many :notifications, :foreign_key => "notice_id", :dependent => :destroy
 	
 	has_many :authentications, :dependent => :destroy
+	
+	has_many :referrals, :dependent => :destroy
 											 										 
 	before_save :encrypt_password
 	
