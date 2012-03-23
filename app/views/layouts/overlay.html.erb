@@ -22,6 +22,12 @@
 				});
 				$(".box_image").show()
 			});
+			
+			$("a#deal_show_overlay_container_close").click(function() {
+				$(".overlayOuter").hide();
+				$("body").removeClass("stationary");
+				$(".box_image").show()
+			});
 		</script>
 	</head>
 	<%= yield %>

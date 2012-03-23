@@ -51,7 +51,7 @@ $(function() {
 		$("body").removeClass("stationary");
 		$(".box_image").show()
 	})
-})
+});
 
 function hideOverlayOuter() {
 	$(".overlayOuter").hide();

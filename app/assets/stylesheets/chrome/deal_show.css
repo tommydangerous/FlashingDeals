@@ -22,6 +22,27 @@ div#deal_show_overlay_container {
 	float: left;
 }
 
+a#deal_show_overlay_container_close {
+	position: relative;
+	bottom: 12px;
+	left: 12px;
+	margin-bottom: -22px;
+	display: block;
+	width: 32px;
+	height: 32px;
+	float: right;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+a#deal_show_overlay_container_close:hover {
+	opacity: .75;
+}
+
 div#deal_show_column_left {
 	width: 266px;
 	float: left;
@@ -34,6 +55,7 @@ div#deal_show_column_right {
 
 div#deal_show_lightning {
 	height: 20px;
+	margin-bottom: 2px;
 }
 
 div#deal_show_lightning img {
@@ -662,7 +684,7 @@ div#deal_show_share ul li a:hover {
 }
 
 div#coupon_popup {
-	border: 10px solid rgba(75, 75, 75, .5);
+	border: 10px solid rgba(150, 150, 150, .75);
 	-webkit-border-radius: 10px;
 	-khtml-border-radius: 10px;
 	-moz-border-radius: 10px;

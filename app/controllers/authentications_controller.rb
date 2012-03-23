@@ -6,7 +6,7 @@ class AuthenticationsController < ApplicationController
 	require 'uri'
 	
   def index
-  	@authentications = current_user.authentications if current_user
+  	@authentications = Authentication.all
   end
   
   def create2
@@ -62,7 +62,7 @@ class AuthenticationsController < ApplicationController
   end
   
   def failure
-  	flash[:error_2] = "Don't want one click access? Please signup below"
+  	flash[:error_2] = "Don't want one-click access? Please signup below"
   	redirect_to signup_path
   end
 end

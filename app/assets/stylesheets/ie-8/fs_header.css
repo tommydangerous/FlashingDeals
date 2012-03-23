@@ -75,11 +75,11 @@ a.selected:hover {
 	text-decoration: none;
 }
 
-div#category_drop_down {
+.fs_hd div#category_drop_down {
 	position: absolute;
 	z-index: 500;
 	margin-top: 5px;
-	margin-left: -10px;
+	margin-left: -205px;
 	display: none;
 }
 

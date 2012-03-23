@@ -33,6 +33,10 @@ $(document).ready(function(){
 		$("html, body").animate({ scrollTop: 0  }, 100);
 			return false;
 	})
+	
+	$("a#popup_page_info_close").click(function() {
+		$("div#popup_page_info").slideUp();
+	});
 });
 		
 $(window).bind("resize", function(){
@@ -62,3 +66,4 @@ function toggleSignupLogin() {
 		l.css("display", "block");
 	}
 };
+

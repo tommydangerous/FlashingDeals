@@ -63,4 +63,25 @@ class SessionsController < ApplicationController
 		end
 		redirect_to root_path
 	end
+	
+	def hide_featured
+		cookies[:hide_featured] = { :value => "hide", :expires => (Time.now + 86400 * 14) }
+		redirect_to featured_deals_path
+	end
+	
+	def hide_community
+		cookies[:hide_community] = { :value => "hide", :expires => (Time.now + 86400 * 14) }
+		respond_to do |format|
+			format.html { redirect_to community_deals_path }
+			format.js
+		end
+	end
+	
+	def hide_category
+		cookies[:hide_category] = { :value => "hide", :expires => (Time.now + 86400 * 14) }
+		respond_to do |format|
+			format.html { redirect_to :back }
+			format.js
+		end
+	end
 end

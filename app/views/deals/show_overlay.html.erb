@@ -11,6 +11,9 @@
 <% end %>
 <%= render "previous_next_deals_overlay" %>
 <div id="deal_show_overlay_container">
+	<%= link_to("javascript:void(0)", :id => "deal_show_overlay_container_close", :title => "Close and go back") do %>
+		<%= image_tag("/assets/close.png") %>
+	<% end %>
 	<div id="deal_show_column_left">
 		<% if @deal.metric >= 4 %>
 			<div id="deal_show_lightning">

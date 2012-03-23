@@ -7,7 +7,7 @@
 		</div>
 		<div id="my_deals_info">
 			<div id="my_deals_watching">
-				<p>Friends: <span class="my_friends_count"><%= (current_user.friends.count + current_user.inverse_friends.count) %></span></p>
+				<p>Friends: <span class="my_friends_count"><%= (@user.friends.count + @user.inverse_friends.count) %></span></p>
 			</div>
 			<div class="my_deals_div">
 				<p><%= link_to "Send Message", "javascript: void(0)", :onclick => "showNewMessage();" %></p>
