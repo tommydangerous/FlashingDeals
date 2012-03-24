@@ -1,0 +1,57 @@
+<div id="signup_info">
+	<div id="signup_info_header">
+		<h1>Why join<span class="green">?</span></h1>
+	</div>
+	<div id="signup_info_body">
+		<p>FlashingDeals is a site dedicated to bringing our members the best deals on the internet.</p> 
+		<p>We aim to do all the homework and research on every deal so you know that what you order through us is the lowest price.</p>
+		<p>Members can also submit their own deals, interact on our social forums, and have access to community deals and exclusive deals.</p>
+	</div>
+</div>
+<div id="signup">
+	<div id="signup_header">
+		<h1>Sign Up and be the <span class="green">first to know</span></h1>
+	</div>
+	<div id="signup_form">
+		<% if flash[:error] %>
+			<div id="error_explanation">
+				<ul>
+					<li><%= flash[:error] %></li>
+					<li>If you have an existing account with FlashingDeals and would like to Login with Facebook:</li>
+					<ol>
+						<li>Login to FlashingDeals</li>
+						<li>Click the "Connect with Facebook" button on your profile page</li>
+					</ol>
+				<ul>
+			</div>
+		<% elsif flash[:error_2] %>
+			<div id="error_explanation">
+				<ul>
+					<li><%= flash[:error_2] %></li>
+				<ul>
+			</div>
+		<% end %>
+		<div id="facebook_signup_referral">
+			<%= link_to("/auth/facebook", :id => "facebook_signup") do %>
+				<%= image_tag "/assets/facebook_auth.png" %> <h3>Signup with Facebook</h3>
+			<% end %>
+		</div>
+		<div id="referral_info">
+			<p>Yes, it is that easy.</p>
+		</div>
+		<div id="no_facebook">
+			<p>Don't have a Facebook? Signup <%= link_to "here", "javascript:void(0);", :class => "signup_popup_anchor" %></p>
+		</div>
+	</div>
+</div>
+<script>
+$(document).ready(function() {
+	$("#community_deals_header_link").hide();
+	$("#signup_header_link").hide();
+	$("#login").hide();
+	$("#login_form").css("display", "none");
+	$("#signup_message_form").css("display", "block");
+	$("#signup_facebook").hide();
+	$("#signup_message_info h2").hide();
+});
+</script>

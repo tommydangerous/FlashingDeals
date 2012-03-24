@@ -22,7 +22,6 @@ class AuthenticationsController < ApplicationController
   def create
   	omniauth = request.env["omniauth.auth"]
   	authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
-  	session[:omniauth] = omniauth.except('extra')
   	if authentication && authentication.user != nil
   		sign_in authentication.user
   		redirect_back_or my_account_path
@@ -38,8 +37,15 @@ class AuthenticationsController < ApplicationController
 				@photo = res['location'].to_s
   			user = User.create!(:name => omniauth["info"]["name"], :email => omniauth["info"]["email"], :password => random_password, :password_confirmation => random_password, :accept_terms => true, :image_url => @photo)
   			user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
-  			flash[:success] = "Welcome to FlashingDeals."
-	  		sign_in user
+  			unless cookies[:referral] == "" || cookies[:referral] == nil
+	  			Referral.create!(:user_id => cookies[:referral].to_i, :referred_id => user.id)
+	  		end
+	  		fd = User.find(1)
+	  		content = "Hello #{user.name} and welcome to FlashingDeals! We are excited and glad to have you join our community. If you have any questions or just want to say hi, please message me and I'll get back to you as soon as possible. Also, please check your friend requests by hovering over '#{user.name.split(' ')[0]}' in the top right corner and selecting 'Friend Requests', you will see that I sent you one. Hope you accept! Thank you and enjoy your time."
+	  		fd.send_messages.create!(:recipient_id => user.id, :content => content)
+  			fd.friendships.create!(:friend_id => user.id, :approved => false)
+  			sign_in user
+  			flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
 	  		redirect_back_or my_account_path
 	  	else
 	  		if User.find_by_name(omniauth["info"]["name"]) != nil && User.find_by_email(omniauth["info"]["email"]) != nil

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :except => [:new, :create, :my_account, :my_deals]
+	before_filter :authenticate, :except => [:new, :signup, :create, :my_account, :my_deals]
 	before_filter :auth_my_account, :only => [:my_account, :my_deals]
 	before_filter :correct_user, :only => [:watching, :edit, :update]
 	before_filter :admin_user,	 :only => :index
@@ -18,14 +18,28 @@ class UsersController < ApplicationController
   		@user = User.new
   		@title = "Sign Up"
   	end
-  end	
+  end
+  
+  def signup
+  	if signed_in?
+  		redirect_to root_path
+  	else
+  		user = User.find(params[:id])
+  		cookies[:referral] = { :value => "#{user.id}", :expires => (Time.now + 86400) }
+  		@title = "Sign Up"
+  	end
+  end
 
   def create
   	params[:user][:email] = params[:user][:email].downcase
   	@user = User.new(params[:user])
   	if @user.save
+  		fd = User.find(1)
+  		content = "Hello #{@user.name} and welcome to FlashingDeals! We are excited and glad to have you join our community. If you have any questions or just want to say hi, please message me and I'll get back to you as soon as possible. Also, please check your friend requests by hovering over '#{@user.name.split(' ')[0]}' in the top right corner and selecting 'Friend Requests', you will see that I sent you one. Hope you accept! Thank you and enjoy your time."
+  		fd.send_messages.create!(:recipient_id => @user.id, :content => content)
+  		fd.friendships.create!(:friend_id => @user.id, :approved => false)
   		sign_in @user
-  		flash[:success] = "Welcome to FlashingDeals."
+  		flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
   		redirect_back_or my_account_path
   	else
   		@title = "Sign Up"

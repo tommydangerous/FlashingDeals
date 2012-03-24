@@ -79,7 +79,7 @@ a.selected:hover {
 	position: absolute;
 	z-index: 500;
 	margin-top: 5px;
-	margin-left: -205px;
+	margin-left: -185px;
 	display: none;
 }
 
@@ -89,7 +89,7 @@ div#category_drop_down_arrow {
 	border-right: 10px solid transparent;
 	border-left: 10px solid transparent;
 	border-bottom: 10px solid rgb(255, 255, 255);
-	margin-left: 80%;
+	margin-left: 65%;
 	position: absolute;
 	z-index: 501;
 }

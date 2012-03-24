@@ -36,6 +36,7 @@ FlashingDeal::Application.routes.draw do
   	member do
   		get :watching
   		get :friends
+  		get :signup
   	end
   end
 # Authentications
