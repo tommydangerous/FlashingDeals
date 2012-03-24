@@ -1,3 +1,9 @@
+<script>
+$(function() {
+	$("a#flashmob_deals").removeClass("not_selected");
+	$("a#flashmob_deals").addClass("selected");
+});
+</script>
 <% content_for :head do %>
 	<meta property="og:title" content="FlashingDeals | First to Know" />
 	<meta property="og:description" content="FlashingDeals is always scouring the internet for the best deals. With new ones every 15 minutes, let us do the work for you!" />
@@ -50,10 +56,3 @@
 </div>
 <div class="clear"></div>
 <%= render "endless_pagination" %>
-<script>
-$(document).ready(function() {
-	$("div#flashmob_arrow").show();
-	$("a#flashmob_deals").removeClass("not_selected");
-	$("a#flashmob_deals").addClass("selected");
-});
-</script>

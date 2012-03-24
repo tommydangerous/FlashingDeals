@@ -1,3 +1,19 @@
+<% if signed_in? %>
+<script>
+$(function() {
+	$("a#flashback").removeClass("not_selected");
+	$("a#flashback").addClass("selected");
+});
+</script>
+<% else %>
+<script>
+$(function() {
+	$("#dim_signup").show();
+	$("a#flashback").removeClass("not_selected");
+	$("a#flashback").addClass("selected");
+});
+</script>
+<% end %>
 <% content_for :head do %>
 	<meta property="og:title" content="FlashingDeals | First to Know" />
 	<meta property="og:description" content="FlashingDeals is always scouring the internet for the best deals. With new ones every 15 minutes, let us do the work for you!" />
@@ -48,21 +64,3 @@
 <div id="grid_container_large">
 	<%= render :partial => "box_deal_large", :collection => @deals, :as => :deal %>
 </div>
-<% if signed_in? %>
-<script>
-$(document).ready(function() {
-	$("div#flashback_arrow").show();
-	$("a#flashback").removeClass("not_selected");
-	$("a#flashback").addClass("selected");
-});
-</script>
-<% else %>
-<script>
-$(document).ready(function() {
-	$("#dim_signup").show();
-	$("div#flashback_arrow").show();
-	$("a#flashback").removeClass("not_selected");
-	$("a#flashback").addClass("selected");
-});
-</script>
-<% end %>
