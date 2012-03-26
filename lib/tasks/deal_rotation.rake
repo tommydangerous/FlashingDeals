@@ -8,11 +8,6 @@ def rotate_deals
 	queue_deals = Deal.where("queue = ?", true).order("deal_order ASC")
 	top_deals = Deal.where("top_deal = ?", true).order("time_in ASC")
 	flashback_deals = Deal.where("flash_back = ? AND time_in > ? AND dead = ?", true, today, false).order("time_in ASC")
-	if queue_deals.empty?
-		unless flashback_deals.empty?
-			flashback_deals.first.update_attributes(:queue => true, :top_deal => false, :flash_back => false, :deal_order => 1)
-		end
-	end
 	if queue_deals.size > 0
 		queue_deals.first.update_attributes(:queue => false, :top_deal => true, :flash_back => false, :time_in => Time.now)
 		if top_deals.size > 3
