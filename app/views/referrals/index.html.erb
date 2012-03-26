@@ -1,0 +1,20 @@
+<div id="referrals_list">
+	<h1>Referrals: <%= Referral.all.size %></h1>
+	<% @referrals.sort.each do |user, referrals| %>
+		<h2><%= link_to User.find(user).name, User.find(user) %> (<%= referrals.size %>)</h2>
+		<% for referral in referrals %>
+			<div class="referral">
+				<div id="referral_photo">
+					<%= link_to User.find(referral.referred_id) do %>
+						<%= image_tag User.find(referral.referred_id).photo.url, :id => "user_photo_small" %>
+					<% end %>
+				</div>
+				<div id="referral_user_info">
+					<h3><%= link_to User.find(referral.referred_id).name, User.find(referral.referred_id) %></h3>
+					<p><span class="grey_150">Referred:</span> <%= referral.created_at.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= referral.created_at.strftime("%I:%M %p") %></p>
+				</div>
+			</div>
+		<% end %>
+	<% end %>
+	<div class="page_end"></div>
+</div>
