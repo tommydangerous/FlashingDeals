@@ -9,14 +9,11 @@ $(function() {
 	<meta property="og:description" content="FlashingDeals is always scouring the internet for the best deals. With new ones every 15 minutes, let us do the work for you!" />
 	<meta property="og:image" content="https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png" />
 <% end %>
-<% unless cookies[:hide_community] == "hide" %>
-	<div id="popup_page_info">
-		<%= link_to image_tag("/assets/close.png"), hide_community_path, :remote => true, :title => "Hide this message", :id => "popup_page_info_close" %>
-		<div id="popup_page_info_body">
-			<p>Imagine the entire internet of deals on a single page. The Community Deals contain lots of hidden gems, capturing them from daily deal sites and online retail stores. Community users like yourself and the FD team find some of the best deals here before they make it to the front page.</p>
-		</div>
+<div id="popup_page_info">
+	<div id="popup_page_info_body">
+		<p>Imagine the entire internet of deals on a single page. The Community Deals contain lots of hidden gems, capturing them from daily deal sites and online retail stores. Community users like yourself and the FD team find some of the best deals here before they make it to the front page.</p>
 	</div>
-<% end %>
+</div>
 <div id="grid_top_bar">
 	<div id="facebook_twitter_home">
 		<ul>

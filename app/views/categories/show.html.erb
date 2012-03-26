@@ -3,14 +3,11 @@
 	<meta property="og:description" content="FlashingDeals is always scouring the internet for the best deals. With new ones every 15 minutes, let us do the work for you!" />
 	<meta property="og:image" content="https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png" />
 <% end %>
-<% unless cookies[:hide_category] == "hide" %>
-	<div id="popup_page_info">
-		<%= link_to image_tag("/assets/close.png"), hide_category_path, :remote => true, :title => "Hide this message", :id => "popup_page_info_close" %>
-		<div id="popup_page_info_body">
-			<p>To make your life easier and deal hunting much more fun, we group deals from the Featured page and the Community page all into their respective category. We let you to decide how you want to navigate and explore the deals.</p>
-		</div>
+<div id="popup_page_info">
+	<div id="popup_page_info_body">
+		<p>To make your life easier and deal hunting much more fun, we group deals from the Featured page and the Community page all into their respective category. We let you to decide how you want to navigate and explore the deals.</p>
 	</div>
-<% end %>
+</div>
 <div id="grid_top_bar">
 	<div id="facebook_twitter_home">
 		<ul>
