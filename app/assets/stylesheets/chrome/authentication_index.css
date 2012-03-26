@@ -1,0 +1,58 @@
+div#authentications_list {
+	width: 700px;
+}
+
+div#authentications_list h1 {
+	font-family: Helvetica, Arial;
+	font-weight: bold;
+	font-size: 14px;
+	background: rgb(173, 217, 228);
+	color: rgb(44, 175, 227);
+	padding: 10px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-ms-border-top-left-radius: 5px;
+	-o-border-top-left-radius: 5px;
+	border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-right-radius: 5px;
+	-o-border-top-right-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-bottom: 5px;
+}
+
+div.authentication {
+	padding: 5px;
+	border: 1px solid rgb(148, 222, 240);
+	margin-bottom: 3px;
+	background: rgb(255, 255, 255);
+	height: 50px;
+}
+
+div#authentication_photo {
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	float: left;
+}
+
+div#authentication_info {
+	margin-left: 65px;
+}
+
+div#authentication_info a {
+	font-weight: bold;
+}
+
+div#authentication_info h2 {
+	font-family: Helvetica, Arial;
+	color: rgb(75, 75, 75);
+	margin-bottom: 22px;
+	font-size: 14px;
+}
+
+div#authentication_info p {
+	font-family: Verdana;
+	font-size: 12px;
+}

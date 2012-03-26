@@ -1,0 +1,11 @@
+<div class="authentication">
+	<div id="authentication_photo">
+		<%= link_to User.find(authentication.user.id) do %>
+			<%= image_tag User.find(authentication.user.id).photo.url, :id => "user_photo_small" %>
+		<% end %>
+	</div>
+	<div id="authentication_info">
+		<h2><%= link_to User.find(authentication.user.id).name, User.find(authentication.user.id) %> (<%= authentication.provider %>)</h2>
+		<p><span class="grey_150">Created:</span> <%= authentication.created_at.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= authentication.created_at.strftime("%I:%M %p") %></p>
+	</div>
+</div>

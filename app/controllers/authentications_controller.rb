@@ -6,7 +6,8 @@ class AuthenticationsController < ApplicationController
 	require 'uri'
 	
   def index
-  	@authentications = Authentication.all
+  	@title = "Authentications"
+  	@authentications = Authentication.order("created_at DESC")
   end
   
   def create2
