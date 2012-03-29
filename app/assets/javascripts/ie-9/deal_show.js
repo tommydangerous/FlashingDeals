@@ -3,7 +3,7 @@ function setPreviousNextHeight() {
 	$("#previous_deal").height(h);
 	$("#next_deal").height(h);
 };
-
+/*
 $(document).ready(function() {
 	$("#previous_deal").mouseover(function() {
 		$("#previous_arrow").show();
@@ -27,3 +27,4 @@ $(document).ready(function() {
 		$("#next_arrow").css("top", (e.pageY - 100));
 	});
 });
+*/

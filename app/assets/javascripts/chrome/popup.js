@@ -66,4 +66,3 @@ function toggleSignupLogin() {
 		l.css("display", "block");
 	}
 };
-
