@@ -48,7 +48,7 @@ div#login_header h1 {
 
 div#login_form {
 	float: right;
-	padding: 20px;
+	padding: 20px 20px 20px 5px;
 	width: 400px;
 }
 

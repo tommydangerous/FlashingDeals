@@ -3,10 +3,12 @@
 <% else %>
 <div id="box_deal_<%= deal.id %>" class="box_deal_large" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();">
 <% end %>
-	<% if deal.metric >= 4 %>
-		<div id="box_deal_large_lightning">
-			<%= lightning_deal_2 %>
-		</div>
+	<% unless deal.metric.nil? %>
+		<% if deal.metric >= 4 %>
+			<div id="box_deal_large_lightning">
+				<%= lightning_deal_2 %>
+			</div>
+		<% end %>
 	<% end %>
 	<div id="box_deal_large_price">
 		<h1>
@@ -120,6 +122,13 @@ function overlayPopup(id) {
 		$(".overlayOuter").fadeIn(200);
 	})
 };
+
+function adjustHeight() {
+	var h = $(".overlay_image_<%= deal.id %>").height();
+	var x = (200 - h)/2
+	$(".overlay_image_<%= deal.id %>").css("top", x);
+}
+setInterval(adjustHeight, 0);
 </script>
 <% elsif Rails.env.production? %>
 <script>
@@ -145,5 +154,12 @@ function overlayPopup(id) {
 		$(".overlayOuter").fadeIn(200);
 	})
 };
+
+function adjustHeight() {
+	var h = $(".overlay_image_<%= deal.id %>").height();
+	var x = (200 - h)/2
+	$(".overlay_image_<%= deal.id %>").css("top", x);
+}
+setInterval(adjustHeight, 0);
 </script>
 <% end %>

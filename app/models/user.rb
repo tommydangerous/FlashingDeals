@@ -82,6 +82,7 @@ class User < ActiveRecord::Base
 	has_many :authentications, :dependent => :destroy
 	
 	has_many :referrals, :dependent => :destroy
+	has_one  :inverse_referrals, :class_name => "Referral", :foreign_key => "referred_id", :dependent => :destroy
 											 										 
 	before_save :encrypt_password
 	

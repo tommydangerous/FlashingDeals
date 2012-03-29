@@ -37,7 +37,6 @@ FlashingDeal::Application.routes.draw do
   	member do
   		get :watching
   		get :friends
-  		get :signup
   	end
   end
 # Authentications
@@ -75,6 +74,7 @@ FlashingDeal::Application.routes.draw do
   match '/privacy' => 'pages#privacy', :as => :privacy
   match '/test' => 'pages#test', :as => :test
   match '/control-panel' => 'pages#control_panel', :as => :control_panel
+  match '/contacts/failure' => 'pages#contacts_failure'
 # Sessions  
   match '/login'  => 'sessions#new'
   match '/logout' => 'sessions#destroy'
@@ -94,6 +94,10 @@ FlashingDeal::Application.routes.draw do
   match '/friends' => 'users#my_friends', :as => :my_friends
   match '/friend-requests' => 'users#friend_requests', :as => :friend_requests
   match '/shared' => 'users#shared', :as => :shared_deals
+  match '/invite' => 'users#invite', :as => :invite
+  match "/signup/:id" => 'users#signup', :as => :referral_signup_path
+  match '/email-invites' => 'users#email_invite', :as => :email_invite
+  match '/gmail-invites' => 'users#gmail_invite', :as => :gmail_invite
 # Friends
 	match '/user/list/friends/friends-list' => 'friends#friends_list', :as => :friends
 # Ajax

@@ -15,10 +15,12 @@
 		<%= image_tag("/assets/close.png") %>
 	<% end %>
 	<div id="deal_show_column_left">
-		<% if @deal.metric >= 4 %>
-			<div id="deal_show_lightning">
-				<%= lightning_deal_2 %>
-			</div>
+		<% unless @deal.metric.nil? %>
+			<% if @deal.metric >= 4 %>
+				<div id="deal_show_lightning">
+					<%= lightning_deal_2 %>
+				</div>
+			<% end %>
 		<% end %>
 		<% if @deal.dead? %>
 			<div id="deal_show_image" class="deal_dead" title="This deal has expired">
@@ -105,11 +107,13 @@
 	<div id="deal_show_column_right">
 		<div id="deal_show_name">
 			<h1>
-			<% if @deal.dead? %>
-				<span class="red">Expired</span> <%= wrap_deal_show(@deal.name) %>
-			<% else %>
-				<%= wrap_deal_show(@deal.name) %>
-			<% end %>
+				<%= link_to @deal do %>
+					<% if @deal.dead? %>
+						<span class="red">Expired</span> <%= wrap_deal_show(@deal.name) %>
+					<% else %>
+						<%= wrap_deal_show(@deal.name) %>
+					<% end %>
+				<% end %>
 			</h1>
 		</div>
 		<div id="deal_show_line_2">

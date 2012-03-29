@@ -76,7 +76,7 @@
 								<% end %>
 							</li>
 						<% end %>
-						<li><%= link_to "My Friends", friends_user_path(current_user) %></li>
+						<li><%= link_to "My Friends", my_friends_path %></li>
 						<li>
 							<%= link_to shared_deals_path do %>
 								<div class="shared_deals_count">
@@ -89,6 +89,7 @@
 					</ul>
 				</div>
 			</li>
+			<li><%= link_to "Invite", invite_path, :id => "invite_link", :class => "not_selected" %></li>
       <% else %>
       	<li id="community_deals_header_link"><%= link_to "Community", "javascript:void(0);", :class => "not_selected signup_popup_anchor scroll_top" %></li>
       	<li id="signup_header_link"><%= link_to "Sign Up", "javascript:void(0);", :class => "not_selected signup_popup_anchor scroll_top" %></li>

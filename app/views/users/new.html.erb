@@ -3,9 +3,7 @@
 		<h1>Why join<span class="green">?</span></h1>
 	</div>
 	<div id="signup_info_body">
-		<p>FlashingDeals is a site dedicated to bringing our members the best deals on the internet.</p> 
-		<p>We aim to do all the homework and research on every deal so you know that what you order through us is the lowest price.</p>
-		<p>Members can also submit their own deals, interact on our social forums, and have access to community deals and exclusive deals.</p>
+		<%= render "users/signup_info" %>
 		<div id="signup_facebook">
 			<%= link_to("/auth/facebook", :id => "facebook_signup") do %>
 				<%= image_tag "/assets/facebook_auth.png" %> <h3>Signup with Facebook</h3>

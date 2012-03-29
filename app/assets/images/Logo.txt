@@ -1,9 +1,10 @@
-small: font-size: 40, outline-size: 4, opacity: 25, tilt X: 0, fade height: 50, scale y: 100%, x offset: 0, y offset: 0
+small: font-size: 40, outline-size: 3, opacity: 25, tilt X: 0, fade height: 50, scale y: 100%, x offset: 0, y offset: 0
 iframe: font-size: 30, outline-zie: 3, opacity: 25, tilt X: 0, fade height: 50, scale y: 100%, x offset: 0, y offset: 0; or with nothing
 
 FDSplash Logo: font-size: 60, outline-size: 5, DROP, x offset: 4, y offset: 4, blur: 10, shadow color: black, opacity: 50
 
 FD symbol logo: font-size: 180, outline-size: 15, DROP, x offset: 2, y offset: 2, blur: 10, opacity: 75
+FD logo: font-size: 180, outline-size: 11, DROP, x offset: 2, y offset: 2, blur: 10, opacity: 75
 
 color: rgba( 71, 224, 255, 1 )
 
@@ -15,3 +16,4 @@ Font: European > HI Piilani Bold
 Text Color: 110, 220, 90
 Shadow: None
 Background: Transparent
+

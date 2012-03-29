@@ -12,12 +12,7 @@ class AuthenticationsController < ApplicationController
   
   def create2
   	omniauth = request.env["omniauth.auth"]
-  	url = URI.parse("http://graph.facebook.com/#{omniauth['uid']}/picture?type=large")
-  	res = Net::HTTP.start(url.host, url.port) {|http|
-		  http.get("/#{omniauth['uid']}/picture?type=large")
-		}
-		@photo = res['location'].to_s
-		render :text => @photo
+		render :text => omniauth.to_yaml
   end
 
   def create

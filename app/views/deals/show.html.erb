@@ -12,10 +12,12 @@
 <%= render "previous_next_deals" %>
 <div id="deal_show_container">
 	<div id="deal_show_column_left">
-		<% if @deal.metric >= 4 %>
-			<div id="deal_show_lightning">
-				<%= lightning_deal_2 %>
-			</div>
+		<% unless @deal.metric.nil? %>
+			<% if @deal.metric >= 4 %>
+				<div id="deal_show_lightning">
+					<%= lightning_deal_2 %>
+				</div>
+			<% end %>
 		<% end %>
 		<% if @deal.dead? %>
 			<div id="deal_show_image" class="deal_dead" title="This deal has expired">

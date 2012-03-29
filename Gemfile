@@ -13,7 +13,10 @@ gem 'aws-s3'
 gem 'friendly_id'
 gem 'rails_autolink'
 gem 'omniauth-facebook'
+gem 'omniauth-google'
+gem 'omnicontacts'
 gem 'fb_graph'
+gem 'roadie'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

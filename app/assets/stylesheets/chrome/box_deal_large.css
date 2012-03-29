@@ -46,6 +46,7 @@ a.box_deal_large_link {
 img#box_deal_large_image {
 	max-height: 200px;
 	max-width: 200px;
+	position: relative;
 }
 
 div.box_deal_large_share {
@@ -129,7 +130,7 @@ div.box_deal_large_share ul li img:active {
 	text-align: right;
 	font-family: Helvetica, Arial;
 	font-size: 14px;
-	color: rgb(150, 150, 150);
+	color: rgb(75, 75, 75);
 	margin: 0;
 }
 

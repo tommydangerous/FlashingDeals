@@ -1,0 +1,82 @@
+<% flash.each do |key, value| %>
+	<div class="flash <%= key %>"><%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %></div>
+<% end %>
+<div id="invite_your_friends">
+	<h1>Invite Your Friends</h1>
+	<div id="invite_your_friends_body">
+		<p>FlashingDeals is more fun with friends.  Keeping these deals a secret has shown to jeopardize friendships.</p> 
+		<p>Invite 10 friends and you will get a $10 gift card of your choice. Invite 25 friends and get a $30 gift card. The more friends you invite, the more you will receive. There is no limit.</p>
+		<p>Please use your personal invite link when sharing FlashingDeals with friends.</p>
+	</div>
+</div>
+<div id="share_invite">
+	<h1>Share Your Invite</h1>
+	<div id="share_invite_body">
+		<h2>Your Invite Link</h2>
+		<input readonly="readonly" value="http://www.flashingdeals.com/signup/<%= @user.id %>235kjv" id="user_invite_link">
+		<div id="share_invite_social">
+			<%= link_to("https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com/signup/#{@user.id}235kjv", :id => "share_invite_facebook", :class => "example3demo") do %>
+				<%= image_tag "/assets/facebook_auth.png" %>
+				<h3>Share Invite</h3>
+			<% end %>
+			<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= "Come join me on @FlashingDeals. Friends don't let friends pay full price." %>%20http://www.flashingdeals.com/<%= @user.id %>235kjv" target="_blank" id="share_invite_twitter">
+				<%= image_tag("/assets/twitter_auth.png") %>
+				<h3>Share Invite</h3>
+			</a>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<div class="clear"></div>
+<div id="email_invite">
+	<h1>Email Your Invite</h1>
+	<div id="email_invite_body">
+		<h2>Type in the emails you wish to send your invite to, separate each with a comma</h2>
+		<div id="email_invite_field">
+			<%= form_tag email_invite_path, :method => :get do %>
+				<%= text_field_tag :user_email_invite, params[:user_email_invite], :autocomplete => "off", :placeholder => "bobby@gmail.com, timmy@hotmail.com, johnny@yahoo.com" %>
+				<%= submit_tag "Email Invite", :name => nil, :id => "user_email_invite_send", :class => "send_email" %>
+			<% end %>
+		</div>
+		<% if @contacts.nil? %>
+			<%= link_to("/contacts/gmail", :id => "add_gmail_contacts") do %>
+				<%= image_tag "/assets/gmail.png" %> <h3>Add Gmail Contacts</h3>
+			<% end %>
+		<% else %>
+			<div id="email_invite_number">
+				<input type="checkbox" id="check_all" onclick="toggleChecked();"><h2><%= @contacts.size %> Contacts</h2>
+				<h3><span id="selected_emails_count">0</span> Selected</h3>
+				<div class="clear"></div>
+			</div>
+			<div id="email_invite_gmail">
+				<%= form_tag gmail_invite_path, :method => :get do %>
+					<% @contacts.each do |contact| %>
+						<div id="contact_<%= @contacts.index(contact) %>" class="email_invite_contact" onclick="toggleEmailInvite(<%= @contacts.index(contact) %>);">
+							<input class="email_invite_check" id="email_invite_check_<%= @contacts.index(contact) %>" name="email_invite_check[]" type="checkbox" value="<%= contact[:email] %>">
+							<div id="email_invite_contact_name">
+								<p><strong>Name:</strong> <%= contact[:name] %></p>
+							</div>
+							<div id="email_invite_contact_email">
+								<p><strong>Email:</strong> <%= contact[:email] %></p>
+							</div>
+							<div class="clear"></div>
+						</div>
+					<% end %>
+			</div>
+			<div id="send_gmail_invites">
+				<%= submit_tag "Send Gmail Invites", :name => nil, :id => "user_email_invite_send", :class => "send_gmail" %>
+			</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+<script>
+$("a#invite_link").removeClass("not_selected");
+$("a#invite_link").addClass("selected");
+$('.example3demo').popupWindow({ 
+	centerScreen:1,
+	resizable: 1,
+	height: 375,
+	width: 675
+});
+</script>

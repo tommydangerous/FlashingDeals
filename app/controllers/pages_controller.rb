@@ -1,12 +1,21 @@
-class PagesController < ApplicationController
+class PagesController < ApplicationController	
+	before_filter :authenticate, :only => [:test, :control_panel]
+	before_filter :gm_user, :only => [:test, :control_panel]
+	
 	require 'net/http'
 	require 'uri'
 	require 'httparty'
 	require 'hpricot'
 	require 'nokogiri'
 	
-	before_filter :authenticate, :only => [:test, :control_panel]
-	before_filter :gm_user, :only => [:test, :control_panel]
+	def test
+		@user = current_user
+		render :layout => false
+	end
+	
+	def control_panel
+		@title = "Control Panel"
+	end
 
 	def about
 		@title = "About Us"
@@ -60,18 +69,9 @@ class PagesController < ApplicationController
 		@title = "Wonderland"
 	end
 	
-	def test
-		@title = "Test"
-		user = FbGraph::User.me(session[:omniauth][:credentials][:token])
-		@user = user.fetch
-		url = URI.parse("http://graph.facebook.com/#{@user.identifier}/picture?type=large")
-		res = Net::HTTP.start(url.host, url.port) {|http|
-		  http.get('/1243011/picture?type=large')
-		}
-		@photo = res['location'].to_s
-	end
-	
-	def control_panel
-		@title = "Control Panel"
+	def contacts_failure
+		@title = "Invite Your Friends"
+  	@user = current_user
+		render "users/invite"
 	end
 end

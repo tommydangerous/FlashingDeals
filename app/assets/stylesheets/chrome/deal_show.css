@@ -407,6 +407,21 @@ div#deal_show_name h1 {
 	margin: 0px;
 }
 
+div#deal_show_name h1 a {
+	color: rgb(75, 75, 75);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#deal_show_name h1 a:hover {
+	color: rgb(75, 75, 75);
+	text-decoration: underline;
+}
+
 div#deal_show_line_2 {
 	padding: 20px 0px;
 	margin: 20px 0px;

@@ -1013,8 +1013,8 @@ div#close_signup_message {
 
 div#close_signup_message a {
 	display: block;
-	height: 32px;
-	width: 32px;
+	height: 25px;
+	width: 25px;
 	float: right;
 	-webkit-transition: all .2s linear;
 	-khtml-transition: all .2s linear;
@@ -1026,6 +1026,11 @@ div#close_signup_message a {
 
 div#close_signup_message a:hover {
 	opacity: .75;
+}
+
+div#close_signup_message a img {
+	width: 25px;
+	height: 25px;
 }
 
 div#signup_message_header {
@@ -1049,8 +1054,8 @@ div#signup_message_body {
 }
 
 div#signup_message_info {
-	width: 300px;
-	padding: 20px;
+	width: 340px;
+	padding: 20px 5px 20px 20px;
 	float: left;
 }
 
@@ -1070,7 +1075,7 @@ div#signup_message_info h2 {
 div#signup_message_form {
 	display: none;
 	width: 400px;
-	padding: 20px;
+	padding: 20px 20px 20px 5px;
 	float: right;
 	text-align: right;
 }

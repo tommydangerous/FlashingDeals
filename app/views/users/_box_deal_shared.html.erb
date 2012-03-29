@@ -3,10 +3,12 @@
 <% else %>
 <div id="box_deal_<%= deal.id %>" class="box_deal box_deal_shared_<%= deal.id %> box_deal_shared" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();" title="Shared by <%= User.find(current_user.inverse_shares.find_by_deal_id(deal.id).user_id).name %>">
 <% end %>
-	<% if deal.metric >= 4 %>
-		<div id="box_deal_lightning">
-			<%= lightning_deal_2 %>
-		</div>
+	<% unless deal.metric.nil? %>
+		<% if deal.metric >= 4 %>
+			<div id="box_deal_large_lightning">
+				<%= lightning_deal_2 %>
+			</div>
+		<% end %>
 	<% end %>
 	<div id="box_deal_price">
 		<h2>

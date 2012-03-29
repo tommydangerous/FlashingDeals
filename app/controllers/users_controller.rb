@@ -24,9 +24,14 @@ class UsersController < ApplicationController
   	if signed_in?
   		redirect_to root_path
   	else
-  		user = User.find(params[:id])
-  		cookies[:referral] = { :value => "#{user.id}", :expires => (Time.now + 86400) }
-  		@title = "Sign Up"
+  		id = params[:id].split("235kjv")[0]
+  		user = User.find_by_id(id)
+  		if user.nil?
+  			redirect_to signup_path
+  		else
+	  		cookies[:referral] = { :value => "#{user.id}", :expires => (Time.now + 86400) }
+	  		@title = "Sign Up"
+	  	end
   	end
   end
 
@@ -134,6 +139,32 @@ class UsersController < ApplicationController
   	@title = "Shared Deals"
   	cookies[:shared_deals] = "yes"
   	@deals = @user.inverse_deals.where("posted > ?", @user.duration).sort_by { |deal| Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at }.reverse
+  end
+  
+  def invite
+  	@title = "Invite Your Friends"
+  	@user = current_user
+  	@contacts = request.env['omnicontacts.contacts'].to_a.sort_by {|hash| hash[:email]}
+  end
+  
+  def email_invite
+  	user = current_user
+  	emails = params[:user_email_invite].split(',').to_a
+  	emails.each do |email|
+  		UserMailer.email_invite(user, email).deliver
+  	end
+  	flash[:success] = "Your invites have been successfully sent!"
+  	redirect_to my_account_path
+  end
+  
+  def gmail_invite
+  	user = current_user
+  	emails = params[:email_invite_check].to_a
+  	emails.each do |email|
+  		UserMailer.email_invite(user, email).deliver
+  	end
+  	flash[:success] = "Your invites have been successfully sent!"
+  	redirect_to my_account_path
   end
   
 # Correct User

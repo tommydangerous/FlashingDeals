@@ -14,7 +14,7 @@ FlashingDeal::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log
@@ -30,7 +30,8 @@ FlashingDeal::Application.configure do
   
   Paperclip.options[:command_path] = 'C:\ImageMagick-6.7.4-Q16'
   
-  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_url_options = { :host => "localhost", :port => "3000" }
   
   ActionMailer::Base.default :from => 'support@flashingdeals.com'
+
 end

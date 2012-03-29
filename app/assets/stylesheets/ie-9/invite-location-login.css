@@ -476,15 +476,65 @@ div#send_gmail_invites {
 	margin-top: 10px;
 }
 
+/* location.css */
+div#location_deal_list {
+	width: 700px;
+	padding: 10px;
+}
+
+div#location_deal_list h1 {
+	font-family: Helvetica, Arial;
+	font-weight: bold;
+	font-size: 32px;
+	background: rgba(173, 217, 228, 1);
+	color: rgba(44, 175, 227, 1);
+	padding: 10px 20px;
+	-webkit-border-top-left-radius: 5px;
+	-moz-border-radius-topleft: 5px;
+	-ms-border-top-left-radius: 5px;
+	-o-border-top-left-radius: 5px;
+	border-top-left-radius: 5px;
+	-webkit-border-top-right-radius: 5px;
+	-moz-border-radius-topright: 5px;
+	-ms-border-top-right-radius: 5px;
+	-o-border-top-right-radius: 5px;
+	border-top-right-radius: 5px;
+	margin-bottom: 3px;
+}
+
+div#location_deal_list ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+div#location_deal_list ul li {
+	padding: 5px;
+	background: rgba(255, 255, 255, 1);
+	border: 1px solid rgba(200, 200, 200, 1);
+	margin-bottom: 3px;
+}
+
+div#location_deal_list a {
+	text-decoration: none;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgba(44, 175, 227, 1);
+}
+
+div#location_deal_list a:hover {
+	text-decoration: underline;
+	color: rgba(4, 135, 187, 1);
+}
+
 /* login.css */
 div#login_notice {
-	text-align: left;
 	width: 800px;
-	margin: 0 auto;
-	top: 60px;
+	margin: auto;
+	position: absolute;
 	left: 0;
 	right: 0;
-	position: absolute;
+	top: 60px;
 }
 
 div#close_login {
@@ -513,16 +563,16 @@ div#login {
 }
 
 div#login_header {
-	background: rgb(173, 217, 228);
+	background: rgba(173, 217, 228, 1);
 	padding: 20px;
-	border: 1px solid rgb(148, 222, 240);
+	border: 1px solid rgba(148, 222, 240, 1);
 	border-bottom: none;
 }
 
 div#login_header h1 {
 	font-family: Verdana;
 	font-size: 22px;
-	color: rgb(44, 175, 227);
+	color: rgba(44, 175, 227, 1);
 	margin: 0;
 }
 
@@ -542,21 +592,38 @@ div#login_form div.field {
 
 div#login_form div.field input {
 	width: 300px;
-	border: 1px solid rgb(200, 200, 200);
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid rgba(200, 200, 200, 1);
 	padding: 5px;
 	font-family: Verdana;
 	font-size: 14px;
-	color: rgb(75, 75, 75);
+	color: rgba(75, 75, 75, 1);
 	margin-top: 10px;
 	margin-bottom: 10px;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 }
 
 div#login_form div.field input:hover {
-	border: 1px solid rgb(150, 150, 150);
+	border: 1px solid rgba(150, 150, 150, 1);
 }
 
 div#login_form div.field input:focus {
-	border: 1px solid rgb(48, 157, 207);
+	border: 1px solid rgba(48, 157, 207, 1);
 	-webkit-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
 	-khtml-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
 	-moz-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
@@ -569,20 +636,20 @@ div#new_user {
 	width: 359px;
 	float: right;
 	padding: 20px;
-	border-right: 1px solid rgb(148, 222, 240);
-	border-bottom: 1px solid rgb(148, 222, 240);
-	background: rgb(255, 255, 255);
+	border-right: 1px solid rgba(148, 222, 240, 1);
+	border-bottom: 1px solid rgba(148, 222, 240, 1);
+	background: rgba(255, 255, 255, 1);
 }
 
 div#new_user p {
 	font-family: Verdana;
 	font-size: 12px;
-	color: rgb(150, 150, 150);
+	color: rgba(150, 150, 150, 1);
 }
 
 div#new_user a {
 	text-decoration: none;
-	color: rgb(44, 175, 227);
+	color: rgba(44, 175, 227, 1);
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -593,7 +660,7 @@ div#new_user a {
 
 div#new_user a:hover {
 	text-decoration: underline;
-	color: rgb(4, 135, 187);
+	color: rgba(4, 135, 187, 1);
 }
 
 div#login_form h1 {
@@ -617,21 +684,21 @@ div#login_form div.actions input {
 	font-family: Helvetica, Arial;
 	font-weight: bold;
 	border: none;
-	color: rgb(255, 255, 255);
+	color: rgba(255, 255, 255, 1);
 	padding: 10px 15px;
-	-webkit-border-radius: 5px;
-	-khtml-border-radius: 5px;
-	-moz-border-radius: 5px;
-	-ms-border-radius: 5px;
-	-o-border-radius: 5px;
-	border-radius: 5px;
-	border: 1px solid rgb(44, 175, 227);
-	-webkit-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
-	-khtml-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
-	-moz-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
-	-ms-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
-	-o-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
-	box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid rgba(44, 175, 227, 1);
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -664,7 +731,7 @@ div#login_form div.actions input:hover, div#login_form div.actions input:focus {
 	background: -ms-linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* IE10+ */
 	background: linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3cfda', endColorstr='#22a5d9',GradientType=0 ); /* IE6-8 */
-	border: 1px solid rgb(4, 135, 187);
+	border: 1px solid rgba(4, 135, 187, 1);
 }
 
 div#login_form div.actions input:active {
@@ -699,7 +766,7 @@ div#forgot_password a {
 	text-decoration: none;
 	font-family: Verdana;
 	font-size: 12px;
-	color: rgb(44, 175, 227);
+	color: rgba(44, 175, 227, 1);
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -710,7 +777,7 @@ div#forgot_password a {
 
 div#forgot_password a:hover {
 	text-decoration: underline;
-	color: rgb(4, 135, 187);
+	color: rgba(4, 135, 187, 1);
 }
 
 div#remember_me_login {
