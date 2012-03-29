@@ -13,7 +13,7 @@ div#facebook_twitter_home ul {
 }
 
 div#facebook_twitter_home ul li {
-	height: 20px;
+	height: 22px;
 	display: inline-block;
 }
 
@@ -26,11 +26,39 @@ li#twitter_follow_li {
 }
 
 div#facebook_like {
+	border: 1px solid rgb(200, 200, 200);
 	width: 44px;
 	height: 20px;
 	background: url("/assets/facebook_like.png");
+	-webkit-box-shadow: 1px 1px 4px rgba(75, 75, 75, .5);
+	-khtml-box-shadow: 1px 1px 4px rgba(75, 75, 75, .5);
+	-moz-box-shadow: 1px 1px 4px rgba(75, 75, 75, .5);
+	-ms-box-shadow: 1px 1px 4px rgba(75, 75, 75, .5);
+	-o-box-shadow: 1px 1px 4px rgba(75, 75, 75, .5);
+	box-shadow: 1px 1px 4px rgba(75, 75, 75, .5);
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
 }
 
 div#facebook_like:hover {
-	background: url("/assets/facebook_like_hover.png");
+	border: 1px solid rgb(175, 175, 175);
+}
+
+div#facebook_like:active {
+	-webkit-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25) inset;
+	-khtml-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25) inset;
+	-moz-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25) inset;
+	-ms-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25) inset;
+	-o-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25) inset;
+	box-shadow: 0px 1px 5px rgba(75, 75, 75, .25) inset;
 }

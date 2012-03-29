@@ -7,7 +7,7 @@
   background: -ms-linear-gradient(top,  #7d7e7d 25%,#0e0e0e 100%); /* IE10+ */
   background: linear-gradient(top,  #7d7e7d 25%,#0e0e0e 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7d7e7d', endColorstr='#0e0e0e',GradientType=0 ); /* IE6-9 */	
-  border-bottom: 5px solid rgb(110, 220, 90);
+  border-bottom: 5px solid rgb(75, 75, 75);
   height: 51px;
   padding-top: 8px;
 }

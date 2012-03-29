@@ -30,9 +30,9 @@ li#twitter_follow_li {
 div#facebook_like {
 	width: 44px;
 	height: 20px;
-	background: url("/assets/facebook_like.png");
+	background: url("/assets/facebook_like_round.png");
 }
 
 div#facebook_like:hover {
-	background: url("/assets/facebook_like_hover.png");
+	background: url("/assets/facebook_like_round_hover.png");
 }
