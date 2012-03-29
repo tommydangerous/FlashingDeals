@@ -119,6 +119,13 @@ div.box_deal_large_share ul li img:active {
 	font-size: 14px;
 	color: rgb(75, 75, 75);
 	line-height: 16px;
+	margin-bottom: 3px;
+}
+
+#box_deal_large_name p {
+	font-family: Helvetica, Arial;
+	font-size: 11px;
+	color: rgb(150, 150, 150);
 }
 
 #box_deal_large_price {

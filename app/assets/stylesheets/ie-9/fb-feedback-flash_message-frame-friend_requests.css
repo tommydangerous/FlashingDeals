@@ -14,7 +14,7 @@ div#facebook_twitter_home ul {
 }
 
 div#facebook_twitter_home ul li {
-	height: 22px;
+	height: 20px;
 	display: inline-block;
 }
 
@@ -27,17 +27,13 @@ li#twitter_follow_li {
 }
 
 div#facebook_like {
-	width: 47px;
-	height: 24px;
+	width: 44px;
+	height: 20px;
 	background: url("/assets/facebook_like.png");
 }
 
 div#facebook_like:hover {
 	background: url("/assets/facebook_like_hover.png");
-}
-
-div#facebook_like:active {
-	background: url("/assets/facebook_like_active.png");
 }
 
 /* feedback.css */

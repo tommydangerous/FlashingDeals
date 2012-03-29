@@ -404,7 +404,13 @@ div#deal_show_name h1 {
 	font-size: 30px;
 	color: rgb(75, 75, 75);
 	line-height: 35px;
-	margin: 0px;
+	margin-bottom: 5px;
+}
+
+div#deal_show_name p {
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(150, 150, 150);
 }
 
 div#deal_show_name h1 a {
