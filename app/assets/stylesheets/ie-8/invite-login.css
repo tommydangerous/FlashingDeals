@@ -1,3 +1,4 @@
+/* invite.css */
 div#invite_your_friends {
 	width: 450px;
 	float: left;
@@ -246,7 +247,7 @@ div#email_invite_field {
 }
 
 input#user_email_invite {
-	width: 800px;
+	width: 804px;
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -509,4 +510,315 @@ div#sending_emails {
 
 div#sending_emails_words {
 	margin-top: 10px;
+}
+
+/* login.css */
+div#login_notice {
+	text-align: left;
+	width: 800px;
+	margin: 0 auto;
+	top: 60px;
+	left: 0;
+	right: 0;
+	position: absolute;
+}
+
+div#close_login {
+	text-align: right;
+}
+
+div#close_login a {
+	display: block;
+	height: 32px;
+	width: 32px;
+	float: right;
+	-webkit-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div#close_login a:hover {
+	opacity: .75;
+}
+
+div#login {
+	width: 400px;
+	margin: auto;
+}
+
+div#login_header {
+	background: rgb(173, 217, 228);
+	padding: 20px;
+	border: 1px solid rgb(148, 222, 240);
+	border-bottom: none;
+}
+
+div#login_header h1 {
+	font-family: Verdana;
+	font-size: 22px;
+	color: rgb(44, 175, 227);
+	margin: 0;
+}
+
+div#login_form {
+	float: right;
+	padding: 20px 20px 20px 5px;
+	width: 400px;
+}
+
+div#login_form p {
+	font-weight: bold;
+}
+
+div#login_form div.field {
+	text-align: right;
+}
+
+div#login_form div.field input {
+	width: 300px;
+	border: 1px solid rgb(200, 200, 200);
+	padding: 5px;
+	font-family: Verdana;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+div#login_form div.field input:hover {
+	border: 1px solid rgb(150, 150, 150);
+}
+
+div#login_form div.field input:focus {
+	border: 1px solid rgb(48, 157, 207);
+	-webkit-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+}
+
+div#new_user {
+	width: 359px;
+	float: right;
+	padding: 20px;
+	border-right: 1px solid rgb(148, 222, 240);
+	border-bottom: 1px solid rgb(148, 222, 240);
+	background: rgb(255, 255, 255);
+}
+
+div#new_user p {
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgb(150, 150, 150);
+}
+
+div#new_user a {
+	text-decoration: none;
+	color: rgb(44, 175, 227);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#new_user a:hover {
+	text-decoration: underline;
+	color: rgb(4, 135, 187);
+}
+
+div#login_form h1 {
+	font-family: Helvetica, Arial;
+	font-size: 22px;
+	text-align: right;
+	color: rgb(75, 75, 75);
+	margin-bottom: 20px;
+}
+
+div#login_form div.actions {
+	margin-top: 20px;
+	text-align: right;
+}
+
+div#login_form div.actions input {
+	text-shadow: 0px -1px 1px rgba(0, 0, 0, .25);
+	margin: 0;
+	background: none;
+	font-size: 14px;
+	font-family: Helvetica, Arial;
+	font-weight: bold;
+	border: none;
+	color: rgb(255, 255, 255);
+	padding: 10px 15px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	border: 1px solid rgb(44, 175, 227);
+	-webkit-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
+	box-shadow: 0px 1px 10px rgba(150, 150, 150, 1);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#login_form div.actions input {
+	background: rgb(173,217,228); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2FkZDllNCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyY2FmZTMiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(173,217,228,1) 0%, rgba(44,175,227,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(173,217,228,1)), color-stop(100%,rgba(44,175,227,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#add9e4', endColorstr='#2cafe3',GradientType=0 ); /* IE6-8 */
+}
+
+div#login_form div.actions input:hover, div#login_form div.actions input:focus {
+	background: rgb(163,207,218); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2EzY2ZkYSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMyMmE1ZDkiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(163,207,218,1) 0%, rgba(34,165,217,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(163,207,218,1)), color-stop(100%,rgba(34,165,217,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3cfda', endColorstr='#22a5d9',GradientType=0 ); /* IE6-8 */
+	border: 1px solid rgb(4, 135, 187);
+}
+
+div#login_form div.actions input:active {
+	background: rgb(34,165,217); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzIyYTVkOSIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhM2NmZGEiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(34,165,217,1) 0%, rgba(163,207,218,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(34,165,217,1)), color-stop(100%,rgba(163,207,218,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#22a5d9', endColorstr='#a3cfda',GradientType=0 ); /* IE6-8 */
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+}
+
+div#forgot_password {
+	float: left;
+	width: 200px;
+	position: relative;
+	text-align: left;
+	top: 7px;
+	left: 90px;
+}
+
+div#forgot_password a {
+	text-decoration: none;
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgb(44, 175, 227);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
+div#forgot_password a:hover {
+	text-decoration: underline;
+	color: rgb(4, 135, 187);
+}
+
+div#remember_me_login {
+	text-align: right;
+	height: 20px;
+	font-family: Verdana;
+	font-size: 12px;
+	color: rgb(150, 150, 150);
+}
+
+div#remember_me_login input {
+	margin: 0;
+	margin-right: 5px;
+	position: relative;
+	top: 2px;
+}
+
+div#login_facebook {
+	height: 280px;
+	width: 359px;
+	float: left;
+	padding: 20px;
+	background: rgb(255, 255, 255);
+	border-left: 1px solid rgb(148, 222, 240);
+	border-bottom: 1px solid rgb(148, 222, 240);
+}
+
+div#login_facebook ol {
+	margin: 10px 0px;
+	padding-left: 20px;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+}
+
+div#login_facebook ol li {
+	padding: 2px 0px;
+}
+
+div#login_facebook p {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+div#facebook_login {
+	margin-bottom: 20px;
+}
+
+div#login_or {
+	height: 16px;
+	margin-bottom: 20px;
+}
+
+div#login_or p {
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(150, 150, 150);
+	text-align: center;
+	width: 10px;
+	margin: 0 auto;
+}
+
+div#login_or_left {
+	width: 185px;
+	height: 9px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
+	float: left;
+}
+
+div#login_or_right {
+	width: 185px;
+	height: 9px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
+	float: right;
 }

@@ -3,12 +3,16 @@ $(document).ready(function() {
 		var x = $("#user_email_invite").val();
 		if (x === "") {
 			return false;
+		} else {
+			$("div#sending_emails").show();
 		}
 	})
 	$("input.send_gmail").click(function() {
 		var l = $(".email_invite_selected").length
 		if (l < 1) {
 			return false;
+		} else {
+			$("div#sending_emails").show();
 		}
 	})
 })
