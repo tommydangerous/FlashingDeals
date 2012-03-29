@@ -1,4 +1,8 @@
-OmniAuth.config.full_host = "http://localhost:3000"
+if Rails.env.production?
+	OmniAuth.config.full_host = "http://www.flashingdeals.com"
+elsif Rails.env.development?
+	OmniAuth.config.full_host = "http://localhost:3000"
+end
 
 if Rails.env.production?
 	Rails.application.config.middleware.use OmniAuth::Builder do
