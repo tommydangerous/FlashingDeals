@@ -1,6 +1,6 @@
 class PagesController < ApplicationController	
-	before_filter :authenticate, :only => [:test, :test2, :control_panel]
-	before_filter :gm_user, 		 :only => [:test, :test2, :control_panel]
+	before_filter :authenticate, :only => [:test, :test2, :control_panel, :contacts_failure]
+	before_filter :gm_user, 		 :only => [:test, :test2, :control_panel, :contacts_failure]
 	
 	require 'net/http'
 	require 'uri'

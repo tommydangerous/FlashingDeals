@@ -17,6 +17,8 @@ gem 'omniauth-google'
 gem 'omnicontacts'
 gem 'fb_graph'
 gem 'roadie'
+gem 'contacts'
+gem 'gdata', git: 'https://github.com/agentrock/gdata.git'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
