@@ -47,6 +47,9 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.1.2)
+    contacts (1.2.4)
+      gdata (= 1.1.1)
+      json (>= 0.4.1)
     css_parser (1.2.6)
       addressable
       rdoc
@@ -64,6 +67,7 @@ GEM
       httpclient (>= 2.2.0.2)
       rack-oauth2 (>= 0.8.0)
     friendly_id (4.0.0)
+    gdata (1.1.1)
     gravatar_image_tag (1.0.0)
     hashie (1.2.0)
     hike (1.2.1)
@@ -208,6 +212,7 @@ DEPENDENCIES
   aws-s3
   chronic
   coffee-rails (~> 3.1.1)
+  contacts
   fb_graph
   friendly_id
   gravatar_image_tag

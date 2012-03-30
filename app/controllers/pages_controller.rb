@@ -1,6 +1,6 @@
 class PagesController < ApplicationController	
-	before_filter :authenticate, :only => [:test, :control_panel]
-	before_filter :gm_user, :only => [:test, :control_panel]
+	before_filter :authenticate, :only => [:test, :test2, :control_panel]
+	before_filter :gm_user, 		 :only => [:test, :test2, :control_panel]
 	
 	require 'net/http'
 	require 'uri'
@@ -11,7 +11,16 @@ class PagesController < ApplicationController
 	def test
 		@title = "Test"
 		@user = current_user
-		render :layout => false
+	end
+	
+	def test2
+		email = params[:email]
+		password = params[:password]
+		begin
+			@contacts = Contacts.new(:gmail, email, password).contacts
+		rescue
+			redirect_to test_path
+		end
 	end
 	
 	def control_panel

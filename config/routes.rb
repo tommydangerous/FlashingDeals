@@ -73,6 +73,7 @@ FlashingDeal::Application.routes.draw do
   match '/terms' => 'pages#terms', :as => :terms
   match '/privacy' => 'pages#privacy', :as => :privacy
   match '/test' => 'pages#test', :as => :test
+  match '/test2' => 'pages#test2', :as => :test2
   match '/control-panel' => 'pages#control_panel', :as => :control_panel
   match '/contacts/failure' => 'pages#contacts_failure'
 # Sessions  
@@ -95,6 +96,7 @@ FlashingDeal::Application.routes.draw do
   match '/friend-requests' => 'users#friend_requests', :as => :friend_requests
   match '/shared' => 'users#shared', :as => :shared_deals
   match '/invite' => 'users#invite', :as => :invite
+  match '/invite-gmail' => 'users#invite_gmail', :as => :invite_gmail
   match "/signup/:id" => 'users#signup', :as => :referral_signup_path
   match '/email-invites' => 'users#email_invite', :as => :email_invite
   match '/gmail-invites' => 'users#gmail_invite', :as => :gmail_invite

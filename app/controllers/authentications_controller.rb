@@ -12,7 +12,9 @@ class AuthenticationsController < ApplicationController
   
   def create2
   	omniauth = request.env["omniauth.auth"]
-		render :text => omniauth.to_yaml
+  	access_token = request.env["omniauth.auth"]["extra"]["access_token"]
+  	response = access_token.request(:get, "https://www.google.com/m8/feeds/contacts/default/full")
+  	render :text => response
   end
 
   def create

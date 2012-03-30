@@ -141,10 +141,28 @@ class UsersController < ApplicationController
   	@deals = @user.inverse_deals.where("posted > ?", @user.duration).sort_by { |deal| Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at }.reverse
   end
   
-  def invite
+  def invite_old
   	@title = "Invite Your Friends"
   	@user = current_user
   	@contacts = request.env['omnicontacts.contacts'].to_a.sort_by {|hash| hash[:email]}
+  end
+  
+  def invite
+  	@title = "Invite Your Friends"
+  	@user = current_user
+  end
+  
+  def invite_gmail
+  	@title = "Invite Your Friends"
+  	@user = current_user
+  	email = params[:email]
+		password = params[:password]
+		begin
+			@contacts = Contacts.new(:gmail, email, password).contacts
+		rescue
+			flash[:error] = "The username or password you entered is incorrect."
+			redirect_to invite_path
+		end
   end
   
   def email_invite
@@ -153,7 +171,7 @@ class UsersController < ApplicationController
   	emails.each do |email|
   		UserMailer.email_invite(user, email).deliver
   	end
-  	flash[:success] = "Your invites have been successfully sent!"
+  	flash[:success] = "Your invites have been successfully sent."
   	redirect_to my_account_path
   end
   
@@ -163,7 +181,7 @@ class UsersController < ApplicationController
   	emails.each do |email|
   		UserMailer.email_invite(user, email).deliver
   	end
-  	flash[:success] = "Your invites have been successfully sent!"
+  	flash[:success] = "Your invites have been successfully sent."
   	redirect_to my_account_path
   end
   

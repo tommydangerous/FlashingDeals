@@ -38,22 +38,32 @@
 				<%= submit_tag "Email Invite", :name => nil, :id => "user_email_invite_send", :class => "send_email" %>
 			<% end %>
 		</div>
-		<%= link_to("javascript:void(0);", :id => "add_gmail_contacts") do %>
-			<%= image_tag "/assets/gmail.png" %> <h3>Add Gmail Contacts</h3>
-		<% end %>
-		<div id="gmail_login">
-			<%= form_tag invite_gmail_path, :method => :post do %>
-				<div class="field">
-					<p>Gmail</p>
-					<%= text_field_tag :email, params[:email], :id => "gmail_login_email" %>
-				</div>
-				<div class="field">
-					<p>Password</p>
-					<%= password_field_tag :password, params[:password], :id => "gmail_login_password" %>
-					<%= submit_tag "Submit", :name => nil, :id => "gmail_login_submit" %>
-				</div>
+		<% unless @contacts.nil? || @contacts.empty? %>
+			<div id="email_invite_number">
+				<input type="checkbox" id="check_all" onclick="toggleChecked();"><h2><%= @contacts.size %> Contacts</h2>
+				<h3><span id="selected_emails_count">0</span> Selected</h3>
+				<div class="clear"></div>
+			</div>
+			<div id="email_invite_gmail">
+				<%= form_tag gmail_invite_path, :method => :get do %>
+					<% @contacts.to_a.sort_by { |hash| hash[1] }.each do |name, email| %>
+						<div id="contact_<%= @contacts.index([name, email]) %>" class="email_invite_contact" onclick="toggleEmailInvite(<%= @contacts.index([name, email]) %>);">
+							<input class="email_invite_check" id="email_invite_check_<%= @contacts.index([name, email]) %>" name="email_invite_check[]" type="checkbox" value="<%= email %>">
+							<div id="email_invite_contact_name">
+								<p><strong>Name:</strong> <%= name %></p>
+							</div>
+							<div id="email_invite_contact_email">
+								<p><strong>Email:</strong> <%= email %></p>
+							</div>
+							<div class="clear"></div>
+						</div>
+					<% end %>
+			</div>
+			<div id="send_gmail_invites">
+				<%= submit_tag "Send Gmail Invites", :name => nil, :id => "user_email_invite_send", :class => "send_gmail" %>
+			</div>
 			<% end %>
-		</div>
+		<% end %>
 	</div>
 </div>
 <div id="sending_emails">

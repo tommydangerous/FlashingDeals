@@ -17,6 +17,7 @@ gem 'omniauth-google'
 gem 'omnicontacts'
 gem 'fb_graph'
 gem 'roadie'
+gem 'contacts'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

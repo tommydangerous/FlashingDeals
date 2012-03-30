@@ -5,6 +5,7 @@ $(document).ready(function() {
 			return false;
 		} else {
 			$("div#sending_emails").show();
+			$("html, body").animate({ scrollTop: 0  }, 0);
 		}
 	})
 	$("input.send_gmail").click(function() {
@@ -13,6 +14,14 @@ $(document).ready(function() {
 			return false;
 		} else {
 			$("div#sending_emails").show();
+			$("html, body").animate({ scrollTop: 0  }, 0);
+		}
+	})
+	$("input#gmail_login_submit").click(function() {
+		var e = $("#gmail_login_email").val()
+		var p = $("#gmail_login_password").val()
+		if (e === "" || p === "") {
+			return false;
 		}
 	})
 })
@@ -53,3 +62,10 @@ function toggleChecked() {
 		$("span#selected_emails_count").text(l);
 	}
 }
+
+$(document).ready(function() {
+		$("#add_gmail_contacts").click(function(){
+			$("#add_gmail_contacts").hide();
+			$("#gmail_login").show();
+	});
+})

@@ -1,0 +1,10 @@
+<% unless @contacts.nil? %>
+	<ul>
+		<% @contacts.to_a.sort_by { |hash| hash[1] }.each do |name, email| %>
+			<li>
+				<p><%= name %></p>
+				<p><%= email %></p>
+			</li>
+		<% end %>
+	</ul>
+<% end %>
