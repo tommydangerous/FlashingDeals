@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 	require 'nokogiri'
 	
 	def test
+		@title = "Test"
 		@user = current_user
 		render :layout => false
 	end

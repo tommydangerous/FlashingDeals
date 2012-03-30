@@ -316,51 +316,77 @@
 	<%= render "coupon_popup" %>
 <% end %>
 <% if Rails.env.development? %>
-<script>
-$('.example3demo').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 375,
-	width: 675
-}); 
-$('.example4demo').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 500,
-	width: 675
-});
-
-function pnDeal(id) {
-	var i = id
-	var url = "http://localhost:3000/deals/"+i+"/show_overlay"
-	$(".overlayInner").load(url);
-}
-
-setInterval(setHeight, 0);
-setInterval(setWidth, 0);
-</script>
+	<script>
+	$('.example3demo').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 375,
+		width: 675
+	}); 
+	$('.example4demo').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 500,
+		width: 675
+	});
+	
+	function pnDeal(id) {
+		var i = id
+		var url = "http://localhost:3000/deals/"+i+"/show_overlay"
+		$(".overlayInner").load(url);
+	}
+	
+	setInterval(setHeight, 0);
+	setInterval(setWidth, 0);
+	</script>
 <% elsif Rails.env.production? %>
-<script>
-$('.example3demo').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 375,
-	width: 675
-}); 
-$('.example4demo').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 500,
-	width: 675
-});
-
-function pnDeal(id) {
-	var i = id
-	var url = "http://www.flashingdeals.com/deals/"+i+"/show_overlay"
-	$(".overlayInner").load(url);
-}
-
-setInterval(setHeight, 0);
-setInterval(setWidth, 0);
-</script>
+	<% if request.url.include?("www") %>
+		<script>
+		$('.example3demo').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 375,
+			width: 675
+		}); 
+		$('.example4demo').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 500,
+			width: 675
+		});
+		
+		function pnDeal(id) {
+			var i = id
+			var url = "http://www.flashingdeals.com/deals/"+i+"/show_overlay"
+			$(".overlayInner").load(url);
+		}
+		
+		setInterval(setHeight, 0);
+		setInterval(setWidth, 0);
+		</script>
+	<% else %>
+		<script>
+		$('.example3demo').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 375,
+			width: 675
+		}); 
+		$('.example4demo').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 500,
+			width: 675
+		});
+		
+		function pnDeal(id) {
+			var i = id
+			var url = "http://flashingdeals.com/deals/"+i+"/show_overlay"
+			$(".overlayInner").load(url);
+		}
+		
+		setInterval(setHeight, 0);
+		setInterval(setWidth, 0);
+		</script>
+	<% end %>
 <% end %>
