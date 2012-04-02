@@ -169,7 +169,7 @@ class UsersController < ApplicationController
   	user = current_user
   	emails = params[:user_email_invite].split(',').to_a
   	emails.each do |email|
-  		UserMailer.email_invite(user, email).deliver
+  		UserMailer.delay.email_invite(user, email)
   	end
   	flash[:success] = "Your invites have been successfully sent."
   	redirect_to my_account_path
@@ -179,7 +179,7 @@ class UsersController < ApplicationController
   	user = current_user
   	emails = params[:email_invite_check].to_a
   	emails.each do |email|
-  		UserMailer.email_invite(user, email).deliver
+  		UserMailer.delay.email_invite(user, email)
   	end
   	flash[:success] = "Your invites have been successfully sent."
   	redirect_to my_account_path

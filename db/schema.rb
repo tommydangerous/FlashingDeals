@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120323200954) do
+ActiveRecord::Schema.define(:version => 20120402134410) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -133,6 +133,22 @@ ActiveRecord::Schema.define(:version => 20120323200954) do
   add_index "deals", ["updated_at"], :name => "index_deals_on_updated_at"
   add_index "deals", ["value"], :name => "index_deals_on_value"
   add_index "deals", ["view_count"], :name => "index_deals_on_view_count"
+
+  create_table "delayed_jobs", :force => true do |t|
+    t.integer  "priority",   :default => 0
+    t.integer  "attempts",   :default => 0
+    t.text     "handler"
+    t.text     "last_error"
+    t.datetime "run_at"
+    t.datetime "locked_at"
+    t.datetime "failed_at"
+    t.string   "locked_by"
+    t.string   "queue"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "delayed_jobs", ["priority", "run_at"], :name => "delayed_jobs_priority"
 
   create_table "editmarks", :force => true do |t|
     t.integer  "user_id"

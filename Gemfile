@@ -19,6 +19,7 @@ gem 'fb_graph'
 gem 'roadie'
 gem 'contacts'
 gem 'gdata', git: 'https://github.com/agentrock/gdata.git'
+gem 'delayed_job_active_record'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -31,6 +32,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
+  gem 'daemons'
 end
 
 
