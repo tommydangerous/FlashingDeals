@@ -168,9 +168,15 @@ class UsersController < ApplicationController
   def email_invite
   	user = current_user
   	emails = params[:user_email_invite].split(',').to_a
-  	emails.each do |email|
-  		UserMailer.delay.email_invite(user, email)
-  	end
+  	if Rails.env.production?
+	  	emails.each do |email|
+	  		UserMailer.delay.email_invite(user, email)
+	  	end
+	  elsif Rails.env.development?
+	  	emails.each do |email|
+	  		UserMailer.email_invite(user, email).deliver
+	  	end
+	  end
   	flash[:success] = "Your invites have been successfully sent."
   	redirect_to my_account_path
   end
@@ -178,9 +184,15 @@ class UsersController < ApplicationController
   def gmail_invite
   	user = current_user
   	emails = params[:email_invite_check].to_a
-  	emails.each do |email|
-  		UserMailer.delay.email_invite(user, email)
-  	end
+  	if Rails.env.production?
+	  	emails.each do |email|
+	  		UserMailer.delay.email_invite(user, email)
+	  	end
+	  elsif Rails.env.development?
+	  	emails.each do |email|
+	  		UserMailer.email_invite(user, email).deliver
+	  	end
+	  end
   	flash[:success] = "Your invites have been successfully sent."
   	redirect_to my_account_path
   end
