@@ -84,7 +84,7 @@
 				</tr>
 			</table>
 		</div>
-		<% unless @deal.coupon.nil? && @deal.rebate.nil? && @deal.expires.nil? %>
+		<% unless @deal.coupon.nil? && @deal.rebate.nil? && @deal.expires.nil? || @deal.coupon.blank? && @deal.rebate.blank? && @deal.expires.blank? %>
 			<div id="coupon_rebate">
 				<% unless @deal.coupon.nil? || @deal.coupon.blank? %>
 					<div id="deal_show_coupon">
