@@ -82,9 +82,11 @@ class DealsController < ApplicationController
   
 	def show
   	@deal = Deal.find(params[:id])
-  	if @deal.expires <= Time.now && @deal.dead == false
-  		@deal.update_attribute(:dead, true)
-  	end
+  	unless @deal.expires.nil?
+	  	if @deal.expires <= Time.now && @deal.dead == false
+	  		@deal.update_attribute(:dead, true)
+	  	end
+	  end
   	@today = Time.now - 86400
   	@today_3 = Time.now - (86400 * 3)
   	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("posted ASC")
@@ -135,9 +137,11 @@ class DealsController < ApplicationController
   
   def show_overlay
   	@deal = Deal.find(params[:id])
-  	if @deal.expires <= Time.now && @deal.dead == false
-  		@deal.update_attribute(:dead, true)
-  	end
+  	unless @deal.expires.nil?
+	  	if @deal.expires <= Time.now && @deal.dead == false
+	  		@deal.update_attribute(:dead, true)
+	  	end
+	  end
   	@today = Time.now - 86400
   	@today_3 = Time.now - (86400 * 3)
   	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("posted ASC")
