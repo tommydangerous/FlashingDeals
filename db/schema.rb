@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402134410) do
+ActiveRecord::Schema.define(:version => 20120402191214) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(:version => 20120402134410) do
     t.string    "rebate"
     t.boolean   "dead",          :default => false
     t.boolean   "flashmob",      :default => false
+    t.datetime  "expires"
   end
 
   add_index "deals", ["city"], :name => "index_deals_on_city"

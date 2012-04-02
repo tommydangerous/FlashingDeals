@@ -8,9 +8,46 @@
 			<div class="field">
 				<p>Name: <%= f.text_field :name, :autocomplete => "off", :placeholder => "Required" %></p>
 			</div>
+			<div class="field">
+				<p>Link: <%= f.text_field :link, :autocomplete => "off", :placeholder => "Required" %></p>
+			</div>
+			<div class="field">
+				<p>Image: <%= f.text_field :image, :autocomplete => "off", :placeholder => "Required" %></p>
+			</div>
+			<div class="field">
+				<p>Site: <%= f.text_field :site, :autocomplete => "off", :placeholder => "Required (e.g. Amazon)" %></p>
+			</div>
+			<div class="field">
+				<p>Posted: <%= f.text_field :posted, :autocomplete => "off", :placeholder => "Required (2012-04-01 24:00:00)" %></p>
+			</div>
+			<div class="field">
+				<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required (e.g. national)" %></p>
+			</div>
+			<div class="field">
+				<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required (e.g. 1)" %></p>
+			</div>
 			<div id="field_deal_info" class="field">
 				<p>Info: <%= f.text_area :info, :autocomplete => "off" %></p>
 			</div>
+			<div class="field">
+				<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Created At: <%= f.text_field :created_at, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Views: <%= f.text_field :view_count, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Clicks: <%= f.text_field :click_count, :autocomplete => "off" %></p>
+			</div>	
+	</div>
+</div>
+<div id="new_deal_2">
+	<div id="new_deal_header">
+		<h1>Edit More <span class="green">Deal</span></h1>
+	</div>
+	<div id="new_deal_form">
 			<div class="field">
 				<p>Coupon: <%= f.text_field :coupon, :autocomplete => "off" %></p>
 			</div>
@@ -30,43 +67,6 @@
 				<p>Savings: <%= f.text_field :savings, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
-				<p>Link: <%= f.text_field :link, :autocomplete => "off", :placeholder => "Required" %></p>
-			</div>
-			<div class="field">
-				<p>Image: <%= f.text_field :image, :autocomplete => "off", :placeholder => "Required" %></p>
-			</div>
-			<div class="field">
-				<p>Site: <%= f.text_field :site, :autocomplete => "off", :placeholder => "Required (e.g. Amazon)" %></p>
-			</div>
-	</div>
-</div>
-<div id="new_deal_2">
-	<div id="new_deal_header">
-		<h1>Edit More <span class="green">Deal</span></h1>
-	</div>
-	<div id="new_deal_form">
-			<div class="field">
-				<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Created At: <%= f.text_field :created_at, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Posted: <%= f.text_field :posted, :autocomplete => "off", :placeholder => "Required (2012-04-01 24:00:00)" %></p>
-			</div>
-			<div class="field">
-				<p>Views: <%= f.text_field :view_count, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Clicks: <%= f.text_field :click_count, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required (e.g. national)" %></p>
-			</div>
-			<div class="field">
-				<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required (e.g. 1)" %></p>
-			</div>
-			<div class="field">
 				<p>Exclusive <%= f.check_box :exclusive %></p>
 			</div>
 			<div class="field">
@@ -76,7 +76,10 @@
 				<p>Top Deal <%= f.check_box :top_deal %></p>
 			</div>
 			<div class="field">
-				<p>FlashBack <%= f.check_box :flash_back %></p>
+				<p>Featured <%= f.check_box :flash_back %></p>
+			</div>
+			<div class="field">
+				<p>Expires: <%= f.text_field :expires, :autocomplete => "off", :placeholder => "2012-04-01 24:00:00" %></p>
 			</div>
 			<div class="field">
 				<p>Dead <%= f.check_box :dead %></p>

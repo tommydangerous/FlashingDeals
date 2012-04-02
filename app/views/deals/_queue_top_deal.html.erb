@@ -53,19 +53,23 @@
 				<li><p>Exclusive: <%= f.check_box :exclusive %></p></li>
 				<li><p>Dead: <%= f.check_box :dead %></p></li>
 			</ul>
-			<p>Name: <%= f.text_area :name, :autocomplete => "off", :class => "queue_edit_name" %></p>
+			<p>Name: <%= f.text_area :name, :autocomplete => "off", :class => "queue_edit_name", :placeholder => "Required" %></p>
+			<p>Link: <%= f.text_field :link, :autocomplete => "off", :placeholder => "Required" %></p>
+			<p>Image: <%= f.text_field :image, :autocomplete => "off", :placeholder => "Required" %></p>
+			<p>Site: <%= f.text_field :site, :autocomplete => "off", :placeholder => "Required (e.g. Amazon)" %></p>
+			<p>Posted: <%= f.text_field :posted, :autocomplete => "off", :placeholder => "Required (2012-04-01 24:00:00)" %></p>
+			<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required (e.g. national)" %></p>
+			<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required (e.g. 1)" %></p>
 			<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "queue_edit_info" %></p>
+			<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
+			<p>Coupon: <%= f.text_field :coupon, :autocomplete => "off" %></p>
+			<p>Rebate: <%= f.text_field :rebate, :autocomplete => "off" %></p>
 			<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
 			<p>Value: <%= f.text_field :value, :autocomplete => "off" %></p>
 			<p>Discount: <%= f.text_field :discount, :autocomplete => "off" %></p>
 			<p>Savings: <%= f.text_field :savings, :autocomplete => "off" %></p>
-			<p>Link: <%= f.text_field :link, :autocomplete => "off" %></p>
-			<p>Image: <%= f.text_field :image, :autocomplete => "off" %></p>
-			<p>Site: <%= f.text_field :site, :autocomplete => "off" %></p>
-			<p>Posted: <%= f.text_field :posted, :autocomplete => "off" %></p>
-			<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
-			<p>City: <%= f.text_field :city, :autocomplete => "off" %></p>
-			<p>Metric: <%= f.text_field :metric, :autocomplete => "off" %></p>
+			<p>Exclusive: <%= f.check_box :exclusive %></p>
+			<p>Expires: <%= f.text_field :expires, :placeholder => "2012-04-01 24:00:00" %></p>
 			<p>Order: <%= f.text_field :deal_order, :autocomplete => "off" %></p>
 			<p>Time In:<%= f.text_field :time_in, :autocomplete => "off" %></p>
 			<div class="actions">

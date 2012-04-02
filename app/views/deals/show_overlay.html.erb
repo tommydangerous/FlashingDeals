@@ -87,7 +87,7 @@
 				</tr>
 			</table>
 		</div>
-		<% unless @deal.coupon.nil? && @deal.rebate.nil? || @deal.coupon.nil? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.blank? || @deal.coupon.blank? && @deal.rebate.nil? %>
+		<% unless @deal.coupon.nil? && @deal.rebate.nil? && @deal.expires.nil? %>
 			<div id="coupon_rebate">
 				<% unless @deal.coupon.nil? || @deal.coupon.blank? %>
 					<div id="deal_show_coupon">
@@ -99,6 +99,12 @@
 					<div id="deal_show_rebate">
 						<h1>Rebate</h1>
 						<p><%= link_to "#{@deal.rebate}", @deal.rebate, :target => "_blank" %></p>
+					</div>
+				<% end %>
+				<% unless @deal.expires.nil? || @deal.expires.blank? %>
+					<div id="deal_show_coupon">
+						<h1>Expires</h1>
+						<p><%= @deal.expires.strftime("%b %d, %Y") %></p>
 					</div>
 				<% end %>
 			</div>

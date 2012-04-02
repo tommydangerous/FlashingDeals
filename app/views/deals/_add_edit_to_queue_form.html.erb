@@ -4,22 +4,23 @@
 	<%= f.hidden_field :top_deal, :value => false %>
 	<%= f.hidden_field :flash_back, :value => false %>
 	<%= hidden_field_tag :order, "last" %>
-	<p>Name: <%= f.text_area :name, :autocomplete => "off", :class => "rising_deal_edit_name" %></p>
-	<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "rising_deal_edit_info" %></p>
+	<p>Name: <%= f.text_area :name, :autocomplete => "off", :class => "queue_edit_name", :placeholder => "Required" %></p>
+	<p>Link: <%= f.text_field :link, :autocomplete => "off", :placeholder => "Required" %></p>
+	<p>Image: <%= f.text_field :image, :autocomplete => "off", :placeholder => "Required" %></p>
+	<p>Site: <%= f.text_field :site, :autocomplete => "off", :placeholder => "Required (e.g. Amazon)" %></p>
+	<p>Posted: <%= f.text_field :posted, :autocomplete => "off", :placeholder => "Required (2012-04-01 24:00:00)" %></p>
+	<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required (e.g. national)" %></p>
+	<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required (e.g. 1)" %></p>
+	<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "queue_edit_info" %></p>
+	<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
 	<p>Coupon: <%= f.text_field :coupon, :autocomplete => "off" %></p>
 	<p>Rebate: <%= f.text_field :rebate, :autocomplete => "off" %></p>
 	<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
 	<p>Value: <%= f.text_field :value, :autocomplete => "off" %></p>
 	<p>Discount: <%= f.text_field :discount, :autocomplete => "off" %></p>
 	<p>Savings: <%= f.text_field :savings, :autocomplete => "off" %></p>
-	<p>Link: <%= f.text_field :link, :autocomplete => "off" %></p>
-	<p>Image: <%= f.text_field :image, :autocomplete => "off" %></p>
-	<p>Site: <%= f.text_field :site, :autocomplete => "off" %></p>
-	<p>Posted: <%= f.text_field :posted, :autocomplete => "off" %></p>
-	<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
-	<p>City: <%= f.text_field :city, :autocomplete => "off" %></p>
-	<p>Metric: <%= f.text_field :metric, :autocomplete => "off" %></p>
 	<p>Exclusive: <%= f.check_box :exclusive %></p>
+	<p>Expires: <%= f.text_field :expires, :placeholder => "2012-04-01 24:00:00" %></p>
 	<div class="actions">
 		<%= f.submit "Add to Queue" %>
 	</div>

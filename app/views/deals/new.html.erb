@@ -8,34 +8,6 @@
 			<div class="field">
 				<p>Name: <%= f.text_field :name, :autocomplete => "off", :placeholder => "Required" %></p>
 			</div>
-			<div id="field_deal_info" class="field">
-				<p>Info: <%= f.text_area :info, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Coupon: <%= f.text_field :coupon, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Rebate: <%= f.text_field :rebate, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Value: <%= f.text_field :value, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Discount: <%= f.text_field :discount, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
-				<p>Savings: <%= f.text_field :savings, :autocomplete => "off" %></p>
-			</div>
-	</div>
-</div>
-<div id="new_deal_2">
-	<div id="new_deal_header">
-		<h1>Create A New <span class="green">Deal</span></h1>
-	</div>
-	<div id="new_deal_form">
 			<div class="field">
 				<p>Link: <%= f.text_field :link, :autocomplete => "off", :placeholder => "Required" %></p>
 			</div>
@@ -54,6 +26,34 @@
 			<div class="field">
 				<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required (e.g. 1)" %></p>
 			</div>
+			<div id="field_deal_info" class="field">
+				<p>Info: <%= f.text_area :info, :autocomplete => "off" %></p>
+			</div>
+	</div>
+</div>
+<div id="new_deal_2">
+	<div id="new_deal_header">
+		<h1>Create A New <span class="green">Deal</span></h1>
+	</div>
+	<div id="new_deal_form">
+			<div class="field">
+				<p>Coupon: <%= f.text_field :coupon, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Rebate: <%= f.text_field :rebate, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Price: <%= f.text_field :price, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Value: <%= f.text_field :value, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Discount: <%= f.text_field :discount, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Savings: <%= f.text_field :savings, :autocomplete => "off" %></p>
+			</div>
 			<div class="field">
 				<p>Exclusive <%= f.check_box :exclusive %></p>
 			</div>
@@ -61,10 +61,13 @@
 				<p>Queue <%= f.check_box :queue %></p>
 			</div>
 			<div class="field">
-				<p>Top Deal? <%= f.check_box :top_deal %></p>
+				<p>Top Deal <%= f.check_box :top_deal %></p>
 			</div>
 			<div class="field">
-				<p>FlashBack? <%= f.check_box :flash_back %></p>
+				<p>Featured <%= f.check_box :flash_back %></p>
+			</div>
+			<div class="field">
+				<p>Expires: <%= f.text_field :expires, :autocomplete => "off", :placeholder => "2012-04-01 24:00:00" %></p>
 			</div>
 			<div class="field">
 				<p>Deal Order: <%= f.text_field :deal_order, :autocomplete => "off" %></p>

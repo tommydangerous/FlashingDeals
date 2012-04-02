@@ -33,7 +33,8 @@ class Deal < ActiveRecord::Base
 									:coupon,
 									:rebate,
 									:dead,
-									:flashmob
+									:flashmob,
+									:expires
 	
 									
 	validates :name, :presence => true 
