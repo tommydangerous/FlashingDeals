@@ -264,6 +264,14 @@
 								<p><%= @deal.click_count %></p>
 							</td>
 						</tr>
+						<tr>
+							<td id="deal_show_data_labels">
+								<p>Created</p>
+							</td>
+							<td id="deal_show_data_numbers">
+								<p><%= @deal.created_at.strftime("%m-%d") %> <span class="light_grey">at</span> <span class="grey_75"><%= @deal.created_at.strftime("%I:%M %p") %></span></p>
+							</td>
+						</tr>
 						<% unless @deal.posted.nil? %>
 						<tr>
 							<td id="deal_show_data_labels">
@@ -274,14 +282,16 @@
 							</td>
 						</tr>
 						<% end %>
+						<% unless @deal.time_in.nil? %>
 						<tr>
 							<td id="deal_show_data_labels">
-								<p>Created</p>
+								<p>Time In</p>
 							</td>
 							<td id="deal_show_data_numbers">
-								<p><%= @deal.created_at.strftime("%m-%d") %> <span class="light_grey">at</span> <span class="grey_75"><%= @deal.created_at.strftime("%I:%M %p") %></span></p>
+								<p><%= @deal.time_in.strftime("%m-%d") %> <span class="light_grey">at</span> <span class="grey_75"><%= @deal.time_in.strftime("%I:%M %p") %></span></p>
 							</td>
 						</tr>
+						<% end %>
 					</table>
 				</div>
 			<% end %>

@@ -35,6 +35,9 @@
 			<div class="field">
 				<p>Image: <%= f.text_field :image, :autocomplete => "off", :placeholder => "Required" %></p>
 			</div>
+			<div class="field">
+				<p>Site: <%= f.text_field :site, :autocomplete => "off", :placeholder => "Required (e.g. Amazon)" %></p>
+			</div>
 	</div>
 </div>
 <div id="new_deal_2">
@@ -43,16 +46,13 @@
 	</div>
 	<div id="new_deal_form">
 			<div class="field">
-				<p>Site: <%= f.text_field :site, :autocomplete => "off" %></p>
-			</div>
-			<div class="field">
 				<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
 				<p>Created At: <%= f.text_field :created_at, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
-				<p>Posted: <%= f.text_field :posted, :autocomplete => "off", :placeholder => "Required (YYYY-MM-DD)" %></p>
+				<p>Posted: <%= f.text_field :posted, :autocomplete => "off", :placeholder => "Required (2012-04-01 24:00:00)" %></p>
 			</div>
 			<div class="field">
 				<p>Views: <%= f.text_field :view_count, :autocomplete => "off" %></p>
@@ -61,13 +61,10 @@
 				<p>Clicks: <%= f.text_field :click_count, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
-				<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required" %></p>
+				<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required (e.g. national)" %></p>
 			</div>
 			<div class="field">
-				<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required" %></p>
-			</div>
-			<div class="field">
-				<p>Deal Order: <%= f.text_field :deal_order, :autocomplete => "off" %></p>
+				<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required (e.g. 1)" %></p>
 			</div>
 			<div class="field">
 				<p>Exclusive <%= f.check_box :exclusive %></p>
@@ -83,6 +80,12 @@
 			</div>
 			<div class="field">
 				<p>Dead <%= f.check_box :dead %></p>
+			</div>
+			<div class="field">
+				<p>Deal Order: <%= f.text_field :deal_order, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Time In: <%= f.text_field :time_in, :autocomplete => "off", :placeholder => "2012-04-01 24:00:00" %></p>
 			</div>
 			<div class="actions">
 				<%= f.submit "Update" %>
