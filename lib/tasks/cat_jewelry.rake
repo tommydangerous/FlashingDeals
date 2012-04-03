@@ -33,10 +33,14 @@ name ILIKE '%zales%'
 name NOT ILIKE '%across%' AND
 name NOT ILIKE '%armoire%' AND
 name NOT ILIKE '%beanie%' AND
+name NOT ILIKE '%boot%' AND
+name NOT ILIKE '%camp%' AND
 name NOT ILIKE '%card%' AND
 name NOT ILIKE '%chronograph%' AND
+name NOT ILIKE '%comforter%' AND
 name NOT ILIKE '%crossbody%' AND
 name NOT ILIKE '%crossbow%' AND
+name NOT ILIKE '%electric%' AND
 name NOT ILIKE '%expiring%' AND
 name NOT ILIKE '%graphic%' AND
 name NOT ILIKE '%hard drive%' AND
@@ -45,9 +49,13 @@ name NOT ILIKE '%hdd%' AND
 name NOT ILIKE '%herringbone%' AND
 name NOT ILIKE '%lantern%' AND
 name NOT ILIKE '%mastering%' AND
+name NOT ILIKE '%mountain%' AND
+name NOT ILIKE '%pillow%' AND
 name NOT ILIKE '%radeon%' AND
+name NOT ILIKE '%stool%' AND
 name NOT ILIKE '%video%' AND
-name NOT ILIKE '%watch%'
+name NOT ILIKE '%watch%' AND
+name NOT ILIKE '%wheel%'
 	
 											")
 	deals.each do |deal|

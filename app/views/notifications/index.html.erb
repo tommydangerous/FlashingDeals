@@ -1,6 +1,6 @@
 <div id="notifications">
 	<h1>My Notifications</h1>
-	<% @notifications_days.sort.reverse.each do |month_day, notifications| %>
+	<% @notifications_days.each do |month_day, notifications| %>
 		<h2><%= month_day %></h2>
 		<% for notification in notifications %>
 			<div id="notification">
