@@ -356,6 +356,11 @@ div#loading_deals {
 	border-radius: 10px;
 }
 
+div#loading_deals img {
+	width: 70px;
+	height: 70px;
+}
+
 div#loading_deals_words h1 {
 	font-family: Verdana;
 	font-size: 12px;

@@ -7,7 +7,7 @@
 		</div>
 		<div id="my_deals_info">
 			<div id="my_deals_watching">
-				<p>Watching: <span id="my_account_deals_count"><%= @deals.size %></span></p>
+				<p>Watching: <span id="my_account_deals_count"><%= @user.watching.where("posted > ?", @user.duration).size %></span></p>
 			</div>
 			<div class="my_deals_div">
 				<p>
@@ -63,6 +63,8 @@
 		<div id="grid_container">
 			<%= render :partial => "users/box_deal", :collection => @deals, :as => :deal %>
 		</div>
+		<div class="clear"></div>
+		<%= render "deals/endless_pagination" %>
 	</div>
 	<div class="clear"></div>
 </div>
