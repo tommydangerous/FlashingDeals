@@ -77,7 +77,7 @@
 					<% end %>
 				</div>
 				<div id="box_deal_comment_content">
-					<p><%= auto_link(wrap_box_deal(to_html(strip_tags(comment.content))), :all, :target => "_blank") %></p>
+					<p><%= auto_link(to_html(strip_tags(comment.content)), :all, :target => "_blank") %></p>
 				</div>
 				<div class="clear"></div>
 			</div>

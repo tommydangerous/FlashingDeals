@@ -1394,6 +1394,7 @@ div#subcomment_user a:hover {
 
 div#subcomment_user p {
 	font-size: 14px;
+	word-wrap: break-word;
 }
 
 div#subcomment_content {

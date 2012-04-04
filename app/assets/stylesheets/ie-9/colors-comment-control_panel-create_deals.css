@@ -169,6 +169,10 @@ div#comment_content {
 	margin-bottom: 5px;
 }
 
+div#comment_content p {
+	word-wrap: break-word;
+}
+
 div#comment_timestamp {
 	font-family: Verdana;
 	font-size: 10px;

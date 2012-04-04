@@ -9,7 +9,7 @@
 			<strong><%= link_to User.find(comment.user_id).name, User.find(comment.user.id) %></strong>
 		</div>
 		<div id="comment_content">
-			<%= auto_link(wrap(to_html(strip_tags(comment.content))), :all, :target => "_blank") %>
+			<%= auto_link((to_html(strip_tags(comment.content))), :all, :target => "_blank") %>
 		</div>
 		<div id="comment_timestamp">
 			Posted on <%= comment.created_at.strftime("%A") %> at <%= comment.created_at.strftime("%I:%M %p") %> (<%= comment.created_at.strftime("%b %d, %Y") %>)
