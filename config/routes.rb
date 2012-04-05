@@ -74,7 +74,6 @@ FlashingDeal::Application.routes.draw do
   match '/privacy' => 'pages#privacy', :as => :privacy
   match '/test' => 'pages#test', :as => :test
   match '/test2' => 'pages#test2', :as => :test2
-  match '/control-panel' => 'pages#control_panel', :as => :control_panel
   match '/contacts/failure' => 'pages#contacts_failure'
 # Sessions  
   match '/login'  => 'sessions#new'

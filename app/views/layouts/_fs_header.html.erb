@@ -41,9 +41,6 @@
 							<li><%= link_to "All Users", users_path %></li>
 							<li><%= link_to "All Comments", comments_path %></li>
 							<li><%= link_to "Watched Deals", relationships_path %></li>
-							<% if current_user.gm? %>
-								<li><%= link_to "Control Panel", control_panel_path %></li>
-							<% end %>
 						<% end %>
 						<% if current_user.notifications.where("read = ?", false).empty? %>
 							<li>
