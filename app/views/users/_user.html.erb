@@ -15,11 +15,13 @@
 		  	<%= link_to user do %>
 		  		<strong><%= user.name %></strong>
 		  	<% end %>
-	  		<span class="grey_150">joined</span> <%= user.created_at.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= user.created_at.strftime("%I:%M %p") %>
+		  	<% unless user.active.nil? %>
+		  		<span class="grey_150">last active</span> <%= user.active.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= user.active.strftime("%I:%M %p") %>
+		  	<% end %>
   		</p>
-  		<% unless user.active.nil? %>
-  			<p><span class="grey_150">Last Active:</span> <%= user.active.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= user.active.strftime("%I:%M %p") %></p>
-  		<% end %>
+  		<p>
+  			<span class="grey_150">Joined</span> <%= user.created_at.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= user.created_at.strftime("%I:%M %p") %>
+  		</p>
 	  	<p><%= user.email %></p>
 	  	<%= link_to "Most Recent Activity", "javascript:void(0)", :id => "most_recent_activity", :onclick => "toggleMostRecentActivity(#{user.id})" %>
 	  	<div id="most_recent_activity" class="most_recent_activity_<%= user.id %>">
