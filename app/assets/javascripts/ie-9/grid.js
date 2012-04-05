@@ -1,10 +1,12 @@
 $(function() {
 	$("img.lazy").lazyload({
-		effect: "fadeIn"
+		effect: "fadeIn",
+		failurelimit: 999
 	});
 	$("img.lazy_load").lazyload({
 		event: "load",
-		effect: "fadeIn"
+		effect: "fadeIn",
+		failurelimit: 999
 	});
 	var container = $("#grid_container");
 	container.imagesLoaded(function() {
