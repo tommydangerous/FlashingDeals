@@ -129,7 +129,9 @@
 	function adjustHeight() {
 		var h = $(".overlay_image_<%= deal.id %>").height();
 		var x = (200 - h)/2
-		$(".overlay_image_<%= deal.id %>").css("top", x);
+		if(h != 0) {
+			$(".overlay_image_<%= deal.id %>").css("top", x);
+		}
 	}
 	setInterval(adjustHeight, 0);
 	$(".lazy_<%= deal.id %>").lazyload({
@@ -166,7 +168,9 @@
 		function adjustHeight() {
 			var h = $(".overlay_image_<%= deal.id %>").height();
 			var x = (200 - h)/2
-			$(".overlay_image_<%= deal.id %>").css("top", x);
+			if(h != 0) {
+				$(".overlay_image_<%= deal.id %>").css("top", x);
+			}
 		}
 		setInterval(adjustHeight, 0);
 		$(".lazy_<%= deal.id %>").lazyload({
@@ -202,7 +206,9 @@
 		function adjustHeight() {
 			var h = $(".overlay_image_<%= deal.id %>").height();
 			var x = (200 - h)/2
-			$(".overlay_image_<%= deal.id %>").css("top", x);
+			if(h != 0) {
+				$(".overlay_image_<%= deal.id %>").css("top", x);
+			}
 		}
 		setInterval(adjustHeight, 0);
 		$(".lazy_<%= deal.id %>").lazyload({

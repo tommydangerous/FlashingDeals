@@ -1,5 +1,29 @@
-<%= form_tag test2_path, :method => :post do %>
-	<%= text_field_tag :email, params[:email] %>
-	<%= password_field_tag :password, params[:password] %>
-	<%= submit_tag "Enter", :name => nil %>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>FlashingDeals Invite</title>
+		<%= favicon_link_tag 'favicon.ico' %>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <style>
+    	#newsletter {
+    		width: 600px;
+    		background: rgb(255, 255, 255);
+    		border: 1px solid rgb(148, 222, 240);
+    		margin: 0 auto;
+    	}
+    	#logo {
+    		background: rgb(173, 217, 228);
+    		padding: 20px 20px 5px 20px;
+    	}
+    </style>
+	</head>
+	<body>
+		<table id="newsletter">
+			<tr>
+				<td id="logo">
+					<%= image_tag "https://s3.amazonaws.com/flashingdeals_admin/logo_beta.png" %>
+				</td>
+			</tr>
+		</table>
+	</body>
+</html>
