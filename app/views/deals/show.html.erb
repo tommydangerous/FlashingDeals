@@ -298,6 +298,10 @@
 		<%= render "deal_show_share" %>
 		<% if signed_in? %>
 			<%= render 'comments/comment_form' %>
+		<% else %>
+			<div id="comment_form">
+				<input id="comment_content_login" class="alertdim" readonly="readonly" value="Login or Signup to comment.">
+			</div>
 		<% end %>
 		<div id="deal_show_comments_list">
 			<%= render @comments %>

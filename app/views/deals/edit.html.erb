@@ -17,8 +17,8 @@
 			<div class="field">
 				<p>Site: <%= f.text_field :site, :autocomplete => "off", :placeholder => "Required (e.g. Amazon)" %></p>
 			</div>
-			<div class="field">
-				<p>Posted: <%= f.text_field :posted, :autocomplete => "off", :placeholder => "Required (2012-04-01 24:00:00)" %></p>
+			<div class="field datetime">
+				<p>Posted: <%= f.datetime_select :posted, :ampm => true, :datetime_separator => ", ", :time_separator => "", :use_short_month => true, :order => [:month, :day, :year] %></p>
 			</div>
 			<div class="field">
 				<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required (e.g. national)" %></p>
@@ -32,8 +32,8 @@
 			<div class="field">
 				<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
 			</div>
-			<div class="field">
-				<p>Created At: <%= f.text_field :created_at, :autocomplete => "off" %></p>
+			<div class="field datetime">
+				<p>Created At: <%= f.datetime_select :created_at, :ampm => true, :datetime_separator => ", ", :time_separator => "", :use_short_month => true, :order => [:month, :day, :year] %></p>
 			</div>
 			<div class="field">
 				<p>Views: <%= f.text_field :view_count, :autocomplete => "off" %></p>
@@ -78,8 +78,8 @@
 			<div class="field">
 				<p>Featured <%= f.check_box :flash_back %></p>
 			</div>
-			<div class="field">
-				<p>Expires: <%= f.text_field :expires, :autocomplete => "off", :placeholder => "2012-04-01 24:00:00" %></p>
+			<div class="field datetime">
+				<p>Expires: <%= f.datetime_select :expires, :ampm => true, :datetime_separator => ", ", :time_separator => "", :use_short_month => true, :order => [:month, :day, :year], :include_blank => true %></p>
 			</div>
 			<div class="field">
 				<p>Dead <%= f.check_box :dead %></p>
@@ -87,8 +87,8 @@
 			<div class="field">
 				<p>Deal Order: <%= f.text_field :deal_order, :autocomplete => "off" %></p>
 			</div>
-			<div class="field">
-				<p>Time In: <%= f.text_field :time_in, :autocomplete => "off", :placeholder => "2012-04-01 24:00:00" %></p>
+			<div class="field datetime">
+				<p>Time In: <%= f.datetime_select :time_in, :ampm => true, :datetime_separator => ", ", :time_separator => "", :use_short_month => true, :order => [:month, :day, :year], :include_blank => true %></p>
 			</div>
 			<div class="actions">
 				<%= f.submit "Update" %>

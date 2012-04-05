@@ -205,3 +205,45 @@ div#new_deal_form div#error_explanation ul li {
 	color: rgba(255, 26, 0, 1);
 	margin-bottom: 5px;
 }
+
+div.datetime select {
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid rgb(200, 200, 200);
+	padding: 2px;
+	font-family: Verdana;
+	font-size: 13px;
+	color: rgb(75, 75, 75);
+	margin-top: 10px;
+	margin-bottom: 10px;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+}
+
+div.datetime select:hover {
+	border: 1px solid rgb(150, 150, 150);
+}
+
+div.datetime select:focus {
+	border: 1px solid rgb(48, 157, 207);
+	-webkit-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+}
