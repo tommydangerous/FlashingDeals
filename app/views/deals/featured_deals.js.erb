@@ -1,0 +1,9 @@
+var $boxes = $('<%= j render :partial => "box_deal_large", :collection => @deals, :as => :deal %>');
+$("#grid_container_large").append( $boxes ).masonry( 'appended', $boxes, true);
+
+<% if @deals.total_pages == @deals.current_page %>
+	$("#endless_pagination").remove();
+	$("#loading_deals").remove();
+<% else %>
+	$("#loading_deals").replaceWith("<%= j render("endless_pagination") %>");
+<% end %>

@@ -25,6 +25,18 @@ class PagesController < ApplicationController
 	
 	def control_panel
 		@title = "Control Panel"
+		@deals = Deal.all.size
+		@rising_deals = Deal.where("posted > ? AND metric >= ? AND queue = ? AND top_deal = ? AND flash_back = ?", (Time.now - (86400 * 1)), 0, false, false, false).size
+		@queue_deals = Deal.where("queue = ?", true).size
+		@top_deals = Deal.where("top_deal = ?", true).size
+		@featured_deals = Deal.where("posted > ? AND flash_back = ?", (Time.zone.now - (86400 * 3)), true).size
+		@community_deals = Deal.where("posted > ? AND metric < ?", (Time.zone.now - (86400 * 1)), 0).size
+		@categories = Category.all.size
+		@comments = Comment.all.size + Subcomment.all.size
+		@feedbacks = Feedback.all.size
+		@locations = Location.all.size
+		@users = User.all.size
+		@watched_deals = Relationship.all.size
 	end
 
 	def about

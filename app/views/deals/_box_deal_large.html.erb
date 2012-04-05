@@ -28,16 +28,16 @@
 		<div class="box_deal_link_overlay">
 			<% if signed_in? %>
 				<%= link_to("javascript:void(0)", :class => "box_deal_large_link", :onclick => "overlayPopup(#{deal.id})") do %>
-					<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
 				<% end %>
 			<% else %>
 				<% if deal.exclusive? %>
 					<%= link_to("javascript:void(0)", :class => "box_deal_large_link", :onclick => "signupPopupExclusive();") do %>
-						<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+						<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
 					<% end %>
 				<% else %>
 					<%= link_to("javascript:void(0)", :class => "box_deal_large_link", :onclick => "overlayPopup(#{deal.id})") do %>
-						<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+						<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
 					<% end %>
 				<% end %>
 			<% end %>
@@ -90,7 +90,7 @@
 			<div class="box_deal_large_comment">
 				<div id="box_deal_large_comment_user">
 					<%= link_to(User.find(comment.user_id)) do %>
-						<img class="lazy lazy_load" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_subcomment">
+						<img class="lazy lazy_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_subcomment">
 					<% end %>
 				</div>
 				<div id="box_deal_large_comment_content">
@@ -132,6 +132,10 @@
 		$(".overlay_image_<%= deal.id %>").css("top", x);
 	}
 	setInterval(adjustHeight, 0);
+	$(".lazy_<%= deal.id %>").lazyload({
+		event: "load",
+		effect: "fadeIn"
+	});
 	</script>
 <% elsif Rails.env.production? %>
 	<% if request.url.include?("www") %>
@@ -165,6 +169,10 @@
 			$(".overlay_image_<%= deal.id %>").css("top", x);
 		}
 		setInterval(adjustHeight, 0);
+		$(".lazy_<%= deal.id %>").lazyload({
+			event: "load",
+			effect: "fadeIn"
+		});
 		</script>
 	<% else %>
 		<script>
@@ -197,6 +205,10 @@
 			$(".overlay_image_<%= deal.id %>").css("top", x);
 		}
 		setInterval(adjustHeight, 0);
+		$(".lazy_<%= deal.id %>").lazyload({
+			event: "load",
+			effect: "fadeIn"
+		});
 		</script>
 	<% end %>
 <% end %>

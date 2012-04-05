@@ -25,7 +25,7 @@ class DealsController < ApplicationController
 		@title = "Featured"
 		@today_3 = Time.now - (86400 * 3)
   	deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3)
-  	@deals = deals.search(params[:search]).order(sort_column_time_in + " " + sort_direction)
+  	@deals = deals.search(params[:search]).order(sort_column_time_in + " " + sort_direction).paginate(:page => params[:page], :per_page => 20)
   	render :layout => "full_screen"
   	clear_return_to
 	end

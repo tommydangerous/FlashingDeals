@@ -87,63 +87,95 @@
 	</div>
 </div>
 <% if Rails.env.development? %>
-<script>
-$('.example3demo_<%= deal.id %>').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 375,
-	width: 675
-}); 
-$('.example4demo_<%= deal.id %>').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 500,
-	width: 675
-});
-
-function overlayPopup(id) {
-	var i = id
-	var url = "http://localhost:3000/deals/"+i+"/show_overlay"
-	$("body").addClass("stationary");
-	$(".overlay_image_"+i).hide();
-	$(".overlayInner").load(url, function() {
-		$(".overlayOuter").fadeIn(200);
-	})
-};
-
-$(".lazy_<%= deal.id %>").lazyload({
-	event: "load",
-	effect: "fadeIn"
-});
-</script>
+	<script>
+	$('.example3demo_<%= deal.id %>').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 375,
+		width: 675
+	}); 
+	$('.example4demo_<%= deal.id %>').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 500,
+		width: 675
+	});
+	
+	function overlayPopup(id) {
+		var i = id
+		var url = "http://localhost:3000/deals/"+i+"/show_overlay"
+		$("body").addClass("stationary");
+		$(".overlay_image_"+i).hide();
+		$(".overlayInner").load(url, function() {
+			$(".overlayOuter").fadeIn(200);
+		})
+	};
+	
+	$(".lazy_<%= deal.id %>").lazyload({
+		event: "load",
+		effect: "fadeIn"
+	});
+	</script>
 <% elsif Rails.env.production? %>
-<script>
-$('.example3demo_<%= deal.id %>').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 375,
-	width: 675
-}); 
-$('.example4demo_<%= deal.id %>').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 500,
-	width: 675
-});
-
-function overlayPopup(id) {
-	var i = id
-	var url = "http://www.flashingdeals.com/deals/"+i+"/show_overlay"
-	$("body").addClass("stationary");
-	$(".overlay_image_"+i).hide();
-	$(".overlayInner").load(url, function() {
-		$(".overlayOuter").fadeIn(200);
-	})
-};
-
-$(".lazy_<%= deal.id %>").lazyload({
-	event: "load",
-	effect: "fadeIn"
-});
-</script>
+	<% if request.url.include?("www") %>
+		<script>
+		$('.example3demo_<%= deal.id %>').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 375,
+			width: 675
+		}); 
+		$('.example4demo_<%= deal.id %>').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 500,
+			width: 675
+		});
+		
+		function overlayPopup(id) {
+			var i = id
+			var url = "http://www.flashingdeals.com/deals/"+i+"/show_overlay"
+			$("body").addClass("stationary");
+			$(".overlay_image_"+i).hide();
+			$(".overlayInner").load(url, function() {
+				$(".overlayOuter").fadeIn(200);
+			})
+		};
+		
+		$(".lazy_<%= deal.id %>").lazyload({
+			event: "load",
+			effect: "fadeIn"
+		});
+		</script>
+	<% else %>
+		<script>
+		$('.example3demo_<%= deal.id %>').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 375,
+			width: 675
+		}); 
+		$('.example4demo_<%= deal.id %>').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 500,
+			width: 675
+		});
+		
+		function overlayPopup(id) {
+			var i = id
+			var url = "http://flashingdeals.com/deals/"+i+"/show_overlay"
+			$("body").addClass("stationary");
+			$(".overlay_image_"+i).hide();
+			$(".overlayInner").load(url, function() {
+				$(".overlayOuter").fadeIn(200);
+			})
+		};
+		
+		$(".lazy_<%= deal.id %>").lazyload({
+			event: "load",
+			effect: "fadeIn"
+		});
+		</script>
+	<% end %>
 <% end %>

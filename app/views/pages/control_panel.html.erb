@@ -1,3 +1,111 @@
-<div id="side_panel">
-	<%= render 'shared/control_panel' %>
+<div id="control">
+	<table>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "All Deals", deals_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @deals %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "Rising Deals", rising_deals_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @rising_deals %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "Queue Deals", queue_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @queue_deals %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "Top Deals", root_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @top_deals %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "FlashBack Deals", flashback_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @featured_deals %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "FlashMob Deals", flashmob_deals_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @community_deals %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "Categories", '#' %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @categories %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "Comments", comments_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @comments %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "Feedbacks", feedbacks_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @feedbacks %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "Locations", '#' %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @locations %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "All Users", users_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @users %></span></p>
+			</td>
+		</tr>
+		<tr>
+			<td class="model_name">
+				<p><%= link_to "Watched Deals", relationships_path %></p> 
+			</td>
+			<td class="model_count">
+				<p><span><%= @watched_deals %></span></p>
+			</td>
+		</tr>
+	</table>
 </div>
+<style>
+#control {
+	padding: 10px;
+	background: rgb(255, 255, 255);
+	border: 1px dotted rgb(200, 200, 200);
+}
+
+#control table {
+	margin: 0 auto;
+}
+</style>
