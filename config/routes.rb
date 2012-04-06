@@ -26,6 +26,7 @@ FlashingDeal::Application.routes.draw do
   resources :friendships, :only => [:create, :update, :destroy]
   resources :locations, :only => :show
   resources :messages, :only => [:index, :show, :create, :update]
+  resources :newsletters
   resources :notifications, :only => :index
   resources :password_resets, :only => [:new, :create, :edit, :update]
   resources :referrals, :only => :index

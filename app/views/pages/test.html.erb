@@ -5,15 +5,117 @@
 		<%= favicon_link_tag 'favicon.ico' %>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style>
+	    .clear {
+				height: 0;
+				font-size: 1px;
+				margin: 0;
+				padding: 0;
+				line-height: 0;
+				clear: both;
+			}
     	#newsletter {
     		width: 600px;
     		background: rgb(255, 255, 255);
     		border: 1px solid rgb(148, 222, 240);
     		margin: 0 auto;
+    		padding-bottom: 20px;
     	}
     	#logo {
     		background: rgb(173, 217, 228);
     		padding: 20px 20px 5px 20px;
+    	}
+    	#follow {
+    		height: 20px;
+    		width: 90px;
+    		float: right;
+    	}
+    	#follow a {
+    		text-decoration: none;
+    	}
+    	#follow img {
+    		width: 20px;
+    		height: 20px;
+    		margin: 0px 2px;
+    		float: right;
+    		-webkit-border-radius: 2px;
+    		-khtml-border-radius: 2px;
+    		-moz-border-radius: 2px;
+    		-ms-border-radius: 2px;
+    		-o-border-radius: 2px;
+    		border-radius: 2px;
+    	}
+    	#follow p {
+    		font-family: Helvetica, Arial;
+    		font-size: 12px;
+    		color: rgb(75, 75, 75);
+    		height: 20px;
+    		margin: 0;
+    		line-height: 22px;
+    	}
+    	#info1 {
+    		padding: 20px 20px 0px 20px;
+    	}
+    	#info1 p {
+    		font-family: Helvetica, Arial;
+    		font-size: 14px;
+    		color: rgb(75, 75, 75);
+    		margin: 0;
+    		line-height: 18px;
+    	}
+    	#info2 {
+    		padding: 10px 20px 0px 20px;
+    	}
+    	#info2 p {
+    		font-family: Helvetica, Arial;
+    		font-size: 14px;
+    		color: rgb(75, 75, 75);
+    		margin: 0;
+    		line-height: 18px;
+    	}
+    	#info3 {
+    		padding: 10px 20px 0px 20px;
+    	}
+    	#info3 p {
+    		font-family: Helvetica, Arial;
+    		font-size: 14px;
+    		color: rgb(75, 75, 75);
+    		margin: 0;
+    		line-height: 18px;
+    	}
+    	#one_deal {
+    		padding: 0px 20px;
+    		text-align: center;
+    	}
+    	#single_deal {
+    		padding: 10px;
+    		border: 1px dotted rgb(175, 175, 175);
+    	}
+    	#single_deal_image {
+    		width: 200px;
+    		vertical-align: top;
+    	}
+    	#single_deal_image img {
+    		max-width: 200px;
+    		max-height: 200px;
+    	}
+    	#single_deal_name {
+    		text-align: left;
+    		vertical-align: top;
+    		padding-left: 5px;
+    	}
+    	#single_deal_name p.name {
+    		font-family: Helvetica, Arial;
+    		font-size: 14px;
+    		color: rgb(75, 75, 75);
+    		margin: 0;
+    		line-height: 18px;
+    	}
+    	#single_deal_name p.site {
+    		font-family: Helvetica, Arial;
+    		font-size: 12px;
+    		color: rgb(150, 150, 150);
+    		margin: 0;
+    		margin-top: 3px;
     	}
     </style>
 	</head>
@@ -23,15 +125,66 @@
 				<td id="logo">
 					<%= image_tag "https://s3.amazonaws.com/flashingdeals_admin/logo_beta.png" %>
 					<div id="follow">
-						<%= link_to("http://www.facebook.com/pages/FlashingDeals/254028428008396", :id => "facebook", :target => "_blank") do %>
-							<%= image_tag "/assets/facebook_button.png" %>
-						<% end %>
-						<%= link_to("http://twitter.com/FlashingDeals", :id => "twitter", :target => "_blank") do %>
-							<%= image_tag "/assets/twitter_button.png" %>
-						<% end %>
+						<p>
+							Follow:
+							<%= link_to("http://twitter.com/FlashingDeals", :id => "twitter", :target => "_blank") do %>
+								<%= image_tag "/assets/twitter_button.png" %>
+							<% end %>
+							<%= link_to("http://www.facebook.com/FlashingDeals", :id => "facebook", :target => "_blank") do %>
+								<%= image_tag "/assets/facebook_button.png" %>
+							<% end %>
+						</p>
 					</div>
 				</td>
 			</tr>
+			<% unless @newsletter.info1.nil? || @newsletter.info1.blank? %>
+				<tr>
+					<td id="info1">
+						<p><%= @newsletter.info1 %></p>
+					</td>
+				</tr>
+			<% end %>
+			<% unless @newsletter.info2.nil? || @newsletter.info2.blank? %>
+				<tr>
+					<td id="info2">
+						<p><%= @newsletter.info2 %></p>
+					</td>
+				</tr>
+			<% end %>
+			<% unless @newsletter.info3.nil? || @newsletter.info3.blank? %>
+				<tr>
+					<td id="info3">
+						<p><%= @newsletter.info3 %></p>
+					</td>
+				</tr>
+			<% end %>
+			<% if !@newsletter.deal1.nil? && @newsletter.deal2.nil? && @newsletter.deal3.nil? && @newsletter.deal4.nil? %>
+				<tr>
+					<td id="one_deal">
+						<table id="single_deal">
+							<tr>
+								<td id="single_deal_image">
+									<%= image_tag Deal.find(@newsletter.deal1).image %>
+								</td>
+								<td id="single_deal_name">
+									<p class="name"><%= Deal.find(@newsletter.deal1).name %></p>
+									<p class="site"><%= Deal.find(@newsletter.deal1).site %></p>
+									<table>
+										<tr>
+											<td id="single_deal_price">
+												<p class="price"><%= Deal.find(@newsletter.deal1).price %></p>
+											</td>
+											<td id="single_deal_view_deal">
+												View Deal
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				<tr>
+			<% end %>
 		</table>
 	</body>
 </html>

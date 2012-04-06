@@ -45,16 +45,16 @@
 		<div class="box_deal_link_overlay_none">
 			<% if signed_in? %>
 				<%= link_to(deal, :class => "box_deal_large_link") do %>
-					<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
 				<% end %>
 			<% else %>
 				<% if deal.exclusive? %>
 					<%= link_to(deal, :class => "box_deal_large_link", :onclick => "signupPopupExclusive();") do %>
-						<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+						<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
 					<% end %>
 				<% else %>
 					<%= link_to(deal, :class => "box_deal_large_link") do %>
-						<img class="lazy lazy_load box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+						<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
 					<% end %>
 				<% end %>
 			<% end %>

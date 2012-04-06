@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120402191214) do
+ActiveRecord::Schema.define(:version => 20120406025742) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -202,6 +202,18 @@ ActiveRecord::Schema.define(:version => 20120402191214) do
   add_index "messages", ["created_at"], :name => "index_messages_on_created_at"
   add_index "messages", ["user_id", "recipient_id"], :name => "index_messages_on_user_id_and_recipient_id"
 
+  create_table "newsletters", :force => true do |t|
+    t.text     "info1"
+    t.text     "info2"
+    t.text     "info3"
+    t.integer  "deal1"
+    t.integer  "deal2"
+    t.integer  "deal3"
+    t.integer  "deal4"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "notifications", :force => true do |t|
     t.integer  "user_id"
     t.integer  "notice_id"
@@ -281,12 +293,14 @@ ActiveRecord::Schema.define(:version => 20120402191214) do
     t.string   "time_zone",              :default => "Pacific Time (US & Canada)"
     t.datetime "active"
     t.string   "image_remote_url"
+    t.boolean  "subscribe",              :default => true
   end
 
   add_index "users", ["active"], :name => "index_users_on_active"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["slug"], :name => "index_users_on_slug"
+  add_index "users", ["subscribe"], :name => "index_users_on_subscribe"
 
   create_table "votes", :force => true do |t|
     t.boolean   "vote",          :default => false

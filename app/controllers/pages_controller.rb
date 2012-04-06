@@ -11,6 +11,7 @@ class PagesController < ApplicationController
 	def test
 		@title = "Test"
 		@user = current_user
+		@newsletter = Newsletter.find(2)
 		render :layout => false
 	end
 	
