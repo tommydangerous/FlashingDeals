@@ -33,7 +33,7 @@
 	<div id="email_invite_body">
 		<h2>Type in the emails you wish to send your invite to, separate each with a comma</h2>
 		<div id="email_invite_field">
-			<%= form_tag email_invite_path, :method => :get do %>
+			<%= form_tag email_invite_path, :method => :post do %>
 				<%= text_field_tag :user_email_invite, params[:user_email_invite], :autocomplete => "off", :placeholder => "bobby@gmail.com, timmy@hotmail.com, johnny@yahoo.com" %>
 				<%= submit_tag "Email Invite", :name => nil, :id => "user_email_invite_send", :class => "send_email" %>
 			<% end %>
@@ -53,6 +53,7 @@
 					<%= submit_tag "Submit", :name => nil, :id => "gmail_login_submit" %>
 				</div>
 			<% end %>
+			<h3>FlashingDeals will not store your password.</h3>
 		</div>
 	</div>
 </div>

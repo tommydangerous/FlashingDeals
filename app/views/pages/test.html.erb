@@ -22,6 +22,14 @@
 			<tr>
 				<td id="logo">
 					<%= image_tag "https://s3.amazonaws.com/flashingdeals_admin/logo_beta.png" %>
+					<div id="follow">
+						<%= link_to("http://www.facebook.com/pages/FlashingDeals/254028428008396", :id => "facebook", :target => "_blank") do %>
+							<%= image_tag "/assets/facebook_button.png" %>
+						<% end %>
+						<%= link_to("http://twitter.com/FlashingDeals", :id => "twitter", :target => "_blank") do %>
+							<%= image_tag "/assets/twitter_button.png" %>
+						<% end %>
+					</div>
 				</td>
 			</tr>
 		</table>
