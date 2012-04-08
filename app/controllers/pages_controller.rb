@@ -11,18 +11,15 @@ class PagesController < ApplicationController
 	def test
 		@title = "Test"
 		@user = current_user
-		@newsletter = Newsletter.find(2)
+		@newsletter = Newsletter.find(4)
 		render :layout => false
 	end
 	
 	def test2
-		email = params[:email]
-		password = params[:password]
-		begin
-			@contacts = Contacts.new(:gmail, email, password).contacts
-		rescue
-			redirect_to test_path
-		end
+		@title = "Test"
+		@user = current_user
+		@newsletter = Newsletter.find(1)
+		render :layout => false
 	end
 	
 	def control_panel

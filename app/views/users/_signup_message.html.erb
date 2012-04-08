@@ -20,7 +20,7 @@
 					<%= image_tag "/assets/facebook_auth.png" %> <h3>Signup using Facebook</h3>
 				<% end %>
 			</div>
-			<h2>...or Signup <%= link_to "Here", "javascript:void(0);", :onclick => "toggleSignupLogin();" %></h2>
+			<h2>...or <%= link_to "Signup Here", "javascript:void(0);", :onclick => "toggleSignupLogin();" %></h2>
 		</div>
 		<div id="signup_message_form">
 			<%= form_for(User.new) do |f| %>

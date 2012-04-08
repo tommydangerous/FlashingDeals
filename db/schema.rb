@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406025742) do
+ActiveRecord::Schema.define(:version => 20120406211624) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -212,7 +212,10 @@ ActiveRecord::Schema.define(:version => 20120406025742) do
     t.integer  "deal4"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
   end
+
+  add_index "newsletters", ["name"], :name => "index_newsletters_on_name"
 
   create_table "notifications", :force => true do |t|
     t.integer  "user_id"

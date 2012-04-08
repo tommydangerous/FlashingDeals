@@ -25,6 +25,8 @@ $(document).ready(function(){
 	
 	$(".signup_popup_anchor").click(function() {
 		$("div#dim_signup").fadeIn(200);
+		$("#signup_message_form").hide();
+		$("#login_form").show();
 		$("html, body").animate({ scrollTop: 0  }, 100);
 			return false;
 	});
@@ -66,4 +68,3 @@ function toggleSignupLogin() {
 		l.css("display", "block");
 	}
 };
-
