@@ -10,6 +10,7 @@ task :make_deals => :environment do
 	make_woot_deals
 	make_fatwallet_deals
 	make_dealplus_deals
+	make_dealplus_deals_hu
 	make_dealnews_deals
 	make_dealigg_deals
 	make_todaysdod_deals

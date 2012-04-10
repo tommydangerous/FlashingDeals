@@ -78,7 +78,8 @@ def make_techbargains_deals
 		info_raw = row.css('td.sortparaDeal div').inner_text
 		info = info_raw.to_s
 		
-		check = Deal.find_by_name("#{name}")
+		deals = Deal.where("posted > ?", Time.now - 86400)
+		check = deals.find_by_name("#{name}")
 		sold_out = name.include?("SOLD OUT")
 		if check.nil? && sold_out == false
 			Deal.create!(:name => name,
@@ -91,7 +92,8 @@ def make_techbargains_deals
 									 :metric => metric,
 									 :tag => tag,
 									 :city => city,
-									 :info => info)
+									 :info => info,
+									 :flashmob => true)
 		end
 	end
 	puts "techbargains"

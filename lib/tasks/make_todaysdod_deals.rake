@@ -110,7 +110,8 @@ def todaysdod_fetch
 		info = row.css('div.item_info_box a').attr("title").to_s
 		
 		sd = metric
-		check = Deal.find_by_name("#{name}")
+		deals = Deal.where("posted > ?", Time.now - 86400)
+		check = deals.find_by_name("#{name}")
 		if check.nil? && (sd >= (0))
 			Deal.create!(:name => name,
 									 :price => price,

@@ -53,7 +53,8 @@ def make_meritline_deals
 		# city
 		city = "national"
 		
-		check = Deal.find_by_name("#{name}")
+		deals = Deal.where("posted > ?", Time.now - 86400)
+		check = deals.find_by_name("#{name}")
 		if check.nil?
 			Deal.create(:name => name,
 									:price => price,
@@ -63,7 +64,8 @@ def make_meritline_deals
 									:metric => metric,
 									:tag => tag,
 									:posted => posted,
-									:city => city)
+									:city => city,
+									:flashmob => true)
 		end
 	end
 end

@@ -1,28 +1,11 @@
-<div id="newsletters_list">
-	<h1 class="newsletters_header">Newsletters (<%= Newsletter.all.size %>)</h1>
-	<% @newsletters.each do |newsletter| %>
-		<div class="newsletter">
-			<%= link_to newsletter do %>
-				<h1><b><%= newsletter.name %></b> (<%= newsletter.created_at.strftime("%b %d, %y") %>)</h1>
-			<% end %>
-			<h2>
-				# Of Deals:
-				<% if newsletter.deal1.nil? && newsletter.deal2.nil? && newsletter.deal3.nil? && newsletter.deal4.nil? %>
-					0
-				<% elsif !newsletter.deal1.nil? && newsletter.deal2.nil? && newsletter.deal3.nil? && newsletter.deal4.nil? %>
-					1
-				<% elsif !newsletter.deal1.nil? && !newsletter.deal2.nil? && newsletter.deal3.nil? && newsletter.deal4.nil? %>
-					2
-				<% elsif !newsletter.deal1.nil? && !newsletter.deal2.nil? && !newsletter.deal3.nil? && newsletter.deal4.nil? %>
-					3
-				<% elsif !newsletter.deal1.nil? && !newsletter.deal2.nil? && !newsletter.deal3.nil? && !newsletter.deal4.nil? %>
-					4
-				<% end %>
-			</h2>
-			<p><%= newsletter.info1 %></p>
-			<p><%= newsletter.info2 %></p>
-			<p><%= newsletter.info3 %></p>
+<%= render 'newsletter_side' %>
+<div id="newsletter_list">
+	<% flash.each do |key, value| %>
+		<div class="flash <%= key %>">
+			<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %>
 		</div>
 	<% end %>
+	<h1 class="newsletters_header">Newsletters (<%= Newsletter.all.size %>)</h1>
+	<%= render @newsletters %>
 </div>
 <%= will_paginate @newsletters, :separator => "" %>

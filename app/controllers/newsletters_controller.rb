@@ -2,6 +2,21 @@ class NewslettersController < ApplicationController
 	before_filter :authenticate
 	before_filter :admin_user
 	
+	def subscribed_users
+		@title = "Subscribed Users"
+		@users = User.where("subscribe = ?", true).order("name ASC")
+	end
+	
+	def unsubscribed_users
+		@title = "Unsubscribed Users"
+		@users = User.where("subscribe = ?", false).order("name ASC")
+		render :subscribed_users
+	end
+	
+	def email_newsletter
+		
+	end
+	
   def index
   	@newsletters = Newsletter.order("created_at DESC").paginate(:page => params[:page], :per_page => 20)
   	@title = "Newsletters"
@@ -9,7 +24,29 @@ class NewslettersController < ApplicationController
   
   def show
   	@newsletter = Newsletter.find(params[:id])
-  	render :layout => false
+  	deal_nil = []
+  	deal1 = Deal.find_by_id(@newsletter.deal1)
+  	deal2 = Deal.find_by_id(@newsletter.deal2)
+  	deal3 = Deal.find_by_id(@newsletter.deal3)
+  	deal4 = Deal.find_by_id(@newsletter.deal4)
+  	if deal1.nil?
+  		deal_nil.push(@newsletter.deal1)
+  	end
+  	if deal2.nil?
+  		deal_nil.push(@newsletter.deal2)
+  	end
+  	if deal3.nil?
+  		deal_nil.push(@newsletter.deal3)
+  	end
+  	if deal4.nil?
+  		deal_nil.push(@newsletter.deal4)
+  	end
+  	if deal1.nil? && !@newsletter.deal1.nil? || deal2.nil? && !@newsletter.deal2.nil? || deal3.nil? && !@newsletter.deal3.nil? || deal4.nil? && !@newsletter.deal4.nil?
+  		flash[:error] = "Deal #{deal_nil.join(' ')} cannot be found."
+  		redirect_to edit_newsletter_path(@newsletter)
+  	else
+  		render :layout => false
+  	end
   end
 
   def new
@@ -18,62 +55,78 @@ class NewslettersController < ApplicationController
   end
   
   def create
-  	@newsletter = Newsletter.create(params[:newsletter])
-  		if @newsletter.save
-	  		flash[:success] = "Newsletter successfully created."
-	  		redirect_to newsletters_path
-	  	else
-	  		render :new
-	  	end
-  end
-
-  def create2
   	deal_nil = []
-  	deal1 = "good"
-  	deal2 = "good"
-  	deal3 = "good"
-  	deal4 = "good"
-  	unless params[:newsletter][:deal1] = ''
-  		deal1 = Deal.find(params[:newsletter][:deal1])
-  	end
-  	unless params[:newsletter][:deal2] = ''
-  		deal2 = Deal.find(params[:newsletter][:deal2])
-  	end
-  	unless params[:newsletter][:deal3] = ''
-  		deal3 = Deal.find(params[:newsletter][:deal3])
-  	end
-  	unless params[:newsletter][:deal4] = ''
-  		deal4 = Deal.find(params[:newsletter][:deal4])
-  	end
+  	deal1 = Deal.find_by_id(params[:newsletter][:deal1])
+  	deal2 = Deal.find_by_id(params[:newsletter][:deal2])
+  	deal3 = Deal.find_by_id(params[:newsletter][:deal3])
+  	deal4 = Deal.find_by_id(params[:newsletter][:deal4])
   	if deal1.nil?
-  		deal_nil.push("#{params[:newsletter][:deal1]}")
-  	elsif deal2.nil?
-  		deal_nil.push("#{params[:newsletter][:deal2]}")
-  	elsif deal3.nil?
-  		deal_nil.push("#{params[:newsletter][:deal3]}")
-  	elsif deal4.nil?
-  		deal_nil.push("#{params[:newsletter][:deal4]}")
+  		deal_nil.push(params[:newsletter][:deal1])
   	end
-  	if deal_nil.empty?
-  		@newsletter = Newsletter.create(params[:newsletter])
-  		if @newsletter.save
+  	if deal2.nil?
+  		deal_nil.push(params[:newsletter][:deal2])
+  	end
+  	if deal3.nil?
+  		deal_nil.push(params[:newsletter][:deal3])
+  	end
+  	if deal4.nil?
+  		deal_nil.push(params[:newsletter][:deal4])
+  	end
+		@newsletter = Newsletter.new(params[:newsletter])
+		if deal1.nil? && params[:newsletter][:deal1] != "" || deal2.nil? && params[:newsletter][:deal2] != "" || deal3.nil? && params[:newsletter][:deal3] != "" || deal4.nil? && params[:newsletter][:deal4] != ""
+			flash[:error] = "Deal #{deal_nil.join(' ')} cannot be found."
+  		render :new
+  	else
+			if @newsletter.save
 	  		flash[:success] = "Newsletter successfully created."
 	  		redirect_to newsletters_path
 	  	else
 	  		render :new
 	  	end
-	  else
-	  	flash[:now] = "Could not find #{deal_nil}"
-	  	render :new
 	  end
   end
 
   def edit
+  	@title = "Edit Newsletter"
+  	@newsletter = Newsletter.find(params[:id])
   end
 
   def update
+  	deal_nil = []
+  	deal1 = Deal.find_by_id(params[:newsletter][:deal1])
+  	deal2 = Deal.find_by_id(params[:newsletter][:deal2])
+  	deal3 = Deal.find_by_id(params[:newsletter][:deal3])
+  	deal4 = Deal.find_by_id(params[:newsletter][:deal4])
+  	if deal1.nil?
+  		deal_nil.push(params[:newsletter][:deal1])
+  	end
+  	if deal2.nil?
+  		deal_nil.push(params[:newsletter][:deal2])
+  	end
+  	if deal3.nil?
+  		deal_nil.push(params[:newsletter][:deal3])
+  	end
+  	if deal4.nil?
+  		deal_nil.push(params[:newsletter][:deal4])
+  	end
+  	@newsletter = Newsletter.find(params[:id])
+  	if deal1.nil? && params[:newsletter][:deal1] != "" || deal2.nil? && params[:newsletter][:deal2] != "" || deal3.nil? && params[:newsletter][:deal3] != "" || deal4.nil? && params[:newsletter][:deal4] != ""
+			flash[:error] = "Deal #{deal_nil.join(' ')} cannot be found."
+  		render :edit
+  	else
+	  	if @newsletter.update_attributes(params[:newsletter])
+	  		flash[:success] = "Newsletter updated."
+	  		redirect_to newsletters_path
+	  	else
+	  		render :edit
+	  	end
+	  end
   end
 
   def destroy
+  	@newsletter = Newsletter.find(params[:id])
+  	@newsletter.destroy
+  	flash[:notice] = "Newsletter deleted."
+  	redirect_to newsletters_path
   end
 end

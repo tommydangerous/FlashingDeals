@@ -146,7 +146,8 @@ def slickdeals_fetch_first_page
 		end
 		
 		sd = metric
-		check = Deal.find_by_name("#{name}")
+		deals = Deal.where("posted > ?", Time.now - 86400)
+		check = deals.find_by_name("#{name}")
 		if check.nil? && (sd >= (0))
 			Deal.create!(:name => name,
 									 :price => price,
@@ -236,7 +237,8 @@ def slickdeals_fetch_all_page
 			end
 			
 			sd = metric
-			check = Deal.find_by_name("#{name}")
+			deals = Deal.where("posted > ?", Time.now - 86400)
+			check = deals.find_by_name("#{name}")
 			if check.nil? && (sd >= (0))
 				Deal.create!(:name => name,
 										 :price => price,

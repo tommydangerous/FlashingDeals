@@ -1,0 +1,9 @@
+<%= render 'newsletter_side' %>
+<div id="subscribed_users_list">
+	<p id="subscribed_users_size">Users: <%= @users.size %></p>
+	<ul>
+		<% @users.each do |user| %>
+			<li><%= link_to user.name, user %></li>
+		<% end %>
+	</ul>
+</div>

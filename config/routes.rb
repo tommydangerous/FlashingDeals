@@ -60,6 +60,9 @@ FlashingDeal::Application.routes.draw do
 # Messages	
 	match '/read-all' => 'messages#read_all', :as => :read_all
   match '/unread-all' => 'messages#unread_all', :as => :unread_all
+# Newsletters
+	match '/subscribed-users' => 'newsletters#subscribed_users', :as => :subscribed_users
+	match '/unsubscribed-users' => 'newsletters#unsubscribed_users', :as => :unsubscribed_users
 # Pages
   match '/about' => 'pages#about', :as => :about
   match '/investors' => 'pages#investors', :as => :investors

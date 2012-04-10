@@ -38,7 +38,6 @@ class Deal < ActiveRecord::Base
 	
 									
 	validates :name, :presence => true 
-	validates_uniqueness_of :name, :case_sensitive => false
 							
 	has_many :relationships, :foreign_key => "watched_id", :dependent => :destroy
 	has_many :watchers, :through => :relationships, :source => :watcher

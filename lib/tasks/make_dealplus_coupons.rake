@@ -61,7 +61,8 @@ def make_dealplus_coupons
 			info_raw.search('div[class*="coupon-poster"]').remove
 			info = info_raw.inner_text
 			
-			check = Deal.find_by_name("#{name}")
+			deals = Deal.where("posted > ?", Time.now - 86400)
+			check = deals.find_by_name("#{name}")
 			if check.nil?
 				Deal.create!(:name => name,
 										 :discount => discount,
@@ -71,7 +72,8 @@ def make_dealplus_coupons
 										 :metric => metric,
 										 :tag => "dealpluscoupons",
 										 :city => "national",
-										 :info => info)
+										 :info => info,
+										 :flashmob => true)
 			end
 		end
 	end	

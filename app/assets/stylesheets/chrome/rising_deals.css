@@ -90,6 +90,10 @@ div.rising_deal_edit_more input {
 	width: 492px;
 }
 
+div.rising_deal_edit_more textarea#deal_name, div.rising_deal_edit_more textarea#deal_info {
+	width: 492px;
+}
+
 div.rising_deal_edit_more input, div.rising_deal_edit_more textarea {
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;

@@ -44,7 +44,8 @@ def make_techdealdigger_deals
 		# metric
 		metric = -1
 		
-		check = Deal.find_by_name("#{name}")
+		deals = Deal.where("posted > ?", Time.now - 86400)
+		check = deals.find_by_name("#{name}")
 		if check.nil?
 			Deal.create!(:name => name,
 									 :price => price,
@@ -53,7 +54,8 @@ def make_techdealdigger_deals
 									 :posted => posted,
 									 :metric => metric,
 									 :tag => "techdealdigger",
-									 :city => "national")
+									 :city => "national",
+									 :flashmob => true)
 		end
 	end
 	puts "techdealdigger"

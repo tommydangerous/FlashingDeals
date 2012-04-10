@@ -55,7 +55,8 @@ def make_onedaybuys_deals
 		# city
 		city = "national"
 		
-		check = Deal.find_by_name("#{name}")
+		deals = Deal.where("posted > ?", Time.now - 86400)
+		check = deals.find_by_name("#{name}")
 		if check.nil?
 			Deal.create!(:name => name,
 									 :price => price,
@@ -66,7 +67,8 @@ def make_onedaybuys_deals
 									 :posted => posted,
 									 :metric => metric,
 									 :tag => tag,
-									 :city => city)
+									 :city => city,
+									 :flashmob => true)
 		end
 	end
 	puts "onedaybuys"

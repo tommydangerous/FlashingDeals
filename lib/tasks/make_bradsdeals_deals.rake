@@ -62,7 +62,8 @@ def make_bradsdeals_deals
 			info_raw = row.css('td.c p.description').inner_text
 			info = info_raw.to_s
 			
-			check = Deal.find_by_name("#{name}")
+			deals = Deal.where("posted > ?", Time.now - 86400)
+			check = deals.find_by_name("#{name}")
 			if check.nil?
 				Deal.create!(:name => name,
 										 :price => price,
@@ -73,7 +74,8 @@ def make_bradsdeals_deals
 										 :metric => metric,
 										 :tag => tag,
 										 :city => city,
-										 :info => info)
+										 :info => info,
+										 :flashmob => true)
 			end
 		end
 	end

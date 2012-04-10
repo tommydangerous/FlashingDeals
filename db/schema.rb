@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120406211624) do
+ActiveRecord::Schema.define(:version => 20120410012328) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(:version => 20120406211624) do
   add_index "deals", ["flashmob"], :name => "index_deals_on_flashmob"
   add_index "deals", ["link"], :name => "index_deals_on_link"
   add_index "deals", ["metric"], :name => "index_deals_on_metric"
-  add_index "deals", ["name"], :name => "index_deals_on_name", :unique => true
+  add_index "deals", ["name"], :name => "index_deals_on_name"
   add_index "deals", ["point_count"], :name => "index_deals_on_point_count"
   add_index "deals", ["posted"], :name => "index_deals_on_posted"
   add_index "deals", ["price"], :name => "index_deals_on_price"

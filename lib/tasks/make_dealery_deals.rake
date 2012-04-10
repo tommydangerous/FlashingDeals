@@ -52,7 +52,8 @@ def make_dealery_deals
 		# info
 		info = row.css('div[class*="deal_info"] span.short_description').inner_text
 		
-		check = Deal.find_by_name("#{name}")
+		deals = Deal.where("posted > ?", Time.now - 86400)
+		check = deals.find_by_name("#{name}")
 		if check.nil?
 			Deal.create!(:name => name,
 									 :price => price,
@@ -64,7 +65,8 @@ def make_dealery_deals
 									 :metric => metric,
 									 :tag => tag,
 									 :city => city,
-									 :info => info)
+									 :info => info,
+									 :flashmob => true)
 		end
 	end
 	puts "dealery"

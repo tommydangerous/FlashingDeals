@@ -1,0 +1,29 @@
+<div class="newsletter">
+	<%= link_to newsletter do %>
+		<h1><b><%= newsletter.name %></b> (<%= newsletter.created_at.strftime("%b %d, %y") %>)</h1>
+	<% end %>
+	<h2>
+		# Of Deals:
+		<% if newsletter.deal1.nil? && newsletter.deal2.nil? && newsletter.deal3.nil? && newsletter.deal4.nil? %>
+			0
+		<% elsif !newsletter.deal1.nil? && newsletter.deal2.nil? && newsletter.deal3.nil? && newsletter.deal4.nil? %>
+			1
+		<% elsif !newsletter.deal1.nil? && !newsletter.deal2.nil? && newsletter.deal3.nil? && newsletter.deal4.nil? %>
+			2
+		<% elsif !newsletter.deal1.nil? && !newsletter.deal2.nil? && !newsletter.deal3.nil? && newsletter.deal4.nil? %>
+			3
+		<% elsif !newsletter.deal1.nil? && !newsletter.deal2.nil? && !newsletter.deal3.nil? && !newsletter.deal4.nil? %>
+			4
+		<% end %>
+	</h2>
+	<p><%= newsletter.info1 %></p>
+	<p><%= newsletter.info2 %></p>
+	<p><%= newsletter.info3 %></p>
+	<div id="newsletter_edit_delete">
+		<ul>
+			<li><%= link_to "Edit", edit_newsletter_path(newsletter) %></li>
+			<li><%= link_to "Delete", newsletter, :method => :delete, :confirm => "Are you sure you want to delete this newsletter?" %></li>
+			<li><%= link_to "Email", '#' %></li>
+		</ul>
+	</div>
+</div>

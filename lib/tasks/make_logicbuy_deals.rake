@@ -59,7 +59,8 @@ def make_logicbuy_deals
 			info_raw = row.css('div.deal-deck p').inner_text
 			info = info_raw.to_s
 			
-			check = Deal.find_by_name("#{name}")
+			deals = Deal.where("posted > ?", Time.now - 86400)
+			check = deals.find_by_name("#{name}")
 			if check.nil?
 				Deal.create!(:name => name,
 										 :price => price,
@@ -70,7 +71,8 @@ def make_logicbuy_deals
 										 :metric => metric,
 										 :tag => "logicbuy",
 										 :city => "national",
-										 :info => info)
+										 :info => info,
+										 :flashmob => true)
 			end
 		end
 	end
