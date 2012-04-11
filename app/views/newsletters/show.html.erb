@@ -20,19 +20,26 @@
     		margin: 0 auto;
     		padding-bottom: 20px;
     	}
-    	#logo {
+    	#header {
     		background: rgb(173, 217, 228);
-    		padding: 20px 20px 5px 20px;
+    	}
+    	#logo {
+    		width: 464px;
+    		padding: 20px 0px 5px 20px;
     	}
     	#follow {
     		height: 20px;
     		width: 90px;
-    		float: right;
-    		padding-top: 10px;
     		padding-right: 20px;
     	}
     	#follow a {
     		text-decoration: none;
+    	}
+    	#follow img#follow_us {
+    		width: 40px;
+    		height: 20px;
+    		float: left;
+    		margin: 0;
     	}
     	#follow img {
     		width: 20px;
@@ -214,9 +221,28 @@
 	</head>
 	<body>
 		<table id="newsletter">
-			<tr>
-				<td id="logo">
-					<%= image_tag "https://s3.amazonaws.com/flashingdeals_admin/logo_beta.png" %>
+			<tr id="header">
+				<td>
+					<table>
+						<tr>
+							<td id="logo">
+								<%= link_to("http://www.flashingdeals.com", :target => "_blank") do %>
+									<img src="https://s3.amazonaws.com/flashingdeals_admin/logo_beta.png">
+								<% end %>
+							</td>
+							<td id="follow">
+								<p>
+									<img id="follow_us" src="http://s3.amazonaws.com/flashingdeals_admin/follow_words.jpg">
+									<%= link_to("http://twitter.com/FlashingDeals", :id => "twitter", :target => "_blank") do %>
+										<img src="/assets/twitter_button.png">
+									<% end %>
+									<%= link_to("http://www.facebook.com/FlashingDeals", :id => "facebook", :target => "_blank") do %>
+										<img src="/assets/facebook_button.png">
+									<% end %>
+								</p>
+							</td>
+						</tr>
+					</table>
 				</td>
 			</tr>
 			<% unless @newsletter.info1.nil? || @newsletter.info1.blank? %>
@@ -866,19 +892,6 @@
 					</td>
 				</tr>
 			<% end %>
-			<tr>
-				<td id="follow">
-					<p>
-						Follow
-						<%= link_to("http://twitter.com/FlashingDeals", :id => "twitter", :target => "_blank") do %>
-							<%= image_tag "/assets/twitter_button.png" %>
-						<% end %>
-						<%= link_to("http://www.facebook.com/FlashingDeals", :id => "facebook", :target => "_blank") do %>
-							<%= image_tag "/assets/facebook_button.png" %>
-						<% end %>
-					</p>
-				</td>
-			</tr>
 		</table>
 		<table id="unsubscribe">
 			<tr>
