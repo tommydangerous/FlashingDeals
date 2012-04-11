@@ -13,8 +13,49 @@ class NewslettersController < ApplicationController
 		render :subscribed_users
 	end
 	
-	def email_newsletter
-		
+	def monthly_subscribed_users
+		@title = "Monthly Subscribed Users"
+		@users = User.where("monthly = ?", true).order("name ASC")
+		render :subscribed_users
+	end
+	
+	def email
+		@newsletter = Newsletter.find(params[:id])
+		@title = "Email #{@newsletter.name}"
+		@users = User.where("subscribe = ? OR monthly = ?", true, true).order("name ASC")
+	end
+	
+	def subscribed
+		@newsletter = Newsletter.find(params[:id])
+		@newsletter.update_attribute(:emailed, true)
+		if Rails.env.production?
+			User.where("subscribe = ?", true).each do |user|
+				UserMailer.delay.newsletter(user, @newsletter)
+			end
+		elsif Rails.env.development?
+			User.where("subscribe = ?", true).each do |user|
+				UserMailer.newsletter(user, @newsletter).deliver
+			end
+		end
+		flash[:success] = "#{@newsletter.name} successfully emailed to all subscribed users."
+		redirect_to newsletters_path
+	end
+	
+	def select
+		@newsletter = Newsletter.find(params[:id])
+		@newsletter.update_attribute(:emailed, true)
+		emails = params[:email_select_check].to_a
+		if Rails.env.production?
+			emails.each do |email|
+				UserMailer.delay.newsletter_select(email, @newsletter)
+			end
+		elsif Rails.env.development?
+			emails.each do |email|
+				UserMailer.newsletter_select(email, @newsletter).deliver
+			end
+		end
+		flash[:success] = "#{@newsletter.name} successfully emailed to select users."
+		redirect_to newsletters_path
 	end
 	
   def index

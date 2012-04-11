@@ -14,4 +14,15 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	mail(:to => email, :subject => "#{@user.email} invites you to join FlashingDeals.com", :from => "'FlashingDeals' <hello@flashingdeals.com>", :content_type => "text/html")
   end
+  
+  def newsletter(user, newsletter)
+  	@user = user
+  	@newsletter = newsletter
+  	mail(:to => user.email, :subject => "#{@newsletter.name}", :from => "'FlashingDeals' <hello@flashingdeals.com>", :content_type => "text/html")
+  end
+  
+  def newsletter_select(email, newsletter)
+  	@newsletter = newsletter
+  	mail(:to => email, :subject => "#{@newsletter.name}", :from => "'FlashingDeals' <hello@flashingdeals.com>", :content_type => "text/html")
+  end
 end

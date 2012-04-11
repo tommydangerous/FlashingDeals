@@ -62,6 +62,11 @@
 			<p><%= f.check_box :private %> Check this box to make your profile private</p>
 			<span>Watched deals will only be seen by your friends</span>
 		</div>
+		<% unless @user.subscribe? %>
+			<div class="field subscribe">
+				<p><%= f.check_box :subscribe %> Subscribe to FlashingDeals Newsletters</p>
+			</div>
+		<% end %>
 		<div class="field">
 			<p>Time Zone: <%= f.time_zone_select :time_zone, ActiveSupport::TimeZone.us_zones %></p>
 		</div>

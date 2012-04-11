@@ -1,0 +1,26 @@
+<%= render 'newsletter_side' %>
+<div id="email_newsletter">
+	<div id="email_subscribed_users">
+		<p id="newsletter_header"><%= @newsletter.name %></p>
+		<%= link_to "Email Subscribed Users (#{@users.size})", subscribed_newsletter_path(@newsletter), :confirm => "Are you sure you want to email all subscribed users?" %>
+	</div>
+	<div id="email_select_users">
+		<%= form_tag select_newsletter_path(@newsletter), :method => :post do %>
+			<% @users.each do |user| %>
+				<div id="newsletter_user_<%= user.id %>" class="newsletter_user">
+					<input class="newsletter_user_check" type="checkbox" name="email_select_check[]" value="<%= user.email %>">
+					<div id="newsletter_user_name">
+						<p><b>Name:</b> <%= user.name %></p>
+					</div>
+					<div id="newsletter_user_email">
+						<p><b>Email:</b> <%= user.email %></p>
+					</div>
+					<div class="clear"></div>
+				</div>
+			<% end %>
+	</div>
+	<div class="action">
+		<%= submit_tag "Email Select Users", :name => nil %>
+	</div>
+	<% end %>
+</div>

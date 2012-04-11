@@ -554,6 +554,8 @@ div#box_deal_comment_content p {
 	font-size: 12px;
 	color: rgb(150, 150, 150);
 	word-wrap: break-word;
+	max-height: 45px;
+	overflow: hidden;
 }
 
 /* box_deal_large.css */
@@ -716,6 +718,8 @@ div#box_deal_large_comment_content p {
 	font-size: 13px;
 	color: rgb(150, 150, 150);
 	word-wrap: break-word;
+	max-height: 48px;
+	overflow: hidden;
 }
 
 /* box_friend.css */

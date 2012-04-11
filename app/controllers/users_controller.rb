@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :except => [:new, :signup, :create, :my_account, :my_deals]
+	before_filter :authenticate, :except => [:new, :signup, :create, :my_account, :my_deals, :unsubscribe, :unsubscribe_me, :email_monthly]
+	before_filter :authenticate_login, :only => [:unsubscribe, :unsubscribe_me, :email_monthly]
 	before_filter :auth_my_account, :only => [:my_account, :my_deals]
 	before_filter :correct_user, :only => [:watching, :edit, :update]
 	before_filter :admin_user,	 :only => :index
@@ -194,6 +195,26 @@ class UsersController < ApplicationController
 	  	end
 	  end
   	flash[:success] = "Your invites have been successfully sent."
+  	redirect_to my_account_path
+  end
+  
+  def unsubscribe	
+  	if current_user.subscribe?
+  		@title = "Unwise"
+  	else
+  		redirect_to root_path
+  	end
+  end
+  
+  def unsubscribe_me
+  	current_user.update_attributes(:subscribe => false, :monthly => false)
+  	flash[:notice] = "You have unsubscribed to the newsletters. You can still change your mind by going into your settings."
+  	redirect_to my_account_path
+  end
+  
+  def email_monthly
+  	current_user.update_attributes(:subscribe => false, :monthly => true)
+  	flash[:success] = "Thank you for reconsidering! We will now send you newsletters monthly."
   	redirect_to my_account_path
   end
   

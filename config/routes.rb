@@ -26,7 +26,13 @@ FlashingDeal::Application.routes.draw do
   resources :friendships, :only => [:create, :update, :destroy]
   resources :locations, :only => :show
   resources :messages, :only => [:index, :show, :create, :update]
-  resources :newsletters
+  resources :newsletters do
+  	member do
+  		get :email
+  		get :subscribed
+  		post :select
+  	end
+  end
   resources :notifications, :only => :index
   resources :password_resets, :only => [:new, :create, :edit, :update]
   resources :referrals, :only => :index
@@ -63,6 +69,9 @@ FlashingDeal::Application.routes.draw do
 # Newsletters
 	match '/subscribed-users' => 'newsletters#subscribed_users', :as => :subscribed_users
 	match '/unsubscribed-users' => 'newsletters#unsubscribed_users', :as => :unsubscribed_users
+	match '/monthly-subscribed-users' => 'newsletters#monthly_subscribed_users', :as => :monthly_subscribed_users
+	match '/email-subscribed-users' => 'newsletters#email_subscribed_users', :as => :email_subscribed_users
+	match '/email-select-users' => 'newsletters#email_select_users', :as => :email_select_users
 # Pages
   match '/about' => 'pages#about', :as => :about
   match '/investors' => 'pages#investors', :as => :investors
@@ -103,6 +112,9 @@ FlashingDeal::Application.routes.draw do
   match "/signup/:id" => 'users#signup', :as => :referral_signup_path
   match '/email-invites' => 'users#email_invite', :as => :email_invite
   match '/gmail-invites' => 'users#gmail_invite', :as => :gmail_invite
+  match '/unsubscribe' => 'users#unsubscribe', :as => :unsubscribe
+  match '/unsubscribe-me' => 'users#unsubscribe_me', :as => :unsubscribe_me
+  match '/email-monthly' => 'users#email_monthly', :as => :email_monthly
 # Friends
 	match '/user/list/friends/friends-list' => 'friends#friends_list', :as => :friends
 # Ajax

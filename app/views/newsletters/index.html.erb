@@ -7,5 +7,5 @@
 	<% end %>
 	<h1 class="newsletters_header">Newsletters (<%= Newsletter.all.size %>)</h1>
 	<%= render @newsletters %>
+	<%= will_paginate @newsletters, :separator => "" %>
 </div>
-<%= will_paginate @newsletters, :separator => "" %>

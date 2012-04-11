@@ -86,7 +86,7 @@
 		<% end %>
 	</div>
 	<div id="box_deal_large_comments">
-		<% deal.comments.each do |comment| %>
+		<% deal.comments.take(5).each do |comment| %>
 			<div class="box_deal_large_comment">
 				<div id="box_deal_large_comment_user">
 					<%= link_to(User.find(comment.user_id)) do %>
@@ -94,7 +94,7 @@
 					<% end %>
 				</div>
 				<div id="box_deal_large_comment_content">
-					<p><%= auto_link(to_html(strip_tags(comment.content)), :all, :target => "_blank") %></p>
+					<p><%= auto_link(strip_tags(comment.content), :all, :target => "_blank") %></p>
 				</div>
 				<div class="clear"></div>
 			</div>

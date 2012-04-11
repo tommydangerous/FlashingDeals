@@ -1,3 +1,23 @@
+/* unsubscribe.css */
+div#unsubscribe {
+	width: 600px;
+	background: rgb(255, 255, 255);
+	border: 1px dotted rgb(200, 200, 200);
+	padding: 20px;
+	margin: 0 auto;
+	-webkit-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-khtml-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-moz-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-ms-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-o-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+}
+
+div#unsubscribe p {
+	font-size: 26px;
+	margin-bottom: 20px;
+}
+
 /* user.css */
 div#user_partial {
 	background: rgb(255, 255, 255);
