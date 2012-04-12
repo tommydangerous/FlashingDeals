@@ -48,7 +48,7 @@
 				</a>
 			</li>
 			<li>
-				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= deal.name %>%20http://www.flashingdeals.com<%= deal_path(deal) %>&via=FlashingDeals" target="_blank">
+				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= CGI.escape(deal.name) %>%20http://www.flashingdeals.com<%= deal_path(deal) %>&via=FlashingDeals" target="_blank">
 					<%= image_tag("/assets/twitter_button_grey.png") %>
 				</a>
 			</li>

@@ -7,7 +7,7 @@
 		</div>
 		<div id="my_deals_info">
 			<div id="my_deals_watching">
-				<p>Shared: <span id="shared_deals_count"><%= @deals.size %></span></p>
+				<p>Shared: <span id="shared_deals_count"><%= @user.inverse_deals.where("posted > ?", @user.duration).size %></span></p>
 			</div>
 			<div class="my_deals_div">
 				<p>
@@ -53,6 +53,8 @@
 		<div id="grid_container">
 			<%= render :partial => "users/box_deal_shared", :collection => @deals, :as => :deal %>
 		</div>
+		<div class="clear"></div>
+		<%= render "deals/endless_pagination" %>
 	</div>
 	<div class="clear"></div>
 </div>

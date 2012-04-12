@@ -64,6 +64,23 @@ div#facebook_like:active {
 	box-shadow: 0px 1px 5px rgba(75, 75, 75, .25) inset;
 }
 
+div#facebook_twitter_show {
+	text-align: left;
+	margin-left: 41px;
+}
+
+div#facebook_twitter_show ul {
+	list-style-type: none;
+	height: 24px;
+	padding: 1px 0px;
+	margin: 0;
+}
+
+div#facebook_twitter_show ul li {
+	height: 22px;
+	display: inline-block;
+}
+
 /* feedback.css */
 div#feedback_list {
 	width: 678px;

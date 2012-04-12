@@ -36,3 +36,22 @@ div#facebook_like {
 div#facebook_like:hover {
 	background: url("/assets/facebook_like_round_hover.png");
 }
+
+div#facebook_twitter_show {
+	text-align: left;
+	margin-left: 41px;
+}
+
+div#facebook_twitter_show ul {
+	list-style-type: none;
+	height: 24px;
+	padding: 1px 0px;
+	margin: 0;
+}
+
+div#facebook_twitter_show ul li {
+	height: 20px;
+	display: inline;
+	float: left;
+	margin-right: 5px;
+}

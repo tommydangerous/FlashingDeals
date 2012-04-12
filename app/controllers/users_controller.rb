@@ -130,8 +130,8 @@ class UsersController < ApplicationController
   	@user = current_user
   	@title = "Shared"
   	cookies[:shared_deals] = "yes"
-  	deals = @user.inverse_deals.where("posted > ?", @user.duration)
-  	@deals = deals.search(params[:search]).sort_by { |deal| Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at }.reverse
+  	deals = @user.inverse_deals.where("posted > ?", @user.duration).search(params[:search]).sort_by { |deal| Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at }.reverse
+  	@deals = deals.paginate(:page => params[:page], :per_page => 40)
   	render :layout => "layouts/full_screen"
   end
   

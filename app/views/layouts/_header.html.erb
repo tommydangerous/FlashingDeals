@@ -41,6 +41,7 @@
 							<li><%= link_to "All Users", users_path %></li>
 							<li><%= link_to "All Comments", comments_path %></li>
 							<li><%= link_to "Watched Deals", relationships_path %></li>
+							<li><%= link_to "Newsletters", newsletters_path %></li>
 						<% end %>
 						<% if current_user.notifications.where("read = ?", false).empty? %>
 							<li>
