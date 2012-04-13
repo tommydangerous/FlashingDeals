@@ -9,20 +9,6 @@
 	<meta property="og:description" content="<%= strip_tags(@deal.info) %>" />
 	<meta property="og:image" content="<%= @deal.image %>" />
 <% end %>
-<div id="facebook_twitter_show">
-	<ul>
-		<li id="facebook_like_li">
-			<%= link_to("http://www.facebook.com/pages/FlashingDeals/254028428008396", :target => "_blank") do %>
-				<div id="facebook_like"></div>
-			<% end %>
-		</li>
-		<li id="twitter_follow_li">
-			<a href="https://twitter.com/FlashingDeals" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">
-				Follow @FlashingDeals
-			</a>
-		</li>
-	</ul>
-</div>
 <%= render "previous_next_deals" %>
 <div id="deal_show_container">
 	<div id="deal_show_column_left">
