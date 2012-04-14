@@ -70,6 +70,10 @@ class NewslettersController < ApplicationController
   	deal2 = Deal.find_by_id(@newsletter.deal2)
   	deal3 = Deal.find_by_id(@newsletter.deal3)
   	deal4 = Deal.find_by_id(@newsletter.deal4)
+  	deal5 = Deal.find_by_id(@newsletter.deal5)
+  	deal6 = Deal.find_by_id(@newsletter.deal6)
+  	deal7 = Deal.find_by_id(@newsletter.deal7)
+  	deal8 = Deal.find_by_id(@newsletter.deal8)
   	if deal1.nil?
   		deal_nil.push(@newsletter.deal1)
   	end
@@ -82,7 +86,19 @@ class NewslettersController < ApplicationController
   	if deal4.nil?
   		deal_nil.push(@newsletter.deal4)
   	end
-  	if deal1.nil? && !@newsletter.deal1.nil? || deal2.nil? && !@newsletter.deal2.nil? || deal3.nil? && !@newsletter.deal3.nil? || deal4.nil? && !@newsletter.deal4.nil?
+  	if deal5.nil?
+  		deal_nil.push(@newsletter.deal5)
+  	end
+  	if deal6.nil?
+  		deal_nil.push(@newsletter.deal6)
+  	end
+  	if deal7.nil?
+  		deal_nil.push(@newsletter.deal7)
+  	end
+  	if deal8.nil?
+  		deal_nil.push(@newsletter.deal8)
+  	end
+  	if deal1.nil? && !@newsletter.deal1.nil? || deal2.nil? && !@newsletter.deal2.nil? || deal3.nil? && !@newsletter.deal3.nil? || deal4.nil? && !@newsletter.deal4.nil? && deal5.nil? && !@newsletter.deal5.nil? || deal6.nil? && !@newsletter.deal6.nil? || deal7.nil? && !@newsletter.deal7.nil? || deal8.nil? && !@newsletter.deal8.nil?
   		flash[:error] = "Deal #{deal_nil.join(' ')} cannot be found."
   		redirect_to edit_newsletter_path(@newsletter)
   	else

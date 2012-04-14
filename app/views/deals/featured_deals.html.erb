@@ -1,18 +1,48 @@
 <% if signed_in? %>
-<script>
-$(function() {
-	$("a#flashback").removeClass("not_selected");
-	$("a#flashback").addClass("selected");
-});
-</script>
+	<script>
+	$(function() {
+		winWidth = $(window).width();
+		var gridColCount = Math.floor(winWidth/292);
+		var gridWidth = (gridColCount * 292);
+		$("#grid_container_large").width(gridWidth);
+		$("a#flashback").removeClass("not_selected");
+		$("a#flashback").addClass("selected");
+	});
+	
+	$(window).resize(function() {
+		winWidth = $(window).width();
+		var gridColCount = Math.floor(winWidth/292);
+		var gridWidth = (gridColCount * 292);
+		if(gridWidth <= 970) {
+			$("#grid_container_large").width(970);
+		} else {
+			$("#grid_container_large").width(gridWidth);
+		}
+	})
+	</script>
 <% else %>
-<script>
-$(function() {
-	$("#dim_signup").show();
-	$("a#flashback").removeClass("not_selected");
-	$("a#flashback").addClass("selected");
-});
-</script>
+	<script>
+	$(function() {
+		winWidth = $(window).width();
+		var gridColCount = Math.floor(winWidth/292);
+		var gridWidth = (gridColCount * 292);
+		$("#grid_container_large").width(gridWidth);
+		$("#dim_signup").show();
+		$("a#flashback").removeClass("not_selected");
+		$("a#flashback").addClass("selected");
+	});
+	
+	$(window).resize(function() {
+		winWidth = $(window).width();
+		var gridColCount = Math.floor(winWidth/292);
+		var gridWidth = (gridColCount * 292);
+		if(gridWidth <= 970) {
+			$("#grid_container_large").width(970);
+		} else {
+			$("#grid_container_large").width(gridWidth);
+		}
+	})
+	</script>
 <% end %>
 <% content_for :head do %>
 	<meta property="og:title" content="FlashingDeals" />

@@ -9,21 +9,32 @@
 	<% end %>
 	<h2>
 		# Of Deals:
-		<% if newsletter.deal1.nil? && newsletter.deal2.nil? && newsletter.deal3.nil? && newsletter.deal4.nil? %>
+		<% if newsletter.deal1.nil? %>
 			0
-		<% elsif !newsletter.deal1.nil? && newsletter.deal2.nil? && newsletter.deal3.nil? && newsletter.deal4.nil? %>
-			1
-		<% elsif !newsletter.deal1.nil? && !newsletter.deal2.nil? && newsletter.deal3.nil? && newsletter.deal4.nil? %>
-			2
-		<% elsif !newsletter.deal1.nil? && !newsletter.deal2.nil? && !newsletter.deal3.nil? && newsletter.deal4.nil? %>
-			3
-		<% elsif !newsletter.deal1.nil? && !newsletter.deal2.nil? && !newsletter.deal3.nil? && !newsletter.deal4.nil? %>
+		<% elsif !newsletter.deal8.nil? %>
+			8
+		<% elsif !newsletter.deal7.nil? %>
+			7
+		<% elsif !newsletter.deal6.nil? %>
+			6
+		<% elsif !newsletter.deal5.nil? %>
+			5
+		<% elsif !newsletter.deal4.nil? %>
 			4
+		<% elsif !newsletter.deal3.nil? %>
+			3
+		<% elsif !newsletter.deal2.nil? %>
+			2
+		<% elsif !newsletter.deal1.nil? %>
+			1
 		<% end %>
 	</h2>
 	<p><%= newsletter.info1 %></p>
 	<p><%= newsletter.info2 %></p>
 	<p><%= newsletter.info3 %></p>
+	<p><%= newsletter.info4 %></p>
+	<p><%= newsletter.info5 %></p>
+	<p><%= newsletter.info6 %></p>
 	<div id="newsletter_edit_delete">
 		<ul>
 			<li><%= link_to "Edit", edit_newsletter_path(newsletter) %></li>

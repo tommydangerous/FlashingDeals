@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120410202713) do
+ActiveRecord::Schema.define(:version => 20120413213405) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -214,6 +214,13 @@ ActiveRecord::Schema.define(:version => 20120410202713) do
     t.datetime "updated_at"
     t.string   "name"
     t.boolean  "emailed",    :default => false
+    t.string   "info4"
+    t.string   "info5"
+    t.string   "info6"
+    t.integer  "deal5"
+    t.integer  "deal6"
+    t.integer  "deal7"
+    t.integer  "deal8"
   end
 
   add_index "newsletters", ["emailed"], :name => "index_newsletters_on_emailed"

@@ -24,7 +24,6 @@ $(function() {
 		container_large.masonry({
 			itemSelector: ".box_deal_large",
 			isAnimated: true,
-			isFitWidth: true,
 			animationOptions: {
 				duration: 200
 			}
