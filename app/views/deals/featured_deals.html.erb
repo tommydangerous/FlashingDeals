@@ -1,13 +1,13 @@
 <% if signed_in? %>
 	<script>
-	$(function() {
+	$(document).ready(function() {
 		winWidth = $(window).width();
 		var gridColCount = Math.floor(winWidth/292);
 		var gridWidth = (gridColCount * 292);
 		$("#grid_container_large").width(gridWidth);
 		$("a#flashback").removeClass("not_selected");
 		$("a#flashback").addClass("selected");
-	});
+	})
 	
 	$(window).resize(function() {
 		winWidth = $(window).width();
@@ -22,7 +22,7 @@
 	</script>
 <% else %>
 	<script>
-	$(function() {
+	$(document).ready(function() {
 		winWidth = $(window).width();
 		var gridColCount = Math.floor(winWidth/292);
 		var gridWidth = (gridColCount * 292);
@@ -30,7 +30,7 @@
 		$("#dim_signup").show();
 		$("a#flashback").removeClass("not_selected");
 		$("a#flashback").addClass("selected");
-	});
+	})
 	
 	$(window).resize(function() {
 		winWidth = $(window).width();
