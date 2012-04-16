@@ -1,9 +1,3 @@
-<script>
-$(function() {
-	$("a#flashmob_deals").removeClass("not_selected");
-	$("a#flashmob_deals").addClass("selected");
-});
-</script>
 <% content_for :head do %>
 	<meta property="og:title" content="FlashingDeals" />
 	<meta property="og:description" content="FlashingDeals is dedicated to delivering you the best deals. We do all the homework for you, researching and comparing every deal so that you don't have to." />
@@ -48,8 +42,14 @@ $(function() {
 		</div>
 	</div>
 </div>
-<div id="grid_container">
+<div id="grid_container" class="community_grid_container">
 	<%= render :partial => "box_deal", :collection => @deals, :as => :deal %>
 </div>
 <div class="clear"></div>
 <%= render "endless_pagination" %>
+<script>
+$(document).ready(function() {
+	$("a#flashmob_deals").removeClass("not_selected");
+	$("a#flashmob_deals").addClass("selected");
+});
+</script>

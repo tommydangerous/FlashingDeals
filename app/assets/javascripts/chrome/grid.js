@@ -1,4 +1,29 @@
-$(function() {
+$(window).resize(function() {
+	winWidth = $(window).width();
+	var gridColCount = Math.floor(winWidth/292);
+	var gridWidth = (gridColCount * 292);
+	if(gridWidth <= 970) {
+		$("#grid_container_large").width(970);
+	} else {
+		$("#grid_container_large").width(gridWidth);
+	}
+})
+
+$(document).ready(function() {
+	winWidth = $(window).width();
+	var gridColCount = Math.floor(winWidth/292);
+	var gridWidth = (gridColCount * 292);
+	$("#grid_container_large").width(gridWidth);
+})
+
+$(document).ready(function() {
+	winWidth = $(window).width();
+	var comColCount = Math.floor(winWidth/242);
+	var comWidth = (comColCount * 242);
+	$(".community_grid_container").width(comWidth);
+});
+
+$(document).ready(function() {
 	$("img.lazy").lazyload({
 		effect: "fadeIn",
 		failure_limit: 50

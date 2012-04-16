@@ -48,7 +48,7 @@
 		<h2>Check out the <%= link_to "Community", community_deals_path %> for more content</h2>
 	</div>
 <% else %>
-	<div id="grid_container">
+	<div id="grid_container" class="community_grid_container">
 		<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal %>
 	</div>
 <% end %>
