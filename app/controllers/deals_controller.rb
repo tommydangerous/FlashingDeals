@@ -89,7 +89,7 @@ class DealsController < ApplicationController
 	  end
   	@today = Time.now - 86400
   	@today_3 = Time.now - (86400 * 3)
-  	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("posted ASC")
+  	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("time_in ASC")
   	@flashmob_deals = Deal.where("posted > ? AND metric < ?", @today, 0).order("posted ASC")
   	@rising_deals = Deal.where("posted     > ? AND
 				  											metric    >= ? AND 
@@ -144,7 +144,7 @@ class DealsController < ApplicationController
 	  end
   	@today = Time.now - 86400
   	@today_3 = Time.now - (86400 * 3)
-  	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("posted ASC")
+  	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("time_in ASC")
   	@flashmob_deals = Deal.where("posted > ? AND metric < ?", @today, 0).order("posted ASC")
   	@rising_deals = Deal.where("posted     > ? AND
 				  											metric    >= ? AND 

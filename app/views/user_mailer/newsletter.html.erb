@@ -18,7 +18,6 @@
     		background: rgb(255, 255, 255);
     		border: 1px solid rgb(148, 222, 240);
     		margin: 0 auto;
-    		padding-bottom: 20px;
     	}
     	#header {
     		background: rgb(173, 217, 228);
@@ -131,8 +130,23 @@
     		margin: 0;
     	}
     	#view_more_deals {
-    		padding: 10px 20px 0px 20px;
+    		padding: 0;
     		text-align: center;
+    		padding-top: 20px;
+    	}
+    	#view_more_deals p {
+    		margin: 0;
+    		height: 26px;
+    		font-family: Helvetica, Arial;
+    		font-size: 15px;
+    		vertical-align: top;
+    		color: rgb(75, 75, 75);
+    		background: rgb(173, 217, 228);
+    		padding: 15px 0px 10px 0px;
+    	}
+    	#view_more_deals img {
+    		width: 165px;
+    		height: 26px;
     	}
     	#unsubscribe {
     		width: 600px;
@@ -569,9 +583,12 @@
 			<% end %>
 			<tr>
 				<td id="view_more_deals">
-					<%= link_to("http://www.flashingdeals.com/featured", :target => "_blank") do %>
-						<img src="http://s3.amazonaws.com/flashingdeals_admin/view_more_deals.jpg">
-					<% end %>
+					<p>
+						View more at&nbsp;
+						<%= link_to("http://www.flashingdeals.com/featured", :target => "_blank") do %>
+							<img src="http://s3.amazonaws.com/flashingdeals_admin/logo_beta.png">
+						<% end %>
+					</p>
 				</td>
 			</tr>
 		</table>
