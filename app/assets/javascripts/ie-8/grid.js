@@ -24,6 +24,22 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
+	windowWidth = $(window).width();
+	winWidth = windowWidth - 243
+	var userColCount = Math.floor(winWidth/242);
+	var userWidth = (userColCount * 242);
+	$(".user_grid_container").width(userWidth);
+})
+
+$(document).ready(function() {
+	windowWidth = $(window).width();
+	winWidth = windowWidth - 243
+	var friendColCount = Math.floor(winWidth/212);
+	var friendWidth = (friendColCount * 212);
+	$("#friend_container").width(friendWidth);
+})
+
+$(document).ready(function() {
 	$("img.lazy").lazyload({
 		effect: "fadeIn",
 		failure_limit: 50
