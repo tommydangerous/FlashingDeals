@@ -130,6 +130,10 @@
     		color: rgb(75, 75, 75);
     		margin: 0;
     	}
+    	#view_more_deals {
+    		padding: 10px 20px 0px 20px;
+    		text-align: center;
+    	}
     	#unsubscribe {
     		width: 600px;
     		margin: 0 auto;
@@ -391,6 +395,185 @@
 					</td>
 				<tr>
 			<% end %>
+			<% unless @newsletter.deal5.nil? || @newsletter.deal5.blank? %>
+				<tr>
+					<td id="one_deal">
+						<table id="single_deal">
+							<tr>
+								<td id="single_deal_image">
+									<%= image_tag Deal.find(@newsletter.deal5).image %>
+								</td>
+								<td id="single_deal_name">
+									<p class="name"><%= Deal.find(@newsletter.deal5).name %></p>
+									<% unless Deal.find(@newsletter.deal5).site.nil? %>
+										<p class="site">at <%= Deal.find(@newsletter.deal5).site %></p>
+									<% end %>
+									<table>
+										<tr>
+											<td id="single_deal_price">
+												<p class="price">
+													<% if Deal.find(@newsletter.deal5).price.blank? && Deal.find(@newsletter.deal5).discount != nil %>
+														<%= Deal.find(@newsletter.deal5).discount.round %>% Off
+													<% elsif Deal.find(@newsletter.deal5).price.blank? && Deal.find(@newsletter.deal5).discount.blank? && Deal.find(@newsletter.deal5).value.blank? && Deal.find(@newsletter.deal5).savings != nil %>
+														$<%= Deal.find(@newsletter.deal5).savings.round %> Off
+													<% elsif Deal.find(@newsletter.deal5).price.blank? || Deal.find(@newsletter.deal5).price.nil? %>
+														$
+													<% elsif Deal.find(@newsletter.deal5).price == 0 %>
+														Free
+													<% else %>
+														<%= number_to_currency(Deal.find(@newsletter.deal5).price) %>
+													<% end %>
+												</p>
+											</td>
+											<td id="single_deal_view_deal">
+												<%= link_to(Deal.find(@newsletter.deal5), :target => "_blank") do %>
+													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
+												<% end %>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				<tr>
+			<% end %>
+			<% unless @newsletter.deal6.nil? || @newsletter.deal6.blank? %>
+				<tr>
+					<td id="one_deal">
+						<table id="single_deal">
+							<tr>
+								<td id="single_deal_image">
+									<%= image_tag Deal.find(@newsletter.deal6).image %>
+								</td>
+								<td id="single_deal_name">
+									<p class="name"><%= Deal.find(@newsletter.deal6).name %></p>
+									<% unless Deal.find(@newsletter.deal6).site.nil? %>
+										<p class="site">at <%= Deal.find(@newsletter.deal6).site %></p>
+									<% end %>
+									<table>
+										<tr>
+											<td id="single_deal_price">
+												<p class="price">
+													<% if Deal.find(@newsletter.deal6).price.blank? && Deal.find(@newsletter.deal6).discount != nil %>
+														<%= Deal.find(@newsletter.deal6).discount.round %>% Off
+													<% elsif Deal.find(@newsletter.deal6).price.blank? && Deal.find(@newsletter.deal6).discount.blank? && Deal.find(@newsletter.deal6).value.blank? && Deal.find(@newsletter.deal6).savings != nil %>
+														$<%= Deal.find(@newsletter.deal6).savings.round %> Off
+													<% elsif Deal.find(@newsletter.deal6).price.blank? || Deal.find(@newsletter.deal6).price.nil? %>
+														$
+													<% elsif Deal.find(@newsletter.deal6).price == 0 %>
+														Free
+													<% else %>
+														<%= number_to_currency(Deal.find(@newsletter.deal6).price) %>
+													<% end %>
+												</p>
+											</td>
+											<td id="single_deal_view_deal">
+												<%= link_to(Deal.find(@newsletter.deal6), :target => "_blank") do %>
+													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
+												<% end %>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				<tr>
+			<% end %>
+			<% unless @newsletter.deal7.nil? || @newsletter.deal7.blank? %>
+				<tr>
+					<td id="one_deal">
+						<table id="single_deal">
+							<tr>
+								<td id="single_deal_image">
+									<%= image_tag Deal.find(@newsletter.deal7).image %>
+								</td>
+								<td id="single_deal_name">
+									<p class="name"><%= Deal.find(@newsletter.deal7).name %></p>
+									<% unless Deal.find(@newsletter.deal7).site.nil? %>
+										<p class="site">at <%= Deal.find(@newsletter.deal7).site %></p>
+									<% end %>
+									<table>
+										<tr>
+											<td id="single_deal_price">
+												<p class="price">
+													<% if Deal.find(@newsletter.deal7).price.blank? && Deal.find(@newsletter.deal7).discount != nil %>
+														<%= Deal.find(@newsletter.deal7).discount.round %>% Off
+													<% elsif Deal.find(@newsletter.deal7).price.blank? && Deal.find(@newsletter.deal7).discount.blank? && Deal.find(@newsletter.deal7).value.blank? && Deal.find(@newsletter.deal7).savings != nil %>
+														$<%= Deal.find(@newsletter.deal7).savings.round %> Off
+													<% elsif Deal.find(@newsletter.deal7).price.blank? || Deal.find(@newsletter.deal7).price.nil? %>
+														$
+													<% elsif Deal.find(@newsletter.deal7).price == 0 %>
+														Free
+													<% else %>
+														<%= number_to_currency(Deal.find(@newsletter.deal7).price) %>
+													<% end %>
+												</p>
+											</td>
+											<td id="single_deal_view_deal">
+												<%= link_to(Deal.find(@newsletter.deal7), :target => "_blank") do %>
+													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
+												<% end %>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				<tr>
+			<% end %>
+			<% unless @newsletter.deal8.nil? || @newsletter.deal8.blank? %>
+				<tr>
+					<td id="one_deal">
+						<table id="single_deal">
+							<tr>
+								<td id="single_deal_image">
+									<%= image_tag Deal.find(@newsletter.deal8).image %>
+								</td>
+								<td id="single_deal_name">
+									<p class="name"><%= Deal.find(@newsletter.deal8).name %></p>
+									<% unless Deal.find(@newsletter.deal8).site.nil? %>
+										<p class="site">at <%= Deal.find(@newsletter.deal8).site %></p>
+									<% end %>
+									<table>
+										<tr>
+											<td id="single_deal_price">
+												<p class="price">
+													<% if Deal.find(@newsletter.deal8).price.blank? && Deal.find(@newsletter.deal8).discount != nil %>
+														<%= Deal.find(@newsletter.deal8).discount.round %>% Off
+													<% elsif Deal.find(@newsletter.deal8).price.blank? && Deal.find(@newsletter.deal8).discount.blank? && Deal.find(@newsletter.deal8).value.blank? && Deal.find(@newsletter.deal8).savings != nil %>
+														$<%= Deal.find(@newsletter.deal8).savings.round %> Off
+													<% elsif Deal.find(@newsletter.deal8).price.blank? || Deal.find(@newsletter.deal8).price.nil? %>
+														$
+													<% elsif Deal.find(@newsletter.deal8).price == 0 %>
+														Free
+													<% else %>
+														<%= number_to_currency(Deal.find(@newsletter.deal8).price) %>
+													<% end %>
+												</p>
+											</td>
+											<td id="single_deal_view_deal">
+												<%= link_to(Deal.find(@newsletter.deal8), :target => "_blank") do %>
+													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
+												<% end %>
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+				<tr>
+			<% end %>
+			<tr>
+				<td id="view_more_deals">
+					<%= link_to("http://www.flashingdeals.com/featured", :target => "_blank") do %>
+						<img src="http://s3.amazonaws.com/flashingdeals_admin/view_more_deals.jpg">
+					<% end %>
+				</td>
+			</tr>
 		</table>
 		<table id="unsubscribe">
 			<tr>
