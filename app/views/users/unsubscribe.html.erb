@@ -1,5 +1,10 @@
 <div id="unsubscribe">
-	<p>We are sorry for emailing you too many great deals.</p>
-	<p>Would you like us to email you monthly instead? <%= link_to "Yes, email me monthly", email_monthly_path %>.</p>
-	<p>If there is nothing we can do to change your mind, you can unsubscribe <%= link_to "here", unsubscribe_me_path, :confirm => "Are you absolutely sure you want to unsubscribe?" %>.</p>
+	<div id="unsubscribe_header">
+		Is this a <span class="green">mistake</span>?
+	</div>
+	<div id="unsubscribe_body">
+		<p>We are sorry for emailing you too many great deals.</p>
+		<p>Would you like us to email you monthly instead? <%= link_to "Yes, email me monthly", email_monthly_path %>.</p>
+		<p>If there is nothing we can do to change your mind, you can unsubscribe <%= link_to "here", unsubscribe_me_path, :confirm => "Are you absolutely sure you want to unsubscribe?" %>.</p>
+	</div>
 </div>
