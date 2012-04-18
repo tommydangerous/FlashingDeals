@@ -20,6 +20,7 @@ class RelationshipsController < ApplicationController
 			format.html { redirect_to @deal }
 			format.js
 		end
+		current_user.increment!(:points, by = 10)
 	end
 	
 	def destroy
@@ -40,5 +41,6 @@ class RelationshipsController < ApplicationController
 				@deals = deals
 			}
 		end
+		current_user.increment!(:points, by = -10)
 	end
 end

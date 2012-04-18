@@ -3,11 +3,17 @@
 	<meta property="og:description" content="FlashingDeals is dedicated to delivering you the best deals. We do all the homework for you, researching and comparing every deal so that you don't have to." />
 	<meta property="og:image" content="https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png" />
 <% end %>
-<div id="popup_page_info">
-	<div id="popup_page_info_body">
-		<p>We are always searching the internet for the best deals. The FD team and our users hand select deals and feature them here. All the homework is done for you, making sure anything you see here is the best. Watch out though, Featured Deals usually don’t last long and may be gone in a flash.</p>
+<% if signed_in? %>
+	<div id="popup_page_info_invite">
+		<p>FlashingDeals is more fun with friends. Keeping these deals a secret has shown to jeopardize friendships. Invite 10 friends and receive a $10 gift card from a restaurant or store of your choice when they join. Share your <%= link_to "invite link", invite_path %> so we can keep track of your invites and reward you.</p>
 	</div>
-</div>
+<% else %>
+	<div id="popup_page_info">
+		<div id="popup_page_info_body">
+			<p>We are always searching the internet for the best deals. The FD team and our users hand select deals and feature them here. All the homework is done for you, making sure anything you see here is the best. Watch out though, Featured Deals usually don’t last long and may be gone in a flash.</p>
+		</div>
+	</div>
+<% end %>
 <div id="grid_top_bar">
 	<div id="facebook_twitter_home">
 		<ul>

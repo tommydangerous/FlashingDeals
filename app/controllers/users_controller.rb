@@ -82,6 +82,8 @@ class UsersController < ApplicationController
   	cookies[:my_account] = "yes"
   	deals = @user.watching.where("posted > ?", @user.duration).search(params[:search]).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
   	@deals = deals.paginate(:page => params[:page], :per_page => 40)
+  	@points = @user.points
+  	@progress = @user.points.to_f/5000.to_f
   	render :layout => "layouts/full_screen"
   end	
   
@@ -172,10 +174,12 @@ class UsersController < ApplicationController
   	if Rails.env.production?
 	  	emails.each do |email|
 	  		UserMailer.delay.email_invite(user, email)
+	  		current_user.increment!(:points, by = 10)
 	  	end
 	  elsif Rails.env.development?
 	  	emails.each do |email|
 	  		UserMailer.email_invite(user, email).deliver
+	  		current_user.increment!(:points, by = 10)
 	  	end
 	  end
   	flash[:success] = "Your invites have been successfully sent."
@@ -188,10 +192,12 @@ class UsersController < ApplicationController
   	if Rails.env.production?
 	  	emails.each do |email|
 	  		UserMailer.delay.email_invite(user, email)
+	  		current_user.increment!(:points, by = 10)
 	  	end
 	  elsif Rails.env.development?
 	  	emails.each do |email|
 	  		UserMailer.email_invite(user, email).deliver
+	  		current_user.increment!(:points, by = 10)
 	  	end
 	  end
   	flash[:success] = "Your invites have been successfully sent."

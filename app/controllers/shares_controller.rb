@@ -65,6 +65,7 @@ class SharesController < ApplicationController
 			if User.find(friend.id).relationships.find_by_watched_id(params[:share][:deal_id]).nil?
 				if Share.find_by_user_id_and_friend_id_and_deal_id(current_user.id, friend.id, params[:share][:deal_id]).nil?
 					Share.create!(:user_id => current_user.id, :friend_id => friend.id, :deal_id => params[:share][:deal_id])
+					current_user.increment!(:points, by = 1)
 				end
 			end
 		end

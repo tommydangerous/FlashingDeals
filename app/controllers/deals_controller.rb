@@ -1,6 +1,6 @@
 class DealsController < ApplicationController
 	before_filter :authenticate, :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame]
-	before_filter :admin_user,	 :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals, :clear_dead_deals]
+	before_filter :admin_user,	 :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals, :clear_dead_deals, :share_points]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
 	before_filter :today
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
@@ -29,7 +29,7 @@ class DealsController < ApplicationController
   	render :layout => "full_screen"
   	clear_return_to
 	end
-
+		
   def flashback
   	@title = "Featured Deals"
   	@today_3 = Time.now - (86400 * 3)
@@ -241,6 +241,9 @@ class DealsController < ApplicationController
 	
   def score_up
   	deal = Deal.find(params[:id])
+  	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
+  		current_user.increment!(:points, by = 15)
+  	end
   	current_user.vote_exclusively_for(deal)
   	respond_to do |format|
   		format.html { redirect_to deal }
@@ -251,6 +254,9 @@ class DealsController < ApplicationController
   
   def score_down
   	deal = Deal.find(params[:id])
+  	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
+  		current_user.increment!(:points, by = 15)
+  	end
   	current_user.vote_exclusively_against(deal)
   	respond_to do |format|
   		format.html { redirect_to deal }
@@ -281,6 +287,13 @@ class DealsController < ApplicationController
 				@deals = deals
 			}
 		end
+	end
+	
+	def share_points
+		if signed_in?
+			current_user.increment!(:points, by = 100)
+		end
+		redirect_to my_account_path
 	end
 
 # Admin Users Only  

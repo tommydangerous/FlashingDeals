@@ -63,6 +63,7 @@ FlashingDeal::Application.routes.draw do
 	match '/search' => 'deals#search', :as => :search
   match '/create-deals' => 'deals#create_deals', :as => :create_deals
 	match '/empty-queue' => 'deals#empty_queue', :as => :empty_queue
+	match '/share_points' => 'deals#share_points', :as => :share_points
 # Messages	
 	match '/read-all' => 'messages#read_all', :as => :read_all
   match '/unread-all' => 'messages#unread_all', :as => :unread_all

@@ -1,0 +1,7 @@
+<div id="my_points">
+	<p><%= @points %></p>
+	<%= image_tag "/assets/my_points_progress.jpg", :id => "my_points_progress" %>
+</div>
+<script>
+	$("#my_points_progress").width(<%= @progress %> * 211)
+</script>

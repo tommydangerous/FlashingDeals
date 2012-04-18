@@ -37,6 +37,7 @@ class AuthenticationsController < ApplicationController
   			user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
   			unless cookies[:referral] == "" || cookies[:referral] == nil
 	  			Referral.create!(:user_id => cookies[:referral].to_i, :referred_id => user.id)
+	  			User.find(cookies[:referral].to_i).increment!(:points, 100)
 	  		end
 	  		fd = User.find(1)
 	  		content = "Hello #{user.name} and welcome to FlashingDeals! We are excited and glad to have you join our community. If you have any questions or just want to say hi, please message me and I'll get back to you as soon as possible. Also, please check your friend requests by hovering over '#{user.name.split(' ')[0]}' in the top right corner and selecting 'Friend Requests', you will see that I sent you one. Hope you accept! Thank you and enjoy your time."

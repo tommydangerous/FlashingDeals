@@ -1254,6 +1254,36 @@ div#popup_page_info_body p {
 	line-height: 18px;
 }
 
+div#popup_page_info_invite {
+	border: 1px solid rgb(148, 222, 240);
+	background: rgb(255, 255, 255);
+	width: 970px;
+	margin: 0 auto;
+	margin-bottom: 10px;
+	padding: 20px;
+	-webkit-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-khtml-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-moz-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-ms-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-o-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+}
+
+div#popup_page_info_invite p {
+	font-size: 14px;
+	line-height: 18px;
+}
+
+div#popup_page_info_invite p a {
+	font-weight: bold;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+}
+
 /* progress.css */
 div#progress {
 	display: none;

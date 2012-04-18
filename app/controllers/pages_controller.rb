@@ -9,17 +9,13 @@ class PagesController < ApplicationController
 	require 'nokogiri'
 	
 	def test
-		@title = "Test"
-		@user = current_user
-		@newsletter = Newsletter.find(4)
-		render :layout => false
+		@search = Deal.search do
+			fulltext params[:search]
+		end
+		@deals = @search.results
 	end
 	
 	def test2
-		@title = "Test"
-		@user = current_user
-		@newsletter = Newsletter.find(1)
-		render :layout => false
 	end
 	
 	def control_panel

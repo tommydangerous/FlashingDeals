@@ -27,12 +27,14 @@
 				});
 				$(".box_image").show()
 			});
-			
 			$("a#deal_show_overlay_container_close").click(function() {
 				$(".overlayOuter").hide();
 				$("body").removeClass("stationary");
 				$(".box_image").show()
 			});
+			$(".share_points").click(function() {
+				$.ajax("/share_points");
+			})
 		</script>
 	</head>
 	<%= yield %>

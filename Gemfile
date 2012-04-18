@@ -21,6 +21,7 @@ gem 'contacts'
 gem 'gdata', git: 'https://github.com/agentrock/gdata.git'
 gem 'delayed_job_active_record'
 # gem 'sunspot_rails'
+# gem 'progress_bar'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -33,7 +34,7 @@ end
 
 group :development, :test do
   gem 'sqlite3'
-# gem 'sunspot_solr'
+#	gem 'sunspot_solr'
 end
 
 
