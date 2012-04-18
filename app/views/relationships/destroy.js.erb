@@ -6,4 +6,4 @@ $("span#my_account_deals_count").html('<%= "#{current_user.watching.where("poste
 $("div#user_deal_"+<%= @deal.id %>).remove();
 $("span#count").html("")
 
-$("#grid_container").masonry('remove', $("#box_deal_<%= @deal.id %>"))
+$("#grid_container").masonry('remove', $(".user_box_deal_<%= @deal.id %>"))

@@ -174,12 +174,16 @@ class UsersController < ApplicationController
   	if Rails.env.production?
 	  	emails.each do |email|
 	  		UserMailer.delay.email_invite(user, email)
-	  		current_user.increment!(:points, by = 10)
+	  		@find_user = User.find(current_user.id)
+				@find_user.points = (current_user.points + 10)
+				@find_user.save
 	  	end
 	  elsif Rails.env.development?
 	  	emails.each do |email|
 	  		UserMailer.email_invite(user, email).deliver
-	  		current_user.increment!(:points, by = 10)
+	  		@find_user = User.find(current_user.id)
+				@find_user.points = (current_user.points + 10)
+				@find_user.save
 	  	end
 	  end
   	flash[:success] = "Your invites have been successfully sent."
@@ -192,12 +196,16 @@ class UsersController < ApplicationController
   	if Rails.env.production?
 	  	emails.each do |email|
 	  		UserMailer.delay.email_invite(user, email)
-	  		current_user.increment!(:points, by = 10)
+	  		@find_user = User.find(current_user.id)
+				@find_user.points = (current_user.points + 10)
+				@find_user.save
 	  	end
 	  elsif Rails.env.development?
 	  	emails.each do |email|
 	  		UserMailer.email_invite(user, email).deliver
-	  		current_user.increment!(:points, by = 10)
+	  		@find_user = User.find(current_user.id)
+				@find_user.points = (current_user.points + 10)
+				@find_user.save
 	  	end
 	  end
   	flash[:success] = "Your invites have been successfully sent."

@@ -242,7 +242,9 @@ class DealsController < ApplicationController
   def score_up
   	deal = Deal.find(params[:id])
   	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
-  		current_user.increment!(:points, by = 15)
+  		@find_user = User.find(current_user.id)
+			@find_user.points = (current_user.points + 15)
+			@find_user.save
   	end
   	current_user.vote_exclusively_for(deal)
   	respond_to do |format|
@@ -255,7 +257,9 @@ class DealsController < ApplicationController
   def score_down
   	deal = Deal.find(params[:id])
   	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
-  		current_user.increment!(:points, by = 15)
+  		@find_user = User.find(current_user.id)
+			@find_user.points = (current_user.points + 15)
+			@find_user.save
   	end
   	current_user.vote_exclusively_against(deal)
   	respond_to do |format|
@@ -291,7 +295,9 @@ class DealsController < ApplicationController
 	
 	def share_points
 		if signed_in?
-			current_user.increment!(:points, by = 100)
+			@find_user = User.find(current_user.id)
+			@find_user.points = (current_user.points + 50)
+			@find_user.save
 		end
 		redirect_to my_account_path
 	end

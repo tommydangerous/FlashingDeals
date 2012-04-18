@@ -20,7 +20,9 @@ class RelationshipsController < ApplicationController
 			format.html { redirect_to @deal }
 			format.js
 		end
-		current_user.increment!(:points, by = 10)
+		@find_user = User.find(current_user.id)
+		@find_user.points = (current_user.points + 10)
+		@find_user.save
 	end
 	
 	def destroy
@@ -41,6 +43,8 @@ class RelationshipsController < ApplicationController
 				@deals = deals
 			}
 		end
-		current_user.increment!(:points, by = -10)
+		@find_user = User.find(current_user.id)
+		@find_user.points = (current_user.points - 10)
+		@find_user.save
 	end
 end

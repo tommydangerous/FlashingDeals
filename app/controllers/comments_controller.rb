@@ -46,7 +46,9 @@ class CommentsController < ApplicationController
 			if Relationship.find_by_watched_id_and_watcher_id(deal.id, current_user.id).nil?
 				current_user.watch!(deal)
 			end
-			current_user.increment!(:points, by = 25)
+			@find_user = User.find(current_user.id)
+			@find_user.points = (current_user.points + 25)
+			@find_user.save
 		else
 			flash[:error] = "Unable to create comment."
 			redirect_to :back
@@ -69,6 +71,8 @@ class CommentsController < ApplicationController
 		end
 		comment.destroy
 		deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))
-		user.increment!(:points, by = -25)
+		@find_user = User.find(current_user.id)
+		@find_user.points = (current_user.points - 25)
+		@find_user.save
 	end
 end

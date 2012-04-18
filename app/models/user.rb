@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 										:path => "/:style/:id/:filename"
 	acts_as_voter
 	attr_accessor :password, :image_url
-	attr_accessible :name, :email, :password, :password_confirmation, :deal_duration, :private, :accept_terms, :photo, :time_zone, :active, :image_remote_url, :image_url, :subscribe, :monthly, :points
+	attr_accessible :name, :email, :password, :password_confirmation, :deal_duration, :private, :accept_terms, :photo, :time_zone, :active, :image_remote_url, :image_url, :subscribe, :monthly
 	
 	validate :name_validation	
 	def name_validation

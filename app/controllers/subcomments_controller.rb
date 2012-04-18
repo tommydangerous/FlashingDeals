@@ -43,7 +43,9 @@ class SubcommentsController < ApplicationController
 			if Relationship.find_by_watched_id_and_watcher_id(deal.id, current_user.id).nil?
 				current_user.watch!(deal)
 			end
-			current_user.increment!(:points, by = 25)
+			@find_user = User.find(current_user.id)
+			@find_user.points = (current_user.points + 25)
+			@find_user.save
 		else
 			flash[:error] = "Your words should not be too few nor too many..."
 			redirect_to :back
@@ -67,6 +69,8 @@ class SubcommentsController < ApplicationController
 		end
 		subcomment.destroy
 		deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))
-		user.increment!(:points, by = -25)
+		@find_user = User.find(current_user.id)
+		@find_user.points = (current_user.points - 25)
+		@find_user.save
 	end
 end
