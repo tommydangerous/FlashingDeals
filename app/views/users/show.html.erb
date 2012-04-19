@@ -5,6 +5,7 @@
 				<%= image_tag(@user.photo.url, :id => "user_photo_medium") %>
 			<% end %>
 		</div>
+		<%= render 'my_points' %>
 		<div id="my_deals_info">
 			<div id="add_friend_partial">
 				<%= render :partial => "add_friend", :object => @user %>

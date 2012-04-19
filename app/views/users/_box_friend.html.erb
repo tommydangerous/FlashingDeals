@@ -1,6 +1,6 @@
 <div id="box_friend_<%= user.id %>" class="box_friend" onmouseover="showBoxFriendAction(<%= user.id %>)" onmouseout="hideBoxFriendAction();" title="<%= pluralize(user.friends.size + user.inverse_friends.size, 'Friend') %>">
 	<div id="box_friend_number">
-		<h1><%= pluralize(user.comments.size + user.subcomments.size, 'Comment') %></h1>
+		<h1>Level <%= user.level %> <%= user.title %></h1>
 	</div>
 	<div id="box_friend_image_container">
 		<%= link_to(user) do %>

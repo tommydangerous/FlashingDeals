@@ -1,3 +1,78 @@
-#my_points_progress {
-	height: 16px;
+div#my_points_title {
+	text-align: center;
+	margin-bottom: 3px;
+}
+
+div#my_points_title p {
+	font-size: 18px;
+	font-weight: bold;
+}
+
+div#my_points_next_level {
+	display: none;
+	padding: 10px;
+	color: rgb(255, 255, 255);
+	position: absolute;
+	font-family: Verdana;
+	font-size: 12px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	background: rgba(75, 75, 75, .9);
+}
+
+div#my_points_progress {
+	height: 20px;
+	border: 1px solid rgb(200, 200, 200);
+	-webkit-box-shadow: 0px 1px 10px rgba(150, 150, 150, .75);
+	-khtml-box-shadow: 0px 1px 10px rgba(150, 150, 150, .75);
+	-moz-box-shadow: 0px 1px 10px rgba(150, 150, 150, .75);
+	-ms-box-shadow: 0px 1px 10px rgba(150, 150, 150, .75);
+	-o-box-shadow: 0px 1px 10px rgba(150, 150, 150, .75);
+	box-shadow: 0px 1px 10px rgba(150, 150, 150, .75);
+	background: rgb(100,100,100); /* Old browsers */
+	/* IE9 SVG, needs conditional override of 'filter' to 'none' */
+	background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPGxpbmVhckdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjAlIiB5MT0iMCUiIHgyPSIwJSIgeTI9IjEwMCUiPgogICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iIzY0NjQ2NCIgc3RvcC1vcGFjaXR5PSIxIi8+CiAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiMzMjMyMzIiIHN0b3Atb3BhY2l0eT0iMSIvPgogIDwvbGluZWFyR3JhZGllbnQ+CiAgPHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEiIGhlaWdodD0iMSIgZmlsbD0idXJsKCNncmFkLXVjZ2ctZ2VuZXJhdGVkKSIgLz4KPC9zdmc+);
+	background: -moz-linear-gradient(top,  rgba(100,100,100,1) 0%, rgba(50,50,50,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(100,100,100,1)), color-stop(100%,rgba(50,50,50,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(100,100,100,1) 0%,rgba(50,50,50,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(100,100,100,1) 0%,rgba(50,50,50,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(100,100,100,1) 0%,rgba(50,50,50,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(100,100,100,1) 0%,rgba(50,50,50,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#646464', endColorstr='#323232',GradientType=0 ); /* IE6-8 */
+}
+
+div#my_points_progress img {
+	height: 20px;
+}
+
+div.points_popup {
+	display: none;
+	position: fixed;
+	z-index: 9999;
+	right: 10px;
+	padding: 20px;
+	-webkit-border-radius: 5px;
+	-khtml-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-khtml-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-moz-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-ms-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-o-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	background: rgba(75, 75, 75, .9);
+}
+
+div.points_popup p {
+	color: rgb(255, 255, 255);
+	font-family: Helvetica, Arial;
+	font-size: 22px;
+	font-weight: bold;
 }

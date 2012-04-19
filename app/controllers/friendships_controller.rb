@@ -26,6 +26,8 @@ class FriendshipsController < ApplicationController
 						@user = @friend
 					}
 				end
+				current_user.points = (current_user.points + 50)
+				current_user.save
 			end
 		else
 			respond_to do |format|

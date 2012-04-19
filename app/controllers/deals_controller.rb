@@ -242,30 +242,50 @@ class DealsController < ApplicationController
   def score_up
   	deal = Deal.find(params[:id])
   	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
-  		@find_user = User.find(current_user.id)
-			@find_user.points = (current_user.points + 15)
-			@find_user.save
-  	end
+			current_user.points = (current_user.points + 15)
+			current_user.save
+			respond_to do |format|
+	  		format.html { redirect_to deal }
+	  		format.js { 
+	  			@deal = deal
+	  			@first_vote = "yes"
+  			}
+	  	end
+  	else
+	  	respond_to do |format|
+	  		format.html { redirect_to deal }
+	  		format.js { 
+	  			@deal = deal 
+	  			@first_vote = "no"
+  			}
+	  	end
+		end
   	current_user.vote_exclusively_for(deal)
-  	respond_to do |format|
-  		format.html { redirect_to deal }
-  		format.js { @deal = deal }
-  	end
   	deal.update_attribute(:point_count, deal.plusminus)
   end
   
   def score_down
   	deal = Deal.find(params[:id])
   	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
-  		@find_user = User.find(current_user.id)
-			@find_user.points = (current_user.points + 15)
-			@find_user.save
-  	end
+			current_user.points = (current_user.points + 15)
+			current_user.save
+			respond_to do |format|
+	  		format.html { redirect_to deal }
+	  		format.js { 
+	  			@deal = deal
+	  			@first_vote = "yes"
+  			}
+	  	end
+  	else
+	  	respond_to do |format|
+	  		format.html { redirect_to deal }
+	  		format.js { 
+	  			@deal = deal 
+	  			@first_vote = "no"
+  			}
+	  	end
+		end
   	current_user.vote_exclusively_against(deal)
-  	respond_to do |format|
-  		format.html { redirect_to deal }
-  		format.js { @deal = deal }
-  	end
   	deal.update_attribute(:point_count, deal.plusminus)
   end
 

@@ -60,6 +60,7 @@ class SharesController < ApplicationController
 	end
 	
 	def create_all
+		points = []
 		@friends = (current_user.friends + current_user.inverse_friends)
 		@friends.each do |friend|
 			if User.find(friend.id).relationships.find_by_watched_id(params[:share][:deal_id]).nil?
@@ -67,6 +68,7 @@ class SharesController < ApplicationController
 					Share.create!(:user_id => current_user.id, :friend_id => friend.id, :deal_id => params[:share][:deal_id])
 					current_user.points = current_user.points + 1
 					current_user.save
+					points.push(1)
 				end
 			end
 		end
@@ -75,7 +77,7 @@ class SharesController < ApplicationController
 				flash[:success] = "You have shared this deal with all your friends successfully!"
 				redirect_to :back
 			}
-			format.js
+			format.js { @points = points.size }
 		end
 	end
 	

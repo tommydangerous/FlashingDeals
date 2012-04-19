@@ -2,3 +2,5 @@ $(".box_friend_add_"+<%= @friend.id %>).html("<%= escape_javascript(render(:part
 <% if @friend == @user_show %>
 	$("div#add_friend_partial").html("<%= escape_javascript(render(:partial => "users/add_friend", :object => @user)) %>")
 <% end %>
+
+showPointsPopup(50);

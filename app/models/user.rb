@@ -165,6 +165,110 @@ class User < ActiveRecord::Base
 			scoped
 		end
 	end
+	
+	def level
+		if self.points < 400
+			0
+		elsif self.points >= 400 && self.points < 900
+			1
+		elsif self.points >= 900 && self.points < 1400
+			2
+		elsif self.points >= 1400 && self.points < 2100
+			3
+		elsif self.points >= 2100 && self.points < 2800
+			4
+		elsif self.points >= 2800 && self.points < 3600
+			5
+		elsif self.points >= 3600 && self.points < 4500
+			6
+		elsif self.points >= 4500 && self.points < 5400
+			7
+		elsif self.points >= 5400 && self.points < 6500
+			8
+		elsif self.points >= 6500 && self.points < 7600
+			9
+		elsif self.points >= 7600 && self.points < 8700
+			10
+		end
+	end
+	
+	def next_level
+		if self.points < 400
+			400
+		elsif self.points >= 400 && self.points < 900
+			900
+		elsif self.points >= 900 && self.points < 1400
+			1400
+		elsif self.points >= 1400 && self.points < 2100
+			2100
+		elsif self.points >= 2100 && self.points < 2800
+			2800
+		elsif self.points >= 2800 && self.points < 3600
+			3600
+		elsif self.points >= 3600 && self.points < 4500
+			4500
+		elsif self.points >= 4500 && self.points < 5400
+			5400
+		elsif self.points >= 5400 && self.points < 6500
+			6500
+		elsif self.points >= 6500 && self.points < 7600
+			7600
+		elsif self.points >= 7600 && self.points < 8700
+			8700
+		end
+	end
+	
+	def progress
+		if self.points < 400
+			(self.points.to_f - 0)/(400.to_f)
+		elsif self.points >= 400 && self.points < 900
+			(self.points.to_f - 400)/(500.to_f)
+		elsif self.points >= 900 && self.points < 1400
+			(self.points.to_f - 900)/(500.to_f)
+		elsif self.points >= 1400 && self.points < 2100
+			(self.points.to_f - 1400)/(700.to_f)
+		elsif self.points >= 2100 && self.points < 2800
+			(self.points.to_f - 2100)/(700.to_f)
+		elsif self.points >= 2800 && self.points < 3600
+			(self.points.to_f - 2800)/(800.to_f)
+		elsif self.points >= 3600 && self.points < 4500
+			(self.points.to_f - 3600)/(900.to_f)
+		elsif self.points >= 4500 && self.points < 5400
+			(self.points.to_f - 4500)/(900.to_f)
+		elsif self.points >= 5400 && self.points < 6500
+			(self.points.to_f - 5400)/(1100.to_f)
+		elsif self.points >= 6500 && self.points < 7600
+			(self.points.to_f - 6500)/(1100.to_f)
+		elsif self.points >= 7600 && self.points < 8700
+			(self.points.to_f - 7600)/(1100.to_f)
+		end
+	end
+	
+	def title
+		if self.points < 400
+			"Egg"
+		elsif self.points >= 400 && self.points < 900
+			"Guppy"
+		elsif self.points >= 900 && self.points < 1400
+			"Tadpole"
+		elsif self.points >= 1400 && self.points < 2100
+			"Mouse"
+		elsif self.points >= 2100 && self.points < 2800
+			"Squirrel"
+		elsif self.points >= 2800 && self.points < 3600
+			"Chipmunk"
+		elsif self.points >= 3600 && self.points < 4500
+			"Savannah"
+		elsif self.points >= 4500 && self.points < 5400
+			"Wolf"
+		elsif self.points >= 5400 && self.points < 6500
+			"Bear"
+		elsif self.points >= 6500 && self.points < 7600
+			"Tiger"
+		elsif self.points >= 7600 && self.points < 8700
+			"Lion"
+		end
+	end
 
 	private
 	

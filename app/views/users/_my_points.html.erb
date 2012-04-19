@@ -1,7 +1,14 @@
 <div id="my_points">
-	<p><%= @points %></p>
-	<%= image_tag "/assets/my_points_progress.jpg", :id => "my_points_progress" %>
+	<div id="my_points_next_level">
+		<%= @user.points %><span class="grey_200">/</span><%= @user.next_level %>
+	</div>
+	<div id="my_points_title">
+		<p>Level <%= @user.level %> <%= @user.title %></p>
+	</div>
+	<div id="my_points_progress" title="<%= (@user.progress.round(2) * 100).round %>%">
+		<%= image_tag "/assets/my_points_progress.jpg" %>
+	</div>
 </div>
 <script>
-	$("#my_points_progress").width(<%= @progress %> * 211)
+	$("#my_points_progress img").width(<%= @user.progress %> * 209)
 </script>

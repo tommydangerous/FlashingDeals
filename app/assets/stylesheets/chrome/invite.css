@@ -42,7 +42,13 @@ div#share_invite h1 {
 
 div#share_invite_body {
 	padding: 20px;
-	height: 168px;
+	height: 236px;
+}
+
+div#share_invite_body p {
+	font-size: 14px;
+	line-height: 18px;
+	margin-bottom: 14px;
 }
 
 div#share_invite_body h2 {
@@ -98,6 +104,7 @@ input#user_invite_link:active {
 div#share_invite_social {
 	margin-top: 40px;
 	padding: 0px 40px;
+	margin-bottom: 40px;
 }
 
 a#share_invite_facebook {

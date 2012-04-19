@@ -82,8 +82,6 @@ class UsersController < ApplicationController
   	cookies[:my_account] = "yes"
   	deals = @user.watching.where("posted > ?", @user.duration).search(params[:search]).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
   	@deals = deals.paginate(:page => params[:page], :per_page => 40)
-  	@points = @user.points
-  	@progress = @user.points.to_f/5000.to_f
   	render :layout => "layouts/full_screen"
   end	
   
@@ -174,19 +172,18 @@ class UsersController < ApplicationController
   	if Rails.env.production?
 	  	emails.each do |email|
 	  		UserMailer.delay.email_invite(user, email)
-	  		@find_user = User.find(current_user.id)
-				@find_user.points = (current_user.points + 10)
-				@find_user.save
+				current_user.points = (current_user.points + 10)
+				current_user.save
 	  	end
 	  elsif Rails.env.development?
 	  	emails.each do |email|
 	  		UserMailer.email_invite(user, email).deliver
-	  		@find_user = User.find(current_user.id)
-				@find_user.points = (current_user.points + 10)
-				@find_user.save
+	  		current_user.points = (current_user.points + 10)
+				current_user.save
 	  	end
 	  end
-  	flash[:success] = "Your invites have been successfully sent."
+	  points = emails.size.to_i * 10
+  	flash[:success] = "Your invites have been successfully sent. You also scored #{points} points!"
   	redirect_to my_account_path
   end
   
@@ -196,19 +193,18 @@ class UsersController < ApplicationController
   	if Rails.env.production?
 	  	emails.each do |email|
 	  		UserMailer.delay.email_invite(user, email)
-	  		@find_user = User.find(current_user.id)
-				@find_user.points = (current_user.points + 10)
-				@find_user.save
+	  		current_user.points = (current_user.points + 10)
+				current_user.save
 	  	end
 	  elsif Rails.env.development?
 	  	emails.each do |email|
 	  		UserMailer.email_invite(user, email).deliver
-	  		@find_user = User.find(current_user.id)
-				@find_user.points = (current_user.points + 10)
-				@find_user.save
+	  		current_user.points = (current_user.points + 10)
+				current_user.save
 	  	end
 	  end
-  	flash[:success] = "Your invites have been successfully sent."
+	  points = emails.size.to_i * 10
+  	flash[:success] = "Your invites have been successfully sent. You also scored #{points} points!"
   	redirect_to my_account_path
   end
   

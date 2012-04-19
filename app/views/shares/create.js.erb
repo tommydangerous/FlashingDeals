@@ -13,3 +13,7 @@ $("ul.ui-autocomplete").hide();
 		<% end %>
 	<% end %>
 <% end %>
+
+<% unless @points == 0 %>
+	showPointsPopup(<%= @points %>);
+<% end %>

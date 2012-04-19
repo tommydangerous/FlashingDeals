@@ -3,6 +3,7 @@
 		<%= link_to User.find(comment.user_id) do %>
 			<%= image_tag(User.find(comment.user_id).photo.url, :id => "user_photo_small") %>
 		<% end %>
+		<p title="<%= User.find(comment.user_id).title %>">Level <%= User.find(comment.user_id).level %></p>
 	</div>
 	<div id="comment">
 		<div id="comment_user">

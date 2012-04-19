@@ -35,7 +35,31 @@
 			$(".share_points").click(function() {
 				$.ajax("/share_points");
 			})
+			
+			function showPointsPopup(points) {
+				var o = $("#points_popup_overlay");
+				var i = points
+				o.hide();
+				o.delay(300);
+				o.fadeIn(200);
+				o.delay(3000);
+				o.fadeOut(100);
+				$(".points_earned").text(i);
+			}
+
+			$(".share_points").click(function() {
+				var o = $("#points_popup_overlay");
+				o.hide();
+				o.delay(10000);
+				o.fadeIn(200);
+				o.delay(3000);
+				o.fadeOut(100);
+				$(".points_earned").text("50");
+			})
 		</script>
 	</head>
+	<div id="points_popup_overlay" class="points_popup">
+		<p>You scored <span class="points_earned"></span> points!</p>
+	</div>
 	<%= yield %>
 </html>
