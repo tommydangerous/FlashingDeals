@@ -13,8 +13,9 @@
 	  <div id="user_partial_name">
 	  	<p>
 		  	<%= link_to user do %>
-		  		<strong><%= user.name %> (Level <%= user.level %>)</strong>
+		  		<strong><%= user.name %></strong>
 		  	<% end %>
+		  	(Level <%= user.level %>)
 		  	<% unless user.active.nil? %>
 		  		<span class="grey_150">last active</span> <%= user.active.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= user.active.strftime("%I:%M %p") %>
 		  	<% end %>
