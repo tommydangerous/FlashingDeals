@@ -61,16 +61,15 @@
   color: rgb(71, 224, 255);
 }
 
-a.selected {
+.selected {
 	text-decoration: none;
   color: rgb(71, 224, 255);
   font-family: Verdana;
-  font-weight: bold;
   font-size: 13px;
   padding: 12px 15px;
 }
 
-a.selected:hover {
+.selected:hover {
 	color: rgb(71, 224, 255);
 	text-decoration: none;
 }
@@ -79,7 +78,7 @@ a.selected:hover {
 	position: absolute;
 	z-index: 500;
 	margin-top: 5px;
-	margin-left: -185px;
+	margin-left: -40px;
 	display: none;
 }
 
@@ -89,7 +88,7 @@ div#category_drop_down_arrow {
 	border-right: 10px solid transparent;
 	border-left: 10px solid transparent;
 	border-bottom: 10px solid rgb(255, 255, 255);
-	margin-left: 68%;
+	margin-left: 25%;
 	position: absolute;
 	z-index: 501;
 }

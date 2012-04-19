@@ -66,17 +66,16 @@
   color: rgba(71, 224, 255, 1);
 }
 
-a.selected {
+.selected {
 	text-decoration: none;
-  color: rgba(71, 224, 255, 1);
+  color: rgb(71, 224, 255);
   font-family: Verdana;
-  font-weight: bold;
   font-size: 13px;
   padding: 12px 15px;
 }
 
-a.selected:hover {
-	color: rgba(71, 224, 255, 1);
+.selected:hover {
+	color: rgb(71, 224, 255);
 	text-decoration: none;
 }
 
@@ -84,7 +83,7 @@ div#category_drop_down {
 	position: absolute;
 	z-index: 500;
 	margin-top: 5px;
-	margin-left: -190px;
+	margin-left: -40px;
 	display: none;
 }
 
@@ -94,7 +93,7 @@ div#category_drop_down_arrow {
 	border-right: 10px solid transparent;
 	border-left: 10px solid transparent;
 	border-bottom: 10px solid rgb(255, 255, 255);
-	margin-left: 68%;
+	margin-left: 25%;
 	position: absolute;
 	z-index: 501;
 }

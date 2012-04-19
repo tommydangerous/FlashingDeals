@@ -1,5 +1,5 @@
 $(document).ready(function() {
-	var x = $("a#category_deals");
+	var x = $("#flashmob_deals");
 	var y = $("div#category_drop_down");
 	x.mouseover(function() {
 		y.show();

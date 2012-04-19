@@ -10,14 +10,7 @@
       <% if signed_in? %>
       <li>
       	<%= link_to "Community", community_deals_path, :id => "flashmob_deals", :class => "not_selected" %>
-    	</li>
-    	<li>
-    		<% if @category.nil? %>
-    			<%= link_to "Categories", "javascript:void(0);", :id => "category_deals", :class => "not_selected" %>
-    		<% else %>
-    			<%= link_to @category.name, "javascript:void(0);", :id => "category_deals", :class => "not_selected" %>
-    		<% end %>
-    		<div id="category_drop_down">
+      	<div id="category_drop_down">
     			<div id="category_drop_down_arrow"></div>
 	    		<ul id="category_drop_down_list">
 						<% Category.all.each do |c| %>
