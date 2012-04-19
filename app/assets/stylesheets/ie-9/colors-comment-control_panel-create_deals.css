@@ -135,9 +135,9 @@ div#gravatar_comment {
 }
 
 div#gravatar_comment p {
-	font-family: Verdana;
+	font-family: Helvetica, Arial;
 	font-size: 11px;
-	color: rgb(75, 75, 75);
+	color: rgb(150, 150, 150);
 }
 
 div#comment {
