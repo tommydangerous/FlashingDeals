@@ -337,40 +337,38 @@
 	<%= render "coupon_popup" %>
 <% end %>
 <% if signed_in? %>
-<script>
-$("#content").css("width", "989px");
-$('.example3demo').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 375,
-	width: 675
-}); 
-$('.example4demo').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 500,
-	width: 675
-}); 
-setPreviousNextHeight();
-</script>
+	<script>
+	$("#content").css("width", "989px");
+	$('.example3demo').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 375,
+		width: 675
+	}); 
+	$('.example4demo').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 500,
+		width: 675
+	}); 
+	</script>
 <% else %>
-<script>
-$("#content").css("width", "989px");
-$(document).ready(function() {
-	$("#dim_signup").show();
-})
-$('.example3demo').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 375,
-	width: 675
-}); 
-$('.example4demo').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 500,
-	width: 675
-}); 
-setPreviousNextHeight();
-</script>
+	<script>
+	$("#content").css("width", "989px");
+	$(document).ready(function() {
+		$("#dim_signup").show();
+	})
+	$('.example3demo').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 375,
+		width: 675
+	}); 
+	$('.example4demo').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 500,
+		width: 675
+	});
+	</script>
 <% end %>

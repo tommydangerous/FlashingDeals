@@ -4,7 +4,6 @@ div#deal_show_container {
 	border: 1px dotted rgb(200, 200, 200);
 	background: rgb(255, 255, 255);
 	margin: 0 auto;
-	float: left;
 }
 
 div#deal_show_overlay_container {

@@ -3,7 +3,7 @@ div#deal_show_container {
 	padding: 10px;
 	border: 1px dotted rgb(200, 200, 200);
 	background: rgb(255, 255, 255);
-	margin: auto;
+	margin: 0 auto;
 }
 
 div#deal_show_overlay_container {
