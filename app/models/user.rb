@@ -308,45 +308,45 @@ class User < ActiveRecord::Base
 		if self.points < 400
 			"Egg"
 		elsif self.points >= 400 && self.points < 900
-			"Guppy"
+			"Chicken"
 		elsif self.points >= 900 && self.points < 1400
-			"Tadpole"
+			"Sheep"
 		elsif self.points >= 1400 && self.points < 2100
-			"Mouse"
+			"Owl"
 		elsif self.points >= 2100 && self.points < 2800
-			"Squirrel"
+			"Koala"
 		elsif self.points >= 2800 && self.points < 3600
-			"Chipmunk"
+			"Panda"
 		elsif self.points >= 3600 && self.points < 4500
-			"Savannah"
+			"Polar Bear"
 		elsif self.points >= 4500 && self.points < 5400
 			"Wolf"
 		elsif self.points >= 5400 && self.points < 6500
-			"Bear"
+			"Dolphin"
 		elsif self.points >= 6500 && self.points < 7600
-			"Tiger"
+			"White Tiger"
 		elsif self.points >= 7600 && self.points < 8700
 			"Lion"
 		elsif self.points >= 8700 && self.points < 9800
-			"Liger"
+			"Zombie"
 		elsif self.points >= 9800 && self.points < 11000
-			"Minotaur"
+			"Hunter"
 		elsif self.points >= 11000 && self.points < 12300
-			"Centaur"
+			"Ninja"
 		elsif self.points >= 12300 && self.points < 13600
-			"Unicorn"
+			"Pirate"
 		elsif self.points >= 13600 && self.points < 15000
-			"Chimera"
+			"Knight"
 		elsif self.points >= 15000 && self.points < 16400
-			"Sphinx"
+			"Samurai"
 		elsif self.points >= 16400 && self.points < 17800
-			"Griffin"
+			"Wizard"
 		elsif self.points >= 17800 && self.points < 19300
-			"Pegasus"
+			"Warlord"
 		elsif self.points >= 19300 && self.points < 20800
-			"Pheonix"
+			"Pharaoh"
 		elsif self.points >= 20800 && self.points < 22400
-			"Dragon"
+			"Boss Tycoon"
 		end
 	end
 

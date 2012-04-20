@@ -337,7 +337,7 @@ class DealsController < ApplicationController
   	else
   		deal_order = (1 + deals.last.deal_order)
   	end
-		deal.update_attributes(:deal_order => deal_order, :queue => true)
+		deal.update_attributes(:deal_order => deal_order, :queue => true, :top_deal => false, :flash_back => false)
 		respond_to do |format|
 			format.html {
 				flash[:success] = "Deal sent to the queue."
