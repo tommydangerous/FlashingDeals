@@ -5,7 +5,7 @@ div#game_room_left {
 
 div#game_room_user {
 	padding: 20px;
-	height: 307px;
+	height: 312px;
 }
 
 div#game_room_user_image {
@@ -44,26 +44,25 @@ div#game_room_user_points {
 	margin: 0 auto;
 }
 
-div#how_to_level {
-	width: 450px;
+div#current_rewards {
 	background: rgb(255, 255, 255);
 	border: 1px solid rgb(148, 222, 240);
+	height: 244px;
 }
 
-div#how_to_level p#how_to_level_header {
-	background: rgb(173, 217, 228);
+#current_rewards_label {
 	padding: 20px;
 	font-family: Verdana;
 	font-size: 22px;
 	color: rgb(44, 175, 227);
-	margin: 0;
+	background: rgb(173, 217, 228);
 }
 
-div#how_to_level_body {
+div#current_rewards_body {
 	padding: 20px;
 }
 
-div#how_to_level_body p {
+div#current_rewards_body p {
 	font-size: 14px;
 	line-height: 18px;
 	margin-bottom: 14px;
@@ -76,17 +75,52 @@ div#leaderboard {
 	border: 1px solid rgb(148, 222, 240);
 }
 
-div#leaderboard p#leaderboard_header {
+div#leaderboard_header {
 	background: rgb(173, 217, 228);
-	padding: 20px;
+}
+
+#leaderboard_label {
+	width: 200px;
+	float: left;
+	text-align: left;
 	font-family: Verdana;
 	font-size: 22px;
 	color: rgb(44, 175, 227);
-	margin: 0;	
+	margin: 0;
+	padding: 20px 5px 20px 20px;
+}
+
+#leaderboard_how_to_level {
+	width: 200px;
+	float: right;
+	text-align: right;
+	font-family: Verdana;
+	font-size: 22px;
+	color: rgb(97, 196, 25);
+	margin: 0;
+	padding: 20px 20px 20px 5px;
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+#leaderboard_how_to_level:hover {
+	text-decoration: none;
+	color: rgb(41, 154, 11);
 }
 
 div#leaderboard_body {
 	padding: 20px;
+}
+
+div.leaderboard_rank {
+	width: 20px;
+	margin-right: 10px;
+	text-align: right;
+	float: left;
 }
 
 div.leaderboard_user {
@@ -94,13 +128,6 @@ div.leaderboard_user {
 	border-top: 1px dotted rgb(200, 200, 200);
 	padding-top: 3px;
 	margin-bottom: 5px;
-}
-
-div.leaderboard_rank {
-	width: 20px;
-	margin-right: 5px;
-	text-align: right;
-	float: left;
 }
 
 div.leaderboard_user_photo {
@@ -143,4 +170,73 @@ div.leaderboard_user_level {
 div.leaderboard_user_level p {
 	font-size: 12px;
 	color: rgb(150, 150, 150);
+}
+
+div#how_to_level {
+	display: none;
+	width: 450px;
+	height: 596px;
+	float: right;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(148, 222, 240);
+}
+
+div#how_to_level_header {
+	background: rgb(173, 217, 228);
+}
+
+#how_to_level_label {
+	width: 200px;
+	float: right;
+	text-align: right;
+	font-family: Verdana;
+	font-size: 22px;
+	color: rgb(44, 175, 227);
+	margin: 0;
+	padding: 20px 20px 20px 5px;
+}
+
+#how_to_level_leaderboard {
+	width: 200px;
+	float: left;
+	text-align: left;
+	font-family: Verdana;
+	font-size: 22px;
+	color: rgb(97, 196, 25);
+	margin: 0;
+	padding: 20px 5px 20px 20px;
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+#how_to_level_leaderboard:hover {
+	text-decoration: none;
+	color: rgb(41, 154, 11);
+}
+
+div#how_to_level_body {
+	padding: 20px;
+}
+
+div#how_to_level_body p {
+	font-size: 14px;
+	line-height: 18px;
+	margin-bottom: 14px;
+}
+
+div#how_to_level_body ul {
+	margin: 0;
+	padding-left: 30px;
+	margin-bottom: 14px;
+}
+
+div#how_to_level_body ul li {
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	padding: 2px 0px;
 }

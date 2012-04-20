@@ -19,15 +19,20 @@
 			</div>
 		</div>
 	</div>
-	<div id="how_to_level">
-		<p id="how_to_level_header">How To Level</p>
-		<div id="how_to_level_body">
-			<p>You can score points by doing many different things.</p>
+	<div id="current_rewards">
+		<p id="current_rewards_label">Current Rewards</p>
+		<div id="current_rewards_body">
+			<p>Be the first 5 users to reach level 5 and get a $5 gift card from a restaurant or store of your choice.</p>
+			<p>More rewards coming soon. Be on the lookout!</p>
 		</div>
 	</div>
 </div>
 <div id="leaderboard">
-	<p id="leaderboard_header">Leaderboard</p>
+	<div id="leaderboard_header">
+		<p id="leaderboard_label">Leaderboard</p>
+		<%= link_to "How To Level", '#', :id => "leaderboard_how_to_level" %>
+		<div class="clear"></div>
+	</div>
 	<div id="leaderboard_body">
 		<% @users.each do |user| %>
 			<div class="leaderboard_user">
@@ -49,6 +54,38 @@
 		<% end %>
 	</div>
 </div>
+<div id="how_to_level">
+	<div id="how_to_level_header">
+		<%= link_to "Leaderboard", '#', :id => "how_to_level_leaderboard" %>
+		<p id="how_to_level_label">How To Level</p>
+		<div class="clear"></div>
+	</div>
+	<div id="how_to_level_body">
+		<p>Gain experience and level up.</p>
+		<p>You can score points by:</p>
+		<ul>
+			<li>Sharing deals with your FD friends</li>
+			<li>Emailing and sharing your invite link</li>
+			<li>Watching deals</li>
+			<li>Liking or disliking deals</li>
+			<li>Commenting on deals</li>
+			<li>Replying to comments</li>
+			<li>Adding other users as friends</li>
+			<li>Sharing deals on Facebook, Twitter, or via email</li>
+			<li>When friends join FlashingDeals through your invite link</li>
+		</ul>
+		<p>Score enough points and you will receive trophies, badges, achievements, and best of all, treasures!</p>
+		<p>Good luck and happy hunting.</p>
+	</div>
+</div>
 <script>
 	$("#my_points_progress img").width(<%= @user.progress %> * 398)
+	$("#leaderboard_how_to_level").click(function() {
+		$("div#leaderboard").hide();
+		$("div#how_to_level").show();
+	})
+	$("#how_to_level_leaderboard").click(function() {
+		$("div#how_to_level").hide();
+		$("div#leaderboard").show();
+	})
 </script>
