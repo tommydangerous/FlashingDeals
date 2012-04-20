@@ -228,10 +228,6 @@ class UsersController < ApplicationController
   	redirect_to my_account_path
   end
   
-  def game_room
-  	@title = "Game Room"
-  end
-  
 # Correct User
   def watching
   	@title = "Deals You Are Watching"
