@@ -321,7 +321,9 @@
 			</div>
 		<% end %>
 		<div id="deal_show_comments_list">
-			<%= render @comments %>
+			<% unless @comments.empty? %>
+				<%= render @comments %>
+			<% end %>
 		</div>
 	</div>
 	<div class="clear"></div>
