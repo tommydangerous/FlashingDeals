@@ -71,7 +71,7 @@
 		<% end %>
 	</div>
 	<div id="box_deal_comments">
-		<% deal.comments.take(5).each do |comment| %>
+		<% (deal.comments + deal.subcomments).sort_by { |c| c.updated_at }.reverse.take(5).each do |comment| %>
 			<div class="box_deal_comment">
 				<div id="box_deal_comment_user">
 					<%= link_to(User.find(comment.user_id)) do %>
