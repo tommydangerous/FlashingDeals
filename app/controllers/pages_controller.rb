@@ -9,10 +9,6 @@ class PagesController < ApplicationController
 	require 'nokogiri'
 	
 	def test
-		@search = Deal.search do
-			fulltext params[:search]
-		end
-		@deals = @search.results
 	end
 	
 	def test2

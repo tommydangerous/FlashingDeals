@@ -65,7 +65,7 @@
 	<div id="box_deal_name">
 		<h1><%= wrap_box_deal_name(deal.name) %></h1>
 		<% unless deal.site.nil? || deal.site.empty? %>
-			<p>at <%= deal.site %></p>
+			<p><%= deal.site %></p>
 		<% end %>
 	</div>
 	<div id="box_deal_comments">

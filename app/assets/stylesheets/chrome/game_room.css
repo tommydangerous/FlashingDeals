@@ -240,3 +240,48 @@ div#how_to_level_body ul li {
 	color: rgb(75, 75, 75);
 	padding: 2px 0px;
 }
+
+div#trophy_showcase {
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(148, 222, 240);
+	margin-top: 20px;
+}
+
+#trophy_showcase_label {
+	padding: 20px;
+	font-family: Verdana;
+	font-size: 22px;
+	color: rgb(44, 175, 227);
+	background: rgb(173, 217, 228);
+}
+
+div#trophy_showcase_body {
+	padding: 20px;
+}
+
+.award {
+	margin: 0px 5px;
+	width: 140px;
+	float: left;
+}
+
+.award p {
+	text-align: center;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+}
+
+.trophy {
+	text-align: center;
+	margin: 0 auto;
+	width: 100px;
+	height: 90px;
+	padding-bottom: 10px;
+	background: url("/assets/trophy_shadow.png");
+	margin-bottom: 5px;
+}
+
+.trophy img {
+	max-height: 90px;
+	max-width: 90px;
+}

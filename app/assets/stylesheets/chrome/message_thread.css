@@ -40,7 +40,8 @@ div#message_thread_content {
 div#message_thread_content p {
 	font-family: Helvetica, Arial;
 	font-size: 12px;
-	color: rgba(75, 75, 75, 1);
+	color: rgb(75, 75, 75);
+	word-wrap: break-word;
 }
 
 div#message_thread_timestamp {

@@ -78,14 +78,46 @@
 		<p>Good luck and happy hunting.</p>
 	</div>
 </div>
+<div class="clear"></div>
+<div id="trophy_showcase">
+	<p id="trophy_showcase_label">Trophies, Badges, & Achievements</p>
+	<div id="trophy_showcase_body">
+		<div class="award">
+			<div class="trophy">
+				<%= image_tag "trophy.png" %>
+			</div>
+			<p>First To Comment</p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
 <script>
+$(document).ready(function() {
 	$("#my_points_progress img").width(<%= @user.progress %> * 398)
-	$("#leaderboard_how_to_level").click(function() {
-		$("div#leaderboard").hide();
-		$("div#how_to_level").show();
-	})
-	$("#how_to_level_leaderboard").click(function() {
-		$("div#how_to_level").hide();
-		$("div#leaderboard").show();
-	})
+})
 </script>

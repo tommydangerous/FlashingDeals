@@ -85,10 +85,13 @@ name NOT ILIKE '%dolce and gabbana%' AND
 name NOT ILIKE '%food processor%' AND
 name NOT ILIKE '%hooded top%' AND
 name NOT ILIKE '%kitchenaid%' AND
+name NOT ILIKE '%lighter%'	AND
+name NOT ILIKE '%mixer%'	AND
 name NOT ILIKE '%panasonic%' AND
 name NOT ILIKE '%radio%' AND
 name NOT ILIKE '%seasonic%' AND
 name NOT ILIKE '%shirt%' AND
+name NOT ILIKE '%shotgun%'	AND
 name NOT ILIKE '%sony ericsson%'
 	
 											")

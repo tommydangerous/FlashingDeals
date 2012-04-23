@@ -45,8 +45,10 @@ name NOT ILIKE '%adapter%' AND
 name NOT ILIKE '%cigar cutter%' AND
 name NOT ILIKE '%fathead%' AND
 name NOT ILIKE '%hdtv%' AND
+name NOT ILIKE '%massager%'	AND
 name NOT ILIKE '%notebook%' AND
-name NOT ILIKE '%pant%'
+name NOT ILIKE '%pant%' AND
+name NOT ILIKE '%system%'
 	
 											")
 	deals.each do |deal|

@@ -28,7 +28,9 @@ name ILIKE '%xbox%'
 											")
 	deals = deals.where("
 	
+name NOT ILIKE '%game of throne%'	AND
 name NOT ILIKE '%logitech%' AND
+name NOT ILIKE '%paperback%'	AND
 name NOT ILIKE '%wiig%'
 	
 											")

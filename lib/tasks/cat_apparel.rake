@@ -80,11 +80,15 @@ name ILIKE '%zoo york%'
 name NOT ILIKE '%aerobed%' AND
 name NOT ILIKE '%alpha test%' AND
 name NOT ILIKE '%alphatest%' AND
+name NOT ILIKE '%blu ray%'	AND
+name NOT ILIKE '%blu-ray%'	AND
 name NOT ILIKE '%bulova%' AND
 name NOT ILIKE '%card case%' AND
 name NOT ILIKE '%chat%' AND
 name NOT ILIKE '%damask%' AND
 name NOT ILIKE '%manhattan%' AND
+name NOT ILIKE '%necklace%'	AND
+name NOT ILIKE '%seiko%'	AND
 name NOT ILIKE '%shoe%' AND
 name NOT ILIKE '%table%'
 	

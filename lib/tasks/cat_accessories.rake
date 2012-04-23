@@ -27,7 +27,8 @@ name ILIKE '%wallet%'
 
 											")
 	deals = deals.where("
-	
+
+name NOT ILIKE '%photo frame%'	AND
 name NOT ILIKE '%weight%' AND
 name NOT ILIKE '%tool%'
 	

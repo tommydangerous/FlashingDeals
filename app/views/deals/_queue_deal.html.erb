@@ -69,7 +69,7 @@
 			<p>Discount: <%= f.text_field :discount, :autocomplete => "off" %></p>
 			<p>Savings: <%= f.text_field :savings, :autocomplete => "off" %></p>
 			<p>Exclusive: <%= f.check_box :exclusive %></p>
-			<p>Expires: <%= f.text_field :expires, :placeholder => "2012-04-01 24:00:00" %></p>
+			<p>Expires: <%= f.datetime_select :expires, :ampm => true, :datetime_separator => ", ", :time_separator => "", :use_short_month => true, :order => [:month, :day, :year], :include_blank => true %></p>
 			<p>Order: <%= f.text_field :deal_order, :autocomplete => "off" %></p>
 			<p>Time In:<%= f.text_field :time_in, :autocomplete => "off" %></p>
 			<div class="actions">

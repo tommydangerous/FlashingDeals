@@ -24,7 +24,7 @@
 		</div>
 	</div>
 	<ul>
-		<%= render @users %>
+		<%= render @users unless @users.empty? %>
 	</ul>
 	<%= will_paginate @users, :separator => "" %>
 </div>

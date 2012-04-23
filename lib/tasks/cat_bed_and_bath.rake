@@ -49,7 +49,9 @@ name ILIKE '%trojan%'
 											")
 	deals = deals.where("
 	
-name NOT ILIKE '%espadrille%' AND	
+name NOT ILIKE '%barbeque%'	AND	
+name NOT ILIKE '%espadrille%' AND
+name NOT ILIKE '%fitness%'	AND
 name NOT ILIKE '%space%' AND
 name NOT ILIKE '%spade%' AND
 name NOT ILIKE '%spam%' AND
@@ -57,6 +59,7 @@ name NOT ILIKE '%spaghetti%' AND
 name NOT ILIKE '%sparkle%' AND
 name NOT ILIKE '%spar%' AND
 name NOT ILIKE '%spangle%' AND
+name NOT ILIKE '%spawn%'	AND
 name NOT ILIKE '%tool%' AND
 name NOT ILIKE '%wingspan%'	
 	

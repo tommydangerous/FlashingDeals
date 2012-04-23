@@ -19,7 +19,13 @@ name ILIKE '%vision%'
 											")
 	deals = deals.where("
 	
-name NOT ILIKE '%camera%'	
+name NOT ILIKE '%blu ray%' AND
+name NOT ILIKE '%blu-ray%' AND
+name NOT ILIKE '%camera%' AND
+name NOT ILIKE '%night vision%'	AND
+name NOT ILIKE '%record%'	AND
+name NOT ILIKE '%television%' AND
+name NOT ILIKE '%tripod%'
 	
 											")
 	deals.each do |deal|
