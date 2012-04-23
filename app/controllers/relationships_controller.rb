@@ -9,6 +9,7 @@ class RelationshipsController < ApplicationController
 	end
 	
 	def create
+		current_level = current_user.level
 		@deal = Deal.find(params[:relationship][:watched_id])
 		if Relationship.find_by_watched_id_and_watcher_id(@deal.id, current_user.id).nil?
 			current_user.watch!(@deal)
@@ -16,13 +17,12 @@ class RelationshipsController < ApplicationController
 		unless current_user.inverse_shares.find_by_deal_id(@deal.id).nil?
 			current_user.inverse_shares.find_by_deal_id(@deal.id).destroy
 		end
+		current_user.points = current_user.points + 10
+		current_user.save
 		respond_to do |format|
 			format.html { redirect_to @deal }
-			format.js
+			format.js { @current_level = current_level }
 		end
-		@find_user = User.find(current_user.id)
-		@find_user.points = (current_user.points + 10)
-		@find_user.save
 	end
 	
 	def destroy

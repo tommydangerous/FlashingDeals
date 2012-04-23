@@ -2,6 +2,7 @@ class FriendshipsController < ApplicationController
 	before_filter :authenticate
 	
 	def create
+		current_level = current_user.level
 		@friend = User.find(params[:friendship][:friend_id])
 		@user_show = User.find(params[:friendship][:user_id])
 		if current_user.friendships.find_by_friend_id(@friend.id).nil? && @friend.friendships.find_by_friend_id(current_user.id).nil?
@@ -17,6 +18,8 @@ class FriendshipsController < ApplicationController
 				end
 			else
 				current_user.friendships.create!(:friend_id => @friend.id, :approved => false)
+				current_user.points = (current_user.points + 50)
+				current_user.save
 				respond_to do |format|
 					format.html {
 						flash[:notice] = "Friend request sent."
@@ -24,10 +27,9 @@ class FriendshipsController < ApplicationController
 					}
 					format.js {
 						@user = @friend
+						@current_level = current_level
 					}
 				end
-				current_user.points = (current_user.points + 50)
-				current_user.save
 			end
 		else
 			respond_to do |format|

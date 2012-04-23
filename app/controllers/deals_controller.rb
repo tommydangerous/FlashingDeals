@@ -240,6 +240,7 @@ class DealsController < ApplicationController
   end
 	
   def score_up
+  	current_level = current_user.level
   	deal = Deal.find(params[:id])
   	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
 			current_user.points = (current_user.points + 15)
@@ -249,6 +250,7 @@ class DealsController < ApplicationController
 	  		format.js { 
 	  			@deal = deal
 	  			@first_vote = "yes"
+	  			@current_level = current_level
   			}
 	  	end
   	else
@@ -265,6 +267,7 @@ class DealsController < ApplicationController
   end
   
   def score_down
+  	current_level = current_user.level
   	deal = Deal.find(params[:id])
   	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
 			current_user.points = (current_user.points + 15)
@@ -274,6 +277,7 @@ class DealsController < ApplicationController
 	  		format.js { 
 	  			@deal = deal
 	  			@first_vote = "yes"
+	  			@current_level = current_level
   			}
 	  	end
   	else
@@ -315,11 +319,12 @@ class DealsController < ApplicationController
 	
 	def share_points
 		if signed_in?
-			@find_user = User.find(current_user.id)
-			@find_user.points = (current_user.points + 50)
-			@find_user.save
+			current_user.points = current_user.points + 50
+			current_user.save
+			redirect_to root_path
+		else
+			redirect_to root_path
 		end
-		redirect_to my_account_path
 	end
 
 # Admin Users Only  

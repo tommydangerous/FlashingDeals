@@ -2,4 +2,8 @@ $("div#deal_show_comments_list").prepend("<%= escape_javascript(render(:partial 
 $("div#comment_form").html("<%= escape_javascript(render('comments/comment_form')) %>")
 $("span#comment_count").html("<%= "#{@deal.comment_count}" %>")
 
-showPointsPopup(25);
+<% if @current_level == current_user.level %>
+	showPointsPopup(25);
+<% else %>
+	showLeveledUp("<%= current_user.title %>");
+<% end %>

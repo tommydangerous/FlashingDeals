@@ -15,5 +15,9 @@ $("ul.ui-autocomplete").hide();
 <% end %>
 
 <% unless @points == 0 %>
-	showPointsPopup(<%= @points %>);
+	<% if @current_level == current_user.level %>
+		showPointsPopup(<%= @points %>);
+	<% else %>
+		showLeveledUp("<%= current_user.title %>");
+	<% end %>
 <% end %>

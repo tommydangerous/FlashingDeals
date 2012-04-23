@@ -56,10 +56,24 @@
 				o.fadeOut(100);
 				$(".points_earned").text("50");
 			})
+			
+			function showLeveledUp(title) {
+				var x = $("#leveled_up_overlay");
+				var i = title
+				x.hide();
+				x.delay(300);
+				x.fadeIn(200);
+				x.delay(3000);
+				x.fadeOut(100);
+				$(".leveled_up_to").text(i);
+			}
 		</script>
 	</head>
 	<div id="points_popup_overlay" class="points_popup">
 		<p>You scored <span class="points_earned"></span> points!</p>
+	</div>
+	<div id="leveled_up_overlay" class="leveled_up">
+		<p>You leveled up to <span class="leveled_up_to"></span>!</p>
 	</div>
 	<%= yield %>
 </html>

@@ -2,6 +2,7 @@ class SubcommentsController < ApplicationController
 	before_filter :authenticate
 	
 	def create
+		current_level = current_user.level
 		subcomment = current_user.subcomments.create(params[:subcomment])
 		comment = Comment.find(params[:subcomment][:comment_id])
 		comment.increment!(:weight, by = 1)
@@ -27,6 +28,8 @@ class SubcommentsController < ApplicationController
 			notice_ids.each do |x|
 				Notification.create!(:user_id => current_user.id, :notice_id => x, :deal_id => deal.id, :comment_id => comment.id, :subcomment_id => subcomment.id, :read => false)
 			end
+			current_user.points = current_user.points + 25
+			current_user.save
 			respond_to do |format|
 				format.html {
 					flash[:success] = "Comment created!"
@@ -37,15 +40,13 @@ class SubcommentsController < ApplicationController
 					@comment = comment
 					@subcomment = subcomment
 					@subcomments = Subcomment.where("comment_id = ?", @comment.id)
+					@current_level = current_level
 				}
 			end
 			deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))
 			if Relationship.find_by_watched_id_and_watcher_id(deal.id, current_user.id).nil?
 				current_user.watch!(deal)
 			end
-			@find_user = User.find(current_user.id)
-			@find_user.points = (current_user.points + 25)
-			@find_user.save
 		else
 			flash[:error] = "Your words should not be too few nor too many..."
 			redirect_to :back

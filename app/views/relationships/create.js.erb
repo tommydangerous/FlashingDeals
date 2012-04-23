@@ -6,4 +6,8 @@ $("div.shared_deals_count").html("<%= escape_javascript(render("users/my_account
 $("div.box_deal_shared_"+<%= @deal.id %>).remove();
 $("span#shared_deals_count").html("<%= "#{current_user.inverse_shares.size}" %>")
 
-showPointsPopup(10);
+<% if @current_level == current_user.level %>
+	showPointsPopup(10);
+<% else %>
+	showLeveledUp("<%= current_user.title %>");
+<% end %>

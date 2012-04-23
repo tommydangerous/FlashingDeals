@@ -4,5 +4,9 @@ $("div#user_dislike").html("<%= escape_javascript(render("deals/user_dislike")) 
 $("span#point_count").html("<%= "#{@deal.point_count}" %>")
 
 <% if @first_vote == "yes" %>
-	showPointsPopup(15);
+	<% if @current_level == current_user.level %>
+		showPointsPopup(15);
+	<% else %>
+		showLeveledUp("<%= current_user.title %>");
+	<% end %>
 <% end %>

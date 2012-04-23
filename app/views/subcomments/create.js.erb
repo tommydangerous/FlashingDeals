@@ -4,4 +4,8 @@ $("div#subcomments_list_partial_"+<%= @comment.id %>).html("<%= escape_javascrip
 $("div#subcomments_list_subcomment_form_"+<%= @comment.id %>).html("<%= escape_javascript(render(:partial => "subcomments/subcomment_form_jquery", :locals => { :comment => @comment })) %>")
 $("span#comment_count").html("<%= "#{@deal.comment_count}" %>")
 
-showPointsPopup(25);
+<% if @current_level == current_user.level %>
+	showPointsPopup(25);
+<% else %>
+	showLeveledUp("<%= current_user.title %>");
+<% end %>

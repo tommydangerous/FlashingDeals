@@ -168,6 +168,7 @@ class UsersController < ApplicationController
   
   def email_invite
   	user = current_user
+  	current_level = current_user.level
   	emails = params[:user_email_invite].split(',').to_a
   	if Rails.env.production?
 	  	emails.each do |email|
@@ -183,12 +184,17 @@ class UsersController < ApplicationController
 	  	end
 	  end
 	  points = emails.size.to_i * 10
-  	flash[:success] = "Your invites have been successfully sent. You also scored #{points} points!"
+  	if current_level == current_user.level
+  		flash[:success] = "Your invites have been successfully sent. You scored #{points} points!"
+  	else
+  		flash[:success] = "Your invites have been successfully sent. You leveled up to #{current_user.title}!"
+  	end
   	redirect_to my_account_path
   end
   
   def gmail_invite
   	user = current_user
+  	current_level = current_user.level
   	emails = params[:email_invite_check].to_a
   	if Rails.env.production?
 	  	emails.each do |email|
@@ -204,7 +210,11 @@ class UsersController < ApplicationController
 	  	end
 	  end
 	  points = emails.size.to_i * 10
-  	flash[:success] = "Your invites have been successfully sent. You also scored #{points} points!"
+	  if current_level == current_user.level
+  		flash[:success] = "Your invites have been successfully sent. You scored #{points} points!"
+  	else
+  		flash[:success] = "Your invites have been successfully sent. You leveled up to #{current_user.title}!"
+  	end
   	redirect_to my_account_path
   end
   

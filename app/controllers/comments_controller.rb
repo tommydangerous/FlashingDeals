@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
 	end
 	
 	def create
+		current_level = current_user.level
 		comment = current_user.comments.create(params[:comment])
 		deal = Deal.find(params[:comment][:deal_id])
 		comments = deal.comments
@@ -31,6 +32,8 @@ class CommentsController < ApplicationController
 			notice_ids.each do |x|
 				Notification.create!(:user_id => current_user.id, :notice_id => x, :deal_id => deal.id, :comment_id => comment.id, :subcomment_id => nil, :read => false)
 			end
+			current_user.points = current_user.points + 25
+			current_user.save
 			respond_to do |format|
 				format.html {
 					flash[:success] = "Comment created!"
@@ -40,15 +43,13 @@ class CommentsController < ApplicationController
 					@deal = deal
 					@comment = comment
 					@subcomments = subcomments
+					@current_level = current_level
 				}
 			end
 			deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))
 			if Relationship.find_by_watched_id_and_watcher_id(deal.id, current_user.id).nil?
 				current_user.watch!(deal)
 			end
-			@find_user = User.find(current_user.id)
-			@find_user.points = (current_user.points + 25)
-			@find_user.save
 		else
 			flash[:error] = "Unable to create comment."
 			redirect_to :back
