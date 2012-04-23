@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	before_filter :authenticate_login, :only => [:unsubscribe, :unsubscribe_me, :email_monthly]
 	before_filter :auth_my_account, :only => [:my_account, :my_deals]
 	before_filter :correct_user, :only => [:watching, :edit, :update]
-	before_filter :admin_user,	 :only => [:index, :game_room]
+	before_filter :admin_user,	 :only => :index
 	before_filter :gm_user, :only => :destroy
 	before_filter :category_cookies_blank, :only => [:show, :my_account, :my_deals, :shared_deals]
 	before_filter :my_account_cookies_blank, :only => [:show, :shared_deals]

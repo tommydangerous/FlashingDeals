@@ -23,17 +23,17 @@
 		<p id="current_rewards_label">Winner's Circle</p>
 		<div id="current_rewards_body">
 			<p class="current_rewards_body_label">Mission:</p>
-			<p>Be the first 10 users to reach level 5.</p>
+			<p>Be the first 10 users to reach level 5</p>
 			<p class="current_rewards_body_label">Prize:</p>
 			<p>Receive a $10 gift card from a restaurant or store of your choice</p>
-			<p>Be on the lookout for new missions and prizes coming soon.</p>
+			<p class="lookout">Be on the lookout for new missions and prizes coming soon.</p>
 		</div>
 	</div>
 </div>
 <div id="leaderboard">
 	<div id="leaderboard_header">
 		<p id="leaderboard_label">Leaderboard</p>
-		<%= link_to "How To Level", '#', :id => "leaderboard_how_to_level" %>
+		<%= link_to "How To Level", "javascript:void(0);", :id => "leaderboard_how_to_level" %>
 		<div class="clear"></div>
 	</div>
 	<div id="leaderboard_body">
@@ -59,7 +59,7 @@
 </div>
 <div id="how_to_level">
 	<div id="how_to_level_header">
-		<%= link_to "Leaderboard", '#', :id => "how_to_level_leaderboard" %>
+		<%= link_to "Leaderboard", "javascript:void(0);", :id => "how_to_level_leaderboard" %>
 		<p id="how_to_level_label">How To Level</p>
 		<div class="clear"></div>
 	</div>
@@ -85,5 +85,7 @@
 <script>
 $(document).ready(function() {
 	$("#my_points_progress img").width(<%= @user.progress %> * 398)
+	$("#game_room").removeClass("not_selected");
+	$("#game_room").addClass("selected");
 })
 </script>

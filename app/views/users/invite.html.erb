@@ -66,12 +66,14 @@
 	</div>
 </div>
 <script>
-$("a#invite_link").removeClass("not_selected");
-$("a#invite_link").addClass("selected");
-$('.example3demo').popupWindow({ 
-	centerScreen:1,
-	resizable: 1,
-	height: 375,
-	width: 675
-});
+$(document).ready(function() {
+	$("a#invite_link").removeClass("not_selected");
+	$("a#invite_link").addClass("selected");
+	$('.example3demo').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 375,
+		width: 675
+	});
+})
 </script>
