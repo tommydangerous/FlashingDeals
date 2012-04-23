@@ -68,6 +68,12 @@ div#current_rewards_body p {
 	margin-bottom: 14px;
 }
 
+div#current_rewards_body p.current_rewards_body_label {
+	font-weight: bold;
+	font-size: 14px;
+	margin-bottom: 2px;
+}
+
 div#leaderboard {
 	width: 450px;
 	float: right;

@@ -20,13 +20,10 @@
 		</div>
 	</div>
 	<div id="current_rewards">
-		<p id="current_rewards_label">Winner's Circle</p>
+		<p id="current_rewards_label">Current Rewards</p>
 		<div id="current_rewards_body">
-			<p class="current_rewards_body_label">Mission:</p>
-			<p>Be the first 10 users to reach level 5.</p>
-			<p class="current_rewards_body_label">Prize:</p>
-			<p>Receive a $10 gift card from a restaurant or store of your choice</p>
-			<p>Be on the lookout for new missions and prizes coming soon.</p>
+			<p>Be the first 5 users to reach level 5 and get a $5 gift card from a restaurant or store of your choice.</p>
+			<p>More rewards coming soon. Be on the lookout!</p>
 		</div>
 	</div>
 </div>
@@ -77,11 +74,48 @@
 			<li>Sharing deals on Facebook, Twitter, or via email</li>
 			<li>When friends join FlashingDeals through your invite link</li>
 		</ul>
-		<p>Score enough points and you will receive trophies, badges, achievements, and best of all, prizes!</p>
+		<p>Score enough points and you will receive trophies, badges, achievements, and best of all, treasures!</p>
 		<p>Good luck and happy hunting.</p>
 	</div>
 </div>
 <div class="clear"></div>
+<div id="trophy_showcase">
+	<p id="trophy_showcase_label">Trophies, Badges, & Achievements</p>
+	<div id="trophy_showcase_body">
+		<div class="award">
+			<div class="trophy">
+				<%= image_tag "trophy.png" %>
+			</div>
+			<p>First To Comment</p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="award">
+			<div class="trophy">
+			</div>
+			<p></p>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
 <script>
 $(document).ready(function() {
 	$("#my_points_progress img").width(<%= @user.progress %> * 398)
