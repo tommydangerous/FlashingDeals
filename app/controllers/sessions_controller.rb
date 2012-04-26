@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
 			else
 				sign_in_temp user
 			end
-			redirect_back_or :back
+			redirect_back_or my_account_path
 		end
 	end
 	
