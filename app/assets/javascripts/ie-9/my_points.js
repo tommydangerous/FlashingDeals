@@ -31,7 +31,7 @@ function showLeveledUp(title) {
 	x.fadeOut(100);
 	$(".leveled_up_to").text(i);
 }
-
+/*
 $(document).ready(function() {
 	$(".share_points").click(function() {
 		var x = $("#points_popup_normal");
@@ -43,3 +43,4 @@ $(document).ready(function() {
 		$(".points_earned").text("50");
 	})
 })
+*/

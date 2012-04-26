@@ -1,7 +1,7 @@
 class DealsController < ApplicationController
 	before_filter :authenticate, :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame]
-	before_filter :admin_user,	 :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals, :clear_dead_deals, :share_points]
-	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue]
+	before_filter :admin_user,	 :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals, :clear_dead_deals]
+	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue, :share_points]
 	before_filter :today
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
 	before_filter :my_account_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
@@ -316,16 +316,6 @@ class DealsController < ApplicationController
 			}
 		end
 	end
-	
-	def share_points
-		if signed_in?
-			current_user.points = current_user.points + 50
-			current_user.save
-			redirect_to root_path
-		else
-			redirect_to root_path
-		end
-	end
 
 # Admin Users Only  
 	def queue
@@ -627,6 +617,16 @@ class DealsController < ApplicationController
 			format.js {
 				@deals = Deal.where("queue = ?", true)
 			}
+		end
+	end
+	
+	def share_points
+		if signed_in?
+			current_user.points = current_user.points + 50
+			current_user.save
+			redirect_to root_path
+		else
+			redirect_to root_path
 		end
 	end
   
