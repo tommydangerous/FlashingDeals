@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 	
   def new
   	if signed_in?
-  		redirect_to root_path
+  		redirect_to my_account_path
   	else
   		@title = "Login"
   	end
@@ -13,13 +13,13 @@ class SessionsController < ApplicationController
 		user = User.authenticate(params[:session][:email],
 														 params[:session][:password])
 		if signed_in?
-			redirect_to root_path
+			redirect_to my_account_path
 		elsif user.nil?
 			flash.now[:error] = "The email or password you have entered is invalid."
 			@title = "Login"
 			render 'new'
 			if session[:return_to].nil?
-				session[:return_to] = root_path
+				session[:return_to] = my_account_path
 			end
 		else
 			if params[:remember_me]
