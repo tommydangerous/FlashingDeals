@@ -63,13 +63,13 @@ div#my_account_drop_down a:hover {
 a#my_account {
 	position: relative;
 	bottom: 16px;
-	line-height: 50px;
-	margin-right: 10px;
+	line-height: 51px;
 	text-decoration: none;
   color: rgb(255, 255, 255);
   font-family: Verdana;
   font-size: 13px;
   text-align: right;
+  margin-right: 5px;
   float: right;
   -webkit-transition: all .2s linear;
   -khtml-transition: all .2s linear;
@@ -93,7 +93,7 @@ div#my_account_arrow {
 	z-index: 501;
 }
 
-span#my_account_notification {
+#my_account_notification {
 	position: absolute;
 	font-weight: bold;
 	font-size: 16px;
@@ -101,4 +101,16 @@ span#my_account_notification {
 
 img#notice {
 	margin-top: 19px;
+}
+
+#my_account_pic_name {
+	float: left;
+}
+
+img#my_account_picture {
+	position: relative;
+	top: 15px;
+	float: left;
+	max-height: 20px;
+	margin-right: 5px;
 }

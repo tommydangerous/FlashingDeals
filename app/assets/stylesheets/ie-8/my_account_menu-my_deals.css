@@ -70,11 +70,11 @@ div#my_account_drop_down a:hover {
 a#my_account {
 	position: relative;
 	bottom: 16px;
-	line-height: 50px;
+	line-height: 51px;
 	padding: 0px;
 	padding-top: 15px;
 	padding-bottom: 20px;
-	margin-right: 10px;
+	margin-right: 5px;
 	text-decoration: none;
   color: rgb(255, 255, 255);
   font-family: Verdana;
@@ -108,9 +108,20 @@ span#my_account_notification {
 }
 
 img#notice {
-	margin-left: -4px;
 	position: relative;
 	top: 4px;
+}
+
+#my_account_pic_name {
+	float: left;
+}
+
+img#my_account_picture {
+	position: relative;
+	top: 15px;
+	float: left;
+	max-height: 20px;
+	margin-right: 5px;
 }
 
 /* my_deal.css */

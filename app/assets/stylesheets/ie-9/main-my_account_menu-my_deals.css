@@ -158,16 +158,16 @@ div#my_account_drop_down a:hover {
 }
 
 a#my_account {
+	padding: 15px 0px;
 	position: relative;
 	bottom: 16px;
-	line-height: 50px;
-	padding: 15px 0px;
-	margin-right: 10px;
+	line-height: 51px;
 	text-decoration: none;
   color: rgb(255, 255, 255);
   font-family: Verdana;
   font-size: 13px;
   text-align: right;
+  margin-right: 5px;
   -webkit-transition: all .2s linear;
   -khtml-transition: all .2s linear;
   -moz-transition: all .2s linear;
@@ -176,7 +176,7 @@ a#my_account {
 }
 
 a#my_account:hover {
-	color: rgba(71, 224, 255, 1);
+	color: rgb(71, 224, 255);
 }
 
 div#my_account_arrow {
@@ -198,6 +198,18 @@ span#my_account_notification {
 
 img#notice {
 	margin-top: 19px;
+}
+
+#my_account_pic_name {
+	float: left;
+}
+
+img#my_account_picture {
+	position: relative;
+	top: 15px;
+	float: left;
+	max-height: 20px;
+	margin-right: 5px;
 }
 
 /* my_deals.css */

@@ -1,10 +1,16 @@
 <% if current_user.request_friends.empty? && current_user.received_messages.where("read = ?", false).empty? && current_user.notifications.where("read = ?", false).empty? %>
 	<%= link_to(my_account_path, :id => "my_account") do %>
-		<%= current_user.name.split(' ')[0] %><span id="my_account_notification"></span>
+		<span id="my_account_pic_name">
+			<%= image_tag current_user.photo.url, :id => "my_account_picture" %><%= current_user.name.split(' ')[0] %>
+		</span>
+		<span id="my_account_notification"></span>
 	<% end %>
 <% else %>
 	<%= link_to(my_account_path, :id => "my_account") do %>
-		<%= current_user.name.split(' ')[0] %><span id="my_account_notification">
+		<span id="my_account_pic_name">
+			<%= image_tag current_user.photo.url, :id => "my_account_picture" %><%= current_user.name.split(' ')[0] %>
+		</span>
+		<span id="my_account_notification">
 			<%= image_tag("/assets/notice.png", :id => "notice") %>
 		</span>
 	<% end %>

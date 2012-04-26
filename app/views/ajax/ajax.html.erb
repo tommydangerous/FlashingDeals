@@ -40,7 +40,7 @@ function accountNotice() {
 		url: "/ajax/ajax_notification",
 		cache: false,
 		success: function(html){
-			$("span#my_account_notification").html(html);
+			$("#my_account_notification").html(html);
 		}
 	})
 };
