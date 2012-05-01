@@ -349,6 +349,10 @@ class User < ActiveRecord::Base
 			"Boss Tycoon"
 		end
 	end
+	
+	def gss1
+		"true" if self.photo.url != "/assets/default_photo.png"
+	end
 
 	private
 	
