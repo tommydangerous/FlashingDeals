@@ -16,11 +16,11 @@
 		<h2>Your Invite Link</h2>
 		<input readonly="readonly" value="http://www.flashingdeals.com/signup/<%= @user.id %>235kjv" id="user_invite_link">
 		<div id="share_invite_social">
-			<%= link_to("https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com/signup/#{@user.id}235kjv", :id => "share_invite_facebook", :class => "example3demo") do %>
+			<%= link_to("https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com/signup/#{@user.id}235kjv", :id => "share_invite_facebook", :class => "example3demo user_sent_invite") do %>
 				<%= image_tag "/assets/facebook_auth.png" %>
 				<h3>Share Invite</h3>
 			<% end %>
-			<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= "Come join me on @FlashingDeals. Friends don't let friends pay full price." %>%20http://www.flashingdeals.com/<%= @user.id %>235kjv" target="_blank" id="share_invite_twitter">
+			<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= "Come join me on @FlashingDeals. Friends don't let friends pay full price." %>%20http://www.flashingdeals.com/<%= @user.id %>235kjv" target="_blank" id="share_invite_twitter" class="user_sent_invite">
 				<%= image_tag("/assets/twitter_auth.png") %>
 				<h3>Share Invite</h3>
 			</a>

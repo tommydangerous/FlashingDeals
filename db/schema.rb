@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120417192027) do
+ActiveRecord::Schema.define(:version => 20120502203128) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -308,6 +308,7 @@ ActiveRecord::Schema.define(:version => 20120417192027) do
     t.boolean  "subscribe",              :default => true
     t.boolean  "monthly",                :default => false
     t.integer  "points",                 :default => 0
+    t.boolean  "sent_invite",            :default => false
   end
 
   add_index "users", ["active"], :name => "index_users_on_active"
@@ -315,6 +316,7 @@ ActiveRecord::Schema.define(:version => 20120417192027) do
   add_index "users", ["monthly"], :name => "index_users_on_monthly"
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["points"], :name => "index_users_on_points"
+  add_index "users", ["sent_invite"], :name => "index_users_on_sent_invite"
   add_index "users", ["slug"], :name => "index_users_on_slug"
   add_index "users", ["subscribe"], :name => "index_users_on_subscribe"
 

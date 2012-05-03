@@ -189,6 +189,8 @@ class UsersController < ApplicationController
   	else
   		flash[:success] = "Your invites have been successfully sent. You leveled up to #{current_user.title}!"
   	end
+  	user.sent_invite = true
+  	user.save
   	redirect_to my_account_path
   end
   
@@ -215,6 +217,8 @@ class UsersController < ApplicationController
   	else
   		flash[:success] = "Your invites have been successfully sent. You leveled up to #{current_user.title}!"
   	end
+  	user.sent_invite = true
+  	user.save
   	redirect_to my_account_path
   end
   
@@ -242,6 +246,14 @@ class UsersController < ApplicationController
   	@title = "Game Room"
   	@user = current_user
   	@users = User.order("points DESC").take(10)
+  end
+  
+  def user_sent_invite
+  	if signed_in? && current_user.sent_invite == false
+  		current_user.sent_invite = true
+  		current_user.save
+  	end
+  	redirect_to my_account_path
   end
   
 # Correct User

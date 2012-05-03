@@ -69,3 +69,12 @@ $(document).ready(function() {
 			$("#gmail_login").show();
 	});
 })
+
+$(document).ready(function() {
+	$(".user_sent_invite").click(function() {
+		$.ajax({
+		url: "/user-sent-invite",
+		cache: false,
+	})
+	})
+})

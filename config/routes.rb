@@ -117,6 +117,7 @@ FlashingDeal::Application.routes.draw do
   match '/unsubscribe-me' => 'users#unsubscribe_me', :as => :unsubscribe_me
   match '/email-monthly' => 'users#email_monthly', :as => :email_monthly
   match '/game-room' => 'users#game_room', :as => :game_room
+  match '/user-sent-invite' => 'users#user_sent_invite', :as => :user_sent_invite
 # Friends
 	match '/user/list/friends/friends-list' => 'friends#friends_list', :as => :friends
 # Ajax

@@ -350,8 +350,112 @@ class User < ActiveRecord::Base
 		end
 	end
 	
-	def gss1
-		"true" if self.photo.url != "/assets/default_photo.png"
+	def complete_profile_percent
+		if self.photo.url != "/assets/default_photo.png"
+			if self.comments.size > 0
+				if self.subcomments.size > 0
+					if self.votes.size > 0
+						if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 0
+							if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 1
+								if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 2
+									if self.sent_invite?
+										"100"
+									else
+										"87"
+									end
+								else
+									"75"
+								end
+							else
+								"62"
+							end
+						else
+							"50"
+						end
+					else
+						"37"
+					end
+				else
+					"25"
+				end
+			else
+				"12"
+			end
+		else
+			"0"
+		end
+	end
+	
+	def complete_profile_line
+		if self.photo.url != "/assets/default_photo.png"
+			if self.comments.size > 0
+				if self.subcomments.size > 0
+					if self.votes.size > 0
+						if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 0
+							if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 1
+								if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 2
+									if self.sent_invite?
+										"Complete!"
+									else
+										"Share your invite link"
+									end
+								else
+									"Add one more friend"
+								end
+							else
+								"Add another friend"
+							end
+						else
+							"Add a friend"
+						end
+					else
+						"Like or dislike a deal"
+					end
+				else
+					"Reply to another user's comment"
+				end
+			else
+				"Comment on a deal"
+			end
+		else
+			"Change your profile picture"
+		end
+	end
+	
+	def complete_profile_todo
+		if self.photo.url != "/assets/default_photo.png"
+			if self.comments.size > 0
+				if self.subcomments.size > 0
+					if self.votes.size > 0
+						if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 0
+							if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 1
+								if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 2
+									if self.sent_invite?
+										"You are complete!"
+									else
+										"Share your invite link on Facebook, Twitter, or through email by clicking on \"Invite\" in the top header."
+									end
+								else
+									"Add one more friend."
+								end
+							else
+								"Add another friend. You can view a user's friends by going to their profile page and clicking on \"Friends\"."
+							end
+						else
+							"Add a friend by going to their profile page and clicking \"Add Friend\" or accepting \"Friend Requests\"."
+						end
+					else
+						"Like or dislike a deal by clicking the up or down arrow."
+					end
+				else
+					"Speak your mind. Reply to another user's comment."
+				end
+			else
+				"Share your thoughts. Comment on a deal."
+			end
+		else
+			"Change your profile picture by hovering over \"#{self.name.split(' ')[0]}\" and clicking on \"Settings\"."
+		end
 	end
 
 	private

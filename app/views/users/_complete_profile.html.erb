@@ -1,0 +1,12 @@
+<div id="complete_profile" title="<%= current_user.complete_profile_todo %> (<%= current_user.complete_profile_percent %>% complete)">
+	<p class="complete_profile_header">Complete Your Profile</p>
+	<p class="complete_profile_todo"><%= current_user.complete_profile_line %></p>
+	<div id="complete_profile_progress">
+		<%= image_tag "/assets/my_points_progress.jpg" %>
+	</div>
+</div>
+<script>
+$(document).ready(function() {
+	$("#complete_profile_progress img").css("width", "<%= current_user.complete_profile_percent %>%");
+});
+</script>
