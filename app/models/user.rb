@@ -209,6 +209,26 @@ class User < ActiveRecord::Base
 			19
 		elsif self.points >= 20800 && self.points < 22400
 			20
+		elsif self.points >= 22400 && self.points < 24400
+			21
+		elsif self.points >= 24400 && self.points < 27400
+			22
+		elsif self.points >= 27400 && self.points < 31400
+			23
+		elsif self.points >= 31400 && self.points < 36400
+			24
+		elsif self.points >= 36400 && self.points < 42400
+			25
+		elsif self.points >= 42400 && self.points < 49400
+			26
+		elsif self.points >= 49400 && self.points < 57400
+			27
+		elsif self.points >= 57400 && self.points < 66400
+			28
+		elsif self.points >= 66400 && self.points < 76400
+			29
+		elsif self.points >= 76400 && self.points < 96400
+			30
 		end
 	end
 	
@@ -255,6 +275,26 @@ class User < ActiveRecord::Base
 			20800
 		elsif self.points >= 20800 && self.points < 22400
 			22400
+		elsif self.points >= 22400 && self.points < 24400
+			24400
+		elsif self.points >= 24400 && self.points < 27400
+			27400
+		elsif self.points >= 27400 && self.points < 31400
+			31400
+		elsif self.points >= 31400 && self.points < 36400
+			36400
+		elsif self.points >= 36400 && self.points < 42400
+			42400
+		elsif self.points >= 42400 && self.points < 49400
+			49400
+		elsif self.points >= 49400 && self.points < 57400
+			57400
+		elsif self.points >= 57400 && self.points < 66400
+			66400
+		elsif self.points >= 66400 && self.points < 76400
+			76400
+		elsif self.points >= 76400 && self.points < 96400
+			96400
 		end
 	end
 	
@@ -301,6 +341,26 @@ class User < ActiveRecord::Base
 			(self.points.to_f - 19300)/(1500.to_f)
 		elsif self.points >= 20800 && self.points < 22400
 			(self.points.to_f - 20800)/(1600.to_f)
+		elsif self.points >= 22400 && self.points < 24400
+			(self.points.to_f - 22400)/(2000.to_f)
+		elsif self.points >= 24400 && self.points < 27400
+			(self.points.to_f - 24400)/(3000.to_f)
+		elsif self.points >= 27400 && self.points < 31400
+			(self.points.to_f - 27400)/(4000.to_f)
+		elsif self.points >= 31400 && self.points < 36400
+			(self.points.to_f - 31400)/(5000.to_f)
+		elsif self.points >= 36400 && self.points < 42400
+			(self.points.to_f - 36400)/(6000.to_f)
+		elsif self.points >= 42400 && self.points < 49400
+			(self.points.to_f - 42400)/(7000.to_f)
+		elsif self.points >= 49400 && self.points < 57400
+			(self.points.to_f - 49400)/(8000.to_f)
+		elsif self.points >= 57400 && self.points < 66400
+			(self.points.to_f - 57400)/(9000.to_f)
+		elsif self.points >= 66400 && self.points < 76400
+			(self.points.to_f - 66400)/(10000.to_f)
+		elsif self.points >= 76400 && self.points < 96400
+			(self.points.to_f - 76400)/(20000.to_f)
 		end
 	end
 	
@@ -347,6 +407,26 @@ class User < ActiveRecord::Base
 			"Pharaoh"
 		elsif self.points >= 20800 && self.points < 22400
 			"Boss Tycoon"
+		elsif self.points >= 22400 && self.points < 24400
+			"Minotaur"
+		elsif self.points >= 24400 && self.points < 27400
+			"Cyclops"
+		elsif self.points >= 27400 && self.points < 31400
+			"Unicorn"
+		elsif self.points >= 31400 && self.points < 36400
+			"Pegasus"
+		elsif self.points >= 36400 && self.points < 42400
+			"Sphinx"
+		elsif self.points >= 42400 && self.points < 49400
+			"Griffin"
+		elsif self.points >= 49400 && self.points < 57400
+			"Chimera"
+		elsif self.points >= 57400 && self.points < 66400
+			"Phoenix"
+		elsif self.points >= 66400 && self.points < 76400
+			"Kraken"
+		elsif self.points >= 76400 && self.points < 96400
+			"Dragon"
 		end
 	end
 	
