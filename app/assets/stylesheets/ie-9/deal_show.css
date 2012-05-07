@@ -398,6 +398,11 @@ div#share_all_info_triangle {
 div#deal_show_name {
 }
 
+span.deal_show_name_site {
+	font-size: 14px;
+	color: rgb(150, 150, 150);
+}
+
 div#deal_show_name h1 {
 	font-family: Helvetica, Arial;
 	font-size: 30px;

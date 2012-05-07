@@ -1,0 +1,7 @@
+$("#stars").html("<%= escape_javascript(render(:partial => "stars/star_form", :object => @deal, :as => :deal)) %>")
+
+<% if @current_level == current_user.level %>
+	showPointsPopup(15);
+<% else %>
+	showLeveledUp("<%= current_user.title %>");
+<% end %>

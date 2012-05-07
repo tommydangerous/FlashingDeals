@@ -59,6 +59,8 @@ class Deal < ActiveRecord::Base
 	
 	has_many :notifications, :dependent => :destroy
 	
+	has_many :stars, :dependent => :destroy
+	
 	def self.search(search)
 		if search
 			if Rails.env.production?
@@ -80,6 +82,20 @@ class Deal < ActiveRecord::Base
 			end
 		else
 			scoped
+		end
+	end
+	
+	def star_count
+		if self.stars.size == 0
+			"0"
+		else
+			array = []
+			self.stars.each do |star|
+				array.push(star.value)
+			end
+			array_total = array.inject { |sum, x| sum + x }
+			array_avg = array_total.to_f/array.size.to_f
+			"#{array_avg.round(1)}"
 		end
 	end
 end

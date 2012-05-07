@@ -1,0 +1,32 @@
+div#deal_stars {
+	float: left;
+	width: 75px;
+	height: 14px;
+	background: url("/assets/stars.png");
+	background-position: -75px 14px;
+}
+
+.deal_star_vote {
+	width: 15px;
+	height: 14px;
+	float: left;
+	background: transparent;
+	border: none;
+	padding: 0;
+	margin: 0;
+}
+
+.deal_star_vote_signed_out {
+	display: block;
+	width: 75px;
+	height: 14px;
+}
+
+div#deal_stars_size {
+	float: left;
+	margin-left: 5px;
+}
+
+div#deal_stars_size p {
+	font-size: 12px;
+}

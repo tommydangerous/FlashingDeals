@@ -39,6 +39,7 @@ FlashingDeal::Application.routes.draw do
   resources :relationships, :only => [:index, :create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]
   resources :shares, :only => [:create, :destroy]
+  resources :stars, :only => :create
   resources :subcomments, :only => [:create, :destroy]
   resources :users do
   	member do

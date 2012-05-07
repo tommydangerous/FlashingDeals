@@ -83,6 +83,8 @@ class User < ActiveRecord::Base
 	
 	has_many :referrals, :dependent => :destroy
 	has_one  :inverse_referrals, :class_name => "Referral", :foreign_key => "referred_id", :dependent => :destroy
+	
+	has_many :stars, :dependent => :destroy
 											 										 
 	before_save :encrypt_password
 	
@@ -434,7 +436,7 @@ class User < ActiveRecord::Base
 		if self.photo.url != "/assets/default_photo.png"
 			if self.comments.size > 0
 				if self.subcomments.size > 0
-					if self.votes.size > 0
+					if self.stars.size > 0
 						if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 0
 							if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 1
 								if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 2
@@ -470,7 +472,7 @@ class User < ActiveRecord::Base
 		if self.photo.url != "/assets/default_photo.png"
 			if self.comments.size > 0
 				if self.subcomments.size > 0
-					if self.votes.size > 0
+					if self.stars.size > 0
 						if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 0
 							if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 1
 								if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 2
@@ -489,7 +491,7 @@ class User < ActiveRecord::Base
 							"Add a friend"
 						end
 					else
-						"Like or dislike a deal"
+						"Review a deal (1-5 stars)"
 					end
 				else
 					"Reply to another user's comment"
@@ -506,7 +508,7 @@ class User < ActiveRecord::Base
 		if self.photo.url != "/assets/default_photo.png"
 			if self.comments.size > 0
 				if self.subcomments.size > 0
-					if self.votes.size > 0
+					if self.stars.size > 0
 						if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 0
 							if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 1
 								if (self.friends.size + self.inverse_friends.size + self.pending_friends.size) > 2
@@ -525,7 +527,7 @@ class User < ActiveRecord::Base
 							"Add a friend by going to their profile page and clicking \"Add Friend\" or accepting \"Friend Requests\"."
 						end
 					else
-						"Like or dislike a deal by clicking the up or down arrow."
+						"Review a deal by clicking on 1 of the 5 stars according to how you want to rate it."
 					end
 				else
 					"Speak your mind. Reply to another user's comment."

@@ -113,17 +113,18 @@
 	<div id="deal_show_column_right">
 		<div id="deal_show_name">
 			<h1>
-				<%= link_to @deal do %>
-					<% if @deal.dead? %>
-						<span class="red">Expired</span> <%= wrap_deal_show(@deal.name) %>
-					<% else %>
-						<%= wrap_deal_show(@deal.name) %>
-					<% end %>
-				<% end %>
-			</h1>
-			<% unless @deal.site.nil? || @deal.site.empty? %>
-				<p><%= @deal.site %></p>
+			<% if @deal.dead? %>
+				<span class="red">Expired</span> <%= wrap_deal_show(@deal.name) %>
+			<% else %>
+				<%= wrap_deal_show(@deal.name) %>
 			<% end %>
+			<% unless @deal.site.nil? || @deal.site.empty? %>
+				<span class="deal_show_name_site">at <%= @deal.site %></span>
+			<% end %>
+			</h1>
+			<div id="stars">
+				<%= render :partial => 'stars/star_form', :object => @deal, :as => :deal %>
+			</div>
 		</div>
 		<div id="deal_show_line_2">
 			<div id="deal_show_price">
@@ -177,41 +178,6 @@
 	<div class="clear"></div>
 	<div id="deal_show_column_left_2">
 		<div id="deal_show_watch_share_vote">
-			<div id="deal_summary">
-				<div id="user_like">
-					<%= render "user_like" %>
-				</div>
-				<div id="user_dislike">
-					<%= render "user_dislike" %>
-				</div>
-				<div id="flash_points">
-					<div id="up">
-						<% if signed_in? %>
-							<%= link_to(score_up_deal_path(@deal), :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()", :method => :post, :remote => true, :id => "like") do %>
-								<div id="like_arrow"></div>
-							<% end %>
-						<% else %>
-							<%= link_to("javascript:void(0)", :class => "action_login", :id => "like", :onmouseover => "toggleUserLike()", :onmouseout => "toggleUserLike()") do %>
-								<div id="like_arrow"></div>
-							<% end %>
-						<% end %>
-					</div>
-					<div id="total_score">
-						<h1><%= @deal.plusminus %></h1>
-					</div>
-					<div id="down">
-						<% if signed_in? %>
-							<%= link_to(score_down_deal_path(@deal), :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()", :method => :post, :remote => true, :id => "dislike") do %>
-								<div id="dislike_arrow"></div>
-							<% end %>
-						<% else %>
-							<%= link_to("javascript:void(0)", :class => "action_login", :id => "dislike", :onmouseover => "toggleUserDislike()", :onmouseout => "toggleUserDislike()") do %>
-								<div id="dislike_arrow"></div>
-							<% end %>
-						<% end %>
-					</div>
-				</div>
-			</div>
 			<div id="deal_summary_side_panel">
 				<div id="watch_deal_info">
 					Save this to your personal profile and never lose sight of it!

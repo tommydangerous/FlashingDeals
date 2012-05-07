@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120502203128) do
+ActiveRecord::Schema.define(:version => 20120504175123) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -269,6 +269,17 @@ ActiveRecord::Schema.define(:version => 20120502203128) do
   end
 
   add_index "shares", ["user_id", "friend_id", "deal_id"], :name => "index_shares_on_user_id_and_friend_id_and_deal_id", :unique => true
+
+  create_table "stars", :force => true do |t|
+    t.integer  "deal_id"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "stars", ["deal_id", "user_id"], :name => "index_stars_on_deal_id_and_user_id", :unique => true
+  add_index "stars", ["value"], :name => "index_stars_on_value"
 
   create_table "subcomments", :force => true do |t|
     t.text      "content"

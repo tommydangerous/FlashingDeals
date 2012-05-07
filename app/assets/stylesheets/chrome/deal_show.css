@@ -159,9 +159,6 @@ div#deal_show_watch_share_vote {
 }
 
 div#deal_summary {
-	width: 60px;
-	height: 68px;
-	margin-top: 10px;
 	float: right;
 }
 
@@ -396,6 +393,11 @@ div#share_all_info_triangle {
 }
 
 div#deal_show_name {
+}
+
+span.deal_show_name_site {
+	font-size: 14px;
+	color: rgb(150, 150, 150);
 }
 
 div#deal_show_name h1 {
