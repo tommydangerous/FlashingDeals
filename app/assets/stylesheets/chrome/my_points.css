@@ -53,7 +53,7 @@ div.points_popup {
 	display: none;
 	position: fixed;
 	z-index: 9999;
-	right: 10px;
+	left: 10px;
 	padding: 20px;
 	-webkit-border-radius: 5px;
 	-khtml-border-radius: 5px;
