@@ -1446,6 +1446,10 @@ div#subcomment_delete a:hover {
 }
 
 /* stars.css */
+div#stars {
+	height: 14px;
+}
+
 div#deal_stars {
 	float: left;
 	width: 75px;
