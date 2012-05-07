@@ -10,4 +10,6 @@ class Share < ActiveRecord::Base
 	validates_presence_of :user_id
 	validates_presence_of :friend_id
 	validates_presence_of :deal_id
+	
+	default_scope :order => 'shares.created_at DESC'
 end
