@@ -25,6 +25,8 @@ $(document).ready(function(){
 	
 	$(".signup_popup_anchor").click(function() {
 		$("div#dim_signup").fadeIn(200);
+		$("#signup_message_form").hide();
+		$("#login_form").show();
 		$("html, body").animate({ scrollTop: 0  }, 100);
 			return false;
 	});
@@ -36,6 +38,12 @@ $(document).ready(function(){
 	
 	$("a#popup_page_info_close").click(function() {
 		$("div#popup_page_info").slideUp();
+	});
+	$(".action_login").click(function() {
+		$("#dim_signup").fadeIn(200, function() {
+			$("html, body").animate({ scrollTop: 0  }, 0);
+  		return false;
+		});
 	});
 });
 		
@@ -66,4 +74,3 @@ function toggleSignupLogin() {
 		l.css("display", "block");
 	}
 };
-

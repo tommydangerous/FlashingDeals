@@ -119,9 +119,9 @@
 					<% else %>
 						<%= wrap_deal_show(@deal.name) %>
 					<% end %>
-				<% end %>
-				<% unless @deal.site.nil? || @deal.site.empty? %>
-					<span class="deal_show_name_site">at <%= @deal.site %></span>
+					<% unless @deal.site.nil? || @deal.site.empty? %>
+						<span class="deal_show_name_site">at <%= @deal.site %></span>
+					<% end %>
 				<% end %>
 			</h1>
 			<div id="stars">

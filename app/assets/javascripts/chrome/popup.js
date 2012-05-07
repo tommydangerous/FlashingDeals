@@ -39,6 +39,12 @@ $(document).ready(function(){
 	$("a#popup_page_info_close").click(function() {
 		$("div#popup_page_info").slideUp();
 	});
+	$(".action_login").click(function() {
+		$("#dim_signup").fadeIn(200, function() {
+			$("html, body").animate({ scrollTop: 0  }, 0);
+  		return false;
+		});
+	});
 });
 		
 $(window).bind("resize", function(){
