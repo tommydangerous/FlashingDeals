@@ -415,6 +415,7 @@ a#box_deal_link {
 img#box_deal_image {
 	max-height: 100px;
 	max-width: 100px;
+	position: relative;
 }
 
 div.box_deal_share {

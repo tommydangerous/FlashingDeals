@@ -102,6 +102,14 @@
 		})
 	};
 	
+	function adjustHeight() {
+		var h = $(".overlay_image_<%= deal.id %>").height();
+		var x = (100 - h)/2
+		if(h != 0) {
+			$(".overlay_image_<%= deal.id %>").css("top", x);
+		}
+	}
+	setInterval(adjustHeight, 0);
 	$(".lazy_<%= deal.id %>").lazyload({
 		event: "load",
 		effect: "fadeIn"
@@ -133,6 +141,14 @@
 			})
 		};
 		
+		function adjustHeight() {
+			var h = $(".overlay_image_<%= deal.id %>").height();
+			var x = (100 - h)/2
+			if(h != 0) {
+				$(".overlay_image_<%= deal.id %>").css("top", x);
+			}
+		}
+		setInterval(adjustHeight, 0);
 		$(".lazy_<%= deal.id %>").lazyload({
 			event: "load",
 			effect: "fadeIn"
@@ -163,6 +179,14 @@
 			})
 		};
 		
+		function adjustHeight() {
+			var h = $(".overlay_image_<%= deal.id %>").height();
+			var x = (100 - h)/2
+			if(h != 0) {
+				$(".overlay_image_<%= deal.id %>").css("top", x);
+			}
+		}
+		setInterval(adjustHeight, 0);
 		$(".lazy_<%= deal.id %>").lazyload({
 			event: "load",
 			effect: "fadeIn"
