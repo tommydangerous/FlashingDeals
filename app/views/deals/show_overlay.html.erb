@@ -119,11 +119,11 @@
 					<% else %>
 						<%= wrap_deal_show(@deal.name) %>
 					<% end %>
-					<% unless @deal.site.nil? || @deal.site.empty? %>
-						<span class="deal_show_name_site">at <%= @deal.site %></span>
-					<% end %>
 				<% end %>
 			</h1>
+			<% unless @deal.site.nil? || @deal.site.empty? %>
+				<p class="deal_show_name_site">at <%= @deal.site %></p>
+			<% end %>
 			<div id="stars">
 				<%= render :partial => 'stars/star_form', :object => @deal, :as => :deal %>
 			</div>
