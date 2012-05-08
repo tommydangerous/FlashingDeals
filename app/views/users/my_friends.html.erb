@@ -8,7 +8,7 @@
 		<%= render 'my_points' %>
 		<div id="my_deals_info">
 			<div id="my_deals_watching">
-				<p>Friends: <span class="my_friends_count"><%= (current_user.friends.count + current_user.inverse_friends.count) %></span></p>
+				<p>My Friends: <span class="my_friends_count"><%= (current_user.friends.count + current_user.inverse_friends.count) %></span></p>
 			</div>
 			<div class="my_deals_div">
 				<p>
@@ -16,15 +16,6 @@
 						<%= link_to "Messages (#{current_user.received_messages.where("read = ?", false).count})", messages_path %>
 					<% else %>
 						<%= link_to "Messages", messages_path %>
-					<% end %>
-				</p>
-			</div>
-			<div class="my_deals_div">
-				<p>
-					<% if current_user.inverse_deals.where("posted > ?", current_user.duration).size == 0 %>
-						<%= link_to "Shared", shared_deals_path %>
-					<% else %>
-						<%= link_to "Shared (#{current_user.inverse_deals.where("posted > ?", current_user.duration).size})", shared_deals_path %>
 					<% end %>
 				</p>
 			</div>

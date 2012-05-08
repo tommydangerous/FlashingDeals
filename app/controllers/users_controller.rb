@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 	before_filter :authenticate_login, :only => [:unsubscribe, :unsubscribe_me, :email_monthly]
 	before_filter :auth_my_account, :only => [:my_account, :my_deals]
 	before_filter :correct_user, :only => [:watching, :edit, :update]
-	before_filter :admin_user,	 :only => :index
+	before_filter :admin_user,	 :only => [:index, :shared]
 	before_filter :gm_user, :only => :destroy
 	before_filter :category_cookies_blank, :only => [:show, :my_account, :my_deals, :shared_deals]
 	before_filter :my_account_cookies_blank, :only => [:show, :shared_deals]
@@ -124,22 +124,6 @@ class UsersController < ApplicationController
   		flash[:notice] = "You currently have no friend requests."
   		redirect_to my_account_path
   	end
-  end
-  
-  def shared
-  	@user = current_user
-  	@title = "Shared"
-  	cookies[:shared_deals] = "yes"
-  	deals = @user.inverse_deals.where("posted > ?", @user.duration).search(params[:search])
-  	@deals = deals.paginate(:page => params[:page], :per_page => 15)
-  	render :layout => "layouts/full_screen"
-  end
-  
-  def shared_deals
-  	@user = current_user
-  	@title = "Shared Deals"
-  	cookies[:shared_deals] = "yes"
-  	@deals = @user.inverse_deals.where("posted > ?", @user.duration).sort_by { |deal| Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at }.reverse
   end
   
   def invite_old
@@ -285,6 +269,22 @@ class UsersController < ApplicationController
 		@users = User.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 50)
 		@users_total_count = User.search(params[:search]).size
 	end
+	
+	def shared
+  	@user = current_user
+  	@title = "Shared"
+  	cookies[:shared_deals] = "yes"
+  	deals = @user.inverse_deals.where("posted > ?", @user.duration).search(params[:search])
+  	@deals = deals.paginate(:page => params[:page], :per_page => 15)
+  	render :layout => "layouts/full_screen"
+  end
+  
+  def shared_deals
+  	@user = current_user
+  	@title = "Shared Deals"
+  	cookies[:shared_deals] = "yes"
+  	@deals = @user.inverse_deals.where("posted > ?", @user.duration).sort_by { |deal| Share.find_by_friend_id_and_deal_id(@user.id, deal.id).created_at }.reverse
+  end
 
 # GM User
   def destroy

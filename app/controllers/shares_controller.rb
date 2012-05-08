@@ -1,5 +1,6 @@
 class SharesController < ApplicationController
 	before_filter :authenticate
+	before_filter :admin_user
 	
 	def create
 		@deal = Deal.find(params[:share][:deal_id])

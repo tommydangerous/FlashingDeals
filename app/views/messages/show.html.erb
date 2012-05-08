@@ -7,7 +7,7 @@
 	<div id="my_deals_info">
 		<div id="my_deals_watching">
 			<p>
-				<%= @sender.name.split(' ')[0] %>: <%= @received_messages.size %>
+				<%= @sender.name.split(' ')[0] %>: <%= @received_messages.size %> messages
 			</p>
 		</div>
 		<div class="my_deals_div">
@@ -28,15 +28,6 @@
 			<p>
 				<%= link_to my_friends_path do %>
 					Friends <span class="friends_count">(<%= (@user.friends.size + @user.inverse_friends.size) %>)
-				<% end %>
-			</p>
-		</div>
-		<div class="my_deals_div">
-			<p>
-				<% if @user.inverse_deals.where("posted > ?", @user.duration).size == 0 %>
-					<%= link_to "Shared", shared_deals_path %>
-				<% else %>
-					<%= link_to "Shared (#{@user.inverse_deals.where("posted > ?", @user.duration).size})", shared_deals_path %>
 				<% end %>
 			</p>
 		</div>

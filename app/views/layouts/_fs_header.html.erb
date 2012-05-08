@@ -68,13 +68,6 @@
 							</li>
 						<% end %>
 						<li><%= link_to "My Friends", my_friends_path %></li>
-						<li>
-							<%= link_to shared_deals_path do %>
-								<div class="shared_deals_count">
-									<%= render "users/my_account_shared_deals" %>
-								</div>
-							<% end %>
-						</li>
 						<li><%= link_to "Settings", edit_user_path(current_user) %></li>
 						<li id="logout"><%= link_to "Logout", logout_path %></li>
 					</ul>

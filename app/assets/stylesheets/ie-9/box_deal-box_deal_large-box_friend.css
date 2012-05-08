@@ -728,7 +728,7 @@ div#friend_container {
 
 div#box_friend_image_container {
 	width: 150px;
-	max-height: 150px;
+	height: 150px;
 	text-align: center;
 	margin: 0 auto;
 }
@@ -750,6 +750,7 @@ div#box_friend_image_container a:hover {
 div#box_friend_image_container img {
 	max-width: 150px;
 	max-height: 150px;
+	position: relative;
 }
 
 div#box_friend_name {

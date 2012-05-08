@@ -31,16 +31,7 @@
 			</p>
 		</div>
 		<div class="my_deals_div">
-			<p>
-				<% if @user.inverse_deals.where("posted > ?", @user.duration).size == 0 %>
-					<%= link_to "Shared", shared_deals_path %>
-				<% else %>
-					<%= link_to "Shared (#{@user.inverse_deals.where("posted > ?", @user.duration).size})", shared_deals_path %>
-				<% end %>
-			</p>
-		</div>
-		<div class="my_deals_div">
-			<p><%= link_to "Mark All Read", read_all_path %></p>
+			<p><%= link_to "Mark All Messages Read", read_all_path %></p>
 		</div>
 		<%= render "authentications/auth_facebook" %>
 	</div>

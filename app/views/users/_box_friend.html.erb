@@ -4,7 +4,7 @@
 	</div>
 	<div id="box_friend_image_container">
 		<%= link_to(user) do %>
-			<%= image_tag(user.photo.url) %>
+			<%= image_tag(user.photo.url, :id => "box_friend_image_#{user.id}") %>
 		<% end %>
 	</div>
 	<% unless user == current_user %>
@@ -28,3 +28,13 @@
 		<h1><%= user.name %></h1>
 	</div>
 </div>
+<script>
+function adjustHeight() {
+	var h = $("#box_friend_image_<%= user.id %>").height();
+	var x = (150 - h)/2
+	if(h != 0) {
+		$("#box_friend_image_<%= user.id %>").css("top", x);
+	}
+}
+setInterval(adjustHeight, 0);
+</script>

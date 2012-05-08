@@ -43,8 +43,5 @@ class RelationshipsController < ApplicationController
 				@deals = deals
 			}
 		end
-		@find_user = User.find(current_user.id)
-		@find_user.points = (current_user.points - 10)
-		@find_user.save
 	end
 end

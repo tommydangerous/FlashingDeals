@@ -179,45 +179,6 @@
 	</div>
 	<div class="clear"></div>
 	<div id="deal_show_column_left_2">
-		<div id="deal_show_watch_share_vote">
-			<div id="deal_summary_side_panel">
-				<div id="watch_deal_info">
-					Save this to your personal profile and never lose sight of it!
-					<div id="watch_deal_info_triangle"></div>
-				</div>
-				<div class="add_deal">
-					<% if signed_in? %>
-						<%= render 'watch_form' %>
-					<% else %>
-						<div id="watch_form">
-							<div class="actions">
-								<%= link_to("javascript:void(0)", :class => "action_login") do %>
-									<input name="commit" class="alertdim" type="submit" value="Watch" onmouseover="showWatchDealInfo()" onmouseout="hideWatchDealInfo()" onmouseclick="hideWatchDealInfo()">
-								<% end %>
-							</div>
-						</div>
-					<% end %>
-				</div>
-				<div id="share_all_info">
-					Share this deal with all your FD friends
-					<div id="share_all_info_triangle"></div>
-				</div>
-				<% if signed_in? %>
-					<div id="share_form">
-						<%= render 'shares/share_all_form' %>
-					</div>
-				<% else %>
-					<div id="share_form">
-						<div class="actions">
-							<%= link_to("javascript:void(0)", :class => "action_login") do %>
-								<input name="commit" class="alertdim" type="submit" value="Share" onmouseover="showShareAllInfo();" onmouseout="hideShareAllInfo()" onmouseclick="hideShareAllInfo()">
-							<% end %>
-						</div>
-					</div>
-				<% end %>
-			</div>
-			<div class="clear"></div>
-		</div>
 		<% if signed_in? %>
 			<% if current_user.admin? %>
 				<div id="deal_show_data">
