@@ -8,6 +8,12 @@ div#my_deals_side {
 	padding: 10px;
 	background: rgb(255, 255, 255);
 	border: 1px dotted rgb(200, 200, 200);
+	-webkit-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
+	-khtml-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
+	-moz-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
+	-ms-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
+	-o-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
+	box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
 }
 
 div#my_deals_side p {
