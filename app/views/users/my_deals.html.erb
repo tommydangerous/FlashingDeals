@@ -43,9 +43,6 @@
 				<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %>
 			</div>
 		<% end %>
-		<% unless current_user.complete_profile_percent == "100" %>
-			<%= render 'complete_profile' %>
-		<% end %>
 		<div id="my_deals_name">
 			<div id="grid_search_form">
 				<%= form_tag my_account_path, :method => :get do %>

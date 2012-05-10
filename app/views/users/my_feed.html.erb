@@ -1,0 +1,56 @@
+<div id="my_deals">
+	<div id="my_deals_side">
+		<div id="my_deals_photo">
+			<%= link_to(@user) do %>
+				<%= image_tag(@user.photo.url, :id => "user_photo_medium") %>
+			<% end %>
+		</div>
+		<%= render 'my_points' %>
+		<div id="my_deals_info">
+			<div id="my_deals_watching">
+				<p>Watching: <span id="my_account_deals_count"><%= @user.watching.where("posted > ?", @user.duration).size %></span></p>
+			</div>
+			<div class="my_deals_div">
+				<p>
+					<% if current_user.received_messages.where("read = ?", false).size > 0 %>
+						<%= link_to "Messages (#{current_user.received_messages.where("read = ?", false).size})", messages_path %>
+					<% else %>
+						<%= link_to "Messages", messages_path %>
+					<% end %>
+				</p>
+			</div>
+			<% unless current_user.request_friends.empty? %>
+				<div class="my_deals_div">
+					<p><%= link_to "Friend Requests (#{current_user.request_friends.size})", friend_requests_path %></p>
+				</div>
+			<% end %>
+			<div class="my_deals_div">
+				<p>
+					<%= link_to my_friends_path do %>
+						Friends <span class="friends_count">(<%= (@user.friends.size + @user.inverse_friends.size) %>)
+					<% end %>
+				</p>
+			</div>
+			<div class="my_deals_div">
+				<p><%= link_to "Clear Expired Deals", clear_dead_deals_path, :remote => true %></p>
+			</div>
+			<%= render "authentications/auth_facebook" %>
+		</div>
+	</div>
+	<div id="my_deals_deals">
+		<% flash.each do |key, value| %>
+			<div class="flash <%= key %>">
+				<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %>
+			</div>
+		<% end %>
+		<% unless current_user.complete_profile_percent == "100" %>
+			<%= render 'complete_profile' %>
+		<% end %>
+		<div id="grid_container" class="user_grid_container">
+			<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal %>
+		</div>
+		<div class="clear"></div>
+		<%= render "deals/endless_pagination" %>
+	</div>
+	<div class="clear"></div>
+</div>

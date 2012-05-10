@@ -1,3 +1,4 @@
+/* my_account_menu.css */
 .hd div#my_account_drop_down {
 	position: absolute;
 	right: 0;
@@ -44,6 +45,10 @@ div#my_account_drop_down ul li:hover {
 
 div#my_account_drop_down ul li#logout {
 	border: none;
+}
+
+.my_account_drop_down_border {
+	border-bottom: 1px dotted rgb(200, 200, 200);
 }
 
 div#my_account_drop_down a {

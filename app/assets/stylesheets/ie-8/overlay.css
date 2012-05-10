@@ -21,29 +21,33 @@
 
 .overlayInner{
 	margin: 0 auto;
-	width: 989px;
+	width: 907px;
 	position: static;
 }
 
 .overlay_top {
 	height: 20px;
 	width: 100%;
+	z-index: 8001;
 }
 
 .overlay_left {
 	position: absolute;
 	left: 0;
 	top: 20px;
+	z-index: 8001;
 }
 
 .overlay_right {
 	position: absolute;
 	right: 0;
 	top: 20px;
+	z-index: 8001;
 }
 
 .overlay_bottom {
 	width: 100%;
+	z-index: 8001;
 }
 
 .stationary {

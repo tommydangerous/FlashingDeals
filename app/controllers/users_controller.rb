@@ -1,20 +1,20 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :except => [:new, :signup, :create, :my_account, :my_deals, :unsubscribe, :unsubscribe_me, :email_monthly]
+	before_filter :authenticate, :except => [:new, :signup, :create, :my_deals, :unsubscribe, :unsubscribe_me, :email_monthly]
 	before_filter :authenticate_login, :only => [:unsubscribe, :unsubscribe_me, :email_monthly]
-	before_filter :auth_my_account, :only => [:my_account, :my_deals]
+	before_filter :auth_my_account, :only => [:my_deals]
 	before_filter :correct_user, :only => [:watching, :edit, :update]
 	before_filter :admin_user,	 :only => [:index, :shared]
 	before_filter :gm_user, :only => :destroy
-	before_filter :category_cookies_blank, :only => [:show, :my_account, :my_deals, :shared_deals]
-	before_filter :my_account_cookies_blank, :only => [:show, :shared_deals]
-	before_filter :shared_deals_cookies_blank, :only => [:show, :my_account, :my_deals]
-	before_filter :user_show_deals_cookies_blank, :only => [:my_account, :my_deals, :shared_deals]
+	before_filter :category_cookies_blank, :only => [:show, :my_deals, :my_feed]
+	before_filter :my_account_cookies_blank, :only => [:show, :my_feed]
+	before_filter :user_show_deals_cookies_blank, :only => [:my_deals, :my_feed]
+	before_filter :my_feed_cookies_blank, :only => [:show, :my_deals]
 	helper_method :sort_column, :sort_direction
 	
-# All Users	
+# All Users 
   def new
   	if signed_in?
-  		redirect_to root_path
+  		redirect_to my_account_path
   	else
   		@user = User.new
   		@title = "Sign Up"
@@ -23,7 +23,7 @@ class UsersController < ApplicationController
   
   def signup
   	if signed_in?
-  		redirect_to root_path
+  		redirect_to my_account_path
   	else
   		id = params[:id].split("235kjv")[0]
   		user = User.find_by_id(id)
@@ -46,7 +46,7 @@ class UsersController < ApplicationController
   		fd.friendships.create!(:friend_id => @user.id, :approved => false)
   		sign_in @user
   		flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
-  		redirect_back_or my_account_path
+  		redirect_to @user
   	else
   		@title = "Sign Up"
   		render 'new'
@@ -72,24 +72,23 @@ class UsersController < ApplicationController
 		end
 	rescue ActiveRecord::RecordNotFound
 		redirect_to my_account_path
-#		@title = "Page Not Found"
-#		render 'pages/page_not_found'
+  end
+  
+  def my_feed
+  	@user = current_user
+  	@title = @user.name
+  	cookies[:my_feed] = "yes"
+  	@deals = @user.feed.order("updated_at DESC").paginate(:page => params[:page], :per_page => 15)
+  	render :layout => "layouts/full_screen"
   end
   
   def my_deals
   	@user = current_user
-  	@title = @user.name
+  	@title = "My Deals"
   	cookies[:my_account] = "yes"
   	deals = @user.watching.where("posted > ?", @user.duration).search(params[:search])
   	@deals = deals.paginate(:page => params[:page], :per_page => 15)
   	render :layout => "layouts/full_screen"
-  end	
-  
-  def my_account
-  	@user = current_user
-  	@title = @user.name
-  	cookies[:my_account] = "yes"
-  	@deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
   end
   
   def my_friends
@@ -124,12 +123,6 @@ class UsersController < ApplicationController
   		flash[:notice] = "You currently have no friend requests."
   		redirect_to my_account_path
   	end
-  end
-  
-  def invite_old
-  	@title = "Invite Your Friends"
-  	@user = current_user
-  	@contacts = request.env['omnicontacts.contacts'].to_a.sort_by {|hash| hash[:email]}
   end
   
   def invite
@@ -210,7 +203,7 @@ class UsersController < ApplicationController
   	if current_user.subscribe?
   		@title = "Unwise"
   	else
-  		redirect_to root_path
+  		redirect_to my_account_path
   	end
   end
   

@@ -1,0 +1,11 @@
+<div class="box_deal_comment">
+	<div id="box_deal_comment_user">
+		<%= link_to(User.find(comment.user_id)) do %>
+			<%= image_tag User.find(comment.user_id).photo.url, :id => "user_photo_tiny", :title => "#{User.find(comment.user_id).name}" %>
+		<% end %>
+	</div>
+	<div id="box_deal_comment_content">
+		<p><%= auto_link(strip_tags(comment.content), :all, :target => "_blank") %></p>
+	</div>
+	<div class="clear"></div>
+</div>

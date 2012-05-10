@@ -1,0 +1,9 @@
+<%= form_for current_user.comments.build(:deal_id => deal.id), :remote => true do |f| %>
+	<%= f.hidden_field :deal_id %>
+	<div class="box_deal_comment_form_user">
+		<%= image_tag current_user.photo.url %>
+	</div>
+	<%= f.text_area(:content, :placeholder => "Comment this deal...") %>
+	<%= f.submit "Submit" %>
+<% end %>
+<div class="clear"></div>

@@ -2,6 +2,18 @@ $("div#deal_show_comments_list").prepend("<%= escape_javascript(render(:partial 
 $("div#comment_form").html("<%= escape_javascript(render('comments/comment_form')) %>")
 $("span#comment_count").html("<%= "#{@deal.comment_count}" %>")
 
+$("#box_deal_comments_"+<%= @deal.id %>).prepend("<%= escape_javascript(render(:partial => "comments/box_deal_comment_new", :object => @comment, :as => :comment, :locals => { :deal => @deal })) %>")
+$("#box_deal_large_comments_"+<%= @deal.id %>).prepend("<%= escape_javascript(render(:partial => "comments/box_deal_large_comment_new", :object => @comment, :as => :comment, :locals => { :deal => @deal })) %>")
+$("#box_deal_comment_form_"+<%= @deal.id %>).html("<%= escape_javascript(render(:partial => "comments/box_deal_comment_form", :object => @deal, :as => :deal)) %>")
+$("#grid_container_large").masonry({
+	itemSelector: ".box_deal_large",
+	isFitWidth: true,
+})
+$("#grid_container").masonry({
+	itemSelector: ".box_deal",
+	isFitWidth: true,
+})
+
 <% if @current_level == current_user.level %>
 	showPointsPopup(25);
 <% else %>

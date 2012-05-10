@@ -19,7 +19,7 @@ function setHeight() {
 
 function setWidth() {
 	var w = $(".overlay_top").width()
-	var nw = (w - 989)/2
+	var nw = (w - 907)/2
 	var l = $(".overlay_left");
 	var r = $(".overlay_right");
 	if(l.width != nw) {
@@ -51,7 +51,7 @@ $(function() {
 		$("body").removeClass("stationary");
 		$(".box_image").show()
 	})
-})
+});
 
 function hideOverlayOuter() {
 	$(".overlayOuter").hide();

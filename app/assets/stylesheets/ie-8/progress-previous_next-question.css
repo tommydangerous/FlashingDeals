@@ -13,160 +13,132 @@ div#progress {
 }
 
 /* previous_next.css */
-#previous_deal {
+#previous_deal, #next_deal {
+	position: absolute;
+	top: 30%;
+	z-index: 9000;
 	display: block;
-	width: 35px;
-	height: 70px;
-	position: relative;
-	top: 200px;
-	margin-right: 6px;
-	float: left;
+	width: 20px;
+	height: 40px;
+	background: rgb(255, 255, 255);
+	border-top: 1px dotted rgb(200, 200, 200);
+	border-bottom: 1px dotted rgb(200, 200, 200);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
 }
 
-#next_deal {
+a#previous_deal {
+	left: 0px;
+	padding: 20px 15px 20px 5px;
+	border-right: 1px dotted rgb(200, 200, 200);;
+	-webkit-border-top-right-radius: 2px;
+	-khtml-border-top-right-radius: 2px;
+	-moz-border-radius-topright: 2px;
+	-ms-border-top-right-radius: 2px;
+	-o-border-top-right-radius: 2px;
+	border-top-right-radius: 2px;
+	-webkit-border-bottom-right-radius: 2px;
+	-khtml-border-bottom-right-radius: 2px;
+	-moz-border-radius-bottomright: 2px;
+	-ms-border-bottom-right-radius: 2px;
+	-o-border-bottom-right-radius: 2px;
+	border-bottom-right-radius: 2px;
+}
+
+a#next_deal {
+	right: 0px;
+	padding: 20px 5px 20px 15px;
+	border-left: 1px dotted rgb(200, 200, 200);;
+	-webkit-border-top-left-radius: 2px;
+	-khtml-border-top-left-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-ms-border-top-left-radius: 2px;
+	-o-border-top-left-radius: 2px;
+	border-top-left-radius: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	-khtml-border-bottom-left-radius: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	-ms-border-bottom-left-radius: 2px;
+	-o-border-bottom-left-radius: 2px;
+	border-bottom-left-radius: 2px;
+}
+
+a#next_deal:hover, a#previous_deal:hover {
+	background: rgb(235, 235, 235);
+}
+
+#previous_arrow img, #next_arrow img {
+	width: 20px;
+	height: 40px;
+}
+
+a#next_deal_overlay, a#previous_deal_overlay {
+	position: absolute;
+	top: 30%;
+	z-index: 9000;
 	display: block;
-	position: relative;
-	top: 200px;
-	width: 35px;
-	height: 70px;
-	margin-left: 6px;
-	float: right;
-}
-
-#previous_arrow {
-	border-top: 35px solid transparent;
-	border-bottom: 35px solid transparent;
-	border-right: 35px solid rgb(200, 200, 200);
-}
-
-#previous_arrow:hover {
-	border-right: 35px solid rgb(210, 210, 210);
-}
-
-#next_arrow {
-	border-top: 35px solid transparent;
-	border-bottom: 35px solid transparent;
-	border-left: 35px solid rgb(200, 200, 200);
-}
-
-#next_arrow:hover {
-	border-left: 35px solid rgb(210, 210, 210);
-}
-
-#left_deal {
-	display: block;
-	width: 35px;
-	height: 1px;
-	margin-right: 6px;
-	float: left;
-}
-
-#right_deal {
-	display: block;
-	width: 35px;
-	height: 1px;
-	margin-left: 6px;
-	float: right;
+	width: 20px;
+	height: 40px;
+	background: rgb(255, 255, 255);
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+	-webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
+	-khtml-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
+	-moz-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
+	-ms-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
+	-o-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
+	box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
 }
 
 a#previous_deal_overlay {
-	float: left;
-	display: block;
-	width: 35px;
-	height: 70px;
-	padding-right: 6px;
-	position: relative;
-	-webkit-transition: all .2s linear;
-	-khtml-transition: all .2s linear;
-	-moz-transition: all .2s linear;
-	-ms-transition: all .2s linear;
-	-o-transition: all .2s linear;
-	transition: all .2s linear;
+	left: 0px;
+	padding: 20px 15px 20px 5px;
+	-webkit-border-top-right-radius: 2px;
+	-khtml-border-top-right-radius: 2px;
+	-moz-border-radius-topright: 2px;
+	-ms-border-top-right-radius: 2px;
+	-o-border-top-right-radius: 2px;
+	border-top-right-radius: 2px;
+	-webkit-border-bottom-right-radius: 2px;
+	-khtml-border-bottom-right-radius: 2px;
+	-moz-border-radius-bottomright: 2px;
+	-ms-border-bottom-right-radius: 2px;
+	-o-border-bottom-right-radius: 2px;
+	border-bottom-right-radius: 2px;
 }
 
 a#next_deal_overlay {
-	float: right;
-	display: block;
-	width: 35px;
-	height: 70px;
-	padding-left: 6px;
-	position: relative;
-	-webkit-transition: all .2s linear;
-	-khtml-transition: all .2s linear;
-	-moz-transition: all .2s linear;
-	-ms-transition: all .2s linear;
-	-o-transition: all .2s linear;
-	transition: all .2s linear;
+	right: 0px;
+	padding: 20px 5px 20px 15px;
+	-webkit-border-top-left-radius: 2px;
+	-khtml-border-top-left-radius: 2px;
+	-moz-border-radius-topleft: 2px;
+	-ms-border-top-left-radius: 2px;
+	-o-border-top-left-radius: 2px;
+	border-top-left-radius: 2px;
+	-webkit-border-bottom-left-radius: 2px;
+	-khtml-border-bottom-left-radius: 2px;
+	-moz-border-radius-bottomleft: 2px;
+	-ms-border-bottom-left-radius: 2px;
+	-o-border-bottom-left-radius: 2px;
+	border-bottom-left-radius: 2px;
 }
 
-#previous_arrow_overlay {
-	position: relative;
-	top: 200px;
-	border-top: 35px solid transparent;
-	border-bottom: 35px solid transparent;
-	border-right: 35px solid rgb(200, 200, 200);
+a#next_deal_overlay:hover, a#previous_deal_overlay:hover {
+	background: rgb(225, 225, 225);
 }
 
-#previous_arrow_overlay:hover {
-	border-right: 35px solid rgb(225, 225, 225);
-}
-
-#next_arrow_overlay {
-	position: relative;
-	top: 200px;
-	border-top: 35px solid transparent;
-	border-bottom: 35px solid transparent;
-	border-left: 35px solid rgb(200, 200, 200);
-}
-
-#next_arrow_overlay:hover {
-	border-left: 35px solid rgb(225, 225, 225);
-}
-
-#left_deal_overlay {
-	display: block;
-	width: 35px;
-	height: 1px;
-	margin-right: 2px;
-	float: left;
-}
-
-#right_deal_overlay {
-	display: block;
-	width: 35px;
-	height: 1px;
-	margin-left: 2px;
-	float: right;
-}
-
-div#previous_top {
-	float: left;
-	width: 41px;
-	height: 50px;
-	margin-left: -41px;
-}
-
-div#next_top {
-	float: right;
-	width: 41px;
-	height: 50px;
-	margin-right: -41px;
-}
-
-div#previous_bottom {
-	float: left;
-	width: 41px;
-	height: 50px;
-	margin-left: -41px;
-	position: relative;
-}
-
-div#next_bottom {
-	float: right;
-	width: 41px;
-	height: 50px;
-	margin-right: -41px;
-	position: relative;
+#previous_arrow_overlay img, #next_arrow_overlay img {
+	width: 20px;
+	height: 40px;
 }
 
 /* question.css */

@@ -8,8 +8,8 @@ module CookiesHelper
 		cookies[:my_account] = ""
 	end
 	
-	def shared_deals_cookies_blank
-		cookies[:shared_deals] = ""
+	def my_feed_cookies_blank
+		cookies[:my_feed] = ""
 	end
 	
 	def user_show_deals_cookies_blank

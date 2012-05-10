@@ -39,19 +39,24 @@
 	<div id="box_deal_share_<%= deal.id %>" class="box_deal_share">
 		<ul>
 			<li>
-				<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example3demo_<%= deal.id %> share_points">
-					<%= image_tag("/assets/facebook_button_grey.png") %>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example3demo_<%= deal.id %> share_points box_deal_anchor_not_selected" title="Facebook">
+					<%= image_tag("/assets/facebook_grey.png") %>
 				</a>
 			</li>
 			<li>
-				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= CGI.escape(deal.name) %>%20http://www.flashingdeals.com<%= deal_path(deal) %>&via=FlashingDeals" target="_blank" class="share_points">
-					<%= image_tag("/assets/twitter_button_grey.png") %>
+				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= CGI.escape(deal.name) %>%20http://www.flashingdeals.com<%= deal_path(deal) %>&via=FlashingDeals" target="_blank" class="share_points box_deal_anchor_not_selected" title="Twitter">
+					<%= image_tag("/assets/twitter_grey.png") %>
 				</a>
 			</li>
 			<li>
-				<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example4demo_<%= deal.id %> share_points">
-					<%= image_tag("/assets/email_button_grey.png") %>
+				<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example4demo_<%= deal.id %> share_points box_deal_anchor_not_selected" title="Email">
+					<%= image_tag("/assets/email_grey.png") %>
 				</a>
+			</li>
+			<li>
+				<%= link_to("javascript:void(0);", :id => "box_deal_comment_anchor_#{deal.id}", :onclick => "showBoxDealCommentForm(#{deal.id})", :title => "Comment", :class => "box_deal_anchor_not_selected") do %>
+					<%= image_tag("/assets/comment_grey.png") %>
+				<% end %>
 			</li>
 		</ul>
 	</div>
@@ -61,18 +66,13 @@
 			<p><%= deal.site %></p>
 		<% end %>
 	</div>
-	<div id="box_deal_comments">
+	<div id="box_deal_comments_<%= deal.id %>">
 		<% (deal.comments + deal.subcomments).sort_by { |c| c.updated_at }.reverse.take(5).each do |comment| %>
-			<div class="box_deal_comment">
-				<div id="box_deal_comment_user">
-					<%= link_to(User.find(comment.user_id)) do %>
-						<img class="lazy lazy_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" id="user_photo_tiny" title="<%= User.find(comment.user_id).name %>">
-					<% end %>
-				</div>
-				<div id="box_deal_comment_content">
-					<p><%= auto_link(strip_tags(comment.content), :all, :target => "_blank") %></p>
-				</div>
-				<div class="clear"></div>
+			<%= render :partial => "comments/box_deal_comment", :object => comment, :as => :comment, :locals => { :deal => deal } %>
+		<% end %>
+		<% if signed_in? %>
+			<div class="box_deal_comment_form" id="box_deal_comment_form_<%= deal.id %>">
+				<%= render :partial => 'comments/box_deal_comment_form', :object => deal, :as => :deal %>
 			</div>
 		<% end %>
 	</div>

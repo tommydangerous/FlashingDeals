@@ -11,34 +11,36 @@ div#deal_show_overlay_container {
 	padding: 10px;
 	border: 1px solid transparent;
 	background: rgb(255, 255, 255);
-	-webkit-box-shadow: 0px 2px 10px rgba(0, 0, 0, .25);
-	-khtml-box-shadow: 0px 2px 10px rgba(0, 0, 0, .25);
-	-moz-box-shadow: 0px 2px 10px rgba(0, 0, 0, .25);
-	-ms-box-shadow: 0px 2px 10px rgba(0, 0, 0, .25);
-	-o-box-shadow: 0px 2px 10px rgba(0, 0, 0, .25);
-	box-shadow: 0px 2px 10px rgba(0, 0, 0, .25);
 	margin: 0 auto;
-	float: left;
+	-webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	-khtml-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	-moz-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	-ms-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	-o-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
 }
 
 a#deal_show_overlay_container_close {
 	position: relative;
-	bottom: 12px;
-	left: 12px;
-	margin-bottom: -22px;
+	bottom: 29px;
+	left: 29px;
+	margin-left: -35px;
 	display: block;
-	width: 32px;
-	height: 32px;
+	width: 35px;
+	height: 35px;
 	float: right;
-	-webkit-transition: all .2s ease-in-out;
-	-khtml-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
 }
 
 a#deal_show_overlay_container_close:hover {
+	opacity: .75;
+}
+
+#deal_show_overlay_container_close img {
+	width: 35px;
+	height: 35px;
+}
+
+#deal_show_overlay_container_close img:hover {
 	opacity: .75;
 }
 

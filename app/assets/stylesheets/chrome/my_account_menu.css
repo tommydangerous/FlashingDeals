@@ -39,6 +39,10 @@ div#my_account_drop_down ul li#logout {
 	border: none;
 }
 
+.my_account_drop_down_border {
+	border-bottom: 1px dotted rgb(200, 200, 200);
+}
+
 div#my_account_drop_down a {
 	display: block;
 	width: 130px;

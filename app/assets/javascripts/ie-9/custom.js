@@ -104,14 +104,12 @@ function removeCatClass(id) {
 
 
 // comments 
-
 function makeCommentBigger() {
-	$('textarea#comment_content').css("padding-bottom", "32px");
+	$('div.field textarea#comment_content').css("padding-bottom", "32px");
 	$('div#comment_submit').show();
 };
 
 /* subcomments */
-
 function showReply(id) {
 	var i = id
 	$('div#reply_'+i).show();

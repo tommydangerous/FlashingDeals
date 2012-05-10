@@ -7,3 +7,7 @@ $("div#user_deal_"+<%= @deal.id %>).remove();
 $("span#count").html("")
 
 $("#grid_container").masonry('remove', $(".user_box_deal_<%= @deal.id %>"))
+$("#grid_container").masonry({
+	itemSelector: ".box_deal",
+	isFitWidth: true,
+})

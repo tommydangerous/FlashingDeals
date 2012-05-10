@@ -5,7 +5,7 @@ class DealsController < ApplicationController
 	before_filter :today
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
 	before_filter :my_account_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
-	before_filter :shared_deals_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
+	before_filter :my_feed_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
 	before_filter :user_show_deals_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
 	helper_method :sort_column, :sort_column_create, :sort_direction, :sort_column_time_in
 	
@@ -22,7 +22,7 @@ class DealsController < ApplicationController
 	end
 	
 	def featured_deals
-		@title = "Featured"
+		@title = "FlashingDeals"
 		@today_3 = Time.now - (86400 * 3)
   	deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3)
   	@deals = deals.search(params[:search]).order(sort_column_time_in + " " + sort_direction).paginate(:page => params[:page], :per_page => 20)
@@ -107,10 +107,10 @@ class DealsController < ApplicationController
 		else
 			@watching_deals = []
 		end
-		if signed_in? && cookies[:shared_deals] == "yes"
-			@shared_deals = current_user.inverse_deals.where("posted > ?", current_user.duration).sort_by { |deal| Share.find_by_friend_id_and_deal_id(current_user.id, deal.id).created_at }
+		if signed_in? && cookies[:my_feed] == "yes"
+			@my_feed_deals = current_user.feed.order("updated_at ASC")
 		else
-			@shared_deals = []
+			@my_feed_deals = []
 		end
 		if cookies[:user_show] == nil || cookies[:user_show] ==  ""
 			@user_show_deals = []
@@ -162,10 +162,10 @@ class DealsController < ApplicationController
 		else
 			@watching_deals = []
 		end
-		if signed_in? && cookies[:shared_deals] == "yes"
-			@shared_deals = current_user.inverse_deals.where("posted > ?", current_user.duration).sort_by { |deal| Share.find_by_friend_id_and_deal_id(current_user.id, deal.id).created_at }
+		if signed_in? && cookies[:my_feed] == "yes"
+			@my_feed_deals = current_user.feed.order("updated_at ASC")
 		else
-			@shared_deals = []
+			@my_feed_deals = []
 		end
 		if cookies[:user_show] == nil || cookies[:user_show] ==  ""
 			@user_show_deals = []

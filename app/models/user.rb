@@ -539,6 +539,10 @@ class User < ActiveRecord::Base
 			"Change your profile picture by hovering over \"#{self.name.split(' ')[0]}\" and clicking on \"Settings\"."
 		end
 	end
+	
+	def feed
+		Deal.from_friends_of(self)
+	end
 
 	private
 	

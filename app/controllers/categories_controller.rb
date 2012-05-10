@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
 	before_filter :authenticate, :only => :show
 	before_filter :my_account_cookies_blank, :only => :show
-	before_filter :shared_deals_cookies_blank, :only => :show
+	before_filter :my_feed_cookies_blank, :only => :show
 	before_filter :user_show_deals_cookies_blank, :only => :show
 	helper_method :sort_column, :sort_direction
 	

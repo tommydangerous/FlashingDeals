@@ -19,7 +19,7 @@ function setHeight() {
 
 function setWidth() {
 	var w = $(".overlay_top").width()
-	var nw = (w - 989)/2
+	var nw = (w - 907)/2
 	var l = $(".overlay_left");
 	var r = $(".overlay_right");
 	if(l.width != nw) {
@@ -51,15 +51,28 @@ $(function() {
 		$("body").removeClass("stationary");
 		$(".box_image").show()
 	})
-})
+});
+
+function hideOverlayOuter() {
+	$(".overlayOuter").hide();
+	$("body").removeClass("stationary");
+	$(".box_image").show()
+};
 
 function setPNOHeight() {
 	var h = $("div#deal_show_overlay_container").height();
 	var p = $("a#previous_deal_overlay");
 	var n = $("a#next_deal_overlay");
-	var x = (h/2) - 35
-	p.height(h + 22);
-	n.height(h + 22);
-	$("#previous_arrow_overlay").css("top", x).fadeIn(300);
-	$("#next_arrow_overlay").css("top", x).fadeIn(300);
+	var x = ((h + 22)/2) - 35
+	var y = ((h + 22)/2) + 35
+	p.css("top", x)
+	n.css("top", x)
+	$("div#previous_top").height(x);
+	$("div#next_top").height(x);
+	$("div#previous_bottom").height(x);
+	$("div#next_bottom").height(x);
+	$("div#previous_bottom").css("top", y)
+	$("div#next_bottom").css("top", y)
+	$("#previous_arrow_overlay").fadeIn(300);
+	$("#next_arrow_overlay").fadeIn(300);
 }

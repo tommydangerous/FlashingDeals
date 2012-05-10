@@ -67,21 +67,26 @@ div.box_deal_large_share ul {
 
 div.box_deal_large_share ul li {
 	display: inline-block;
-	padding: 0px 20px;
+	padding: 0px 10px;
 }
 
 div.box_deal_large_share ul li a {
-	opacity: .8;
-	-webkit-transition: all .2s ease-in-out;
-	-khtml-transition: all .2s ease-in-out;
-	-moz-transition: all .2s ease-in-out;
-	-ms-transition: all .2s ease-in-out;
-	-o-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;
+	display: block;
+	width: 30px;
+	height: 30px;
 }
 
 div.box_deal_large_share ul li a:hover {
 	opacity: 1;
+}
+
+div.box_deal_large_share ul li a:active {
+	-webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-khtml-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-ms-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-o-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
 
 div.box_deal_large_share ul li img {
@@ -93,21 +98,6 @@ div.box_deal_large_share ul li img {
 	-ms-border-radius: 2px;
 	-o-border-radius: 2px;
 	border-radius: 2px;
-	-webkit-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
-	-khtml-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
-	-moz-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
-	-ms-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
-	-o-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
-	box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
-}
-
-div.box_deal_large_share ul li img:active {
-	-webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-	-khtml-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-	-moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-	-ms-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-	-o-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
-	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
 }
 
 #box_deal_large_name {
@@ -166,4 +156,100 @@ div#box_deal_large_comment_content p {
 	word-wrap: break-word;
 	max-height: 51px;
 	overflow: hidden;
+}
+
+.box_deal_anchor_not_selected {
+	opacity: .75;
+	-webkit-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	-o-box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+	box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
+}
+
+.box_deal_anchor_selected {
+	opacity: 1;
+	-webkit-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-khtml-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-moz-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-ms-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-o-box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+
+div.box_deal_large_comment_form {
+	display: none;
+	margin-top: 5px;
+	padding-top: 5px;
+	border-top: 1px dotted rgb(200, 200, 200);
+}
+
+div.box_deal_large_comment_form .box_deal_comment_form_user {
+	width: 40px;
+	height: 40px;
+	float: left;
+	text-align: center;
+}
+
+div.box_deal_large_comment_form .box_deal_comment_form_user img {
+	max-height: 40px;
+	max-width: 40px;
+}
+
+.box_deal_large_comment_form textarea {
+	font-family: Helvetica, Arial;
+	font-size: 13px;
+	color: rgb(75, 75, 75);
+	width: 199px;
+	height: 30px;
+	float: right;
+	padding: 2px;
+	margin: 0px;
+	border: 1px solid rgb(200, 200, 200);
+	resize: none;
+	margin-bottom: 5px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+}
+
+.box_deal_large_comment_form textarea:hover {
+	border: 1px solid rgb(150, 150, 150);
+}
+
+.box_deal_large_comment_form textarea:focus {
+	border: 1px solid rgb(150, 150, 150);
+}
+
+.box_deal_large_comment_form input {
+	font-family: Verdana;
+	font-size: 12px;
+	padding: 5px;
+	text-align: center;
+	border: 1px solid rgb(200, 200, 200);
+	background: rgb(245, 245, 245);
+	color: rgb(75, 75, 75);
+	float: right;
+	margin: 0;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+.box_deal_large_comment_form input:hover, .box_deal_large_comment_form input:focus {
+	border: 1px solid rgb(150, 150, 150);
+	background: rgb(255, 255, 255);
 }

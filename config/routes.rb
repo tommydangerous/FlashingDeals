@@ -105,8 +105,9 @@ FlashingDeal::Application.routes.draw do
   match '/remove-shared-deals' => 'shares#remove_shared_deals', :as => :remove_shared_deals
 # Users
   match '/signup' => 'users#new'
-  match '/me' => 'users#my_deals', :as => :my_account
-  match '/friends' => 'users#my_friends', :as => :my_friends
+  match '/feed' => 'users#my_feed', :as => :my_account
+  match '/my-deals' => 'users#my_deals', :as => :my_deals
+  match '/my-friends' => 'users#my_friends', :as => :my_friends
   match '/friend-requests' => 'users#friend_requests', :as => :friend_requests
   match '/shared' => 'users#shared', :as => :shared_deals
   match '/invite' => 'users#invite', :as => :invite

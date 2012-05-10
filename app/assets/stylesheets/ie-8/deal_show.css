@@ -12,7 +12,12 @@ div#deal_show_overlay_container {
 	border: 1px solid transparent;
 	background: rgb(255, 255, 255);
 	margin: 0 auto;
-	float: left;
+	-webkit-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	-khtml-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	-moz-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	-ms-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	-o-box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
+	box-shadow: 0px 10px 20px rgba(0, 0, 0, .35);
 }
 
 div#deal_show_column_left {
