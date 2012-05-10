@@ -1,2 +1,6 @@
-$(".deal_dead").remove();
 $("span#my_account_deals_count").html('<%= "#{@deals}" %>')
+$("#grid_container").masonry('remove', $(".deal_dead"))
+$("#grid_container").masonry({
+	itemSelector: ".box_deal",
+	isFitWidth: true,
+})
