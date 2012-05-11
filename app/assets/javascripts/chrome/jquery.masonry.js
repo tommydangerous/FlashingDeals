@@ -93,7 +93,7 @@
 
     _getBricks: function( $elems ) {
       var $bricks = this._filterFindBricks( $elems )
-        .css({ position: 'absolute' })
+    //	.css({ position: 'absolute' })
         .addClass('flash-box');
       return $bricks;
     },

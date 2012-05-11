@@ -4,6 +4,7 @@
 
 .box_deal_large {
 	width: 250px;
+	position: absolute;
 	padding: 10px;
 	margin-bottom: 20px;
 	border: 1px dotted rgb(175, 175, 175);

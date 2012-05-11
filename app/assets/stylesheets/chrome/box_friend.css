@@ -4,6 +4,7 @@ div#friend_container {
 
 .box_friend {
 	width: 170px;
+	position: absolute;
 	padding: 10px;
 	margin-bottom: 20px;
 	border: 1px dotted rgb(175, 175, 175);
