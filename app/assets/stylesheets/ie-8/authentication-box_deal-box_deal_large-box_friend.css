@@ -376,11 +376,15 @@ div#loading_deals_words em {
 .box_deal {
 	width: 200px;
 	padding: 10px;
+	margin-bottom: 20px;
 	border: 1px dotted rgb(175, 175, 175);
 	background: rgb(255, 255, 255);
-	float: left;
-	margin-bottom: 20px;
-	margin-right: 20px;
+	-webkit-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-khtml-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-moz-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-ms-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-o-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
 }
 
 #box_deal_lightning {
@@ -648,11 +652,15 @@ div#box_deal_comment_content p {
 .box_deal_large {
 	width: 250px;
 	padding: 10px;
+	margin-bottom: 20px;
 	border: 1px dotted rgb(175, 175, 175);
 	background: rgb(255, 255, 255);
-	float: left;
-	margin-bottom: 20px;
-	margin-right: 20px;
+	-webkit-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-khtml-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-moz-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-ms-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-o-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
 }
 
 #box_deal_large_lightning {
@@ -898,17 +906,15 @@ div#friend_container {
 .box_friend {
 	width: 170px;
 	padding: 10px;
-	border: 1px dotted rgb(200, 200, 200);
-	background: rgb(255, 255, 255);
-	float: left;
-	-webkit-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
-	-khtml-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
-	-moz-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
-	-ms-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
-	-o-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
-	box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
 	margin-bottom: 20px;
-	margin-right: 20px;
+	border: 1px dotted rgb(175, 175, 175);
+	background: rgb(255, 255, 255);
+	-webkit-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-khtml-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-moz-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-ms-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-o-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
 }
 
 #box_friend_number {

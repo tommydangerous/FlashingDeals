@@ -11,29 +11,20 @@ $(document).ready(function() {
 	var container = $("#grid_container");
 	container.masonry({
 		itemSelector: ".box_deal",
-		isAnimated: true,
 		isFitWidth: true,
-		animationOptions: {
-			duration: 200
-		}
+		gutterWidth: 20
 	})
 	var container_large = $("#grid_container_large");
 	container_large.masonry({
 		itemSelector: ".box_deal_large",
-		isAnimated: true,
 		isFitWidth: true,
-		animationOptions: {
-			duration: 200
-		}
+		gutterWidth: 20
 	})
 	var container_friend = $("#friend_container");
 	container_friend.masonry({
 		itemSelector: ".box_friend",
-		isAnimated: true,
 		isFitWidth: true,
-		animationOptions: {
-			duration: 200
-		}
+		gutterWidth: 20
 	})
 });
 
