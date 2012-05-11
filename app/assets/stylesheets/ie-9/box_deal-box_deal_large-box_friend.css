@@ -297,6 +297,7 @@ div#loading_deals_words em {
 
 .box_deal {
 	width: 200px;
+	float: left;
 	padding: 10px;
 	margin-bottom: 20px;
 	border: 1px dotted rgb(175, 175, 175);
@@ -592,6 +593,7 @@ div#box_deal_comment_content p {
 
 .box_deal_large {
 	width: 250px;
+	float: left;
 	padding: 10px;
 	margin-bottom: 20px;
 	border: 1px dotted rgb(175, 175, 175);
@@ -847,6 +849,7 @@ div#friend_container {
 
 .box_friend {
 	width: 170px;
+	float: left;
 	padding: 10px;
 	margin-bottom: 20px;
 	border: 1px dotted rgb(175, 175, 175);
