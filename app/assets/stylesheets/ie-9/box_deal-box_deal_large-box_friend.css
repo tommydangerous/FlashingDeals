@@ -1,5 +1,6 @@
 /* box_deal.css */
 #grid_container {
+	display: none;
 	margin: 0 auto;
 }
 
@@ -588,6 +589,7 @@ div#box_deal_comment_content p {
 
 /* box_deal_large.css */
 #grid_container_large {
+	display: none;
 	margin: 0 auto;
 }
 
@@ -844,6 +846,7 @@ div.box_deal_large_comment_form .box_deal_comment_form_user img {
 
 /* box_friend.css */
 div#friend_container {
+	display: none;
 	margin: 0 auto;
 }
 

@@ -1,4 +1,5 @@
 div#friend_container {
+	display: none;
 	margin: 0 auto;
 }
 
