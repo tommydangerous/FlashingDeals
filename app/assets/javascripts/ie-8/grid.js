@@ -13,7 +13,7 @@ $(document).ready(function() {
 	container.masonry({
 		itemSelector: ".box_deal",
 		isFitWidth: true,
-		gutterWidth: 20
+		gutterWidth: 15
 	})
 	var container_large = $("#grid_container_large");
 	container_large.show();
