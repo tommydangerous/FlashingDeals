@@ -83,7 +83,7 @@ div#clear_dead_deals a:hover {
 }
 
 div#my_deals_deals {
-	margin-left: 248px;
+	padding-left: 248px;
 }
 
 div#my_deals_name {
