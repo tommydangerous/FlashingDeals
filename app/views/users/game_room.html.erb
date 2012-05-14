@@ -20,13 +20,19 @@
 		</div>
 	</div>
 	<div id="current_rewards">
-		<p id="current_rewards_label">Winner's Circle</p>
+		<p id="current_rewards_label">Current Mission</p>
 		<div id="current_rewards_body">
-			<p class="current_rewards_body_label">Mission:</p>
-			<p>Be the first 10 users to reach level 5</p>
-			<p class="current_rewards_body_label">Prize:</p>
-			<p>Receive a $10 gift card from a restaurant or store of your choice</p>
-			<p class="lookout">Be on the lookout for new missions and prizes coming soon.</p>
+			<div id="current_rewards_body_mission">
+				<p class="current_rewards_body_label">Mission:</p>
+				<ol>
+					<li>Invite 3 friends and have them join using your <%= link_to "Invite Link", invite_path, :target => "_blank" %></li>
+					<li>Make friends with 10 other users on FlashingDeals</li>
+				</ol>
+			</div>
+			<div id="current_rewards_body_prize">
+				<p class="current_rewards_body_label">Prize:</p>
+				<p>Receive a $10 gift card from a restaurant or store of your choice</p>
+			</div>
 		</div>
 	</div>
 </div>
