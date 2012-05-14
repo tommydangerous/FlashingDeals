@@ -61,12 +61,12 @@ div.points_popup {
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
 	border-radius: 5px;
-	-webkit-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-khtml-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-moz-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-ms-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-o-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
+	-webkit-box-shadow: 0px 1px 10px rgba(0, 0, 0, .35);
+	-khtml-box-shadow: 0px 1px 10px rgba(0, 0, 0, .35);
+	-moz-box-shadow: 0px 1px 10px rgba(0, 0, 0, .35);
+	-ms-box-shadow: 0px 1px 10px rgba(0, 0, 0, .35);
+	-o-box-shadow: 0px 1px 10px rgba(0, 0, 0, .35);
+	box-shadow: 0px 1px 10px rgba(0, 0, 0, .35);
 	background: rgba(75, 75, 75, .9);
 }
 
@@ -77,11 +77,11 @@ div.points_popup p {
 	font-weight: bold;
 }
 
-div.leveled_up {
+div.points_popup_overlay {
 	display: none;
 	position: fixed;
 	z-index: 9999;
-	right: 10px;
+	left: 10px;
 	padding: 20px;
 	-webkit-border-radius: 5px;
 	-khtml-border-radius: 5px;
@@ -89,17 +89,17 @@ div.leveled_up {
 	-ms-border-radius: 5px;
 	-o-border-radius: 5px;
 	border-radius: 5px;
-	-webkit-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-khtml-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-moz-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-ms-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-o-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	background: rgba(75, 75, 75, .9);
+	background: rgb(255, 255, 255);
+	-webkit-box-shadow: 0px 5px 15px rgba(0, 0, 0, .35);
+	-khtml-box-shadow: 0px 5px 15px rgba(0, 0, 0, .35);
+	-moz-box-shadow: 0px 5px 15px rgba(0, 0, 0, .35);
+	-ms-box-shadow: 0px 5px 15px rgba(0, 0, 0, .35);
+	-o-box-shadow: 0px 5px 15px rgba(0, 0, 0, .35);
+	box-shadow: 0px 5px 15px rgba(0, 0, 0, .35);
 }
 
-div.leveled_up p {
-	color: rgb(255, 255, 255);
+div.points_popup_overlay p {
+	color: rgb(75, 75, 75);
 	font-family: Helvetica, Arial;
 	font-size: 22px;
 	font-weight: bold;

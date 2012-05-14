@@ -9,18 +9,21 @@ $(document).ready(function() {
 		failure_limit: 50
 	});
 	var container = $("#grid_container");
+	container.show();
 	container.masonry({
 		itemSelector: ".box_deal",
 		isFitWidth: true,
 		gutterWidth: 20
 	})
 	var container_large = $("#grid_container_large");
+	container_large.show();
 	container_large.masonry({
 		itemSelector: ".box_deal_large",
 		isFitWidth: true,
 		gutterWidth: 20
 	})
 	var container_friend = $("#friend_container");
+	container_friend.show();
 	container_friend.masonry({
 		itemSelector: ".box_friend",
 		isFitWidth: true,
