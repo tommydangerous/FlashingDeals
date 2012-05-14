@@ -108,7 +108,7 @@ class DealsController < ApplicationController
 			@watching_deals = []
 		end
 		if signed_in? && cookies[:my_feed] == "yes"
-			@my_feed_deals = current_user.feed.order("updated_at ASC")
+			@my_feed_deals = current_user.feed.sort_by { |deal| deal.all_comments.first.updated_at }
 		else
 			@my_feed_deals = []
 		end
@@ -163,7 +163,7 @@ class DealsController < ApplicationController
 			@watching_deals = []
 		end
 		if signed_in? && cookies[:my_feed] == "yes"
-			@my_feed_deals = current_user.feed.order("updated_at ASC")
+			@my_feed_deals = current_user.feed.sort_by { |deal| deal.all_comments.first.updated_at }
 		else
 			@my_feed_deals = []
 		end

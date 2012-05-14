@@ -99,6 +99,10 @@ class Deal < ActiveRecord::Base
 		end
 	end
 	
+	def all_comments
+		(self.comments + self.subcomments).sort_by { |comment| comment.updated_at }.reverse
+	end
+	
 	def total_comments
 		self.comments.size + self.subcomments.size	
 	end
