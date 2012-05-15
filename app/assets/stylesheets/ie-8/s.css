@@ -1481,4 +1481,22 @@ div#deal_stars_size {
 
 div#deal_stars_size p {
 	font-size: 12px;
+	margin: 0;
+}
+
+div.roll_over_stars {
+	height: 15px;
+	float: left;
+	margin-left: 10px;
+	font-family: Helvetica, Arial;
+	font-size: 12px;
+	color: rgb(75, 75, 75);
+	vertical-align: top;
+}
+
+div.roll_over_stars img {
+	float: left;
+	height: 15px;
+	width: 20px;
+	margin-right: 3px;
 }

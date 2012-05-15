@@ -32,13 +32,32 @@
 			<% end %>
 		<% end %>
 	<% else %>
-		<%= link_to('#', :class => "deal_star_vote_signed_out action_login") do %>
+		<%= link_to('javascript:void(0);', :id => "deal_star_1", :class => "deal_star_vote action_login") do %>
+		<% end %>
+		<%= link_to('javascript:void(0);', :id => "deal_star_2", :class => "deal_star_vote action_login") do %>
+		<% end %>
+		<%= link_to('javascript:void(0);', :id => "deal_star_3", :class => "deal_star_vote action_login") do %>
+		<% end %>
+		<%= link_to('javascript:void(0);', :id => "deal_star_4", :class => "deal_star_vote action_login") do %>
+		<% end %>
+		<%= link_to('javascript:void(0);', :id => "deal_star_5", :class => "deal_star_vote action_login") do %>
 		<% end %>
 	<% end %>
 </div>
 <div id="deal_stars_size">
 	<p>(<%= pluralize(deal.stars.size, "Review") %>)</p>
 </div>
+<% if signed_in? %>
+	<% if Star.find_by_deal_id_and_user_id(deal.id, current_user.id).nil? %>
+		<div class="roll_over_stars">
+			<%= image_tag "/assets/roll_over_stars_arrow.png" %> Roll over stars & click to review
+		</div>
+	<% end %>
+<% else %>
+	<div class="roll_over_stars">
+		<%= image_tag "/assets/roll_over_stars_arrow.png" %> Roll over stars & click to review
+	</div>
+<% end %>
 <div class="clear"></div>
 <script>
 $(document).ready(function() {
