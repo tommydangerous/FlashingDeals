@@ -82,5 +82,7 @@ class FriendshipsController < ApplicationController
 			}
 		end		
 		@friendship.destroy
+		current_user.points = current_user.points - 100
+		current_user.save
 	end
 end

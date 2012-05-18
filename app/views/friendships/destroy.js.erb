@@ -11,3 +11,5 @@ $(".box_friend_add_"+<%= @friend.id %>).html("<%= escape_javascript(render(:part
 $("div#account_notice").html("<%= escape_javascript(render("users/account_notice")) %>")
 
 $(".my_friend_container #box_friend_"+<%= @friend.id %>).remove();
+
+showPointsPopup(-100);
