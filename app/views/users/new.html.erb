@@ -55,32 +55,36 @@
 			</div>
 			<div class="field">
 				<%= f.text_field :email, :autocomplete => "off", :tabindex => 2, :placeholder => "Email address" %>
-				<div id="user_email_example" class="user_signup_example">
-					<p>Your email address (e.g. janedoe@gmail.com)</p>
-				</div>
-				<div id="user_email_blank" class="user_signup_error">
-					Please enter your email address
-				</div>
-				<div id="user_email_invalid" class="user_signup_error">
-					Please enter a valid email address
-				</div>
-				<div id="user_email_good" class="user_signup_good">
-					Email looks correct
+				<div class="user_signup_messages">
+					<div id="user_email_example" class="user_signup_example">
+						<p>Your email address (e.g. janedoe@gmail.com)</p>
+					</div>
+					<div id="user_email_blank" class="user_signup_error">
+						Please enter your email address
+					</div>
+					<div id="user_email_invalid" class="user_signup_error">
+						Please enter a valid email address
+					</div>
+					<div id="user_email_good" class="user_signup_good">
+						Email looks correct
+					</div>
 				</div>
 			</div>
 			<div class="field">
 				<%= f.password_field :password, :tabindex => 3, :placeholder => "Password" %>
-				<div id="user_pw_example" class="user_signup_example">
-					<p>Password must be at least two characters long</p>
-				</div>
-				<div id="user_pw_short" class="user_signup_error">
-					Please enter a password at least two characters long
-				</div>
-				<div id="user_pw_long" class="user_signup_error">
-					Please enter a shorter password
-				</div>
-				<div id="user_pw_good" class="user_signup_good">
-					Password is ready
+				<div class="user_signup_messages">
+					<div id="user_pw_example" class="user_signup_example">
+						<p>Password must be at least two characters long</p>
+					</div>
+					<div id="user_pw_short" class="user_signup_error">
+						Please enter a password at least two characters long
+					</div>
+					<div id="user_pw_long" class="user_signup_error">
+						Please enter a shorter password
+					</div>
+					<div id="user_pw_good" class="user_signup_good">
+						Password is ready
+					</div>
 				</div>
 			</div>
 			<div class="field" id="accept_terms">
