@@ -38,6 +38,7 @@ $(document).ready(function(){
 		$("#login_form").show();
 		$("html, body").animate({ scrollTop: 0  }, 100);
 		$("#signup_here").show();
+		$("#session_email").focus();
 			return false;
 	})
 	
@@ -84,10 +85,12 @@ function toggleSignupLogin() {
 		l.css("display", "block");
 	}
 	$("#signup_here").show();
+	$("#session_email").focus();
 };
 
 function showSignupForm() {
 	$("#signup_message_form").show();
 	$("#login_form").hide();
 	$("#signup_here").hide();
+	$("#user_name").focus();
 };

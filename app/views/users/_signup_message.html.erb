@@ -97,10 +97,10 @@
 			</div>
 			<%= form_for(:session, :url => sessions_path) do |f| %>
 			  <div class="field">
-			    <p>Email: <%= f.text_field :email, :tabindex => 1 %></p>
+			  	<%= f.text_field :email, :tabindex => 1, :placeholder => "Email address" %>
 			  </div>
 			  <div class="field">
-			    <p>Password: <%= f.password_field :password, :tabindex => 2 %></p>
+			  	<%= f.password_field :password, :tabindex => 2, :placeholder => "Password" %>
 			  </div>
 			  <div id="remember_me_login">
 			  	<%= check_box_tag :remember_me, 1, params[:remember_me] %> Keep me signed in

@@ -49,11 +49,27 @@ div#login_header h1 {
 div#login_form {
 	float: right;
 	padding: 20px 20px 20px 5px;
-	width: 400px;
+	width: 390px;
 }
 
 div#login_form p {
 	font-weight: bold;
+}
+
+div#login_form div.field input::-webkit-input-placeholder {
+	color: rgb(125, 125, 125);
+}
+
+div#login_form div.field input:focus::-webkit-input-placeholder {
+	color: rgb(200, 200, 200);
+}
+
+div#login_form div.field input:-moz-placeholder {
+	color: rgb(125, 125, 125);
+}
+
+div#login_form div.field input:focus:-moz-placeholder {
+	color: rgb(200, 200, 200);
 }
 
 div#login_form div.field {
@@ -61,7 +77,7 @@ div#login_form div.field {
 }
 
 div#login_form div.field input {
-	width: 300px;
+	width: 378px;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	-ms-border-radius: 2px;

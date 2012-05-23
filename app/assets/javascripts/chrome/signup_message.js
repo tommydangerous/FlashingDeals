@@ -246,11 +246,11 @@ $(document).ready(function() {
 	
 	// typing validations
 	var typingTimer;
-	var doneTypingInterval = 1500;
+	var doneTypingInterval = 1000;
 	var typingTimerEmail;
 	var doneTypingIntervalEmail = 2000;
 	var typingTimerPw;
-	var doneTypingIntervalPw = 1000;
+	var doneTypingIntervalPw = 500;
 	
 	$("#signup_message_form #user_name").keyup(function() {
 		typingTimer = setTimeout(doneTypingName, doneTypingInterval);
