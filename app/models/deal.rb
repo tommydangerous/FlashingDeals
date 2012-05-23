@@ -108,8 +108,10 @@ class Deal < ActiveRecord::Base
 	end
 	
 	def self.from_friends_of(user)
-		friend_ids = (user.friends + user.inverse_friends).map(&:id).join(', ')
-		deal_ids = Relationship.where("watcher_id IN (#{friend_ids})").map(&:watched_id).join(', ')
-		where("id IN (#{deal_ids}) AND comment_count >= ? AND posted > ? AND dead = ?", 3, user.duration, false)
+		unless (user.friends + user.inverse_friends).empty?
+			friend_ids = (user.friends + user.inverse_friends).map(&:id).join(', ')
+			deal_ids = Relationship.where("watcher_id IN (#{friend_ids})").map(&:watched_id).join(', ')
+			where("id IN (#{deal_ids}) AND comment_count >= ? AND posted > ? AND dead = ?", 3, user.duration, false)
+		end
 	end
 end
