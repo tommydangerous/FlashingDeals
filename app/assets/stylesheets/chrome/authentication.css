@@ -1,13 +1,13 @@
 div#signup_facebook {
-	margin-top: 30px;
-	margin-bottom: 23px;
+	margin-top: 24px;
+	margin-bottom: 15px;
 }
 
 #facebook_signup {
 	display: block;
 	padding: 5px;
 	height: 26px;
-	width: 210px;
+	width: 215px;
 	background: rgb(59, 89, 152);
 	margin: 0 auto;
 	-webkit-border-radius: 2px;

@@ -88,12 +88,16 @@ $(document).ready(function() {
 		var pw = $("#user_password");
 		var pw_val = pw.val();
 		if(pw_val.length < 2) {
-			$("#user_pw_short").show();
 			$("#user_pw_example").hide();
+			$("#user_pw_short").show();
+			$("#user_pw_long").hide();
+			$("#user_pw_good").hide();
 			return false;
 		} else if(pw_val.length > 40) {
-			$("#user_pw_long").show();
 			$("#user_pw_example").hide();
+			$("#user_pw_short").hide();
+			$("#user_pw_long").show();
+			$("#user_pw_good").hide();
 			return false;
 		}
 	})

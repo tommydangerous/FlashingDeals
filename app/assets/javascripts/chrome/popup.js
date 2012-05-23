@@ -25,11 +25,19 @@ $(document).ready(function(){
 	
 	$(".signup_popup_anchor").click(function() {
 		$("div#dim_signup").fadeIn(200);
+		$("#signup_message_form").show();
+		$("#login_form").hide();
+		$("html, body").animate({ scrollTop: 0  }, 100);
+			return false;
+	});
+	
+	$(".login_popup_anchor").click(function() {
+		$("div#dim_signup").fadeIn(200);
 		$("#signup_message_form").hide();
 		$("#login_form").show();
 		$("html, body").animate({ scrollTop: 0  }, 100);
 			return false;
-	});
+	})
 	
 	$(".scroll_top").click(function() {
 		$("html, body").animate({ scrollTop: 0  }, 100);
@@ -73,4 +81,9 @@ function toggleSignupLogin() {
 		s.css("display", "none");
 		l.css("display", "block");
 	}
+};
+
+function showSignupForm() {
+	$("#signup_message_form").show();
+	$("#login_form").hide();
 };

@@ -1,27 +1,27 @@
 div#signup {
 	width: 450px;
 	float: right;
-	background: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(148, 222, 240, 1);
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(148, 222, 240);
 }
 
 div#signup_info {
 	width: 450px;
 	float: left;
-	background: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(148, 222, 240, 1);
-	height: 383px;
+	background: rgb(255, 255, 255);
+	border: 1px solid rgb(148, 222, 240);
+	height: 380px;
 }
 
 div#signup_header, div#signup_info_header {
-	background: rgba(173, 217, 228, 1);
+	background: rgb(173, 217, 228);
 	padding: 20px;
 }
 
 div#signup_header h1, div#signup_info_header h1 {
 	font-family: Verdana;
 	font-size: 22px;
-	color: rgba(44, 175, 227, 1);
+	color: rgb(44, 175, 227);
 	margin: 0;
 }
 
