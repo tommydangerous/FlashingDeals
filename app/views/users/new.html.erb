@@ -38,17 +38,19 @@
 			<%= render 'error_messages', :object => f.object %>
 			<div class="field">
 				<%= f.text_field :name, :autocomplete => "off", :tabindex => 1, :placeholder => "Full name" %>
-				<div id="user_name_example" class="user_signup_example">
-					<p>Your full name (e.g. Jane Doe)</p>
-				</div>
-				<div id="user_name_blank" class="user_signup_error">
-					Please enter your name
-				</div>
-				<div id="user_name_invalid" class="user_signup_error">
-					Name is invalid (can contain A-Z, 0-9, -, _, or 1 space)
-				</div>
-				<div id="user_name_good" class="user_signup_good">
-					Name looks good
+				<div class="user_signup_messages">
+					<div id="user_name_example" class="user_signup_example">
+						<p>Your full name (e.g. Jane Doe)</p>
+					</div>
+					<div id="user_name_blank" class="user_signup_error">
+						Please enter your name
+					</div>
+					<div id="user_name_invalid" class="user_signup_error">
+						Name is invalid (can contain A-Z, 0-9, -, _, or 1 space)
+					</div>
+					<div id="user_name_good" class="user_signup_good">
+						Name looks good
+					</div>
 				</div>
 			</div>
 			<div class="field">

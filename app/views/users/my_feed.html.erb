@@ -50,7 +50,7 @@
 			<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal unless @deals.empty? %>
 		</div>
 		<div class="clear"></div>
-		<%= render "deals/endless_pagination" %>
+		<%= render "deals/endless_pagination" unless @deals.empty? %>
 	</div>
 	<div class="clear"></div>
 </div>

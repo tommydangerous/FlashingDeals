@@ -79,7 +79,11 @@ class UsersController < ApplicationController
   	@user = current_user
   	@title = @user.name
   	cookies[:my_feed] = "yes"
-		@deals = @user.feed.sort_by { |deal| deal.all_comments.first.updated_at }.reverse.paginate(:page => params[:page], :per_page => 15)
+  	if @user.feed.nil?
+  		@deals = []
+  	else
+			@deals = @user.feed.sort_by { |deal| deal.all_comments.first.updated_at }.reverse.paginate(:page => params[:page], :per_page => 15)
+		end
   	render :layout => "layouts/full_screen"
   end
   

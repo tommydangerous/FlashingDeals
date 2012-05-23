@@ -313,6 +313,15 @@ div#no_facebook p {
 	color: rgb(150, 150, 150);
 }
 
+.user_signup_messages {
+	height: 13px;
+	width: 100%;
+}
+
+.user_signup_example {
+	display: none;
+}
+
 .user_signup_error {
 	display: none;
 	font-family: Verdana;
