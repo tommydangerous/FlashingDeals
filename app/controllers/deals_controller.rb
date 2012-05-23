@@ -130,9 +130,11 @@ class DealsController < ApplicationController
   	@subcomments = @deal.subcomments  	
   	@deal.increment!(:view_count, by = 1)
 	rescue ActiveRecord::RecordNotFound
-		redirect_to flashback_path
-#		@title = "Page Not Found"
-#		render 'pages/page_not_found'
+		if signed_in?
+			redirect_to my_account_path
+		else
+			redirect_to featured_deals_path
+		end
   end
   
   def show_overlay

@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
   def create
   	params[:user][:email] = params[:user][:email].downcase
+  	params[:user][:accept_terms] = true
   	@user = User.new(params[:user])
   	if @user.save
   		fd = User.find(1)

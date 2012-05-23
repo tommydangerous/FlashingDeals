@@ -17,13 +17,13 @@ class User < ActiveRecord::Base
 	validate :name_validation	
 	def name_validation
 		if name.blank?
-			errors.add(:name, "is invalid")
+			errors.add(:name, "cannot be blank")
 		elsif name.length < 1
-			errors.add(:name, "is too short")
+			errors.add(:name, "is too short (minimum is 1 character")
 		elsif name.length > 20
 			errors.add(:name, "is too long (maximum is 20 characters)")
 		elsif name.match(/^[A-Za-z]{1,}[A-Za-z0-9]+[-_ ]?[A-Za-z0-9]{1,}$/).nil?
-			errors.add(:name, "is invalid (Check the format)")
+			errors.add(:name, "is invalid (can contain A-Z, 0-9, -, _, or 1 space)")
 		end
 	end
 	validates_uniqueness_of :name, :case_sensitive => false, :message => "is already taken"
@@ -31,16 +31,15 @@ class User < ActiveRecord::Base
 	validate :email_validation	
 	def email_validation
 		if email.blank?
-			errors.add(:email, "address is required")
-		elsif email.match(/\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i).nil?
-			errors.add(:email, "address is not in a valid format")
+			errors.add(:email, "cannot be blank")
+		elsif email.match(/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/i).nil?
+			errors.add(:email, "is not in a valid format (e.g. jane_doe@gmail.com)")
 		end
 	end
-	email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-	validates_uniqueness_of :email, :case_sensitive => false, :message => "address is already registered"
+	validates_uniqueness_of :email, :case_sensitive => false, :message => "is already registered"
 
-	validates :password, :confirmation => true
-	validates :password, :length 			 => { :within => 4..40 }, :on => :create
+	validates :password, :confirmation => true, :on => :update
+	validates :password, :length 			 => { :within => 2..40 }, :on => :create
 
 	validates_inclusion_of :accept_terms, :in => [true], :on => :create, :message => "must be checked"
 	

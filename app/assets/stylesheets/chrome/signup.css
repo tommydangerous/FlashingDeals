@@ -10,7 +10,7 @@ div#signup_info {
 	float: left;
 	background: rgba(255, 255, 255, 1);
 	border: 1px solid rgba(148, 222, 240, 1);
-	height: 391px;
+	height: 383px;
 }
 
 div#signup_header, div#signup_info_header {
@@ -44,10 +44,6 @@ div#signup_info_main {
 	padding: 20px;
 }
 
-div#signup_form p {
-	font-weight: bold;
-}
-
 div#signup_info_main p {
 	height: 40px;
 	background: url("/assets/check_mark.png");
@@ -59,21 +55,50 @@ div#signup_info_main p {
 	font-size: 14px;
 }
 
+.user_signup_example p {
+	font-family: Verdana;
+	font-size: 11px;
+	text-align: left;
+	padding-left: 5px;
+	color: rgb(150, 150, 150);
+	margin: 0;
+}
+
+div#signup_form div.field input::-webkit-input-placeholder {
+	color: rgb(125, 125, 125);
+}
+
+div#signup_form div.field input:focus::-webkit-input-placeholder {
+	color: rgb(200, 200, 200);
+}
+
+div#signup_form div.field input:-moz-placeholder {
+	color: rgb(125, 125, 125);
+}
+
+div#signup_form div.field input:focus:-moz-placeholder {
+	color: rgb(200, 200, 200);
+}
+
+div#signup_form div.field {
+	margin-bottom: 15px;
+}
+
 div#signup_form div.field input {
-	width: 300px;
+	width: 398px;
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;
 	-moz-border-radius: 2px;
 	-ms-border-radius: 2px;
 	-o-border-radius: 2px;
 	border-radius: 2px;
-	border: 1px solid rgba(200, 200, 200, 1);
+	border: 1px solid rgb(200, 200, 200);
 	padding: 5px;
 	font-family: Verdana;
 	font-size: 14px;
-	color: rgba(75, 75, 75, 1);
-	margin-top: 10px;
-	margin-bottom: 10px;
+	color: rgb(75, 75, 75);
+	margin: 0;
+	margin-bottom: 5px;
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -89,7 +114,7 @@ div#signup_form div.field input {
 }
 
 div#signup_form div.field input:hover {
-	border: 1px solid rgba(150, 150, 150, 1);
+	border: 1px solid rgb(150, 150, 150);
 }
 
 div#signup_form div.field input:focus {
@@ -124,13 +149,13 @@ div#signup_form div.actions a {
 div#signup_form div.actions input {
 	text-shadow: 0px -1px 1px rgba(0, 0, 0, .25);
 	margin: 0;
-	margin-left: 80px;
+	margin-left: 55px;
 	background: none;
 	font-size: 14px;
 	font-family: Helvetica, Arial;
 	font-weight: bold;
 	border: none;
-	color: rgba(255, 255, 255, 1);
+	color: rgb(255, 255, 255);
 	padding: 10px 15px;
 	-webkit-transition: all .2s linear;
 	-khtml-transition: all .2s linear;
@@ -227,10 +252,9 @@ div#error_explanation ol {
 
 div#accept_terms {
 	font-family: Verdana;
-	font-weight: none;
 	font-size: 12px;
-	color: rgba(150, 150, 150, 1);
-	margin-top: 15px;
+	color: rgb(150, 150, 150);
+	margin-top: 30px;
 	margin-bottom: 15px;
 }
 
@@ -287,4 +311,22 @@ div#no_facebook p {
 	font-family: Verdana;
 	font-size: 12px;
 	color: rgb(150, 150, 150);
+}
+
+.user_signup_error {
+	display: none;
+	font-family: Verdana;
+	font-size: 11px;
+	color: rgb(255, 26, 0);
+	text-align: left;
+	padding-left: 5px;
+}
+
+.user_signup_good {
+	display: none;
+	font-family: Verdana;
+	font-size: 11px;
+	color: rgb(97, 196, 25);
+	text-align: left;
+	padding-left: 5px;
 }

@@ -13,7 +13,7 @@
 </div>
 <div id="signup">
 	<div id="signup_header">
-		<h1>Sign Up and be the <span class="green">first to know</span></h1>
+		<h1>Sign up for <span class="green">free</span></h1>
 	</div>
 	<div id="signup_form">
 		<% if flash[:error] %>
@@ -37,22 +37,55 @@
 		<%= form_for(@user) do |f| %>
 			<%= render 'error_messages', :object => f.object %>
 			<div class="field">
-				<p>Name: <%= f.text_field :name, :autocomplete => "off", :tabindex => 1 %></p>
+				<%= f.text_field :name, :autocomplete => "off", :tabindex => 1, :placeholder => "Full name" %>
+				<div id="user_name_example" class="user_signup_example">
+					<p>Your full name (e.g. Jane Doe)</p>
+				</div>
+				<div id="user_name_blank" class="user_signup_error">
+					Please enter your name
+				</div>
+				<div id="user_name_invalid" class="user_signup_error">
+					Name is invalid (can contain A-Z, 0-9, -, _, or 1 space)
+				</div>
+				<div id="user_name_good" class="user_signup_good">
+					Name looks good
+				</div>
 			</div>
 			<div class="field">
-				<p>Email: <%= f.text_field :email, :autocomplete => "off", :tabindex => 2 %></p>
+				<%= f.text_field :email, :autocomplete => "off", :tabindex => 2, :placeholder => "Email address" %>
+				<div id="user_email_example" class="user_signup_example">
+					<p>Your email address (e.g. janedoe@gmail.com)</p>
+				</div>
+				<div id="user_email_blank" class="user_signup_error">
+					Please enter your email address
+				</div>
+				<div id="user_email_invalid" class="user_signup_error">
+					Please enter a valid email address
+				</div>
+				<div id="user_email_good" class="user_signup_good">
+					Email looks correct
+				</div>
 			</div>
 			<div class="field">
-				<p>Password: <%= f.password_field :password, :tabindex => 3 %></p>
-			</div>
-			<div class="field">
-				<p>Confirm: <%= f.password_field :password_confirmation, :tabindex => 4 %></p>
+				<%= f.password_field :password, :tabindex => 3, :placeholder => "Password" %>
+				<div id="user_pw_example" class="user_signup_example">
+					<p>Password must be at least two characters long</p>
+				</div>
+				<div id="user_pw_short" class="user_signup_error">
+					Please enter a password at least two characters long
+				</div>
+				<div id="user_pw_long" class="user_signup_error">
+					Please enter a shorter password
+				</div>
+				<div id="user_pw_good" class="user_signup_good">
+					Password is ready
+				</div>
 			</div>
 			<div class="field" id="accept_terms">
-				<%= f.check_box :accept_terms, :tabindex => 5 %> I agree to the <%= link_to "Terms of Service", terms_path, :target => "_blank" %> and <%= link_to "Privacy Policy", privacy_path, :target => "_blank" %>
+				By signing up, you agree to the <%= link_to "Terms of Use", terms_path, :target => "_blank" %> & <%= link_to "Privacy Policy", privacy_path, :target => "_blank" %>
 			</div>
 			<div class="actions">
-				Already a member? <%= link_to "Login", "javascript:void(0);", :class => "alertdim" %> <%= f.submit "Sign Up", :tabindex => 6 %>
+				Already a member? <%= link_to "Login", "javascript:void(0);", :class => "alertdim" %> <%= f.submit "Sign Up", :tabindex => 4, :id => "signup_submit" %>
 			</div>
 		<% end %>
 	</div>
