@@ -28,6 +28,7 @@ $(document).ready(function(){
 		$("#signup_message_form").show();
 		$("#login_form").hide();
 		$("html, body").animate({ scrollTop: 0  }, 100);
+		$("#signup_here").hide();
 			return false;
 	});
 	
@@ -36,6 +37,7 @@ $(document).ready(function(){
 		$("#signup_message_form").hide();
 		$("#login_form").show();
 		$("html, body").animate({ scrollTop: 0  }, 100);
+		$("#signup_here").show();
 			return false;
 	})
 	
@@ -81,9 +83,11 @@ function toggleSignupLogin() {
 		s.css("display", "none");
 		l.css("display", "block");
 	}
+	$("#signup_here").show();
 };
 
 function showSignupForm() {
 	$("#signup_message_form").show();
 	$("#login_form").hide();
+	$("#signup_here").hide();
 };

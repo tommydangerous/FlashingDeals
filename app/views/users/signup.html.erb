@@ -13,7 +13,7 @@
 </div>
 <div id="signup">
 	<div id="signup_header">
-		<h1>Sign Up and be the <span class="green">first to know</span></h1>
+		<h1>Sign up for <span class="green">free</span></h1>
 	</div>
 	<div id="signup_form">
 		<% if flash[:error] %>
@@ -36,11 +36,11 @@
 		<% end %>
 		<div id="facebook_signup_referral">
 			<%= link_to("/auth/facebook", :id => "facebook_signup") do %>
-				<%= image_tag "/assets/facebook_auth.png" %> <h3>Signup using Facebook</h3>
+				<%= image_tag "/assets/facebook_auth.png" %> <h3>Signup using <b>Facebook</b></h3>
 			<% end %>
 		</div>
 		<div id="referral_info">
-			<p>Yes, it is that easy.</p>
+			<p>We will never post on your behalf or spam your friends</p>
 		</div>
 		<div id="no_facebook">
 			<p>Don't have a Facebook? Signup <%= link_to "here", "javascript:void(0);", :class => "signup_popup_anchor" %></p>

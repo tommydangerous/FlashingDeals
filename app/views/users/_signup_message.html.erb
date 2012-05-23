@@ -10,7 +10,7 @@
 		<% end %>
 	</div>
 	<div id="signup_message_header">
-		<h1>Be A Part Of The Community</h1>
+		<h1>Join the Community</h1>
 	</div>
 	<div id="signup_message_body">
 		<div id="signup_message_info">
@@ -21,7 +21,7 @@
 				<% end %>
 				<p>(We will never post on your behalf or spam your friends)</p>
 			</div>
-			<h2>...or <%= link_to "Signup Here", "javascript:void(0);", :onclick => "showSignupForm();" %></h2>
+			<h2 id="signup_here">...or <%= link_to "Signup Here", "javascript:void(0);", :onclick => "showSignupForm();" %></h2>
 		</div>
 		<div id="signup_message_form">
 			<%= form_for(User.new) do |f| %>
