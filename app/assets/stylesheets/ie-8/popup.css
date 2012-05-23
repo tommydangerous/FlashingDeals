@@ -104,7 +104,7 @@ div#signup_message_body {
 }
 
 div#signup_message_info {
-	width: 340px;
+	width: 345px;
 	padding: 20px 5px 20px 20px;
 	float: left;
 }
@@ -115,27 +115,43 @@ div#signup_message_info p {
 	margin-bottom: 14px;
 }
 
+div#signup_facebook p {
+	font-size: 12px;
+	color: rgb(150, 150, 150);
+	margin: 0;
+	margin-top: 10px;
+	text-align: center;
+}
+
 div#signup_message_info h2 {
 	font-family: Helvetica, Arial;
 	font-size: 14px;
 	color: rgb(75, 75, 75);
 	text-align: center;
+	margin: 0;
 }
 
 div#signup_message_form {
 	display: none;
-	width: 400px;
+	width: 390px;
 	padding: 20px 20px 20px 5px;
 	float: right;
 	text-align: right;
 }
 
-div#signup_message_form p {
+div#signup_message_form p.new_user_signup_here {
+	text-align: center;
+	font-size: 14px;
 	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+div#signup_message_form div.field {
+	margin-bottom: 15px;
 }
 
 div#signup_message_form div.field input {
-	width: 300px;
+	width: 378px;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	-ms-border-radius: 2px;
@@ -146,6 +162,8 @@ div#signup_message_form div.field input {
 	font-family: Verdana;
 	font-size: 14px;
 	color: rgb(75, 75, 75);
+	margin: 0;
+	margin-bottom: 5px;
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;

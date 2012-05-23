@@ -10,7 +10,7 @@ div#signup_info {
 	float: left;
 	background: rgba(255, 255, 255, 1);
 	border: 1px solid rgba(148, 222, 240, 1);
-	height: 342px;
+	height: 381px;
 }
 
 div#signup_header, div#signup_info_header {
@@ -44,10 +44,6 @@ div#signup_info_main {
 	padding: 20px;
 }
 
-div#signup_form p {
-	font-weight: bold;
-}
-
 div#signup_info_main p {
 	height: 40px;
 	background: url("/assets/check_mark.png");
@@ -59,8 +55,12 @@ div#signup_info_main p {
 	font-size: 14px;
 }
 
+div#signup_form div.field {
+	margin-bottom: 15px;
+}
+
 div#signup_form div.field input {
-	width: 300px;
+	width: 398px;
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -72,8 +72,8 @@ div#signup_form div.field input {
 	font-family: Verdana;
 	font-size: 14px;
 	color: rgba(75, 75, 75, 1);
-	margin-top: 10px;
-	margin-bottom: 10px;
+	margin: 0;
+	margin-bottom: 5px;
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;
 	-moz-transition: all .2s ease-in-out;
@@ -227,10 +227,9 @@ div#error_explanation ol {
 
 div#accept_terms {
 	font-family: Verdana;
-	font-weight: none;
 	font-size: 12px;
-	color: rgba(150, 150, 150, 1);
-	margin-top: 15px;
+	color: rgb(150, 150, 150);
+	margin-top: 30px;
 	margin-bottom: 15px;
 }
 
@@ -262,7 +261,7 @@ div#accept_terms input#user_accept_terms {
 
 div#facebook_signup_referral {
 	margin-top: 60px;
-	margin-bottom: 40px;
+	margin-bottom: 29px;
 }
 
 div#referral_info {
@@ -287,4 +286,40 @@ div#no_facebook p {
 	font-family: Verdana;
 	font-size: 12px;
 	color: rgb(150, 150, 150);
+}
+
+.user_signup_messages {
+	height: 13px;
+	width: 100%;
+}
+
+.user_signup_example {
+	display: none;
+}
+
+.user_signup_example p {
+	font-family: Verdana;
+	font-size: 11px;
+	text-align: left;
+	padding-left: 5px;
+	color: rgb(150, 150, 150);
+	margin: 0;
+}
+
+.user_signup_error {
+	display: none;
+	font-family: Verdana;
+	font-size: 11px;
+	color: rgb(255, 26, 0);
+	text-align: left;
+	padding-left: 5px;
+}
+
+.user_signup_good {
+	display: none;
+	font-family: Verdana;
+	font-size: 11px;
+	color: rgb(97, 196, 25);
+	text-align: left;
+	padding-left: 5px;
 }

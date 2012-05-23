@@ -55,15 +55,6 @@ div#signup_info_main p {
 	font-size: 14px;
 }
 
-.user_signup_example p {
-	font-family: Verdana;
-	font-size: 11px;
-	text-align: left;
-	padding-left: 5px;
-	color: rgb(150, 150, 150);
-	margin: 0;
-}
-
 div#signup_form div.field input::-webkit-input-placeholder {
 	color: rgb(125, 125, 125);
 }
@@ -320,6 +311,15 @@ div#no_facebook p {
 
 .user_signup_example {
 	display: none;
+}
+
+.user_signup_example p {
+	font-family: Verdana;
+	font-size: 11px;
+	text-align: left;
+	padding-left: 5px;
+	color: rgb(150, 150, 150);
+	margin: 0;
 }
 
 .user_signup_error {

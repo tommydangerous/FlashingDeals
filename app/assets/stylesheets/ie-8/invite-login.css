@@ -698,7 +698,7 @@ div#login_header h1 {
 div#login_form {
 	float: right;
 	padding: 20px 20px 20px 5px;
-	width: 400px;
+	width: 390px;
 }
 
 div#login_form p {
@@ -710,7 +710,7 @@ div#login_form div.field {
 }
 
 div#login_form div.field input {
-	width: 300px;
+	width: 378px;
 	border: 1px solid rgb(200, 200, 200);
 	padding: 5px;
 	font-family: Verdana;
