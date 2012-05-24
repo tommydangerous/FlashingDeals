@@ -11,32 +11,26 @@ $(document).ready(function(){
   	$("#fuzz").fadeOut();
     	return false;
 	});
-			
-	$(".alertdim").click(function(){
-  	$("#dim_signup").fadeIn(200);
-  	$("html, body").animate({ scrollTop: 0  }, 0);
-    	return false;
-	});
     		
 	$(".closedim").click(function(){
   	$("#dim").fadeOut(200);
     	return false;
 	});
 	
-	$(".signup_popup_anchor").click(function() {
+	$(".signup_popup_anchor, .action_login, .alertdim").live("click", function() {
 		$("div#dim_signup").fadeIn(200);
+		$("html, body").animate({ scrollTop: 0  }, 100);
 		$("#signup_message_form").show();
 		$("#login_form").hide();
-		$("html, body").animate({ scrollTop: 0  }, 100);
 		$("#signup_here").hide();
 			return false;
 	});
 	
 	$(".login_popup_anchor").click(function() {
 		$("div#dim_signup").fadeIn(200);
+		$("html, body").animate({ scrollTop: 0  }, 100);
 		$("#signup_message_form").hide();
 		$("#login_form").show();
-		$("html, body").animate({ scrollTop: 0  }, 100);
 		$("#signup_here").show();
 		$("#session_email").focus();
 			return false;
@@ -49,12 +43,6 @@ $(document).ready(function(){
 	
 	$("a#popup_page_info_close").click(function() {
 		$("div#popup_page_info").slideUp();
-	});
-	$(".action_login").click(function() {
-		$("#dim_signup").fadeIn(200, function() {
-			$("html, body").animate({ scrollTop: 0  }, 0);
-  		return false;
-		});
 	});
 });
 		
