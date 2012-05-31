@@ -94,6 +94,10 @@ div.flash {
 	color: rgba(81, 71, 33, 1);
 }
 
+.placeholder {
+	color: rgb(175, 175, 175);
+}
+
 /* my_account_menu.css */
 div#my_account_drop_down {
 	position: absolute;

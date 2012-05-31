@@ -1,0 +1,34 @@
+<div class="twitter_email">
+	<div class="twitter_email_header">
+		Almost <span class="green">Finished</span>
+	</div>
+	<% flash.each do |key, value| %>
+		<div class="flash <%= key %>">
+			<%= link_to image_tag("/assets/close.png"), "javascript: void(0);", :onclick => "closeFlashUp()", :class => "flash_close" %><%= value %>
+		</div>
+	<% end %>
+	<div class="twitter_email_body">
+		<p>Please enter in an email address where we can contact you in case you forget your password, user name, or anything related to your account.</p>
+		<p>We promise to never spam you and to never give your email address to anyone.</p>
+		<div class="twitter_email_form">
+			<%= form_tag twitter_new_path, :method => :post do %>	
+				<div class="field">
+					<p>Email Address: <input id="twitter_signup_email" name="twitter_signup_email" type="text" autocomplete="off"></p>
+				</div>
+				<div class="actions">
+					<%= submit_tag "Finish Sign Up", :id => "twitter_signup_submit" %>
+					<div class="twitter_signup_email_message_container">
+						<div id="twitter_signup_email_blank" class="twitter_signup_email_message">
+							Please enter your email address
+						</div>
+						<div id="twitter_signup_email_invalid" class="twitter_signup_email_message">
+							Please enter a valid email address
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			<% end %>
+		</div>
+		<p id="twitter_email_existing">If you are an existing user, you must login to FlashingDeals and click "Connect with Twitter" before you can login using Twitter.</p>
+	</div>
+</div>

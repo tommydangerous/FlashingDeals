@@ -335,4 +335,50 @@ $(document).ready(function() {
 			$("#user_pw_good").show();
 		}
 	}
+	
+	// Twitter Signup Email
+	$("#twitter_signup_submit").click(function() {
+		var email_regex = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/i
+		var email = $("#twitter_signup_email");
+		var email_val = email.val();
+		if(email_val.length == 0) {
+			$("#twitter_signup_email_blank").show();
+			$("#twitter_signup_email_invalid").hide();
+			return false;
+		} else if(!email_val.match(email_regex)) {
+			$("#twitter_signup_email_blank").hide();
+			$("#twitter_signup_email_invalid").show();
+			return false;	
+		}
+	})
+	
+	// Login or Signup using Email
+	$(".auth_email").click(function() {
+		if($(".login_signup").width() == 830) {
+			$(".login_signup").width(400);
+			$(".form_side").hide();
+		} else {
+			$(".login_signup").width(830);
+			$(".form_side").show();
+			$("#session_email").focus();
+		}
+	})
+	
+	// No authentication sign up through invite link
+	$('.no_facebook_signup').click(function() {
+		$("div#dim_signup").fadeIn(200);
+		$("html, body").animate({ scrollTop: 0  }, 100);
+		$(".login_signup").width(830);
+		$(".form_side").show();
+		$("#user_name").focus();
+	})
+	
+	// Login
+	$("#login_submit").click(function() {
+		var email_val = $("#session_email").val();
+		var pw_val = $("#session_password").val();
+		if(email_val.length == 0 || pw_val.length == 0) {
+			return false;
+		}
+	})
 })

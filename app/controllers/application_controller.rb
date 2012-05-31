@@ -7,6 +7,7 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
   include UsersHelper
   include DealsHelper
+  include AuthenticationsHelper
   
   # 7 rising deals
   include SlickdealsHelper

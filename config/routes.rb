@@ -50,6 +50,12 @@ FlashingDeal::Application.routes.draw do
 # Authentications
 	match '/auth/:provider/callback' => 'authentications#create'
 	match '/auth/failure' => 'authentications#failure'
+	match '/signup/twitter/email' => 'authentications#twitter_email', :as => :twitter_email
+	match '/signup/twitter/email/new' => 'authentications#twitter_new', :as => :twitter_new
+	
+	match '/auth_google' => 'authentications#auth_google', :as => :auth_google
+	match '/auth_google_token' => 'authentications#auth_google_token', :as => :auth_google_token
+	match '/auth_google_create' => 'authentications#auth_google_create', :as => :auth_google_create
 # Deals
   root :to => 'deals#featured_deals'
   match '/featured' => 'deals#featured_deals', :as => :featured_deals

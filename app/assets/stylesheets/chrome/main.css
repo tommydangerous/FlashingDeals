@@ -92,3 +92,19 @@ div.flash {
 	border: 1px solid rgba(255, 211, 36, 1);
 	color: rgba(81, 71, 33, 1);
 }
+
+input::-webkit-input-placeholder {
+	color: rgb(175, 175, 175);
+}
+
+input:focus::-webkit-input-placeholder {
+	color: rgb(210, 210, 210);
+}
+
+input:-moz-placeholder {
+	color: rgb(175, 175, 175);
+}
+
+input:focus:-moz-placeholder {
+	color: rgb(210, 210, 210);
+}

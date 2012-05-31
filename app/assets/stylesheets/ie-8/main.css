@@ -102,3 +102,7 @@ div.flash {
 	border: 1px solid #FFD324;
 	color: #514721;
 }
+
+.placeholder {
+	color: rgb(175, 175, 175);
+}

@@ -11,6 +11,24 @@ div#signup_facebook {
 	width: 215px;
 	background: rgb(59, 89, 152);
 	margin: 0 auto;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;	
 }
 
 #facebook_signup:hover {
@@ -19,7 +37,12 @@ div#signup_facebook {
 }
 
 #facebook_signup:active {
-	background: rgb(30, 67, 121);
+	-webkit-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-khtml-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-moz-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-ms-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-o-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
 }
 
 #facebook_signup h3 {
@@ -38,42 +61,86 @@ div#signup_facebook {
 	height: 26px;
 }
 
-#authenticate_facebook {
+.authentications_connect {
 	margin-top: 10px;
 }
 
-#facebook_auth {
-	display: block;
-	padding: 5px;
-	height: 20px;
-	width: 201px;
-	background: rgb(59, 89, 152);
-	margin: 0 auto;
-}
-
-#facebook_auth:hover {
-	text-decoration: none;
-	background: rgb(35, 72, 126);
-}
-
-#facebook_auth:active {
-	background: rgb(30, 67, 121);
-}
-
-#facebook_auth h3 {
-	font-family: Helvetica, Arial;
-	font-size: 14px;
-	color: rgb(255, 255, 255);
-	margin: 0;
-	margin-top: 3px;
-	margin-left: 30px;
-	text-align: left;
-}
-
-#facebook_auth img {
+.auth_connect img {
 	float: left;
 	width: 20px;
 	height: 20px;
+}
+
+.auth_connect p {
+	height: 14px;
+	font-size: 14px;
+	color: rgb(255, 255, 255);
+	margin-top: 3px;
+	margin-left: 30px;
+}
+
+.auth_connect {
+	display: block;
+	padding: 5px;
+	height: 20px;
+	margin: 0 auto;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;		
+}
+
+.auth_connect:hover {
+	text-decoration: none;
+}
+
+.auth_connect:active {
+	-webkit-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-khtml-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-moz-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-ms-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	-o-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+	box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
+}
+
+.facebook_connect {
+	background: rgb(59, 89, 152);
+	margin-bottom: 10px;
+}
+
+.facebook_connect:hover {
+	background: rgb(35, 72, 126);
+}
+
+.twitter_connect {
+	background: rgb(64, 153, 255);
+	margin-bottom: 10px;
+}
+
+.twitter_connect:hover {
+	background: rgb(44, 133, 235);
+}
+
+.google_connect {
+	background: rgb(150, 150, 150);
+}
+
+.google_connect:hover {
+	background: rgb(140, 140, 140);
 }
 
 /* box_deal.css */

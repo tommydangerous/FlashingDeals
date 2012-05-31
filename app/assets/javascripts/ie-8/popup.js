@@ -17,22 +17,22 @@ $(document).ready(function(){
     	return false;
 	});
 	
-	$(".signup_popup_anchor, .action_login, .alertdim").live("click", function() {
+	$(".action_login, .alertdim").live("click", function() {
 		$("div#dim_signup").fadeIn(200);
 		$("html, body").animate({ scrollTop: 0  }, 100);
-		$("#signup_message_form").show();
-		$("#login_form").hide();
-		$("#signup_here").hide();
+		$("#user_name").focus();
 			return false;
 	});
+	
+	$(".signup_popup_anchor").live("click", function() {
+		$("div#dim_signup").fadeIn(200);
+		$("html, body").animate({ scrollTop: 0  }, 100);
+			return false;
+	})
 	
 	$(".login_popup_anchor").click(function() {
 		$("div#dim_signup").fadeIn(200);
 		$("html, body").animate({ scrollTop: 0  }, 100);
-		$("#signup_message_form").hide();
-		$("#login_form").show();
-		$("#signup_here").show();
-		$("#session_email").focus();
 			return false;
 	})
 	

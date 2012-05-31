@@ -5,7 +5,7 @@
 <% end %>
 <div id="signup_info">
 	<div id="signup_info_header">
-		<h1>Why join<span class="green">?</span></h1>
+		<h1>A new way to discover <span class="green">deals</span></h1>
 	</div>
 	<div id="signup_info_body">
 		<%= render "users/signup_info" %>
@@ -34,16 +34,24 @@
 				<ul>
 			</div>
 		<% end %>
-		<div id="facebook_signup_referral">
-			<%= link_to("/auth/facebook", :id => "facebook_signup") do %>
-				<%= image_tag "/assets/facebook_auth.png" %> <h3>Signup using <b>Facebook</b></h3>
-			<% end %>
-		</div>
+		<p class="auth_signup_header">Sign Up</p>
+		<%= link_to("/auth/facebook", :class => "auth_facebook auth_signup") do %>
+			<%= image_tag "/assets/facebook_auth.png" %>
+			<p>using <b>Facebook</b></p>
+		<% end %>
+		<%= link_to("/auth/twitter", :class => "auth_twitter auth_signup") do %>
+			<%= image_tag "/assets/twitter_auth.png" %>
+			<p>using <b>Twitter</b></p>
+		<% end %>
+		<%= link_to("/auth/google", :class => "auth_google auth_signup") do %>
+			<%= image_tag "/assets/google_auth1.png" %>
+			<p>using <b>Google</b></p>
+		<% end %>
 		<div id="referral_info">
-			<p>We will not post on your behalf or spam your friends</p>
+			<p>(we will not post on your behalf or spam your friends)</p>
 		</div>
 		<div id="no_facebook">
-			<p>Don't have a Facebook? Signup <%= link_to "here", "javascript:void(0);", :class => "signup_popup_anchor" %></p>
+			<p>Don't have any of these? <%= link_to "Sign up here", "javascript:void(0);", :class => "no_facebook_signup" %></p>
 		</div>
 	</div>
 </div>

@@ -1,7 +1,20 @@
-<% if Authentication.find_by_user_id_and_provider(current_user.id, "facebook").nil? %>
-	<div id="authenticate_facebook">
-		<%= link_to("/auth/facebook", :id => "facebook_auth") do %>
-			<%= image_tag "/assets/facebook_auth.png" %> <h3>Connect with Facebook</h3>
+<div class="authentications_connect">
+	<% if Authentication.find_by_user_id_and_provider(current_user.id, "facebook").nil? %>
+		<%= link_to("/auth/facebook", :class => "facebook_connect auth_connect") do %>
+			<%= image_tag "/assets/facebook_auth.png" %>
+			<p>Connect with <b>Facebook</b></p>
 		<% end %>
-	</div>
-<% end %>
+	<% end %>
+	<% if Authentication.find_by_user_id_and_provider(current_user.id, "twitter").nil? %>
+		<%= link_to("/auth/twitter", :class => "twitter_connect auth_connect") do %>
+			<%= image_tag "/assets/twitter_auth.png" %>
+			<p>Connect with <b>Twitter</b></p>
+		<% end %>
+	<% end %>
+	<% if Authentication.find_by_user_id_and_provider(current_user.id, "google").nil? %>
+		<%= link_to("/auth/google", :class => "google_connect auth_connect") do %>
+			<%= image_tag "/assets/google_auth1.png" %>
+			<p>Connect with <b>Google</b></p>
+		<% end %>
+	<% end %>
+</div>

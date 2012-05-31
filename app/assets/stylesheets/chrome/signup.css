@@ -10,7 +10,7 @@ div#signup_info {
 	float: left;
 	background: rgb(255, 255, 255);
 	border: 1px solid rgb(148, 222, 240);
-	height: 380px;
+	height: 382px;
 }
 
 div#signup_header, div#signup_info_header {
@@ -119,9 +119,9 @@ div#signup_form div.field input:focus {
 }
 
 div#signup_form div.actions {
-	font-family: Verdana;
-	font-size: 12px;
-	color: rgba(150, 150, 150, 1);
+	font-family: Helvetica, Arial;
+	font-size: 13px;
+	color: rgb(150, 150, 150);
 }
 
 div#signup_form div.actions {
@@ -242,8 +242,8 @@ div#error_explanation ol {
 }
 
 div#accept_terms {
-	font-family: Verdana;
-	font-size: 12px;
+	font-family: Helvetica, Arial;
+	font-size: 13px;
 	color: rgb(150, 150, 150);
 	margin-top: 30px;
 	margin-bottom: 15px;
@@ -281,6 +281,7 @@ div#facebook_signup_referral {
 }
 
 div#referral_info {
+	margin-top: 20px;
 	text-align: center;
 }
 
@@ -294,12 +295,11 @@ div#referral_info p {
 
 div#no_facebook {
 	text-align: center;
-	margin-top: 110px;
+	margin-top: 59px;
 }
 
 div#no_facebook p {
-	font-weight: normal;
-	font-family: Verdana;
+	font-family: Helvetica, Arial;
 	font-size: 12px;
 	color: rgb(150, 150, 150);
 }
@@ -338,4 +338,19 @@ div#no_facebook p {
 	color: rgb(97, 196, 25);
 	text-align: left;
 	padding-left: 5px;
+}
+
+.auth_signup_header {
+	margin-bottom: 20px;
+	font-weight: bold;
+	text-align: center;
+}
+
+#signup_info_body_header {
+	height: 20px;
+	margin-bottom: 20px;
+	font-weight: bold;
+	text-align: center;
+	font-size: 16px;
+	color: rgb(75, 75, 75);
 }

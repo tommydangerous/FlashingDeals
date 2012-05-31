@@ -1,5 +1,5 @@
 div#signup_facebook {
-	margin-top: 25px;
+	margin-top: 24px;
 	margin-bottom: 20px;
 }
 
@@ -60,16 +60,28 @@ div#signup_facebook {
 	height: 26px;
 }
 
-#authenticate_facebook {
+.authentications_connect {
 	margin-top: 10px;
 }
 
-#facebook_auth {
+.auth_connect img {
+	float: left;
+	width: 20px;
+	height: 20px;
+}
+
+.auth_connect p {
+	height: 14px;
+	font-size: 14px;
+	color: rgb(255, 255, 255);
+	margin-top: 3px;
+	margin-left: 30px;
+}
+
+.auth_connect {
 	display: block;
 	padding: 5px;
 	height: 20px;
-	width: 201px;
-	background: rgb(59, 89, 152);
 	margin: 0 auto;
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;
@@ -88,15 +100,14 @@ div#signup_facebook {
 	-moz-transition: all .2s ease-in-out;
 	-ms-transition: all .2s ease-in-out;
 	-o-transition: all .2s ease-in-out;
-	transition: all .2s ease-in-out;	
+	transition: all .2s ease-in-out;		
 }
 
-#facebook_auth:hover {
+.auth_connect:hover {
 	text-decoration: none;
-	background: rgb(35, 72, 126);
 }
 
-#facebook_auth:active {
+.auth_connect:active {
 	-webkit-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
 	-khtml-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
 	-moz-box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
@@ -105,18 +116,28 @@ div#signup_facebook {
 	box-shadow: 0px 1px 5px rgba(75, 75, 75, 1) inset;
 }
 
-#facebook_auth h3 {
-	font-family: Helvetica, Arial;
-	font-size: 14px;
-	color: rgb(255, 255, 255);
-	margin: 0;
-	margin-top: 3px;
-	margin-left: 30px;
-	text-align: left;
+.facebook_connect {
+	background: rgb(59, 89, 152);
+	margin-bottom: 10px;
 }
 
-#facebook_auth img {
-	float: left;
-	width: 20px;
-	height: 20px;
+.facebook_connect:hover {
+	background: rgb(35, 72, 126);
+}
+
+.twitter_connect {
+	background: rgb(64, 153, 255);
+	margin-bottom: 10px;
+}
+
+.twitter_connect:hover {
+	background: rgb(44, 133, 235);
+}
+
+.google_connect {
+	background: rgb(150, 150, 150);
+}
+
+.google_connect:hover {
+	background: rgb(140, 140, 140);
 }
