@@ -26,7 +26,7 @@
 	</div>
 	<div id="box_deal_image_container">
 		<div class="box_deal_link_overlay">
-			<%= link_to("javascript:void(0);", :id => "box_deal_link", :onclick => "overlayPopup(#{deal.id})") do %>
+			<%= link_to("javascript:void(0);", :id => "box_deal_link", :onclick => "overlayPopup(#{deal.id}, '#{deal_path(deal)}')") do %>
 				<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
 			<% end %>
 		</div>
@@ -94,9 +94,10 @@
 		width: 675
 	});
 	
-	function overlayPopup(id) {
+	function overlayPopup(id, deal_url) {
 		var i = id
 		var url = "http://localhost:3000/deals/"+i+"/show_overlay"
+		window.history.replaceState(null, null, deal_url);
 		$("body").addClass("stationary");
 		$(".overlay_image_"+i).hide();
 		$(".overlayInner").load(url, function() {
@@ -133,9 +134,10 @@
 			width: 675
 		});
 		
-		function overlayPopup(id) {
+		function overlayPopup(id, deal_url) {
 			var i = id
 			var url = "http://www.flashingdeals.com/deals/"+i+"/show_overlay"
+			window.history.replaceState(null, null, deal_url);
 			$("body").addClass("stationary");
 			$(".overlay_image_"+i).hide();
 			$(".overlayInner").load(url, function() {
@@ -171,9 +173,10 @@
 			width: 675
 		});
 		
-		function overlayPopup(id) {
+		function overlayPopup(id, deal_url) {
 			var i = id
 			var url = "http://flashingdeals.com/deals/"+i+"/show_overlay"
+			window.history.replaceState(null, null, deal_url);
 			$("body").addClass("stationary");
 			$(".overlay_image_"+i).hide();
 			$(".overlayInner").load(url, function() {

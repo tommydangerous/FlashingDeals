@@ -485,6 +485,10 @@ a#box_deal_link {
 	display: none;
 }
 
+.box_deal_link_overlay_none {
+	display: block;
+}
+
 img#box_deal_image {
 	max-height: 160px;
 	max-width: 160px;
@@ -568,7 +572,7 @@ input#my_deals_unwatch:active {
 	font-family: Helvetica, Arial;
 	font-size: 13px;
 	color: rgb(75, 75, 75);
-	line-height: 14px;
+	line-height: 15px;
 	margin-bottom: 3px;
 }
 

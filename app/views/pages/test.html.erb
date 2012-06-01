@@ -1,1 +1,18 @@
-<%= link_to "Twitter", "/auth/twitter" %>
+<%= link_to "New URL", 'javascript:void(0);', :class => "new_url" %>
+<%= link_to "Back URL", 'javascript:void(0);', :class => "back_url" %>
+
+<script>
+$(document).ready(function() {
+	var n = $('.new_url');
+	var b = $('.back_url');
+	n.click(function() {
+		window.history.pushState(null, null, '/deals/some-path');
+	})
+	b.click(function() {
+		window.history.back();
+	})
+	
+	var pathname = window.location.pathname;
+	var current_url = $(location).attr('href');
+})
+</script>

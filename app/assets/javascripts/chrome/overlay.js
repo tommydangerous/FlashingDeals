@@ -30,26 +30,19 @@ function setWidth() {
 	}
 };
 
-$(function() {
-	$(".overlay_top").click(function() {
+$(document).ready(function() {
+	var pathname = window.location.pathname;
+	$(".overlay_top, .overlay_right, .overlay_bottom, .overlay_left, ").click(function() {
 		$(".overlayOuter").hide();
 		$("body").removeClass("stationary");
 		$(".box_image").show()
+		window.history.replaceState(null, null, pathname);
 	})
-	$(".overlay_left").click(function() {
+	$("#deal_show_overlay_container_close").live("click", function() {
 		$(".overlayOuter").hide();
 		$("body").removeClass("stationary");
 		$(".box_image").show()
-	})
-	$(".overlay_right").click(function() {
-		$(".overlayOuter").hide();
-		$("body").removeClass("stationary");
-		$(".box_image").show()
-	})
-	$(".overlay_bottom").click(function() {
-		$(".overlayOuter").hide();
-		$("body").removeClass("stationary");
-		$(".box_image").show()
+		window.history.replaceState(null, null, pathname);
 	})
 });
 
