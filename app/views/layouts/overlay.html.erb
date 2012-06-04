@@ -4,7 +4,18 @@
 		<%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
     <meta charset="UTF-8">
-		<script>
+		<script type="text/javascript">
+		// Google Analytics
+			var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-28454790-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		  
 			$('textarea.subcomment_textarea').click(function() {
 				return false;
 			});
@@ -61,4 +72,13 @@
 		<p>You leveled up to <span class="leveled_up_to"></span>!</p>
 	</div>
 	<%= yield %>
+	<% if Rails.env.production? %>
+		<script type="text/javascript" src="http://s.skimresources.com/js/28555X865329.skimlinks.js"></script>
+		<script type="text/javascript">
+		setTimeout(function(){var a=document.createElement("script");
+		var b=document.getElementsByTagName('script')[0];
+		a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/6975.js?"+Math.floor(new Date().getTime()/3600000);
+		a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+		</script>
+	<% end %>
 </html>

@@ -310,6 +310,24 @@ div#loading_deals_words em {
 	box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
 }
 
+.deal_unclicked {
+	-webkit-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-khtml-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-moz-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-ms-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	-o-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+	box-shadow: 0px 1px 8px rgba(0, 0, 0, .3);
+}
+
+.deal_clicked {
+	-webkit-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3) inset;
+	-khtml-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3) inset;
+	-moz-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3) inset;
+	-ms-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3) inset;
+	-o-box-shadow: 0px 1px 8px rgba(0, 0, 0, .3) inset;
+	box-shadow: 0px 1px 8px rgba(0, 0, 0, .3) inset;
+}
+
 #box_deal_lightning {
 	float: left;
 	width: 18px;

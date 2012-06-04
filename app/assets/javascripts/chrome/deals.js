@@ -1,3 +1,14 @@
+// Box deal
+function removeUnclicked(id) {
+	$('#box_deal_'+id).removeClass('deal_unclicked');
+	$('#box_deal_'+id).addClass('deal_clicked');
+}
+
+function addUnclicked() {
+	$('.box_deal').addClass('deal_unclicked');
+	$('.box_deal').removeClass('deal_clicked');
+}
+
 // Top Deals
 function showLightning(id) {
 	var i = id

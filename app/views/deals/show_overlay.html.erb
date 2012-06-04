@@ -276,18 +276,21 @@
 <% end %>
 <% if Rails.env.development? %>
 	<script>
-	$('.example3demo').popupWindow({ 
-		centerScreen:1,
-		resizable: 1,
-		height: 375,
-		width: 675
-	}); 
-	$('.example4demo').popupWindow({ 
-		centerScreen:1,
-		resizable: 1,
-		height: 500,
-		width: 675
-	});
+	$(document).ready(function() {
+		window.history.replaceState(null, null, "<%= deal_path(@deal) %>");
+		$('.example3demo').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 375,
+			width: 675
+		}); 
+		$('.example4demo').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 500,
+			width: 675
+		});
+	})
 	
 	function pnDeal(id) {
 		var i = id
@@ -301,18 +304,21 @@
 <% elsif Rails.env.production? %>
 	<% if request.url.include?("www") %>
 		<script>
-		$('.example3demo').popupWindow({ 
-			centerScreen:1,
-			resizable: 1,
-			height: 375,
-			width: 675
-		}); 
-		$('.example4demo').popupWindow({ 
-			centerScreen:1,
-			resizable: 1,
-			height: 500,
-			width: 675
-		});
+		$(document).ready(function() {
+			window.history.replaceState(null, null, "<%= deal_path(@deal) %>");
+			$('.example3demo').popupWindow({ 
+				centerScreen:1,
+				resizable: 1,
+				height: 375,
+				width: 675
+			}); 
+			$('.example4demo').popupWindow({ 
+				centerScreen:1,
+				resizable: 1,
+				height: 500,
+				width: 675
+			});
+		})
 		
 		function pnDeal(id) {
 			var i = id
@@ -325,18 +331,21 @@
 		</script>
 	<% else %>
 		<script>
-		$('.example3demo').popupWindow({ 
-			centerScreen:1,
-			resizable: 1,
-			height: 375,
-			width: 675
-		}); 
-		$('.example4demo').popupWindow({ 
-			centerScreen:1,
-			resizable: 1,
-			height: 500,
-			width: 675
-		});
+		$(document).ready(function() {
+			window.history.replaceState(null, null, "<%= deal_path(@deal) %>");
+			$('.example3demo').popupWindow({ 
+				centerScreen:1,
+				resizable: 1,
+				height: 375,
+				width: 675
+			}); 
+			$('.example4demo').popupWindow({ 
+				centerScreen:1,
+				resizable: 1,
+				height: 500,
+				width: 675
+			});
+		})
 		
 		function pnDeal(id) {
 			var i = id
