@@ -1,3 +1,8 @@
+// remove overlay link
+$(document).ready(function() {
+	$('.box_deal_link_overlay').remove();
+});
+
 function showBoxDealCommentForm(id) {
 	var i = id
 	$("#box_deal_comment_form_"+i).toggle();

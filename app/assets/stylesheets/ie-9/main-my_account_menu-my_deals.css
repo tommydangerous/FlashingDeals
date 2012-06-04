@@ -11,6 +11,7 @@ body {
 	min-width: 951px;
 	min-height: 100%;
 	position: relative;
+	overflow-x: hidden;
 }
 
 #content {

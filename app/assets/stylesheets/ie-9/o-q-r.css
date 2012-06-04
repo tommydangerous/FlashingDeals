@@ -9,7 +9,7 @@
 	left: 0;
 	background: rgba(255, 255, 255, .85);
 	background: rgba(0, 0, 0, .5);
-	overflow-x: auto;
+	overflow-x: hidden;
 	overflow-y: scroll;
 }
 
