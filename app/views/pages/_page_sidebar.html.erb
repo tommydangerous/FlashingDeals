@@ -1,71 +1,11 @@
 <div class="page_sidebar">
-	<div id="sidebar_title">
-		Find Out More
-	</div>
-	<div class="sidebar_nav">
-		<div class="sidebar_nav_title">
-			<%= link_to "About", about_path, :id => "about" %>
-		</div>
-		<div class="sidebar_nav_arrow">
-			<%= link_to image_tag("/assets/arrow_right.png"), about_path %>
-		</div>
-	</div>
-	<div class="sidebar_nav">
-		<div class="sidebar_nav_title">
-			<%= link_to "Investors", investors_path, :id => "investors" %>
-		</div>
-		<div class="sidebar_nav_arrow">
-			<%= link_to image_tag("/assets/arrow_right.png"), investors_path %>
-		</div>
-	</div>
-	<div class="sidebar_nav">
-		<div class="sidebar_nav_title">
-			<%= link_to "Team", team_path, :id => "team" %>
-		</div>
-		<div class="sidebar_nav_arrow">
-			<%= link_to image_tag("/assets/arrow_right.png"), team_path %>
-		</div>
-	</div>
-	<div class="sidebar_nav">
-		<div class="sidebar_nav_title">
-			<%= link_to "Contact", contact_path, :id => "contact" %>
-		</div>
-		<div class="sidebar_nav_arrow">
-			<%= link_to image_tag("/assets/arrow_right.png"), contact_path %>
-		</div>
-	</div>
-	<div class="sidebar_nav">
-		<div class="sidebar_nav_title">
-			<%= link_to "FlashMob", flashmob_path, :id => "flashmob" %>
-		</div>
-		<div class="sidebar_nav_arrow">
-			<%= link_to image_tag("/assets/arrow_right.png"), flashmob_path %>
-		</div>
-	</div>
-	<div class="sidebar_nav">
-		<div class="sidebar_nav_title">
-			<%= link_to "Blog", blog_path, :id => "blog" %>
-		</div>
-		<div class="sidebar_nav_arrow">
-			<%= link_to image_tag("/assets/arrow_right.png"), blog_path %>
-		</div>
-	</div>
-	<div class="sidebar_nav">
-		<div class="sidebar_nav_title">
-			<%= link_to "Press", press_path, :id => "press" %>
-		</div>
-		<div class="sidebar_nav_arrow">
-			<%= link_to image_tag("/assets/arrow_right.png"), press_path %>
-		</div>
-	</div>
-	<div class="sidebar_nav">
-		<div class="sidebar_nav_title">
-			<%= link_to "Partner", partner_path, :id => "partner" %>
-		</div>
-		<div class="sidebar_nav_arrow">
-			<%= link_to image_tag("/assets/arrow_right.png"), partner_path %>
-		</div>
-	</div>
-	<div id="sidebar_end">
-	</div>
+	<ul>
+		<li><%= link_to "About", about_path, :class => "about" %></li>
+		<li><%= link_to "Team", team_path, :class => "team" %></li>
+		<li><%= link_to "Partner", partner_path, :class => "partner" %></li>
+		<li><%= link_to "Support", support_path, :class => "support" %></li>
+		<li><%= link_to "Contact", contact_path, :class => "contact" %></li>
+		<li><%= link_to "Terms", terms_path, :class => "terms" %></li>
+		<li><%= link_to "Privacy", privacy_path, :class => "privacy" %></li>
+	</ul>
 </div>

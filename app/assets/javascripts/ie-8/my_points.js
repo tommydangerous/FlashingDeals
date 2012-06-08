@@ -1,11 +1,11 @@
 $(document).ready(function() {
-	$("#my_points").mouseover(function() {
+	$("#my_points").live("mouseover", function() {
 		$("#my_points_next_level").fadeIn(200);
 	})
 	$(document).mouseover(function() {
 		$("#my_points_next_level").fadeOut(100);
 	})
-	$("#my_points").mouseover(function() {
+	$("#my_points").live("mouseover", function() {
 		return false;
 	})
 })
@@ -31,6 +31,7 @@ function showLeveledUp(title) {
 	x.fadeOut(100);
 	$(".leveled_up_to").text(i);
 }
+
 /*
 $(document).ready(function() {
 	$(".share_points").click(function() {

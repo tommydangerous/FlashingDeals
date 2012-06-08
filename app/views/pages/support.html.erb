@@ -1,15 +1,17 @@
 <%= render "page_sidebar" %>
 <div class="page">
-	<div class="page_header">
-		<h1>Support</h1>
-	</div>
+	<p class="page_header">Support</p>
 	<div class="page_content">
 		<p>Help us help you.</p>
-		<h2>Having trouble or not sure how to use FlashingDeals?</h2>
-		<p>If you have any questions about FlashingDeals, check out the <%= link_to "FAQ", faq_path %></p>
-		<h2>Questions about FlashingDeals?</h2>
-		<p>We would love to help with whatever you need.</p>
-		<p>Have more questions? You can email us at <%= mail_to "support@flashingdeals.com", "support@flashingdeals.com", :subject => "Support" %>.</p>
+		<p class="page_content_header">Having Trouble or Not Sure How to Use FlashingDeals?</p>
+		<p>For any technical issues, trouble using the site, or any how-to inquiries, please contact <%= mail_to "support@flashingdeals.com", "support@flashingdeals.com", :subject => "Support" %>.</p>
+		<p class="page_content_header">Curiosities/Feedback</p>
+		<p>If you have any other questions about FlashingDeals or any type of feedback, please email us at <%= mail_to "hello@flashingdeals.com", "hello@flashingdeals.com", :subject => "Curiosities/Feedback" %>.</p>
+		<p>We would love to hear from you.</p>
 	</div>
-	<div class="page_end"></div>
 </div>
+<script>
+$(document).ready(function () {
+	$(".support").addClass("page_selected");
+});
+</script>

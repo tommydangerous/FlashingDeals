@@ -53,6 +53,7 @@
   		<div id="header">
   			<%= render 'layouts/header' %>
   		</div>
+  		<%= debug(params) if Rails.env.development? %>
   		<div id="content">
   			<%= render "shared/points_popup" %>
   			<%= render "shared/leveled_up" %>
@@ -66,12 +67,7 @@
 			<% end %>
   	</div>
   	<div class="clear"></div>
-		<div id="footer">
-			<%= render 'layouts/footer' %>
-			<div id="copyright">
-				<p class="copyright">FlashingDeals &copy; 2012 All Rights Reserved.</p>
-			</div>
-		</div>
+  	<%= render 'layouts/footer' %>
 		<% if Rails.env.production? %>
 			<script type="text/javascript" src="http://s.skimresources.com/js/28555X865329.skimlinks.js"></script>
 			<script type="text/javascript">

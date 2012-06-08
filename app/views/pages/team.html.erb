@@ -1,16 +1,13 @@
 <%= render "page_sidebar" %>
 <div class="page">
-	<div class="page_header">
-		<h1>Our Flashy Team</h1>
-	</div>
+	<p class="page_header">The Flashy Team</p>
 	<div class="page_content">
-		<h2>Opportunities</h2>
-		<p>Interested in joining the team? Please contact <%= mail_to "hello@flashingdeals.com", "hello@flashingdeals.com", :subject => "Opportunities" %></p>
+		<p>FlashingDeals is always growing, and so is our team. We would love to welcome you on our team if you are a passionate, hard working, and fun individual.</p>
+		<p>If you are interested in joining the team, please contact <%= mail_to "hello@flashingdeals.com", "hello@flashingdeals.com", :subject => "Opportunities" %>.</p>
 	</div>
-	<div class="page_end"></div>
 </div>
 <script>
 $(document).ready(function () {
-	$("a#team").addClass("page_selected");
+	$(".team").addClass("page_selected");
 });
 </script>

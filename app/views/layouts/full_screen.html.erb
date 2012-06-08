@@ -50,9 +50,10 @@
   </head>
   <body>
   	<div id="fs_wrapper">
-  		<div id="fs_header">
-  			<%= render "layouts/fs_header" %>
+  		<div id="header">
+  			<%= render "layouts/header" %>
   		</div>
+  		<%= debug(params) if Rails.env.development? %>
   		<div id="fs_content">
   			<%= render "shared/points_popup" %>
   			<%= render "shared/leveled_up" %>
@@ -68,12 +69,7 @@
   	<div id="back_to_the_top_container">
   		<%= link_to "Back To The Top", "javascript:void(0);", :id => "back_to_the_top" %>
   	</div>
-  	<div id="fs_footer">
-			<%= render "layouts/fs_footer" %>
-			<div id="copyright">
-				<p class="copyright">FlashingDeals &copy; 2012 All Rights Reserved.</p>
-			</div>
-		</div>
+  	<%= render 'layouts/footer' %>
 		<div class="overlayOuter">
 			<div class="overlay_top"></div>
 			<div class="overlay_left"></div>

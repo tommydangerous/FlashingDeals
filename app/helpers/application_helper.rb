@@ -1,7 +1,7 @@
 module ApplicationHelper
 	
   def logo
-  	image_tag("logo_beta.png", :class => "logo round")
+  	image_tag("logo_beta_s.png", :class => "logo round")
   end
   
   def logo_iframe

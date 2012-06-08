@@ -14,6 +14,7 @@ class StarsController < ApplicationController
 			format.js {
 				@deal = deal
 				@current_level = current_level
+				@user = current_user
 			}
 		end
 		deal.update_attribute(:point_count, deal.star_count)

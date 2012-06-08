@@ -1,11 +1,9 @@
 <%= render "page_sidebar" %>
 <div class="page">
-	<div class="page_header">
-		<h1>Terms of Service</h1>
-	</div>
+	<p class="page_header">Terms of Service</p>
 	<div class="page_content">
-		<p>Read carefully before using this site. If you do not agree with any part of our Terms of Service, do not use the site.</p>
-		<h2>Our Terms of Service:</h2>
+		<p>Read carefully before using this site.</p>
+		<p class="page_content_header">Our Terms of Service</p>
 		<ol>
 			<li>Permitted Uses</li>
 			<li>Availability of the Site</li>
@@ -29,8 +27,11 @@
 			<li>Choice of Law</li>
 			<li>Additional Disclosures</li>
 		</ol>
-		<h2>ACCEPTANCE OF TERMS OF SERVICE</h2>
-		<p>Coming soon...</p>
+		<p class="page_content_header">Acceptance of Terms of Service</p>
 	</div>
-	<div class="page_end"></div>
 </div>
+<script>
+$(document).ready(function () {
+	$(".terms").addClass("page_selected");
+});
+</script>

@@ -44,6 +44,7 @@ class CommentsController < ApplicationController
 					@comment = comment
 					@subcomments = subcomments
 					@current_level = current_level
+					@user = current_user
 				}
 			end
 			deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))

@@ -82,17 +82,13 @@ FlashingDeal::Application.routes.draw do
 	match '/email-select-users' => 'newsletters#email_select_users', :as => :email_select_users
 # Pages
   match '/about' => 'pages#about', :as => :about
-  match '/investors' => 'pages#investors', :as => :investors
   match '/team' => 'pages#team', :as => :team
-  match '/contact' => 'pages#contact', :as => :contact
-  match '/flashmob' => 'pages#flashmob', :as => :flashmob
-  match '/blog' => 'pages#blog', :as => :blog
-  match '/press' => 'pages#press', :as => :press
   match '/partner' => 'pages#partner', :as => :partner
-	match '/faq' => 'pages#faq', :as => :faq
   match '/support' => 'pages#support', :as => :support
+  match '/contact' => 'pages#contact', :as => :contact
   match '/terms' => 'pages#terms', :as => :terms
   match '/privacy' => 'pages#privacy', :as => :privacy
+  
   match '/test' => 'pages#test', :as => :test
   match '/test2' => 'pages#test2', :as => :test2
   match '/contacts/failure' => 'pages#contacts_failure'

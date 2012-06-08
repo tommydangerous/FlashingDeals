@@ -360,7 +360,6 @@ $(document).ready(function() {
 		} else {
 			$(".login_signup").width(830);
 			$(".form_side").show();
-			$("#session_email").focus();
 		}
 	})
 	

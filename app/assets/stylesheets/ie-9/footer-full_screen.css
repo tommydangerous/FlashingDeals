@@ -1,3 +1,28 @@
+/* footer.css */
+.footer {
+	height: 30px;
+	width: 100%;
+	overflow: visible;
+  margin-top: -30px;
+  background: rgb(100, 100, 100);
+  -webkit-box-shadow: 0px -1px 5px rgba(0, 0, 0, .4);
+  -khtml-box-shadow: 0px -1px 5px rgba(0, 0, 0, .4);
+  -moz-box-shadow: 0px -1px 5px rgba(0, 0, 0, .4);
+  -ms-box-shadow: 0px -1px 5px rgba(0, 0, 0, .4);
+  -o-box-shadow: 0px -1px 5px rgba(0, 0, 0, .4);
+  box-shadow: 0px -1px 5px rgba(0, 0, 0, .4);
+}
+
+.copyright {
+	text-align: center;
+  font-family: Helvetica, Arial;
+  color: rgb(200, 200, 200);
+  font-size: 11px;
+  height: 14px;
+  padding: 8px 0px;
+}
+
+/* full_screen.css */
 #fs_wrapper {
 	min-height: 100%;
 	min-width: 970px;

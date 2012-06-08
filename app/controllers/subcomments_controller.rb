@@ -41,6 +41,7 @@ class SubcommentsController < ApplicationController
 					@subcomment = subcomment
 					@subcomments = Subcomment.where("comment_id = ?", @comment.id)
 					@current_level = current_level
+					@user = current_user
 				}
 			end
 			deal.update_attribute(:comment_count, (deal.comments.size + deal.subcomments.size))

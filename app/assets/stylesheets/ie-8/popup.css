@@ -317,7 +317,7 @@ div#popup_page_info_body p {
 }
 
 div#popup_page_info_invite {
-	border: 1px solid rgb(148, 222, 240);
+	border: 1px dotted rgb(200, 200, 200);
 	background: rgb(255, 255, 255);
 	width: 970px;
 	margin: 0 auto;

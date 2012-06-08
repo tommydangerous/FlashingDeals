@@ -1,13 +1,11 @@
 <%= render "page_sidebar" %>
 <div class="page">
-	<div class="page_header">
-		<h1>Privacy Policy</h1>
-	</div>
+	<p class="page_header">Privacy Policy</p>
 	<div class="page_content">
-		<h2>FlashingDeal Privacy Policy</h2>
-		<p>Effective Date: August 3, 2011</p>
-		<p>We respect your privacy.</p>
-		<h2>Our Privacy Policy:</h2>
+		<p class="page_content_header">We Respect Your Privacy</p>
+		<p>FlashingDeals will never abuse the information you give us. We will never give your information to anyone.</p>
+		<p>You are safe here with us.</p>
+		<p class="page_content_header">Our Privacy Policy</p>
 		<ol>
 			<li>How FlashingDeal Collects Personal Information</li>
 			<li>How FlashingDeal Uses Personal Information</li>
@@ -24,8 +22,14 @@
 			<li>Changes to this Privacy Statement</li>
 			<li>California Privacy Rights</li>
 		</ol>
-		<h2>Types of Personal Information We Collect</h2>
-		<p>Coming soon...</p>
+		<p class="page_content_header">Types of Personal Information We Collect</p>
+		<ol>
+			<li>Your email address</li>
+		</ol>
 	</div>
-	<div class="page_end"></div>
 </div>
+<script>
+$(document).ready(function () {
+	$(".privacy").addClass("page_selected");
+});
+</script>

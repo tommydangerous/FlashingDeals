@@ -1,4 +1,6 @@
-$("#stars").html("<%= escape_javascript(render(:partial => "stars/star_form", :object => @deal, :as => :deal)) %>")
+$("#stars").html("<%= escape_javascript(render(:partial => "stars/star_form", :object => @deal, :as => :deal)) %>");
+
+$('#my_points_ajax').html("<%= escape_javascript(render(:partial => "users/my_points", :object => @user)) %>");
 
 <% if @current_level == current_user.level %>
 	showPointsPopup(15);
