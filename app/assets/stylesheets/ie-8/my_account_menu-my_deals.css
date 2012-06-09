@@ -5,7 +5,7 @@
 	top: 44px;
 	right: 15px;
 	width: 150px;
-	z-index: 100;
+	z-index: 9001;
 }
 
 div#my_account_drop_down ul {
