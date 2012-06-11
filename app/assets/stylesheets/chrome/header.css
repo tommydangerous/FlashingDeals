@@ -48,11 +48,10 @@ ul.account_nav li {
 
 li.nav_about_link {
 	float: left;
-	padding: 12px 0px;
 }
 
 li.nav_login_link {
-	padding: 12px 0px;
+	
 }
 
 .hd ul.header_nav {
@@ -62,10 +61,11 @@ li.nav_login_link {
 
 .hd ul.header_nav li{
   display: inline-block;
-  padding: 12px 0px;
 }
 
 .not_selected {
+	display: block;
+	height: 16px;
 	padding: 14px 15px;
   font-family: Helvetica, Arial;
   font-weight: bold;
@@ -81,6 +81,8 @@ li.nav_login_link {
 }
 
 .selected {
+	display: block;
+	height: 16px;
 	padding: 14px 15px;
   font-family: Helvetica, Arial;
   font-weight: bold;

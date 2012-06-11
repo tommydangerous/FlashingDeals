@@ -24,6 +24,7 @@
   			<span class="grey_150">Joined</span> <%= user.created_at.strftime("%A, %b %d") %> <span class="grey_150">at</span> <%= user.created_at.strftime("%I:%M %p") %>
   		</p>
 	  	<p><%= user.email %></p>
+	  </div>
 	  <div id="user_partial_stats">
 	  	<ul>
 	  		<li>Comments: <span class="grey_75"><%= (user.comments.size + user.subcomments.size) %></span></li>
@@ -39,5 +40,6 @@
 	  		Joined: <%= user.created_at.strftime("%A") %> at <%= user.created_at.strftime("%I:%M %p") %> (<%= user.created_at.strftime("%b %d, %Y") %>)
 	  	<% end %>
 	  </div>
+	  <div class="clear"></div>
 	</div>
 </li>
