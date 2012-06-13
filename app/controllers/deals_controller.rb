@@ -1,6 +1,6 @@
 class DealsController < ApplicationController
-	before_filter :authenticate, :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame]
-	before_filter :admin_user,	 :except => [:top_deals, :featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals, :clear_dead_deals]
+	before_filter :authenticate, :except => [:featured_deals, :show, :show_overlay, :frame]
+	before_filter :admin_user,	 :except => [:featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals, :clear_dead_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue, :share_points]
 	before_filter :today
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
@@ -16,11 +16,6 @@ class DealsController < ApplicationController
 	require 'chronic'
 	
 # All Users
-	def top_deals
-		@title = "First to Know"
-		@deals = Deal.where("top_deal = ?", true).order("time_in DESC")[0..3]
-	end
-	
 	def featured_deals
 		@title = "FlashingDeals"
 		@today_3 = Time.now - (86400 * 3)
@@ -29,56 +24,6 @@ class DealsController < ApplicationController
   	render :layout => "full_screen"
   	clear_return_to
 	end
-		
-  def flashback
-  	@title = "Featured Deals"
-  	@today_3 = Time.now - (86400 * 3)
-  	if params[:omega] == "alpha" && params[:zulu] == "bravo"
-  		min = 0
-  		max = 999
-  	elsif params[:omega] == "charlie" && params[:zulu] == "delta"
-  		min = 2
-  		max = 4
-  	elsif params[:omega] == "echo" && params[:zulu] == "foxtrot"
-  		min = 4
-  		max = 999
-  	else
-  		min = 0
-  		max = 999
-  	end
-		deals = Deal.where("posted > ? AND flash_back = ? AND metric >= ? AND metric < ?", @today_3, true, min, max)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 100)
-  	@deals_total_count = deals.search(params[:search]).size
-  	if min == 0 && max == 999
-  		@min = 0
-  		@max = 999
-  	elsif min == 2 && max == 4
-  		@min = 2
-  		@max = 4
-  	elsif min == 4 && max == 999
-  		@min = 4
-  		@max = 999
-  	end
-  	clear_return_to
-  end
-  
-  def flashback_electric
-  	@title = "Electric Deals Only"
-  	@today_3 = Time.now - (86400 * 3)
-		deals = Deal.where("posted > ? AND flash_back = ? AND metric >= ? AND metric < ?", @today_3, true, 2, 4)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 50)
-  	@deals_total_count = deals.search(params[:search]).size
-  	clear_return_to
-  end
-  
-  def flashback_flashing
-  	@title = "Flashing Deals Only"
-  	@today_3 = Time.now - (86400 * 3)
-		deals = Deal.where("posted > ? AND flash_back = ? AND metric >= ?", @today_3, true, 4)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 50)
-  	@deals_total_count = deals.search(params[:search]).size
-  	clear_return_to
-  end
   
 	def show
   	@deal = Deal.find(params[:id])
@@ -196,7 +141,6 @@ class DealsController < ApplicationController
 		else
 			redirect_to "http://go.flashingdeals.com?id=28555X865329&xs=1&url=#{CGI.escape(@deal.link)}"
 		end
-#  	render :layout => "iframe"
   end
 
 # Only Logged In Users  

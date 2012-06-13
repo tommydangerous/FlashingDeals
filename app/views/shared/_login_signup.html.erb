@@ -37,6 +37,7 @@
 	</div>
 	<div class="form_side">
 		<div class="form_side_login">
+			<p class="login_signup_form_header">Existing user? Login</p>
 			<%= form_for(:session, :url => sessions_path) do |f| %>
 				<div class="field">
 					<%= f.text_field :email, :tabindex => 1, :placeholder => "Email address" %>
@@ -57,6 +58,7 @@
 			<% end %>
 		</div>
 		<div class="form_side_signup">
+			<p class="login_signup_form_header">New user? Sign up</p>
 			<%= form_for(User.new) do |f| %>
 				<div class="field">
 					<%= f.text_field :name, :autocomplete => "off", :tabindex => 4, :placeholder => "Full name" %>

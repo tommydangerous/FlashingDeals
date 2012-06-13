@@ -108,3 +108,7 @@ div.flash {
 .placeholder {
 	color: rgb(175, 175, 175);
 }
+
+.center {
+	text-align: center;
+}

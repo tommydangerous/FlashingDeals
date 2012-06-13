@@ -34,7 +34,8 @@ class Deal < ActiveRecord::Base
 									:rebate,
 									:dead,
 									:flashmob,
-									:expires
+									:expires,
+									:partner
 	
 									
 	validates :name, :presence => true 
@@ -64,9 +65,9 @@ class Deal < ActiveRecord::Base
 	def self.search(search)
 		if search
 			if Rails.env.production?
-				where("name ILIKE ?", "%#{search}%")
+				where("name ILIKE ? OR site ILIKE ?", "%#{search}%", "%#{search}%")
 			else
-				where("name LIKE ?", "%#{search}%")
+				where("name LIKE ? OR site LIKE ?", "%#{search}%", "%#{search}%")
 			end
 		else
 			scoped
@@ -76,9 +77,9 @@ class Deal < ActiveRecord::Base
 	def self.search_flashmob(search)
 		if search
 			if Rails.env.production?
-				where("metric = ? AND name ILIKE ?", -1, "%#{search}%")
+				where("metric = ? AND name ILIKE ? OR site ILIKE ?", -1, "%#{search}%", "%#{search}%")
 			else
-				where("metric = ? AND name LIKE ?", -1, "%#{search}%")
+				where("metric = ? AND name LIKE ? OR site LIKE ?", -1, "%#{search}%", "%#{search}%")
 			end
 		else
 			scoped

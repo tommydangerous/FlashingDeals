@@ -59,7 +59,6 @@ FlashingDeal::Application.routes.draw do
 # Deals
   root :to => 'deals#featured_deals'
   match '/featured' => 'deals#featured_deals', :as => :featured_deals
-	match '/featured_deals' => 'deals#flashback', :as => :flashback
 	match '/flashingdeal/:id' => 'deals#frame', :as => :frame
 	match '/community' => 'deals#community_deals', :as => :community_deals
 	match '/flashmob-deals' => 'deals#flashmob_deals', :as => :flashmob_deals
@@ -71,6 +70,8 @@ FlashingDeal::Application.routes.draw do
   match '/create-deals' => 'deals#create_deals', :as => :create_deals
 	match '/empty-queue' => 'deals#empty_queue', :as => :empty_queue
 	match '/share_points' => 'deals#share_points', :as => :share_points
+# Partners
+	match '/satori' => 'partners#satori_deals', :as => :satori_deals
 # Messages	
 	match '/read-all' => 'messages#read_all', :as => :read_all
   match '/unread-all' => 'messages#unread_all', :as => :unread_all

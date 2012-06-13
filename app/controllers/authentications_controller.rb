@@ -32,11 +32,20 @@ class AuthenticationsController < ApplicationController
   def create
   	omniauth = request.env['omniauth.auth']
   	authentication = Authentication.find_by_provider_and_uid(omniauth['provider'], omniauth['uid'])
+		if cookies[:partner]
+			partner = cookies[:partner]
+		else
+			partner = nil
+		end
   	if omniauth['provider'] == "facebook"
   		existing_user = User.find_by_email(omniauth['info']['email'])
   		if authentication && authentication.user != nil # if authentication exist, sign user in
   			sign_in authentication.user
-  			redirect_back_or my_account_path
+  			if authentication.user.partner.nil?
+  				redirect_back_or my_account_path
+  			else
+  				redirect_to "/#{authentication.user.partner}"
+  			end
   		elsif current_user # if authentication does not exist and the user is signed in, create an authentication
   			current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
 	  		flash[:success] = "Facebook authentication successful."
@@ -56,15 +65,23 @@ class AuthenticationsController < ApplicationController
 	  		email = omniauth["info"]["email"]
 	  		photo = res['location'].to_s
 	  		random_password = ('a'..'z').to_a.shuffle[0..20].join
-	  		user = User.create!(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo)
+	  		user = User.create!(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo, :partner => partner)
 	  		user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
 	  		new_user_authentications(user)
-		  	redirect_back_or my_account_path
+	  		if user.partner.nil?
+		  		redirect_back_or my_account_path
+		  	else
+		  		redirect_to "/#{user.partner}"
+		  	end
 	  	end
   	elsif omniauth['provider'] == "twitter"
   		if authentication && authentication.user != nil # if authentication exist, sign user in
   			sign_in authentication.user
-  			redirect_back_or my_account_path
+  			if authentication.user.partner.nil?
+  				redirect_back_or my_account_path
+  			else
+  				redirect_to "/#{authentication.user.partner}"
+  			end
   		elsif current_user # if authentication does not exist and the user is signed in, create an authentication
   			current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
 	  		flash[:success] = "Twitter authentication successful."
@@ -79,7 +96,11 @@ class AuthenticationsController < ApplicationController
 			existing_user = User.find_by_email(omniauth['info']['email'])
 			if authentication && authentication.user != nil # if authentication exist, sign user in
   			sign_in authentication.user
-  			redirect_back_or my_account_path
+  			if authentication.user.partner.nil?
+  				redirect_back_or my_account_path
+  			else
+  				redirect_to "/#{authentication.user.partner}"
+  			end
   		elsif current_user # if authentication does not exist and the user is signed in, create an authentication
   			current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
 	  		flash[:success] = "Google authentication successful."
@@ -96,10 +117,14 @@ class AuthenticationsController < ApplicationController
 	  		end
 	  		email = omniauth['info']['email']
 	  		random_password = ('a'..'z').to_a.shuffle[0..20].join
-	  		user = User.create!(:name => name, :email => email, :password => random_password, :accept_terms => true)
+	  		user = User.create!(:name => name, :email => email, :password => random_password, :accept_terms => true, :partner => partner)
 	  		user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
 	  		new_user_authentications(user)
-		  	redirect_back_or my_account_path
+		  	if user.partner.nil?
+		  		redirect_back_or my_account_path
+		  	else
+		  		redirect_to "/#{user.partner}"
+		  	end
 	  	end
   	end
   end
@@ -123,6 +148,11 @@ class AuthenticationsController < ApplicationController
   		name = session[:twitter_name]
   		email = params[:twitter_signup_email]
   		photo = session[:twitter_image]
+  		if cookies[:partner]
+				partner = cookies[:partner]
+			else
+				partner = nil
+			end
   		random_password = ('a'..'z').to_a.shuffle[0..20].join
 	  	existing_user = User.find_by_email(params[:twitter_signup_email])
 	  	if existing_user # if email exists, tell the user to login to FlashingDeals
@@ -130,10 +160,14 @@ class AuthenticationsController < ApplicationController
 	  		render :twitter_email
 	  	elsif existing_user.nil? # if email is not taken, create the user and authentication
 	  		name = "#{session[:twitter_name]}2" unless User.find_by_name(name).nil?
-	  		user = User.create!(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo)
+	  		user = User.create!(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo, :partner => partner)
 	  		user.authentications.create!(:provider => "twitter", :uid => session[:twitter_uid])
 	  		new_user_authentications(user)
-	  		redirect_back_or my_account_path
+	  		if user.partner.nil?
+		  		redirect_back_or my_account_path
+		  	else
+		  		redirect_to "/#{user.partner}"
+		  	end
 	  	end
 	  end
   end

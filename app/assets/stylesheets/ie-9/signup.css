@@ -1,43 +1,36 @@
 div#signup {
 	width: 450px;
 	float: right;
-	background: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(148, 222, 240, 1);
 }
 
 div#signup_info {
-	width: 450px;
+	width: 394px;
 	float: left;
-	background: rgba(255, 255, 255, 1);
-	border: 1px solid rgba(148, 222, 240, 1);
-	height: 381px;
 }
 
 div#signup_header, div#signup_info_header {
-	background: rgba(173, 217, 228, 1);
 	padding: 20px;
 }
 
 div#signup_header h1, div#signup_info_header h1 {
-	font-family: Verdana;
-	font-size: 22px;
-	color: rgba(44, 175, 227, 1);
+	font-family: Helvetica, Arial;
+	font-size: 28px;
+	color: rgb(75, 75, 75);
 	margin: 0;
 }
 
 div#signup_form {
 	padding: 20px;
-	text-align: right;
 }
 
 div#signup_info_body {
 	padding: 20px;
 }
 
-div#signup_info_body p {
+.signup_info_body_content p {
 	font-size: 14px;
 	line-height: 18px;
-	margin-bottom: 14px;
+	margin-bottom: 18px;
 }
 
 div#signup_info_main {
@@ -55,23 +48,33 @@ div#signup_info_main p {
 	font-size: 14px;
 }
 
+div#signup_form div.field input::-webkit-input-placeholder {
+	color: rgb(125, 125, 125);
+}
+
+div#signup_form div.field input:focus::-webkit-input-placeholder {
+	color: rgb(200, 200, 200);
+}
+
+div#signup_form div.field input:-moz-placeholder {
+	color: rgb(125, 125, 125);
+}
+
+div#signup_form div.field input:focus:-moz-placeholder {
+	color: rgb(200, 200, 200);
+}
+
 div#signup_form div.field {
 	margin-bottom: 15px;
 }
 
 div#signup_form div.field input {
 	width: 398px;
-	-webkit-border-radius: 2px;
-	-khtml-border-radius: 2px;
-	-moz-border-radius: 2px;
-	-ms-border-radius: 2px;
-	-o-border-radius: 2px;
-	border-radius: 2px;
-	border: 1px solid rgba(200, 200, 200, 1);
+	border: 1px solid rgb(200, 200, 200);
 	padding: 5px;
-	font-family: Verdana;
-	font-size: 14px;
-	color: rgba(75, 75, 75, 1);
+	font-family: Helvetica, Arial;
+	font-size: 18px;
+	color: rgb(75, 75, 75);
 	margin: 0;
 	margin-bottom: 5px;
 	-webkit-transition: all .2s ease-in-out;
@@ -86,10 +89,16 @@ div#signup_form div.field input {
 	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
 }
 
 div#signup_form div.field input:hover {
-	border: 1px solid rgba(150, 150, 150, 1);
+	border: 1px solid rgb(150, 150, 150);
 }
 
 div#signup_form div.field input:focus {
@@ -106,10 +115,8 @@ div#signup_form div.actions {
 	font-family: Helvetica, Arial;
 	font-size: 13px;
 	color: rgb(150, 150, 150);
-}
-
-div#signup_form div.actions {
 	margin-top: 25px;
+	text-align: right;
 }
 
 div#signup_form div.actions a {
@@ -124,13 +131,13 @@ div#signup_form div.actions a {
 div#signup_form div.actions input {
 	text-shadow: 0px -1px 1px rgba(0, 0, 0, .25);
 	margin: 0;
-	margin-left: 80px;
+	margin-left: 55px;
 	background: none;
 	font-size: 14px;
 	font-family: Helvetica, Arial;
 	font-weight: bold;
 	border: none;
-	color: rgba(255, 255, 255, 1);
+	color: rgb(255, 255, 255);
 	padding: 10px 15px;
 	-webkit-transition: all .2s linear;
 	-khtml-transition: all .2s linear;
@@ -230,7 +237,7 @@ div#accept_terms {
 	font-size: 13px;
 	color: rgb(150, 150, 150);
 	margin-top: 30px;
-	margin-bottom: 15px;
+	text-align: right;
 }
 
 div#accept_terms a {
@@ -261,7 +268,7 @@ div#accept_terms input#user_accept_terms {
 
 div#facebook_signup_referral {
 	margin-top: 60px;
-	margin-bottom: 29px;
+	margin-bottom: 40px;
 }
 
 div#referral_info {
@@ -279,12 +286,12 @@ div#referral_info p {
 
 div#no_facebook {
 	text-align: center;
-	margin-top: 61px;
+	margin-top: 60px;
 }
 
 div#no_facebook p {
 	font-family: Helvetica, Arial;
-	font-size: 12px;
+	font-size: 13px;
 	color: rgb(150, 150, 150);
 }
 
@@ -331,10 +338,8 @@ div#no_facebook p {
 }
 
 #signup_info_body_header {
-	height: 20px;
-	margin-bottom: 20px;
-	font-weight: bold;
+	margin-bottom: 10px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 18px;
 	color: rgb(75, 75, 75);
 }

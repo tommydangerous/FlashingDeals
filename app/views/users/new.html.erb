@@ -1,20 +1,19 @@
 <div id="signup_info">
 	<div id="signup_info_header">
-		<h1>A new way to discover <span class="green">deals</span></h1>
+		<h1>A new way to discover deals</h1>
 	</div>
 	<div id="signup_info_body">
-		<h1 id="signup_info_body_header">Sign Up</h1>
-		<%= link_to("/auth/facebook", :class => "auth_facebook auth_anchor") do %>
+		<%= link_to("/auth/facebook", :class => "auth_facebook auth_signup") do %>
 			<%= image_tag "/assets/facebook_auth.png" %>
-			<p>using <b>Facebook</b></p>
+			<p>Sign up using <b>Facebook</b></p>
 		<% end %>
-		<%= link_to("/auth/twitter", :class => "auth_twitter auth_anchor") do %>
+		<%= link_to("/auth/twitter", :class => "auth_twitter auth_signup") do %>
 			<%= image_tag "/assets/twitter_auth.png" %>
-			<p>using <b>Twitter</b></p>
+			<p>Sign up using <b>Twitter</b></p>
 		<% end %>
-		<%= link_to("/auth/google", :class => "auth_google auth_anchor") do %>
+		<%= link_to("/auth/google", :class => "auth_google auth_signup") do %>
 			<%= image_tag "/assets/google_auth1.png" %>
-			<p>using <b>Google</b></p>
+			<p>Sign up using <b>Google</b></p>
 		<% end %>
 		<div id="referral_info">
 			<p>(we will not post on your behalf or spam your friends)</p>
@@ -23,7 +22,7 @@
 </div>
 <div id="signup">
 	<div id="signup_header">
-		<h1>Sign up for <span class="green">free</span></h1>
+		<h1>Sign up for free</h1>
 	</div>
 	<div id="signup_form">
 		<% if flash[:error] %>

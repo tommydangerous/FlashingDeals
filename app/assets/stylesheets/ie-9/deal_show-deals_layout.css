@@ -926,3 +926,55 @@ div#deal_show_column_right_2 {
 	width: 589px;
 	float: right;
 }
+
+/* deals_layout.css */
+div#side_panel {
+	float: left;
+	width: 220px;
+}
+	
+div#deals_list {
+	float: right;
+	background: rgba(255, 255, 255, 0);
+	width: 700px;
+	margin-bottom: 25px;
+}
+
+div#deals {
+	background: rgba(255, 255, 255, 0);
+}
+
+div.deals_list {
+  background: rgba(255, 255, 255, 1);
+}
+
+div.empty_category p {
+	font-size: 12px;
+	font-family: Verdana;
+	color: rgba(150, 150, 150, 1);
+	padding: 5px;
+}
+
+div.empty_category a {
+	text-decoration: none;
+	color: rgba(44, 175, 227, 1);
+	font-weight: bold;
+	-webkit-transition: all .2s linear;
+	-khtml-transition: all .2s linear;
+	-moz-transition: all .2s linear;
+	-ms-transition: all .2s linear;
+	-o-transition: all .2s linear;
+	transition: all .2s linear;
+}
+
+div.empty_category a:hover {
+	opacity: .75;
+	text-decoration: underline;
+}
+
+div#pagination_bottom {
+	float: right;
+	width: 700px;
+	margin-top: -25px;
+	margin-bottom: 25px;
+}

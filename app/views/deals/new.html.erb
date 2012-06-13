@@ -17,9 +17,6 @@
 			<div class="field">
 				<p>Site: <%= f.text_field :site, :autocomplete => "off", :placeholder => "Required (e.g. Amazon)" %></p>
 			</div>
-			<div class="field datetime">
-				<p>Posted: <%= f.datetime_select :posted, :ampm => true, :datetime_separator => ", ", :time_separator => "", :use_short_month => true, :order => [:month, :day, :year] %></p>
-			</div>
 			<div class="field">
 				<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required (e.g. national)" %></p>
 			</div>
@@ -28,6 +25,9 @@
 			</div>
 			<div id="field_deal_info" class="field">
 				<p>Info: <%= f.text_area :info, :autocomplete => "off" %></p>
+			</div>
+			<div class="field datetime">
+				<p>Posted: <%= f.datetime_select :posted, :ampm => true, :datetime_separator => ", ", :time_separator => "", :use_short_month => true, :order => [:month, :day, :year] %></p>
 			</div>
 	</div>
 </div>
@@ -53,6 +53,9 @@
 			</div>
 			<div class="field">
 				<p>Savings: <%= f.text_field :savings, :autocomplete => "off" %></p>
+			</div>
+			<div class="field">
+				<p>Partner: <%= f.text_field :partner, :autocomplete => "off" %></p>
 			</div>
 			<div class="field">
 				<p>Exclusive <%= f.check_box :exclusive %></p>

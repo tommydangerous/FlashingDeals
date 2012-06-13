@@ -1,0 +1,53 @@
+﻿<% content_for :head do %>
+	<meta property="og:title" content="FlashingDeals" />
+	<meta property="og:description" content="FlashingDeals is dedicated to delivering you the best deals. We do all the homework for you, researching and comparing every deal so that you don't have to." />
+	<meta property="og:image" content="https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png" />
+<% end %>
+<% if signed_in? %>
+	<div id="popup_page_info_invite">
+		<p>Did you know that you can comment on any deal just by clicking on the button with the comment bubble? Hover over any deal and the button will appear.</p>
+	</div>
+<% else %>
+	<div id="popup_page_info">
+		<div id="popup_page_info_body">
+			<p>We are always searching the internet for the best deals. The FD team and our users hand select deals and feature them here. All the homework is done for you, making sure anything you see here is the best. Watch out though, Featured Deals usually don’t last long and may be gone in a flash.</p>
+		</div>
+	</div>
+<% end %>
+<div id="grid_top_bar">
+	<div id="facebook_twitter_home">
+		<ul>
+			<li id="facebook_like_li">
+				<%= link_to("http://www.facebook.com/pages/FlashingDeals/254028428008396", :target => "_blank") do %>
+					<div id="facebook_like"></div>
+				<% end %>
+			</li>
+			<li id="twitter_follow_li">
+				<a href="https://twitter.com/FlashingDeals" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">
+					Follow @FlashingDeals
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div id="grid_search_form">
+		<%= form_tag satori_deals_path, :method => :get do %>
+			<%= hidden_field_tag :sort, params[:sort] %>
+			<%= hidden_field_tag :direction, params[:direction] %>
+			<%= text_field_tag :search, params[:search], :autocomplete => "off", :id => "grid_search" %>
+			<%= submit_tag "Search", :name => nil, :id => "grid_search_button" %>
+		<% end %>
+	</div>
+	<div id="grid_deal_nav"></div>
+</div>
+<div id="grid_container_large">
+	<%= render :partial => "deals/box_deal_large", :collection => @deals, :as => :deal %>
+</div>
+<div class="clear"></div>
+<%= render "deals/endless_pagination" %>
+<% unless signed_in? %>
+	<script>
+	$(document).ready(function() {
+		$("#dim_signup").show();
+	})
+	</script>
+<% end %>

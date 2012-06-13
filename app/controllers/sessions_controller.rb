@@ -27,7 +27,11 @@ class SessionsController < ApplicationController
 			else
 				sign_in_temp user
 			end
-			redirect_back_or my_account_path
+			if user.partner.nil?
+				redirect_back_or my_account_path
+			else
+				redirect_to "/#{user.partner}"
+			end
 		end
 	end
 	

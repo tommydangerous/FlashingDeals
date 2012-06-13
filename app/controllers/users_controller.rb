@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   def create
   	params[:user][:email] = params[:user][:email].downcase
   	params[:user][:accept_terms] = true
+  	params[:user][:partner] = cookies[:partner] if cookies[:partner]
   	@user = User.new(params[:user])
   	if @user.save
   		fd = User.find(1)
@@ -47,7 +48,11 @@ class UsersController < ApplicationController
   		fd.friendships.create!(:friend_id => @user.id, :approved => false)
   		sign_in @user
   		flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
-  		redirect_to @user
+  		if @user.partner.nil?
+  			redirect_to @user
+  		else
+  			redirect_to "/#{@user.partner}"
+  		end
   	else
   		@title = "Sign Up"
   		render 'new'

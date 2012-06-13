@@ -1,7 +1,15 @@
 module ApplicationHelper
 	
   def logo
-  	image_tag("logo_beta_s.png", :class => "logo round")
+  	if signed_in?
+  		if current_user.partner.nil?
+  			link_to image_tag("logo_beta_s.png", :class => "logo round"), root_path
+  		else
+  			link_to image_tag("logo_beta_s.png", :class => "logo round"), "/#{current_user.partner}"
+  		end
+  	else
+  		link_to image_tag("logo_beta_s.png", :class => "logo round"), root_path
+  	end
   end
   
   def logo_iframe

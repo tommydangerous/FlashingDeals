@@ -112,3 +112,7 @@ input:-moz-placeholder {
 input:focus:-moz-placeholder {
 	color: rgb(210, 210, 210);
 }
+
+.center {
+	text-align: center;
+}

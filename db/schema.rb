@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120504175123) do
+ActiveRecord::Schema.define(:version => 20120611183636) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -103,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20120504175123) do
     t.boolean   "dead",          :default => false
     t.boolean   "flashmob",      :default => false
     t.datetime  "expires"
+    t.string    "partner"
   end
 
   add_index "deals", ["city"], :name => "index_deals_on_city"
@@ -119,6 +120,7 @@ ActiveRecord::Schema.define(:version => 20120504175123) do
   add_index "deals", ["link"], :name => "index_deals_on_link"
   add_index "deals", ["metric"], :name => "index_deals_on_metric"
   add_index "deals", ["name"], :name => "index_deals_on_name"
+  add_index "deals", ["partner"], :name => "index_deals_on_partner"
   add_index "deals", ["point_count"], :name => "index_deals_on_point_count"
   add_index "deals", ["posted"], :name => "index_deals_on_posted"
   add_index "deals", ["price"], :name => "index_deals_on_price"
@@ -320,12 +322,14 @@ ActiveRecord::Schema.define(:version => 20120504175123) do
     t.boolean  "monthly",                :default => false
     t.integer  "points",                 :default => 0
     t.boolean  "sent_invite",            :default => false
+    t.string   "partner"
   end
 
   add_index "users", ["active"], :name => "index_users_on_active"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["monthly"], :name => "index_users_on_monthly"
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
+  add_index "users", ["partner"], :name => "index_users_on_partner"
   add_index "users", ["points"], :name => "index_users_on_points"
   add_index "users", ["sent_invite"], :name => "index_users_on_sent_invite"
   add_index "users", ["slug"], :name => "index_users_on_slug"

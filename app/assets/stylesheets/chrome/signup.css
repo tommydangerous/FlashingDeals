@@ -1,43 +1,36 @@
 div#signup {
 	width: 450px;
 	float: right;
-	background: rgb(255, 255, 255);
-	border: 1px solid rgb(148, 222, 240);
 }
 
 div#signup_info {
-	width: 450px;
+	width: 387px;
 	float: left;
-	background: rgb(255, 255, 255);
-	border: 1px solid rgb(148, 222, 240);
-	height: 382px;
 }
 
 div#signup_header, div#signup_info_header {
-	background: rgb(173, 217, 228);
 	padding: 20px;
 }
 
 div#signup_header h1, div#signup_info_header h1 {
-	font-family: Verdana;
-	font-size: 22px;
-	color: rgb(44, 175, 227);
+	font-family: Helvetica, Arial;
+	font-size: 28px;
+	color: rgb(75, 75, 75);
 	margin: 0;
 }
 
 div#signup_form {
 	padding: 20px;
-	text-align: right;
 }
 
 div#signup_info_body {
 	padding: 20px;
 }
 
-div#signup_info_body p {
+.signup_info_body_content p {
 	font-size: 14px;
 	line-height: 18px;
-	margin-bottom: 14px;
+	margin-bottom: 18px;
 }
 
 div#signup_info_main {
@@ -77,16 +70,10 @@ div#signup_form div.field {
 
 div#signup_form div.field input {
 	width: 398px;
-	-webkit-border-radius: 2px;
-	-khtml-border-radius: 2px;
-	-moz-border-radius: 2px;
-	-ms-border-radius: 2px;
-	-o-border-radius: 2px;
-	border-radius: 2px;
 	border: 1px solid rgb(200, 200, 200);
 	padding: 5px;
-	font-family: Verdana;
-	font-size: 14px;
+	font-family: Helvetica, Arial;
+	font-size: 18px;
 	color: rgb(75, 75, 75);
 	margin: 0;
 	margin-bottom: 5px;
@@ -102,6 +89,12 @@ div#signup_form div.field input {
 	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
 }
 
 div#signup_form div.field input:hover {
@@ -122,10 +115,8 @@ div#signup_form div.actions {
 	font-family: Helvetica, Arial;
 	font-size: 13px;
 	color: rgb(150, 150, 150);
-}
-
-div#signup_form div.actions {
 	margin-top: 25px;
+	text-align: right;
 }
 
 div#signup_form div.actions a {
@@ -246,7 +237,7 @@ div#accept_terms {
 	font-size: 13px;
 	color: rgb(150, 150, 150);
 	margin-top: 30px;
-	margin-bottom: 15px;
+	text-align: right;
 }
 
 div#accept_terms a {
@@ -295,12 +286,12 @@ div#referral_info p {
 
 div#no_facebook {
 	text-align: center;
-	margin-top: 59px;
+	margin-top: 60px;
 }
 
 div#no_facebook p {
 	font-family: Helvetica, Arial;
-	font-size: 12px;
+	font-size: 13px;
 	color: rgb(150, 150, 150);
 }
 
@@ -347,10 +338,8 @@ div#no_facebook p {
 }
 
 #signup_info_body_header {
-	height: 20px;
-	margin-bottom: 20px;
-	font-weight: bold;
+	margin-bottom: 10px;
 	text-align: center;
-	font-size: 16px;
+	font-size: 18px;
 	color: rgb(75, 75, 75);
 }
