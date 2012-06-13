@@ -1,0 +1,226 @@
+<% if deal.dead? %>
+<div id="box_deal_<%= deal.id %>" class="box_deal_large deal_dead" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();" title="This deal has expired" style="border: 1px solid rgb(185, 225, 0)">
+<% else %>
+<div id="box_deal_<%= deal.id %>" class="box_deal_large" onmouseover="showBoxDealShare(<%= deal.id %>);" onmouseout="hideBoxDealShare();" style="border: 1px solid rgb(185, 225, 0)">
+<% end %>
+	<% unless deal.metric.nil? %>
+		<% if deal.metric >= 4 %>
+			<div id="box_deal_large_lightning">
+				<%= lightning_deal_2 %>
+			</div>
+		<% end %>
+	<% end %>
+	<div id="box_deal_large_price">
+		<h1>
+			<% if deal.price.nil? && deal.discount != nil %>
+				<%= deal.discount.round %>% Off
+			<% elsif deal.price.blank? && deal.discount.blank? && deal.value.blank? && deal.savings != nil %>
+				$<%= deal.savings.round %> Off
+			<% elsif deal.price.blank? %>
+			<% elsif deal.price == 0 %>
+				Free
+			<% else %>
+				$<%= (deal.price * 1.0).round %>
+			<% end %>
+		</h1>
+	</div>
+	<div id="box_deal_large_image_container">
+		<div class="box_deal_link_overlay">
+			<% if signed_in? %>
+				<%= link_to("javascript:void(0)", :class => "box_deal_large_link", :onclick => "overlayPopup(#{deal.id});") do %>
+					<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+				<% end %>
+			<% else %>
+				<% if deal.exclusive? %>
+					<%= link_to("javascript:void(0)", :class => "box_deal_large_link", :onclick => "signupPopupExclusive();") do %>
+						<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<% end %>
+				<% else %>
+					<%= link_to("javascript:void(0)", :class => "box_deal_large_link", :onclick => "overlayPopup(#{deal.id})") do %>
+						<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+		<div class="box_deal_link_overlay_none">
+			<% if signed_in? %>
+				<%= link_to(deal, :class => "box_deal_large_link") do %>
+					<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+				<% end %>
+			<% else %>
+				<% if deal.exclusive? %>
+					<%= link_to(deal, :class => "box_deal_large_link", :onclick => "signupPopupExclusive();") do %>
+						<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<% end %>
+				<% else %>
+					<%= link_to(deal, :class => "box_deal_large_link") do %>
+						<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy_large.png" data-original="<%= deal.image %>" id="box_deal_large_image">
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+	</div>
+	<div id="box_deal_share_<%= deal.id %>" class="box_deal_large_share">
+		<ul>
+			<li>
+				<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example3demo_<%= deal.id %> share_points box_deal_anchor_not_selected" title="Facebook">
+					<%= image_tag("/assets/facebook_grey.png") %>
+				</a>
+			</li>
+			<li>
+				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= CGI.escape(deal.name) %>%20http://www.flashingdeals.com<%= deal_path(deal) %>&via=FlashingDeals" target="_blank" class="share_points box_deal_anchor_not_selected" title="Twitter">
+					<%= image_tag("/assets/twitter_grey.png") %>
+				</a>
+			</li>
+			<li>
+				<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example4demo_<%= deal.id %> share_points box_deal_anchor_not_selected" title="Email">
+					<%= image_tag("/assets/email_grey.png") %>
+				</a>
+			</li>
+			<li>
+				<% if signed_in? %>
+					<%= link_to("javascript:void(0);", :id => "box_deal_comment_anchor_#{deal.id}", :onclick => "showBoxDealCommentForm(#{deal.id})", :title => "Comment", :class => "box_deal_anchor_not_selected") do %>
+						<%= image_tag("/assets/comment_grey.png") %>
+					<% end %>
+				<% else %>
+					<%= link_to("javascript:void(0);", :title => "Comment", :class => "box_deal_anchor_not_selected signup_popup_anchor") do %>
+						<%= image_tag("/assets/comment_grey.png") %>
+					<% end %>
+				<% end %>
+			</li>
+		</ul>
+	</div>
+	<div id="box_deal_large_name">
+		<h1><%= wrap_box_deal_large_name(deal.name) %></h1>
+		<% unless deal.site.nil? || deal.site.empty? %>
+			<p><%= deal.site %></p>
+		<% end %>
+	</div>
+	<div id="box_deal_large_comments_<%= deal.id %>">
+		<% (deal.comments + deal.subcomments).sort_by { |c| c.updated_at }.reverse.take(5).each do |comment| %>
+			<%= render :partial => "comments/box_deal_large_comment", :object => comment, :as => :comment, :locals => { :deal => deal } %>
+		<% end %>
+		<% if signed_in? %>
+			<div class="box_deal_large_comment_form" id="box_deal_comment_form_<%= deal.id %>">
+				<%= render :partial => 'comments/box_deal_comment_form', :object => deal, :as => :deal %>
+			</div>
+		<% end %>
+	</div>
+</div>
+<% if Rails.env.development? %>
+	<script>
+	$('.example3demo_<%= deal.id %>').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 375,
+		width: 675
+	}); 
+	$('.example4demo_<%= deal.id %>').popupWindow({ 
+		centerScreen:1,
+		resizable: 1,
+		height: 500,
+		width: 675
+	});
+	
+	function overlayPopup(id) {
+		var i = id
+		var url = "http://localhost:3000/deals/"+i+"/show_overlay"
+		$("body").addClass("stationary");
+		$(".overlay_image_"+i).hide();
+		$(".overlayInner").load(url, function() {
+			$(".overlayOuter").fadeIn(200);
+		})
+	};
+	
+	function adjustHeight() {
+		var h = $(".overlay_image_<%= deal.id %>").height();
+		var x = (200 - h)/2
+		if(h != 0) {
+			$(".overlay_image_<%= deal.id %>").css("top", x);
+		}
+	}
+	setInterval(adjustHeight, 0);
+	$(".lazy_<%= deal.id %>").lazyload({
+		event: "load",
+		effect: "fadeIn"
+	});
+	</script>
+<% elsif Rails.env.production? %>
+	<% if request.url.include?("www") %>
+		<script>
+		$('.example3demo_<%= deal.id %>').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 375,
+			width: 675
+		}); 
+		$('.example4demo_<%= deal.id %>').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 500,
+			width: 675
+		});
+		
+		function overlayPopup(id) {
+			var i = id
+			var url = "http://www.flashingdeals.com/deals/"+i+"/show_overlay"
+			$("body").addClass("stationary");
+			$(".overlay_image_"+i).hide();
+			$(".overlayInner").load(url, function() {
+				$(".overlayOuter").fadeIn(200);
+			})
+		};
+		
+		function adjustHeight() {
+			var h = $(".overlay_image_<%= deal.id %>").height();
+			var x = (200 - h)/2
+			if(h != 0) {
+				$(".overlay_image_<%= deal.id %>").css("top", x);
+			}
+		}
+		setInterval(adjustHeight, 0);
+		$(".lazy_<%= deal.id %>").lazyload({
+			event: "load",
+			effect: "fadeIn"
+		});
+		</script>
+	<% else %>
+		<script>
+		$('.example3demo_<%= deal.id %>').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 375,
+			width: 675
+		}); 
+		$('.example4demo_<%= deal.id %>').popupWindow({ 
+			centerScreen:1,
+			resizable: 1,
+			height: 500,
+			width: 675
+		});
+		
+		function overlayPopup(id) {
+			var i = id
+			var url = "http://flashingdeals.com/deals/"+i+"/show_overlay"
+			$("body").addClass("stationary");
+			$(".overlay_image_"+i).hide();
+			$(".overlayInner").load(url, function() {
+				$(".overlayOuter").fadeIn(200);
+			})
+		};
+		
+		function adjustHeight() {
+			var h = $(".overlay_image_<%= deal.id %>").height();
+			var x = (200 - h)/2
+			if(h != 0) {
+				$(".overlay_image_<%= deal.id %>").css("top", x);
+			}
+		}
+		setInterval(adjustHeight, 0);
+		$(".lazy_<%= deal.id %>").lazyload({
+			event: "load",
+			effect: "fadeIn"
+		});
+		</script>
+	<% end %>
+<% end %>
