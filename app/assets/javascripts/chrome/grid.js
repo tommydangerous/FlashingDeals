@@ -60,11 +60,12 @@ $(document).ready(function() {
 	});
 	
 	$(window).scroll(function() {
-		if( $(window).scrollTop() > $(window).height() * 1 )
+		if( $(window).scrollTop() > $(window).height() * 1 ) {
 			$("#back_to_the_top_container").show();
-		else
+		} else {
 			$("#back_to_the_top_container").hide();
-		});
+		}
+	});
 });
 
 function showBoxDealShare(id) {

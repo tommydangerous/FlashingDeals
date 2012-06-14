@@ -103,10 +103,6 @@ class User < ActiveRecord::Base
 		user = find_by_id(id)
 		(user && user.salt == cookie_salt) ? user : nil
 	end
-	
-	def feed
-		Deal.all
-	end
 		
 	def watching?(watched)
 		relationships.find_by_watched_id(watched)

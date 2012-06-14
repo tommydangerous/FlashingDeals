@@ -9,6 +9,7 @@ class PagesController < ApplicationController
 	require 'nokogiri'
 	
 	def test
+		@user = current_user
 	end
 	
 	def test2
