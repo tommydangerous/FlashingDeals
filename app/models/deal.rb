@@ -112,7 +112,7 @@ class Deal < ActiveRecord::Base
 		unless (user.friends + user.inverse_friends).empty?
 			friend_ids = (user.friends + user.inverse_friends).map(&:id).join(', ')
 			deal_ids = Relationship.where("watcher_id IN (#{friend_ids})").map(&:watched_id).join(', ')
-			where("id IN (#{deal_ids}) AND posted > ? AND dead = ? AND comment_count >= 3 OR comment_count >= 2 AND view_count >= 10 OR comment_count >= 1 AND view_count >= 20", user.duration, false)
+			where("id IN (#{deal_ids}) AND posted > ? AND dead = ?", user.duration, false).where("comment_count >= 3 OR comment_count >= 2 AND view_count >=  10 OR comment_count >= 1 AND view_count >= 20")
 		end
 	end
 end
