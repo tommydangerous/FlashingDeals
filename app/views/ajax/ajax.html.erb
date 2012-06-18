@@ -25,16 +25,6 @@ function messageCount() {
 	})
 };
 
-function sharedDealCount() {
-	$.ajax({
-		url: "/ajax/ajax_shared_deals",
-		cache: false,
-		success: function(html){
-			$("span.ajax_shared_deals").html(html);
-		}
-	})
-};
-
 function accountNotice() {
 	$.ajax({
 		url: "/ajax/ajax_notification",
