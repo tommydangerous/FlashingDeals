@@ -152,3 +152,7 @@ div#back_to_top a:hover {
 	opacity: .75;
 	text-decoration: underline;
 }
+
+div#loading_deals {
+	position: absolute;
+}

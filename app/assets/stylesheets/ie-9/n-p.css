@@ -642,6 +642,10 @@ div#back_to_top a:hover {
 	text-decoration: underline;
 }
 
+div#loading_deals {
+	position: absolute;
+}
+
 /* password_reset.css */ 
 div#password_reset {
 	width: 700px;

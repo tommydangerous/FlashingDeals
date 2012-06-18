@@ -151,3 +151,7 @@ div#back_to_top a:hover {
 	color: rgb(18, 127, 177);
 	text-decoration: underline;
 }
+
+div#loading_deals {
+	position: absolute;
+}

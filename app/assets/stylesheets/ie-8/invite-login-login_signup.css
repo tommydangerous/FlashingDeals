@@ -1333,3 +1333,12 @@ div#login_or_right {
 	text-align: right;
 	margin-top: 15px;
 }
+
+#login_notice {
+	position: absolute;
+	top: 62px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	width: 832px;
+}

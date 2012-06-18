@@ -7,12 +7,7 @@ jQuery ->
 			url = $('#endless_pagination .pagination .next_page').attr('href')
 			if url && $(window).scrollTop() > $(document).height() - $(window).height() - 800
 				$('#endless_pagination').replaceWith('
-					<div id="loading_deals">
-						<img src="/assets/loading.gif">
-						<div id="loading_deals_words">
-							<em>Fetching more deals...</em>
-						</div>
-					</div>
+					<div id="loading_deals"></div>
 				')
 				$.getScript(url)
 		$(window).scroll()

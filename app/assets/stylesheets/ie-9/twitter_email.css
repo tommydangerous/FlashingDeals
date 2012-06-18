@@ -1,22 +1,13 @@
 .twitter_email {
 	width: 550px;
-	background: rgb(255, 255, 255);
-	border: 1px solid rgb(148, 222, 240);
 	margin: 0 auto;
-	-webkit-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-khtml-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-moz-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-ms-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-o-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
 }
 
 .twitter_email_header {
-	background: rgb(173, 217, 228);
+	font-family: Helvetica, Arial;
+	font-size: 28px;
+	color: rgb(75, 75, 75);
 	padding: 20px;
-	font-family: Verdana;
-	font-size: 22px;
-	color: rgb(44, 175, 227);	
 }
 
 .twitter_email_body {
@@ -39,17 +30,23 @@
 }
 
 .twitter_email_form .field p {
-	font-weight: bold;
-	margin: 0;
+	font-size: 18px;
+	float: left;
+	margin-right: 25px;
+	margin-bottom: 0px;
+	text-align: right;
+	height: 18px;
+	padding-top: 8px;
 }
 
 .twitter_email_form .field input {
-	width: 391px;
+	float: left;
+	width: 358px;
 	margin: 0;
 	border: 1px solid rgb(200, 200, 200);
 	padding: 5px;
-	font-family: Verdana;
-	font-size: 14px;
+	font-family: Helvetica, Arial;
+	font-size: 18px;
 	color: rgb(75, 75, 75);
 	-webkit-transition: all .2s ease-in-out;
 	-khtml-transition: all .2s ease-in-out;

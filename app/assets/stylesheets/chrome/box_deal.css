@@ -259,42 +259,6 @@ ul#grid_categories_list li a:hover {
 	color: rgb(75, 75, 75);
 }
 
-div#loading_deals {
-	text-align: center;
-	z-index: 100;
-	position: fixed;
-	left: 45%;
-	bottom: 25px;
-	width: 200px;
-	padding: 10px;
-	background: rgb(0, 0, 0);
-	opacity: .8;
-	color: rgb(255, 255, 255);
-	-webkit-border-radius: 10px;
-	-khtml-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-ms-border-radius: 10px;
-	-o-border-radius: 10px;
-	border-radius: 10px;
-}
-
-div#loading_deals img {
-	width: 70px;
-	height: 70px;
-}
-
-div#loading_deals_words h1 {
-	font-family: Verdana;
-	font-size: 12px;
-	margin: 0;
-	opacity: 1;
-}
-
-div#loading_deals_words em {
-	font-family: Verdana;
-	font-size: 12px;
-}
-
 .box_deal {
 	width: 200px;
 	position: absolute;

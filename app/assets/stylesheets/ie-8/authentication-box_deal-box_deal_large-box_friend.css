@@ -169,6 +169,8 @@ div#signup_facebook {
 	font-weight: bold;
 	color: rgb(75, 75, 75);
 	background: rgb(255, 255, 255);
+	border: 1px dotted rgb(200, 200, 200);
+	border-right: none;
 	-webkit-border-top-left-radius: 5px;
 	-khtml-border-top-left-radius: 5px;
 	-moz-border-radius-topleft: 5px;
@@ -403,42 +405,6 @@ ul#grid_categories_list li a {
 ul#grid_categories_list li a:hover {
 	text-decoration: none;
 	color: rgb(75, 75, 75);
-}
-
-div#loading_deals {
-	text-align: center;
-	z-index: 100;
-	position: fixed;
-	left: 45%;
-	bottom: 25px;
-	width: 200px;
-	padding: 10px;
-	background: rgb(0, 0, 0);
-	opacity: .8;
-	color: rgb(255, 255, 255);
-	-webkit-border-radius: 10px;
-	-khtml-border-radius: 10px;
-	-moz-border-radius: 10px;
-	-ms-border-radius: 10px;
-	-o-border-radius: 10px;
-	border-radius: 10px;
-}
-
-div#loading_deals img {
-	width: 70px;
-	height: 70px;
-}
-
-div#loading_deals_words h1 {
-	font-family: Verdana;
-	font-size: 12px;
-	margin: 0;
-	opacity: 1;
-}
-
-div#loading_deals_words em {
-	font-family: Verdana;
-	font-size: 12px;
 }
 
 .box_deal {
