@@ -67,7 +67,7 @@
 		<% end %>
 	</div>
 	<div id="box_deal_comments_<%= deal.id %>">
-		<% (deal.comments + deal.subcomments).sort_by { |c| c.updated_at }.reverse.take(5).each do |comment| %>
+		<% deal.all_comments.each do |comment| %>
 			<%= render :partial => "comments/box_deal_comment", :object => comment, :as => :comment, :locals => { :deal => deal } %>
 		<% end %>
 		<% if signed_in? %>

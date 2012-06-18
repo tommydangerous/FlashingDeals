@@ -101,7 +101,7 @@ class Deal < ActiveRecord::Base
 	end
 	
 	def all_comments
-		(self.comments + self.subcomments).sort_by { |comment| comment.updated_at }.reverse
+		(self.comments.order("updated_at DESC").limit(5) + self.subcomments.order("created_at DESC").limit(5)).sort_by { |comment| comment.updated_at }.reverse.take(5)
 	end
 	
 	def total_comments
