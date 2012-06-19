@@ -548,8 +548,8 @@ input#my_deals_unwatch:active {
 	color: rgb(150, 150, 150);
 }
 
-.box_deal_shared #box_deal_price {
-	margin-bottom: 5px;
+.box_deal_shared, #box_deal_price {
+	margin-bottom: 3px;
 }
 
 #box_deal_price h1 {

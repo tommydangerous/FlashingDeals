@@ -153,6 +153,27 @@ div#back_to_top a:hover {
 	text-decoration: underline;
 }
 
-div#loading_deals {
+#endless_pagination {
+	display: none;
+	width: 100%;
+}
+
+#loading_deals {
 	position: absolute;
+}
+
+.feed_pagination {
+	display: none;
+}
+
+.building_feed {
+	width: 100%;
+	padding: 10px 0px;
+	border-top: 1px dashed rgb(200, 200, 200);
+	border-bottom: 1px dashed rgb(200, 200, 200);
+	text-align: center;
+	font-family: Helvetica, Arial;
+	font-weight: bold;
+	font-size: 14px;
+	color: rgb(150, 150, 150);
 }

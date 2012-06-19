@@ -32,7 +32,7 @@
 			<div class="my_deals_div">
 				<p>
 					<%= link_to my_friends_path do %>
-						My Friends <span class="friends_count">(<%= (@user.friends.size + @user.inverse_friends.size) %>)
+						My Friends <span class="friends_count">(<%= (@user.friends.size + @user.inverse_friends.size) %>)</span>
 					<% end %>
 				</p>
 			</div>
@@ -52,7 +52,7 @@
 			<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal unless @deals.empty? %>
 		</div>
 		<div class="clear"></div>
-		<%= render "deals/endless_pagination" unless @deals.empty? %>
 	</div>
 	<div class="clear"></div>
+	<%= render 'feed_pagination' %>
 </div>

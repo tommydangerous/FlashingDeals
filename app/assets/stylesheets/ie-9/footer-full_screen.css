@@ -34,11 +34,6 @@
 	padding-bottom: 40px;
 }
 
-div#endless_pagination {
-	display: none;
-	width: 100%;
-}
-
 div#empty_deals {
 	text-align: center;
 	margin-top: 20px;

@@ -11,3 +11,15 @@ jQuery ->
 				')
 				$.getScript(url)
 		$(window).scroll()
+jQuery ->
+	if $('.feed_pagination .pagination').length
+		$(window).scroll ->
+			url = $('.feed_pagination .pagination .next_page').attr('href')
+			if url && $(window).scrollTop() > $(document).height() - $(window).height() - 800
+				$('.feed_pagination').replaceWith('
+					<div class="building_feed">
+						Building feed...
+					</div>
+				')
+				$.getScript(url)
+		$(window).scroll()
