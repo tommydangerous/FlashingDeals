@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120611183636) do
+ActiveRecord::Schema.define(:version => 20120619174035) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(:version => 20120611183636) do
     t.boolean   "flashmob",      :default => false
     t.datetime  "expires"
     t.string    "partner"
+    t.datetime  "last_said"
   end
 
   add_index "deals", ["city"], :name => "index_deals_on_city"
@@ -117,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20120611183636) do
   add_index "deals", ["exclusive"], :name => "index_deals_on_exclusive"
   add_index "deals", ["flash_back"], :name => "index_deals_on_flash_back"
   add_index "deals", ["flashmob"], :name => "index_deals_on_flashmob"
+  add_index "deals", ["last_said"], :name => "index_deals_on_last_said"
   add_index "deals", ["link"], :name => "index_deals_on_link"
   add_index "deals", ["metric"], :name => "index_deals_on_metric"
   add_index "deals", ["name"], :name => "index_deals_on_name"
