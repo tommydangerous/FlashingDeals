@@ -1,5 +1,5 @@
 var $boxes = $('<%= j render :partial => "deals/box_deal", :collection => @deals, :as => :deal %>');
-$("#grid_container").append( $boxes ).masonry( 'appended', $boxes, true);
+$("#grid_container").append( $boxes ).masonry( 'appended', $boxes);
 $("img.lazy").lazyload({
 	effect: "fadeIn"
 });
