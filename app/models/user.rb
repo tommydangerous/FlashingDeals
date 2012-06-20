@@ -538,6 +538,14 @@ class User < ActiveRecord::Base
 	def feed
 		Deal.from_friends_of(self)
 	end
+	
+	def total_friends
+		self.friends.size + self.inverse_friends.size
+	end
+	
+	def total_comments
+		self.comments.size + self.subcomments.size
+	end
 
 	private
 	

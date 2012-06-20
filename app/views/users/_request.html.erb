@@ -1,0 +1,59 @@
+<li id="friend_request_<%= user.id %>">
+	<div class="friend_request">
+		<div class="friend_request_image">
+			<%= link_to user do %>
+				<%= image_tag(user.photo.url) %>
+			<% end %>
+			<p>Level <%= user.level %></p>
+		</div>
+		<div class="friend_request_name">
+			<%= link_to user do %>
+				<p class="friend_request_name_header"><%= user.name %></p>
+			<% end %>
+			<ul class="friend_request_stats">
+				<li>
+					<p class="friend_request_stats_label">Friends</p>
+					<p class="friend_request_stats_data"><%= user.total_friends %>
+				</li>
+				<li>
+					<p class="friend_request_stats_label">Comments</p>
+					<p class="friend_request_stats_data"><%= user.total_comments %>
+				</li>
+				<li>
+					<p class="friend_request_stats_label">Deals Watching</p>
+					<p class="friend_request_stats_data"><%= user.watching.size %>
+				</li>
+			</ul>
+		</div>
+		<div class="friend_request_accept_ignore" id="friend_request_accept_ignore_<%= user.id %>">
+			<div class="friend_request_accept">
+				<%= form_for user.friendships.find_by_friend_id(current_user), :html => { :method => :put }, :remote => true do |f| %>
+					<%= f.hidden_field :approved, :value => true %>
+					<%= f.hidden_field :user_id, :value => @user.id %>
+					<div class="actions">
+						<%= f.submit "Accept" %>
+					</div>
+				<% end %>
+			</div>
+			<div class="friend_request_ignore">
+				<%= form_for user.friendships.find_by_friend_id(current_user), :html => { :method => :delete }, :remote => true do |f| %>
+					<%= f.hidden_field :user_id, :value => @user.id %>
+					<div class="actions">
+						<%= f.submit "Ignore" %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</li>
+<script>
+$(document).ready(function() {
+	$("#friend_request_"+<%= user.id %>).mouseover(function() {
+		$("#friend_request_accept_ignore_"+<%= user.id %>).show();
+	});
+	$("#friend_request_"+<%= user.id %>).mouseout(function() {
+		$("#friend_request_accept_ignore_"+<%= user.id %>).hide();
+	});
+});
+</script>

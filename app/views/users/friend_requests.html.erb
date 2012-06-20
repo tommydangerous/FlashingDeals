@@ -1,7 +1,6 @@
-<div id="friend_requests">
-	<h1>Friend Requests</h1>
-	<ul id="friend_requests_list">
-		<%= render :partial => "friend_request", :collection => @friend_requests, :as => :user %>
+<div class="friend_requests">
+	<p class="friend_requests_header">Friend Requests</p>
+	<ul class="friend_requests_list">
+		<%= render :partial => 'request', :collection => @friend_requests, :as => :user %>
 	</ul>
-	<div class="page_end"></div>
 </div>
