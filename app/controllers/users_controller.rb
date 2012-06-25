@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-	before_filter :authenticate, :except => [:new, :signup, :create, :my_deals, :unsubscribe, :unsubscribe_me, :email_monthly]
-	before_filter :authenticate_login, :only => [:unsubscribe, :unsubscribe_me, :email_monthly, :unsubscribe_reply_alert, :unsubscribe_reply_alert_me, :unsubscribe_friend_alert, :unsubscribe_friend_alert_me]
+	before_filter :authenticate, :except => [:new, :signup, :create, :my_deals, :unsubscribe, :unsubscribe_me, :email_monthly, :unsubscribe_reply_alert, :unsubscribe_reply_alert_me, :unsubscribe_friend_alert, :unsubscribe_friend_alert_me, :friend_requests]
+	before_filter :authenticate_login, :only => [:unsubscribe, :unsubscribe_me, :email_monthly, :unsubscribe_reply_alert, :unsubscribe_reply_alert_me, :unsubscribe_friend_alert, :unsubscribe_friend_alert_me, :friend_requests]
 	before_filter :auth_my_account, :only => [:my_deals]
 	before_filter :correct_user, :only => [:watching, :edit, :update]
 	before_filter :admin_user,	 :only => [:index, :shared]

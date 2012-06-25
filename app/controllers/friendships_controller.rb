@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
-	before_filter :authenticate
+	before_filter :authenticate, :except => :accept
+	before_filter :authenticate_login, :only => :accept
 	
 	def accept
 		user = User.find_by_name(params[:name])
