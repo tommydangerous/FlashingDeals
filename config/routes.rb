@@ -70,8 +70,8 @@ FlashingDeal::Application.routes.draw do
   match '/create-deals' => 'deals#create_deals', :as => :create_deals
 	match '/empty-queue' => 'deals#empty_queue', :as => :empty_queue
 	match '/share_points' => 'deals#share_points', :as => :share_points
-# Partners
-	match '/satori' => 'partners#satori_deals', :as => :satori_deals
+# Friendships
+	match '/friendships/accept/:name' => 'friendships#accept'
 # Messages	
 	match '/read-all' => 'messages#read_all', :as => :read_all
   match '/unread-all' => 'messages#unread_all', :as => :unread_all
@@ -79,6 +79,8 @@ FlashingDeal::Application.routes.draw do
 	match '/subscribed-users' => 'newsletters#subscribed_users', :as => :subscribed_users
 	match '/unsubscribed-users' => 'newsletters#unsubscribed_users', :as => :unsubscribed_users
 	match '/monthly-subscribed-users' => 'newsletters#monthly_subscribed_users', :as => :monthly_subscribed_users
+	match '/unsubscribed-reply-alert-users' => 'newsletters#unsubscribed_reply_alert_users', :as => :unsubscribed_reply_alert_users
+	match '/unsubscribed-friend-alert-users' => 'newsletters#unsubscribed_friend_alert_users', :as => :unsubscribed_friend_alert_users
 	match '/email-subscribed-users' => 'newsletters#email_subscribed_users', :as => :email_subscribed_users
 	match '/email-select-users' => 'newsletters#email_select_users', :as => :email_select_users
 # Pages
@@ -93,6 +95,8 @@ FlashingDeal::Application.routes.draw do
   match '/test' => 'pages#test', :as => :test
   match '/test2' => 'pages#test2', :as => :test2
   match '/contacts/failure' => 'pages#contacts_failure'
+# Partners
+	match '/satori' => 'partners#satori_deals', :as => :satori_deals
 # Sessions  
   match '/login'  => 'sessions#new'
   match '/logout' => 'sessions#destroy'
@@ -120,6 +124,10 @@ FlashingDeal::Application.routes.draw do
   match '/gmail-invites' => 'users#gmail_invite', :as => :gmail_invite
   match '/unsubscribe' => 'users#unsubscribe', :as => :unsubscribe
   match '/unsubscribe-me' => 'users#unsubscribe_me', :as => :unsubscribe_me
+  match '/unsubscribe-reply-alerts' => 'users#unsubscribe_reply_alert', :as => :unsubscribe_reply_alert
+  match '/unsubscribe-reply-alerts-me' => 'users#unsubscribe_reply_alert_me', :as => :unsubscribe_reply_alert_me
+  match '/unsubscribe-friend-alerts' => 'users#unsubscribe_friend_alert', :as => :unsubscribe_friend_alert
+  match '/unsubscribe-friend-alerts-me' => 'users#unsubscribe_friend_alert_me', :as => :unsubscribe_friend_alert_me
   match '/email-monthly' => 'users#email_monthly', :as => :email_monthly
   match '/game-room' => 'users#game_room', :as => :game_room
   match '/user-sent-invite' => 'users#user_sent_invite', :as => :user_sent_invite

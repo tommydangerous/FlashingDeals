@@ -19,6 +19,18 @@ class NewslettersController < ApplicationController
 		render :subscribed_users
 	end
 	
+	def unsubscribed_reply_alert_users
+		@title = "Unsubscribed Reply Alert Users"
+		@users = User.where("reply_alert = ?", false).order("name ASC")
+		render :subscribed_users
+	end
+	
+	def unsubscribed_friend_alert_users
+		@title = "Unsubscribed Friend Alert Users"
+		@users = User.where("friend_alert = ?", false).order("name ASC")
+		render :subscribed_users
+	end
+	
 	def email
 		@newsletter = Newsletter.find(params[:id])
 		@title = "Email #{@newsletter.name}"

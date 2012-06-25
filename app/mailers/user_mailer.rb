@@ -25,4 +25,14 @@ class UserMailer < ActionMailer::Base
   	@newsletter = newsletter
   	mail(:to => email, :subject => "#{@newsletter.name}", :from => "'FlashingDeals' <hello@flashingdeals.com>", :content_type => "text/html")
   end
+  
+  def reply_alert(subcomment)
+  	@subcomment = subcomment
+  	mail(:to => User.find(Comment.find(@subcomment.comment_id).user_id).email, :subject => "#{User.find(@subcomment.user_id).name} replied to your comment", :from => "'FlashingDeals' <hello@flashingdeals.com>", :content_type => "text/html")
+  end
+  
+  def friend_alert(user, friend)
+  	@user = user
+  	mail(:to => friend.email, :subject => "#{@user.name} wants to be your friend.", :from => "'FlashingDeals' <hello@flashingdeals.com>", :content_type => "text/html")
+  end
 end

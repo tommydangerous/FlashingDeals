@@ -28,6 +28,13 @@ class SubcommentsController < ApplicationController
 			notice_ids.each do |x|
 				Notification.create!(:user_id => current_user.id, :notice_id => x, :deal_id => deal.id, :comment_id => comment.id, :subcomment_id => subcomment.id, :read => false)
 			end
+			if User.find(comment.user_id) != current_user && User.find(comment.user_id).reply_alert?
+				if Rails.env.production?
+					UserMailer.delay.reply_alert(subcomment)
+				else
+					UserMailer.reply_alert(subcomment).deliver
+				end
+			end
 			current_user.points = current_user.points + 25
 			current_user.save
 			respond_to do |format|

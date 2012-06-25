@@ -1,27 +1,17 @@
 div#unsubscribe {
 	width: 550px;
-	height: 300px;
-	background: rgb(255, 255, 255);
-	border: 1px solid rgb(148, 222, 240);
 	margin: 0 auto;
-	-webkit-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-khtml-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-moz-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-ms-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	-o-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
-	box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
 }
 
 div#unsubscribe_header {
-	background: rgb(173, 217, 228);
 	padding: 20px;
-	font-family: Verdana;
-	font-size: 22px;
-	color: rgb(44, 175, 227);
+	font-family: Helvetica, Arial;
+	font-size: 28px;
+	color: rgb(75, 75, 75);
 }
 
 div#unsubscribe_body {
-	padding: 20px;
+	padding: 10px 20px 20px 20px;
 }
 
 div#unsubscribe_body p {

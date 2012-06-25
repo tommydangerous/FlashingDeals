@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	before_filter :authenticate, :except => [:new, :signup, :create, :my_deals, :unsubscribe, :unsubscribe_me, :email_monthly]
-	before_filter :authenticate_login, :only => [:unsubscribe, :unsubscribe_me, :email_monthly]
+	before_filter :authenticate_login, :only => [:unsubscribe, :unsubscribe_me, :email_monthly, :unsubscribe_reply_alert, :unsubscribe_reply_alert_me, :unsubscribe_friend_alert, :unsubscribe_friend_alert_me]
 	before_filter :auth_my_account, :only => [:my_deals]
 	before_filter :correct_user, :only => [:watching, :edit, :update]
 	before_filter :admin_user,	 :only => [:index, :shared]
@@ -226,6 +226,34 @@ class UsersController < ApplicationController
   def email_monthly
   	current_user.update_attributes(:subscribe => false, :monthly => true)
   	flash[:success] = "Thank you for reconsidering! We will now send you newsletters monthly."
+  	redirect_to my_account_path
+  end
+  
+  def unsubscribe_reply_alert
+  	if current_user.reply_alert?
+  		@title = "Stop Reply Alerts"
+  	else
+  		redirect_to my_account_path
+  	end
+  end
+  
+  def unsubscribe_reply_alert_me
+  	current_user.update_attribute(:reply_alert, false)
+  	flash[:notice] = "You have unsubscribed from receiving reply alerts. You can undo this by going into your settings."
+  	redirect_to my_account_path
+  end
+  
+  def unsubscribe_friend_alert
+  	if current_user.friend_alert?
+  		@title = "Stop Friend Alerts"
+  	else
+  		redirect_to my_account_path
+  	end
+  end
+  
+  def unsubscribe_friend_alert_me
+  	current_user.update_attribute(:friend_alert, false)
+  	flash[:notice] = "You have unsubscribed from receiving friend alerts. You can undo this by going into your settings."
   	redirect_to my_account_path
   end
   

@@ -12,4 +12,6 @@ $("div#account_notice").html("<%= escape_javascript(render("users/account_notice
 
 $(".my_friend_container #box_friend_"+<%= @friend.id %>).remove();
 
-showPointsPopup(-100);
+<% if @approved == "true" %>
+	showPointsPopup(-100);
+<% end %>

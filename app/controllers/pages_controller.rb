@@ -9,10 +9,14 @@ class PagesController < ApplicationController
 	require 'nokogiri'
 	
 	def test
-		@user = current_user
+		@subcomment = Subcomment.find(111)
+		render :layout => false
 	end
 	
 	def test2
+		@user = current_user
+		@friend = User.find(3)
+		render :layout => false
 	end
 	
 	def control_panel

@@ -56,10 +56,40 @@
 					</div>
 					<div class="clear"></div>
 				</li>
+				<% unless @user.subscribe? %>
+					<li>
+						<p class="edit_profile_label">Subscribe</p>
+						<div class="edit_profile_field">
+							<p class="edit_profile_field_label">Receive important newsletters occasionally</p>
+							<%= f.check_box :subscribe %>
+						</div>
+						<div class="clear"></div>
+					</li>
+				<% end %>
+				<% unless @user.reply_alert? %>
+					<li>
+						<p class="edit_profile_label">Reply Alerts</p>
+						<div class="edit_profile_field">
+							<p class="edit_profile_field_label">Receive reply alerts in your email</p>
+							<%= f.check_box :reply_alert %>
+						</div>
+						<div class="clear"></div>
+					</li>
+				<% end %>
+				<% unless @user.friend_alert? %>
+					<li>
+						<p class="edit_profile_label">Friend Alerts</p>
+						<div class="edit_profile_field">
+							<p class="edit_profile_field_label">Receive friend request alerts in your email</p>
+							<%= f.check_box :friend_alert %>
+						</div>
+						<div class="clear"></div>
+					</li>
+				<% end %>
 				<li>
 					<p class="edit_profile_label">Private</p>
 					<div class="edit_profile_field">
-						<p class="edit_profile_private">Only friends can see my watched deals</p>
+						<p class="edit_profile_field_label">Only friends can see my watched deals</p>
 						<%= f.check_box :private %>
 					</div>
 					<div class="clear"></div>
@@ -67,7 +97,7 @@
 				<li>
 					<p class="edit_profile_label">Watch Duration</p>
 					<div class="edit_profile_field" id="deal_duration">
-						<p class="deal_duration_header">Set how many months my deals are watched</p>
+						<p class="edit_profile_field_label">Set how many months my deals are watched</p>
 						<ul>
 							<li><%= f.radio_button(:deal_duration, 1) %>
 								<% if @user.deal_duration == 1 %>

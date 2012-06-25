@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120619174035) do
+ActiveRecord::Schema.define(:version => 20120621175756) do
 
   create_table "authentications", :force => true do |t|
     t.integer  "user_id"
@@ -325,14 +325,18 @@ ActiveRecord::Schema.define(:version => 20120619174035) do
     t.integer  "points",                 :default => 0
     t.boolean  "sent_invite",            :default => false
     t.string   "partner"
+    t.boolean  "friend_alert",           :default => true
+    t.boolean  "reply_alert",            :default => true
   end
 
   add_index "users", ["active"], :name => "index_users_on_active"
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
+  add_index "users", ["friend_alert"], :name => "index_users_on_friend_alert"
   add_index "users", ["monthly"], :name => "index_users_on_monthly"
   add_index "users", ["name"], :name => "index_users_on_name", :unique => true
   add_index "users", ["partner"], :name => "index_users_on_partner"
   add_index "users", ["points"], :name => "index_users_on_points"
+  add_index "users", ["reply_alert"], :name => "index_users_on_reply_alert"
   add_index "users", ["sent_invite"], :name => "index_users_on_sent_invite"
   add_index "users", ["slug"], :name => "index_users_on_slug"
   add_index "users", ["subscribe"], :name => "index_users_on_subscribe"

@@ -325,7 +325,7 @@ div#most_recent_activity a:hover {
 	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
 }
 
-.edit_profile_private {
+.edit_profile_field_label {
 	text-align: center;
 	font-size: 18px;
 	height: 22px;
@@ -333,16 +333,8 @@ div#most_recent_activity a:hover {
 	color: rgb(150, 150, 150);
 }
 
-#user_private {
+#user_private, #user_subscribe, #user_friend_alert, #user_reply_alert {
 	margin-top: 10px;
-}
-
-.deal_duration_header {
-	font-size: 18px;
-	height: 22px;
-	padding-top: 6px;
-	color: rgb(150, 150, 150);
-	text-align: center;
 }
 
 #deal_duration ul {
