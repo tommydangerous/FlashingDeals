@@ -5,17 +5,21 @@ class FriendshipsController < ApplicationController
 	def accept
 		user = User.find_by_name(params[:name])
 		friend = current_user
-		friendship = Friendship.find_by_user_id_and_friend_id(user.id, friend.id)
-		if user && friendship && friendship.approved != true && user != current_user
-			friendship.update_attribute(:approved, true)
-			flash[:success] = "You are now friends with #{params[:name]}."
-			redirect_to user
-		elsif friendship.approved?
-			flash[:notice] = "You are already friends with #{params[:name]}."
-			redirect_to my_account_path
-		elsif friendship.nil?
-			flash[:notice] = "Sorry, but you do not have a friend request from #{params[:name]}."
-			redirect_to my_account_path
+		if user && user != current_user
+			friendship = Friendship.find_by_user_id_and_friend_id(user.id, friend.id)
+			if friendship
+				if friendship.approved != true
+					friendship.update_attribute(:approved, true)
+					flash[:success] = "You are now friends with #{params[:name]}."
+					redirect_to user
+				else
+					flash[:notice] = "You are already friends with #{params[:name]}."
+					redirect_to my_account_path
+				end
+			else
+				flash[:notice] = "Sorry, but you do not have a friend request from #{params[:name]}."
+				redirect_to my_account_path
+			end
 		elsif user == current_user
 			flash[:error] = "You are already your friend...right?"
 			redirect_to my_account_path

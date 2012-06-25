@@ -1,6 +1,6 @@
 class DealsController < ApplicationController
 	before_filter :authenticate, :except => [:featured_deals, :show, :show_overlay, :frame]
-	before_filter :admin_user,	 :except => [:featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :remove_watched_deals, :clear_dead_deals]
+	before_filter :admin_user,	 :except => [:featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :clear_dead_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue, :share_points]
 	before_filter :today
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
@@ -150,33 +150,6 @@ class DealsController < ApplicationController
   	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 40)
   	render :layout => "full_screen"
   end
-
-  def flashmob_deals
-  	@title = "Community Deals"
-  	if params[:deals_per_page] == "10"
-  		per_page = 10
-  	elsif params[:deals_per_page] == "20"
-  		per_page = 20
-  	elsif params[:deals_per_page] == "40"
-  		per_page = 40
-  	elsif params[:deals_per_page] == "80"
-  		per_page = 80
-  	else
-  		per_page = 10
-  	end
-  	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => per_page)
-  	@deals_total_count = deals.search(params[:search]).size
-  	if per_page == 10
-  		@per_page = 10
-  	elsif per_page == 20
-  		@per_page = 20
-  	elsif per_page == 40
-  		@per_page = 40
-  	elsif per_page == 80
-  		@per_page = 80
-  	end
-  end
   
   def watchers
   	@title = "People Watching This Deal"
@@ -238,14 +211,6 @@ class DealsController < ApplicationController
   	current_user.vote_exclusively_against(deal)
   	deal.update_attribute(:point_count, deal.plusminus)
   end
-
-	def remove_watched_deals
-		current_user.watching.each do |deal|
-			current_user.unwatch!(deal)
-		end
-		flash[:notice] = "All watched deals removed."
-		redirect_to my_account_path
-	end
 	
 	def clear_dead_deals
 		current_user.watching.where("dead = ?", true).each do |deal|
@@ -263,7 +228,7 @@ class DealsController < ApplicationController
 		end
 	end
 
-# Admin Users Only  
+# Admin Users Only
 	def queue
 		@title = "The Queue"
 		@deals = Deal.where("queue = ?", true).order("deal_order ASC")
@@ -322,20 +287,33 @@ class DealsController < ApplicationController
   		@per_page = 80
   	end
   end
-
-	def home
-  	@title = "First to Know"
-  	deals = Deal.where("posted > ? AND top_deal = ?", @today, true)
-  	@deals = deals.order("deal_order ASC")
-		if @deals.count < 20
-			timeCheckMin1
-			@home_deals = @deals.paginate(:page => params[:page], :per_page => 9)
-		else
-			timeCheckMinFourDeals
-			timeCheckMinNineDeals
-		end
-		clear_return_to
-  end
+  
+  def featured_deals_all
+		@title = "Featured - All"
+		if params[:deals_per_page] == "10"
+  		per_page = 10
+  	elsif params[:deals_per_page] == "20"
+  		per_page = 20
+  	elsif params[:deals_per_page] == "40"
+  		per_page = 40
+  	elsif params[:deals_per_page] == "80"
+  		per_page = 80
+  	else
+  		per_page = 20
+  	end
+		deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ?", true, true, 0)
+  	@deals = deals.search(params[:search]).order(sort_column_time_in + " " + sort_direction).paginate(:page => params[:page], :per_page => 20)
+  	@deals_total_count = deals.search(params[:search]).size
+  	if per_page == 10
+  		@per_page = 10
+  	elsif per_page == 20
+  		@per_page = 20
+  	elsif per_page == 40
+  		@per_page = 40
+  	elsif per_page == 80
+  		@per_page = 80
+  	end
+	end
 
 	def index
 		@title = "All Deals"
@@ -563,16 +541,6 @@ class DealsController < ApplicationController
 			format.js {
 				@deals = Deal.where("queue = ?", true)
 			}
-		end
-	end
-	
-	def share_points
-		if signed_in?
-			current_user.points = current_user.points + 50
-			current_user.save
-			redirect_to root_path
-		else
-			redirect_to root_path
 		end
 	end
   

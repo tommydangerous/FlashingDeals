@@ -14,7 +14,7 @@
 		</div>
 		<% end %>
 		<div id="search_form">
-		<%= form_tag rising_deals_path, :method => :get do %>
+		<%= form_tag featured_deals_all_path, :method => :get do %>
 			<%= hidden_field_tag :sort, params[:sort] %>
 			<%= hidden_field_tag :direction, params[:direction] %>
 			<%= hidden_field_tag :deals_per_page, params[:deals_per_page] %>
