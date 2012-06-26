@@ -149,6 +149,7 @@ div#comment {
 
 div#comment_user {
 	margin-bottom: 5px;
+	font-weight: bold;
 }
 
 div#comment_user a {

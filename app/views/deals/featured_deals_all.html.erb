@@ -1,17 +1,9 @@
-<%= render 'shared/side_panel' %>
 <div id="deals_list">
-	<div id="deal_page_info">
-		<div id="show_electric_flashing">
-			<ul>
-				<%= render "deals/deals_per_page" %>
-			</ul>
-		</div>
-	</div>
 	<div id="search">
 		<% unless @deals.empty? %>
-		<div class="paginate_range">
-			<%= paginate_range(@deals, @deals_total_count) %>
-		</div>
+			<div class="paginate_range">
+				<%= paginate_range(@deals, @deals_total_count) %>
+			</div>
 		<% end %>
 		<div id="search_form">
 		<%= form_tag featured_deals_all_path, :method => :get do %>
@@ -21,22 +13,6 @@
 			<%= text_field_tag :search, params[:search], :autocomplete => "off" %>
 			<%= submit_tag "Search", :name => nil, :id => "search_button" %>
 		<% end %>
-		</div>
-	</div>
-	<div id="deal_nav">
-		<div id="sort_non_ajax">
-			<span class="sort"><%= sortable_create "posted", "Most Recent" %></span>
-			<span class="sort"><%= sortable_create "view_count", "Best Seller" %></span>
-			<span class="sort"><%= sortable_create "comment_count", "Most Talked About" %></span>
-			<span class="sort"><%= sortable_create "price" %></span>
-			<% if signed_in? %>
-				<% if current_user.admin? %>
-					<span class="sort"><%= sortable_create "point_count", "Points" %></span>
-					<span class="sort"><%= sortable_create "click_count", "Clicks" %></span>
-					<span class="sort"><%= sortable_create "created_at", "Created" %></span>
-					<span class="sort"><%= sortable_create "metric" %></span>
-				<% end %>
-			<% end %>
 		</div>
 	</div>
 	<% if @deals.empty? %>

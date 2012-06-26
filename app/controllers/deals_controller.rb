@@ -290,29 +290,9 @@ class DealsController < ApplicationController
   
   def featured_deals_all
 		@title = "Featured - All"
-		if params[:deals_per_page] == "10"
-  		per_page = 10
-  	elsif params[:deals_per_page] == "20"
-  		per_page = 20
-  	elsif params[:deals_per_page] == "40"
-  		per_page = 40
-  	elsif params[:deals_per_page] == "80"
-  		per_page = 80
-  	else
-  		per_page = 20
-  	end
 		deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ?", true, true, 0)
-  	@deals = deals.search(params[:search]).order(sort_column_time_in + " " + sort_direction).paginate(:page => params[:page], :per_page => 20)
+  	@deals = deals.search(params[:search]).order("time_in DESC").paginate(:page => params[:page], :per_page => 10)
   	@deals_total_count = deals.search(params[:search]).size
-  	if per_page == 10
-  		@per_page = 10
-  	elsif per_page == 20
-  		@per_page = 20
-  	elsif per_page == 40
-  		@per_page = 40
-  	elsif per_page == 80
-  		@per_page = 80
-  	end
 	end
 
 	def index
