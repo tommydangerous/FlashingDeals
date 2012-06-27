@@ -53,9 +53,9 @@ FlashingDeal::Application.routes.draw do
 	match '/signup/twitter/email' => 'authentications#twitter_email', :as => :twitter_email
 	match '/signup/twitter/email/new' => 'authentications#twitter_new', :as => :twitter_new
 	
-	match '/auth_google' => 'authentications#auth_google', :as => :auth_google
-	match '/auth_google_token' => 'authentications#auth_google_token', :as => :auth_google_token
-	match '/auth_google_create' => 'authentications#auth_google_create', :as => :auth_google_create
+	match '/google/oauth' => 'authentications#google_oauth', :as => :google_oauth
+	match '/google/access' => 'authentications#google_access', :as => :google_access
+	match '/google/auth' => 'authentications#google_auth', :as => :google_auth
 # Deals
   root :to => 'deals#featured_deals'
   match '/featured' => 'deals#featured_deals', :as => :featured_deals
@@ -94,7 +94,6 @@ FlashingDeal::Application.routes.draw do
   match '/test' => 'pages#test', :as => :test
   match '/test2' => 'pages#test2', :as => :test2
   match '/test3' => 'pages#test3', :as => :test3
-  match '/contacts/failure' => 'pages#contacts_failure'
 # Partners
 	match '/satori' => 'partners#satori_deals', :as => :satori_deals
 # Sessions  

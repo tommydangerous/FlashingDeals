@@ -1,6 +1,6 @@
 class PagesController < ApplicationController	
-	before_filter :authenticate, :only => [:test, :test2, :test3, :control_panel, :contacts_failure]
-	before_filter :gm_user, 		 :only => [:test, :test2, :test3, :control_panel, :contacts_failure]
+	before_filter :authenticate, :only => [:test, :test2, :test3, :control_panel]
+	before_filter :gm_user, 		 :only => [:test, :test2, :test3, :control_panel]
 	
 	require 'net/http'
 	require 'uri'
@@ -23,8 +23,7 @@ class PagesController < ApplicationController
 		@id = params[:id]
 		@email = params[:email]
 		@name = params[:name]
-		@picture = params[:picture]
-		@user = User.new(:name => params[:name], :email => params[:email], :password => random_password, :accept_terms => true, :image_url => params[:picture])
+		@picture = params[:picture].split("https").join("http")
 		render :layout => false
 	end
 	
@@ -94,11 +93,5 @@ class PagesController < ApplicationController
 	
 	def page_not_found
 		@title = "Wonderland"
-	end
-	
-	def contacts_failure
-		@title = "Invite Your Friends"
-  	@user = current_user
-		render "users/invite"
 	end
 end

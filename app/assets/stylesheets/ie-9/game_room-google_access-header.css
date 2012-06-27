@@ -312,6 +312,15 @@ div#trophy_showcase_body {
 	max-width: 90px;
 }
 
+/* google_access.css */
+#one_moment {
+	padding: 20px;
+	text-align: center;
+	font-family: Helvetica, Arial;
+	font-size: 18px;
+	color: rgb(75, 75, 75);
+}
+
 /* header.css */
 #header {
 	height: 44px;
@@ -427,7 +436,6 @@ ul#category_drop_down_list {
 	background: rgb(255, 255, 255);
 	border-right: 1px solid rgb(200, 200, 200);
 	border-left: 1px solid rgb(200, 200, 200);
-	border-bottom: 1px solid rgb(200, 200, 200);
 	-webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, .3);
 	-khtml-box-shadow: 0px 2px 5px rgba(0, 0, 0, .3);
 	-moz-box-shadow: 0px 2px 5px rgba(0, 0, 0, .3);

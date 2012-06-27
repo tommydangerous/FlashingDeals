@@ -13,14 +13,7 @@
 					var name = results.name;
 					var email = results.email;
 					var picture = results.picture;
-					$.ajax({
-						url: "http://localhost:3000/test3?id="+id+"&email="+email+"&name="+name+"&picture="+picture,
-						cache: false,
-						success: function() {
-							window.location.replace("http://localhost:3000/feed");
-						}
-					})
-					// window.location.replace("http://localhost:3000/test3?id="+id+"&email="+email+"&name="+name+"&picture="+picture);
+					window.location.replace("http://localhost:3000/test3?id="+id+"&email="+email+"&name="+name+"&picture="+picture);
 				}
 			})
 		}

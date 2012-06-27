@@ -1,36 +1,67 @@
 class AuthenticationsController < ApplicationController	
-	before_filter :authenticate, :except => [:create, :twitter_email, :twitter_new, :failure]
-	before_filter :admin_user, :except => [:create, :twitter_email, :twitter_new, :failure]
+	before_filter :authenticate, :only => [:index, :destroy]
+	before_filter :admin_user,	 :only => [:index, :destroy]
 	
 	require 'net/http'
 	require 'uri'
-	
-  def index
-  	@title = "Authentications"
-  	@authentications = Authentication.order("created_at DESC")
-  end
   
-  def auth_google
+  def google_oauth
   	if Rails.env.production?
-  		url = ""
+  		url = "https://accounts.google.com/o/oauth2/auth?response_type=token&client_id=237018702612.apps.googleusercontent.com&redirect_uri=http://www.flashingdeals.com/google/access&scope=https://www.googleapis.com/auth/userinfo.profile+https://www.googleapis.com/auth/userinfo.email"
   	elsif Rails.env.development?
-  		url = "https://accounts.google.com/o/oauth2/auth?response_type=token&client_id=237018702612-8m6j81454hbo41buhm2nb870k3llono3.apps.googleusercontent.com&redirect_uri=http://localhost:3000/test&scope=https://www.googleapis.com/auth/userinfo.profile+https://www.googleapis.com/auth/userinfo.email"
+  		url = "https://accounts.google.com/o/oauth2/auth?response_type=token&client_id=237018702612-8m6j81454hbo41buhm2nb870k3llono3.apps.googleusercontent.com&redirect_uri=http://localhost:3000/google/access&scope=https://www.googleapis.com/auth/userinfo.profile+https://www.googleapis.com/auth/userinfo.email"
   	end
   	redirect_to url
   end
   
-  def auth_google_token
-	 endpoint = "https://www.googleapis.com/oauth2/v1/userinfo?access_token={accessToken}"
+  def google_access
+  	@title = "Google Auth"
+  	@path = request.url.split("#{request.fullpath}")[0]
   end
   
-  def auth_google_create
-  	access_token = params[:hash]
-  	redirect_to auth_google_token_path
-  end
-  
-  def create2
-  	omniauth = request.env['omniauth.auth']
-  	render :text => omniauth.to_yaml
+  def google_auth
+  	id = params[:id]
+  	name = params[:name]
+  	email = params[:email]
+  	photo = params[:picture].split("https").join("http").to_s
+  	random_password = ('a'..'z').to_a.shuffle[0..20].join
+  	authentication = Authentication.find_by_provider_and_uid("google", id)
+  	if cookies[:partner]
+			partner = cookies[:partner]
+		else
+			partner = nil
+		end
+		existing_user = User.find_by_email(email)
+		if authentication && authentication.user != nil
+			sign_in authentication.user
+			if authentication.user.partner.nil?
+				redirect_back_or my_account_path
+			else
+				redirect_to "/#{authentication.user.partner}"
+			end
+		elsif current_user
+			current_user.authentications.create!(:provider => "google", :uid => id)
+  		flash[:success] = "Google authentication successful."
+  		redirect_back_or my_account_path
+  	elsif existing_user
+  		existing_user.authentications.create!(:provider => "google", :uid => id)
+  		sign_in existing_user
+  		redirect_back_or my_account_path
+  	else
+  		name = "#{params[:name]}#{('0'..'9').to_a.shuffle[0..3].join}" unless User.find_by_name(name).nil?
+	  	user = User.new(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo)
+	  	if user.save
+	  		user.authentications.create!(:provider => "google", :uid => id)
+	  		new_user_authentications(user)
+	  		if user.partner.nil?
+		  		redirect_back_or my_account_path
+		  	else
+		  		redirect_to "/#{user.partner}"
+		  	end
+	  	else
+	  		redirect_to signup_path
+	  	end
+	  end
   end
   
   def create
@@ -61,11 +92,7 @@ class AuthenticationsController < ApplicationController
 	  	else # if authentication does not exist, the user is not signed in, and their email does not exist, create the user, authentication, and sign them in
 	  		url = URI.parse("http://graph.facebook.com/#{omniauth['uid']}/picture?type=large")
 			  res = Net::HTTP.start(url.host, url.port) { |http| http.get("/#{omniauth['uid']}/picture?type=large") }
-			  if User.find_by_name(omniauth["info"]["name"]).nil?
-			  	name = omniauth["info"]["name"]
-			  else
-			  	name = "#{omniauth['info']['name']}2"
-			  end
+			  name = "#{omniauth['info']['name']}#{('0'..'9').to_a.shuffle[0..3].join}" unless User.find_by_name(omniauth['info']['name']).nil?
 	  		email = omniauth["info"]["email"]
 	  		photo = res['location'].to_s
 	  		random_password = ('a'..'z').to_a.shuffle[0..20].join
@@ -100,44 +127,6 @@ class AuthenticationsController < ApplicationController
 	  		session[:twitter_uid] = omniauth['uid']
 	  		redirect_to twitter_email_path
 		  end
-		elsif omniauth['provider'] == "google"
-			existing_user = User.find_by_email(omniauth['info']['email'])
-			if authentication && authentication.user != nil # if authentication exist, sign user in
-  			sign_in authentication.user
-  			if authentication.user.partner.nil?
-  				redirect_back_or my_account_path
-  			else
-  				redirect_to "/#{authentication.user.partner}"
-  			end
-  		elsif current_user # if authentication does not exist and the user is signed in, create an authentication
-  			current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
-	  		flash[:success] = "Google authentication successful."
-	  		redirect_back_or my_account_path
-	  	elsif existing_user
-	  		existing_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
-	  		sign_in existing_user
-	  		redirect_back_or my_account_path
-	  	elsif
-	  		if User.find_by_name(omniauth['info']['name']).nil?
-	  			name = omniauth['info']['name']
-	  		else
-	  			name = "#{omniauth['info']['name']}2"
-	  		end
-	  		email = omniauth['info']['email']
-	  		random_password = ('a'..'z').to_a.shuffle[0..20].join
-	  		user = User.new(:name => name, :email => email, :password => random_password, :accept_terms => true, :partner => partner)
-	  		if user.save
-		  		user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
-		  		new_user_authentications(user)
-			  	if user.partner.nil?
-			  		redirect_back_or my_account_path
-			  	else
-			  		redirect_to "/#{user.partner}"
-			  	end
-			  else
-			  	redirect_to signup_path
-			  end
-	  	end
   	end
   end
   
@@ -171,7 +160,7 @@ class AuthenticationsController < ApplicationController
 	  		flash.now[:notice] = "Login to FlashingDeals and click \"Connect with Twitter\""
 	  		render :twitter_email
 	  	elsif existing_user.nil? # if email is not taken, create the user and authentication
-	  		name = "#{session[:twitter_name]}2" unless User.find_by_name(name).nil?
+	  		name = "#{session[:twitter_name]}#{('0'..'9').to_a.shuffle[0..3].join}" unless User.find_by_name(name).nil?
 	  		user = User.new(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo, :partner => partner)
 	  		if user.save
 		  		user.authentications.create!(:provider => "twitter", :uid => session[:twitter_uid])
@@ -189,8 +178,12 @@ class AuthenticationsController < ApplicationController
   end
   
 	def failure
-#  	flash[:error_2] = "Don't want one-click access? Please signup below"
   	redirect_to signup_path
+  end
+  
+  def index
+  	@title = "Authentications"
+  	@authentications = Authentication.order("created_at DESC")
   end
 
   def destroy

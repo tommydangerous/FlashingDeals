@@ -19,6 +19,8 @@ module UsersHelper
   	def correct_user
   		@user = User.find(params[:id])
   		redirect_to(my_account_path) unless current_user?(@user)
+  	rescue ActiveRecord::RecordNotFound
+			redirect_to my_account_path
   	end
   	
   	def admin_user
