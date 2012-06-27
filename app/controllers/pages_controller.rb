@@ -1,6 +1,6 @@
 class PagesController < ApplicationController	
-	before_filter :authenticate, :only => [:test, :test2, :control_panel, :contacts_failure]
-	before_filter :gm_user, 		 :only => [:test, :test2, :control_panel, :contacts_failure]
+	before_filter :authenticate, :only => [:test, :test2, :test3, :control_panel, :contacts_failure]
+	before_filter :gm_user, 		 :only => [:test, :test2, :test3, :control_panel, :contacts_failure]
 	
 	require 'net/http'
 	require 'uri'
@@ -9,13 +9,22 @@ class PagesController < ApplicationController
 	require 'nokogiri'
 	
 	def test
-		@subcomment = Subcomment.find(111)
+		@title = "Test"
 		render :layout => false
 	end
 	
 	def test2
-		@user = current_user
-		@friend = User.find(3)
+		@title = "Test2"
+		render :layout => false
+	end
+	
+	def test3
+		random_password = ('a'..'z').to_a.shuffle[0..20].join
+		@id = params[:id]
+		@email = params[:email]
+		@name = params[:name]
+		@picture = params[:picture]
+		@user = User.new(:name => params[:name], :email => params[:email], :password => random_password, :accept_terms => true, :image_url => params[:picture])
 		render :layout => false
 	end
 	

@@ -93,6 +93,7 @@ FlashingDeal::Application.routes.draw do
   
   match '/test' => 'pages#test', :as => :test
   match '/test2' => 'pages#test2', :as => :test2
+  match '/test3' => 'pages#test3', :as => :test3
   match '/contacts/failure' => 'pages#contacts_failure'
 # Partners
 	match '/satori' => 'partners#satori_deals', :as => :satori_deals

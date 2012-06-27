@@ -1,143 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>FlashingDeals Reply Alert</title>
-		<%= favicon_link_tag 'favicon.ico' %>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style>
-    	#reply_alert {
-    		width: 600px;
-    		margin: 0 auto;
-    		background: rgb(255, 255, 255);
-    		border: 1px solid rgb(148, 222, 240);
-    	}
-    	#header {
-    		background: rgb(173, 217, 228);
-    	}
-    	#logo {
-    		padding: 20px 0px 5px 20px;
-    	}
-    	#logo img {
-    		width: 232px;
-    		height: 36px;
-    	}
-    	#user_reply {
-    		padding: 20px 20px 0px 20px;
-    	}
-    	#user_reply p {
-    		font-family: Helvetica, Arial;
-    		font-weight: bold;
-    		font-size: 13px;
-    		color: rgb(75, 75, 75);
-    		margin: 0;
-    		line-height: 18px;
-    	}
-    	#user_reply p a, #user_reply p a:hover {
-    		color: rgb(4, 135, 187);
-    		text-decoration: none;
-    	}
-    	#my_comment {
-    		padding: 10px 20px 5px 20px;
-    	}
-    	#my_comment p {
-    		font-family: Helvetica, Arial;
-    		font-size: 13px;
-    		color: rgb(75, 75, 75);
-    		margin: 0;
-    		line-height: 18px;
-    	}
-    	#my_comment p a, #my_comment p a:hover {
-    		color: rgb(4, 135, 187);
-    	}
-    	#user_subcomment {
-    		padding: 5px 20px 10px 20px;
-    	}
-    	#user_subcomment p {
-    		font-family: Helvetica, Arial;
-    		font-size: 13px;
-    		color: rgb(75, 75, 75);
-    		margin: 0;
-    		line-height: 18px;
-    	}
-    	#user_subcomment p a, #user_subcomment p a:hover {
-    		color: rgb(4, 135, 187);
-    	}
-    	#see_reply {
-    		padding: 10px 20px 20px 20px;
-    		text-align: right;
-    	}
-    	#see_reply a {
-    		font-family: Helvetica, Arial;
-    		font-weight: bold;
-    		font-size: 14px;
-    		text-decoration: none;
-    		color: rgb(255, 255, 255);
-    		padding: 10px 15px;
-    		background: rgb(97, 197, 25);
-    		border: 1px solid rgb(41, 154, 11);
-    	}
-    	#see_reply a:hover {
-    		text-decoration: none;
-    	}
-    	#unsubscribe {
-    		width: 600px;
-    		margin: 0 auto;
-    	}
-    	.unsubscribe {
-    		padding: 20px;
-    	}
-    	.unsubscribe p {
-    		font-family: Verdana;
-    		font-size: 11px;
-    		color: rgb(150, 150, 150);
-    		margin: 0;
-    	}
-    </style>
-  </head>
-  <body>
-  	<table id="reply_alert">
-  		<tr id="header">
-				<td id="logo">
-					<%= link_to("http://www.flashingdeals.com", :target => "_blank") do %>
-						<img src="https://s3.amazonaws.com/flashingdeals_admin/logo_beta.png">
-					<% end %>
-				</td>
-			</tr>
-			<tr>
-				<td id="user_reply">
-					<p><%= link_to "#{User.find(@subcomment.user_id).name}", "http://www.flashingdeals.com#{user_path(User.find(@subcomment.user_id))}", :target => "_blank" %> replied to your comment.</p>
-				</td>
-			</tr>
-			<tr>
-				<td id="my_comment">
-					<p>
-						<%= link_to "#{User.find(Comment.find(@subcomment.comment_id).user_id).name}", "http://www.flashingdeals.com#{user_path(User.find(Comment.find(@subcomment.comment_id).user_id))}", :target => "_blank" %>: 
-						<%= Comment.find(@subcomment.comment_id).content %>	
-					</p>
-				</td>
-			</tr>
-			<tr>
-				<td id="user_subcomment">
-					<p>
-						<%= link_to "#{User.find(@subcomment.user_id).name}", "http://www.flashingdeals.com#{user_path(User.find(@subcomment.user_id))}", :target => "_blank" %>:
-						<%= @subcomment.content %>
-					</p>
-				</td>
-			</tr>
-			<tr>
-				<td id="see_reply">
-					<%= link_to("http://www.flashingdeals.com#{deal_path(Deal.find(@subcomment.deal_id))}", :target => "_blank") do %>
-						See Reply
-					<% end %>
-				</td>
-			</tr>
-  	</table>
-  	<table id="unsubscribe">
-  		<tr>
-  			<td class="unsubscribe">
-  				<p>You are receiving this email because another user has replied to your comment. If you would like to unsubscribe to receiving reply alerts, click <%= link_to "here", "http://www.flashingdeals.com/unsubscribe-reply-alerts", :target => "_blank" %>.</p>
-  			</td>
-  		</tr>
-  	</table>
-  </body>
+  <%= javascript_include_tag 'chrome/application' %>
+	<script>
+		function googleInfo() {
+			var access_token = window.location.hash.replace('#access_token=', '');
+			$.ajax({
+				url: "https://www.googleapis.com/oauth2/v1/userinfo?access_token="+access_token,
+				dataType: 'jsonp',
+				success: function(results) {
+					var id = results.id;
+					var name = results.name;
+					var email = results.email;
+					var picture = results.picture;
+					$.ajax({
+						url: "http://localhost:3000/test3?id="+id+"&email="+email+"&name="+name+"&picture="+picture,
+						cache: false,
+						success: function() {
+							window.location.replace("http://localhost:3000/feed");
+						}
+					})
+					// window.location.replace("http://localhost:3000/test3?id="+id+"&email="+email+"&name="+name+"&picture="+picture);
+				}
+			})
+		}
+		$(document).ready(function() {
+			googleInfo();
+		})
+	</script>
+	</head>
+	<body>
+	</body>
 </html>

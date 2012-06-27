@@ -1,199 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<title>FlashingDeals Friend Alert</title>
-		<%= favicon_link_tag 'favicon.ico' %>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <style>
-			#friend_alert {
-    		width: 600px;
-    		margin: 0 auto;
-    		background: rgb(255, 255, 255);
-    		border: 1px solid rgb(148, 222, 240);
-    	}
-    	#header {
-    		background: rgb(173, 217, 228);
-    	}
-    	#logo {
-    		padding: 20px 0px 5px 20px;
-    	}
-    	#logo img {
-    		width: 232px;
-    		height: 36px;
-    	}
-    	#user_info {
-    		width: 100%;
-    	}
-    	#user_image {
-    		width: 100px;
-    		padding: 20px 0px 20px 20px;
-    		text-align: center;
-    	}
-    	#user_image img {
-    		max-width: 100px;
-    		max-height: 100px;
-    	}
-    	#user_image p {
-    		font-family: Helvetica, Arial;
-    		font-size: 13px;
-    		color: rgb(150, 150, 150);
-    		margin: 5px 0px 0px 0px;
-    	}
-    	#user_name {
-    		padding: 20px 20px 20px 0px;
-    		vertical-align: top;
-    	}
-    	#user_name_header {
-    		font-family: Helvetica, Arial;
-    		font-weight: bold;
-    		font-size: 16px;
-    		color: rgb(75, 75, 75);
-    		margin: 0px 0px 10px 20px;
-    	}
-    	#user_name_header a {
-    		text-decoration: none;
-    		color: rgb(4, 135, 187);
-    	}
-    	#user_stats {
-    		margin-left: 40px;
-    	}
-    	#user_stats p {
-    		font-family: Helvetica, Arial;
-    		font-size: 12px;
-    		color: rgb(150, 150, 150);
-    	}
-    	.user_stats_label {
-    		width: 100px;
-    	}
-    	.user_stats_label p {
-    		margin: 0px 10px 5px 0px
-    	}
-    	.user_stats_data {
-    		text-align: right;
-    	}
-    	.user_stats_data p {
-    		margin: 0px;
-    	}
-    	#bottom_links {
-    		width: 100%;
-    		padding: 0px 20px 20px 20px;
-    	}
-    	#accept_friendship {
-    		width: 79%;
-    		text-align: right;
-    	}
-    	#accept_friendship a {
-    		font-family: Helvetica, Arial;
-    		font-weight: bold;
-    		font-size: 14px;
-    		text-decoration: none;
-    		color: rgb(75, 75, 75);
-    		background: rgb(214, 214, 214);
-    		border: 1px solid rgb(160, 160, 160);
-    		padding: 10px 15px;
-    	}
-    	#see_more {
-    		width: 21%;
-    		text-align: right;
-    	}
-    	#see_more a {
-    		font-family: Helvetica, Arial;
-    		font-weight: bold;
-    		font-size: 14px;
-    		text-decoration: none;
-    		color: rgb(255, 255, 255);
-    		background: rgb(97, 197, 25);
-    		border: 1px solid rgb(41, 154, 11);
-    		padding: 10px 15px;
-    	}
-    	#unsubscribe {
-    		width: 600px;
-    		margin: 0 auto;
-    	}
-    	.unsubscribe {
-    		padding: 20px;
-    	}
-    	.unsubscribe p {
-    		font-family: Verdana;
-    		font-size: 11px;
-    		color: rgb(150, 150, 150);
-    		margin: 0;
-    	}
-    </style>
-  </head>
-  <body>
-  	<table id="friend_alert">
-  		<tr id="header">
-				<td id="logo">
-					<%= link_to("http://www.flashingdeals.com", :target => "_blank") do %>
-						<img src="https://s3.amazonaws.com/flashingdeals_admin/logo_beta.png">
-					<% end %>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table id="user_info">
-						<tr>
-							<td id="user_image">
-								<%= link_to("http://www.flashingdeals.com#{user_path(@user)}", :target => "_blank") do %>
-									<img src="<%= @user.photo.url %>">
-								<% end %>
-								<p>Level <%= @user.level %></p>
-							</td>
-							<td id="user_name">
-								<p id="user_name_header"><%= link_to "#{@user.name}", "http://www.flashingdeals.com#{user_path(@user)}", :target => "_blank" %> sent you a friend request.</p>
-								<table id="user_stats">
-									<tr>
-										<td class="user_stats_label">
-											<p>Friends</p>
-										</td>
-										<td class="user_stats_data">
-											<p><%= @user.total_friends %></p>
-										</td>
-									</tr>
-									<tr>
-										<td class="user_stats_label">
-											<p>Comments</p>
-										</td>
-										<td class="user_stats_data">
-											<p><%= @user.total_comments %></p>
-										</td>
-									</tr>
-									<tr>
-										<td class="user_stats_label">
-											<p>Deals Watching</p>
-										</td>
-										<td class="user_stats_data">
-											<p><%= @user.watching.size %></p>
-										</td>
-									</tr>
-								</table>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-			<tr>
-				<td>
-					<table id="bottom_links">
-						<tr>
-							<td id="accept_friendship">
-								<%= link_to "Accept Friendship", "http://www.flashingdeals.com/friendships/accept/#{@user.name}" %>
-							</td>
-							<td id="see_more">
-								<%= link_to "See More", "http://www.flashingdeals.com/friend-requests" %>
-							</td>
-						</tr>
-					</table>
-				</td>
-			</tr>
-		</table>
-		<table id="unsubscribe">
-  		<tr>
-  			<td class="unsubscribe">
-  				<p>You are receiving this email because another user has sent you a friend request. If you would like to unsubscribe to receiving friend alerts, click <%= link_to "here", "http://www.flashingdeals.com/unsubscribe-friend-alerts", :target => "_blank" %>.</p>
-  			</td>
-  		</tr>
-  	</table>
-  </body>
+  <%= javascript_include_tag 'chrome/application' %>
+	<script>
+	function numTweets() {
+		$.ajax({
+			url: "http://otter.topsy.com/urlinfo.js?url=http://www.nytimes.com",
+			dataType: 'jsonp',
+			success: function(results) {
+				var title = results.response.oneforty;
+				var numTweets = results.response.trackback_total;
+				$('#results').append(title + ' has ' + numTweets + ' tweets.');
+			}
+		})
+	}
+	$(document).ready(function() {
+		numTweets();
+	})
+	</script>
+	</head>
+	<body>
+		<div id="results"></div>
+	</body>
 </html>

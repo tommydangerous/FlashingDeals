@@ -11,7 +11,11 @@ class AuthenticationsController < ApplicationController
   end
   
   def auth_google
-  	url = "https://accounts.google.com/o/oauth2/auth?response_type=token&client_id=237018702612-8m6j81454hbo41buhm2nb870k3llono3.apps.googleusercontent.com&redirect_uri=http://localhost:3000/auth_google_token&scope=https://www.googleapis.com/auth/userinfo.profile"
+  	if Rails.env.production?
+  		url = ""
+  	elsif Rails.env.development?
+  		url = "https://accounts.google.com/o/oauth2/auth?response_type=token&client_id=237018702612-8m6j81454hbo41buhm2nb870k3llono3.apps.googleusercontent.com&redirect_uri=http://localhost:3000/test&scope=https://www.googleapis.com/auth/userinfo.profile+https://www.googleapis.com/auth/userinfo.email"
+  	end
   	redirect_to url
   end
   
@@ -65,14 +69,18 @@ class AuthenticationsController < ApplicationController
 	  		email = omniauth["info"]["email"]
 	  		photo = res['location'].to_s
 	  		random_password = ('a'..'z').to_a.shuffle[0..20].join
-	  		user = User.create!(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo, :partner => partner)
-	  		user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
-	  		new_user_authentications(user)
-	  		if user.partner.nil?
-		  		redirect_back_or my_account_path
-		  	else
-		  		redirect_to "/#{user.partner}"
-		  	end
+	  		user = User.new(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo, :partner => partner)
+	  		if user.save
+		  		user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+		  		new_user_authentications(user)
+		  		if user.partner.nil?
+			  		redirect_back_or my_account_path
+			  	else
+			  		redirect_to "/#{user.partner}"
+			  	end
+			  else
+			  	redirect_to signup_path
+			  end
 	  	end
   	elsif omniauth['provider'] == "twitter"
   		if authentication && authentication.user != nil # if authentication exist, sign user in
@@ -117,14 +125,18 @@ class AuthenticationsController < ApplicationController
 	  		end
 	  		email = omniauth['info']['email']
 	  		random_password = ('a'..'z').to_a.shuffle[0..20].join
-	  		user = User.create!(:name => name, :email => email, :password => random_password, :accept_terms => true, :partner => partner)
-	  		user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
-	  		new_user_authentications(user)
-		  	if user.partner.nil?
-		  		redirect_back_or my_account_path
-		  	else
-		  		redirect_to "/#{user.partner}"
-		  	end
+	  		user = User.new(:name => name, :email => email, :password => random_password, :accept_terms => true, :partner => partner)
+	  		if user.save
+		  		user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
+		  		new_user_authentications(user)
+			  	if user.partner.nil?
+			  		redirect_back_or my_account_path
+			  	else
+			  		redirect_to "/#{user.partner}"
+			  	end
+			  else
+			  	redirect_to signup_path
+			  end
 	  	end
   	end
   end
@@ -160,14 +172,18 @@ class AuthenticationsController < ApplicationController
 	  		render :twitter_email
 	  	elsif existing_user.nil? # if email is not taken, create the user and authentication
 	  		name = "#{session[:twitter_name]}2" unless User.find_by_name(name).nil?
-	  		user = User.create!(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo, :partner => partner)
-	  		user.authentications.create!(:provider => "twitter", :uid => session[:twitter_uid])
-	  		new_user_authentications(user)
-	  		if user.partner.nil?
-		  		redirect_back_or my_account_path
-		  	else
-		  		redirect_to "/#{user.partner}"
-		  	end
+	  		user = User.new(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo, :partner => partner)
+	  		if user.save
+		  		user.authentications.create!(:provider => "twitter", :uid => session[:twitter_uid])
+		  		new_user_authentications(user)
+		  		if user.partner.nil?
+			  		redirect_back_or my_account_path
+			  	else
+			  		redirect_to "/#{user.partner}"
+			  	end
+			  else
+			  	redirect_to signup_path
+			  end
 	  	end
 	  end
   end

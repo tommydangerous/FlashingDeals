@@ -4,6 +4,7 @@ iframe: font-size: 30, outline-zie: 3, opacity: 25, tilt X: 0, fade height: 50, 
 Cover: font-size: 1000, outline-size: 10
 
 Sticker: font-size: 120, outline-size: 8
+Business Cards: 120, outline-size: 8, reflection, opacity: 40, tilt X: 0, fade height: 50, scale y: 100%, x offset: 0, y offset: 0, background: 0, 0, 0
 
 FDSplash Logo: font-size: 60, outline-size: 5, DROP, x offset: 4, y offset: 4, blur: 10, shadow color: black, opacity: 50
 

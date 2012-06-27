@@ -54,5 +54,5 @@
 		<div class="clear"></div>
 	</div>
 	<div class="clear"></div>
-	<%= render 'feed_pagination' %>
+	<%= render 'feed_pagination' unless @user.feed.nil? %>
 </div>
