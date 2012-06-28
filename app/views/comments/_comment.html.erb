@@ -21,7 +21,7 @@
 					<%= link_to "Reply", 'javascript:void(0);', :onclick => "focusSubcomment(#{comment.id})", :class => "reply_link" %>
 				<% end %>
 				<% if comment.user_id == current_user.id || current_user.gm %>
-					| <%= link_to "Delete", comment, :class => "delete_link", :method => :delete, :confirm => "Are you sure you want to take back what you said?", :remote => true %>
+					| <%= link_to "Delete", comment, :class => "delete_link", :method => :delete, :remote => true %>
 				<% end %>
 			<% end %>
 		</div>
