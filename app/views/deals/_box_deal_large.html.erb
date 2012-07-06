@@ -77,17 +77,6 @@
 					<%= image_tag("/assets/email_grey.png") %>
 				</a>
 			</li>
-			<li>
-				<% if signed_in? %>
-					<%= link_to("javascript:void(0);", :id => "box_deal_comment_anchor_#{deal.id}", :onclick => "showBoxDealCommentForm(#{deal.id})", :title => "Comment", :class => "box_deal_anchor_not_selected") do %>
-						<%= image_tag("/assets/comment_grey.png") %>
-					<% end %>
-				<% else %>
-					<%= link_to("javascript:void(0);", :title => "Comment", :class => "box_deal_anchor_not_selected signup_popup_anchor") do %>
-						<%= image_tag("/assets/comment_grey.png") %>
-					<% end %>
-				<% end %>
-			</li>
 		</ul>
 	</div>
 	<div id="box_deal_large_name">

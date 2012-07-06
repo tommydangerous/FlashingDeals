@@ -321,8 +321,8 @@ div.box_deal_share {
 	display: none;
 	position: absolute;
 	width: 200px;
-	height: 20px;
-	margin-top: -20px;
+	height: 30px;
+	margin-top: -25px;
 }
 
 div.box_deal_share ul {
@@ -330,18 +330,18 @@ div.box_deal_share ul {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	height: 25px;
+	height: 30px;
 }
 
 div.box_deal_share ul li {
 	display: inline-block;
-	padding: 0px 10px;
+	padding: 0px 15px;
 }
 
 div.box_deal_share ul li a {
 	display: block;
-	width: 25px;
-	height: 25px;
+	width: 30px;
+	height: 30px;
 }
 
 div.box_deal_share ul li a:hover {
@@ -358,8 +358,8 @@ div.box_deal_share ul li a:active {
 }
 
 div.box_deal_share ul li img {
-	width: 25px;
-	height: 25px;
+	width: 30px;
+	height: 30px;
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -369,8 +369,8 @@ div.box_deal_share ul li img {
 }
 
 input#my_deals_unwatch {
-	width: 25px;
-	height: 25px;
+	width: 30px;
+	height: 30px;
 	border: none;
 	margin: 0;
 	padding: 0;
@@ -389,7 +389,7 @@ input#my_deals_unwatch {
 	box-shadow: 1px 1px 5px rgba(150, 150, 150, 1);
 	opacity: .75;
 	background: url("/assets/unwatch.png");
-	background-size: 25px 25px;
+	background-size: 30px 30px;
 }
 
 input#my_deals_unwatch:hover {
@@ -613,7 +613,7 @@ div.box_deal_large_share {
 	display: none;
 	position: absolute;
 	width: 250px;
-	height: 30px;
+	height: 35px;
 	margin-top: -30px;
 }
 
@@ -622,18 +622,18 @@ div.box_deal_large_share ul {
 	margin: 0;
 	padding: 0;
 	text-align: center;
-	height: 30px;
+	height: 35px;
 }
 
 div.box_deal_large_share ul li {
 	display: inline-block;
-	padding: 0px 10px;
+	padding: 0px 20px;
 }
 
 div.box_deal_large_share ul li a {
 	display: block;
-	width: 30px;
-	height: 30px;
+	width: 35px;
+	height: 35px;
 }
 
 div.box_deal_large_share ul li a:hover {
@@ -650,8 +650,8 @@ div.box_deal_large_share ul li a:active {
 }
 
 div.box_deal_large_share ul li img {
-	width: 30px;
-	height: 30px;
+	width: 35px;
+	height: 35px;
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;
 	-moz-border-radius: 2px;
@@ -698,10 +698,15 @@ div.box_deal_large_comment {
 }
 
 div#box_deal_large_comment_user {
-	width: 40px;
-	height: 40px;
+	width: 35px;
+	height: 35px;
 	float: left;
 	text-align: center;
+}
+
+div#box_deal_large_comment_user img {
+	max-width: 35px;
+	max-height: 35px;
 }
 
 div#box_deal_large_comment_content {
@@ -745,15 +750,15 @@ div.box_deal_large_comment_form {
 }
 
 div.box_deal_large_comment_form .box_deal_comment_form_user {
-	width: 40px;
-	height: 40px;
+	width: 35px;
+	height: 35px;
 	float: left;
 	text-align: center;
 }
 
 div.box_deal_large_comment_form .box_deal_comment_form_user img {
-	max-height: 40px;
-	max-width: 40px;
+	max-height: 35px;
+	max-width: 35px;
 }
 
 .box_deal_large_comment_form textarea {
