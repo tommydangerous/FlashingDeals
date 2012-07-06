@@ -1,27 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-  <%= javascript_include_tag 'chrome/application' %>
-	<script>
-		function googleInfo() {
-			var access_token = window.location.hash.replace('#access_token=', '');
-			$.ajax({
-				url: "https://www.googleapis.com/oauth2/v1/userinfo?access_token="+access_token,
-				dataType: 'jsonp',
-				success: function(results) {
-					var id = results.id;
-					var name = results.name;
-					var email = results.email;
-					var picture = results.picture;
-					window.location.replace("http://localhost:3000/test3?id="+id+"&email="+email+"&name="+name+"&picture="+picture);
-				}
-			})
-		}
-		$(document).ready(function() {
-			googleInfo();
-		})
-	</script>
-	</head>
-	<body>
-	</body>
-</html>
+<script>
+$(document).ready(function() {
+	var h = $('#header').offset();
+	var height = $('#header').height();
+	var t = h.top;
+	var l = h.left;
+	alert(height);
+})
+</script>

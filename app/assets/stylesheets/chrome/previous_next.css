@@ -1,5 +1,4 @@
 #previous_deal, #next_deal {
-	position: absolute;
 	top: 250px;
 	z-index: 9000;
 	display: block;
@@ -24,6 +23,7 @@
 }
 
 .prev_next_no_overlay {
+	position: fixed;
 	-webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, .3);
 	-khmtl-box-shadow: 0px 3px 10px rgba(0, 0, 0, .3);
 	-moz-box-shadow: 0px 3px 10px rgba(0, 0, 0, .3);
@@ -33,6 +33,7 @@
 }
 
 .prev_next_overlay {
+	position: absolute;
 	-webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
 	-khtml-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
 	-moz-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);

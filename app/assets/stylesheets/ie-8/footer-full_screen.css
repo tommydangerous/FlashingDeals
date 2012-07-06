@@ -34,6 +34,10 @@
 	padding-bottom: 40px;
 }
 
+#mainFeaturedContent {
+	padding: 52px 10px 40px 10px;
+}
+
 div#empty_deals {
 	text-align: center;
 	margin-top: 20px;

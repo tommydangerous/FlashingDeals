@@ -41,7 +41,8 @@ div#message_thread_content {
 
 div#message_thread_content p {
 	font-family: Helvetica, Arial;
-	font-size: 12px;
+	font-size: 13px;
+	line-height: 16px;
 	color: rgb(75, 75, 75);
 	word-wrap: break-word;
 }
@@ -54,7 +55,7 @@ div#message_thread_timestamp {
 
 div#message_thread_timestamp p {
 	font-family: Helvetica, Arial;
-	font-size: 12px;
+	font-size: 11px;
 	color: rgb(150, 150, 150);
 }
 
@@ -78,7 +79,7 @@ div#message_reply_form textarea {
 	padding: 5px;
 	height: 32px;
 	font-family: Helvetica, Arial;
-	font-size: 14px;
+	font-size: 13px;
 	color: rgb(75, 75, 75);
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;

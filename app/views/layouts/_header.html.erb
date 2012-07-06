@@ -8,22 +8,8 @@
       	<%= link_to "Featured", featured_deals_path, :id => "flashback", :class => "not_selected" %>
     	</li>
       <% if signed_in? %>
-      <li>
-      	<%= link_to "Community", community_deals_path, :id => "flashmob_deals", :class => "not_selected" %>
-      	<div id="category_drop_down">
-	    		<ul id="category_drop_down_list">
-						<% Category.all.each do |c| %>
-							<li>
-								<%= link_to "#{c.name}", c %>
-							</li>
-						<% end %>
-						<div class="clear"></div>
-					</ul>		
-    		</div>
-    	</li>
-    	<li><%= link_to "My Deals", my_deals_path, :id => "my_deals_link", :class => "not_selected" %></li>
+    		<li><%= link_to "My Deals", my_deals_path, :id => "my_deals_link", :class => "not_selected" %></li>
       <% else %>
-      	<li id="community_deals_header_link"><%= link_to "Community", "javascript:void(0);", :class => "not_selected login_popup_anchor scroll_top" %></li>
       	<li id="signup_header_link"><%= link_to "Sign Up", "javascript:void(0);", :class => "not_selected login_popup_anchor scroll_top" %></li>
       <% end %>
     </ul>      	

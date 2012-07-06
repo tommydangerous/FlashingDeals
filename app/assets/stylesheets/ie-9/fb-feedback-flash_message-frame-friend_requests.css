@@ -1,5 +1,8 @@
 /* facebook_twitter_home.css */
 div#facebook_twitter_home {
+	position: relative;
+	top: 5px;
+	left: 10px;
 	text-align: left;
 	font-size: 0px;
 	width: 150px;
@@ -27,6 +30,8 @@ li#twitter_follow_li {
 }
 
 div#facebook_like {
+	position: relative;
+	top: 1px;
 	border: 1px solid rgb(200, 200, 200);
 	width: 44px;
 	height: 20px;

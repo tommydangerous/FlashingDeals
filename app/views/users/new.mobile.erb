@@ -1,0 +1,45 @@
+<div id="signup">
+	<p class="signupHeader">Sign up using</p>
+	<ul>
+		<li>
+			<%= link_to('/facebook/auth', :id => 'facebookAuth', :class => 'authButton') do %>
+				<%= image_tag '/assets/facebook_auth.png' %>
+			<% end %>
+		</li>
+		<li>
+			<%= link_to('/twitter/auth', :id => 'twitterAuth', :class => 'authButton') do %>
+				<%= image_tag '/assets/twitter_auth.png' %>
+			<% end %>
+		</li>
+		<li>
+			<%= link_to('/google/oauth', :id => 'googleAuth', :class => 'authButton') do %>
+				<%= image_tag '/assets/google_auth1.png' %>
+			<% end %>
+		</li>
+	</ul>
+	<div id="signupForm">
+		<%= form_for(User.new) do |f| %>
+			<div class="field">
+				<%= f.text_field :name, :autocomplete => "off", :tabindex => 1, :placeholder => "Full name" %>
+			</div>
+			<div class="field">
+				<%= f.text_field :email, :autocomplete => "off", :tabindex => 2, :placeholder => "Email address" %>
+			</div>
+			<div class="field">
+				<%= f.password_field :password, :tabindex => 3, :placeholder => "Password" %>
+			</div>
+			<div class="actions">
+				<%= f.submit "Sign Up", :tabindex => 4 %>
+			</div>
+		<% end %>
+	</div>
+	<div class="agree">
+		<p>By signing up, you agree to the <%= link_to "Terms of Use", terms_path %> & <%= link_to "Privacy Policy", privacy_path %>.</p>
+	</div>
+	<div class="existingUserLogin">
+		Existing user?
+		<%= link_to login_path do %>
+			Log in here
+		<% end %>
+	</div>
+</div>

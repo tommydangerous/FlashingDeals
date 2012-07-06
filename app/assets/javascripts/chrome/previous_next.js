@@ -4,7 +4,7 @@ $(document).ready(function() {
 		var prev_deal = $('#previous_deal');
 		var prev_deal_image = $('.previous_deal_image');
 		var w = prev_deal_image.width();
-		var w_show = (w * 3)/10
+		var w_show = (w * 50)/100
 		var w_hide = w - w_show
 		// previous deal hover
 		var prev_deal_show = 0;
@@ -38,7 +38,7 @@ $(document).ready(function() {
 		var next_deal = $('#next_deal');
 		var next_deal_image = $('.next_deal_image');
 		var w = next_deal_image.width();
-		var w_show = (w * 3)/10
+		var w_show = (w * 50)/100
 		var w_hide = w - w_show
 		// next deal hover
 		var next_deal_show = 0;

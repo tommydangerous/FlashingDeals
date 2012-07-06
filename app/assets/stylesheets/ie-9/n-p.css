@@ -183,24 +183,11 @@ div#notifications {
 	float: left;
 }
 
-div#notifications h1 {
+.notifications_header {
 	font-family: Helvetica, Arial;
-	font-weight: bold;
-	font-size: 14px;
-	background: rgba(173, 217, 228, 1);
-	color: rgba(44, 175, 227, 1);
-	padding: 10px;
-	-webkit-border-top-left-radius: 5px;
-	-moz-border-radius-topleft: 5px;
-	-ms-border-top-left-radius: 5px;
-	-o-border-top-left-radius: 5px;
-	border-top-left-radius: 5px;
-	-webkit-border-top-right-radius: 5px;
-	-moz-border-radius-topright: 5px;
-	-ms-border-top-right-radius: 5px;
-	-o-border-top-right-radius: 5px;
-	border-top-right-radius: 5px;
-	margin-bottom: 5px;
+	font-size: 28px;
+	color: rgb(75, 75, 75);
+	padding: 20px 0px 10px 0px;
 }
 
 div#notifications h2 {
@@ -1167,7 +1154,7 @@ div#popup_page_info {
 	background: rgb(255, 255, 255);
 	width: 970px;
 	margin: 0 auto;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	-webkit-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
 	-khtml-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
 	-moz-box-shadow: 0px 1px 5px rgba(75, 75, 75, .25);
@@ -1212,7 +1199,7 @@ div#popup_page_info_invite {
 	background: rgb(255, 255, 255);
 	width: 970px;
 	margin: 0 auto;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	padding: 20px;
 	-webkit-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
 	-khtml-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
@@ -1253,7 +1240,6 @@ div#progress {
 
 /* previous_next.css */
 #previous_deal, #next_deal {
-	position: absolute;
 	top: 250px;
 	z-index: 9000;
 	display: block;
@@ -1278,6 +1264,7 @@ div#progress {
 }
 
 .prev_next_no_overlay {
+	position: fixed;
 	-webkit-box-shadow: 0px 3px 10px rgba(0, 0, 0, .3);
 	-khmtl-box-shadow: 0px 3px 10px rgba(0, 0, 0, .3);
 	-moz-box-shadow: 0px 3px 10px rgba(0, 0, 0, .3);
@@ -1287,6 +1274,7 @@ div#progress {
 }
 
 .prev_next_overlay {
+	position: absolute;
 	-webkit-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
 	-khtml-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);
 	-moz-box-shadow: 0px 5px 20px rgba(0, 0, 0, .35);

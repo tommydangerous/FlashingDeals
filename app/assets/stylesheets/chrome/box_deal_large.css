@@ -179,7 +179,6 @@ div#box_deal_large_comment_content p {
 }
 
 div.box_deal_large_comment_form {
-	display: none;
 	margin-top: 5px;
 	padding-top: 5px;
 	border-top: 1px dotted rgb(200, 200, 200);

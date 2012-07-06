@@ -1,0 +1,67 @@
+#categoriesWaypoint {
+	position: absolute;
+	top: 45px;
+	height: 1px;
+	width: 100%;
+}
+
+#categoriesBar.fixed {
+	position: fixed;
+	top: -1px;
+}
+
+#categoriesBar {
+	position: absolute;
+	top: 44px;
+	z-index: 7999;
+	text-align: center;
+	border-top: 1px solid rgb(200, 200, 200);
+	background: rgb(100, 100, 100);
+	height: 36px;
+	width: 100%;
+	-webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, .4);
+	-khtml-box-shadow: 0px 2px 5px rgba(0, 0, 0, .4);
+	-moz-box-shadow: 0px 2px 5px rgba(0, 0, 0, .4);
+	-ms-box-shadow: 0px 2px 5px rgba(0, 0, 0, .4);
+	-o-box-shadow: 0px 2px 5px rgba(0, 0, 0, .4);
+	box-shadow: 0px 2px 5px rgba(0, 0, 0, .4);
+}
+
+.categoriesList {
+	height: 32px;
+	width: 500px;
+	list-style-type: none;
+	padding: 0;
+	margin: 0 auto;
+}
+
+.categoriesList li {
+	height: 32px;
+	display: inline-block;
+}
+
+.categoriesList li a {
+	display: block;
+	height: 16px;
+	text-decoration: none;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 13px;
+	padding: 10px 40px;
+	color: rgb(200, 200, 200);
+}
+
+.categoriesList li a:hover {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	-webkit-transition: .1s all linear;
+	-khtml-transition: .1s all linear;
+	-moz-transition: .1s all linear;
+	-ms-transition: .1s all linear;
+	-o-transition: .1s all linear;
+	transition: .1s all linear;
+}
+
+.categoriesList li a.catSelected {
+	color: rgb(255, 255, 255);
+}

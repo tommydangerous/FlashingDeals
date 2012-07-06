@@ -1,4 +1,7 @@
 div#facebook_twitter_home {
+	position: relative;
+	top: 5px;
+	left: 10px;
 	text-align: left;
 	font-size: 0px;
 	width: 150px;

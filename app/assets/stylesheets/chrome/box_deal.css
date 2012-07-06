@@ -53,6 +53,9 @@ div#grid_top_bar {
 }
 
 div#grid_search_form {
+	position: relative;
+	top: 7px;
+	right: 10px;
 	width: 250px;
 	float: right;
 	text-align: right;
@@ -62,9 +65,9 @@ input#grid_search {
 	margin: 0;
 	width: 150px;
 	border: 1px solid rgb(200, 200, 200);
-	padding: 5px;
-	font-family: Verdana;
-	font-size: 12px;
+	padding: 2px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
 	color: rgb(75, 75, 75);
 	-webkit-border-radius: 2px;
 	-khtml-border-radius: 2px;
@@ -101,6 +104,7 @@ input#grid_search:focus {
 }
 
 input#grid_search_button {
+	margin: 0;
 	position: relative;
 	bottom: 1px;
 	font-family: Verdana;
@@ -493,7 +497,6 @@ div#box_deal_comment_content p {
 }
 
 .box_deal_comment_form {
-	display: none;
 	margin-top: 5px;
 	padding-top: 5px;
 	border-top: 1px dotted rgb(200, 200, 200);

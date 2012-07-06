@@ -282,7 +282,7 @@ div#popup_page_info {
 	background: rgb(255, 255, 255);
 	width: 970px;
 	margin: 0 auto;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 }
 
 a#popup_page_info_close {
@@ -321,7 +321,7 @@ div#popup_page_info_invite {
 	background: rgb(255, 255, 255);
 	width: 970px;
 	margin: 0 auto;
-	margin-bottom: 10px;
+	margin-bottom: 15px;
 	padding: 20px;
 	-webkit-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);
 	-khtml-box-shadow: 1px 1px 10px rgba(150, 150, 150, .75);

@@ -1,5 +1,5 @@
 <div id="notifications">
-	<h1>My Notifications</h1>
+	<p class="notifications_header">Notifications</p>
 	<% @notifications_days.each do |month_day, notifications| %>
 		<h2><%= month_day %></h2>
 		<% for notification in notifications %>
@@ -14,5 +14,4 @@
 			</div>
 		<% end %>
 	<% end %>
-	<div class="page_end"></div>
 </div>

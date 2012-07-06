@@ -1,0 +1,28 @@
+<div id="categoriesBar">
+	<div id="facebook_twitter_home">
+		<ul>
+			<li id="facebook_like_li">
+				<%= link_to("http://www.facebook.com/pages/FlashingDeals/254028428008396", :target => "_blank") do %>
+					<div id="facebook_like"></div>
+				<% end %>
+			</li>
+			<li id="twitter_follow_li">
+				<a href="https://twitter.com/FlashingDeals" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">
+					Follow @FlashingDeals
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div id="grid_search_form">
+		<%= form_tag featured_deals_path, :method => :get do %>
+			<%= text_field_tag :search, params[:search], :autocomplete => "off", :id => "grid_search" %>
+			<%= submit_tag "Search", :name => nil, :id => "grid_search_button" %>
+		<% end %>
+	</div>
+	<ul class="categoriesList">
+		<li><%= link_to "Food", "/categories/food", :id => "food" %></li>
+		<li><%= link_to "Leisure", "/categories/leisure", :id => "leisure" %></li>
+		<li><%= link_to "Retail", "/categories/retail", :id => "retail" %></li>
+	</ul>
+</div>
+<div id="categoriesWaypoint"></div>

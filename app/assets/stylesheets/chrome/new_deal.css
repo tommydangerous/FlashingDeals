@@ -104,6 +104,34 @@ div#new_deal_form div.field input:focus, div#new_deal_form div.field textarea:fo
 	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
 }
 
+#deal_category {
+	width: 312px;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	border: 1px solid rgba(200, 200, 200, 1);
+	padding: 5px;
+	font-family: Verdana;
+	font-size: 14px;
+	color: rgba(75, 75, 75, 1);
+	margin: 0;
+	-webkit-transition: all .2s ease-in-out;
+	-khtml-transition: all .2s ease-in-out;
+	-moz-transition: all .2s ease-in-out;
+	-ms-transition: all .2s ease-in-out;
+	-o-transition: all .2s ease-in-out;
+	transition: all .2s ease-in-out;
+	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+}
+
 div#new_deal_form div.actions {
 	margin-top: 10px;
 }

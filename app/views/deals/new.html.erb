@@ -26,6 +26,17 @@
 			<div id="field_deal_info" class="field">
 				<p>Info: <%= f.text_area :info, :autocomplete => "off" %></p>
 			</div>
+			<div class="field">
+				<p>
+					Category: 
+					<select id="deal_category" name="category">
+						<option value="None">None</option>
+						<option value="Food">Food</option>
+						<option value="Leisure">Leisure</option>
+						<option value="Retail">Retail</option>
+					</select>
+				</p>
+			</div>
 			<div class="field datetime">
 				<p>Posted: <%= f.datetime_select :posted, :ampm => true, :datetime_separator => ", ", :time_separator => "", :use_short_month => true, :order => [:month, :day, :year] %></p>
 			</div>

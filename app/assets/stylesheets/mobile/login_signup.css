@@ -1,0 +1,165 @@
+#login, #signup {
+	width: 100%;
+}
+
+.loginHeader, .signupHeader {
+	font-size: 18px;
+	text-align: center;
+}
+
+#login ul, #signup ul {
+	padding: 10px 0px;
+	margin: 0;
+	text-align: center;
+}
+
+#login ul li, #signup ul li {
+	display: inline-block;
+	padding: 0px 15px;
+}
+
+.authButton {
+	display: block;
+	width: 40px;
+	height: 40px;
+	padding: 5px;
+	text-decoration: none;
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+}
+
+#facebookAuth {
+	background: rgb(59, 89, 152);
+}
+
+#twitterAuth {
+	background: rgb(64, 153, 255);
+}
+
+#googleAuth {
+	background: rgb(140, 140, 140);
+}
+
+.authButton img {
+	width: 40px;
+	height: 40px;
+}
+
+.authButton p {
+	float: left;
+	margin: 0;
+	margin-left: 20px;
+	padding: 10px 0px;
+}
+
+#loginForm, #signupForm {
+	width: 100%;
+	padding: 10px 0px;
+}
+
+#loginForm .field, #signupForm .field {
+	width: 100%;
+	margin-bottom: 10px;
+	text-align: center;
+}
+
+#loginForm .field input, #signupForm .field input {
+	-webkit-box-sizing: border-box;
+	width: 100%;
+	max-width: 400px;
+	font-family: Helvetica, Arial;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	border: 1px solid rgb(200, 200, 200);
+	padding: 10px;
+	margin: 0;
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+}
+
+#loginForm .actions, #signupForm .actions {
+	text-align: center;
+}
+
+#loginForm .actions input, #signupForm .actions input {
+	-webkit-box-sizing: border-box;
+	width: 100%;
+	max-width: 400px;
+	font-family: Helvetica, Arial;
+	font-weight: bold;
+	font-size: 18px;
+	color: rgb(255, 255, 255);
+	border: 1px solid rgb(44, 175, 227);
+	padding: 10px 15px;
+	margin: 0;
+	text-shadow: 0px -1px 1px rgba(0, 0, 0, .25);
+	-webkit-border-radius: 2px;
+	-khtml-border-radius: 2px;
+	-moz-border-radius: 2px;
+	-ms-border-radius: 2px;
+	-o-border-radius: 2px;
+	border-radius: 2px;
+	background: rgb(173,217,228);
+	background: -moz-linear-gradient(top,  rgba(173,217,228,1) 0%, rgba(44,175,227,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(173,217,228,1)), color-stop(100%,rgba(44,175,227,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* IE10+ */
+}
+
+#loginForm .actions input:hover, #signupForm .actions input:hover {
+	background: rgb(173,217,228);
+	background: -moz-linear-gradient(top,  rgba(173,217,228,1) 0%, rgba(44,175,227,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(173,217,228,1)), color-stop(100%,rgba(44,175,227,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* IE10+ */
+}
+
+#loginForm .actions input:active, #signupForm .actions input:active {
+	border: 1px solid rgb(4, 135, 187);
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-khtml-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	-o-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
+	background: rgb(34,165,217); 
+	background: -moz-linear-gradient(top,  rgba(34,165,217,1) 0%, rgba(163,207,218,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(34,165,217,1)), color-stop(100%,rgba(163,207,218,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* IE10+ */
+}
+
+.agree {
+	text-align: center;
+	font-size: 13px;
+	padding: 10px;
+}
+
+.agree p {
+	color: rgb(150, 150, 150);
+}
+
+.newUserSignup, .existingUserLogin {
+	text-align: center;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	color: rgb(75, 75, 75);
+	padding: 10px 10px 0px 10px;
+}

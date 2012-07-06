@@ -653,7 +653,23 @@ div#info_edit_the_flash div.actions input:active {
 div#deal_show_share {
 	height: 35px;
 	margin-bottom: 5px;
-	text-align: right;
+}
+
+.categoryTags {
+	position: relative;
+	top: 7px;
+	float: left;
+}
+
+.categoryTag {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: rgb(150, 150, 150);
+	margin-right: 10px;
+}
+
+.categoryTag:hover {
+	color: rgb(150, 150, 150);
 }
 
 div#deal_show_share img {
@@ -681,6 +697,7 @@ div#deal_show_share img:active {
 }
 
 div#deal_show_share ul {
+	float: right;
 	list-style-type: none;
 	padding: 0;
 	margin: 0;

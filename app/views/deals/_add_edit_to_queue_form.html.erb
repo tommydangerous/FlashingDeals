@@ -12,6 +12,15 @@
 	<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required (e.g. national)" %></p>
 	<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required (e.g. 1)" %></p>
 	<p>Info: <%= f.text_area :info, :autocomplete => "off", :class => "queue_edit_info" %></p>
+	<p>
+		Category: 
+		<select id="deal_category" name="category">
+			<option value="None">None</option>
+			<option value="Food">Food</option>
+			<option value="Leisure">Leisure</option>
+			<option value="Retail">Retail</option>
+		</select>
+	</p>
 	<p>Tag: <%= f.text_field :tag, :autocomplete => "off" %></p>
 	<p>Coupon: <%= f.text_field :coupon, :autocomplete => "off" %></p>
 	<p>Rebate: <%= f.text_field :rebate, :autocomplete => "off" %></p>

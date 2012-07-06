@@ -6,8 +6,6 @@ $(document).ready(function() {
 function showBoxDealCommentForm(id) {
 	var i = id
 	$("#box_deal_comment_form_"+i).toggle();
-	$("#box_deal_comment_anchor_"+i).toggleClass("box_deal_anchor_not_selected");
-	$("#box_deal_comment_anchor_"+i).toggleClass("box_deal_anchor_selected");
 	$("#box_deal_comment_form_"+i+" textarea").focus();
 	$("#grid_container_large").masonry({
 		itemSelector: ".box_deal_large",
@@ -17,4 +15,6 @@ function showBoxDealCommentForm(id) {
 		itemSelector: ".box_deal",
 		isFitWidth: true,
 	})
+	//	$("#box_deal_comment_anchor_"+i).toggleClass("box_deal_anchor_not_selected");
+	//	$("#box_deal_comment_anchor_"+i).toggleClass("box_deal_anchor_selected");
 }

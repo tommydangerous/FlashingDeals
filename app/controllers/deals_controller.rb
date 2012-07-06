@@ -1,8 +1,9 @@
 class DealsController < ApplicationController
 	before_filter :authenticate, :except => [:featured_deals, :show, :show_overlay, :frame]
-	before_filter :admin_user,	 :except => [:featured_deals, :show, :show_overlay, :frame, :community_deals, :score_up, :score_down, :clear_dead_deals]
+	before_filter :admin_user,	 :except => [:featured_deals, :show, :show_overlay, :frame, :clear_dead_deals]
 	before_filter :gm_user, :only => [:live_search, :destroy, :empty_queue, :share_points]
 	before_filter :today
+	before_filter :today_3
 	before_filter :category_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
 	before_filter :my_account_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
 	before_filter :my_feed_cookies_blank, :only => [:top_deals, :flashback, :featured_deals, :flashmob_deals, :community_deals, :rising_deals, :queue, :index, :search]
@@ -18,11 +19,18 @@ class DealsController < ApplicationController
 # All Users
 	def featured_deals
 		@title = "FlashingDeals"
-		@today_3 = Time.now - (86400 * 3)
   	deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3)
-  	@deals = deals.search(params[:search]).order(sort_column_time_in + " " + sort_direction).paginate(:page => params[:page], :per_page => 20)
-  	render :layout => "full_screen"
+  	@deals = deals.search(params[:search]).order("time_in DESC").paginate(:page => params[:page], :per_page => 12)
   	clear_return_to
+  	respond_to do |format|
+  		format.html {
+  			render :layout => 'mainFeatured'
+			}
+  		format.mobile {
+  			redirect_to login_path unless signed_in?
+			}
+			format.js
+		end
 	end
   
 	def show
@@ -45,7 +53,9 @@ class DealsController < ApplicationController
 		if cookies[:category] == nil || cookies[:category] == ""
 			@category_deals = []
 		else
-			@category_deals = Category.find_by_name(cookies[:category]).deals.where("posted > ?", Time.now - 86400).order("posted ASC")
+			deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+  		cat = Category.find_by_name(cookies[:category]).deals.where("posted >= ?", @today_3).order("time_in DESC")
+  		@category_deals = (cat + deals).uniq
 		end
 		if signed_in? && cookies[:my_account] == "yes"
 			@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }
@@ -102,7 +112,9 @@ class DealsController < ApplicationController
 		if cookies[:category] == nil || cookies[:category] == ""
 			@category_deals = []
 		else
-			@category_deals = Category.find_by_name(cookies[:category]).deals.where("posted > ?", Time.now - 86400).order("posted ASC")
+			deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+  		cat = Category.find_by_name(cookies[:category]).deals.where("posted >= ?", @today_3).order("time_in DESC")
+  		@category_deals = (cat + deals).uniq
 		end
 		if signed_in? && cookies[:my_account] == "yes"
 			@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }
@@ -143,75 +155,7 @@ class DealsController < ApplicationController
 		end
   end
 
-# Only Logged In Users  
-	def community_deals
-  	@title = "Community"
-  	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
-  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 40)
-  	render :layout => "full_screen"
-  end
-  
-  def watchers
-  	@title = "People Watching This Deal"
-  	@deal = Deal.find(params[:id])
-  	@users = @deal.watchers.order("name ASC").paginate(:page => params[:page])
-  	redirect_to @deal if @users.empty?
-  end
-	
-  def score_up
-  	current_level = current_user.level
-  	deal = Deal.find(params[:id])
-  	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
-			current_user.points = (current_user.points + 15)
-			current_user.save
-			respond_to do |format|
-	  		format.html { redirect_to deal }
-	  		format.js { 
-	  			@deal = deal
-	  			@first_vote = "yes"
-	  			@current_level = current_level
-  			}
-	  	end
-  	else
-	  	respond_to do |format|
-	  		format.html { redirect_to deal }
-	  		format.js { 
-	  			@deal = deal 
-	  			@first_vote = "no"
-  			}
-	  	end
-		end
-  	current_user.vote_exclusively_for(deal)
-  	deal.update_attribute(:point_count, deal.plusminus)
-  end
-  
-  def score_down
-  	current_level = current_user.level
-  	deal = Deal.find(params[:id])
-  	if Vote.find_by_voteable_id_and_voter_id(deal.id, current_user.id).nil?
-			current_user.points = (current_user.points + 15)
-			current_user.save
-			respond_to do |format|
-	  		format.html { redirect_to deal }
-	  		format.js { 
-	  			@deal = deal
-	  			@first_vote = "yes"
-	  			@current_level = current_level
-  			}
-	  	end
-  	else
-	  	respond_to do |format|
-	  		format.html { redirect_to deal }
-	  		format.js { 
-	  			@deal = deal 
-	  			@first_vote = "no"
-  			}
-	  	end
-		end
-  	current_user.vote_exclusively_against(deal)
-  	deal.update_attribute(:point_count, deal.plusminus)
-  end
-	
+# Only Logged In Users
 	def clear_dead_deals
 		current_user.watching.where("dead = ?", true).each do |deal|
 			current_user.unwatch!(deal)
@@ -229,6 +173,13 @@ class DealsController < ApplicationController
 	end
 
 # Admin Users Only
+	def community_deals
+  	@title = "Community"
+  	deals = Deal.where("posted > ? AND metric < ?", @today, 0)
+  	@deals = deals.search(params[:search]).order(sort_column + " " + sort_direction).paginate(:page => params[:page], :per_page => 40)
+  	render :layout => "full_screen"
+  end
+  
 	def queue
 		@title = "The Queue"
 		@deals = Deal.where("queue = ?", true).order("deal_order ASC")
@@ -324,6 +275,10 @@ class DealsController < ApplicationController
   	end
   	@deal = Deal.new(params[:deal])
 		if @deal.save
+			if params[:category] != "None"
+				category = Category.find_by_name("#{params[:category]}")
+				@deal.connections.create!(:category_id => category.id) unless category.nil?
+			end
 			flash[:success] = "Deal created."
 			redirect_to @deal
 		else
@@ -350,11 +305,16 @@ class DealsController < ApplicationController
   		params[:deal][:deal_order] = deal_order
   	end
   	if deal.update_attributes(params[:deal])
-  		if Editmark.find_by_user_id_and_deal_id(current_user.id, deal.id).nil?
-  			current_user.editmarks.create!(:deal_id => deal.id)
-  		end
-			if params[:order] == "last"
-				deal.update_attribute(:deal_order, deal_order)
+  		current_user.editmarks.create!(:deal_id => deal.id) if Editmark.find_by_user_id_and_deal_id(current_user.id, deal.id).nil?
+			deal.update_attribute(:deal_order, deal_order) if params[:order] == "last"
+			if params[:category] == "None"
+				deal.connections.destroy_all
+			else
+				category = Category.find_by_name("#{params[:category]}")
+				unless category.nil?
+					connection = Connection.find_by_deal_id_and_category_id(deal.id, category.id)
+					deal.connections.create!(:category_id => category.id) if connection.nil?
+				end
 			end
   		respond_to do |format|
   			format.html {
@@ -528,6 +488,10 @@ class DealsController < ApplicationController
   	
   	def today
   		@today = Time.now - (86400 * 1)
+  	end
+  	
+  	def today_3
+  		@today_3 = Time.now - (86400 * 3)
   	end
   
   	def sort_column

@@ -65,6 +65,7 @@ p {
 pre.debug_dump {
 	position: absolute;
 	z-index: 8000;
+	top: 80px;
 	left: 0;
 	font-family: Verdana;
 	font-size: 10px;

@@ -1,4 +1,13 @@
 <div id="deal_show_share">
+	<div class="categoryTags">
+		<% unless @deal.categories.empty? %>
+			<% @deal.categories.each do |category| %>
+				<%= link_to(category, :class => "categoryTag") do %>
+					#<%= category.name %>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
 	<ul>
 		<li>
 			<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com<%= deal_path(@deal) %>" class="example3demo share_points">

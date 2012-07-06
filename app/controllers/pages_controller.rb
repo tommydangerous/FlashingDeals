@@ -10,7 +10,6 @@ class PagesController < ApplicationController
 	
 	def test
 		@title = "Test"
-		render :layout => false
 	end
 	
 	def test2
