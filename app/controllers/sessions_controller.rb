@@ -2,9 +2,15 @@ class SessionsController < ApplicationController
 	
   def new
   	if signed_in?
-  		redirect_to my_account_path
+  		respond_to do |format|
+				format.html { redirect_to my_account_path }
+				format.mobile { redirect_to root_path }
+			end
   	else
   		@title = "Login"
+  		respond_to do |format|
+  			format.mobile { render :layout => 'logOut' }
+  		end
   	end
   end
 
@@ -13,31 +19,48 @@ class SessionsController < ApplicationController
 		user = User.authenticate(params[:session][:email],
 														 params[:session][:password])
 		if signed_in?
-			redirect_to my_account_path
+			respond_to do |format|
+				format.html { redirect_to my_account_path }
+				format.mobile { redirect_to root_path }
+			end
 		elsif user.nil?
-			flash.now[:error] = "The email or password you have entered is invalid."
+			respond_to do |format|
+				format.html { flash.now[:error] = "The email or password you have entered is invalid." }
+				format.mobile { flash.now[:error] = "The email/password is invalid. Please try again." }
+			end
 			@title = "Login"
 			render 'new'
 			if session[:return_to].nil?
 				session[:return_to] = my_account_path
 			end
 		else
-			if params[:remember_me]
-				sign_in user
-			else
-				sign_in_temp user
-			end
-			if user.partner.nil?
-				redirect_back_or my_account_path
-			else
-				redirect_to "/#{user.partner}"
+			respond_to do |format|
+				format.html {
+					if params[:remember_me]
+						sign_in user
+					else
+						sign_in_temp user
+					end
+					if user.partner.nil?
+						redirect_back_or my_account_path
+					else
+						redirect_to "/#{user.partner}"
+					end
+				}
+				format.mobile {
+					sign_in user
+					redirect_to root_path
+				}
 			end
 		end
 	end
 	
 	def destroy
 		sign_out
-		redirect_to root_path
+		respond_to do |format|
+			format.html { redirect_to root_path }
+			format.mobile { redirect_to login_path }
+		end
 	end
 	
 	def hide_signup_message

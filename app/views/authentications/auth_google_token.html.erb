@@ -1,7 +1,0 @@
-<div id="results"></div>
-<script>
-$(document).ready(function() {
-	var access_token = window.location.hash.replace('#access_token=', '');
-	$.post('/auth_google_create', { hash: access_token });
-})
-</script>

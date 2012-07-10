@@ -1,12 +1,12 @@
 <div id="header" data-role="header">
+	<%= link_to('#', :id => "backLink", "data-role" => "none") do %>
+	<% end %>
 	<%= link_to "Me", '#', :id => "meLink", :class => "headerLink notSelected", "data-role" => "none" %>
 	<ul id="headerNav">
-		<li><%= link_to "Featured", root_path, :id => "featuredLink", :class => "headerLink selected" %></li>
+		<li><%= link_to "Featured", root_path, :id => "featuredLink", :class => "headerLink notSelected" %></li>
 		<li><%= link_to "My Deals", '#', :id => "mydealsLink", :class => "headerLink notSelected" %></li>
 	</ul>
 </div>
 <div id="content" data-role="content">
-	<div id="featuredDeals">
-		<%= render :partial => 'listDeal', :collection => @deals, :as => :deal %>
-	</div>
+	<%= @deal.name %>
 </div>

@@ -2,12 +2,12 @@
 	<p class="signupHeader">Sign up using</p>
 	<ul>
 		<li>
-			<%= link_to('/facebook/auth', :id => 'facebookAuth', :class => 'authButton') do %>
+			<%= link_to('/auth/facebook', :id => 'facebookAuth', :class => 'authButton') do %>
 				<%= image_tag '/assets/facebook_auth.png' %>
 			<% end %>
 		</li>
 		<li>
-			<%= link_to('/twitter/auth', :id => 'twitterAuth', :class => 'authButton') do %>
+			<%= link_to('/auth/twitter', :id => 'twitterAuth', :class => 'authButton') do %>
 				<%= image_tag '/assets/twitter_auth.png' %>
 			<% end %>
 		</li>
@@ -18,23 +18,35 @@
 		</li>
 	</ul>
 	<div id="signupForm">
-		<%= form_for(User.new) do |f| %>
+		<%= form_for(@user) do |f| %>
 			<div class="field">
 				<%= f.text_field :name, :autocomplete => "off", :tabindex => 1, :placeholder => "Full name" %>
+				<% f.object.errors.get(:name).each do |msg| %>
+					<p id="nameError" class="signupError">Name <%= msg %></p>
+				<% end %>
+				<p id="nameBlank" class="signupRegex">Please enter your name</p>
+				<p id="nameInvalid" class="signupRegex">Name can only contain A-Z, 0-9, -, _, or 1 space)</p>
 			</div>
 			<div class="field">
 				<%= f.text_field :email, :autocomplete => "off", :tabindex => 2, :placeholder => "Email address" %>
+				<% f.object.errors.get(:email).each do |msg| %>
+					<p id="emailError" class="signupError">Email <%= msg %></p>
+				<% end %>
+				<p id="emailBlank" class="signupRegex">Please enter your email address</p>
+				<p id="emailInvalid" class="signupRegex">Please enter a valid email address</p>
 			</div>
 			<div class="field">
 				<%= f.password_field :password, :tabindex => 3, :placeholder => "Password" %>
+				<p id="pwShort" class="signupRegex">Password must be at least 2 characters</p>
+				<p id="pwLong" class="signupRegex">Password must be under 41 characters</p>
 			</div>
 			<div class="actions">
-				<%= f.submit "Sign Up", :tabindex => 4 %>
+				<%= f.submit "Sign Up", :id => "signupButton", :tabindex => 4 %>
 			</div>
 		<% end %>
 	</div>
 	<div class="agree">
-		<p>By signing up, you agree to the <%= link_to "Terms of Use", terms_path %> & <%= link_to "Privacy Policy", privacy_path %>.</p>
+		<p>By signing up, you agree to the <%= link_to "Terms of Use", terms_path, :target => "_blank" %> & <%= link_to "Privacy Policy", privacy_path, :target => "_blank" %>.</p>
 	</div>
 	<div class="existingUserLogin">
 		Existing user?

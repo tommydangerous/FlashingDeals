@@ -34,30 +34,37 @@ class AuthenticationsController < ApplicationController
 		existing_user = User.find_by_email(email)
 		if authentication && authentication.user != nil
 			sign_in authentication.user
-			if authentication.user.partner.nil?
-				redirect_back_or my_account_path
-			else
-				redirect_to "/#{authentication.user.partner}"
-			end
+			respond_to do |format|
+  			format.html { redirect_back_or my_account_path }
+  			format.mobile { redirect_to root_path }
+  		end
 		elsif current_user
 			current_user.authentications.create!(:provider => "google", :uid => id)
   		flash[:success] = "Google authentication successful."
-  		redirect_back_or my_account_path
+  		respond_to do |format|
+  			format.html { redirect_back_or my_account_path }
+  			format.mobile { redirect_to root_path }
+  		end
   	elsif existing_user
   		existing_user.authentications.create!(:provider => "google", :uid => id)
   		sign_in existing_user
-  		redirect_back_or my_account_path
+  		respond_to do |format|
+  			format.html { redirect_back_or my_account_path }
+  			format.mobile { redirect_to root_path }
+  		end
   	else
   		name = "#{params[:name]}#{('0'..'9').to_a.shuffle[0..3].join}" unless User.find_by_name(name).nil?
 	  	user = User.new(:name => name, :email => email, :password => random_password, :accept_terms => true, :image_url => photo)
 	  	if user.save
 	  		user.authentications.create!(:provider => "google", :uid => id)
 	  		new_user_authentications(user)
-	  		if user.partner.nil?
-		  		redirect_back_or my_account_path
-		  	else
-		  		redirect_to "/#{user.partner}"
-		  	end
+	  		respond_to do |format|
+	  			format.html { 
+	  				flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
+	  				redirect_back_or my_account_path
+  				}
+	  			format.mobile { redirect_to root_path }
+	  		end
 	  	else
 	  		redirect_to signup_path
 	  	end
@@ -76,19 +83,24 @@ class AuthenticationsController < ApplicationController
   		existing_user = User.find_by_email(omniauth['info']['email'])
   		if authentication && authentication.user != nil # if authentication exist, sign user in
   			sign_in authentication.user
-  			if authentication.user.partner.nil?
-  				redirect_back_or my_account_path
-  			else
-  				redirect_to "/#{authentication.user.partner}"
-  			end
+  			respond_to do |format|
+	  			format.html { redirect_back_or my_account_path }
+	  			format.mobile { redirect_to root_path }
+	  		end
   		elsif current_user # if authentication does not exist and the user is signed in, create an authentication
   			current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
 	  		flash[:success] = "Facebook authentication successful."
-	  		redirect_back_or my_account_path
+	  		respond_to do |format|
+	  			format.html { redirect_back_or my_account_path }
+	  			format.mobile { redirect_to root_path }
+	  		end
 	  	elsif existing_user # if authentication does not exist, the user is not signed in, and their email exists, create an authentication and sign user in
 	  		existing_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
 	  		sign_in existing_user
-	  		redirect_back_or my_account_path
+	  		respond_to do |format|
+	  			format.html { redirect_back_or my_account_path }
+	  			format.mobile { redirect_to root_path }
+	  		end
 	  	else # if authentication does not exist, the user is not signed in, and their email does not exist, create the user, authentication, and sign them in
 	  		url = URI.parse("http://graph.facebook.com/#{omniauth['uid']}/picture?type=large")
 			  res = Net::HTTP.start(url.host, url.port) { |http| http.get("/#{omniauth['uid']}/picture?type=large") }
@@ -100,11 +112,13 @@ class AuthenticationsController < ApplicationController
 	  		if user.save
 		  		user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
 		  		new_user_authentications(user)
-		  		if user.partner.nil?
-			  		redirect_back_or my_account_path
-			  	else
-			  		redirect_to "/#{user.partner}"
-			  	end
+		  		respond_to do |format|
+		  			format.html { 
+		  				flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
+		  				redirect_back_or my_account_path
+	  				}
+		  			format.mobile { redirect_to root_path }
+		  		end
 			  else
 			  	redirect_to signup_path
 			  end
@@ -112,15 +126,17 @@ class AuthenticationsController < ApplicationController
   	elsif omniauth['provider'] == "twitter"
   		if authentication && authentication.user != nil # if authentication exist, sign user in
   			sign_in authentication.user
-  			if authentication.user.partner.nil?
-  				redirect_back_or my_account_path
-  			else
-  				redirect_to "/#{authentication.user.partner}"
-  			end
+  			respond_to do |format|
+	  			format.html { redirect_back_or my_account_path }
+	  			format.mobile { redirect_to root_path }
+	  		end
   		elsif current_user # if authentication does not exist and the user is signed in, create an authentication
   			current_user.authentications.create!(:provider => omniauth['provider'], :uid => omniauth['uid'])
 	  		flash[:success] = "Twitter authentication successful."
-	  		redirect_back_or my_account_path
+	  		respond_to do |format|
+	  			format.html { redirect_back_or my_account_path }
+	  			format.mobile { redirect_to root_path }
+	  		end
 	  	else # if authentication does not exist and the user is not signed in, take them to twitter email page
 	  		session[:twitter_name] = omniauth['info']['name']
 	  		session[:twitter_image] = omniauth['info']['image'].split("_normal").join.to_s
@@ -132,7 +148,10 @@ class AuthenticationsController < ApplicationController
   
   def twitter_email
   	if signed_in?
-  		redirect_to my_account_path
+  		respond_to do |format|
+  			format.html { redirect_to my_account_path }
+  			format.mobile { redirect_to root_path }
+  		end
   	elsif session[:twitter_uid].nil?
   		redirect_to "/auth/twitter"
   	else
@@ -142,7 +161,10 @@ class AuthenticationsController < ApplicationController
   
   def twitter_new
   	if signed_in?
-  		redirect_to my_account_path
+  		respond_to do |format|
+  			format.html { redirect_to my_account_path }
+  			format.mobile { redirect_to root_path }
+  		end
   	elsif session[:twitter_uid].nil?
   		redirect_to "/auth/twitter"
   	else
@@ -165,11 +187,13 @@ class AuthenticationsController < ApplicationController
 	  		if user.save
 		  		user.authentications.create!(:provider => "twitter", :uid => session[:twitter_uid])
 		  		new_user_authentications(user)
-		  		if user.partner.nil?
-			  		redirect_back_or my_account_path
-			  	else
-			  		redirect_to "/#{user.partner}"
-			  	end
+		  		respond_to do |format|
+		  			format.html { 
+		  				flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
+		  				redirect_back_or my_account_path
+	  				}
+		  			format.mobile { redirect_to root_path }
+		  		end
 			  else
 			  	redirect_to signup_path
 			  end

@@ -14,16 +14,25 @@ class UsersController < ApplicationController
 # All Users 
   def new
   	if signed_in?
-  		redirect_to my_account_path
+  		respond_to do |format|
+				format.html { redirect_to my_account_path }
+				format.mobile { redirect_to root_path }
+			end
   	else
   		@user = User.new
   		@title = "Sign Up"
+  		respond_to do |format|
+  			format.mobile { render :layout => 'logOut' }
+  		end
   	end
   end
   
   def signup
   	if signed_in?
-  		redirect_to my_account_path
+  		respond_to do |format|
+				format.html { redirect_to my_account_path }
+				format.mobile { redirect_to root_path }
+			end
   	else
   		id = params[:id].split("235kjv")[0]
   		user = User.find_by_id(id)
@@ -47,12 +56,19 @@ class UsersController < ApplicationController
   		fd.send_messages.create!(:recipient_id => @user.id, :content => content)
   		fd.friendships.create!(:friend_id => @user.id, :approved => false)
   		sign_in @user
-  		flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
-  		if @user.partner.nil?
-  			redirect_to @user
-  		else
-  			redirect_to "/#{@user.partner}"
-  		end
+  		respond_to do |format|
+  			format.html {
+		  		flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
+		  		if @user.partner.nil?
+		  			redirect_to @user
+		  		else
+		  			redirect_to "/#{@user.partner}"
+		  		end
+		  	}
+		  	format.mobile {
+		  		redirect_to root_path
+	  		}
+	  	end
   	else
   		@title = "Sign Up"
   		render 'new'

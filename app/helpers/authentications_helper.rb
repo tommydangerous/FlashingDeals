@@ -11,6 +11,5 @@ module AuthenticationsHelper
 		fd.send_messages.create!(:recipient_id => user.id, :content => content)
 		fd.friendships.create!(:friend_id => user.id, :approved => false)
 		sign_in user
-		flash[:success] = "Welcome to FlashingDeals. New message! Hover over your name and click 'Messages' to read."
 	end
 end

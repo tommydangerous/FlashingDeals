@@ -1,0 +1,24 @@
+<div id="<%= deal.id %>" class="listDeal">
+	<%= link_to(deal, :id => "listDealLink_#{deal.id}",:class => "listDealLink", "data-transition" => "slide") do %>
+		<div class="listDealImage">
+			<%= image_tag deal.image %>
+			<p class="listDealPrice">
+				<% if deal.price.nil? && deal.discount != nil %>
+					<%= deal.discount.round %>% Off
+				<% elsif deal.price.blank? && deal.discount.blank? && deal.value.blank? && deal.savings != nil %>
+					$<%= deal.savings.round %> Off
+				<% elsif deal.price.blank? %>
+				<% elsif deal.price == 0 %>
+					Free
+				<% else %>
+					$<%= (deal.price * 1.0).round %>
+				<% end %>
+			</p>
+		</div>
+		<div id="listDealInfo">
+			<p class="listDealName"><%= deal.name %></p>
+			<p class="listDealSite"><%= deal.site %></p>
+		</div>
+		<div class="clear"></div>
+	<% end %>
+</div>

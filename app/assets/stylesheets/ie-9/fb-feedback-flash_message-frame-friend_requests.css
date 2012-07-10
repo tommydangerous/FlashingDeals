@@ -1,12 +1,27 @@
 /* facebook_twitter_home.css */
 div#facebook_twitter_home {
 	position: relative;
-	top: 5px;
+	top: 6px;
 	left: 10px;
 	text-align: left;
 	font-size: 0px;
 	width: 150px;
 	float: left;
+}
+
+#facebookLike {
+	float: left;
+	width: 48px;
+	height: 24px;
+}
+
+#twitterFollow {
+	position: absolute;
+	left: 53px;
+	margin-top: 2px;
+	width: 350px;
+	height: 20px;
+	background: rgb(100, 100, 100);
 }
 
 div#facebook_twitter_home ul {

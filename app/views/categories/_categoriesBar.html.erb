@@ -1,17 +1,14 @@
 <div id="categoriesBar">
 	<div id="facebook_twitter_home">
-		<ul>
-			<li id="facebook_like_li">
-				<%= link_to("http://www.facebook.com/pages/FlashingDeals/254028428008396", :target => "_blank") do %>
-					<div id="facebook_like"></div>
-				<% end %>
-			</li>
-			<li id="twitter_follow_li">
-				<a href="https://twitter.com/FlashingDeals" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">
-					Follow @FlashingDeals
-				</a>
-			</li>
-		</ul>
+		<div id="facebookLike">
+			<div class="fb-like" data-href="http://www.facebook.com/FlashingDeals" data-send="false" data-width="450" data-show-faces="false" data-font="arial"></div>
+		</div>
+		<div id="twitterFollow">
+			<a href="https://twitter.com/FlashingDeals" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">
+				Follow @FlashingDeals
+			</a>
+		</div>
+		<div id="facebookTwitterCover"></div>
 	</div>
 	<div id="grid_search_form">
 		<%= form_tag featured_deals_path, :method => :get do %>
