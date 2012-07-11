@@ -34,6 +34,7 @@ class CommentsController < ApplicationController
 			end
 			current_user.points = current_user.points + 25
 			current_user.save
+  		request.format = :mobilejs if request.format == :mobile
 			respond_to do |format|
 				format.html {
 					flash[:success] = "Comment created!"
@@ -45,6 +46,11 @@ class CommentsController < ApplicationController
 					@subcomments = subcomments
 					@current_level = current_level
 					@user = current_user
+				}
+				format.mobilejs {
+					@deal = deal
+					@comment = comment
+					@subcomments = subcomments
 				}
 			end
 			deal.update_attributes(:comment_count => deal.total_comments, :last_said => Time.now)
@@ -77,4 +83,20 @@ class CommentsController < ApplicationController
 		@find_user.points = (current_user.points - 25)
 		@find_user.save
 	end
+	
+	private
+		
+		def mobile_device?
+  		if session[:mobile_param]
+  			session[:mobile_param] == "1"
+  		else
+  			request.env['HTTP_USER_AGENT'] =~ /mobile|webos/i
+  		end
+  	end
+  	helper_method :mobile_device?
+  	
+  	def prepare_for_mobile
+  		session[:mobile_param] = params[:mobile] if params[:mobile]
+  		request.format = :mobile if mobile_device?
+  	end
 end

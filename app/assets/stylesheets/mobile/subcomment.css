@@ -1,0 +1,27 @@
+.subcomment {
+	padding: 5px;
+	border-top: 1px dotted rgb(175, 175, 175);
+}
+
+#subcommentUserPhoto {
+	float: left;
+	width: 35px;
+	text-align: center;
+}
+
+#subcommentUserPhoto img {
+	max-width: 35px;
+	max-height: 35px;
+}
+
+#subcommentContent {
+	margin-left: 40px;
+}
+
+#subcommentContent p {
+	font-size: 14px;
+}
+
+#subcommentContent .subcommentUserName {
+	font-weight: bold;
+}

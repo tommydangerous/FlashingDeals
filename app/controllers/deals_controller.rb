@@ -26,52 +26,65 @@ class DealsController < ApplicationController
   		format.html {
   			render :layout => 'mainFeatured'
 			}
+			format.js
   		format.mobile {
   			redirect_to login_path unless signed_in?
+  			render :layout => 'applicationIn'
 			}
-			format.js
+			format.mobilejs
 		end
 	end
   
 	def show
   	@deal = Deal.find(params[:id])
+  	@title = @deal.name
+  	@comments = @deal.comments
+  	@subcomments = @deal.subcomments  	
+  	@deal.increment!(:view_count, by = 1)
   	unless @deal.expires.nil?
 	  	if @deal.expires <= Time.now && @deal.dead == false
 	  		@deal.update_attribute(:dead, true)
 	  	end
 	  end
-  	@today = Time.now - 86400
-  	@today_3 = Time.now - (86400 * 3)
-  	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("time_in ASC")
-  	@flashmob_deals = Deal.where("posted > ? AND metric < ?", @today, 0).order("posted ASC")
-  	@rising_deals = Deal.where("posted     > ? AND
-				  											metric    >= ? AND 
-				  											queue 	   = ? AND 
-				  											top_deal   = ? AND 
-				  											flash_back = ?",
-				  											@today, 0, false, false, false).order("created_at ASC")
-		if cookies[:category] == nil || cookies[:category] == ""
-			@category_deals = []
-		else
-			deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
-  		cat = Category.find_by_name(cookies[:category]).deals.where("posted >= ?", @today_3).order("time_in DESC")
-  		@category_deals = (cat + deals).uniq
-		end
-		if signed_in? && cookies[:my_account] == "yes"
-			@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }
-		else
-			@watching_deals = []
-		end
-		if signed_in? && cookies[:my_feed] == "yes"
-			@my_feed_deals = current_user.feed.sort_by { |deal| deal.all_comments.first.updated_at }
-		else
-			@my_feed_deals = []
-		end
-		if cookies[:user_show] == nil || cookies[:user_show] ==  ""
-			@user_show_deals = []
-		else
-			@user = User.find_by_name(cookies[:user_show])
-			@user_show_deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }
+	  respond_to do |format|
+	  	format.html {
+		  	@today = Time.now - 86400
+		  	@today_3 = Time.now - (86400 * 3)
+		  	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("time_in ASC")
+		  	@flashmob_deals = Deal.where("posted > ? AND metric < ?", @today, 0).order("posted ASC")
+		  	@rising_deals = Deal.where("posted     > ? AND
+						  											metric    >= ? AND 
+						  											queue 	   = ? AND 
+						  											top_deal   = ? AND 
+						  											flash_back = ?",
+						  											@today, 0, false, false, false).order("created_at ASC")
+				if cookies[:category] == nil || cookies[:category] == ""
+					@category_deals = []
+				else
+					deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+		  		cat = Category.find_by_name(cookies[:category]).deals.where("posted >= ?", @today_3).order("time_in DESC")
+		  		@category_deals = (cat + deals).uniq
+				end
+				if signed_in? && cookies[:my_account] == "yes"
+					@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }
+				else
+					@watching_deals = []
+				end
+				if signed_in? && cookies[:my_feed] == "yes"
+					@my_feed_deals = current_user.feed.sort_by { |deal| deal.all_comments.first.updated_at }
+				else
+					@my_feed_deals = []
+				end
+				if cookies[:user_show] == nil || cookies[:user_show] ==  ""
+					@user_show_deals = []
+				else
+					@user = User.find_by_name(cookies[:user_show])
+					@user_show_deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }
+				end
+	  	}
+	  	format.mobile {
+	  		render :layout => 'applicationIn'
+  		}
 		end
   	unless signed_in?
   		store_location
@@ -80,10 +93,6 @@ class DealsController < ApplicationController
   			redirect_to login_path
   		end
   	end
-  	@title = @deal.name
-  	@comments = @deal.comments
-  	@subcomments = @deal.subcomments  	
-  	@deal.increment!(:view_count, by = 1)
 	rescue ActiveRecord::RecordNotFound
 		if signed_in?
 			redirect_to my_account_path

@@ -1,4 +1,5 @@
 <div id="header" data-role="header">
+	<%= image_tag "blue_bolt.png", :id => "blueBolt" %>
 	<%= link_to "Me", '#', :id => "meLink", :class => "headerLink notSelected", "data-role" => "none" %>
 	<ul id="headerNav">
 		<li><%= link_to "Featured", root_path, :id => "featuredLink", :class => "headerLink selected" %></li>
@@ -9,4 +10,12 @@
 	<div id="featuredDeals">
 		<%= render :partial => 'listDeal', :collection => @deals, :as => :deal %>
 	</div>
+	<div class="endlessPagination">
+		<%= will_paginate @deals, :separator => "" %>
+	</div>
 </div>
+<script>
+$(document).bind("pageinit", function() {
+	$('.pagination .next_page').attr("data-transition", "slide");
+})
+</script>

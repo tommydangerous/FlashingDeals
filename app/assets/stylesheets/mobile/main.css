@@ -4,6 +4,10 @@ body {
 	background: rgb(240, 240, 250);
 }
 
+#mobileBody {
+	background: rgb(240, 240, 250);
+}
+
 #wrapper {
 	min-height: 320px;
 }
@@ -19,6 +23,7 @@ p {
 	font-family: Helvetica, Arial, sans-serif;
 	color: rgb(75, 75, 75);
 	margin: 0;
+	word-wrap: break-word;
 }
 
 a {
@@ -27,11 +32,14 @@ a {
 }
 
 .flash {
+	max-width: 400px;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 13px;
 	text-align: center;
 	padding: 10px;
+	margin: 0 auto;
 	margin-bottom: 10px;
+	-webkit-box-sizing: border-box;
 }
 
 .success {
@@ -59,4 +67,8 @@ a {
 	padding: 0;
 	line-height: 0;
 	clear: both;
+}
+
+.red {
+	color: rgb(255, 26, 0);
 }

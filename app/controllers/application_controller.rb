@@ -50,6 +50,14 @@ class ApplicationController < ActionController::Base
   	end
   	helper_method :mobile_device?
   	
+  	def mobile_js?
+  		if mobile_device? && request.format.to_s == "text/javascript"
+  			request.format = :mobilejs
+  		elsif mobile_device? && request.format.to_s == "text/html"
+  			request.format = :mobile
+  		end
+  	end
+  	
   	def prepare_for_mobile
   		session[:mobile_param] = params[:mobile] if params[:mobile]
   		request.format = :mobile if mobile_device?

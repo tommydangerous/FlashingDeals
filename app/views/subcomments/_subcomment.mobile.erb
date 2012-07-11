@@ -1,0 +1,16 @@
+<div class="subcomment">
+	<div id="subcommentUserPhoto">
+		<%= image_tag User.find(subcomment.user_id).photo %>
+	</div>
+	<div id="subcommentContent">
+		<p>
+			<span class="subcommentUserName">
+				<%= link_to User.find(subcomment.user_id) do %>
+					<%= User.find(subcomment.user_id).name %>
+				<% end %>
+			</span> 
+			<%= subcomment.content %>
+		</p>
+	</div>
+	<div class="clear"></div>
+</div>

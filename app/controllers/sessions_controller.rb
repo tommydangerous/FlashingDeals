@@ -8,9 +8,6 @@ class SessionsController < ApplicationController
 			end
   	else
   		@title = "Login"
-  		respond_to do |format|
-  			format.mobile { render :layout => 'logOut' }
-  		end
   	end
   end
 
@@ -25,8 +22,12 @@ class SessionsController < ApplicationController
 			end
 		elsif user.nil?
 			respond_to do |format|
-				format.html { flash.now[:error] = "The email or password you have entered is invalid." }
-				format.mobile { flash.now[:error] = "The email/password is invalid. Please try again." }
+				format.html { 
+					flash.now[:error] = "The email or password you have entered is invalid."
+				}
+				format.mobile { 
+					flash.now[:error] = "The email/password is invalid. Please try again."
+				}
 			end
 			@title = "Login"
 			render 'new'

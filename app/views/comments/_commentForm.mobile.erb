@@ -1,0 +1,12 @@
+<div id="commentform">
+	<%= form_for current_user.comments.build(:deal_id => @deal.id), :remote => true, :html => { "data-ajax" => false } do |f| %>
+		<div class="field">
+			<%= f.text_area(:content, :placeholder => "Comment on this deal...") %>
+			<%= f.hidden_field :deal_id %>
+		</div>
+		<div class="actions">
+			<%= f.submit("Submit", :id => "comment_submit", "data-role" => "none") %>
+		</div>
+	<% end %>
+	<div class="clear"></div>
+</div>

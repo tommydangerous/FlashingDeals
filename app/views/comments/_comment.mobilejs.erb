@@ -1,0 +1,24 @@
+<div class="comment">
+	<div id="commentUserPhoto">
+		<%= link_to User.find(comment.user_id) do %>
+			<%= image_tag User.find(comment.user_id).photo %>
+		<% end %>
+	</div>
+	<div id="commentUserName">
+		<span class="commentCreatedAt"><%= comment.created_at.strftime("%b %e") %></span>
+		<p>
+			<%= link_to User.find(comment.user_id) do %>
+				<%= User.find(comment.user_id).name %>
+			<% end %>
+		</p>
+	</div>
+	<div id="commentContent">
+		<p><%= comment.content %></p>
+	</div>
+	<div class="clear"></div>
+	<% unless @subcomments.empty? %>
+		<div id="commentSubcomments">
+			<%= render :partial => "subcomments/subcomment", :collection => comment.subcomments %>
+		</div>
+	<% end %>
+</div>

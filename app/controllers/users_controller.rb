@@ -21,9 +21,6 @@ class UsersController < ApplicationController
   	else
   		@user = User.new
   		@title = "Sign Up"
-  		respond_to do |format|
-  			format.mobile { render :layout => 'logOut' }
-  		end
   	end
   end
   

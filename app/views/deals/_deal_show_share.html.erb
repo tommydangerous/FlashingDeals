@@ -3,7 +3,7 @@
 		<% unless @deal.categories.empty? %>
 			<% @deal.categories.each do |category| %>
 				<%= link_to(category, :class => "categoryTag") do %>
-					#<%= category.name %>
+					#<%= category.name.downcase %>
 				<% end %>
 			<% end %>
 		<% end %>

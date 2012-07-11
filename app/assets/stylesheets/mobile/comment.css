@@ -1,0 +1,88 @@
+.comment {
+	padding: 5px;
+	border-top: 1px dotted rgb(175, 175, 175);
+}
+
+#commentUserPhoto {
+	float: left;
+	width: 40px;
+	text-align: center;
+}
+
+#commentUserPhoto img {
+	max-width: 40px;
+	max-height: 40px;
+}
+
+#commentUserName {
+	margin-left: 45px;
+	margin-bottom: 3px;
+}
+
+#commentUserName p {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#commentUserName .commentCreatedAt {
+	float: right;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	color: rgb(150, 150, 150);
+}
+
+#commentContent {
+	font-size: 14px;
+	margin-left: 45px;
+}
+
+#commentSubcomments {
+	margin-top: 5px;
+	margin-left: 45px;
+}
+
+#comment_content {
+	width: 100%;
+	height: 42px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	margin: 0;
+	padding: 5px;
+	border: 1px solid rgb(200, 200, 200);
+	resize: none;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
+	-webkit-box-sizing: border-box;
+}
+
+#comment_content:hover, #comment_content:focus, #comment_content:active {
+	border: 1px solid rgb(48, 157, 207);
+	-webkit-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+	box-shadow: 0px 0px 2px rgba(150, 150, 150, 1);
+}
+
+#comment_submit {
+	float: right;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	margin: 5px 0px 0px 0px;
+	padding: 5px;
+	text-align: center;
+	border: 1px solid rgb(150, 150, 150);
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(214,214,214,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(214,214,214,1)));
+	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%);
+}

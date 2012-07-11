@@ -1,5 +1,5 @@
 <div id="header" data-role="header">
-	<%= link_to('#', :id => "backLink", "data-role" => "none") do %>
+	<%= link_to('#', :id => "backLink", "data-role" => "none", "data-rel" => "back") do %>
 	<% end %>
 	<%= link_to "Me", '#', :id => "meLink", :class => "headerLink notSelected", "data-role" => "none" %>
 	<ul id="headerNav">
@@ -8,5 +8,71 @@
 	</ul>
 </div>
 <div id="content" data-role="content">
-	<%= @deal.name %>
+	<div id="dealShow">
+		<div id="dealShowImage">
+			<%= image_tag("/assets/lazyMobile.jpg", "data-original" => @deal.image, :class => "lazyLoad") %>
+		</div>
+		<div id="dealShowName">
+			<p>
+				<% if @deal.dead? %>
+					<span class="red">Expired</span> 
+				<% end %>
+				<%= @deal.name %>
+			</p>
+			<% unless @deal.site.nil? || @deal.site.empty? %>
+				<p class="dealShowSite">at <%= @deal.site %></p>
+			<% end %>
+		</div>
+		<div id="dealShowPrice">
+			<p>
+				<% if @deal.price.blank? && @deal.discount != nil %>
+					<%= @deal.discount.round %>% Off
+				<% elsif @deal.price.blank? && @deal.discount.blank? && @deal.value.blank? && @deal.savings != nil %>
+					$<%= @deal.savings.round %> Off
+				<% elsif @deal.price.blank? || @deal.price.nil? %>
+					$
+				<% elsif @deal.price == 0 %>
+					Free
+				<% else %>
+					<%= number_to_currency(@deal.price) %>
+				<% end %>
+			</p>
+		</div>
+		<div id="dealShowLink">
+			<%= link_to "Deal Now", frame_deal_path(@deal), :target => "_blank" %>
+		</div>
+		<% unless @deal.coupon.nil? && @deal.rebate.nil? || @deal.coupon.empty? && @deal.rebate.empty? %>
+			<div id="dealShowCouponRebate">
+				<% unless @deal.coupon.nil? || @deal.coupon.empty? %>
+					<p>Coupon: <b><%= @deal.coupon %></b></p>
+				<% end %>
+				<% unless @deal.rebate.nil? || @deal.rebate.empty? %>
+					<p>Rebate Link: <%= link_to "Click Here", @deal.rebate, :target => "_blank" %></p>
+				<% end %>
+			</div>
+		<% end %>
+		<div id="dealShowInfo" class="dealShowInfoLink">
+			<p><%= to_html(auto_link(@deal.info, :target => "_blank")) %></p>
+		</div>
+		<div id="dealShowCategories">
+			<% unless @deal.categories.empty? %>
+				<% @deal.categories.each do |category| %>
+					<%= link_to(category, :class => "categoryTag") do %>
+						#<%= category.name.downcase %>
+					<% end %>
+				<% end %>
+			<% end %>
+		</div>
+		<div id="dealShowComments">
+			<% unless @comments.empty? %>
+				<p class="dealShowCommentsHeader">Comments</p>
+			<% end %>
+			<span class="dealShowCommentsList_<%= @deal.id %>">
+				<%= render @comments %>
+			</span>
+		</div>
+		<div id="dealShowCommentForm" class="dealShowCommentForm_<%= @deal.id %>">
+			<%= render 'comments/commentForm' %>
+		</div>
+	</div>
 </div>

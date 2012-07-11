@@ -283,3 +283,15 @@ function loginSwitch() {
 	$("#dim_signup").show();
 	$("#dim").hide();
 }
+
+// Facebook Like Button
+function hideFacebookLike() {
+	var h = $('.fb_iframe_widget').height();
+	if (h > 30) {
+		$('.fb_iframe_widget').hide();
+	} else
+	{
+		$('.fb_iframe_widget').show();
+	}
+}
+setInterval(hideFacebookLike, 0);
