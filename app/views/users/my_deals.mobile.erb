@@ -2,13 +2,13 @@
 	<%= image_tag "blue_bolt.png", :id => "blueBolt" %>
 	<%= link_to "Me", '#', :id => "meLink", :class => "headerLink notSelected", "data-role" => "none" %>
 	<ul id="headerNav">
-		<li><%= link_to "Featured", root_path, :id => "featuredLink", :class => "headerLink selected" %></li>
-		<li><%= link_to "My Deals", my_deals_path, :id => "mydealsLink", :class => "headerLink notSelected" %></li>
+		<li><%= link_to "Featured", root_path, :id => "featuredLink", :class => "headerLink notSelected" %></li>
+		<li><%= link_to "My Deals", my_deals_path, :id => "mydealsLink", :class => "headerLink selected" %></li>
 	</ul>
 </div>
 <div id="content" data-role="content">
 	<div id="featuredDeals">
-		<%= render :partial => 'listDeal', :collection => @deals, :as => :deal %>
+		<%= render :partial => 'deals/listDeal', :collection => @deals, :as => :deal %>
 	</div>
 	<div class="endlessPagination">
 		<%= will_paginate @deals, :separator => "" %>

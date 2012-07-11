@@ -42,13 +42,18 @@ class ApplicationController < ActionController::Base
   	end
   	
   	def mobile_device?
-  		if session[:mobile_param]
-  			session[:mobile_param] == "1"
-  		else
-  			request.env['HTTP_USER_AGENT'] =~ /mobile|webos/i
-  		end
+  	#	if session[:mobile_param]
+  	#		session[:mobile_param] == "1"
+  	#	else
+  		request.env['HTTP_USER_AGENT'] =~ /mobile|webos/i
+  	#	end
   	end
   	helper_method :mobile_device?
+  	
+  	def prepare_for_mobile
+  	#	session[:mobile_param] = params[:mobile] if params[:mobile]
+  		request.format = :mobile if mobile_device?
+  	end
   	
   	def mobile_js?
   		if mobile_device? && request.format.to_s == "text/javascript"
@@ -56,10 +61,5 @@ class ApplicationController < ActionController::Base
   		elsif mobile_device? && request.format.to_s == "text/html"
   			request.format = :mobile
   		end
-  	end
-  	
-  	def prepare_for_mobile
-  		session[:mobile_param] = params[:mobile] if params[:mobile]
-  		request.format = :mobile if mobile_device?
   	end
 end

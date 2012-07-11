@@ -24,12 +24,12 @@ class DealsController < ApplicationController
   	clear_return_to
   	respond_to do |format|
   		format.html {
-  			render :layout => 'mainFeatured'
+  			render :layout => 'application_featured'
 			}
 			format.js
   		format.mobile {
   			redirect_to login_path unless signed_in?
-  			render :layout => 'applicationIn'
+  			render :layout => 'application_in'
 			}
 			format.mobilejs
 		end
@@ -83,7 +83,7 @@ class DealsController < ApplicationController
 				end
 	  	}
 	  	format.mobile {
-	  		render :layout => 'applicationIn'
+	  		render :layout => 'application_in'
   		}
 		end
   	unless signed_in?
