@@ -10,3 +10,16 @@
 	<% end %>
 	<div class="clear"></div>
 </div>
+<script>
+$(document).bind('pageinit', function() {
+	var dealActions = $('.dealShowContent .actions ').last();
+	var submit = dealActions.children('input');
+	submit.click(function() {
+		var dealField = $('.dealShowContent .field').last();
+		var cont = dealField.children('textarea').val();
+		if (cont === "") {
+			return false;
+		}
+	})
+})
+</script>

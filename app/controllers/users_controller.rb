@@ -76,18 +76,27 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
   	if @user == current_user
-  		redirect_to my_account_path
+  		respond_to do |format|
+  			format.html { redirect_to my_account_path }
+				format.mobile { redirect_to my_deals_path }
+  		end
   	elsif @user.private == true && (@user.friends.where("friend_id = ?", current_user).empty? && @user.inverse_friends.where("user_id = ?", current_user).empty?) && current_user.admin? == false
 			@title = @user.name
 			flash.now[:notice] = "The user you are trying to view doesn't want to share their great deals."
 			@deals = []
-			render :layout => "layouts/full_screen"
+			respond_to do |format|
+  			format.html { render :layout => "layouts/full_screen" }
+				format.mobile { redirect_to my_deals_path }
+  		end
   	else
 	  	@title = @user.name
 	  	cookies[:user_show] = "#{@user.name}"
 	  	deals = @user.watching.where("posted > ?", @user.duration).search(params[:search]).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
-  	@deals = deals.paginate(:page => params[:page], :per_page => 30)
-	  	render :layout => "layouts/full_screen"
+  		@deals = deals.paginate(:page => params[:page], :per_page => 30)
+  		respond_to do |format|
+  			format.html { render :layout => "layouts/full_screen" }
+				format.mobile { render :layout => 'application_in' }
+  		end
 		end
 	rescue ActiveRecord::RecordNotFound
 		redirect_to my_account_path

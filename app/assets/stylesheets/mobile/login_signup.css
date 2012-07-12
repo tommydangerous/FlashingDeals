@@ -1,5 +1,7 @@
 #login, #signup {
 	width: 100%;
+	padding: 10px;
+	-webkit-box-sizing: border-box;
 }
 
 .loginHeader, .signupHeader {

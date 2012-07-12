@@ -1,5 +1,6 @@
 .pagination {
-	padding: 5px 0px;
+	width: 70px;
+	margin: 0 auto;
 	text-align: center;
 	font-family: Helvetica, Arial, sans-serif;
 }
@@ -15,7 +16,6 @@
 
 .previous_page {
 	float: left;
-	margin-left: 10px;
 	display: block;
 	font-size: 0px;
 	border-top: 15px solid transparent;
@@ -29,7 +29,6 @@
 
 .next_page {
 	float: right;
-	margin-right: 10px;
 	display: block;
 	font-size: 0px;
 	border-top: 15px solid transparent;

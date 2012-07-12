@@ -7,11 +7,9 @@
 	</ul>
 </div>
 <div id="content" data-role="content">
-	<div id="featuredDeals">
-		<%= render :partial => 'deals/listDeal', :collection => @deals, :as => :deal %>
-	</div>
-	<div class="endlessPagination">
-		<%= will_paginate @deals, :separator => "" %>
+	<div id="featuredDeals" class="dealList">
+		<%= render :partial => 'deals/list_deal', :collection => @deals, :as => :deal %>
+		<%= render 'deals/endless_pagination' %>
 	</div>
 </div>
 <script>

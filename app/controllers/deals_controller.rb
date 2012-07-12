@@ -28,8 +28,11 @@ class DealsController < ApplicationController
 			}
 			format.js
   		format.mobile {
-  			redirect_to login_path unless signed_in?
-  			render :layout => 'application_in'
+  			if signed_in?
+  				render :layout => 'application_in'
+  			else
+  				redirect_to login_path
+  			end
 			}
 			format.mobilejs
 		end
@@ -83,6 +86,13 @@ class DealsController < ApplicationController
 				end
 	  	}
 	  	format.mobile {
+	  		@today_3 = Time.now - (86400 * 3)
+	  		@featured_deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+	  		if cookies[:my_account] == "yes"
+	  			@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }.reverse
+	  		else
+	  			@watching_deals = []
+	  		end
 	  		render :layout => 'application_in'
   		}
 		end

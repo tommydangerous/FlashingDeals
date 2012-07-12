@@ -8,9 +8,9 @@
 	</ul>
 </div>
 <div id="content" data-role="content">
-	<div id="dealShow">
+	<div id="dealShow" class="dealShowContent">
 		<div id="dealShowImage">
-			<%= image_tag("/assets/lazyMobile.jpg", "data-original" => @deal.image, :class => "lazyLoad") %>
+			<%= image_tag @deal.image %>
 		</div>
 		<div id="dealShowName">
 			<p>
@@ -73,6 +73,23 @@
 		</div>
 		<div id="dealShowCommentForm" class="dealShowCommentForm_<%= @deal.id %>">
 			<%= render 'comments/commentForm' %>
+		</div>
+		<div id="prevNextDeals">
+			<% if cookies[:my_account] == "yes" && @watching_deals.include?(@deal) %>
+				<% if @watching_deals.size == @watching_deals.index(@deal) + 1 %>
+					<%= link_to '', @watching_deals[0], :class => "prevDeal" %>
+				<% else %>
+					<%= link_to '', @watching_deals[@watching_deals.index(@deal) + 1], :class => "prevDeal" %>
+				<% end %>
+				<%= link_to '', @watching_deals[@watching_deals.index(@deal) - 1], :class => "nextDeal" %>
+			<% elsif @featured_deals.include?(@deal) %>
+				<% if @featured_deals.size == @featured_deals.index(@deal) + 1 %>
+					<%= link_to '', @featured_deals[0], :class => "prevDeal" %>
+				<% else %>
+					<%= link_to '', @featured_deals[@featured_deals.index(@deal) + 1], :class => "prevDeal" %>
+				<% end %>
+				<%= link_to '', @featured_deals[@featured_deals.index(@deal) - 1], :class => "nextDeal" %>
+			<% end %>
 		</div>
 	</div>
 </div>
