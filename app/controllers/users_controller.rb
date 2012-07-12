@@ -119,9 +119,9 @@ class UsersController < ApplicationController
   	@title = "My Deals"
   	deals = @user.watching.where("posted > ?", @user.duration).search(params[:search])
   	@deals = deals.paginate(:page => params[:page], :per_page => 15)
+  	cookies[:my_account] = "yes"
   	respond_to do |format|
   		format.html {
-  			cookies[:my_account] = "yes"
   			render :layout => "layouts/full_screen"
 			}
 			format.mobile {
