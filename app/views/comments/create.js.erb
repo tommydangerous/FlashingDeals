@@ -21,6 +21,3 @@ $('#my_points_ajax').html("<%= escape_javascript(render(:partial => "users/my_po
 <% else %>
 	showLeveledUp("<%= current_user.title %>");
 <% end %>
-
-$('#dealShowCommentsList').prepend("<%= escape_javascript(render(:partial => 'comments/comment', :locals => { :comment => @comment })) %>");
-$('#dealShowCommentForm').html("<%= escape_javascript(render('comments/commentForm')) %>");
