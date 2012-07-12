@@ -52,7 +52,6 @@ FlashingDeal::Application.routes.draw do
 	match '/auth/failure' => 'authentications#failure'
 	match '/signup/twitter/email' => 'authentications#twitter_email', :as => :twitter_email
 	match '/signup/twitter/email/new' => 'authentications#twitter_new', :as => :twitter_new
-	
 	match '/google/oauth' => 'authentications#google_oauth', :as => :google_oauth
 	match '/google/access' => 'authentications#google_access', :as => :google_access
 	match '/google/auth' => 'authentications#google_auth', :as => :google_auth

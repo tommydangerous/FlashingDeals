@@ -82,7 +82,7 @@
 					<%= link_to '', @watching_deals[@watching_deals.index(@deal) + 1], :class => "prevDeal" %>
 				<% end %>
 				<%= link_to '', @watching_deals[@watching_deals.index(@deal) - 1], :class => "nextDeal" %>
-			<% elsif @featured_deals.include?(@deal) %>
+			<% elsif cookies[:my_account] == "" && @featured_deals.include?(@deal) %>
 				<% if @featured_deals.size == @featured_deals.index(@deal) + 1 %>
 					<%= link_to '', @featured_deals[0], :class => "prevDeal" %>
 				<% else %>
