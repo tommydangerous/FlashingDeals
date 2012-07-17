@@ -12,15 +12,8 @@
   </head>
   <body>
   	<div id="wrapper" data-role="page">
-  		<div id="header" data-role="header">
-  			<%= render 'layouts/header' %>
-  		</div>
+  		<%= render 'layouts/header' %>
   		<div id="content" data-role="content">
-  			<% flash.each do |key, value| %>
-			  	<div class="flash <%= key %>">
-			  		<%= value %>
-		  		</div>
-			  <% end %>
   			<%= yield %>
   		</div>
   	</div>

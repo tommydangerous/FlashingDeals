@@ -1,0 +1,46 @@
+<%= render 'layouts/header' %>
+<div id="content" data-role="content">
+	<div id="userShow">
+		<div class="userShowPhoto">
+			<%= image_tag @user.photo.url %>
+		</div>
+		<div class="userShowInfo">
+			<p class="userShowName"><%= @user.name %></p>
+			<p class="userShowLevel">Level <%= @user.level %> <%= @user.title %></p>
+		</div>
+		<div class="clear"></div>
+		<div class="userShowData">
+			<div class="userShowFriends userShowDataGroup">
+				<div class="userShowDataCount">
+					<%= @user.total_friends %>
+				</div>
+				<div class="userShowDataName">
+					<%= pluralize(@user.total_friends, 'Friend').split("#{@user.total_friends}")[1] %>
+				</div>
+			</div>
+			<div class="userShowComments userShowDataGroup">
+				<div class="userShowDataCount">
+					<%= @user.total_comments %>
+				</div>
+				<div class="userShowDataName">
+					<%= pluralize(@user.total_comments, 'Comment').split("#{@user.total_comments}")[1] %>
+				</div>
+			</div>
+			<div class="userShowWatching userShowDataGroup">
+				<div class="userShowDataCount">
+					<%= @user.watching.size %>
+				</div>
+				<div class="userShowDataName">
+					Watching
+				</div>
+			</div>
+		</div>
+		<%= link_to('#', :id => "userShowMessage") do %>
+			Send Message
+		<% end %>
+	</div>
+	<div id="featuredDeals" class="dealList">
+		<%= render :partial => 'deals/list_deal', :collection => @deals, :as => :deal %>
+		<%= render 'deals/endless_pagination' %>
+	</div>
+</div>

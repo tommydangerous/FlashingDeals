@@ -12,6 +12,9 @@ class CategoriesController < ApplicationController
   	cat = Category.find(@category.id).deals.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).search(params[:search]).order("time_in DESC")
   	@deals = (cat + deals).uniq.paginate(:page => params[:page], :per_page => 12)
   	clear_return_to
-  	render :layout => 'application_featured'
+  	respond_to do |format|
+  		format.html { render :layout => 'application_featured' }
+  		format.mobile { render :layout => 'application_in' }
+  	end
 	end
 end

@@ -88,6 +88,13 @@ class DealsController < ApplicationController
 	  	format.mobile {
 	  		@today_3 = Time.now - (86400 * 3)
 	  		@featured_deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+	  		if cookies[:category] == nil || cookies[:category] == ""
+	  			@category_deals = []
+	  		else
+	  			deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+		  		cat = Category.find_by_name(cookies[:category]).deals.where("posted >= ?", @today_3).order("time_in DESC")
+		  		@category_deals = (cat + deals).uniq
+	  		end
 	  		if cookies[:my_account] == "yes"
 	  			@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }.reverse
 	  		else

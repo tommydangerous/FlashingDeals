@@ -1,0 +1,7 @@
+<%= render 'layouts/header' %>
+<div id="content" data-role="content">
+	<div id="featuredDeals" class="dealList">
+		<%= render :partial => 'deals/list_deal', :collection => @deals, :as => :deal %>
+		<%= render 'deals/endless_pagination' %>
+	</div>
+</div>

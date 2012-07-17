@@ -12,11 +12,18 @@ body {
 	min-height: 320px;
 }
 
-#content {
+#content, #contentNoPad {
 	position: relative;
 	top: 44px;
-	padding: 0px;
 	overflow-x: hidden;
+}
+
+#content {
+	padding: 10px;
+}
+
+#contentNoPad {
+	padding: 0px;
 }
 
 p {

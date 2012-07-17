@@ -1,0 +1,9 @@
+<div id="header" data-role="header">
+	<%= link_to('#', :id => "backLink", "data-role" => "none", "data-rel" => "back") do %>
+	<% end %>
+	<%= link_to "Me", '#', :id => "meLink", :class => "headerLink notSelected", "data-role" => "none" %>
+	<ul id="headerNav">
+		<li><%= link_to "Featured", root_path, :id => "featuredLink", :class => "headerLink notSelected" %></li>
+		<li><%= link_to "My Deals", my_deals_path, :id => "mydealsLink", :class => "headerLink notSelected" %></li>
+	</ul>
+</div>

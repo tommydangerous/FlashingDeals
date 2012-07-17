@@ -1,13 +1,5 @@
-<div id="header" data-role="header">
-	<%= link_to('#', :id => "backLink", "data-role" => "none", "data-rel" => "back") do %>
-	<% end %>
-	<%= link_to "Me", '#', :id => "meLink", :class => "headerLink notSelected", "data-role" => "none" %>
-	<ul id="headerNav">
-		<li><%= link_to "Featured", root_path, :id => "featuredLink", :class => "headerLink notSelected" %></li>
-		<li><%= link_to "My Deals", my_deals_path, :id => "mydealsLink", :class => "headerLink notSelected" %></li>
-	</ul>
-</div>
-<div id="content" data-role="content">
+<%= render 'layouts/header_back' %>
+<div id="contentNoPad" data-role="content">
 	<div id="dealShow" class="dealShowContent">
 		<div id="dealShowImage">
 			<%= image_tag @deal.image %>
@@ -75,14 +67,21 @@
 			<%= render 'comments/commentForm' %>
 		</div>
 		<div id="prevNextDeals">
-			<% if cookies[:my_account] == "yes" && @watching_deals.include?(@deal) %>
+			<% if cookies[:category] && cookies[:category] != "" && @category_deals.include?(@deal) %>
+				<% if @category_deals.size == @category_deals.index(@deal) + 1 %>
+					<%= link_to '', @category_deals[0], :class => "prevDeal" %>
+				<% else %>
+					<%= link_to '', @category_deals[@category_deals.index(@deal) + 1], :class => "prevDeal" %>
+				<% end %>
+				<%= link_to '', @category_deals[@category_deals.index(@deal) - 1], :class => "nextDeal" %>
+			<% elsif cookies[:my_account] == "yes" && @watching_deals.include?(@deal) %>
 				<% if @watching_deals.size == @watching_deals.index(@deal) + 1 %>
 					<%= link_to '', @watching_deals[0], :class => "prevDeal" %>
 				<% else %>
 					<%= link_to '', @watching_deals[@watching_deals.index(@deal) + 1], :class => "prevDeal" %>
 				<% end %>
 				<%= link_to '', @watching_deals[@watching_deals.index(@deal) - 1], :class => "nextDeal" %>
-			<% elsif cookies[:my_account] == "" && @featured_deals.include?(@deal) %>
+			<% elsif cookies[:category] == "" && cookies[:my_account] == "" && @featured_deals.include?(@deal) %>
 				<% if @featured_deals.size == @featured_deals.index(@deal) + 1 %>
 					<%= link_to '', @featured_deals[0], :class => "prevDeal" %>
 				<% else %>

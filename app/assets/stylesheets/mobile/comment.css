@@ -57,7 +57,9 @@
 	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
 	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
-	-webkit-box-sizing: border-box;
+	-webit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 #comment_content:hover, #comment_content:focus, #comment_content:active {

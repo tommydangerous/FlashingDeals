@@ -1,0 +1,103 @@
+#userShow {
+	width: 100%;
+	min-width: 300px;
+	background: rgb(255, 255, 255);
+	margin: 0 auto;
+	margin-bottom: 10px;
+	padding: 10px;
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.3);
+	-webit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.userShowPhoto {
+	float: left;
+	width: 80px;
+	margin-right: 10px;
+	text-align: center;
+}
+
+.userShowPhoto img {
+	max-width: 80px;
+	max-height: 80px;
+}
+
+.userShowInfo {
+	float: left;
+}
+
+.userShowName {
+	font-weight: bold;
+	font-size: 20px;
+	margin-bottom: 3px;
+}
+
+.userShowLevel {
+	font-size: 13px;
+	color: rgb(150, 150, 150);
+}
+
+.userShowData {
+	margin: 5px 0px 10px 0px;
+	padding: 5px 0px;
+	border-top: 1px dotted rgb(200, 200, 200);
+	border-bottom: 1px dotted rgb(200, 200, 200);
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	width: 100%;
+	font-size: 13px;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
+}
+
+.userShowDataGroup {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+}
+
+.userShowComments {
+	border-left: 1px dotted rgb(200, 200, 200);
+	border-right: 1px dotted rgb(200, 200, 200);
+}
+
+.userShowDataCount {
+	font-weight: bold;
+	text-align: center;
+}
+
+.userShowDataName {
+	text-align: center;
+	color: rgb(150, 150, 150);
+}
+
+#userShowMessage {
+	display: block;
+	font-weight: bold;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	width: 100%;
+	padding: 10px 0px;
+	text-align: center;
+	border: 1px solid rgb(200, 200, 200);
+	-webkit-border-radius: 2px;
+	-moz-border-radius: 2px;
+	border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+	box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.4);
+	-webit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(214,214,214,1) 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(214,214,214,1)));
+	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%);
+}

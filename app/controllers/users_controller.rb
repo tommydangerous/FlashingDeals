@@ -92,7 +92,7 @@ class UsersController < ApplicationController
 	  	@title = @user.name
 	  	cookies[:user_show] = "#{@user.name}"
 	  	deals = @user.watching.where("posted > ?", @user.duration).search(params[:search]).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
-  		@deals = deals.paginate(:page => params[:page], :per_page => 30)
+  		@deals = deals.paginate(:page => params[:page], :per_page => 12)
   		respond_to do |format|
   			format.html { render :layout => "layouts/full_screen" }
 				format.mobile { render :layout => 'application_in' }
@@ -118,7 +118,7 @@ class UsersController < ApplicationController
   	@user = current_user
   	@title = "My Deals"
   	deals = @user.watching.where("posted > ?", @user.duration).search(params[:search])
-  	@deals = deals.paginate(:page => params[:page], :per_page => 15)
+  	@deals = deals.paginate(:page => params[:page], :per_page => 12)
   	cookies[:my_account] = "yes"
   	respond_to do |format|
   		format.html {
@@ -127,6 +127,7 @@ class UsersController < ApplicationController
 			format.mobile {
 				render :layout => "application_in"
 			}
+			format.js
   	end
   end
   
