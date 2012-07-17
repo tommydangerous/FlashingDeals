@@ -9,7 +9,6 @@
 	background: rgba(255, 255, 255, .85);
 	background: rgba(0, 0, 0, .5);
 	overflow-x: hidden;
-	overflow-y: scroll;
 }
 
 .overlayInner{
@@ -19,7 +18,7 @@
 }
 
 .overlay_top {
-	height: 20px;
+	height: 54px;
 	width: 100%;
 	z-index: 8001;
 }
@@ -27,14 +26,14 @@
 .overlay_left {
 	position: absolute;
 	left: 0;
-	top: 20px;
+	top: 54px;
 	z-index: 8001;
 }
 
 .overlay_right {
 	position: absolute;
 	right: 0;
-	top: 20px;
+	top: 54px;
 	z-index: 8001;
 }
 

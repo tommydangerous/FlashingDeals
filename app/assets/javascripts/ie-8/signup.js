@@ -51,12 +51,21 @@ $(document).ready(function() {
 		if(name_val.length == 0) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").show();
+			$("#user_name_long").hide();
+			$("#user_name_invalid").hide();
+			$("#user_name_good").hide();
+			return false;
+		} else if(name_val.length > 20) {
+			$("#user_name_example").hide();
+			$("#user_name_blank").hide();
+			$("#user_name_long").show();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").hide();
 			return false;
 		} else if(!name_val.match(name_regex)) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").show();
 			$("#user_name_good").hide();
 			return false;
@@ -112,16 +121,28 @@ $(document).ready(function() {
 		if(name_val.length == 0) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").show();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").hide();
+			return false;
+		} else if(name_val.length > 20) {
+			$("#user_name_example").hide();
+			$("#user_name_blank").hide();
+			$("#user_name_long").show();
+			$("#user_name_invalid").hide();
+			$("#user_name_good").hide();
+			return false;
 		} else if(!name_val.match(name_regex)) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").show();
 			$("#user_name_good").hide();
+			return false;
 		} else {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").show();
 		}
@@ -135,16 +156,28 @@ $(document).ready(function() {
 		if(name_val.length == 0) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").show();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").hide();
+			return false;
+		} else if(name_val.length > 20) {
+			$("#user_name_example").hide();
+			$("#user_name_blank").hide();
+			$("#user_name_long").show();
+			$("#user_name_invalid").hide();
+			$("#user_name_good").hide();
+			return false;
 		} else if(!name_val.match(name_regex)) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").show();
 			$("#user_name_good").hide();
+			return false;
 		} else {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").show();
 		}
@@ -160,16 +193,28 @@ $(document).ready(function() {
 		if(name_val.length == 0) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").show();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").hide();
+			return false;
+		} else if(name_val.length > 20) {
+			$("#user_name_example").hide();
+			$("#user_name_blank").hide();
+			$("#user_name_long").show();
+			$("#user_name_invalid").hide();
+			$("#user_name_good").hide();
+			return false;
 		} else if(!name_val.match(name_regex)) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").show();
 			$("#user_name_good").hide();
+			return false;
 		} else {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").show();
 		}
@@ -206,16 +251,28 @@ $(document).ready(function() {
 		if(name_val.length == 0) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").show();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").hide();
+			return false;
+		} else if(name_val.length > 20) {
+			$("#user_name_example").hide();
+			$("#user_name_blank").hide();
+			$("#user_name_long").show();
+			$("#user_name_invalid").hide();
+			$("#user_name_good").hide();
+			return false;
 		} else if(!name_val.match(name_regex)) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").show();
 			$("#user_name_good").hide();
+			return false;
 		} else {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").show();
 		}
@@ -278,16 +335,26 @@ $(document).ready(function() {
 		if(name_val.length == 0) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").show();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").hide();
-		} else if(!name_val.match(name_regex)) {
+		} else if(name_val.length > 20) {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").show();
+			$("#user_name_invalid").hide();
+			$("#user_name_good").hide();
+		}
+		else if(!name_val.match(name_regex)) {
+			$("#user_name_example").hide();
+			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").show();
 			$("#user_name_good").hide();
 		} else {
 			$("#user_name_example").hide();
 			$("#user_name_blank").hide();
+			$("#user_name_long").hide();
 			$("#user_name_invalid").hide();
 			$("#user_name_good").show();
 		}
@@ -378,6 +445,33 @@ $(document).ready(function() {
 		var pw_val = $("#session_password").val();
 		if(email_val.length == 0 || pw_val.length == 0) {
 			return false;
+		}
+	})
+	// Signup object errors
+	if($('#nameError').length > 0) {
+		$('#user_name').addClass("fieldError");
+	}
+	if($('#emailError').length > 0) {
+		$('#user_email').addClass("fieldError");
+	}
+	$('#user_name').click(function() {
+		if($('#nameError').length > 0) {
+			$('#nameError').delay(2000).fadeOut(100);
+		}
+	})
+	$('#user_name').focus(function() {
+		if($('#nameError').length > 0) {
+			$('#nameError').delay(2000).fadeOut(100);
+		}
+	})
+	$('#user_email').click(function() {
+		if($('#emailError').length > 0) {
+			$('#emailError').delay(2000).fadeOut(100);
+		}
+	})
+	$('#user_email').focus(function() {
+		if($('#emailError').length > 0) {
+			$('#emailError').delay(2000).fadeOut(100);
 		}
 	})
 })

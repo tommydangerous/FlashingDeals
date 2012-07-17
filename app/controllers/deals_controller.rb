@@ -19,7 +19,7 @@ class DealsController < ApplicationController
 # All Users
 	def featured_deals
 		@title = "FlashingDeals"
-  	deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3)
+		deals = Deal.where("top_deal = ? AND metric >= ? AND posted >= ? OR flash_back = ? AND metric >= ? AND posted >= ?", true, 0, @today_3, true, 0, @today_3)
   	@deals = deals.search(params[:search]).order("time_in DESC").paginate(:page => params[:page], :per_page => 12)
   	clear_return_to
   	respond_to do |format|
@@ -53,18 +53,11 @@ class DealsController < ApplicationController
 	  	format.html {
 		  	@today = Time.now - 86400
 		  	@today_3 = Time.now - (86400 * 3)
-		  	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("time_in ASC")
-		  	@flashmob_deals = Deal.where("posted > ? AND metric < ?", @today, 0).order("posted ASC")
-		  	@rising_deals = Deal.where("posted     > ? AND
-						  											metric    >= ? AND 
-						  											queue 	   = ? AND 
-						  											top_deal   = ? AND 
-						  											flash_back = ?",
-						  											@today, 0, false, false, false).order("created_at ASC")
+		  	@flashback_deals = Deal.where("top_deal = ? AND metric >= ? AND posted >= ? OR flash_back = ? AND metric >= ? AND posted >= ?", true, 0, @today_3, true, 0, @today_3).order("time_in DESC")
 				if cookies[:category] == nil || cookies[:category] == ""
 					@category_deals = []
 				else
-					deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+					deals = Deal.where("top_deal = ? AND metric >= ? AND posted >= ? OR flash_back = ? AND metric >= ? AND posted >= ?", true, 0, @today_3, true, 0, @today_3)
 		  		cat = Category.find_by_name(cookies[:category]).deals.where("posted >= ?", @today_3).order("time_in DESC")
 		  		@category_deals = (cat + deals).uniq
 				end
@@ -87,11 +80,11 @@ class DealsController < ApplicationController
 	  	}
 	  	format.mobile {
 	  		@today_3 = Time.now - (86400 * 3)
-	  		@featured_deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+	  		@featured_deals = Deal.where("top_deal = ? AND metric >= ? AND posted >= ? OR flash_back = ? AND metric >= ? AND posted >= ?", true, 0, @today_3, true, 0, @today_3).order("time_in DESC")
 	  		if cookies[:category] == nil || cookies[:category] == ""
 	  			@category_deals = []
 	  		else
-	  			deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+	  			deals = Deal.where("top_deal = ? AND metric >= ? AND posted >= ? OR flash_back = ? AND metric >= ? AND posted >= ?", true, 0, @today_3, true, 0, @today_3)
 		  		cat = Category.find_by_name(cookies[:category]).deals.where("posted >= ?", @today_3).order("time_in DESC")
 		  		@category_deals = (cat + deals).uniq
 	  		end
@@ -100,7 +93,11 @@ class DealsController < ApplicationController
 	  		else
 	  			@watching_deals = []
 	  		end
-	  		render :layout => 'application_in'
+	  		if signed_in?
+	  			render :layout => 'application_in'
+	  		else
+	  			redirect_to login_path
+	  		end
   		}
 		end
   	unless signed_in?
@@ -127,18 +124,11 @@ class DealsController < ApplicationController
 	  end
   	@today = Time.now - 86400
   	@today_3 = Time.now - (86400 * 3)
-  	@flashback_deals = Deal.where("top_deal = ? OR flash_back = ? AND posted > ?", true, true, @today_3).order("time_in ASC")
-  	@flashmob_deals = Deal.where("posted > ? AND metric < ?", @today, 0).order("posted ASC")
-  	@rising_deals = Deal.where("posted     > ? AND
-				  											metric    >= ? AND 
-				  											queue 	   = ? AND 
-				  											top_deal   = ? AND 
-				  											flash_back = ?",
-				  											@today, 0, false, false, false).order("created_at ASC")
+  	@flashback_deals = Deal.where("top_deal = ? AND metric >= ? AND posted >= ? OR flash_back = ? AND metric >= ? AND posted >= ?", true, 0, @today_3, true, 0, @today_3).order("time_in ASC")
 		if cookies[:category] == nil || cookies[:category] == ""
 			@category_deals = []
 		else
-			deals = Deal.where("top_deal = ? OR flash_back = ? AND metric >= ? AND posted > ?", true, true, 0, @today_3).order("time_in DESC")
+			deals = Deal.where("top_deal = ? AND metric >= ? AND posted >= ? OR flash_back = ? AND metric >= ? AND posted >= ?", true, 0, @today_3, true, 0, @today_3).order("time_in DESC")
   		cat = Category.find_by_name(cookies[:category]).deals.where("posted >= ?", @today_3).order("time_in DESC")
   		@category_deals = (cat + deals).uniq
 		end

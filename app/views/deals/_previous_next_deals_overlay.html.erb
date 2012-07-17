@@ -67,32 +67,4 @@
 	<%= link_to('javascript:void(0);', :id => "next_deal", :class => "prev_next_overlay", :title => "More deals", :onclick => "pnDeal(#{@flashback_deals[@flashback_deals.index(@deal) - 1].id});") do %>
 		<%= image_tag @flashback_deals[@flashback_deals.index(@deal) - 1].image, :class => "next_deal_image" %>
 	<% end %>
-	
-<% elsif @flashmob_deals.include?(@deal) %>
-	<% if @flashmob_deals.size == @flashmob_deals.index(@deal) + 1 %>
-		<%= link_to('javascript:void(0);', :id => "previous_deal", :class => "prev_next_overlay", :title => "More deals", :onclick => "pnDeal(#{@flashmob_deals[0].id});") do %>
-			<%= image_tag @flashmob_deals[0].image, :class => "previous_deal_image" %>
-		<% end %>
-	<% else %>
-		<%= link_to('javascript:void(0);', :id => "previous_deal", :class => "prev_next_overlay", :title => "More deals", :onclick => "pnDeal(#{@flashmob_deals[@flashmob_deals.index(@deal) + 1].id});") do %>
-			<%= image_tag @flashmob_deals[@flashmob_deals.index(@deal) + 1].image, :class => "previous_deal_image" %>
-		<% end %>
-	<% end %>
-	<%= link_to('javascript:void(0);', :id => "next_deal", :class => "prev_next_overlay", :title => "More deals", :onclick => "pnDeal(#{@flashmob_deals[@flashmob_deals.index(@deal) - 1].id});") do %>
-		<%= image_tag @flashmob_deals[@flashmob_deals.index(@deal) - 1].image, :class => "next_deal_image" %>
-	<% end %>
-	
-<% elsif  @rising_deals.include?(@deal) %>
-	<% if @rising_deals.size == @rising_deals.index(@deal) + 1 %>
-		<%= link_to('javascript:void(0);', :id => "previous_deal", :class => "prev_next_overlay", :title => "More deals", :onclick => "pnDeal(#{@rising_deals[0].id});") do %>
-			<%= image_tag @rising_deals[0].image, :class => "previous_deal_image" %>
-		<% end %>
-	<% else %>
-		<%= link_to('javascript:void(0);', :id => "previous_deal", :class => "prev_next_overlay", :title => "More deals", :onclick => "pnDeal(#{@rising_deals[@rising_deals.index(@deal) + 1].id});") do %>
-			<%= image_tag @rising_deals[@rising_deals.index(@deal) + 1].image, :class => "previous_deal_image" %>
-		<% end %>
-	<% end %>
-	<%= link_to('javascript:void(0);', :id => "next_deal", :class => "prev_next_overlay", :title => "More deals", :onclick => "pnDeal(#{@rising_deals[@rising_deals.index(@deal) - 1].id});") do %>
-		<%= image_tag @rising_deals[@rising_deals.index(@deal) - 1].image, :class => "next_deal_image" %>
-	<% end %>
 <% end %>

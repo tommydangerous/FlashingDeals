@@ -5,7 +5,7 @@ function setHeight() {
 	var r = $(".overlay_right");
 	var i = $(".overlayInner");
 	var b = $(".overlay_bottom");
-	var nh = (h + 42)
+	var nh = (h + 76)
 	var fs = $("#fs_wrapper").height();
 	l.height(h + 22)
 	r.height(h + 22)

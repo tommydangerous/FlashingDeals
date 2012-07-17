@@ -44,8 +44,14 @@
 			</div>
 		<% end %>
 		<%= form_for(@user) do |f| %>
-			<%= render 'error_messages', :object => f.object %>
 			<div class="field">
+				<% unless f.object.errors.get(:name).nil? %>
+					<% f.object.errors.get(:name).each do |msg| %>
+						<div id="nameError" class="signupError">
+							Name <%= msg %>
+						</div>
+					<% end %>
+				<% end %>
 				<%= f.text_field :name, :autocomplete => "off", :tabindex => 1, :placeholder => "Full name" %>
 				<div class="user_signup_messages">
 					<div id="user_name_example" class="user_signup_example">
@@ -53,6 +59,9 @@
 					</div>
 					<div id="user_name_blank" class="user_signup_error">
 						Please enter your name
+					</div>
+					<div id="user_name_long" class="user_signup_error">
+						Name is too long (20 characters max)
 					</div>
 					<div id="user_name_invalid" class="user_signup_error">
 						Name is invalid (can contain A-Z, 0-9, -, _, or 1 space)
@@ -63,6 +72,13 @@
 				</div>
 			</div>
 			<div class="field">
+				<% unless f.object.errors.get(:email).nil? %>
+					<% f.object.errors.get(:email).each do |msg| %>
+						<div id="emailError" class="signupError">
+							Email <%= msg %>
+						</div>
+					<% end %>
+				<% end %>
 				<%= f.text_field :email, :autocomplete => "off", :tabindex => 2, :placeholder => "Email address" %>
 				<div class="user_signup_messages">
 					<div id="user_email_example" class="user_signup_example">
@@ -75,7 +91,7 @@
 						Please enter a valid email address
 					</div>
 					<div id="user_email_good" class="user_signup_good">
-						Email looks correct
+						Email looks right
 					</div>
 				</div>
 			</div>
