@@ -23,6 +23,9 @@ class DealsController < ApplicationController
   	@deals = deals.search(params[:search]).order("time_in DESC").paginate(:page => params[:page], :per_page => 12)
   	clear_return_to
   	respond_to do |format|
+  		if params[:mobilejs]
+  			format.js { render :action => 'featured_deals.mobilejs.erb' }
+  		end
   		format.html {
   			render :layout => 'application_featured'
 			}

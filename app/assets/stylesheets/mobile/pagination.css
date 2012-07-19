@@ -1,3 +1,7 @@
+.endlessPagination {
+	display: none;
+}
+
 .pagination {
 	width: 70px;
 	margin: 0 auto;

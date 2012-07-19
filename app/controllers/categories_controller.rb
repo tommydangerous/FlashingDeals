@@ -13,8 +13,13 @@ class CategoriesController < ApplicationController
   	@deals = (cat + deals).uniq.paginate(:page => params[:page], :per_page => 12)
   	clear_return_to
   	respond_to do |format|
+  		if params[:mobilejs]
+  			format.js { render :action => "show.mobilejs.erb" }
+  		end
   		format.html { render :layout => 'application_featured' }
+  		format.js
   		format.mobile { render :layout => 'application_in' }
+  		format.mobilejs
   	end
 	end
 end

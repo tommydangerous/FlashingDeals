@@ -1,16 +1,26 @@
 <div id="header" data-role="header">
-	<%= image_tag "blue_bolt.png", :id => "blueBolt" %>
-	<%= link_to "Me", '#', :id => "meLink", :class => "headerLink notSelected", "data-role" => "none" %>
-	<ul id="headerNav">
-		<li><%= link_to "Featured", root_path, :id => "featuredLink", :class => "headerLink selected" %></li>
-		<li><%= link_to "My Deals", my_deals_path, :id => "mydealsLink", :class => "headerLink notSelected", "data-transition" => "none" %></li>
-	</ul>
+	<div id="headerNav">
+		<%= link_to(root_path, :id => "featuredLink", :class => "headerLink selected", "data-role" => "none") do %>
+			<%= image_tag "blue_bolt.png", :id => "blueBolt" %>
+			<p>Featured</p>
+		<% end %>
+		<%= link_to(me_account_path, :id => "meLink", :class => "headerLink notSelected") do %>
+			<div id="meLinkPhoto">
+				<%= image_tag current_user.photo.url %>
+			</div>
+			<p>Me</p>
+		<% end %>
+		<%= link_to(my_deals_path, :id => "mydealsLink", :class => "headerLink notSelected") do %>
+			<p>My Deals</p>
+		<% end %>
+	</div>
 </div>
-<div id="content" data-role="content">
+<div id="contentNoPad" data-role="content">
 	<div id="featuredDeals" class="dealList">
 		<%= render :partial => 'list_deal', :collection => @deals, :as => :deal %>
-		<%= render 'endless_pagination' %>
 	</div>
+	<%= render 'endless_pagination' %>
+	<span class="rootPage"></span>
 </div>
 <script>
 if (window.location.hash == "#_=_") {

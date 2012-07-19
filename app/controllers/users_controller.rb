@@ -131,6 +131,15 @@ class UsersController < ApplicationController
   	end
   end
   
+  def me_account
+  	@user = current_user
+  	@title = current_user.name
+  	respond_to do |format|
+  		format.html { redirect_to my_account_path }
+  		format.mobile { render :layout => 'application_in' }
+		end
+  end
+  
   def my_friends
   	@user = current_user
   	@title = "My Friends"

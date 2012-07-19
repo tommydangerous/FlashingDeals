@@ -1,0 +1,17 @@
+<div id="header" data-role="header">
+	<div id="headerNav">
+		<%= link_to(root_path, :id => "featuredLink", :class => "headerLink notSelected", "data-role" => "none") do %>
+			<%= image_tag "blue_bolt.png", :id => "blueBolt" %>
+			<p>Featured</p>
+		<% end %>
+		<%= link_to(me_account_path, :id => "meLink", :class => "headerLink selected") do %>
+			<div id="meLinkPhoto">
+				<%= image_tag current_user.photo.url %>
+			</div>
+			<p>Me</p>
+		<% end %>
+		<%= link_to(my_deals_path, :id => "mydealsLink", :class => "headerLink notSelected") do %>
+			<p>My Deals</p>
+		<% end %>
+	</div>
+</div>

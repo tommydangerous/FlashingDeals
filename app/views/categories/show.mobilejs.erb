@@ -1,0 +1,8 @@
+$('.contentWrapper:last #featuredDeals').append("<%= j render :partial => "deals/list_deal", :collection => @deals, :as => :deal %>")
+
+<% if @deals.total_pages == @deals.current_page %>
+	$('.endlessPagination').remove();
+	$('.loadingMoreDeals').remove();
+<% else %>
+	$('.contentWrapper:last .loadingMoreDeals').replaceWith("<%= j render("deals/endless_pagination") %>")
+<% end %>

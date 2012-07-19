@@ -7,6 +7,15 @@ $(document).ready(function() {
 		var nameVal = name.val();
 		if(nameVal.length == 0) {
 			$('#nameBlank').show();
+			$('#nameLong').hide();
+			$('#nameInvalid').hide();
+			$('#nameError').hide();
+			name.addClass("fieldError");
+			return false;
+		}
+		else if(nameVal.length > 20) {
+			$('#nameBlank').hide();
+			$('#nameLong').show();
 			$('#nameInvalid').hide();
 			$('#nameError').hide();
 			name.addClass("fieldError");
@@ -14,6 +23,7 @@ $(document).ready(function() {
 		}
 		else if(!nameVal.match(nameRegex)) {
 			$('#nameBlank').hide();
+			$('#nameLong').hide();
 			$('#nameInvalid').show();
 			$('#nameError').hide();
 			name.addClass("fieldError");
@@ -21,6 +31,7 @@ $(document).ready(function() {
 		}
 		else {
 			$('#nameBlank').hide();
+			$('#nameLong').hide();
 			$('#nameInvalid').hide();
 			$('#nameError').hide();
 			name.removeClass("fieldError");

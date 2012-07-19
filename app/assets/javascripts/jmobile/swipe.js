@@ -1,6 +1,6 @@
 $(document).on('pageinit', function() {
 	// swipe left and swipe right on deal list page or deal show page
-	$('.contentWrapper').on('swipeleft swiperight', function(event) {
+	$('.dealShowContent').on('swipeleft swiperight', function(event) {
 		if (event.type == 'swipeleft') {
 			event.stopImmediatePropagation();
 			var next = $('.contentWrapper:last .pagination a.next_page');

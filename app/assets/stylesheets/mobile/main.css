@@ -13,8 +13,6 @@ body {
 }
 
 #content, #contentNoPad {
-	position: relative;
-	top: 44px;
 	overflow-x: hidden;
 }
 
