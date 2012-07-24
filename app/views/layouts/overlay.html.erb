@@ -17,31 +17,34 @@
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
 		  
-			$('textarea.subcomment_textarea').click(function() {
-				return false;
-			});
-			$('textarea.subcomment_textarea_2').click(function() {
-				return false;
-			});
-			$('a.reply_link').click(function() {
-				return false;
-			});
-			$('.subcomment_textarea').autoResize();
-			$('.subcomment_textarea_2').autoResize();
-			
-			$(".action_login").click(function() {
-				$(".overlayOuter").hide(0, function() {
-					$("body").removeClass("stationary");
-					$("#dim_signup").fadeIn(200, function() {
-						$("html, body").animate({ scrollTop: 0  }, 0);
-		    		return false;
-					});
+			$(document).ready(function() {
+				$('#deal_show_info a').attr("target", "_blank");
+				$('textarea.subcomment_textarea').click(function() {
+					return false;
 				});
-				$(".box_image").show()
+				$('textarea.subcomment_textarea_2').click(function() {
+					return false;
+				});
+				$('a.reply_link').click(function() {
+					return false;
+				});
+				$('.subcomment_textarea').autoResize();
+				$('.subcomment_textarea_2').autoResize();
+				
+				$(".action_login").click(function() {
+					$(".overlayOuter").hide(0, function() {
+						$("body").removeClass("stationary");
+						$("#dim_signup").fadeIn(200, function() {
+							$("html, body").animate({ scrollTop: 0  }, 0);
+			    		return false;
+						});
+					});
+					$(".box_image").show()
+				});
+				$(".share_points").click(function() {
+					$.ajax("/share_points");
+				})
 			});
-			$(".share_points").click(function() {
-				$.ajax("/share_points");
-			})
 			
 			function showPointsPopup(points) {
 				var o = $("#points_popup_overlay");

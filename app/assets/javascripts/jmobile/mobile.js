@@ -1,7 +1,6 @@
 $(document).bind("mobileinit", function() {
 	$.mobile.loadingMessage = false;
 	$.mobile.defaultPageTransition = 'none';
-	$.event.special.swipe.horizontalDistanceThreshold = "150";
-	$.event.special.swipe.verticalDistanceThreshold = "20";
-	$.event.special.swipe.durationThreshold = "500";
+	$.event.special.swipe.horizontalDistanceThreshold = "30";
+	$.event.special.swipe.verticalDistanceThreshold = "30";
 })

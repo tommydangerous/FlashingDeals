@@ -134,6 +134,7 @@ class UsersController < ApplicationController
   def me_account
   	@user = current_user
   	@title = current_user.name
+  	@notifications = current_user.notifications.where("read = ?", false)
   	respond_to do |format|
   		format.html { redirect_to my_account_path }
   		format.mobile { render :layout => 'application_in' }

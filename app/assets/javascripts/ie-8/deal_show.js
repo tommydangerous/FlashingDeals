@@ -1,3 +1,8 @@
+// make all anchors in #deal_show_info have attribute target = _blank
+$(document).ready(function() {
+	$('#deal_show_info a').attr("target", "_blank");
+});
+
 function setPreviousNextHeight() {
 	var h = $("#deal_show_container").height();
 	$("#previous_deal").height(h);
