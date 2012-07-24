@@ -38,6 +38,8 @@
 #dealShowLink a {
 	display: block;
 	width: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
 	font-size: 22px;
 	text-align: center;
 	padding: 10px 0px;
@@ -84,6 +86,7 @@
 }
 
 #dealShowCategories .categoryTag {
+	font-family: Helvetica, Arial, sans-serif;
 	font-weight: normal;
 	font-size: 13px;
 	color: rgb(150, 150, 150);
