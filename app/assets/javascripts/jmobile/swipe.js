@@ -1,3 +1,4 @@
+/*
 $(document).on('pageinit', function() {
 	// swipe left and swipe right on deal list page or deal show page
 	$('.dealShowContent').on('swipeleft swiperight', function(event) {
@@ -29,3 +30,4 @@ $(document).on('pageinit', function() {
 		}
 	})
 })
+*/

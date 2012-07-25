@@ -169,7 +169,7 @@
 						<tr>
 							<td id="logo">
 								<%= link_to("http://www.flashingdeals.com", :target => "_blank") do %>
-									<img src="http://s3.amazonaws.com/flashingdeals_admin/logo_beta.png">
+									<img src="https://s3.amazonaws.com/flashingdeals_admin/logo_beta.png">
 								<% end %>
 							</td>
 							<td id="follow">
@@ -243,7 +243,7 @@
 						<table id="single_deal">
 							<tr>
 								<td id="single_deal_image">
-									<%= image_tag Deal.find(@newsletter.deal1).image %>
+									<%= image_tag Deal.find(@newsletter.deal1).image, :alt => "" %>
 								</td>
 								<td id="single_deal_name">
 									<p class="name"><%= Deal.find(@newsletter.deal1).name %></p>
@@ -268,7 +268,7 @@
 												</p>
 											</td>
 											<td id="single_deal_view_deal">
-												<%= link_to(Deal.find(@newsletter.deal1), :target => "_blank") do %>
+												<%= link_to("http://www.flashingdeals.com#{deal_path(Deal.find(@newsletter.deal1))}", :target => "_blank") do %>
 													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
 												<% end %>
 											</td>
@@ -286,7 +286,7 @@
 						<table id="single_deal">
 							<tr>
 								<td id="single_deal_image">
-									<%= image_tag Deal.find(@newsletter.deal2).image %>
+									<%= image_tag Deal.find(@newsletter.deal2).image, :alt => "" %>
 								</td>
 								<td id="single_deal_name">
 									<p class="name"><%= Deal.find(@newsletter.deal2).name %></p>
@@ -311,7 +311,7 @@
 												</p>
 											</td>
 											<td id="single_deal_view_deal">
-												<%= link_to(Deal.find(@newsletter.deal2), :target => "_blank") do %>
+												<%= link_to("http://www.flashingdeals.com#{deal_path(Deal.find(@newsletter.deal2))}", :target => "_blank") do %>
 													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
 												<% end %>
 											</td>
@@ -329,7 +329,7 @@
 						<table id="single_deal">
 							<tr>
 								<td id="single_deal_image">
-									<%= image_tag Deal.find(@newsletter.deal3).image %>
+									<%= image_tag Deal.find(@newsletter.deal3).image, :alt => "" %>
 								</td>
 								<td id="single_deal_name">
 									<p class="name"><%= Deal.find(@newsletter.deal3).name %></p>
@@ -354,7 +354,7 @@
 												</p>
 											</td>
 											<td id="single_deal_view_deal">
-												<%= link_to(Deal.find(@newsletter.deal3), :target => "_blank") do %>
+												<%= link_to("http://www.flashingdeals.com#{deal_path(Deal.find(@newsletter.deal3))}", :target => "_blank") do %>
 													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
 												<% end %>
 											</td>
@@ -372,7 +372,7 @@
 						<table id="single_deal">
 							<tr>
 								<td id="single_deal_image">
-									<%= image_tag Deal.find(@newsletter.deal4).image %>
+									<%= image_tag Deal.find(@newsletter.deal4).image, :alt => "" %>
 								</td>
 								<td id="single_deal_name">
 									<p class="name"><%= Deal.find(@newsletter.deal4).name %></p>
@@ -397,7 +397,7 @@
 												</p>
 											</td>
 											<td id="single_deal_view_deal">
-												<%= link_to(Deal.find(@newsletter.deal4), :target => "_blank") do %>
+												<%= link_to("http://www.flashingdeals.com#{deal_path(Deal.find(@newsletter.deal4))}", :target => "_blank") do %>
 													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
 												<% end %>
 											</td>
@@ -415,7 +415,7 @@
 						<table id="single_deal">
 							<tr>
 								<td id="single_deal_image">
-									<%= image_tag Deal.find(@newsletter.deal5).image %>
+									<%= image_tag Deal.find(@newsletter.deal5).image, :alt => "" %>
 								</td>
 								<td id="single_deal_name">
 									<p class="name"><%= Deal.find(@newsletter.deal5).name %></p>
@@ -440,7 +440,7 @@
 												</p>
 											</td>
 											<td id="single_deal_view_deal">
-												<%= link_to(Deal.find(@newsletter.deal5), :target => "_blank") do %>
+												<%= link_to("http://www.flashingdeals.com#{deal_path(Deal.find(@newsletter.deal5))}", :target => "_blank") do %>
 													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
 												<% end %>
 											</td>
@@ -458,7 +458,7 @@
 						<table id="single_deal">
 							<tr>
 								<td id="single_deal_image">
-									<%= image_tag Deal.find(@newsletter.deal6).image %>
+									<%= image_tag Deal.find(@newsletter.deal6).image, :alt => "" %>
 								</td>
 								<td id="single_deal_name">
 									<p class="name"><%= Deal.find(@newsletter.deal6).name %></p>
@@ -483,7 +483,7 @@
 												</p>
 											</td>
 											<td id="single_deal_view_deal">
-												<%= link_to(Deal.find(@newsletter.deal6), :target => "_blank") do %>
+												<%= link_to("http://www.flashingdeals.com#{deal_path(Deal.find(@newsletter.deal6))}", :target => "_blank") do %>
 													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
 												<% end %>
 											</td>
@@ -501,7 +501,7 @@
 						<table id="single_deal">
 							<tr>
 								<td id="single_deal_image">
-									<%= image_tag Deal.find(@newsletter.deal7).image %>
+									<%= image_tag Deal.find(@newsletter.deal7).image, :alt => "" %>
 								</td>
 								<td id="single_deal_name">
 									<p class="name"><%= Deal.find(@newsletter.deal7).name %></p>
@@ -526,7 +526,7 @@
 												</p>
 											</td>
 											<td id="single_deal_view_deal">
-												<%= link_to(Deal.find(@newsletter.deal7), :target => "_blank") do %>
+												<%= link_to("http://www.flashingdeals.com#{deal_path(Deal.find(@newsletter.deal7))}", :target => "_blank") do %>
 													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
 												<% end %>
 											</td>
@@ -544,7 +544,7 @@
 						<table id="single_deal">
 							<tr>
 								<td id="single_deal_image">
-									<%= image_tag Deal.find(@newsletter.deal8).image %>
+									<%= image_tag Deal.find(@newsletter.deal8).image, :alt => "" %>
 								</td>
 								<td id="single_deal_name">
 									<p class="name"><%= Deal.find(@newsletter.deal8).name %></p>
@@ -569,7 +569,7 @@
 												</p>
 											</td>
 											<td id="single_deal_view_deal">
-												<%= link_to(Deal.find(@newsletter.deal8), :target => "_blank") do %>
+												<%= link_to("http://www.flashingdeals.com#{deal_path(Deal.find(@newsletter.deal8))}", :target => "_blank") do %>
 													<%= image_tag "http://s3.amazonaws.com/flashingdeals_admin/view_deal_l.png" %>
 												<% end %>
 											</td>
@@ -597,11 +597,10 @@
 				<td>
 					<p class="unsubscribe">
 						You are receiving this newsletter because you are an existing member of our community. 
-						If you no longer wish to receive newsletters on the best deals as well as updates, you may unsubscribe <%= link_to "here", unsubscribe_path, :target => "_blank" %>.
+						If you no longer wish to receive newsletters on the best deals as well as updates, you may unsubscribe <%= link_to "here", "http://www.flashingdeals.com/unsubscribe", :target => "_blank" %>.
 					</p>
 				</td>
 			</tr>
 		</table>
-		<%= link_to "Back", newsletters_path %>
 	</body>
 </html>
