@@ -8,5 +8,8 @@ class NotificationsController < ApplicationController
 		current_user.notifications.where("read = ?", false).each do |n|
 			n.update_attribute(:read, true)
 		end
+		respond_to do |format|
+			format.mobile { render :layout => 'application_in' }
+		end
 	end
 end

@@ -20,16 +20,26 @@
 		<ul>
 			<li>
 				<%= link_to(notifications_path, "data-transition" => "slide") do %>
-					Notifications <%= (@notifications.size) unless @notifications.empty? %>
+					Notifications 
+					<% unless @notifications.empty? %>
+						(<%= @notifications.size %>)
+					<% end %>
 				<% end %>
 			</li>
-			<li><%= link_to "Messages", messages_path, "data-transition" => "slide" %></li>
+			<li>
+				<%= link_to(messages_path, "data-transition" => "slide") do %>
+					Messages 
+					<% unless @messages.empty? %>
+						(<%= @messages.size %>)
+					<% end %>
+				<% end %>
+			</li>
 			<% unless current_user.request_friends.empty? %>
-				<li><%= link_to "Friend Requests", friend_requests_path, "data-transition" => "slide" %></li>
+				<li><%= link_to "Friend Requests (#{current_user.request_friends.size})", friend_requests_path, "data-transition" => "slide" %></li>
 			<% end %>
 			<li><%= link_to "My Friends", my_friends_path, "data-transition" => "slide" %></li>
 			<li><%= link_to "Settings", edit_user_path(current_user), "data-transition" => "slide" %></li>
-			<li><%= link_to "Logout", logout_path, "data-transition" => "slide" %></li>
+			<li><%= link_to "Logout", logout_path, "data-ajax" => "false" %></li>
 		</ul>
 	</div>
 </div>

@@ -13,7 +13,7 @@
 		</p>
 	</div>
 	<div id="commentContent">
-		<p><%= comment.content %></p>
+		<p><%= auto_link((to_html(strip_tags(comment.content))), :all, :target => "_blank") %></p>
 	</div>
 	<div class="clear"></div>
 	<% unless @subcomments.empty? %>

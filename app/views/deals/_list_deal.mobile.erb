@@ -1,7 +1,7 @@
 <div class="listDeal">
-	<%= link_to(deal, :class => "listDealLink", "data-transition" => "none") do %>
+	<%= link_to(deal, :class => "listDealLink") do %>
 		<div class="listDealImage">
-			<%= image_tag(deal.image) %>
+			<%= image_tag "/assets/lazyMobile.jpg", "data-original" => deal.image, :class => "lazy lazyLoad" %>
 		</div>
 		<div class="listDealInfo">
 			<p class="listDealName"><%= deal.name %></p>

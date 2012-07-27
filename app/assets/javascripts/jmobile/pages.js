@@ -9,7 +9,7 @@ $(document).on('pageinit', function() {
 	// load more deals when scrolling
 	$(window).scroll(function() {
 		var next = $('.contentWrapper:last .pagination a.next_page').attr('href');
-		if (next && $(window).scrollTop() > $(document).height() - $(window).height() - 200) {
+		if (next && $(window).scrollTop() > $(document).height() - $(window).height() - 300) {
 			$('.contentWrapper:last .endlessPagination').replaceWith("<div class='loadingMoreDeals'>Loading More Deals...</div>");
 			if ($('.contentWrapper:last .rootPage').length > 0) {
 				$.ajax({
