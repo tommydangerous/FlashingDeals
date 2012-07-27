@@ -95,7 +95,10 @@ class UsersController < ApplicationController
   		@deals = deals.paginate(:page => params[:page], :per_page => 12)
   		respond_to do |format|
   			format.html { render :layout => "layouts/full_screen" }
-				format.mobile { render :layout => 'application_in' }
+				format.mobile { 
+					@message = @user.send_messages.where("recipient_id = ?", current_user.id).order("created_at DESC").first
+					render :layout => 'application_in' 
+				}
   		end
 		end
 	rescue ActiveRecord::RecordNotFound
@@ -316,6 +319,16 @@ class UsersController < ApplicationController
   		current_user.save
   	end
   	redirect_to my_account_path
+  end
+  
+  def message
+  	@user = User.find(params[:id])
+  	@sender = @user
+  	@title = "#{@user.name} - Messages"
+  	respond_to do |format|
+  		format.html { redirect_to my_account_path }
+  		format.mobile { render :layout => 'application_in' }
+  	end
   end
   
 # Correct User

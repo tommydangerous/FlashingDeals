@@ -1,4 +1,17 @@
-<%= render 'layouts/header_back' %>
-<div id="content" data-role="content">
-	Notifications
+<div id="header" data-role="header">
+	<%= link_to(me_account_path, :id => "backButton", "data-transition" => "slide", "data-direction" => "reverse", "data-role" => "none") do %>
+		<span></span>Back
+	<% end %>
+	<div class="headerPageTitle">
+		Notifications
+	</div>
+</div>
+<div id="contentNoPad" data-role="content">
+	<div id="notifications">
+		<% if @notifications.empty? %>
+			<p class="notificationsNone">You currently have none.</p>
+		<% else %>
+			<%= render @notifications %>
+		<% end %>
+	</div>
 </div>

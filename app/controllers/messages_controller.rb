@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
 		respond_to do |format|
 			format.mobile { render :layout => 'application_in' }
 		end
-#		@messages = current_user.received_messages.order("created_at DESC").paginate(:page => params[:page], :per_page => 40)
 	end
 	
 	def show
@@ -30,12 +29,6 @@ class MessagesController < ApplicationController
 		end
 		messages = (@send_messages + @received_messages).sort_by { |message| message.created_at }.reverse
 		@messages_size = messages.size
-		if @messages_size > 10
-			@messages = messages[0..9]
-			@messages_more = messages[10..@messages_size]
-		else
-			@messages = messages
-		end
 		@title = "#{@sender.name} - Messages"
 		@total_messages = current_user.received_messages
 		unless @message.user_id == current_user.id
@@ -44,6 +37,24 @@ class MessagesController < ApplicationController
 					message.update_attribute(:read, true)
 				end
 			end
+		end
+		respond_to do |format|
+			format.html {
+				if @messages_size > 10
+					@messages = messages[0..9]
+					@messages_more = messages[10..@messages_size]
+				else
+					@messages = messages
+				end
+			}
+			format.mobile { 
+				if messages.size > 20
+					@messages = messages[0..19]
+				else
+					@messages = messages
+				end
+				render :layout => 'application_in'
+			}
 		end
 	rescue ActiveRecord::RecordNotFound
 		@title = "Messages"

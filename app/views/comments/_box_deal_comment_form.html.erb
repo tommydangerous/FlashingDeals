@@ -7,3 +7,20 @@
 	<%= f.submit "Submit" %>
 <% end %>
 <div class="clear"></div>
+<script>
+$(document).ready(function() {
+	var boxCommentSubmit = $('#box_deal_comment_form_'+<%= deal.id %>+' input[name=commit]');
+	boxCommentSubmit.on('click', function() {
+		var boxCommentContent = $('#box_deal_comment_form_'+<%= deal.id %>+' textarea').val();
+		if (boxCommentContent === "") {
+			return false;
+		}
+		else if (boxCommentSubmit.hasClass("noClick")) {
+			return false;
+		}
+		else {
+			boxCommentSubmit.addClass("noClick");
+		}
+	});
+});
+</script>

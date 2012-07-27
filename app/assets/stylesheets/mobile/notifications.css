@@ -1,0 +1,46 @@
+.notificationsNone {
+	padding: 10px;
+	font-size: 14px;
+	text-align: center;
+}
+
+#notification {
+	background: rgb(255, 255, 255);
+}
+
+.notificationDealLink {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#notificationUserPhoto {
+	float: left;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+}
+
+#notificationUserPhoto img {
+	max-width: 40px;
+	max-height: 40px;
+}
+
+#notificationInfo {
+	margin-left: 50px;
+	font-size: 14px;
+	font-weight: normal;
+	margin-bottom: 3px;
+}
+
+#notificationTimeStamp {
+	margin-left: 50px;
+	font-size: 13px;
+	font-weight: normal;
+	color: rgb(150, 150, 150);
+}

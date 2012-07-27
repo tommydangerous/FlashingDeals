@@ -1,18 +1,24 @@
-#meAccount ul {
+#meAccount, #meAccount2 {
 	padding: 0;
-	margin: 10px 0 0 0;
+	margin: 0;
 	list-style-type: none;
-	border-top: 1px dotted rgb(200, 200, 200);
+	background: rgb(255, 255, 255);
+	border-radius: 5px;
+	box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.4);
 }
 
-#meAccount ul li {
+#meAccount {
+	margin-bottom: 20px;
 }
 
-#meAccount ul li a {
+#meAccount li a, #meAccount2 li a {
 	display: block;
 	padding: 10px;
 	border-bottom: 1px dotted rgb(200, 200, 200);
 	color: rgb(44, 175, 227);
-	background: rgb(255, 255, 255);
 	text-decoration: none;
+}
+
+#meAccount li a.noBorder, #meAccount2 li a.noBorder {
+	border: none;
 }

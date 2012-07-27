@@ -1,0 +1,9 @@
+<%= form_for current_user.send_messages.build, :remote => true do |f| %>
+	<div class="actions">
+		<%= f.submit "Reply", :tabindex => 2 %>
+	</div>
+	<div class="field">
+		<%= f.text_area :content, :placeholder => "Reply back...", :tabindex => 1 %>
+		<%= hidden_field_tag :friend_name, @sender.name %>
+	</div>
+<% end %>

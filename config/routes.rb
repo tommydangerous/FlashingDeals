@@ -43,8 +43,9 @@ FlashingDeal::Application.routes.draw do
   resources :subcomments, :only => [:create, :destroy]
   resources :users do
   	member do
-  		get :watching
   		get :friends
+  		get :message
+  		get :watching
   	end
   end
 # Authentications

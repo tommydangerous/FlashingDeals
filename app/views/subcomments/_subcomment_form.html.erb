@@ -2,12 +2,31 @@
 	<% if @subcomments.where("comment_id = ?", comment.id).empty? %>
 		<div id="hidden_subcomment_form_<%= comment.id %>" class="hidden_subcomment_form">
 			<div id="subcomment_form">
-			<div class="subcomment_form_gravatar_2">
-				<%= image_tag(current_user.photo.url, :id => "user_photo_subcomment") %>
+				<div class="subcomment_form_gravatar_2">
+					<%= image_tag(current_user.photo.url, :id => "user_photo_subcomment") %>
+				</div>
+				<%= form_for current_user.subcomments.build, :remote => true do |f| %>
+					<div class="field">
+						<%= f.text_area(:content, :id => "reply_#{comment.id}", :class => "subcomment_textarea_2", :onclick => "showReply(#{comment.id})", :onfocus => "showReply(#{comment.id})", :placeholder => "Write a reply...") %>
+						<%= f.hidden_field :comment_id, :value => comment.id %>
+						<%= f.hidden_field :deal_id, :value => @deal.id %>
+					</div>
+					<div id="reply_<%= comment.id %>" class="actions reply">
+						<%= f.submit "Reply", :id => comment.id %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<% else %>
+		<div id="subcomment_form">
+			<div class="subcomment_form_gravatar" id="subcomment_gravatar_<%= comment.id %>">
+				<div class="subcomment_form_gravatar_3">
+					<%= image_tag(current_user.photo.url, :id => "user_photo_subcomment") %>
+				</div>
 			</div>
 			<%= form_for current_user.subcomments.build, :remote => true do |f| %>
 				<div class="field">
-					<%= f.text_area(:content, :id => "reply_#{comment.id}", :class => "subcomment_textarea_2", :onclick => "showReply(#{comment.id})", :onfocus => "showReply(#{comment.id})", :placeholder => "Write a reply...") %>
+					<%= f.text_area(:content, :id => "reply_#{comment.id}", :class => "subcomment_textarea", :onclick => "showReply(#{comment.id})", :onfocus => "showReply(#{comment.id})", :placeholder => "Write a reply...") %>
 					<%= f.hidden_field :comment_id, :value => comment.id %>
 					<%= f.hidden_field :deal_id, :value => @deal.id %>
 				</div>
@@ -15,25 +34,24 @@
 					<%= f.submit "Reply", :id => comment.id %>
 				</div>
 			<% end %>
-			</div>
-		</div>
-		<% else %>
-		<div id="subcomment_form">
-		<div class="subcomment_form_gravatar" id="subcomment_gravatar_<%= comment.id %>">
-			<div class="subcomment_form_gravatar_3">
-				<%= image_tag(current_user.photo.url, :id => "user_photo_subcomment") %>
-			</div>
-		</div>
-		<%= form_for current_user.subcomments.build, :remote => true do |f| %>
-			<div class="field">
-				<%= f.text_area(:content, :id => "reply_#{comment.id}", :class => "subcomment_textarea", :onclick => "showReply(#{comment.id})", :onfocus => "showReply(#{comment.id})", :placeholder => "Write a reply...") %>
-				<%= f.hidden_field :comment_id, :value => comment.id %>
-				<%= f.hidden_field :deal_id, :value => @deal.id %>
-			</div>
-			<div id="reply_<%= comment.id %>" class="actions reply">
-				<%= f.submit "Reply", :id => comment.id %>
-			</div>
-		<% end %>
 		</div>
 	<% end %>
 <% end %>
+<script>
+$(document).ready(function() {
+	// disable submit button
+	var subcommentSubmit = $('div#reply_'+<%= comment.id %>+' input');
+	subcommentSubmit.on('click', function() {
+		var subcommentContent = $('textarea#reply_'+<%= comment.id %>).val();
+		if (subcommentContent === "") {
+			return false;
+		}
+		else if (subcommentSubmit.hasClass("noClick")) {
+			return false;
+		}
+		else {
+			subcommentSubmit.addClass("noClick");
+		}
+	})
+})
+</script>

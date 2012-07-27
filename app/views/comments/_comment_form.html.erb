@@ -11,6 +11,21 @@
 </div>
 <script>
 $(document).ready(function() {
+	// auto resize of text area
 	$('.field #comment_content').autoResize();
+	// disable submit if empty or just submitted
+	var commentSubmit = $('#comment_submit input');
+	commentSubmit.on('click', function() {
+		var commentContent = $('#comment_form #comment_content').val();
+		if (commentContent === "") {
+			return false;
+		}
+		else if (commentSubmit.hasClass("noClick")) {
+			return false;
+		}
+		else {
+			commentSubmit.addClass("noClick");
+		};
+	});
 });
 </script>

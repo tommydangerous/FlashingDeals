@@ -1,0 +1,16 @@
+<div id="notification">
+	<%= link_to(Deal.find(notification.deal_id), :class => "notificationDealLink") do %>
+		<div id="notificationUserPhoto">
+			<%= image_tag "/assets/lazyMobile.jpg", "data-original" => Deal.find(notification.deal_id).image, :class => "lazy lazyLoad" %>
+		</div>
+		<p id="notificationInfo"><span class="anchorBlue"><%= User.find(notification.user_id).name %></span> commented on <%= Deal.find(notification.deal_id).name %></p>
+		<p id="notificationTimeStamp">
+			<% if (Time.now - notification.created_at)/86400 > 1 %>
+				<%= notification.created_at.strftime("%B %d, %Y") %>
+			<% else %>
+				<%= time_ago_in_words(notification.created_at) %> ago
+			<% end %>
+		</p>
+		<div class="clear"></div>
+	<% end %>
+</div>

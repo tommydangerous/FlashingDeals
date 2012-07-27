@@ -13,7 +13,7 @@ body {
 }
 
 #content, #contentNoPad {
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 #content {
@@ -76,4 +76,8 @@ a {
 
 .red {
 	color: rgb(255, 26, 0);
+}
+
+.anchorBlue {
+	color: rgb(44, 175, 227);
 }

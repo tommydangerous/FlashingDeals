@@ -1,4 +1,33 @@
-<%= render 'layouts/header_back' %>
-<div id="content" data-role="content">
-	Messages
+<div id="header" data-role="header">
+	<%= link_to(me_account_path, :id => "backButton", "data-transition" => "slide", "data-direction" => "reverse", "data-role" => "none") do %>
+		<span></span>Back
+	<% end %>
+	<div class="headerPageTitle">
+		Messages
+	</div>
+</div>
+<div id="contentNoPad" data-role="content">
+	<div id="messages">
+		<% if @messages.empty? %>
+			<p id="messagesNone">You currently have no messages.</p>
+		<% else %>
+			<% @messages.each do |message| %>
+				<div id="message">
+					<%= link_to(message, :class => "messageLink", "data-transition" => "slide") do %>
+						<div id="messageUserPhoto">
+							<%= image_tag "/assets/lazyMobile.jpg", "data-original" => User.find(message.user_id).photo.url, :class => "lazy lazyLoad" %>
+						</div>
+						<div id="messageUserInfo">
+							<span id="messageCreatedAt"><%= message.created_at.strftime("%b %d") %></span>
+							<p id="messageUserName"><%= User.find(message.user_id).name %></p>
+							<div id="messageContent">
+								<p class="shortMessage"><%= message.content %></p>
+							</div>
+						</div>
+						<div class="clear"></div>
+					<% end %>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
 </div>

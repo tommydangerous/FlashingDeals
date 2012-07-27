@@ -1,0 +1,14 @@
+<div id="header" data-role="header">
+	<%= link_to('#', :id => "backButton", "data-rel" => "back", "data-role" => "none") do %>
+		<span></span>Back
+	<% end %>
+	<div class="headerPageTitle">
+		<%= @sender.name %>
+	</div>
+</div>
+<div id="contentNoPad" data-role="content">
+	<div id="messageForm">
+		<%= render 'messageForm' %>
+	</div>
+	<%= render @messages %>
+</div>

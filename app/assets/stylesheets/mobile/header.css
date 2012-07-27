@@ -88,82 +88,15 @@
 	float: left;
 }
 
-#backLink {
-	
-}
-
-/*
-#headerNav {
-	width: 174px;
-	margin: 0 auto;
-	padding: 0;
-	list-style-type: none;
-}
-
-#headerNav li {
+.headerPageTitle {
 	float: left;
-	display: inline-block;
-}
-
-#headerNav .headerLink, #meLink {
-	display: block;
+	width: 100%;
 	height: 16px;
-	padding: 14px 15px;
+	margin-top: -14px;
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
-	font-size: 13px;
+	font-size: 14px;
+	text-align: center;
 	text-decoration: none;
-	text-shadow: 0px 0px rgba(0, 0, 0, 0);
+	text-shadow: 0px 0px rgb(0, 0, 0);
 }
-
-#meLink {
-	position: relative;
-	top: 0;
-	float: right;
-}
-
-#header .notSelected {
-	color: rgb(200, 200, 200);
-}
-
-#header .selected {
-	color: rgb(255, 255, 255);
-}
-
-#header .headerLink:hover, #header .headerLink:active {
-	color: rgb(255, 255, 255);
-	background: rgb(75, 75, 75);
-}
-
-#backLink {
-	position: relative;
-	top: 0;
-	float: left;
-	display: block;
-	width: 45px;
-	height: 44px;
-	background: url("/assets/mobileBackGray.jpg");
-	background-size: 45px 44px;
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
-}
-
-#backLink:hover, #backLink:active {
-	background: url("/assets/mobileBackWhite.jpg");
-}
-
-.backLinkArrow {
-	width: 0;
-	height: 0;
-	border-top: 10px solid transparent;
-	border-bottom: 10px solid transparent;
-	border-right: 20px solid rgb(200, 200, 200);	
-}
-
-#blueBolt {
-	float: left;
-	width: 20px;
-	height: 20px;
-	padding: 12px 10px;
-}
-*/
