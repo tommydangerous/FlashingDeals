@@ -46,6 +46,8 @@
 
 #backButton {
 	position: relative;
+	top: 8px;
+	left: 16px;
 	display: inline-block;
 	height: 16px;
 	font-family: Helvetica, Arial, sans-serif;
@@ -64,16 +66,16 @@
 
 #backButton span {
 	position: absolute;
-	top: 2px;
-	left: -5px;
+	top: 2.5px;
+	left: -4px;
 	display: block;
 	height: 18px;
-	width: 17px;
+	width: 18px;
 	border-left: solid 1px rgba(75, 75, 75, 0.75);
 	border-bottom: solid 1px rgba(75, 75, 75, 0.75);
 	background: rgb(150, 150, 150);
 	border-top-left-radius: 5px;
-	border-bottom-right-radius: 5px;
+	border-bottom-right-radius: 1px;
 	-webkit-transform: rotate(45deg);
 	-webkit-mask-image: -webkit-gradient(linear, left bottom, right top,
 			from(#000000),

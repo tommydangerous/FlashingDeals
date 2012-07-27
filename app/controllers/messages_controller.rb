@@ -10,6 +10,9 @@ class MessagesController < ApplicationController
 			@msgs.push(User.find(x).send_messages.where("recipient_id = ?", current_user.id).order("created_at DESC").first)
 		end
 		@messages = @msgs.sort_by { |message| message.created_at }.reverse
+		respond_to do |format|
+			format.mobile { render :layout => 'application_in' }
+		end
 #		@messages = current_user.received_messages.order("created_at DESC").paginate(:page => params[:page], :per_page => 40)
 	end
 	

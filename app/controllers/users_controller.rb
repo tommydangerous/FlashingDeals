@@ -148,7 +148,10 @@ class UsersController < ApplicationController
   	@deals = @user.watching.where("posted > ?", @user.duration)
 	  friends = @user.friends.search(params[:search]) + @user.inverse_friends.search(params[:search])
 	  @friends = friends.sort_by { |friend| friend.name }
-	  render :layout => "layouts/full_screen"
+	  respond_to do |format|
+	  	format.html {  render :layout => "layouts/full_screen" }
+			format.mobile { render :layout => 'application_in' }
+		end
 	end
   
   def friends
@@ -174,6 +177,9 @@ class UsersController < ApplicationController
   		flash[:notice] = "You currently have no friend requests."
   		redirect_to my_account_path
   	end
+  	respond_to do |format|
+			format.mobile { render :layout => 'application_in' }
+		end
   end
   
   def invite
@@ -322,6 +328,9 @@ class UsersController < ApplicationController
   
   def edit
   	@title = "#{@user.name}'s Account"
+  	respond_to do |format|
+  		format.mobile { render :layout => 'application_in' }
+  	end
   end
   
   def update
