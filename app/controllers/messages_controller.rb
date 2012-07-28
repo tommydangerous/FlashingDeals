@@ -86,6 +86,7 @@ class MessagesController < ApplicationController
 			end
 			messages = (send_messages + received_messages).sort_by { |message| message.created_at }.reverse
 			if message.save
+				request.format = :mobilejs if request.format == :mobile
 				respond_to do |format|
 					format.html {
 						flash[:success] = "Message sent."
@@ -95,6 +96,10 @@ class MessagesController < ApplicationController
 						@sender = User.find(message.recipient_id)
 						@message = message
 						@messages = messages
+					}
+					format.mobilejs {
+						@sender = User.find(message.recipient_id)
+						@message = message
 					}
 				end
 			else

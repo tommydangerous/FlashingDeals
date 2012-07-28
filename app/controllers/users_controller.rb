@@ -325,9 +325,19 @@ class UsersController < ApplicationController
   	@user = User.find(params[:id])
   	@sender = @user
   	@title = "#{@user.name} - Messages"
+  	@send_message = @user.send_messages.where("recipient_id = ?", current_user.id).order("created_at DESC").first
+  	@received_message = @user.received_messages.where("user_id = ?", current_user.id).order("created_at DESC").first
   	respond_to do |format|
   		format.html { redirect_to my_account_path }
-  		format.mobile { render :layout => 'application_in' }
+  		format.mobile {
+  			if @send_message.nil? && @received_message.nil?
+	  			render :layout => 'application_in'
+	  		elsif @send_message.nil?
+	  			redirect_to @received_message
+	  		else
+	  			redirect_to @send_message
+	  		end
+			}
   	end
   end
   

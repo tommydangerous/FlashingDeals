@@ -1,0 +1,17 @@
+<div id="message">
+	<div class="messageSingle">
+		<div id="messageUserPhoto">
+			<%= image_tag User.find(message.user_id).photo.url %>
+		</div>
+		<div id="messageUserInfo">
+			<span id="messageCreatedAt">
+				<%= message.created_at.strftime("%b %d") %>
+			</span>
+			<p id="messageUserName"><%= link_to "#{User.find(message.user_id).name}", User.find(message.user_id) %></p>
+			<div id="messageContent">
+				<p><%= auto_link(to_html(strip_tags(message.content)), :all, :target => "_blank") %></p>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>
