@@ -1,0 +1,4 @@
+$.mobile.changePage("<%= @url %>", { transition: 'none' });
+<% if @email %>
+	$('.contentWrapper:last #accountSettingsEmail').text("<%= @email %>")
+<% end %>

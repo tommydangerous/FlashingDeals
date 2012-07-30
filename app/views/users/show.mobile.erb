@@ -35,15 +35,7 @@
 				</div>
 			</div>
 		</div>
-		<% if @message.nil? %>
-			<%= link_to(message_user_path(@user), :id => "userShowMessage", "data-transition" => "slide") do %>
-				Send Message
-			<% end %>
-		<% else %>
-			<%= link_to(@message, :id => "userShowMessage", "data-transition" => "slide") do %>
-				Send Message
-			<% end %>
-		<% end %>
+		<span class="messageRequest"><%= render 'message_request' %></span>
 	</div>
 	<div id="featuredDeals" class="dealList">
 		<%= render :partial => 'deals/list_deal', :collection => @deals, :as => :deal %>

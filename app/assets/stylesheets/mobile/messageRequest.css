@@ -1,13 +1,36 @@
-#messageForm {
-	padding: 10px;
-	border-bottom: 1px dotted rgb(200, 200, 200);
+.messageRequestContainer {
+	display: box;
+	display: -webkit-box;
+	display: -moz-box;
+	-webkit-box-orient: horizontal;
+	-moz-box-orient: horizontal;
+	box-orient: horizontal;
 }
 
-#messageForm .actions {
-	margin-bottom: 10px;
+.messageRequestSendMessage {
+	padding-left: 5px;
+	text-align: center;
+	width: 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-#messageForm .actions input {
+.messageRequestRequest {
+	padding-right: 5px;
+	text-align: center;
+	width: 50%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.friendRequestPending {
+	font-size: 14px;
+	padding: 11px 0px;
+}
+
+.messageRequestRequest .actions input {
 	font-family: Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	font-size: 14px;
@@ -29,25 +52,4 @@
 	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(214,214,214,1) 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(248,248,248,1)), color-stop(100%,rgba(214,214,214,1)));
 	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%);
-}
-
-#messageForm .field textarea {
-	width: 100%;
-	height: 68px;
-	font-family: Helvetica, Arial, sans-serif;
-	font-size: 14px;
-	color: rgb(75, 75, 75);
-	margin: 0;
-	padding: 5px;
-	border: 1px solid rgb(200, 200, 200);
-	resize: none;
-	-webkit-border-radius: 2px;
-	-moz-border-radius: 2px;
-	border-radius: 2px;
-	-webkit-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
-	-moz-box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
-	box-shadow: 0px 0px 1px rgba(150, 150, 150, 1) inset;
-	-webit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	box-sizing: border-box;
 }

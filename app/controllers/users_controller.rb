@@ -148,11 +148,13 @@ class UsersController < ApplicationController
   def my_friends
   	@user = current_user
   	@title = "My Friends"
-  	@deals = @user.watching.where("posted > ?", @user.duration)
 	  friends = @user.friends.search(params[:search]) + @user.inverse_friends.search(params[:search])
 	  @friends = friends.sort_by { |friend| friend.name }
 	  respond_to do |format|
-	  	format.html {  render :layout => "layouts/full_screen" }
+	  	format.html {  
+	  		@deals = @user.watching.where("posted > ?", @user.duration)
+		  	render :layout => "layouts/full_screen" 
+	  	}
 			format.mobile { render :layout => 'application_in' }
 		end
 	end
@@ -175,10 +177,15 @@ class UsersController < ApplicationController
   def friend_requests
   	@user = current_user
   	@title = "Friend Requests"
-  	@friend_requests = current_user.request_friends.sort_by { |friend| friend.name }
-  	if @friend_requests.empty?
-  		flash[:notice] = "You currently have no friend requests."
-  		redirect_to my_account_path
+  	@requests = current_user.request_friends.sort_by { |friend| friend.name }
+  	if @requests.empty?
+  		respond_to do |format|
+  			format.html {
+	  			flash[:notice] = "You currently have no friend requests."
+  				redirect_to my_account_path
+				}
+  			format.mobile { redirect_to root_path }
+  		end
   	end
   	respond_to do |format|
 			format.mobile { render :layout => 'application_in' }
@@ -349,7 +356,44 @@ class UsersController < ApplicationController
   	@deals_total_count = @user.watching.size
   end
   
+  def name
+  	@title = "Edit Name"
+  	@user = User.find(params[:id])
+  	respond_to do |format|
+  		format.html { redirect_to root_path }
+  		format.mobile { render :layout => 'application_in' }
+  	end
+  end
+  
+  def email
+  	@title = "Edit Email"
+  	@user = User.find(params[:id])
+  	respond_to do |format|
+  		format.html { redirect_to root_path }
+  		format.mobile { render :layout => 'application_in' }
+  	end
+  end
+  
+  def password
+  	@title = "Edit Password"
+  	@user = User.find(params[:id])
+  	respond_to do |format|
+  		format.html { redirect_to root_path }
+  		format.mobile { render :layout => 'application_in' }
+  	end
+  end
+  
+  def photo
+  	@title = "Edit Photo"
+  	@user = User.find(params[:id])
+  	respond_to do |format|
+  		format.html { redirect_to root_path }
+  		format.mobile { render :layout => 'application_in' }
+  	end
+  end
+  
   def edit
+  	@user = User.find(params[:id])
   	@title = "#{@user.name}'s Account"
   	respond_to do |format|
   		format.mobile { render :layout => 'application_in' }
@@ -357,13 +401,29 @@ class UsersController < ApplicationController
   end
   
   def update
-  	params[:user][:email] = params[:user][:email].downcase
+  	params[:user][:email] = params[:user][:email].downcase unless params[:user][:email].nil?
+  	request.format = :mobilejs if request.format == :mobile
   	if @user.update_attributes(params[:user])
-  		flash[:success] = "Your account settings have been updated!"
-  		redirect_to my_account_path
+  		respond_to do |format|
+  			format.html {
+	  			flash[:success] = "Your account settings have been updated!"
+	  			redirect_to my_account_path
+				}
+  			format.mobilejs { 
+	  			@url = edit_user_path(@user)
+	  			@email = params[:user][:email] if params[:user][:email]
+				}
+  		end
   	else
-  		@title = "#{@user.name}'s Account Setting"
-  		render 'edit'
+  		respond_to do |format|
+  			format.html {
+	  			@title = "#{@user.name}'s Account Setting"
+  				render 'edit'
+				}
+  			format.mobilejs { 
+	  			@url = edit_user_path(@user)
+				}
+  		end
   	end
   end
   

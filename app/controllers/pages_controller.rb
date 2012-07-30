@@ -44,6 +44,9 @@ class PagesController < ApplicationController
 
 	def about
 		@title = "About Us"
+		respond_to do |format|
+			format.mobile { render :layout => 'application_in' }
+		end
 	end
 	
 	def investors

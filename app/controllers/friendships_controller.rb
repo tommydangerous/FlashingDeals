@@ -33,6 +33,7 @@ class FriendshipsController < ApplicationController
 		current_level = current_user.level
 		@friend = User.find(params[:friendship][:friend_id])
 		@user_show = User.find(params[:friendship][:user_id])
+		request.format = :mobilejs if request.format == :mobile
 		if current_user.friendships.find_by_friend_id(@friend.id).nil? && @friend.friendships.find_by_friend_id(current_user.id).nil?
 			if current_user == @friend
 				respond_to do |format|
@@ -43,6 +44,7 @@ class FriendshipsController < ApplicationController
 					format.js {
 						@user = @friend
 					}
+					format.mobilejs
 				end
 			else
 				current_user.friendships.create!(:friend_id => @friend.id, :approved => false)
@@ -64,6 +66,9 @@ class FriendshipsController < ApplicationController
 						@user = @friend
 						@current_level = current_level
 					}
+					format.mobilejs {
+						@user = @friend
+					}
 				end
 			end
 		else
@@ -75,6 +80,7 @@ class FriendshipsController < ApplicationController
 				format.js {
 					@user = @friend
 				}
+				format.mobilejs
 			end
 		end
 	end
@@ -82,6 +88,7 @@ class FriendshipsController < ApplicationController
 	def update
 		@user_show = User.find(params[:friendship][:user_id])
 		@friendship = Friendship.find(params[:id])
+		request.format = :mobilejs if request.format == :mobile
 		if @friendship.update_attribute(:approved, params[:friendship][:approved])
 			respond_to do |format|
 				format.html {
@@ -90,6 +97,9 @@ class FriendshipsController < ApplicationController
 				}
 				format.js {
 					@friend = User.find(@friendship.user_id)
+					@user = @user_show
+				}
+				format.mobilejs {
 					@user = @user_show
 				}
 			end
@@ -107,6 +117,7 @@ class FriendshipsController < ApplicationController
 			current_user.points = current_user.points - 100
 			current_user.save
 		end
+		request.format = :mobilejs if request.format == :mobile
 		respond_to do |format|
 			format.html {
 				flash[:notice] = "User has been ignored."
@@ -118,6 +129,9 @@ class FriendshipsController < ApplicationController
 					@friend = User.find(@friendship.friend_id)
 				end
 				@approved = "true" if @friendship.approved?
+				@user = @user_show
+			}
+			format.mobilejs {
 				@user = @user_show
 			}
 		end

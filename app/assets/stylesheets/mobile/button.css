@@ -1,5 +1,28 @@
 #backButton {
 	position: relative;
+	top: 9px;
+	right: 10px;
+	display: inline-block;
+	float: right;
+	height: 14px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	padding: 5px 10px;
+	color: rgb(255, 255, 255);
+	background: rgb(165, 165, 165);
+	border: solid 1px rgb(125, 125, 125);
+	text-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	-webkit-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4) inset;
+	-moz-box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4) inset;
+	box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.4) inset;
+}
+
+/*
+#backButton {
+	position: relative;
 	top: 8px;
 	left: 16px;
 	float: left;
@@ -49,3 +72,4 @@
 			color-stop(0.5, transparent),
 			to(transparent));
 }
+*/

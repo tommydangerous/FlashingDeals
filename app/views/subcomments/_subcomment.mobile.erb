@@ -1,6 +1,6 @@
 <div class="subcomment">
 	<div id="subcommentUserPhoto">
-		<%= image_tag User.find(subcomment.user_id).photo %>
+		<%= image_tag "/assets/lazyMobile.jpg", "data-original" => User.find(subcomment.user_id).photo, :class => "lazyLoad" %>
 	</div>
 	<div id="subcommentContent">
 		<p>

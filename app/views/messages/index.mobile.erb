@@ -1,10 +1,13 @@
 <div id="header" data-role="header">
 	<%= link_to(me_account_path, :id => "backButton", "data-transition" => "slide", "data-direction" => "reverse", "data-role" => "none") do %>
-		<span></span>Back
+		Back
 	<% end %>
 	<div class="headerPageTitle">
 		Messages
 	</div>
+	<%= link_to(root_path, :id => "blueBoltHome", "data-role" => "none") do %>
+		<%= image_tag "blue_bolt.png" %>
+	<% end %>
 </div>
 <div id="contentNoPad" data-role="content">
 	<div id="messages">
@@ -15,7 +18,7 @@
 				<div id="message">
 					<%= link_to(message, :class => "messageLink", "data-transition" => "slide") do %>
 						<div id="messageUserPhoto">
-							<%= image_tag "/assets/lazyMobile.jpg", "data-original" => User.find(message.user_id).photo.url, :class => "lazy lazyLoad" %>
+							<%= image_tag "/assets/lazyMobile.jpg", "data-original" => User.find(message.user_id).photo.url, :class => "lazyLoad" %>
 						</div>
 						<div id="messageUserInfo">
 							<span id="messageCreatedAt"><%= message.created_at.strftime("%b %d") %></span>

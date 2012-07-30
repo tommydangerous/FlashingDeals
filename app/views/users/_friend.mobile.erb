@@ -1,0 +1,12 @@
+<div class="friend">
+	<%= link_to user do %>
+		<div class="friendUserPhoto">
+			<%= image_tag "/assets/lazyMobile.jpg", "data-original" => user.photo.url, :class => "lazyLoad" %>
+		</div>
+		<div class="friendUserInfo">
+			<p class="friendUserName"><%= user.name %></p>
+			<p class="friendUserLevel">Level <%= user.level %> <%= user.title %></p>
+		</div>
+		<div class="clear"></div>
+	<% end %>
+</div>

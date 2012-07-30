@@ -1,0 +1,32 @@
+<div id="header" data-role="header">
+	<%= link_to(me_account_path, :id => "backButton", "data-transition" => "slide", "data-direction" => "reverse", "data-role" => "none") do %>
+		Back
+	<% end %>
+	<div class="headerPageTitle">
+		Account Settings
+	</div>
+	<%= link_to(root_path, :id => "blueBoltHome", "data-role" => "none") do %>
+		<%= image_tag "blue_bolt.png" %>
+	<% end %>
+</div>
+<div id="content" data-role="content">
+	<div class="userEditForm">
+		<%= form_for @user, :remote => true, :html => { "data-ajax" => false } do |f| %>
+			<div class="field">
+				<p class="accountSettingsLabel">Name</p>
+				<p id="nameBlank" class="signupRegex">Please enter your name</p>
+				<p id="nameLong" class="signupRegex">Name is too long</p>
+				<p id="nameInvalid" class="signupRegex">Name can only contain A-Z, 0-9, -, _, or 1 space)</p>
+				<%= f.text_field :name, :autocomplete => "off", :tabindex => 1 %>
+			</div>
+			<div class="userEditButtons">
+				<div class="userEditCancel">
+					<%= link_to "Cancel", edit_user_path(@user), "data-role" => "none" %>
+				</div>
+				<div class="userEditSave">
+					<%= f.submit "Save", :id => "userNameSubmit", "data-role" => "none", :tabindex => 2 %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>

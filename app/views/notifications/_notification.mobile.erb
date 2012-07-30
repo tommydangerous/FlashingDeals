@@ -1,7 +1,7 @@
 <div id="notification">
 	<%= link_to(Deal.find(notification.deal_id), :class => "notificationDealLink") do %>
 		<div id="notificationUserPhoto">
-			<%= image_tag "/assets/lazyMobile.jpg", "data-original" => Deal.find(notification.deal_id).image, :class => "lazy lazyLoad" %>
+			<%= image_tag "/assets/lazyMobile.jpg", "data-original" => Deal.find(notification.deal_id).image, :class => "lazyLoad" %>
 		</div>
 		<p id="notificationInfo"><span class="anchorBlue"><%= User.find(notification.user_id).name %></span> commented on <%= Deal.find(notification.deal_id).name %></p>
 		<p id="notificationTimeStamp">

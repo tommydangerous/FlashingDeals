@@ -43,6 +43,10 @@ FlashingDeal::Application.routes.draw do
   resources :subcomments, :only => [:create, :destroy]
   resources :users do
   	member do
+  		get :name
+  		get :email
+  		get :password
+  		get :photo
   		get :friends
   		get :message
   		get :watching

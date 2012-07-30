@@ -1,5 +1,6 @@
 <% if current_user.friends.include?(@user) || current_user.inverse_friends.include?(@user) %>
-	<% elsif current_user.request_friends.include?(@user) %>
+	
+<% elsif current_user.request_friends.include?(@user) %>
 	<div id="accept_request">
 		<%= form_for @user.friendships.find_by_friend_id(current_user), :html => { :method => :put }, :remote => true do |f| %>
 			<%= f.hidden_field :user_id, :value => @user.id %>
@@ -9,16 +10,16 @@
 			</div>
 		<% end %>
 	</div>
-	<% elsif current_user.pending_friends.include?(@user) %>
-		<h3 id="friend_request_pending"><em>Friend Request Pending</em></h3>
-	<% else %>
-		<div id="add_friend">
-			<%= form_for current_user.friendships.build(:friend_id => @user.id), :remote => true do |f| %>
-				<%= f.hidden_field :friend_id %>
-				<%= f.hidden_field :user_id, :value => @user.id %>
-				<div class="actions">
-					<%= f.submit "Add Friend" %>
-				</div>
-			<% end %>
-		</div>
+<% elsif current_user.pending_friends.include?(@user) %>
+	<h3 id="friend_request_pending"><em>Friend Request Pending</em></h3>
+<% else %>
+	<div id="add_friend">
+		<%= form_for current_user.friendships.build(:friend_id => @user.id), :remote => true do |f| %>
+			<%= f.hidden_field :friend_id %>
+			<%= f.hidden_field :user_id, :value => @user.id %>
+			<div class="actions">
+				<%= f.submit "Add Friend" %>
+			</div>
+		<% end %>
+	</div>
 <% end %>

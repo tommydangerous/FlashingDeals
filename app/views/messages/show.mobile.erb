@@ -1,10 +1,13 @@
 <div id="header" data-role="header">
 	<%= link_to('#', :id => "backButton", "data-rel" => "back", "data-role" => "none") do %>
-		<span></span>Back
+		Back
 	<% end %>
 	<div class="headerPageTitle">
 		<%= @sender.name %>
 	</div>
+	<%= link_to(root_path, :id => "blueBoltHome", "data-role" => "none") do %>
+		<%= image_tag "blue_bolt.png" %>
+	<% end %>
 </div>
 <div id="contentNoPad" data-role="content">
 	<div id="messageForm">

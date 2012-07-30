@@ -1,0 +1,41 @@
+.friend {
+	background: rgb(255, 255, 255);
+}
+
+.friend a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+	border-bottom: 1px dotted rgb(200, 200, 200);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.friendUserPhoto {
+	float: left;
+	width: 40px;
+	height: 40px;
+	text-align: center;
+}
+
+.friendUserPhoto img {
+	max-width: 40px;
+	max-height: 40px;
+}
+
+.friendUserInfo {
+	margin-left: 50px;
+}
+
+.friendUserName {
+	font-weight: bold;
+	font-size: 15px;
+	margin-bottom: 3px;
+}
+
+.friendUserLevel {
+	font-size: 12px;
+	color: rgb(150, 150, 150);
+}

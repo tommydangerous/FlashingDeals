@@ -1,4 +1,20 @@
-<%= render 'layouts/header_back' %>
-<div id="content" data-role="content">
-	My Friends
+<div id="header" data-role="header">
+	<%= link_to(me_account_path, :id => "backButton", "data-transition" => "slide", "data-direction" => "reverse", "data-role" => "none") do %>
+		Back
+	<% end %>
+	<div class="headerPageTitle">
+		My Friends
+	</div>
+	<%= link_to(root_path, :id => "blueBoltHome", "data-role" => "none") do %>
+		<%= image_tag "blue_bolt.png" %>
+	<% end %>
+</div>
+<div id="contentNoPad" data-role="content">
+	<% if @friends.empty? %>
+		<p class="notificationsNone">You currently have no friends.</p>
+	<% else %>
+		<div id="friendList">
+			<%= render :partial => 'friend', :collection => @friends, :as => :user %>
+		</div>
+	<% end %>
 </div>

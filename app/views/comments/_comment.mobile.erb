@@ -1,7 +1,7 @@
 <div class="comment">
 	<div id="commentUserPhoto">
 		<%= link_to User.find(comment.user_id) do %>
-			<%= image_tag User.find(comment.user_id).photo %>
+			<%= image_tag "/assets/lazyMobile.jpg", "data-original" => User.find(comment.user_id).photo, :class => "lazyLoad" %>
 		<% end %>
 	</div>
 	<div id="commentUserName">
