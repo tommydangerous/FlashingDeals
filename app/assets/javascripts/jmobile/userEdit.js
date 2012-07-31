@@ -6,34 +6,34 @@ $(document).on('pageinit', function() {
 		var name = $('.contentWrapper:last #user_name');
 		var nameVal = name.val();
 		if (nameVal.length === 0) {
-			$('#nameBlank').show();
-			$('#nameLong').hide();
-			$('#nameInvalid').hide();
-			$('#nameError').hide();
+			$('.contentWrapper:last #nameBlank').show();
+			$('.contentWrapper:last #nameLong').hide();
+			$('.contentWrapper:last #nameInvalid').hide();
+			$('.contentWrapper:last #nameError').hide();
 			name.addClass("fieldError");
 			return false;
 		}
 		else if(nameVal.length > 20) {
-			$('#nameBlank').hide();
-			$('#nameLong').show();
-			$('#nameInvalid').hide();
-			$('#nameError').hide();
+			$('.contentWrapper:last #nameBlank').hide();
+			$('.contentWrapper:last #nameLong').show();
+			$('.contentWrapper:last #nameInvalid').hide();
+			$('.contentWrapper:last #nameError').hide();
 			name.addClass("fieldError");
 			return false;
 		}
 		else if(!nameVal.match(nameRegex)) {
-			$('#nameBlank').hide();
-			$('#nameLong').hide();
-			$('#nameInvalid').show();
-			$('#nameError').hide();
+			$('.contentWrapper:last #nameBlank').hide();
+			$('.contentWrapper:last #nameLong').hide();
+			$('.contentWrapper:last #nameInvalid').show();
+			$('.contentWrapper:last #nameError').hide();
 			name.addClass("fieldError");
 			return false;
 		}
 		else {
-			$('#nameBlank').hide();
-			$('#nameLong').hide();
-			$('#nameInvalid').hide();
-			$('#nameError').hide();
+			$('.contentWrapper:last #nameBlank').hide();
+			$('.contentWrapper:last #nameLong').hide();
+			$('.contentWrapper:last #nameInvalid').hide();
+			$('.contentWrapper:last #nameError').hide();
 			name.removeClass("fieldError");
 		}
 	})
@@ -44,24 +44,75 @@ $(document).on('pageinit', function() {
 		var email = $('.contentWrapper:last #user_email');
 		var emailVal = email.val();
 		if(emailVal.length == 0) {
-			$('#emailBlank').show();
-			$('#emailInvalid').hide();
-			$('#emailError').hide();
+			$('.contentWrapper:last #emailBlank').show();
+			$('.contentWrapper:last #emailInvalid').hide();
+			$('.contentWrapper:last #emailError').hide();
 			email.addClass("fieldError");
 			return false;
 		}
 		else if(!emailVal.match(emailRegex)) {
-			$('#emailBlank').hide();
-			$('#emailInvalid').show();
-			$('#emailError').hide();
+			$('.contentWrapper:last #emailBlank').hide();
+			$('.contentWrapper:last #emailInvalid').show();
+			$('.contentWrapper:last #emailError').hide();
 			email.addClass("fieldError");
 			return false;
 		}
 		else {
-			$('#emailBlank').hide();
-			$('#emailInvalid').hide();
-			$('#emailError').hide();
+			$('.contentWrapper:last #emailBlank').hide();
+			$('.contentWrapper:last #emailInvalid').hide();
+			$('.contentWrapper:last #emailError').hide();
 			email.removeClass("fieldError");
 		}
+	})
+	// Password
+	var passwordSubmit = $('.contentWrapper:last #userPasswordSubmit');
+	passwordSubmit.on('click', function() {
+		var password = $('.contentWrapper:last #user_password');
+		var confirm = $('.contentWrapper:last #user_password_confirmation');
+		var passwordVal = password.val();
+		var confirmVal = confirm.val();
+		if (passwordVal.length < 2) {
+			$('.contentWrapper:last #pwShort').show();
+			$('.contentWrapper:last #pwLong').hide();
+			$('.contentWrapper:last #pwMismatch').hide();
+			password.addClass("fieldError");
+			confirm.removeClass("fieldError");
+			return false;
+		}
+		else if (passwordVal.length > 40) {
+			$('.contentWrapper:last #pwShort').hide();
+			$('.contentWrapper:last #pwLong').show();
+			$('.contentWrapper:last #pwMismatch').hide();
+			password.addClass("fieldError");
+			confirm.removeClass("fieldError");
+			return false;
+		}
+		else if (passwordVal != confirmVal) {
+			$('.contentWrapper:last #pwShort').hide();
+			$('.contentWrapper:last #pwLong').hide();
+			$('.contentWrapper:last #pwMismatch').show();
+			password.removeClass("fieldError");
+			confirm.addClass("fieldError");
+			return false;
+		}
+		else {
+			$('.contentWrapper:last #pwShort').hide();
+			$('.contentWrapper:last #pwLong').hide();
+			$('.contentWrapper:last #pwMismatch').hide();
+			password.removeClass("fieldError");
+			confirm.removeClass("fieldError");
+		}
+	})
+	// Cancel Password
+	$('.contentWrapper:last .passwordCancel').on('click', function() {
+		var password = $('.contentWrapper:last #user_password');
+		var confirm = $('.contentWrapper:last #user_password_confirmation');
+		password.val("");
+		confirm.val("");
+		$('.contentWrapper:last #pwShort').hide();
+		$('.contentWrapper:last #pwLong').hide();
+		$('.contentWrapper:last #pwMismatch').hide();
+		password.removeClass("fieldError");
+		confirm.removeClass("fieldError");
 	})
 })

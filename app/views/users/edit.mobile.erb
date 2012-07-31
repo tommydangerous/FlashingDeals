@@ -1,29 +1,19 @@
-<div id="header" data-role="header">
-	<%= link_to(me_account_path, :id => "backButton", "data-transition" => "slide", "data-direction" => "reverse", "data-role" => "none") do %>
-		Back
-	<% end %>
-	<div class="headerPageTitle">
-		Account Settings
-	</div>
-	<%= link_to(root_path, :id => "blueBoltHome", "data-role" => "none") do %>
-		<%= image_tag "blue_bolt.png" %>
-	<% end %>
-</div>
+<%= render 'shared/account_settings_header' %>
 <div id="content" data-role="content">
 	<div class="accountSettings">
-		<%= link_to(name_user_path(current_user), :class => "accountSettingsLink") do %>
+		<%= link_to(name_user_path(@user), :class => "accountSettingsLink") do %>
 			<p class="accountSettingsLabel">Name</p>
 			<p class="accountSettingsField"><%= @user.name %></p>
 		<% end %>
-		<%= link_to(email_user_path(current_user), :class => "accountSettingsLink") do %>
+		<%= link_to(email_user_path(@user), :class => "accountSettingsLink") do %>
 			<p class="accountSettingsLabel">Email</p>
 			<p class="accountSettingsField" id="accountSettingsEmail"><%= @user.email %></p>
 		<% end %>
-		<%= link_to('#', :class => "accountSettingsLink") do %>
+		<%= link_to(password_user_path(@user), :class => "accountSettingsLink") do %>
 			<p class="accountSettingsLabel">Password</p>
 			<p class="accountSettingsField">Change password</p>
 		<% end %>
-		<%= link_to('#', :class => "accountSettingsLink noBorder") do %>
+		<%= link_to(photo_user_path(@user), :class => "accountSettingsLink noBorder") do %>
 			<p class="accountSettingsLabel">Photo</p>
 			<p class="accountSettingsField">Change photo</p>
 		<% end %>

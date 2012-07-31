@@ -402,12 +402,48 @@ class UsersController < ApplicationController
   
   def update
   	params[:user][:email] = params[:user][:email].downcase unless params[:user][:email].nil?
-  	request.format = :mobilejs if request.format == :mobile
+  	password = params[:user][:password]
+  	confirm = params[:user][:password_confirmation]
+  	photo = params[:user][:photo]
+  	if request.format == :mobile
+  		if photo.nil? && password.nil? && confirm.nil?
+  			request.format = :mobilejs
+  		elsif photo.nil? && !password.nil? && !confirm.nil?
+  			if password.length >= 2 && confirm.length >= 2
+  				request.format = :mobile
+  			else
+  				request.format = :mobilejs
+  			end
+  		elsif !photo.nil? && password.nil? && confirm.nil?
+  			if photo.to_s.length > 0
+  				request.format = :mobile
+  			else
+  				request.format = :mobilejs
+  			end
+  		else
+  			request.format = :mobilejs
+  		end
+  	end
   	if @user.update_attributes(params[:user])
   		respond_to do |format|
   			format.html {
-	  			flash[:success] = "Your account settings have been updated!"
-	  			redirect_to my_account_path
+  				if params[:user][:password].length >= 2 && params[:user][:password_confirmation].length >= 2
+  					flash[:success] = "Password changed. Please log back in with your new password."
+  					sign_out
+  					redirect_to login_path
+  				else
+		  			flash[:success] = "Your account settings have been updated!"
+		  			redirect_to my_account_path
+		  		end
+				}
+				format.mobile {
+					if params[:user][:photo].nil?
+						flash[:success] = "Please login with your new password."
+						sign_out
+						redirect_to login_path
+					elsif params[:user][:password].nil? && params[:user][:password_confirmation].nil?
+						redirect_to edit_user_path(@user)
+					end
 				}
   			format.mobilejs { 
 	  			@url = edit_user_path(@user)

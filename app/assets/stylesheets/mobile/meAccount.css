@@ -17,9 +17,12 @@
 
 #meAccount li a, #meAccount2 li a {
 	display: block;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 15px;
 	padding: 10px;
 	border-bottom: 1px dotted rgb(200, 200, 200);
-	color: rgb(44, 175, 227);
+	color: rgb(75, 75, 75);
 	text-decoration: none;
 }
 

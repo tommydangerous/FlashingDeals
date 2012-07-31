@@ -1,0 +1,23 @@
+<%= render 'shared/account_settings_header' %>
+<div id="content" data-role="content">
+	<div class="userEditForm">
+		<%= form_for @user, :remote => true, :html => { "data-ajax" => false, :multipart => true } do |f| %>
+			<div class="field bottomSpacing">
+				<p class="accountSettingsLabel">Photo</p>
+				<%= f.file_field :photo %>
+			</div>
+			<div class="field">
+				<p class="accountSettingsLabel">Photo URL</p>
+				<%= f.text_field :image_url, :autocomplete => "off", :placeholder => "Upload photo from URL" %>
+			</div>
+			<div class="userEditButtons">
+				<div class="userEditCancel">
+					<%= link_to "Cancel", edit_user_path(@user), "data-role" => "none" %>
+				</div>
+				<div class="userEditSave">
+					<%= f.submit "Save", :id => "userPasswordSubmit", "data-role" => "none", :tabindex => 2 %>
+				</div>
+			</div>
+		<% end %>
+	</div>
+</div>
