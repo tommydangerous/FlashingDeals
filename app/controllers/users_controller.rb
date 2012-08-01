@@ -95,10 +95,12 @@ class UsersController < ApplicationController
   		@deals = deals.paginate(:page => params[:page], :per_page => 12)
   		respond_to do |format|
   			format.html { render :layout => "layouts/full_screen" }
+  			format.js
 				format.mobile { 
 					@message = @user.send_messages.where("recipient_id = ?", current_user.id).order("created_at DESC").first
 					render :layout => 'application_in' 
 				}
+				format.mobilejs
   		end
 		end
 	rescue ActiveRecord::RecordNotFound
@@ -127,10 +129,11 @@ class UsersController < ApplicationController
   		format.html {
   			render :layout => "layouts/full_screen"
 			}
+			format.js
 			format.mobile {
 				render :layout => "application_in"
 			}
-			format.js
+			format.mobilejs
   	end
   end
   
