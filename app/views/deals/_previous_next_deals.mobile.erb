@@ -1,3 +1,9 @@
+<div class="prevArrow">
+	<div></div>
+</div>
+<div class="nextArrow">
+	<div></div>
+</div>
 <div id="prevNextDeals">
 	<% if cookies[:category] && cookies[:category] != "" && @category_deals.include?(@deal) %>
 		<% if @category_deals.size == @category_deals.index(@deal) + 1 %>
@@ -13,7 +19,14 @@
 			<%= link_to '', @watching_deals[@watching_deals.index(@deal) + 1], :class => "prevDeal" %>
 		<% end %>
 		<%= link_to '', @watching_deals[@watching_deals.index(@deal) - 1], :class => "nextDeal" %>
-	<% elsif cookies[:category] == "" && cookies[:my_account] == "" && @featured_deals.include?(@deal) %>
+	<% elsif cookies[:user_show] && cookies[:user_show] != "" && @user_show_deals.include?(@deal) %>
+		<% if @user_show_deals.size == @user_show_deals.index(@deal) + 1 %>
+			<%= link_to '', @user_show_deals[0], :class => "prevDeal" %>
+		<% else %>
+			<%= link_to '', @user_show_deals[@user_show_deals.index(@deal) + 1], :class => "prevDeal" %>
+		<% end %>
+		<%= link_to '', @user_show_deals[@user_show_deals.index(@deal) -1], :class => "nextDeal" %>
+	<% elsif cookies[:category] == "" && cookies[:my_account] == "" && cookies[:user_show] == "" && @featured_deals.include?(@deal) %>
 		<% if @featured_deals.size == @featured_deals.index(@deal) + 1 %>
 			<%= link_to '', @featured_deals[0], :class => "prevDeal" %>
 		<% else %>

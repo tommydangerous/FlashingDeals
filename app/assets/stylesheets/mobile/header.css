@@ -56,9 +56,13 @@
 
 #blueBolt {
 	float: left;
-	width: 20px;
+	width: 18px;
 	height: 20px;
+	padding: 0px 1px;
 	margin-right: 10px;
+	background: url("/assets/sprite.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
 }
 
 #mydealsLink {
@@ -112,7 +116,11 @@
 	padding: 12px 10px;
 }
 
-#blueBoltHome img {
-	width: 20px;
+#blueBoltHome div {
+	width: 18px;
 	height: 20px;
+	padding: 0px 1px;
+	background: url("/assets/sprite.png");
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
 }

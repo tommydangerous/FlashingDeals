@@ -3,6 +3,10 @@
 	background: rgb(255, 255, 255);
 }
 
+#featuredDeals .listDeal:last-child {
+	border: none;
+}
+
 .listDealLink {
 	display: block;
 	width: 100%;
@@ -44,4 +48,39 @@
 	font-size: 16px;
 	color: rgb(48, 157, 207);
 	margin-top: 5px;
+}
+
+.listDealComment {
+	padding: 2px 0px;
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+.listDealComment a {
+	float: left;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	padding: 0px 10px;
+}
+
+.listDealComment a#anchor {
+	font-weight: normal;
+}
+
+.listDealCommentCount {
+	float: right;
+	height: 15px;
+	vertical-align: top;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	color: rgb(75, 75, 75);
+}
+
+.listDealCommentCount div {
+	float: left;
+	width: 15px;
+	height: 15px;
+	margin-right: 2px;
+	background: url("/assets/sprite.png");
+	background-repeat: no-repeat;
+	background-position: -92px 0px;
 }

@@ -1,16 +1,39 @@
-.prevDeal, .nextDeal {
+#prevNextDeals {
+	display: none;
+}
+
+.prevArrow, .nextArrow {
 	position: fixed;
 	top: 40%;
 	display: block;
-	width: 47px;
+	width: 57px;
 	height: 100px;
-	background: rgba(150, 150, 150, 0.5);
+	padding: 19px 10px;
+	background: rgba(150, 150, 150, 0.7);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
 }
 
-.prevDeal {
-	left: -40px;
+.prevArrow {
+	left: -50px;
 }
 
-.nextDeal {
-	right: -40px;
+.nextArrow {
+	right: -50px;
+}
+
+.prevArrow div, .nextArrow div {
+	width: 37px;
+	height: 62px;;
+	background: url("/assets/sprite.png");
+	background-repeat: no-repeat;
+}
+
+.prevArrow div {
+	background-position: -18px 0px;
+}
+
+.nextArrow div {
+	background-position: -55px 0px;
 }
