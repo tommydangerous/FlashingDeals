@@ -1,3 +1,4 @@
+/*
 $(document).on('pageinit', function() {
 	var prev = $('.contentWrapper:last .prevDeal');
 	var px1 = -40;
@@ -21,7 +22,6 @@ $(document).on('pageinit', function() {
 			}
 		}
 	})
-/*	
 	var next = $('.contentWrapper:last .nextDeal');
 	var left = next.offset().left;
 	var nx1 = left + 7;
@@ -33,5 +33,5 @@ $(document).on('pageinit', function() {
 		containment: [nx1, ny1, nx2, ny2]
 	})
 	alert(next.outerWidth())
-*/
 });
+*/
