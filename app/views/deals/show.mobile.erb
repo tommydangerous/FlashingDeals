@@ -48,19 +48,13 @@
 		</div>
 		<div id="dealShowShare">
 			<div class="shareSingle">
-				<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com<%= deal_path(@deal) %>" target="_blank">
-					<%= facebookButton %>
-				</a>
+				<%= link_to "", "https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com#{deal_path(@deal)}", :id => "facebookShare", :target => "_blank" %>
 			</div>
 			<div class="shareSingle">
-				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= CGI.escape(@deal.name) %>%20http://www.flashingdeals.com<%= deal_path(@deal) %>&via=FlashingDeals">
-					<%= twitterButton %>
-				</a>
+				<%= link_to "", "https://twitter.com/intent/tweet?original_referer=&text=#{CGI.escape(@deal.name)}%20http://www.flashingdeals.com#{deal_path(@deal)}&via=FlashingDeals", :id => "twitterShare" %>
 			</div>
 			<div class="shareSingle">
-				<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com<%= deal_path(@deal) %>" target="_blank">
-					<%= emailButton %>
-				</a>
+				<%= link_to "", "http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com#{deal_path(@deal)}", :id => "emailShare", :target => "_blank" %>
 			</div>
 		</div>
 		<div id="dealShowComments">

@@ -85,6 +85,7 @@
 	color: rgb(44, 175, 227);
 }
 
+/* Facebook Twitter Email Share */
 #dealShowShare {
 	height: 50px;
 	display: box;
@@ -96,19 +97,39 @@
 }
 
 #dealShowShare .shareSingle {
-	text-align: center;
 	-webkit-box-flex: 1;
 	-moz-box-flex: 1;
 	box-flex: 1;
 }
 
-#dealShowShare a img {
+#dealShowShare a {
+	display: block;
 	width: 50px;
 	height: 50px;
+	margin: 0 auto;
+	background-repeat: no-repeat;
+	background-size: 365px 178px;
 	-webkit-border-radius: 2px;
 	-moz-border-radius: 2px;
 	border-radius: 2px;
+	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
 	box-shadow: 0px 1px 5px rgba(150, 150, 150, 1);
+}
+
+#facebookShare {
+	background: url("/assets/sprite.png");
+	background-position: -215px 0px;
+}
+
+#twitterShare {
+	background: url("/assets/sprite.png");
+	background-position: -265px 0px;
+}
+
+#emailShare {
+	background: url("/assets/sprite.png");
+	background-position: -315px 0px;
 }
 
 .dealShowCategoriesCommentsHeader {

@@ -4,6 +4,11 @@
 		<title><%= title %></title>
 		<%= stylesheet_link_tag 'mobile/application' %>
 		<%= javascript_include_tag 'jmobile/application' %>
+		<script>
+			$(function() {
+				$.mobile.defaultHomeScroll = 0;
+			})
+		</script>
 		<%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
     <meta charset="UTF-8">
