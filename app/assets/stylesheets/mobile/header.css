@@ -56,13 +56,27 @@
 
 #blueBolt {
 	float: left;
-	width: 18px;
-	height: 20px;
-	padding: 0px 1px;
 	margin-right: 10px;
+}
+
+#blueBolt, #blueBoltHome div {
+	width: 20px;
+	height: 20px;
 	background: url("/assets/sprite.png");
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
+	background-size: 24px 20px;
+}
+
+#blueBoltHome {
+	position: absolute;
+	top: 0;
+	left: 0;
+	float: left;
+	display: block;
+	width: 20px;
+	height: 20px;
+	padding: 12px 10px;
 }
 
 #mydealsLink {
@@ -103,24 +117,4 @@
 	text-align: center;
 	text-decoration: none;
 	text-shadow: 0px 0px rgb(0, 0, 0);
-}
-
-#blueBoltHome {
-	position: absolute;
-	top: 0;
-	left: 0;
-	float: left;
-	display: block;
-	width: 20px;
-	height: 20px;
-	padding: 12px 10px;
-}
-
-#blueBoltHome div {
-	width: 18px;
-	height: 20px;
-	padding: 0px 1px;
-	background: url("/assets/sprite.png");
-	background-repeat: no-repeat;
-	background-position: 0px 0px;
 }

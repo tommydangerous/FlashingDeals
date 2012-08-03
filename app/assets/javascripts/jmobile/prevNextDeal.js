@@ -13,12 +13,12 @@ $(document).on('pageinit', function() {
 	}
 	prev.on('dragstop', function() {
 		$(this).css("left", "-50px");
-		$(this).css("background", "rgba(150, 150, 150, 0.7)");
+		$(this).css("background", "rgba(150, 150, 150, 0.5)");
 	});
 	prev.on('drag', function() {
 		if ($(this).offset().left == 0 && !$(this).hasClass("dragDisable")) {
 			$(this).addClass("dragDisable");
-			$(this).css("background", "rgba(150, 150, 150, 0.7)");
+			$(this).css("background", "rgba(150, 150, 150, 0.5)");
 			$('.contentWrapper:first .nextArrow').removeClass("dragDisable");
 			var prevDeal = $('.contentWrapper:last .prevDeal');
 			if (prevDeal.length > 0) {
@@ -28,22 +28,22 @@ $(document).on('pageinit', function() {
 	});
 	prev.on('drag', function() {
 		if ($(this).offset().left >= -10) {
-			$(this).css("background", "rgba(150, 150, 150, 0.38)");
+			$(this).css("background", "rgba(150, 150, 150, 0.1)");
 		}
 		else if ($(this).offset().left >= -20) {
-			$(this).css("background", "rgba(150, 150, 150, 0.46)");
+			$(this).css("background", "rgba(150, 150, 150, 0.2)");
 		}
 		else if ($(this).offset().left >= -30) {
-			$(this).css("background", "rgba(150, 150, 150, 0.54)");
+			$(this).css("background", "rgba(150, 150, 150, 0.3)");
 		}
 		else if ($(this).offset().left >= -40) {
-			$(this).css("background", "rgba(150, 150, 150, 0.62)");
+			$(this).css("background", "rgba(150, 150, 150, 0.4)");
 		}
 	});
 	// Next Deal
 	var next = $('.contentWrapper:last .nextArrow');
 	if (next.length > 0) {
-		var nx1 = window.innerWidth - 57;
+		var nx1 = window.innerWidth - 58;
 		var ny1 = next.offset().top;
 		var nx2 = nx1 + 50;
 		var ny2 = ny1 - 100;
@@ -53,10 +53,10 @@ $(document).on('pageinit', function() {
 		});
 	};
 	$(window).on('resize', function() {
-		var left = window.innerWidth - 7;
+		var left = window.innerWidth - 8;
 		next.css("left", left);
 		if (next.length > 0) {
-			var nx1 = window.innerWidth - 57;
+			var nx1 = window.innerWidth - 58;
 			var ny1 = next.offset().top;
 			var nx2 = nx1 + 50;
 			var ny2 = ny1 - 100;
@@ -67,10 +67,10 @@ $(document).on('pageinit', function() {
 		};
 	})
 	$(window).on('orientationchange', function() {
-		var left = window.innerWidth - 7;
+		var left = window.innerWidth - 8;
 		next.css("left", left);
 		if (next.length > 0) {
-			var nx1 = window.innerWidth - 57;
+			var nx1 = window.innerWidth - 58;
 			var ny1 = next.offset().top;
 			var nx2 = nx1 + 50;
 			var ny2 = ny1 - 100;
@@ -81,15 +81,15 @@ $(document).on('pageinit', function() {
 		};
 	})
 	next.on('dragstop', function() {
-		var left = window.innerWidth - 7;
+		var left = window.innerWidth - 8;
 		$(this).css("left", left);
-		$(this).css("background", "rgba(150, 150, 150, 0.7)");
+		$(this).css("background", "rgba(150, 150, 150, 0.5)");
 	})
 	next.on('drag', function() {
-		var nx1 = window.innerWidth - 57;
+		var nx1 = window.innerWidth - 58;
 		if ($(this).offset().left == nx1 && !$(this).hasClass("dragDisable")) {
 			$(this).addClass("dragDisable");
-			$(this).css("background", "rgba(150, 150, 150, 0.7)");
+			$(this).css("background", "rgba(150, 150, 150, 0.5)");
 			$('.contentWrapper:first .prevArrow').removeClass("dragDisable");
 			var nextDeal = $('.contentWrapper:last .nextDeal');
 			if (nextDeal.length > 0) {
@@ -98,17 +98,17 @@ $(document).on('pageinit', function() {
 		}
 	})
 	next.on('drag', function() {
-		if ($(this).offset().left <= window.innerWidth - 47) {
-			$(this).css("background", "rgba(150, 150, 150, 0.38)");
+		if ($(this).offset().left <= window.innerWidth - 48) {
+			$(this).css("background", "rgba(150, 150, 150, 0.1)");
 		}
-		else if ($(this).offset().left <= window.innerWidth - 37) {
-			$(this).css("background", "rgba(150, 150, 150, 0.46)");
+		else if ($(this).offset().left <= window.innerWidth - 38) {
+			$(this).css("background", "rgba(150, 150, 150, 0.2)");
 		}
-		else if ($(this).offset().left <= window.innerWidth - 27) {
-			$(this).css("background", "rgba(150, 150, 150, 0.54)");
+		else if ($(this).offset().left <= window.innerWidth - 28) {
+			$(this).css("background", "rgba(150, 150, 150, 0.3)");
 		}
-		else if ($(this).offset().left <= window.innerWidth - 17) {
-			$(this).css("background", "rgba(150, 150, 150, 0.62)");
+		else if ($(this).offset().left <= window.innerWidth - 18) {
+			$(this).css("background", "rgba(150, 150, 150, 0.4)");
 		}
 	});
 });

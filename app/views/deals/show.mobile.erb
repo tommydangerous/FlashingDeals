@@ -46,19 +46,37 @@
 		<div id="dealShowInfo" class="dealShowInfoLink">
 			<p><%= to_html(auto_link(@deal.info, :target => "_blank")) %></p>
 		</div>
-		<div id="dealShowCategories">
-			<% unless @deal.categories.empty? %>
-				<% @deal.categories.each do |category| %>
-					<%= link_to(category, :class => "categoryTag") do %>
-						#<%= category.name.downcase %>
-					<% end %>
-				<% end %>
-			<% end %>
+		<div id="dealShowShare">
+			<div class="shareSingle">
+				<a href="https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com<%= deal_path(@deal) %>" target="_blank">
+					<%= facebookButton %>
+				</a>
+			</div>
+			<div class="shareSingle">
+				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= CGI.escape(@deal.name) %>%20http://www.flashingdeals.com<%= deal_path(@deal) %>&via=FlashingDeals">
+					<%= twitterButton %>
+				</a>
+			</div>
+			<div class="shareSingle">
+				<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com<%= deal_path(@deal) %>" target="_blank">
+					<%= emailButton %>
+				</a>
+			</div>
 		</div>
 		<div id="dealShowComments">
-			<% unless @comments.empty? %>
+			<div class="dealShowCategoriesCommentsHeader">
+				<div id="dealShowCategories">
+					<% unless @deal.categories.empty? %>
+						<% @deal.categories.each do |category| %>
+							<%= link_to(category, :class => "categoryTag") do %>
+								#<%= category.name.downcase %>
+							<% end %>
+						<% end %>
+					<% end %>
+				</div>
 				<p class="dealShowCommentsHeader">Comments</p>
-			<% end %>
+				<div class="clear"></div>
+			</div>
 			<span class="dealShowCommentsList_<%= @deal.id %>">
 				<%= render @comments %>
 			</span>
