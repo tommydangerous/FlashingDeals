@@ -23,6 +23,15 @@ $(document).on('pageinit', function() {
 			var prevDeal = $('.contentWrapper:last .prevDeal');
 			if (prevDeal.length > 0) {
 				$.mobile.changePage(prevDeal.attr('href'));
+				if ($('.contentWrapper').length == 1) {
+					$('.contentWrapper #dealShow').toggle();
+					$('.contentWrapper #dealLoading').toggle();
+				}
+				else {
+					$('.contentWrapper:last #dealShow').hide();
+					$('.contentWrapper:last #dealLoading').show();
+					$(window).scrollTop(0);
+				}
 			};
 		};
 	});
@@ -94,6 +103,15 @@ $(document).on('pageinit', function() {
 			var nextDeal = $('.contentWrapper:last .nextDeal');
 			if (nextDeal.length > 0) {
 				$.mobile.changePage(nextDeal.attr('href'))
+				if ($('.contentWrapper').length == 1) {
+					$('.contentWrapper #dealShow').toggle();
+					$('.contentWrapper #dealLoading').toggle();
+				}
+				else {
+					$('.contentWrapper:last #dealShow').hide();
+					$('.contentWrapper:last #dealLoading').show();
+					$(window).scrollTop(0);
+				}
 			}
 		}
 	})

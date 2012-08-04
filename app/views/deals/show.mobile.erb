@@ -78,6 +78,9 @@
 		<div id="dealShowCommentForm" class="dealShowCommentForm_<%= @deal.id %>">
 			<%= render 'comments/commentForm' %>
 		</div>
-		<%= render 'previous_next_deals' %>
+	</div>
+	<%= render 'previous_next_deals' %>
+	<div id="dealLoading">
+		<%= image_tag "/assets/spinner2.gif" %>
 	</div>
 </div>
