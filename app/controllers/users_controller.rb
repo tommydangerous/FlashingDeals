@@ -52,6 +52,11 @@ class UsersController < ApplicationController
   		content = "Hello #{@user.name} and welcome to FlashingDeals! We are excited and glad to have you join our community. If you have any questions or just want to say hi, please message me and I'll get back to you as soon as possible. Also, please check your friend requests by hovering over '#{@user.name.split(' ')[0]}' in the top right corner and selecting 'Friend Requests', you will see that I sent you one. Hope you accept! Thank you and enjoy your time."
   		fd.send_messages.create!(:recipient_id => @user.id, :content => content)
   		fd.friendships.create!(:friend_id => @user.id, :approved => false)
+  		if Rails.env.production?
+  			UserMailer.delay.welcome_message(@user)
+  		elsif Rails.env.development?
+  			UserMailer.welcome_message(@user).deliver
+  		end
   		sign_in @user
   		respond_to do |format|
   			format.html {
@@ -189,10 +194,11 @@ class UsersController < ApplicationController
 				}
   			format.mobile { redirect_to root_path }
   		end
+  	else
+	  	respond_to do |format|
+				format.mobile { render :layout => 'application_in' }
+			end
   	end
-  	respond_to do |format|
-			format.mobile { render :layout => 'application_in' }
-		end
   end
   
   def invite

@@ -42,4 +42,10 @@ class UserMailer < ActionMailer::Base
   	@user = user
   	mail(:to => friend.email, :subject => "#{@user.name} wants to be your friend.", :from => @from, :content_type => "text/html")
   end
+  
+  def welcome_message(user)
+  	@from = "FlashingDeals hello@flashingdeals.com"
+  	@user = user
+  	mail(:to => user.email, :subject => "Welcome to FlashingDeals", :from => @from, :content_type => "text/html")
+  end
 end

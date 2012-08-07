@@ -1,11 +1,11 @@
 <div class="box_deal_large_comment">
 	<div id="box_deal_large_comment_user">
 		<%= link_to(User.find(comment.user_id)) do %>
-			<img class="lazy lazy_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= User.find(comment.user_id).photo.url %>" title="<%= User.find(comment.user_id).name %>">
+			<%= image_tag "/assets/lazy.png", "data-original" => User.find(comment.user_id).photo.url, :class => "lazy lazy_#{deal.id}", :title => User.find(comment.user_id).name %>
 		<% end %>
 	</div>
 	<div id="box_deal_large_comment_content">
-		<p><%= auto_link(strip_tags(comment.content), :all, :target => "_blank") %></p>
+		<p><%= strip_tags(comment.content) %></p>
 	</div>
 	<div class="clear"></div>
 </div>

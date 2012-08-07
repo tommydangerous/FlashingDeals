@@ -10,6 +10,8 @@ class PagesController < ApplicationController
 	
 	def test
 		@title = "Test"
+		@user = current_user
+		render :layout => false
 	end
 	
 	def test2

@@ -48,10 +48,18 @@
 		<% unless current_user.complete_profile_percent == "100" %>
 			<%= render 'complete_profile' %>
 		<% end %>
-		<div id="grid_container" class="user_grid_container">
-			<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal unless @deals.empty? %>
-		</div>
-		<div class="clear"></div>
+		<% if @deals.empty? %>
+			<div class="emptyFeed">
+				<p>Begin building your feed by adding friends on FlashingDeals.</p>
+				<p>Go to a user's profile and click "Add Friend" or check your "Friend Requests".</p>
+				<p>Your feed will then show deals your friends are talking about.</p>
+			</div>
+		<% else %>
+			<div id="grid_container" class="user_grid_container">
+				<%= render :partial => "deals/box_deal", :collection => @deals, :as => :deal %>
+			</div>
+			<div class="clear"></div>
+		<% end %>
 	</div>
 	<div class="clear"></div>
 	<%= render 'feed_pagination' unless @user.feed.nil? %>
