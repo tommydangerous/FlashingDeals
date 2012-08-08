@@ -166,15 +166,3 @@
 #dealShowCommentForm {
 	margin-top: 5px;
 }
-
-#dealLoading {
-	display: none;
-	position: absolute;
-	top: 40%;
-	left: 0;
-	right: 0;
-	width: 36px;
-	height: 36px;
-	margin: 0 auto;
-	text-align: center;
-}

@@ -24,6 +24,8 @@ $(document).on('pageinit', function() {
 			if (prevDeal.length > 0) {
 				$.mobile.changePage(prevDeal.attr('href'));
 				if ($('.contentWrapper').length == 1) {
+					var spinner = new Spinner().spin();
+					$('.contentWrapper .spinner').html(spinner.el);
 					$('.contentWrapper #dealShow').toggle();
 					$('.contentWrapper #dealLoading').toggle();
 				}
@@ -104,6 +106,8 @@ $(document).on('pageinit', function() {
 			if (nextDeal.length > 0) {
 				$.mobile.changePage(nextDeal.attr('href'))
 				if ($('.contentWrapper').length == 1) {
+					var spinner = new Spinner().spin();
+					$('.contentWrapper .spinner').html(spinner.el);
 					$('.contentWrapper #dealShow').toggle();
 					$('.contentWrapper #dealLoading').toggle();
 				}

@@ -1,0 +1,11 @@
+#dealLoading {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	right: 0;
+	width: 1px;
+	height: 1px;
+	margin: 0 auto;
+	text-align: center;
+}

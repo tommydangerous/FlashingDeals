@@ -8,6 +8,8 @@ $(document).on('pageinit', function() {
 				var prevDealUrl = prevDeal.attr('href');
 				$.mobile.changePage(prevDealUrl);
 				if ($('.contentWrapper').length == 1) {
+					var spinner = new Spinner().spin();
+					$('.contentWrapper .spinner').html(spinner.el);
 					$('.contentWrapper #dealShow').toggle();
 					$('.contentWrapper #dealLoading').toggle();
 				}
@@ -25,6 +27,8 @@ $(document).on('pageinit', function() {
 				var nextDealUrl = nextDeal.attr('href');
 				$.mobile.changePage(nextDealUrl);
 				if ($('.contentWrapper').length == 1) {
+					var spinner = new Spinner().spin();
+					$('.contentWrapper .spinner').html(spinner.el);
 					$('.contentWrapper #dealShow').toggle();
 					$('.contentWrapper #dealLoading').toggle();
 				}
