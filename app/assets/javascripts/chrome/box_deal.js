@@ -1,6 +1,9 @@
 // remove overlay link
 $(document).ready(function() {
 	$('.box_deal_link_overlay_none').remove();
+	$('.returnFalse').live('click', function() {
+		return false;
+	})
 });
 
 function showBoxDealCommentForm(id) {
@@ -15,6 +18,4 @@ function showBoxDealCommentForm(id) {
 		itemSelector: ".box_deal",
 		isFitWidth: true,
 	})
-	//	$("#box_deal_comment_anchor_"+i).toggleClass("box_deal_anchor_not_selected");
-	//	$("#box_deal_comment_anchor_"+i).toggleClass("box_deal_anchor_selected");
 }

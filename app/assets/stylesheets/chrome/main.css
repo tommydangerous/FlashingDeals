@@ -117,3 +117,8 @@ input:focus:-moz-placeholder {
 .center {
 	text-align: center;
 }
+
+.pointer {
+	cursor: pointer;
+	cursor: hand;
+}

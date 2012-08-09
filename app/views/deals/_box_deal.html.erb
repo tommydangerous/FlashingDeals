@@ -26,7 +26,7 @@
 	</div>
 	<div id="box_deal_image_container">
 		<div class="box_deal_link_overlay">
-			<%= link_to("javascript:void(0);", :id => "box_deal_link", :onclick => "overlayPopup(#{deal.id});") do %>
+			<%= link_to(deal, :id => "box_deal_link", :class => "returnFalse", :onclick => "overlayPopup(#{deal.id});") do %>
 				<img class="lazy lazy_<%= deal.id %> box_image overlay_image_<%= deal.id %>" src="/assets/lazy.png" data-original="<%= deal.image %>" id="box_deal_image">
 			<% end %>
 		</div>
