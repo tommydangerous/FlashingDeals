@@ -233,17 +233,6 @@ $(document).ready(function() {
 	});
 });
 
-// Reset your password REGEX
-$(document).ready(function() {
-	var regex = /^\s*\S.*$/
-	$('div#password_reset_form div.actions input').click(function() {
-		var x = $('div#password_reset_form input#email').val();
-		if (!x.match(regex)) {
-			return false;
-		};
-	});
-});
-
 // Info for FlashBack and FlashMob
 function toggleDealPageInfo() {
 	$("div.deal_page_info").fadeToggle(200);

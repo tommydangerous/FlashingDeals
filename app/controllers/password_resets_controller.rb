@@ -9,9 +9,6 @@ class PasswordResetsController < ApplicationController
   	params[:email] = params[:email].downcase
   	user = User.find_by_email(params[:email])
   	user_by_name = User.find_by_name(params[:name])
-  	if user == user_by_name
-			user.send_password_reset if user
-		end
 		if params[:email].blank? && params[:name].blank?
 			flash[:notice] = "Please enter in your user name and email."
 			redirect_to :back
@@ -21,8 +18,12 @@ class PasswordResetsController < ApplicationController
 		elsif params[:name].blank?
 			flash[:notice] = "Please enter in your user name."
 			redirect_to :back
-		else
+		elsif user && user_by_name && user == user_by_name
+			user.send_password_reset
 			flash[:success] = "Email has been sent with password reset instructions."
+			redirect_to :back
+		else
+			flash[:notice] = "User name and email combination do not match. Click 'Forgot User Name?' to have your user name emailed."
 			redirect_to :back
 		end
 	end

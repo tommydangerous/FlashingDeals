@@ -187,60 +187,10 @@ $(document).ready(function() {
 	});
 });
 
-/*
-// regex on message reply
-
-$(document).ready(function() {
-	var regex = /^\s*\S.*$/
-	$('div#message_reply_form div.actions input').click(function() {
-		var x = $('div#message_reply_form textarea#message_content').val();
-		if (!x.match(regex)) {
-			return false;
-		}
-	});
-});
-
-// regex on comment
-
-$(document).ready(function() {
-	var regex = /^\s*\S.*$/
-	$('div#comment_submit input').click(function() {
-		var x = $('textarea#comment_content').val();
-		if (!x.match(regex)) {
-			return false;
-		}
-	});
-});
-
-// regex on subcomment
-
-$(document).ready(function() {
-	var regex = /^(?=\s*\S).*$/
-	$('div.reply input').click(function() {
-		var i = $(this).attr("id");
-		var x = $('textarea#reply_'+i).val();
-		if (!x.match(regex)) {
-			return false;
-		}
-	})
-})
-*/
-
 // Disable National Link
 $(document).ready(function() {
 	$("div#location a").click(function() {
 		return false;
-	});
-});
-
-// Reset your password REGEX
-$(document).ready(function() {
-	var regex = /^\s*\S.*$/
-	$('div#password_reset_form div.actions input').click(function() {
-		var x = $('div#password_reset_form input#email').val();
-		if (!x.match(regex)) {
-			return false;
-		};
 	});
 });
 

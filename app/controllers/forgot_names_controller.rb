@@ -8,13 +8,16 @@ class ForgotNamesController < ApplicationController
   def create
   	params[:email] = params[:email].downcase
   	user = User.find_by_email(params[:email])
-  	user.send_forgot_name if user
   	if params[:email].blank?
   		flash[:notice] = "Please enter in your email."
 			redirect_to :back
-		else
-			flash[:success] = "Email has been sent with your user name."
+		elsif user		
+  		user.send_forgot_name
+  		flash[:success] = "Email has been sent with your user name."
 			redirect_to new_password_reset_path
+		else
+			flash[:notice] = "We cannot find an account with that email. If this is a mistake, contact support@flashingdeals.com and we will correct this."
+			redirect_to :back
 		end
 	end
 
