@@ -8,7 +8,7 @@ atom_feed :language => 'en-US' do |feed|
 			entry.content deal.info
 			entry.updated deal.time_in
 			entry.author do |author|
-				author.name deal.site
+				author.name "FlashingDeals"
 			end
 		end
 	end
