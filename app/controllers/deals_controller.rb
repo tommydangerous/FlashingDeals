@@ -20,6 +20,7 @@ class DealsController < ApplicationController
 	def featured_deals
 		@title = "FlashingDeals"
 		deals = Deal.where("top_deal = ? AND metric >= ? AND posted >= ? OR flash_back = ? AND metric >= ? AND posted >= ?", true, 0, @today_x, true, 0, @today_x)
+		@atom_deals = deals.order("time_in DESC")
   	@deals = deals.search(params[:search]).order("time_in DESC").paginate(:page => params[:page], :per_page => 12)
   	clear_return_to
   	respond_to do |format|
@@ -38,6 +39,7 @@ class DealsController < ApplicationController
   			end
 			}
 			format.mobilejs
+			format.atom { render :layout => false }
 		end
 	end
   

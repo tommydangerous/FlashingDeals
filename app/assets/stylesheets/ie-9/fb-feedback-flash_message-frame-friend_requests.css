@@ -1,4 +1,15 @@
 /* facebook_twitter_home.css */
+#atomFeed {
+	float: left;
+	margin-top: -1px;
+	margin-right: 4px;
+}
+
+#atomFeed img {
+	width: 25px;
+	height: 25px;
+}
+
 div#facebook_twitter_home {
 	position: relative;
 	top: 6px;
@@ -17,7 +28,7 @@ div#facebook_twitter_home {
 
 #twitterFollow {
 	position: absolute;
-	left: 53px;
+	left: 83px;
 	margin-top: 2px;
 	width: 350px;
 	height: 20px;

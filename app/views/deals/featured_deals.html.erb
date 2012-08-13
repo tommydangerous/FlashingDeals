@@ -2,6 +2,7 @@
 	<meta property="og:title" content="FlashingDeals" />
 	<meta property="og:description" content="FlashingDeals is dedicated to delivering you the best deals. We do all the homework for you, researching and comparing every deal so that you don't have to." />
 	<meta property="og:image" content="https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png" />
+	<%= auto_discovery_link_tag(:atom, featured_deals_path(:format => "atom")) %>
 	<% if signed_in? %>
 		<script>
 		$(document).ready(function() {
