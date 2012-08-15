@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= title %></title>
+    <!--[if !IE]><!-->
+    	<%= stylesheet_link_tag 'chrome/application' %>
+    	<%= javascript_include_tag 'chrome/application' %>
+    <!--<![endif]-->
+    <!--[if IE 9]>
+    	<%= stylesheet_link_tag 'ie-9/application' %>
+    	<%= javascript_include_tag 'ie-9/application' %>
+    <![endif]-->
+    <!--[if lte IE 8]>
+    	<%= stylesheet_link_tag 'ie-8/application' %>
+    	<%= javascript_include_tag 'ie-8/application' %>
+    <![endif]-->
+    <%= csrf_meta_tags %>
+    <%= favicon_link_tag 'favicon.ico' %>
+    <meta charset="UTF-8">
+    <%= yield :head %>
+    <script type="text/javascript">
+    // Google Analytics
+			var _gaq = _gaq || [];
+		  _gaq.push(['_setAccount', 'UA-28454790-1']);
+		  _gaq.push(['_trackPageview']);
+		
+		  (function() {
+		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		  })();
+		  
+		// Twitter
+		  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}
+		  (document,"script","twitter-wjs");
+		
+		// Facebook  
+			(function(d, s, id) {
+			  var js, fjs = d.getElementsByTagName(s)[0];
+			  if (d.getElementById(id)) return;
+			  js = d.createElement(s); js.id = id;
+			  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+			  fjs.parentNode.insertBefore(js, fjs);
+			}(document, 'script', 'facebook-jssdk'));
+		</script>
+  </head>
+  <body>
+  	<div id="wrapper">
+  		<div id="header">
+  			<%= render 'layouts/header_blog' %>
+  		</div>
+  		<%= debug(params) if Rails.env.development? %>
+  		<div id="content">
+  			<%= render "shared/points_popup" %>
+  			<%= render "shared/leveled_up" %>
+  			<%= yield %>
+  			<div class="clear"></div>
+  		</div>
+			<% unless signed_in? %>
+				<div id="dim_signup" style="display: none">
+					<%= render 'shared/login_signup' %>
+				</div>
+			<% end %>
+  	</div>
+  	<div class="clear"></div>
+  	<%= render 'layouts/footer' %>
+		<% if Rails.env.production? %>
+			<script type="text/javascript" src="http://s.skimresources.com/js/28555X865329.skimlinks.js"></script>
+			<script type="text/javascript">
+			setTimeout(function(){var a=document.createElement("script");
+			var b=document.getElementsByTagName('script')[0];
+			a.src=document.location.protocol+"//dnn506yrbagrg.cloudfront.net/pages/scripts/0012/6975.js?"+Math.floor(new Date().getTime()/3600000);
+			a.async=true;a.type="text/javascript";b.parentNode.insertBefore(a,b)}, 1);
+			</script>
+		<% end %>
+  </body>
+</html>

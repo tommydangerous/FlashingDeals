@@ -1,6 +1,7 @@
 FlashingDeal::Application.routes.draw do
 
 	resources :authentications
+	resources :blogs, :only => :index
 	resources :categories, :only => :show
 	resources :comments, :only => [:index, :create, :destroy]
   resources :deals do
@@ -60,6 +61,8 @@ FlashingDeal::Application.routes.draw do
 	match '/google/oauth' => 'authentications#google_oauth', :as => :google_oauth
 	match '/google/access' => 'authentications#google_access', :as => :google_access
 	match '/google/auth' => 'authentications#google_auth', :as => :google_auth
+# Blogs
+	match '', to: 'blogs#index', constraints: {subdomain: /.+/}
 # Deals
   root :to => 'deals#featured_deals'
   match '/featured' => 'deals#featured_deals', :as => :featured_deals

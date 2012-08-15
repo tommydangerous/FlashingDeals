@@ -12,6 +12,10 @@ module ApplicationHelper
   	end
   end
   
+  def logo_blog
+  	link_to image_tag('logo_beta_s.png', :class => 'logo round'), root_url(host: request.domain)
+  end
+  
   def logo_iframe
   	image_tag("flashingdeals_logo_iframe.png", :class => "logo round")
   end
