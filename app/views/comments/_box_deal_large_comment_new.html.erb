@@ -1,7 +1,7 @@
 <div class="box_deal_large_comment">
 	<div id="box_deal_large_comment_user">
 		<%= link_to(User.find(comment.user_id)) do %>
-			<%= image_tag User.find(comment.user_id).photo.url, :id => "user_photo_subcomment", :title => "#{User.find(comment.user_id).name}" %>
+			<%= image_tag User.find(comment.user_id).photo.url, :title => "#{User.find(comment.user_id).name}" %>
 		<% end %>
 	</div>
 	<div id="box_deal_large_comment_content">

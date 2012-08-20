@@ -1,0 +1,55 @@
+<article class="postSingle">
+	<header>
+		<nav>
+			<p class="postSingleDay">
+				<% if post.published_date %>
+					<%= post.published_date.strftime("%A") %>
+				<% else %>
+					N/A
+				<% end %>
+			</p>
+			<p class="postSingleDate">
+				<% if post.published_date %>
+					<%= post.published_date.strftime("%b %d, %Y") %>
+				<% else %>
+					-
+				<% end %>
+			</p>
+			<ul class="socialShare">
+				<li class="postTwitter">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://blog.flashingdeals.com<%= post_path(post) %>" data-lang="en" data-count="none">
+						Tweet
+					</a>
+				</li>
+				<li class="postFacebook">
+					<div class="fb-like" data-href="http://blog.flashingdeals.com<%= post_path(post) %>" data-send="false" data-width="225" data-show-faces="false" data-font="arial"></div>
+					<div id="fb-root"></div>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</nav>
+		<div class="postHeader">
+			<% if signed_in? %>
+				<% if current_user.admin? %>
+					<div>
+						<p>Views: <%= post.views %></p>
+						<p>
+							<% if post.published? %>
+								Published
+							<% else %>
+								Unpublished
+							<% end %>
+						</p>
+					</div>
+				<% end %>
+			<% end %>
+			<h1><%= link_to post.name, post %></h1>
+		</div>
+	</header>
+	<section>
+		<%= to_html(post.content.html_safe) %>
+	</section>
+	<div class="articleSpacer">
+		<%= link_to "Read More...", post %>
+	</div>
+</article>

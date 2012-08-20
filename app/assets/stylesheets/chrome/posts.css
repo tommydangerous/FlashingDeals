@@ -1,0 +1,146 @@
+/* Blog Index & Post Index */
+.postSingle {
+	float: right;
+	width: 800px;
+}
+
+.postSingle nav {
+	position: absolute;
+	padding: 0 10px 0 0;
+	margin: 0;
+	margin-left: -116px;
+	float: left;
+	text-align: right;
+	border-right: 1px dotted rgb(200, 200, 200);
+}
+
+.postSingleDay {
+	font-size: 20px;
+	color: rgb(100, 100, 100);
+	padding: 10px 10px 10px 0;
+}
+
+.postSingleDate {
+	font-size: 14px;
+	color: rgb(150, 150, 150);
+	padding: 10px 10px 10px 0;
+	border-top: 1px dotted rgb(200, 200, 200);
+}
+
+.postHeader {
+	padding: 26px 30px;
+	background: rgb(255, 255, 255);
+	border-bottom: 1px dotted rgb(200, 200, 200);
+}
+
+.postHeader div {
+	float: left;
+	font-size: 12px;
+}
+
+.postSingle h1 {
+	margin: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 28px;
+	text-align: right;
+	color: rgb(100, 100, 100);
+}
+
+.postSingle h1 a {
+	-webkit-transition: all .3s ease-in-out;
+	-khtml-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+.postSingle h1 a:hover {
+	text-decoration: none;
+}
+
+.postSingle section {
+	padding: 20px 30px;
+	background: rgb(255, 255, 255);
+}
+
+.blogPosts .postSingle section {
+	overflow: hidden;
+	max-height: 500px;
+	padding: 20px 30px 0 30px;
+}
+
+.postSingle section  img {
+	max-width: 740px;
+}
+
+.postSingle section p {
+	font-size: 15px;
+	line-height: 20px;
+	margin-bottom: 15px;
+}
+
+.articleSpacer {
+	height: 60px;
+	margin-bottom: 40px;
+	background: rgb(255, 255, 255);
+}
+
+.articleSpacer a {
+	float: right;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	padding: 22px 30px;
+	-webkit-transition: all .3s ease-in-out;
+	-khtml-transition: all .3s ease-in-out;
+	-moz-transition: all .3s ease-in-out;
+	-ms-transition: all .3s ease-in-out;
+	-o-transition: all .3s ease-in-out;
+	transition: all .3s ease-in-out;
+}
+
+/* Post Show */
+.socialShare {
+	position: relative;
+	top: 10px;
+	width: 96px;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.postTwitter {
+	float: right;
+	width: 59px;
+	height: 20px;
+	margin-bottom: 10px;
+	font-size: 0;
+}
+
+.postFacebook {
+	float: right;
+	overflow: hidden;
+	width: 48px;
+	height: 25px;
+}
+
+.postComments {
+	padding: 20px 30px;
+	background: rgb(255, 255, 255);
+	border-top: 1px dotted rgb(200, 200, 200);
+}
+
+.publishDelete {
+	padding: 20px;
+	text-align: center;
+}
+
+.publishDelete a {
+	padding: 0 10px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+}
+
+.publishDelete a:first-child {
+	border-right: 1px dotted rgb(200, 200, 200);
+}

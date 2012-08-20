@@ -1,0 +1,123 @@
+.postControlPanel {
+	float: right;
+	width: 190px;
+}
+
+.postControlPanel ul {
+	position: fixed;
+	width: 190px;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.postControlPanel li {
+	margin-bottom: 5px;
+	text-align: right;
+}
+
+.postControlPanel a {
+	display: block;
+	width: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.postControlPanel input {
+	width: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	text-align: center;
+	padding: 5px;
+	margin: 3px 0 0 0;
+	color: rgb(75, 75, 75);
+	border: 1px solid rgb(200, 200, 200);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.postControlPanel input:focus {
+	border: 1px solid rgb(150, 150, 150);
+}
+
+#postControlPanelColor {
+	width: 100%;
+}
+
+#postControlPanelColor input {
+	width: 33%;
+}
+
+.postForm {
+	float: left;
+	width: 800px;
+}
+
+.postFormHeader {
+	padding: 26px 30px;
+	background: rgb(255, 255, 255);
+	border-bottom: 1px dotted rgb(200, 200, 200);
+}
+
+#post_name {
+	width: 100%;
+	padding: 5px;
+	margin: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 28px;
+	text-align: right;
+	color: rgb(44, 175, 227);
+	border: 1px solid rgb(200, 200, 200);
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+#post_name:focus {
+	border: 1px solid rgb(150, 150, 150);
+}
+
+.postFormContent {
+	padding: 20px 30px;
+	background: rgb(255, 255, 255);
+}
+
+.postFormContent textarea {
+	width: 100%;
+	height: 500px;
+	padding: 5px;
+	margin: 0;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	line-height: 20px;
+	color: rgb(75, 75, 75);
+	border: 1px solid rgb(200, 200, 200);
+	resize: none;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+.postFormContent textarea:focus {
+	border: 1px solid rgb(150, 150, 150);
+}
+
+.postForm .actions {
+	height: 60px;
+	padding: 0 30px;
+	margin-bottom: 40px;
+	background: rgb(255, 255, 255);
+}
+
+.postForm .actions input {
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	color: rgb(75, 75, 75);
+	padding: 10px;
+	margin: 0;
+	float: right;
+}

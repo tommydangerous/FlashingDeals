@@ -10,4 +10,5 @@ $(document).ready(function() {
 	$('textarea#newsletter_info1').autoResize();
 	$('textarea#newsletter_info2').autoResize();
 	$('textarea#newsletter_info3').autoResize();
+	$('.postFormContent textarea').autoResize();
 });

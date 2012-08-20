@@ -1,0 +1,78 @@
+<%= content_for :head do %>
+	<script>
+		$(document).ready(function() {
+			var edit = $('#editPost');
+			if (edit.length > 0) {
+				edit.css("display", "inline-block");
+				$('#editPost a').attr("href", "<%= edit_post_path(@post) %>")
+			}
+		})
+	</script>
+<% end %>
+<article class="postSingle">
+	<header>
+		<nav>
+			<p class="postSingleDay">
+				<% if @post.published_date %>
+					<%= @post.published_date.strftime("%A") %>
+				<% else %>
+					N/A
+				<% end %>
+			</p>
+			<p class="postSingleDate">
+				<% if @post.published_date %>
+					<%= @post.published_date.strftime("%b %d, %Y") %>
+				<% else %>
+					-
+				<% end %>
+			</p>
+			<ul class="socialShare">
+				<li class="postTwitter">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-count="none">
+						Tweet
+					</a>
+				</li>
+				<li class="postFacebook">
+					<div class="fb-like" data-href="<%= request.url %>" data-send="false" data-width="225" data-show-faces="false" data-font="arial"></div>
+					<div id="fb-root"></div>
+				</li>
+				<div class="clear"></div>
+			</ul>
+		</nav>
+		<div class="postHeader">
+			<% if signed_in? %>
+				<% if current_user.admin? %>
+					<div>
+						<p>Views: <%= @post.views %></p>
+						<p>
+							<% if @post.published? %>
+								Published
+							<% else %>
+								Unpublished
+							<% end %>
+						</p>
+					</div>
+				<% end %>
+			<% end %>
+			<h1><%= link_to @post.name, @post %></h1>
+		</div>
+	</header>
+	<section>
+		<%= to_html(@post.content.html_safe) %>
+	</section>
+	<div class="postComments">
+		<div class="fb-comments" data-href="<%= request.url %>" data-num-posts="10" data-width="740"></div>
+	</div>
+	<% if signed_in? %>
+		<% if current_user.admin? %>
+			<div class="publishDelete">
+				<% if @post.published? %>
+					<%= link_to "Unpublish", publish_post_path(@post) %>
+				<% else %>
+					<%= link_to "Publish", publish_post_path(@post) %>
+				<% end %>
+				<%= link_to "Delete", @post, method: :delete, confirm: "Are you sure you want to delete this post?" %>
+			</div>
+		<% end %>
+	<% end %>
+</article>

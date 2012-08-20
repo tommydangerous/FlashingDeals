@@ -1,0 +1,45 @@
+<div class="postControlPanel">
+	<ul>
+		<li><%= link_to 'Bold', "javascript:void(0)", class: 'addBold' %></li>
+		<li><%= link_to 'Italic', "javascript:void(0)", class: 'addItalic' %></li>
+		<li><%= link_to 'Unordered List', "javascript:void(0)", class: 'addUl' %></li>
+		<li><%= link_to 'Ordered List', "javascript:void(0)", class: 'addOl' %></li>
+		<li><%= link_to 'List Item', "javascript:void(0)", class: 'addListItem' %></li>
+		<li>
+			<%= link_to 'Link', "javascript:void(0)", class: 'addHyperlink' %>
+			<div>
+				<input class='hyperlinkUrl' placeholder="Link URL">
+				<input class='hyperlinkText' placeholder="Link Text">
+			</div>
+		</li>
+		<li>
+			<%= link_to 'Add Image', "javascript:void(0)", class: 'addImage' %>
+			<input class='addImageUrl' placeholder="Image URL">
+			<input class='addImageWidth' placeholder="Max-Width">
+			<input class='addImageHeight' placeholder="Max-Height">
+		</li>
+		<li>
+			<%= link_to 'Add Color', "javascript:void(0)", class: 'addColor' %>
+			<div id="postControlPanelColor">
+				<input class='rgbRed' placeholder="Red"><input class='rgbGreen' placeholder="Green"><input class='rgbBlue' placeholder="Blue">
+			</div>
+		</li>
+		<li>
+			<%= link_to 'Add Size', "javascript:void(0)", class: 'addSize' %>
+			<input class='fontSize' placeholder="Font Size">
+		</li>
+	</ul>
+</div>
+<div class="postForm">
+	<%= form_for @post do |f| %>
+		<div class="postFormHeader">
+			<%= f.text_field :name, autocomplete: "off" %>
+		</div>
+		<div class="postFormContent">
+			<%= f.text_area :content, id: "post", class: "postContent", autocomplete: "off" %>
+		</div>
+		<div class="actions">
+			<%= f.submit "Submit" %>
+		</div>
+	<% end %>
+</div>

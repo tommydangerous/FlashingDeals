@@ -36,6 +36,11 @@ FlashingDeal::Application.routes.draw do
   end
   resources :notifications, :only => :index
   resources :password_resets, :only => [:new, :create, :edit, :update]
+  resources :posts do
+  	member do
+  		get :publish
+  	end
+  end
   resources :referrals, :only => :index
   resources :relationships, :only => [:index, :create, :destroy]
   resources :sessions, :only => [:new, :create, :destroy]

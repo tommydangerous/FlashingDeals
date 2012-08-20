@@ -1,12 +1,12 @@
 module SessionsHelper
 	
 	def sign_in(user)
-		cookies.permanent.signed[:remember_token] = [user.id, user.salt]
+		cookies.permanent.signed[:remember_token] = { :value => [user.id, user.salt], :domain => :all }
 		self.current_user = user
 	end
 	
 	def sign_in_temp(user)
-		cookies.signed[:remember_token] = [user.id, user.salt]
+		cookies.signed[:remember_token] = { :value => [user.id, user.salt], :domain => :all }
 		self.current_user = user
 	end
 	
@@ -23,7 +23,7 @@ module SessionsHelper
 	end
 	
 	def sign_out
-		cookies.delete(:remember_token)
+		cookies.delete(:remember_token, :domain => :all)
 		self.current_user = nil
 	end
 	

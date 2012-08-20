@@ -21,3 +21,13 @@ Font: European > HI Piilani Bold
 Text Color: 110, 220, 90
 Shadow: None
 Background: Transparent
+
+FlashingDeals Blog Logo:
+font-size: 120
+outline-size: 5
+type: drop
+xoffset: 0
+yoffset: 0
+blur: 8
+opacity: 80
+RGB: 64, 195, 247

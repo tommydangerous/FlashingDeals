@@ -13,6 +13,16 @@
     <!--[if lte IE 8]>
     	<%= stylesheet_link_tag 'ie-8/application' %>
     	<%= javascript_include_tag 'ie-8/application' %>
+    	<script type="text/javascript">
+				document.createElement('header');
+				document.createElement('hgroup');
+				document.createElement('nav');
+				document.createElement('menu');
+				document.createElement('section');
+				document.createElement('article');
+				document.createElement('aside');
+				document.createElement('footer');
+			</script>
     <![endif]-->
     <%= csrf_meta_tags %>
     <%= favicon_link_tag 'favicon.ico' %>
@@ -45,25 +55,18 @@
 		</script>
   </head>
   <body>
-  	<div id="wrapper">
-  		<div id="header">
-  			<%= render 'layouts/header_blog' %>
-  		</div>
+  	<div id="wrapperBlog">
+  		<%= render 'layouts/header_blog' %>
   		<%= debug(params) if Rails.env.development? %>
-  		<div id="content">
-  			<%= render "shared/points_popup" %>
-  			<%= render "shared/leveled_up" %>
+  		<div id="contentBlog">
   			<%= yield %>
   			<div class="clear"></div>
   		</div>
-			<% unless signed_in? %>
-				<div id="dim_signup" style="display: none">
-					<%= render 'shared/login_signup' %>
-				</div>
-			<% end %>
   	</div>
   	<div class="clear"></div>
-  	<%= render 'layouts/footer' %>
+  	<div class="footerBlog">
+  		<p class="copyright">FlashingDeals &copy; 2012 All Rights Reserved.</p>
+  	</div>
 		<% if Rails.env.production? %>
 			<script type="text/javascript" src="http://s.skimresources.com/js/28555X865329.skimlinks.js"></script>
 			<script type="text/javascript">

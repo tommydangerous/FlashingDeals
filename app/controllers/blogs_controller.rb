@@ -1,7 +1,8 @@
 class BlogsController < ApplicationController
 	
   def index
-  	@title = "FlashingBlog"
+  	@title = "A Flashing Blog"
+  	@posts = Post.where("published = ?", true)
   	render layout: 'application_blog'
   end
 end
