@@ -1,4 +1,7 @@
 <%= content_for :head do %>
+	<meta property="og:title" content="<%= @post.name %>"/> 
+	<meta property="og:site_name" content="FlashingDeals Blog"/>
+	<meta property="og:image" content="https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png" />
 	<script>
 		$(document).ready(function() {
 			var edit = $('#editPost');
@@ -28,7 +31,7 @@
 			</p>
 			<ul class="socialShare">
 				<li class="postTwitter">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-lang="en" data-count="none">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://blog.flashingdeals.com<%= post_path(@post) %>" data-text="<%= @post.name %>" data-lang="en" data-count="none">
 						Tweet
 					</a>
 				</li>
