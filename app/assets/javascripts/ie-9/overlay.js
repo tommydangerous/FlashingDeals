@@ -32,7 +32,7 @@ function setWidth() {
 
 $(document).ready(function() {
 	var pathname = window.location.pathname;
-	$(".overlay_top, .overlay_right, .overlay_bottom, .overlay_left, ").click(function() {
+	$(".overlay_top, .overlay_right, .overlay_bottom, .overlay_left").click(function() {
 		$(".overlayOuter").hide();
 		$("body").removeClass("stationary");
 		$(".box_image").show()
