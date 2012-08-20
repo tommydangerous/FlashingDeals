@@ -123,19 +123,21 @@ $(document).ready(function() {
 			var heightReg = /maxheight/;
 			var widthHeightReg = /widthheight/;
 			var imgClass = $(this).attr("class");
-			if (imgClass.match(widthReg)) {
-				var width = imgClass.split('_')[1];
-				$(this).css("max-width", width + "px");
-			}
-			if (imgClass.match(heightReg)) {
-				var height = imgClass.split('_')[1];
-				$(this).css("max-height", height + "px");
-			}
-			if (imgClass.match(widthHeightReg)) {
-				var width = imgClass.split('x')[1];
-				var height = imgClass.split('x')[2];
-				$(this).css("max-width", width + "px");
-				$(this).css("max-height", height + "px");
+			if (imgClass) {
+				if (imgClass.match(widthReg)) {
+					var width = imgClass.split('_')[1];
+					$(this).css("max-width", width + "px");
+				}
+				if (imgClass.match(heightReg)) {
+					var height = imgClass.split('_')[1];
+					$(this).css("max-height", height + "px");
+				}
+				if (imgClass.match(widthHeightReg)) {
+					var width = imgClass.split('x')[1];
+					var height = imgClass.split('x')[2];
+					$(this).css("max-width", width + "px");
+					$(this).css("max-height", height + "px");
+				}
 			}
 		})
 	}
