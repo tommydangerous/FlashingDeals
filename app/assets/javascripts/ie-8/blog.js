@@ -122,7 +122,15 @@ $(document).ready(function() {
 	})
 	// Add target="_blank" to all anchor tag links in post entries
 	$('.postSingle section a').attr("target", "_blank");
-	// Add max
+	// Add text-align center for all p with images
+	if ($('.postSingle section p').length > 0) {
+		$('.postSingle section p').each(function(i) {
+			if ($(this).children('img').length > 0) {
+				$(this).css("text-align", "center");
+			}
+		})
+	}
+	// Add max-width and/or max-height to all images
 	if ($('.postSingle section img').length > 0) {
 		$('.postSingle section img').each(function(i) {
 			var widthReg = /maxwidth/;
