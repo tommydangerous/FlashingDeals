@@ -1,4 +1,10 @@
 $(document).ready(function() {
+	// Add line break tags
+	$('.lineBreak').live('click', function() {
+		var open = '<br />';
+		var close = '';
+		addHtmlTags(open, close);
+	})
 	// Add bold text tags
 	$('.addBold').live('click', function() {
 		var open = '<b>';

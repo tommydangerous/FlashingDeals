@@ -5,14 +5,14 @@
 				<% if post.published_date %>
 					<%= post.published_date.strftime("%A") %>
 				<% else %>
-					N/A
+					-
 				<% end %>
 			</p>
 			<p class="postSingleDate">
 				<% if post.published_date %>
 					<%= post.published_date.strftime("%b %d, %Y") %>
 				<% else %>
-					-
+					Unpublished
 				<% end %>
 			</p>
 			<ul class="socialShare">
@@ -32,14 +32,7 @@
 			<% if signed_in? %>
 				<% if current_user.admin? %>
 					<div>
-						<p>Views: <%= post.views %></p>
-						<p>
-							<% if post.published? %>
-								Published
-							<% else %>
-								Unpublished
-							<% end %>
-						</p>
+						<p><%= pluralize(post.views, 'view') %></p>
 					</div>
 				<% end %>
 			<% end %>

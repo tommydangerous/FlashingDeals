@@ -1,4 +1,8 @@
 /* Application */
+#bodyBlog {
+	background: rgb(240, 240, 245);	
+}
+
 #wrapperBlog {
 	min-width: 1000px;
 	min-height: 100%;
