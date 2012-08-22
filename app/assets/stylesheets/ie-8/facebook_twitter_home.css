@@ -21,17 +21,15 @@ div#facebook_twitter_home {
 
 #facebookLike {
 	float: left;
-	width: 48px;
-	height: 24px;
+	width: 45px;
+	height: 20px;
+	overflow: hidden;
+	margin: 2px 4px 0 0;
 }
 
 #twitterFollow {
-	position: absolute;
-	left: 82px;
-	margin-top: 2px;
-	width: 350px;
 	height: 20px;
-	background: rgb(100, 100, 100);
+	margin: 2px 0 0 0;
 }
 
 div#facebook_twitter_home ul {
