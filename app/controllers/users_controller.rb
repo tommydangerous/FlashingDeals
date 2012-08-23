@@ -127,7 +127,7 @@ class UsersController < ApplicationController
   def my_deals
   	@user = current_user
   	@title = "My Deals"
-  	deals = @user.watching.where("posted > ?", @user.duration).search(params[:search])
+  	deals = @user.watching.search(params[:search])
   	@deals = deals.paginate(:page => params[:page], :per_page => 12)
   	cookies[:my_account] = "yes"
   	respond_to do |format|

@@ -65,7 +65,7 @@ class DealsController < ApplicationController
 		  		@category_deals = (cat + deals).uniq
 				end
 				if signed_in? && cookies[:my_account] == "yes"
-					@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }
+					@watching_deals = current_user.watching.sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }
 				else
 					@watching_deals = []
 				end
@@ -78,7 +78,7 @@ class DealsController < ApplicationController
 					@user_show_deals = []
 				else
 					@user = User.find(cookies[:user_show])
-					@user_show_deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }
+					@user_show_deals = @user.watching.sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }
 				end
 	  	}
 	  	format.mobile {
@@ -91,7 +91,7 @@ class DealsController < ApplicationController
 		  		@category_deals = (cat + deals).uniq
 	  		end
 	  		if cookies[:my_account] == "yes"
-	  			@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }.reverse
+	  			@watching_deals = current_user.watching.sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }.reverse
 	  		else
 	  			@watching_deals = []
 	  		end
@@ -99,7 +99,7 @@ class DealsController < ApplicationController
 					@user_show_deals = []
 				else
 					@user = User.find(cookies[:user_show])
-					@user_show_deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
+					@user_show_deals = @user.watching.sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }.reverse
 				end
 	  		if signed_in?
 	  			render :layout => 'application_in'
@@ -139,7 +139,7 @@ class DealsController < ApplicationController
   		@category_deals = (cat + deals).uniq
 		end
 		if signed_in? && cookies[:my_account] == "yes"
-			@watching_deals = current_user.watching.where("posted > ?", current_user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }
+			@watching_deals = current_user.watching.sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(current_user.id, deal.id).created_at }
 		else
 			@watching_deals = []
 		end
@@ -152,7 +152,7 @@ class DealsController < ApplicationController
 			@user_show_deals = []
 		else
 			@user = User.find(cookies[:user_show])
-			@user_show_deals = @user.watching.where("posted > ?", @user.duration).sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }
+			@user_show_deals = @user.watching.sort_by { |deal| Relationship.find_by_watcher_id_and_watched_id(@user.id, deal.id).created_at }
 		end
   	unless signed_in?
   		if @deal.exclusive?
