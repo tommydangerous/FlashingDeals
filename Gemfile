@@ -24,6 +24,7 @@ gem 'gdata', git: 'https://github.com/agentrock/gdata.git'
 gem 'delayed_job_active_record'
 # gem 'sunspot_rails'
 # gem 'progress_bar'
+gem 'dalli'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
