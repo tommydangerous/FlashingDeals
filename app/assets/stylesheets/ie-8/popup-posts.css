@@ -464,6 +464,18 @@ div#popup_page_info_invite p a {
 }
 
 /* Post Show */
+.blogWaypoint {
+	position: absolute;
+	top: 205px;
+	width: 1000px;
+	height: 0px;
+}
+
+.postShow nav.fixed {
+	position: fixed;
+	top: 35px;
+}
+
 .socialShare {
 	position: relative;
 	top: 10px;

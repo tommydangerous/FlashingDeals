@@ -1,4 +1,16 @@
 $(document).ready(function() {
+	// Blog nav waypoint
+	var blogWay = $('.blogWaypoint');
+	var blogNav = $('.postShow nav');
+	blogWay.waypoint(function(event, direction) {
+		if (direction == 'down') {
+			blogNav.addClass('fixed');
+		}
+		if (direction == 'up') {
+			blogNav.removeClass('fixed');
+		}
+	})
+
 	// Add line break tags
 	$('.lineBreak').live('click', function() {
 		var open = '<br />';
