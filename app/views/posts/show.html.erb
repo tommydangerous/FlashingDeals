@@ -75,5 +75,10 @@
 </article>
 <div class="postShadow"></div>
 <div class="postArrows">
-
+	<% unless @posts.index(@post) == 0 %>
+		<%= link_to "Next", @next_post %>
+	<% end %>
+	<% unless @posts.index(@post) == @posts.size - 1 %>
+		<%= link_to "Previous", @prev_post %>
+	<% end %>
 </div>
