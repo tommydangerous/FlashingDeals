@@ -439,7 +439,6 @@ div#popup_page_info_invite p a {
 
 .articleSpacer {
 	height: 60px;
-	margin-bottom: 40px;
 	background: rgb(255, 255, 255);
 }
 
@@ -454,6 +453,14 @@ div#popup_page_info_invite p a {
 	-ms-transition: all .3s ease-in-out;
 	-o-transition: all .3s ease-in-out;
 	transition: all .3s ease-in-out;
+}
+
+.postShadow {
+	float: right;
+	width: 800px;
+	height: 10px;
+	background: url("/assets/post_shadow.png");
+	margin-bottom: 40px;
 }
 
 /* Post Show */
