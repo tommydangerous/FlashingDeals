@@ -152,16 +152,18 @@
 }
 
 .publishDelete {
-	padding: 20px;
-	text-align: center;
+	position: relative;
+	top: 20px;
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.publishDelete li {
+	text-align: right;
 }
 
 .publishDelete a {
-	padding: 0 10px;
 	font-family: Helvetica, Arial, sans-serif;
 	font-size: 14px;
-}
-
-.publishDelete a:first-child {
-	border-right: 1px dotted rgb(200, 200, 200);
 }
