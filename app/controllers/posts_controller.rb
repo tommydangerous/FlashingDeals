@@ -28,6 +28,9 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
   	@title = @post.name
   	@post.increment!(:views, by = 1)
+    posts = Post.where("published = ?", true)
+    @next_post = posts[posts.index(@post) - 1]
+    @prev_post = posts[posts.index(@post) + 1]
   	render layout: 'application_blog'
   end
   
