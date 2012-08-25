@@ -204,8 +204,6 @@ div#comment_form div.actions input, div#comment_form div.actions a#submit {
 	background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#cccccc',GradientType=0 ); /* IE6-8 */tartColorstr='#f8f8f8', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-8 */
 }
 
 div#comment_form div.actions input:hover, div#comment_form div.actions input:focus, div#comment_form div.actions a#submit:hover, div#comment_form div.actions a#submit:focus {
@@ -217,8 +215,6 @@ div#comment_form div.actions input:hover, div#comment_form div.actions input:foc
 	background: -webkit-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(248,248,248,1) 0%,rgba(214,214,214,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#d6d6d6',GradientType=0 ); /* IE6-8 */
 	border: 1px solid rgba(160, 160, 160, 1);
 }
 
@@ -231,8 +227,6 @@ div#comment_form div.actions input:active, div#comment_form div.actions a#submit
 	background: -webkit-linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(214,214,214,1) 0%,rgba(248,248,248,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d6d6d6', endColorstr='#f8f8f8',GradientType=0 ); /* IE6-8 */
 	-webkit-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
 	-moz-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
 	-ms-box-shadow: 0px 1px 2px rgba(150, 150, 150, 1) inset;
