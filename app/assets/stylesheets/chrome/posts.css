@@ -182,7 +182,53 @@
 }
 
 .postArrows {
-	display: none;
 	float: right;
-	width: 800px;
+	width: 400px;
+	padding: 0 200px;
+	margin-top: -15px;
+}
+
+.postArrows a {
+	display: block;
+	width: 90px;
+	padding: 10px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgb(100, 100, 100);
+	-webkit-transition: .2s all ease-in-out;
+	-khtml-transition: .2s all ease-in-out;
+	-moz-transition: .2s all ease-in-out;
+	-ms-transition: .2s all ease-in-out;
+	-o-transition: .2s all ease-in-out;
+	transition: .2s all ease-in-out;
+}
+
+.postArrows a:hover {
+	text-decoration: none;
+	opacity: .75;
+}
+
+.postArrows img {
+	width: 19px;
+	height: 31px;
+}
+
+.prevPost {
+	float: left;
+}
+
+.prevPost img {
+	float: left;
+	margin-right: 10px;
+}
+
+.nextPost {
+	float: right;
+	text-align: right;
+}
+
+.nextPost img {
+	float: right;
+	margin-left: 10px;
 }

@@ -74,11 +74,20 @@
 	</div>
 </article>
 <div class="postShadow"></div>
-<div class="postArrows">
-	<% unless @posts.index(@post) == 0 %>
-		<%= link_to "Next", @next_post %>
-	<% end %>
-	<% unless @posts.index(@post) == @posts.size - 1 %>
-		<%= link_to "Previous", @prev_post %>
-	<% end %>
+<% if @post.published? %>
+	<div class="postArrows">
+		<% unless @posts.index(@post) == @posts.size - 1 %>
+			<%= link_to(@prev_post, class: "prevPost") do %>
+				<%=  image_tag("/assets/arrow_previous.png") %> Prev
+			<% end %>
+		<% end %>
+		<% unless @posts.index(@post) == 0 %>
+			<%= link_to(@next_post, class: "nextPost") do %>
+				<%= image_tag("/assets/arrow_next.png") %> Next
+			<% end %>
+		<% end %>
+	</div>
+<% end %>
+<div id="back_to_the_top_container">
+	<%= link_to "Back To The Top", "javascript:void(0);", :id => "back_to_the_top" %>
 </div>
