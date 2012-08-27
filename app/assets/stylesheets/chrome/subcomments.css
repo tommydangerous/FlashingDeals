@@ -124,7 +124,6 @@ div#subcomment_form div.actions input {
 	background: -webkit-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(238,238,238,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
-	/tartcolor ;
 }
 
 div#subcomment_form div.actions input:hover, div#subcomment_form div.actions input:focus {
