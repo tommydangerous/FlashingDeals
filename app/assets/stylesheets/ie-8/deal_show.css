@@ -248,8 +248,6 @@ div#watch_deal_info {
 	background: -webkit-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e64b4b4b', endColorstr='#e64b4b4b',GradientType=0 ); /* IE6-8 */
 }
 
 div#watch_deal_info_triangle {
@@ -303,8 +301,6 @@ div#watch_form input {
 	background: -webkit-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(173,217,228,1) 0%,rgba(44,175,227,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#add9e4', endColorstr='#2cafe3',GradientType=0 ); /* IE6-8 */
 }
 
 div#watch_form input:hover, div#watch_form input:focus {
@@ -316,8 +312,6 @@ div#watch_form input:hover, div#watch_form input:focus {
 	background: -webkit-linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(163,207,218,1) 0%,rgba(34,165,217,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a3cfda', endColorstr='#22a5d9',GradientType=0 ); /* IE6-8 */
 	border: 1px solid rgb(4, 135, 187);
 }
 
@@ -330,8 +324,6 @@ div#watch_form input:active {
 	background: -webkit-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#22a5d9', endColorstr='#a3cfda',GradientType=0 ); /* IE6-8 */
 	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
 	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
 	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
@@ -349,8 +341,6 @@ div#watch_form input#watched {
 	background: -webkit-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(34,165,217,1) 0%,rgba(163,207,218,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#22a5d9', endColorstr='#a3cfda',GradientType=0 ); /* IE6-8 */
 	-webkit-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
 	-moz-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
 	-ms-box-shadow: 0px 1px 5px rgba(150, 150, 150, 1) inset;
@@ -380,8 +370,6 @@ div#share_all_info {
 	background: -webkit-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* IE10+ */
-	background: linear-gradient(top,  rgba(75,75,75,0.9) 0%,rgba(75,75,75,0.9) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e64b4b4b', endColorstr='#e64b4b4b',GradientType=0 ); /* IE6-8 */
 }
 
 div#share_all_info_triangle {
