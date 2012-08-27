@@ -127,7 +127,7 @@
     radius: 9,           // The radius of the inner circle
     rotate: 0,            // rotation offset
     color: '#323232',        // #rgb or #rrggbb
-    speed: 1.5,             // Rounds per second
+    speed: 1.0,             // Rounds per second
     trail: 40,           // Afterglow percentage
     opacity: 1/4,         // Opacity of the lines
     fps: 20,              // Frames per second when using setTimeout()
