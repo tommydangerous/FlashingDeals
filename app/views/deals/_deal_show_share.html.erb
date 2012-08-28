@@ -15,7 +15,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= CGI.escape(@deal.name) %>%20" target="_blank" class="twitterShare share_points">
+			<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= CGI.escape(@deal.name) %>%20http://www.flashingdeals.com<%= deal_path(@deal) %>" target="_blank" class="twitterShare share_points">
 				<%= twitterButton %>
 			</a>
 		</li>
