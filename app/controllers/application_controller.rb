@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
 	before_filter :set_user_time_zone
 	before_filter :set_active
 	before_filter :prepare_for_mobile
+  before_filter :bitly_auth
 	
   protect_from_forgery
   include CookiesHelper
@@ -64,4 +65,8 @@ class ApplicationController < ActionController::Base
   			request.format = :mobile
   		end
   	end
+
+    def bitly_auth
+    	@bitly = Bitly.new('flashingdeals', 'R_8b0537e5029cb7e4f83c48bab1a66eba')
+    end
 end
