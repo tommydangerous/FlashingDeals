@@ -67,6 +67,6 @@ class ApplicationController < ActionController::Base
   	end
 
   	def shortly_client
-  		@short1 = Shortly::Clients::Tinyurl
+  		@short = Shortly::Clients::Tinyurl
   	end
 end
