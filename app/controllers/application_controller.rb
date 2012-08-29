@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
 	before_filter :set_user_time_zone
 	before_filter :set_active
 	before_filter :prepare_for_mobile
- 	before_filter :google_client
+# 	before_filter :google_client
 	
   protect_from_forgery
   include CookiesHelper
@@ -66,7 +66,7 @@ class ApplicationController < ActionController::Base
   		end
   	end
 
-    def google_client
-    	@googl = Googl.client('support@flashingdeals.com', 'ereiniondebitc')
-    end
+#    def google_client
+#    	@googl = Googl.client('support@flashingdeals.com', 'ereiniondebitc')
+#    end
 end
