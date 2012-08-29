@@ -68,9 +68,9 @@
 				</a>
 			</li>
 			<li>
-				<a href="https://twitter.com/intent/tweet?original_referer=&text=<%= CGI.escape(deal.name) %>%20http://www.flashingdeals.com<%= deal_path(deal) %>" target="_blank" class="share_points box_deal_anchor_not_selected" title="Twitter">
+				<%= link_to("http://www.flashingdeals.com#{deal_path(deal)}", id: "tweet_#{deal.id}", class: "twitterShare box_deal_anchor_not_selected", name: "#{CGI.escape(deal.name)}", title: "Twitter") do %>
 					<%= image_tag("/assets/twitter_grey.png") %>
-				</a>
+				<% end %>
 			</li>
 			<li>
 				<a href="http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com<%= deal_path(deal) %>" class="example4demo_<%= deal.id %> share_points box_deal_anchor_not_selected" title="Email">
