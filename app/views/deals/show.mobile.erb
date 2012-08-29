@@ -51,7 +51,7 @@
 				<%= link_to "", "https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com#{deal_path(@deal)}", :id => "facebookShare", :target => "_blank" %>
 			</div>
 			<div class="shareSingle">
-				<%= link_to "", "https://twitter.com/intent/tweet?original_referer=&text=#{CGI.escape(@deal.name)}%20http://www.flashingdeals.com#{deal_path(@deal)}", :id => "twitterShare", class: "twitterShare" %>
+				<%= link_to "", "https://twitter.com/intent/tweet?original_referer=&text=#{CGI.escape(@deal.name)}%20#{@googl.shorten("http://www.flashingdeals.com#{deal_path(@deal)}").short_url}", :id => "twitterShare", class: "twitterShare" %>
 			</div>
 			<div class="shareSingle">
 				<%= link_to "", "http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com#{deal_path(@deal)}", :id => "emailShare", :target => "_blank" %>

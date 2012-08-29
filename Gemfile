@@ -26,7 +26,8 @@ gem 'delayed_job_active_record'
 # gem 'progress_bar'
 gem 'dalli'
 # gem 'asset_sync'
-gem 'bitly'
+# gem 'bitly'
+gem 'googl'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

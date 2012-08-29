@@ -85,6 +85,9 @@ GEM
       rack-oauth2 (>= 0.14.4)
       tzinfo
     friendly_id (4.0.4)
+    googl (0.6.0)
+      httparty (>= 0.6.1)
+      json (>= 1.4.6)
     gravatar_image_tag (1.0.0)
     hashie (1.2.0)
     hike (1.2.1)
@@ -231,6 +234,7 @@ DEPENDENCIES
   fb_graph
   friendly_id
   gdata!
+  googl
   gravatar_image_tag
   hpricot
   httparty
