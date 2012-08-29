@@ -14,15 +14,20 @@ function bitly(long_url, name, tweet_id) {
             var twitterUrl = "https://twitter.com/intent/tweet?original_referer=&text="
             var linkName = name
             var shortUrl = response.data.url;
-            var newUrl = twitterUrl + linkName + "%20" + shortUrl;
-            $('#' + tweet_id).attr('href', newUrl);
-            window.open($('#' + tweet_id).attr('href'))
+            if (shortUrl == undefined) {
+                var newUrl = twitterUrl + linkName + "%20" + long_url
+                $('#' + tweet_id).attr('href', newUrl);
+            }
+            else {
+                var newUrl = twitterUrl + linkName + "%20" + shortUrl;
+                $('#' + tweet_id).attr('href', newUrl);
+            }
         }
     });
 };
 
 $(document).ready(function() {
-    $('.twitterShare').live('click', function(e) {
+    $('.twitterShare').live('mouseover', function(e) {
         var url = $(this).attr('href');
         var name = $(this).attr('name');
         var tweet_id = $(this).attr('id');
