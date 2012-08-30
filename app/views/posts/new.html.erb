@@ -40,6 +40,9 @@
 			<%= f.text_area :content, id: "post", class: "postContent", autocomplete: "off" %>
 		</div>
 		<div class="actions">
+			<div class="postFormViews">
+				<%= f.text_field :views, autocomplete: "off" %>
+			</div>
 			<%= f.submit "Submit" %>
 		</div>
 	<% end %>

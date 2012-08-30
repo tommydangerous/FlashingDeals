@@ -15,10 +15,10 @@
 				<p>Image: <%= f.text_field :image, :autocomplete => "off", :placeholder => "Required" %></p>
 			</div>
 			<div class="field">
-				<p>Site: <%= f.text_field :site, :autocomplete => "off", :placeholder => "Required (e.g. Amazon)" %></p>
+				<p>Site: <%= f.text_field :site, :placeholder => "Required (e.g. Amazon)" %></p>
 			</div>
 			<div class="field">
-				<p>City: <%= f.text_field :city, :autocomplete => "off", :placeholder => "Required (e.g. national)" %></p>
+				<p>City: <%= f.text_field :city, value: "national" %></p>
 			</div>
 			<div class="field">
 				<p>Metric: <%= f.text_field :metric, :autocomplete => "off", :placeholder => "Required (e.g. 1)" %></p>

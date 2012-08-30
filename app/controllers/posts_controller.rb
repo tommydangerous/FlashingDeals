@@ -27,6 +27,7 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
   	@title = @post.name
+    @image = @post.content[/(<img("[^"]*"|[^>])+)(?<!\/)>/i].split('"')[1]
   	@post.increment!(:views, by = 1)
     @posts = Post.where("published = ?", true)
     if @post.published?
