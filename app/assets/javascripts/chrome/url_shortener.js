@@ -27,11 +27,13 @@ function bitly(long_url, name, tweet_id) {
 };
 
 $(document).ready(function() {
-    $('.twitterShare').live('mouseover', function(e) {
+    $('.twitterShare').live('mouseover', function() {
         var url = $(this).attr('href');
         var name = $(this).attr('name');
         var tweet_id = $(this).attr('id');
         bitly(url, name, tweet_id);
-        e.preventDefault();
+    })
+    $('.twitterShare').live('click', function() {
+        return false;
     })
 })

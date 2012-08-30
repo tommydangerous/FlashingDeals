@@ -39,6 +39,8 @@ class PostsController < ApplicationController
       @prev_post = @posts[@posts.index(@post) + 1]
     end
   	render layout: 'application_blog'
+    rescue ActiveRecord::RecordNotFound
+      redirect_to root_path
   end
   
   def edit
