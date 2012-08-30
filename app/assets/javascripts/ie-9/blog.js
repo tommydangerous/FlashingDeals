@@ -64,16 +64,16 @@ $(document).ready(function() {
 		var width = $('.addImageWidth').val();
 		var height = $('.addImageHeight').val();
 		if (width != '' && height != '') {
-			var open = '<img src="' + image + '" ' + 'class="widthheight_x' + width + 'x' + height + '"' + '>'
+			var open = '<img src="/assets/lazy_blog.jpg" name="' + image + '" ' + 'class="lazyBlog widthheight_x' + width + 'x' + height + '"' + '>'
 		}
 		else if (width != '' && height == '') {
-			var open = '<img src="' + image + '" ' + 'class="maxwidth_' + width + '"' + '>'
+			var open = '<img src="/assets/lazy_blog.jpg" name="' + image + '" ' + 'class="lazyBlog maxwidth_' + width + '"' + '>'
 		}
 		else if (width == '' && height != '') {
-			var open = '<img src="' + image + '" ' + 'class="maxheight_' + height + '"' + '>'
+			var open = '<img src="/assets/lazy_blog.jpg" name="' + image + '" ' + 'class="lazyBlog maxheight_' + height + '"' + '>'
 		}
 		else {
-			var open = '<img src="' + image + '">'
+			var open = '<img src="/assets/lazy_blog.jpg" name="' + image + '" ' + 'class="lazyBlog">'
 		}
 		var close = '';
 		if (!width.match(numberRegex)) {
@@ -149,6 +149,7 @@ $(document).ready(function() {
 			var heightReg = /maxheight/;
 			var widthHeightReg = /widthheight/;
 			var imgClass = $(this).attr("class");
+			var imgName = $(this).attr("name");
 			if (imgClass) {
 				if (imgClass.match(widthReg)) {
 					var width = imgClass.split('_')[1];
@@ -164,6 +165,14 @@ $(document).ready(function() {
 					$(this).css("max-width", width + "px");
 					$(this).css("max-height", height + "px");
 				}
+			}
+			if (imgName) {
+				$(this).attr("data-original", imgName);
+				$(this).attr("name", "");
+				$(this).lazyload({
+					effect: "fadeIn",
+					failure_limit: 50
+				});
 			}
 		})
 	}

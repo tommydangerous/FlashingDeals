@@ -28,7 +28,11 @@ class PostsController < ApplicationController
   	@post = Post.find(params[:id])
   	@title = @post.name
     if @post.content[/(<img("[^"]*"|[^>])+)(?<!\/)>/i]
-      @image = @post.content[/(<img("[^"]*"|[^>])+)(?<!\/)>/i].split('"')[1]
+      if @post.content[/(<img("[^"]*"|[^>])+)(?<!\/)>/i].split('"')[3]
+        @image = @post.content[/(<img("[^"]*"|[^>])+)(?<!\/)>/i].split('"')[3]
+      else
+        @image = @post.content[/(<img("[^"]*"|[^>])+)(?<!\/)>/i].split('"')[1]
+      end
     else
       @image = "https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png"
     end
