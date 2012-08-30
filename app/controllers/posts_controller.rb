@@ -27,7 +27,11 @@ class PostsController < ApplicationController
   def show
   	@post = Post.find(params[:id])
   	@title = @post.name
-    @image = @post.content[/(<img("[^"]*"|[^>])+)(?<!\/)>/i].split('"')[1]
+    if @post.content[/(<img("[^"]*"|[^>])+)(?<!\/)>/i]
+      @image = @post.content[/(<img("[^"]*"|[^>])+)(?<!\/)>/i].split('"')[1]
+    else
+      @image = "https://s3.amazonaws.com/flashingdeals_admin/fd_logo.png"
+    end
   	@post.increment!(:views, by = 1)
     @posts = Post.where("published = ?", true)
     if @post.published?
