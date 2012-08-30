@@ -32,7 +32,7 @@
 			</p>
 			<ul class="socialShare">
 				<li class="postTwitter">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://blog.flashingdeals.com<%= post_path(@post) %>" data-text="<%= @post.name %>" data-lang="en" data-count="none">
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= @short.shorten("http://blog.flashingdeals.com#{post_path(@post)}").shorturl %>" data-text="<%= @post.name %>" data-lang="en" data-count="none">
 						Tweet
 					</a>
 				</li>
