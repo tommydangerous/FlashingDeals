@@ -493,6 +493,20 @@ div#popup_page_info_invite p a {
 	font-size: 0;
 }
 
+.postTwitter div {
+	width: 59px;
+	height: 20px;
+	background: url("/assets/tweet.jpg");
+}
+
+.postTwitter div:hover {
+	background-position: -59px 0;
+}
+
+.postTwitter div:active {
+	background-position: -118px 0;
+}
+
 .postFacebook {
 	float: right;
 	overflow: hidden;

@@ -1,4 +1,4 @@
-<article class="postSingle">
+ <article class="postSingle">
 	<header>
 		<nav>
 			<p class="postSingleDay">
@@ -17,9 +17,9 @@
 			</p>
 			<ul class="socialShare">
 				<li class="postTwitter">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= @short.shorten("http://blog.flashingdeals.com#{post_path(post)}").shorturl %>" data-text="<%= post.name %>" data-lang="en" data-count="none">
-						Tweet
-					</a>
+					<%= link_to("http://blog.flashingdeals.com#{post_path(post)}", id: "tweet_#{post.id}", class: "twitterShare", name: "#{CGI.escape(post.name)}", title: "Twitter") do %>
+						<div></div>
+					<% end %>
 				</li>
 				<li class="postFacebook">
 					<fb:like href="http://blog.flashingdeals.com<%= post_path(post) %>" layout="button_count" send="false" show_faces="false">
