@@ -32,9 +32,9 @@
 			</p>
 			<ul class="socialShare">
 				<li class="postTwitter">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="<%= @short.shorten("http://blog.flashingdeals.com#{post_path(@post)}").shorturl %>" data-text="<%= @post.name %>" data-lang="en" data-count="none">
-						Tweet
-					</a>
+					<%= link_to("https://twitter.com/intent/tweet?original_referer=&text=#{CGI.escape(@post.name)}%20#{@short.shorten("http://blog.flashingdeals.com#{post_path(@post)}").shorturl}") do %>
+						<div></div>
+					<% end %>
 				</li>
 				<li class="postFacebook">
 					<fb:like href="<%= request.url %>" layout="button_count" send="false" show_faces="false">
