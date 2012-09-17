@@ -68,7 +68,8 @@ FlashingDeal::Application.configure do
   # Send deprecation notices to registered listeners
   config.active_support.deprecation = :notify
   
-  config.action_mailer.default_url_options = { :host => "www.flashingdeals.com" }
+  # Changed from www.flashingdeals.com to flashingdeals.herokuapp.com
+  config.action_mailer.default_url_options = { :host => "flashingdeals.herokuapp.com" }
   
-  ActionMailer::Base.default :from => 'support@flashingdeals.com'
+  ActionMailer::Base.default :from => 'hello@flashingdeals.com'
 end

@@ -32,6 +32,5 @@ FlashingDeal::Application.configure do
   
   config.action_mailer.default_url_options = { :host => "localhost", :port => "3000" }
   
-  ActionMailer::Base.default :from => 'support@flashingdeals.com'
-
+  ActionMailer::Base.default :from => 'hello@flashingdeals.com'
 end

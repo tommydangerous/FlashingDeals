@@ -67,7 +67,8 @@ FlashingDeal::Application.routes.draw do
 	match '/google/access' => 'authentications#google_access', :as => :google_access
 	match '/google/auth' => 'authentications#google_auth', :as => :google_auth
 # Blogs
-	match '', to: 'blogs#index', constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www' }
+  match '', to: 'blogs#index', constraints: lambda { |r| r.subdomain.present? && r.subdomain == 'blog' }
+#	match '', to: 'blogs#index', constraints: lambda { |r| r.subdomain.present? && r.subdomain != 'www' && r.subdomain != 'flashingdeals' }
 # Deals
   root :to => 'deals#featured_deals'
   match '/featured' => 'deals#featured_deals', :as => :featured_deals
