@@ -40,15 +40,13 @@ class NewslettersController < ApplicationController
 	def subscribed
 		@newsletter = Newsletter.find(params[:id])
 		@newsletter.update_attribute(:emailed, true)
-		if Rails.env.production?
-			User.where("subscribe = ?", true).each do |user|
-				UserMailer.delay.newsletter(user, @newsletter)
-			end
-		elsif Rails.env.development?
-			User.where("subscribe = ?", true).each do |user|
-				UserMailer.newsletter(user, @newsletter).deliver
-			end
-		end
+    User.where("subscribe = ? OR monthly = ?", true, true).order("name ASC").each do |user|
+      if Rails.env.production?
+      	UserMailer.delay.newsletter(user, @newsletter)
+      else
+      	UserMailer.newsletter(user, @newsletter).deliver
+      end
+    end
 		flash[:success] = "#{@newsletter.name} successfully emailed to all subscribed users."
 		redirect_to newsletters_path
 	end
@@ -56,16 +54,14 @@ class NewslettersController < ApplicationController
 	def select
 		@newsletter = Newsletter.find(params[:id])
 		@newsletter.update_attribute(:emailed, true)
-		emails = params[:email_select_check].to_a
-		if Rails.env.production?
-			emails.each do |email|
-				UserMailer.delay.newsletter_select(email, @newsletter)
-			end
-		elsif Rails.env.development?
-			emails.each do |email|
-				UserMailer.newsletter_select(email, @newsletter).deliver
-			end
-		end
+		emails = params[:email_select_check].to_a.sort
+    emails.each do |email|
+      if Rails.env.production?
+        UserMailer.delay.newsletter_select(email, @newsletter)
+      else
+        UserMailer.newsletter_select(email, @newsletter).deliver
+      end
+    end
 		flash[:success] = "#{@newsletter.name} successfully emailed to select users."
 		redirect_to newsletters_path
 	end
