@@ -2,13 +2,13 @@ if Rails.env.production?
 	ActionMailer::Base.smtp_settings = {
 		:address => "smtp.sendgrid.net",
 		:port => 587,
-		:authentication => :login,
-		:user_name => ENV["app2613924@heroku.com"],
-		:password => ENV["c888x1dp"],
+		:authentication => :plain,
+		:user_name => ENV["SENDGRID_USERNAME"],
+		:password => ENV["SENDGRID_PASSWORD"],
 		:domain => "flashingdeals.com",
 		:enable_starttls_auto => true
 	}
-	ActionMailer::Base.delivery_method = :smtp
+#	ActionMailer::Base.delivery_method = :smtp
 else
 	ActionMailer::Base.smtp_settings = {
 		:address              => "smtp.gmail.com",
