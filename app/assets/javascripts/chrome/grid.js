@@ -53,7 +53,7 @@ $(document).ready(function() {
 			$("#dim_signup").fadeIn(200);
 		});
 	});
-	
+	// Back to the top
 	$("#back_to_the_top").click(function() {
 		$("html, body").animate({ scrollTop: 0 }, 100);
 		$("#back_to_the_top_container").hide();

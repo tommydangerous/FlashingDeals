@@ -1,26 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>The page you were looking for doesn't exist (404)</title>
-  <style type="text/css">
-    body { background-color: #fff; color: #666; text-align: center; font-family: arial, sans-serif; }
-    div.dialog {
-      width: 25em;
-      padding: 0 4em;
-      margin: 4em auto 0 auto;
-      border: 1px solid #ccc;
-      border-right-color: #999;
-      border-bottom-color: #999;
-    }
-    h1 { font-size: 100%; color: #f00; line-height: 1.5em; }
-  </style>
-</head>
+	<title>404</title>
+	<link rel="shortcut icon" href="http://s3.amazonaws.com/flashingdeals-assets/favicon.ico">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<style type="text/css">
+		body {
+			background: rgb(240, 240, 250);
+			color: rgb(75, 75, 75);
+			font-family: Helvetica, Arial, sans-serif;
+			margin: 0;
+		}
+		.header {
+			background: rgb(100, 100, 100);
+			height: 44px;
+			width: 100%;
+			-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+			-khtml-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+			-moz-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+			-ms-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+			-o-box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+		}
+		.header .logo {
+			float: left;
+			height: 36px;
+			left: 10px;
+			position: relative;
+			top: 8px;
+		}
+		.header .logo a {
 
+		}
+		.logo img {
+			border: none;
+		}
+		.dialog {
+			margin: 40px auto;
+			width: 500px;
+		}
+		h1 {
+			font-size: 28px;
+			font-weight: 300;
+			margin: 0 0 20px 0;
+		}
+		p {
+			font-size: 14px;
+			margin: 0 0 15px 0;
+		}
+		a {
+			color: rgb(48, 157, 207);
+			text-decoration: none;
+		}
+		.return {
+			position: relative;
+			text-align: right;
+			top: 40px;
+		}
+		.return a {
+			background: rgb(99, 182, 219);
+			color: rgb(255, 255, 255);
+			font-size: 16px;
+			padding: 10px 20px;
+		}
+	</style>
+	<script>
+		$(document).ready(function() {
+			var email = "mailto:support@flashingdeals.com.com";
+			var subject = "Error";
+			var body = window.location.pathname;
+			var subject = email + "?subject=" + subject + "&body=" + body;
+			$('.email').attr('href', subject);
+		})
+	</script>
+</head>
 <body>
-  <!-- This file lives in public/404.html -->
-  <div class="dialog">
-    <h1>The page you were looking for doesn't exist.</h1>
-    <p>You may have mistyped the address or the page may have moved.</p>
-  </div>
+	<div class="header">
+		<div class="logo">
+			<a href="http://www.flashingdeals.com/">
+				<img src="http://s3.amazonaws.com/flashingdeals-assets/logo_beta_s.png">
+			</a>
+		</div>
+	</div>
+	<div class="dialog">
+		<h1>Page Does Not Exist</h1>
+		<p>This is not the page you are looking for.</p>
+		<p>If you think it should exist, email <a href="mailto:support@flashingdeals.com?subject=404" class="email">support@flashingdeals.com</a></p>
+		<div class="return">
+			<a href="http://www.flashingdeals.com/">
+				Return to FlashingDeals
+			</a>
+		</div>
+	</div>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Error</title>
+	<title>Maintenance</title>
 	<link rel="shortcut icon" href="http://s3.amazonaws.com/flashingdeals-assets/favicon.ico">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 	<style type="text/css">
@@ -64,15 +64,6 @@
 			padding: 10px 20px;
 		}
 	</style>
-	<script>
-		$(document).ready(function() {
-			var email = "mailto:support@flashingdeals.com.com";
-			var subject = "Error";
-			var body = window.location.pathname;
-			var subject = email + "?subject=" + subject + "&body=" + body;
-			$('.email').attr('href', subject);
-		})
-	</script>
 </head>
 <body>
 	<div class="header">
@@ -83,15 +74,10 @@
 		</div>
 	</div>
 	<div class="dialog">
-		<h1>Something Unusual Happened</h1>
-		<p>You discovered an error.</p>
-		<p>Please click <a href="" class="email">support@flashingdeals.com</a> and send the email.</p>
-		<p>Thank you for your help.</p>
-		<div class="return">
-			<a href="http://www.flashingdeals.com/">
-				Return to FlashingDeals
-			</a>
-		</div>
+		<h1>Application Offline For Maintenance</h1>
+		<p>FlashingDeals is currently undergoing scheduled maintenance.</p>
+		<p>If you absolutely need to use FlashingDeals, email <a href="mailto:support@flashingdeals.com?subject=Maintenance" class="email">support@flashingdeals.com</a></p>
+		<p>We will resume operation shortly, thank you for your patience.</p>
 	</div>
 </body>
 </html>
