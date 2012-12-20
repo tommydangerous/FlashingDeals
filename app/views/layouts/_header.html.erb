@@ -80,8 +80,3 @@
     </ul>    
   </div>
 </div>
-<% if Rails.env.production? %>
-	<% if signed_in? %>
-		<%= render "shared/notification_updates" %>
-	<% end %>
-<% end %>
