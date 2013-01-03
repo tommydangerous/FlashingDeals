@@ -1,3 +1,4 @@
+/*
 $(document).on('pageinit', function() {
 	// Previous Deal
 	var prev = $('.contentWrapper:last .prevArrow');
@@ -134,3 +135,4 @@ $(document).on('pageinit', function() {
 		}
 	});
 });
+*/
