@@ -8,3 +8,4 @@
 //= require jquery_ujs
 //= require_tree .
 //= require_tree ..//jqueryMobile
+//= require jquery-ui.min
