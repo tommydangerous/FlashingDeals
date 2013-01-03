@@ -46,17 +46,6 @@
 		<div id="dealShowInfo" class="dealShowInfoLink">
 			<p><%= to_html(auto_link(@deal.info, :target => "_blank")) %></p>
 		</div>
-		<div id="dealShowShare">
-			<div class="shareSingle">
-				<%= link_to "", "https://www.facebook.com/sharer/sharer.php?u=http://www.flashingdeals.com#{deal_path(@deal)}", :id => "facebookShare", :target => "_blank" %>
-			</div>
-			<div class="shareSingle">
-				<%= link_to "", "https://twitter.com/intent/tweet?original_referer=&text=#{CGI.escape(@deal.name)}%20#{@short.shorten("http://www.flashingdeals.com#{deal_path(@deal)}").shorturl}", :id => "twitterShare", class: "twitterShare" %>
-			</div>
-			<div class="shareSingle">
-				<%= link_to "", "http://api.addthis.com/oexchange/0.8/forward/email/offer?url=http://www.flashingdeals.com#{deal_path(@deal)}", :id => "emailShare", :target => "_blank" %>
-			</div>
-		</div>
 		<div id="dealShowComments">
 			<div class="dealShowCategoriesCommentsHeader">
 				<div id="dealShowCategories">
