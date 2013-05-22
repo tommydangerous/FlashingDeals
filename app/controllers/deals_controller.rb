@@ -512,7 +512,7 @@ class DealsController < ApplicationController
   	end
   	
   	def today_x
-  		@today_x = Time.now - (86400 * 5)
+  		@today_x = Time.now - (86400 * 180)
   	end
   
   	def sort_column
