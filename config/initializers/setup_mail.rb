@@ -15,7 +15,7 @@ else
 		:port                 => 587,
 		:domain               => "http://www.flashingdeals.com",
 		:user_name            => "hello@flashingdeals.com",
-		:password             => "ereiniondebitc",
+		:password             => "",
 		:authentication       => "plain",
 		:enable_starttls_auto => true
 	}

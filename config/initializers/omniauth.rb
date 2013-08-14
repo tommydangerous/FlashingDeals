@@ -6,10 +6,10 @@ end
 
 if Rails.env.production?
 	Rails.application.config.middleware.use OmniAuth::Builder do
-  	provider :facebook, '341430132574456', '4a8b7bd6f207a800ed75e96f9b0bf180',
+  	provider :facebook, ENV['FACEBOOK_APP_ID'], ENV['FACEBOOK_APP_SECRET'],
   					 :scope => "user_about_me, email",
   					 :client_options => {:ssl => {:ca_file => "#{Rails.root.join('lib/assets/cacert.pem').to_s}"}}
-  	provider :twitter, "VTuM6EbjgWZbV1burnmdoA", "FcmFs53iFFyeWa9rHlpZSihwRJAXpiglarmCV9d2s"
+  	provider :twitter, ENV['TWITTER_CONSUMER_KEY'], ENV['TWITTER_CONSUMER_SECRET']
   	provider :google, 'flashingdeals.com', 'CuxMg0h50Ua3ihtCdT2HCsYf'
   end
 elsif Rails.env.development?
