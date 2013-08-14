@@ -7,6 +7,7 @@ gem 'httparty'
 gem 'hpricot'
 gem 'chronic'
 gem 'gravatar_image_tag'
+gem 'jquery-ui-rails'
 gem 'thumbs_up', '0.4.5'
 gem 'paperclip', "~> 2.4.5"
 gem 'aws-s3'
