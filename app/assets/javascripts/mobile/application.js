@@ -6,5 +6,5 @@
 //
 //= require_directory ../jquery
 //= require jquery_ujs
-//= require jquery-ui.min
+//= require jquery-ui
 //= require_tree .
